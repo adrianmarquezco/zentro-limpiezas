@@ -29,7 +29,6 @@ const title = `${servicio.nombre} en ${municipio.nombre} | Zentro Limpiezas`;
 const description = `${servicio.nombre} profesional en ${municipio.nombre}. Productos ecológicos incluidos${servicio.precioDesde ? ` desde ${servicio.precioDesde}` : ''}. Presupuesto gratis. Más de 20 años de experiencia.`;
 
 const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
   { label: 'Servicios', href: '/servicios/' },
   { label: servicio.nombre, href: `/servicios/${servicio.slug}/` },
   { label: municipio.nombre, href: canonical },
@@ -89,7 +88,7 @@ const faqs: { q: string; a: string }[] = [
       <div class="grid lg:grid-cols-3 gap-12">
         <div class="lg:col-span-2 space-y-6">
           <div>
-            <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-4" data-reveal>
+            <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-4" data-reveal>
               {servicio.nombre} en {municipio.nombre}
             </h2>
             <p class="text-mid leading-relaxed speakable-intro" data-reveal>
@@ -97,7 +96,7 @@ const faqs: { q: string; a: string }[] = [
             </p>
           </div>
           <div class="mt-6" data-reveal>
-            <h3 class="font-serif text-xl text-warm mb-4">¿Por qué elegirnos en {municipio.nombre}?</h3>
+            <h3 class="font-serif text-xl text-primary mb-4">¿Por qué elegirnos en {municipio.nombre}?</h3>
             <ul class="space-y-3">
               {[
                 `Conocemos bien ${municipio.nombre} y sus características`,
@@ -118,7 +117,7 @@ const faqs: { q: string; a: string }[] = [
 
         <aside class="space-y-6">
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-warm mb-3">Solicitar presupuesto</h3>
+            <h3 class="font-serif text-lg text-primary mb-3">Solicitar presupuesto</h3>
             {servicio.precioDesde && (
               <p class="font-mono text-accent text-2xl mb-3">desde {servicio.precioDesde}</p>
             )}
@@ -132,7 +131,7 @@ const faqs: { q: string; a: string }[] = [
             </div>
           </div>
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-base text-warm mb-3">Otros servicios en {municipio.nombre}</h3>
+            <h3 class="font-serif text-base text-primary mb-3">Otros servicios en {municipio.nombre}</h3>
             <div class="space-y-1">
               <a href={`/zonas/${municipio.slug}/`} class="block text-accent text-sm hover:underline">
                 → Todos los servicios en {municipio.nombre}

@@ -23,7 +23,6 @@ const title = `Limpeza do fogar en ${municipio.nombreGL} | Zentro Limpiezas`;
 const description = `Limpeza profesional en ${municipio.nombreGL}. Produtos ecolóxicos incluídos. Orzamento gratuíto sen compromiso. Máis de 20 anos de experiencia.`;
 
 const breadcrumbs = [
-  { label: 'Inicio', href: '/gl/' },
   { label: 'Zonas', href: '/gl/zonas/' },
   { label: municipio.nombreGL, href: canonical },
 ];
@@ -51,7 +50,7 @@ const breadcrumbs = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
         <div class="lg:col-span-2">
-          <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-4" data-reveal>
+          <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-4" data-reveal>
             Empresa de limpeza en {municipio.nombreGL}
           </h2>
           <p class="text-mid leading-relaxed speakable-intro" data-reveal>
@@ -60,7 +59,7 @@ const breadcrumbs = [
         </div>
         <aside class="space-y-6">
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-warm mb-4">Datos do servizo</h3>
+            <h3 class="font-serif text-lg text-primary mb-4">Datos do servizo</h3>
             <ul class="space-y-3 text-sm text-mid">
               <li class="flex items-center gap-2"><span class="text-accent">✓</span> Zona: {municipio.comarca}</li>
               <li class="flex items-center gap-2"><span class="text-accent">✓</span> Produtos ecolóxicos incluídos</li>
@@ -86,7 +85,7 @@ const breadcrumbs = [
         {SERVICIOS.map((s) => (
           <a href={`/gl/servizos/${s.slugGL}/`} class="card p-4 flex items-center gap-3 hover:border-accent transition-colors" data-reveal>
             <span class="text-accent text-lg">✓</span>
-            <span class="text-warm text-sm font-medium">{s.nombreGL}</span>
+            <span class="text-charcoal text-sm font-medium">{s.nombreGL}</span>
           </a>
         ))}
       </div>

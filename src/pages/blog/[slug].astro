@@ -16,7 +16,6 @@ const { Content } = await post.render();
 const canonical = `${BUSINESS.url}/blog/${post.slug}/`;
 
 const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
   { label: 'Blog', href: '/blog/' },
   { label: post.data.title, href: canonical },
 ];

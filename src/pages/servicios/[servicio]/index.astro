@@ -24,7 +24,6 @@ const title = `${servicio.nombre} en Galicia | Zentro Limpiezas`;
 const description = `${servicio.descripcionCorta} Productos ecológicos incluidos. Más de 20 años de experiencia en Ferrol y A Coruña. Presupuesto gratis.`;
 
 const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
   { label: 'Servicios', href: '/servicios/' },
   { label: servicio.nombre, href: `/servicios/${servicio.slug}/` },
 ];
@@ -106,14 +105,14 @@ const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
           <div>
             <div class="flex items-center gap-3 mb-4" data-reveal>
               <span class="section-number">01</span>
-              <h2 class="font-serif text-2xl lg:text-3xl text-warm">{servicio.nombre} profesional</h2>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">{servicio.nombre} profesional</h2>
             </div>
             <p class="text-mid leading-relaxed speakable-intro" data-reveal>{contenido}</p>
           </div>
 
           <!-- Qué incluye -->
           <div data-reveal>
-            <h3 class="font-serif text-xl text-warm mb-4">¿Qué incluye?</h3>
+            <h3 class="font-serif text-xl text-primary mb-4">¿Qué incluye?</h3>
             <ul class="space-y-2">
               {[
                 'Mano de obra especializada',
@@ -133,7 +132,7 @@ const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
 
         <aside class="space-y-6">
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-warm mb-4">Solicita presupuesto</h3>
+            <h3 class="font-serif text-lg text-primary mb-4">Solicita presupuesto</h3>
             {servicio.precioDesde && (
               <p class="font-mono text-accent text-2xl mb-4">desde {servicio.precioDesde}</p>
             )}
@@ -149,7 +148,7 @@ const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
 
           {municipiosConCombo.length > 0 && (
             <div class="card p-6" data-reveal>
-              <h3 class="font-serif text-base text-warm mb-3">Disponible en</h3>
+              <h3 class="font-serif text-base text-primary mb-3">Disponible en</h3>
               <div class="flex flex-wrap gap-2">
                 {municipiosConCombo.map(m => (
                   <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill hover:bg-accent hover:text-primary hover:border-accent">

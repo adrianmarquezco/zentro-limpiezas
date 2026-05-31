@@ -24,7 +24,6 @@ const title = `Limpieza del hogar en ${municipio.nombre} | Zentro Limpiezas`;
 const description = `Limpieza profesional en ${municipio.nombre}. Productos ecológicos incluidos. Presupuesto gratis sin compromiso. Más de 20 años de experiencia.`;
 
 const breadcrumbs = [
-  { label: 'Inicio', href: '/' },
   { label: 'Zonas', href: '/zonas/' },
   { label: municipio.nombre, href: `/zonas/${municipio.slug}/` },
 ];
@@ -57,7 +56,7 @@ const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1).slice(0, 4);
         <div class="lg:col-span-2">
           <div class="flex items-center gap-3 mb-6" data-reveal>
             <span class="section-number">01</span>
-            <h2 class="font-serif text-2xl lg:text-3xl text-warm">
+            <h2 class="font-serif text-2xl lg:text-3xl text-primary">
               Empresa de limpieza en {municipio.nombre}
             </h2>
           </div>
@@ -75,7 +74,7 @@ const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1).slice(0, 4);
         <aside class="space-y-6">
           <!-- Datos rápidos -->
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-warm mb-4">Datos del servicio</h3>
+            <h3 class="font-serif text-lg text-primary mb-4">Datos del servicio</h3>
             <ul class="space-y-3 text-sm text-mid">
               <li class="flex items-center gap-2">
                 <span class="text-accent">✓</span> Zona: {municipio.comarca}
@@ -100,7 +99,7 @@ const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1).slice(0, 4);
           <!-- Municipios cercanos -->
           {municipio.municipiosCercanos.length > 0 && (
             <div class="card p-6" data-reveal>
-              <h3 class="font-serif text-base text-warm mb-3">Zonas próximas</h3>
+              <h3 class="font-serif text-base text-primary mb-3">Zonas próximas</h3>
               <div class="flex flex-wrap gap-2">
                 {municipio.municipiosCercanos.slice(0, 6).map((slug) => {
                   const m = getMunicipioBySlug(slug);
@@ -130,7 +129,7 @@ const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1).slice(0, 4);
             data-reveal
           >
             <span class="text-accent text-lg">✓</span>
-            <span class="text-warm text-sm font-medium">{s.nombre}</span>
+            <span class="text-charcoal text-sm font-medium">{s.nombre}</span>
           </a>
         ))}
       </div>
@@ -141,7 +140,7 @@ const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1).slice(0, 4);
   {municipio.parroquias.length > 0 && (
     <section class="py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-serif text-xl text-warm mb-6" data-reveal>
+        <h2 class="font-serif text-xl text-primary mb-6" data-reveal>
           Parroquias de {municipio.nombre}
         </h2>
         <div class="flex flex-wrap gap-2" data-reveal>
