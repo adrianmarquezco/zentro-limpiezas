@@ -1,12 +1,11 @@
 ---
 import ZoneLayout from '@/layouts/ZoneLayout.astro';
 import HeroLocal from '@/components/sections/HeroLocal.astro';
-import FAQAccordion from '@/components/ui/FAQAccordion.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
 import { SERVICIOS } from '@/data/servicios';
-import { BUSINESS } from '@/data/config';
+import { BUSINESS, PRICE_HINTS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 export function getStaticPaths() {
   return MUNICIPIOS.map((m) => ({
@@ -20,11 +19,22 @@ const canonical = `${BUSINESS.url}/gl/zonas/${municipio.slug}/`;
 const hreflangEs = `${BUSINESS.url}/zonas/${municipio.slug}/`;
 
 const title = `Limpeza do fogar en ${municipio.nombreGL} | Zentro Limpiezas`;
-const description = `Limpeza profesional en ${municipio.nombreGL}. Produtos ecolóxicos incluídos. Orzamento gratuíto sen compromiso. Máis de 20 anos de experiencia.`;
+const description = `Limpeza profesional en ${municipio.nombreGL}. Produtos ecolóxicos incluídos. Orzamento gratuíto sen compromiso. Máis de 20 anos de experiencia en Galicia.`;
 
 const breadcrumbs = [
   { label: 'Zonas', href: '/gl/zonas/' },
   { label: municipio.nombreGL, href: canonical },
+];
+
+const serviciosConCombo = SERVICIOS.filter(s => s.municipiosCombo.includes(municipio.slug));
+const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1);
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.municipio(municipio.nombreGL));
+
+const pasos = [
+  { n: '01', titulo: 'Solicita orzamento', desc: 'Por WhatsApp, teléfono ou formulario. Cóntanos o tipo de inmoble e o que necesitas.' },
+  { n: '02', titulo: 'Prezo pechado en 24h', desc: 'Respondémoste cun orzamento sen sorpresas. Sen custo adicional polos produtos.' },
+  { n: '03', titulo: 'Fixamos data e hora', desc: 'Adaptamos a visita ao teu horario, tamén fins de semana e tardes.' },
+  { n: '04', titulo: 'Limpeza impecable', desc: 'Mesmo equipo de sempre, produtos ecolóxicos incluídos. Resultado garantido.' },
 ];
 ---
 
@@ -42,63 +52,282 @@ const breadcrumbs = [
     municipio={municipio.nombreGL}
     eyebrow={`Limpeza profesional en ${municipio.nombreGL}`}
     h1={`Limpeza a domicilio<br><span class="text-accent">${municipio.nombreGL}</span>`}
-    subtitle={`Servizo profesional de limpeza en ${municipio.nombreGL} con produtos 100% ecolóxicos incluídos. Sen custo adicional. Orzamento gratuíto en minutos.`}
+    subtitle={`Servizo profesional de limpeza en ${municipio.nombreGL} con produtos 100% ecolóxicos. Sen custo adicional. Orzamento gratuíto en menos de 24 horas.`}
     lang="gl"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Contido principal + aside -->
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
-        <div class="lg:col-span-2">
-          <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-4" data-reveal>
-            Empresa de limpeza en {municipio.nombreGL}
-          </h2>
-          <p class="text-mid leading-relaxed speakable-intro" data-reveal>
-            {municipio.contenidoUnicoGL}
-          </p>
-        </div>
-        <aside class="space-y-6">
-          <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-4">Datos do servizo</h3>
-            <ul class="space-y-3 text-sm text-mid">
-              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Zona: {municipio.comarca}</li>
-              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Produtos ecolóxicos incluídos</li>
-              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Horario flexible</li>
-              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Orzamento sen compromiso</li>
-              <li class="flex items-center gap-2"><span class="text-accent">✓</span> +20 anos de experiencia</li>
-            </ul>
-            <div class="mt-4 pt-4 border-t border-line">
-              <EcoBadge size="md" />
+
+        <div class="lg:col-span-2 space-y-10">
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">
+                Empresa de limpeza en {municipio.nombreGL}
+              </h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p class="speakable-intro">{municipio.contenidoUnicoGL}</p>
+              <p>
+                En Zentro Limpiezas somos unha empresa familiar con sede en Ferrol, con máis de 20 anos de experiencia prestando servizo de limpeza profesional en toda a comarca de {municipio.comarca}. O noso equipo é fixo: sempre vén a mesma persoa ou o mesmo equipo á túa casa, o que garante a confianza e o coñecemento do inmoble. Todos os produtos que usamos son ecolóxicos con certificación Ecolabel europea, incluídos no prezo, sen custo adicional.
+              </p>
+              {municipio.tipoVivienda && (
+                <div class="p-4 bg-white border border-line rounded-lg">
+                  <p class="text-sm text-charcoal">
+                    <span class="font-semibold text-primary">Tipo de vivenda habitual en {municipio.nombreGL}:</span> {municipio.tipoVivienda}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">
+                Canto custa unha limpeza en {municipio.nombreGL}?
+              </h2>
+            </div>
+            <p class="text-mid leading-relaxed mb-6">
+              Os prezos que indicamos son orientativos. O prezo final depende do estado do inmoble, os anos que leve sen limpeza profesional e se prefires servizo puntual ou periódico. O servizo periódico (semanal, quincenal ou mensual) adoita ser máis económico por visita.
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4 mb-4">
+              {PRICE_HINTS.vivienda.slice(0, 3).map((fila) => (
+                <div class="bg-white border border-line rounded-lg p-4 text-center">
+                  <p class="text-xs text-mid mb-1">{fila.tipo}</p>
+                  <p class="text-xs text-mid mb-2">{fila.tamano}</p>
+                  <p class="font-mono text-accent font-bold text-lg">{fila.precio}</p>
+                </div>
+              ))}
+            </div>
+            <p class="text-xs text-mid italic">{PRICE_HINTS.disclaimer}</p>
+            <div class="mt-5">
+              <a href="/gl/orzamento/" class="btn-accent inline-block">→ Pedir orzamento sen compromiso</a>
+            </div>
+          </div>
+
+          {serviciosConCombo.length > 0 && (
+            <div data-reveal>
+              <div class="flex items-center gap-3 mb-5">
+                <span class="section-number">03</span>
+                <h2 class="font-serif text-2xl lg:text-3xl text-primary">
+                  Servizos específicos en {municipio.nombreGL}
+                </h2>
+              </div>
+              <p class="text-mid leading-relaxed mb-6">
+                Para os servizos máis demandados en {municipio.nombreGL} temos páxinas detalladas con información, prezos e formulario de orzamento:
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3">
+                {serviciosConCombo.map((s) => (
+                  <a
+                    href={`/servicios/${s.slug}/${municipio.slug}/`}
+                    class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group"
+                  >
+                    <span class="text-accent text-xl">→</span>
+                    <div>
+                      <p class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{s.nombreGL} en {municipio.nombreGL}</p>
+                      {s.precioDesde && <p class="text-xs text-mid">desde {s.precioDesde}</p>}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="bg-primary rounded-xl p-6 lg:p-8 text-white" data-reveal>
+            <h3 class="font-serif text-xl mb-5">Por que os veciños de {municipio.nombreGL} nos elixen</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {[
+                { stat: '+20 anos', label: 'de experiencia en Galicia', desc: 'Levamos desde 2004 limpando fogares e empresas en toda a comarca.' },
+                { stat: '100%', label: 'produtos ecolóxicos', desc: 'Certificados Ecolabel. Incluídos no prezo, sen custo adicional.' },
+                { stat: '24h', label: 'orzamento pechado', desc: 'Sen esperas. Respondémoste cun prezo firme en menos de 24 horas.' },
+                { stat: 'Sempre', label: 'o mesmo equipo', desc: 'A mesma persoa ou equipo en cada visita. Confianza e coñecemento do teu fogar.' },
+              ].map(item => (
+                <div class="flex gap-3">
+                  <div class="flex-shrink-0">
+                    <p class="font-mono text-accent text-xl font-bold">{item.stat}</p>
+                    <p class="text-white/60 text-xs">{item.label}</p>
+                  </div>
+                  <p class="text-white/80 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Aside -->
+        <aside class="space-y-6">
+
+          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+            <h3 class="font-serif text-lg text-primary mb-2">Orzamento gratuíto en {municipio.nombreGL}</h3>
+            <p class="text-mid text-xs mb-4">Sen compromiso · Resposta en 24h · Prezo pechado</p>
+            {municipio.precioDesde && (
+              <p class="font-mono text-accent text-2xl font-bold mb-4">desde {municipio.precioDesde}</p>
+            )}
+            <div class="flex flex-col gap-2">
+              <a href="/gl/orzamento/" class="btn-accent w-full text-center text-sm">→ Formulario de orzamento</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-outline w-full text-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-lg text-primary mb-4">Datos do servizo</h3>
+            <ul class="space-y-3 text-sm text-charcoal">
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
+                <span><strong>Zona:</strong> {municipio.comarca}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
+                <span>Produtos ecolóxicos Ecolabel incluídos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
+                <span>Horario flexible: tardes e fins de semana</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
+                <span>Servizo puntual ou periódico (semanal, quincenal, mensual)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
+                <span>Mesmo equipo en cada visita</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
+                <span>+20 anos de experiencia en Galicia</span>
+              </li>
+            </ul>
+          </div>
+
+          {municipio.municipiosCercanos.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <h3 class="font-serif text-base text-primary mb-3">Zonas próximas</h3>
+              <div class="flex flex-wrap gap-2">
+                {municipio.municipiosCercanos.slice(0, 6).map((slug) => {
+                  const m = getMunicipioBySlug(slug);
+                  return m ? (
+                    <a href={`/gl/zonas/${m.slug}/`} class="zone-pill">{m.nombreGL}</a>
+                  ) : null;
+                })}
+              </div>
+            </div>
+          )}
+
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-base text-primary mb-3">Todos os nosos servizos</h3>
+            <ul class="space-y-2">
+              {serviciosDestacados.map((s) => (
+                <li>
+                  <a href={`/gl/servizos/${s.slugGL}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    → {s.nombreGL}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href="/gl/servizos/" class="text-xs text-accent hover:underline mt-3 block">Ver todos os servizos</a>
+          </div>
+
         </aside>
       </div>
     </div>
   </section>
 
+  <!-- Como traballamos -->
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-3 text-center" data-reveal>
+        Como organizamos a túa limpeza en {municipio.nombreGL}
+      </h2>
+      <p class="text-mid text-center max-w-2xl mx-auto mb-10" data-reveal>
+        Un proceso sinxelo, sen burocracia e con resposta rápida.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pasos.map((paso) => (
+          <div class="bg-warm rounded-xl p-6" data-reveal>
+            <p class="font-mono text-accent text-3xl font-bold mb-3">{paso.n}</p>
+            <h3 class="font-serif text-base text-primary mb-2">{paso.titulo}</h3>
+            <p class="text-mid text-sm leading-relaxed">{paso.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Servizos dispoñibles -->
   <section class="py-16 bg-charcoal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-2xl text-warm mb-8 text-center" data-reveal>
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
         Servizos dispoñibles en {municipio.nombreGL}
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <p class="text-white/60 text-center max-w-2xl mx-auto mb-8" data-reveal>
+        Realizamos todo tipo de limpezas profesionais. Se non atopas o que buscas, chámanos.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         {SERVICIOS.map((s) => (
-          <a href={`/gl/servizos/${s.slugGL}/`} class="card p-4 flex items-center gap-3 hover:border-accent transition-colors" data-reveal>
-            <span class="text-accent text-lg">✓</span>
-            <span class="text-charcoal text-sm font-medium">{s.nombreGL}</span>
+          <a
+            href={`/gl/servizos/${s.slugGL}/`}
+            class="bg-charcoal border border-white/10 rounded-lg p-4 flex items-center gap-3 hover:border-accent transition-colors group"
+            data-reveal
+          >
+            <span class="text-accent text-sm">✓</span>
+            <span class="text-white/80 text-sm font-medium group-hover:text-white transition-colors">{s.nombreGL}</span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- Parroquias -->
+  {municipio.parroquias.length > 0 && (
+    <section class="py-12 bg-warm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-xl text-primary mb-2" data-reveal>
+          Cubrimos todas as parroquias de {municipio.nombreGL}
+        </h2>
+        <p class="text-mid text-sm mb-5" data-reveal>
+          O noso servizo chega a cada recuncho do concello, sen recargo por distancia.
+        </p>
+        <div class="flex flex-wrap gap-2" data-reveal>
+          {municipio.parroquias.map((p) => (
+            <span class="zone-pill">{p}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ -->
   {municipio.faqs.length > 0 && (
     <section class="py-16 lg:py-24 bg-charcoal">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-serif text-2xl text-warm mb-8 text-center" data-reveal>
+        <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
           Preguntas frecuentes sobre limpeza en {municipio.nombreGL}
         </h2>
-        <FAQAccordion faqs={municipio.faqs} />
+        <p class="text-white/60 text-center mb-8" data-reveal>
+          Se tes máis dúbidas, chámanos ao <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
+        </p>
+        <div class="space-y-3" data-reveal>
+          {municipio.faqs.map((faq) => (
+            <details class="bg-charcoal border border-white/10 rounded-lg group">
+              <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none text-white/90 font-medium text-sm hover:text-white transition-colors">
+                {faq.q}
+                <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   )}

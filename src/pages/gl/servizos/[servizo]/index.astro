@@ -1,11 +1,11 @@
 ---
 import ServiceLayout from '@/layouts/ServiceLayout.astro';
 import HeroService from '@/components/sections/HeroService.astro';
-import FAQAccordion from '@/components/ui/FAQAccordion.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
-import { BUSINESS } from '@/data/config';
+import { MUNICIPIOS } from '@/data/municipios';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 export function getStaticPaths() {
   return SERVICIOS.map((s) => ({
@@ -19,17 +19,62 @@ const canonical = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/`;
 const hreflangEs = `${BUSINESS.url}/servicios/${servicio.slug}/`;
 
 const title = `${servicio.nombreGL} en Galicia | Zentro Limpiezas`;
-const description = `${servicio.descripcionCorta} Produtos ecolóxicos incluídos. Máis de 20 anos de experiencia en Ferrol e A Coruña.`;
+const description = `${servicio.descripcionCorta} Produtos ecolóxicos incluídos. Máis de 20 anos de experiencia en Ferrol e A Coruña. Orzamento gratuíto.`;
 
 const breadcrumbs = [
   { label: 'Servizos', href: '/gl/servizos/' },
   { label: servicio.nombreGL, href: canonical },
 ];
 
+const municipiosConCombo = servicio.municipiosCombo
+  .map(slug => MUNICIPIOS.find(m => m.slug === slug))
+  .filter(Boolean);
+
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio.nombreGL));
+
 const faqs = [
-  { q: `¿Canto custa o servizo de ${servicio.nombreGL.toLowerCase()}?`, a: servicio.precioDesde ? `O prezo comeza desde ${servicio.precioDesde}. O orzamento final depende do tamaño e estado. Dámocho gratis e sen compromiso.` : `O prezo depende do tamaño e estado. Facémoslle un orzamento personalizado e gratuíto sen compromiso.` },
-  { q: 'Os produtos ecolóxicos teñen custo adicional?', a: 'Non. Todos os nosos servizos inclúen produtos de limpeza con certificación ecolóxica sen custo extra.' },
-  { q: 'Traballades fins de semana?', a: 'Si. O noso horario de atención é de luns a venres de 8:00 a 14:00 e sábados de 9:00 a 14:00, pero realizamos servizos tamén tardes e fins de semana.' },
+  {
+    q: `Canto custa o servizo de ${servicio.nombreGL.toLowerCase()}?`,
+    a: servicio.precioDesde
+      ? `O prezo comeza desde ${servicio.precioDesde}. O orzamento final depende do tamaño, o estado do espazo e a frecuencia. Dámocho gratis, por teléfono ou WhatsApp, sen visita obrigatoria.`
+      : `O prezo depende do tamaño, estado e frecuencia. Facemos un orzamento personalizado e gratuíto en menos de 24 horas, sen compromiso nin visita obrigatoria.`,
+  },
+  {
+    q: 'Os produtos ecolóxicos teñen custo adicional?',
+    a: 'Non, en absoluto. Todos os nosos servizos inclúen produtos de limpeza con certificación ecolóxica Ecolabel sen custo extra. É o noso estándar de traballo desde hai máis de 20 anos, non un servizo premium.',
+  },
+  {
+    q: 'Con canta antelación hai que reservar?',
+    a: 'Para servizos habituais (limpeza periódica, vivendas) normalmente podemos darte cita en 24-48 horas. Para traballos de maior envergadura, recomendamos avisar con 3-5 días de antelación.',
+  },
+  {
+    q: 'Traballades fins de semana e festivos?',
+    a: 'Si. Realizamos servizos de luns a domingo, incluídas tardes, fins de semana e festivos segundo dispoñibilidade. O noso horario de atención é de luns a venres de 8:00 a 14:00 e sábados de 9:00 a 14:00, pero podes escribirnos por WhatsApp calquera día.',
+  },
+  {
+    q: `En que zonas ofrecedes ${servicio.nombreGL.toLowerCase()}?`,
+    a: `Cubrimos Ferrol, Narón, A Coruña e máis de 29 concellos de Ferrolterra e a área metropolitana coruñesa. Se tes dúbidas sobre se chegamos á túa zona, chámanos ao ${BUSINESS.phoneDisplay} ou escríbenos por WhatsApp.`,
+  },
+  {
+    q: 'Traedes vós os materiais e produtos?',
+    a: 'Si, todo incluído. Material de limpeza profesional, maquinaria se se necesita e produtos ecolóxicos certificados. Non tes que ter nada preparado. O prezo do orzamento cobre a man de obra e os materiais completos.',
+  },
+];
+
+const incluidosList = [
+  'Man de obra especializada',
+  'Produtos de limpeza ecolóxicos con certificación Ecolabel',
+  'Material e maquinaria profesional',
+  'Seguro de responsabilidade civil incluído',
+  'Orzamento personalizado sen compromiso',
+  'Mesmo equipo en cada visita',
+];
+
+const pasos = [
+  { n: '01', titulo: 'Orzamento en 24h', desc: 'Cóntanos o tipo de espazo e o que necesitas. En menos de 24 horas tes prezo pechado, sen sorpresas.' },
+  { n: '02', titulo: 'Fixamos data e hora', desc: 'Eliximos xuntos o día e a franxa horaria. Mañá, tarde, fin de semana: adaptámonos.' },
+  { n: '03', titulo: 'O equipo chega puntual', desc: 'O mesmo equipo de sempre. Trae todos os materiais. Ti non tes que preparar nada.' },
+  { n: '04', titulo: 'Deixámolo impecable', desc: 'Traballamos estancia por estancia con técnica profesional e produtos ecolóxicos certificados.' },
 ];
 ---
 
@@ -55,44 +100,181 @@ const faqs = [
     lang="gl"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Contido principal -->
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
-        <div class="lg:col-span-2 space-y-8">
-          <div>
-            <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-4" data-reveal>{servicio.nombreGL} profesional</h2>
-            <p class="text-mid leading-relaxed speakable-intro" data-reveal>{servicio.descripcionCorta}</p>
-          </div>
+
+        <!-- Columna de contido -->
+        <div class="lg:col-span-2 space-y-10">
+
+          <!-- Introdución -->
           <div data-reveal>
-            <h3 class="font-serif text-xl text-primary mb-4">Que inclúe?</h3>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">
+                {servicio.nombreGL} profesional en Galicia
+              </h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p class="speakable-intro">
+                O servizo de {servicio.nombreGL.toLowerCase()} de Zentro Limpiezas está pensado para quen quere resultados reais, non só un espazo "presentable á primeira vista". Levamos máis de 20 anos traballando en Ferrol, A Coruña e en máis de 29 concellos de Galicia, co mesmo compromiso de calidade e co mesmo equipo de confianza en cada visita.
+              </p>
+              <p>
+                Todos os nosos servizos inclúen produtos de limpeza ecolóxicos con certificación Ecolabel europea, igual de eficaces que os convicionais pero seguros para a túa familia, os teus animais e o entorno. Non é un servizo premium nin un custo adicional: é o noso estándar desde 2004. Traemos todo o material necesario — non tes que ter nada preparado en casa.
+              </p>
+              <p>
+                {servicio.descripcionCorta} Se tes calquera dúbida sobre o servizo ou queres saber se nos adaptamos á túa situación concreta, chámanos ao <a href={BUSINESS.phoneHref} class="text-primary font-medium hover:text-accent transition-colors">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
+              </p>
+            </div>
+          </div>
+
+          <!-- Que inclúe -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl text-primary">Que inclúe o servizo?</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {incluidosList.map(item => (
+                <div class="flex items-start gap-3 bg-white border border-line rounded-lg p-4">
+                  <span class="text-accent mt-0.5 flex-shrink-0 font-bold">✓</span>
+                  <span class="text-charcoal text-sm leading-relaxed">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Por que Zentro -->
+          <div class="bg-primary rounded-xl p-6 lg:p-8 text-white" data-reveal>
+            <h3 class="font-serif text-xl mb-5">Por que os clientes de Galicia nos elixen</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {[
+                { stat: '+20 anos', label: 'de experiencia', desc: 'Empresa familiar fundada en Ferrol en 2004. Non somos unha franquía nin unha plataforma de intermediación.' },
+                { stat: '100%', label: 'ecolóxico incluído', desc: 'Produtos Ecolabel en todos os servizos, sen custo adicional. O noso estándar desde o primeiro día.' },
+                { stat: '29+', label: 'concellos cubertos', desc: 'Ferrolterra e área metropolitana de A Coruña. Sen recargo por desprazamento dentro da nosa zona.' },
+                { stat: 'Fixo', label: 'o mesmo equipo', desc: 'Sempre as mesmas persoas. Coñecen o teu espazo e saben como o queres sen que teñas que explicar nada.' },
+              ].map(item => (
+                <div class="flex gap-3">
+                  <div class="flex-shrink-0">
+                    <p class="font-mono text-accent text-xl font-bold">{item.stat}</p>
+                    <p class="text-white/60 text-xs">{item.label}</p>
+                  </div>
+                  <p class="text-white/80 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Municipios con páxina combinada -->
+          {municipiosConCombo.length > 0 && (
+            <div data-reveal>
+              <div class="flex items-center gap-3 mb-5">
+                <span class="section-number">03</span>
+                <h2 class="font-serif text-2xl text-primary">
+                  {servicio.nombreGL} por concello
+                </h2>
+              </div>
+              <p class="text-mid leading-relaxed mb-5">
+                Temos páxinas específicas con información detallada para os concellos máis demandados:
+              </p>
+              <div class="grid sm:grid-cols-2 gap-3">
+                {municipiosConCombo.map((m) => m && (
+                  <a
+                    href={`/servicios/${servicio.slug}/${m.slug}/`}
+                    class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group"
+                  >
+                    <span class="text-accent text-xl">→</span>
+                    <div>
+                      <p class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{servicio.nombreGL} en {m.nombreGL}</p>
+                      <p class="text-xs text-mid">Ver prezo e detalles</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+
+        <!-- Aside -->
+        <aside class="space-y-6">
+          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+            <h3 class="font-serif text-lg text-primary mb-2">Solicitar orzamento</h3>
+            <p class="text-mid text-xs mb-4">Gratuíto · Sen compromiso · Resposta en 24h</p>
+            {servicio.precioDesde && (
+              <p class="font-mono text-accent text-2xl font-bold mb-4">desde {servicio.precioDesde}</p>
+            )}
+            <div class="flex flex-col gap-2">
+              <a href="/gl/orzamento/" class="btn-accent w-full text-center text-sm">→ Pedir orzamento</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-outline w-full text-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-base text-primary mb-3">Outros servizos</h3>
             <ul class="space-y-2">
-              {['Man de obra especializada', 'Produtos de limpeza ecolóxicos certificados', 'Material e maquinaria profesional', 'Seguro de responsabilidade civil', 'Orzamento personalizado sen compromiso'].map(item => (
-                <li class="flex items-start gap-2 text-mid text-sm">
-                  <span class="text-accent mt-0.5 shrink-0">✓</span>{item}
+              {SERVICIOS.filter(s => s.slugGL !== servicio.slugGL && s.tier <= 2).slice(0, 6).map((s) => (
+                <li>
+                  <a href={`/gl/servizos/${s.slugGL}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    → {s.nombreGL}
+                  </a>
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-        <aside class="space-y-6">
-          <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-4">Solicitar orzamento</h3>
-            {servicio.precioDesde && <p class="font-mono text-accent text-2xl mb-4">desde {servicio.precioDesde}</p>}
-            <div class="flex flex-col gap-2">
-              <a href="/gl/orzamento/" class="btn btn-accent w-full text-center">Pedir orzamento</a>
-              <a href={BUSINESS.phoneHref} class="btn btn-outline w-full text-center">{BUSINESS.phoneDisplay}</a>
-            </div>
-            <div class="mt-4 pt-4 border-t border-line"><EcoBadge size="sm" /></div>
+            <a href="/gl/servizos/" class="text-xs text-accent hover:underline mt-3 block">Ver todos os servizos</a>
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-charcoal">
+  <!-- Como traballamos -->
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-3 text-center" data-reveal>
+        Como organizamos o teu {servicio.nombreGL.toLowerCase()}
+      </h2>
+      <p class="text-mid text-center max-w-2xl mx-auto mb-10" data-reveal>
+        Un proceso sinxelo, sen burocracia e con resposta rápida.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pasos.map((paso) => (
+          <div class="bg-warm rounded-xl p-6" data-reveal>
+            <p class="font-mono text-accent text-3xl font-bold mb-3">{paso.n}</p>
+            <h3 class="font-serif text-base text-primary mb-2">{paso.titulo}</h3>
+            <p class="text-mid text-sm leading-relaxed">{paso.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 lg:py-24 bg-charcoal">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-2xl text-warm mb-8 text-center" data-reveal>Preguntas frecuentes</h2>
-      <FAQAccordion {faqs} />
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
+        Preguntas frecuentes sobre {servicio.nombreGL.toLowerCase()}
+      </h2>
+      <p class="text-white/60 text-center mb-8" data-reveal>
+        Se non atopas a resposta, chámanos ao <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a>
+      </p>
+      <div class="space-y-3" data-reveal>
+        {faqs.map((faq) => (
+          <details class="bg-charcoal border border-white/10 rounded-lg group">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none text-white/90 font-medium text-sm hover:text-white transition-colors">
+              {faq.q}
+              <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
