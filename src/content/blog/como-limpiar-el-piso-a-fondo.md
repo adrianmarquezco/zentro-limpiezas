@@ -2,7 +2,7 @@
 title: "Cómo limpiar el piso a fondo: guía completa paso a paso"
 description: "Aprende a limpiar tu piso de arriba abajo de manera eficiente y con productos ecológicos. Orden, técnica y trucos profesionales para un resultado impecable."
 datePublished: "2025-01-15"
-dateModified: "2025-07-01"
+dateModified: "2026-05-31"
 category: "guias"
 readingTime: 7
 tags: ["limpieza viviendas", "consejos", "limpieza a fondo"]

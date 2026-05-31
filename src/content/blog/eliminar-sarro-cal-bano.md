@@ -2,7 +2,7 @@
 title: "Cómo eliminar el sarro y la cal del baño con productos ecológicos"
 description: "Guía práctica para eliminar el sarro de grifos, duchas, azulejos e inodoro usando productos ecológicos y naturales. Sin químicos agresivos, con resultados profesionales."
 datePublished: "2025-04-20"
-dateModified: "2025-07-01"
+dateModified: "2026-05-31"
 category: "consejos"
 readingTime: 6
 tags: ["baño", "sarro", "cal", "ecológico", "trucos"]

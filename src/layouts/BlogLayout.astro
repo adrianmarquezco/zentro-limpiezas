@@ -15,6 +15,7 @@ interface Props {
   dateModified?: string;
   image?: string;
   readingTime?: number;
+  category?: string;
   breadcrumbs: { label: string; href: string }[];
   hreflangEs?: string;
   hreflangGl?: string;
@@ -22,34 +23,73 @@ interface Props {
 
 const {
   title, description, canonical, lang = 'es',
-  datePublished, dateModified, image, readingTime,
+  datePublished, dateModified, image, readingTime, category,
   breadcrumbs, hreflangEs, hreflangGl,
 } = Astro.props;
 
 const locale = lang === 'gl' ? 'gl-ES' : 'es-ES';
 const pubDate = new Date(datePublished).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
 const modDate = dateModified ? new Date(dateModified).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }) : null;
+
+const categoryLabels: Record<string, string> = {
+  guias: 'Guía práctica',
+  consejos: 'Consejos',
+  precios: 'Precios',
+  sector: 'Sector',
+};
+const categoryLabel = category ? (categoryLabels[category] ?? category) : 'Artículo';
 ---
 
 <BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article">
   <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} />
-  <Breadcrumbs crumbs={breadcrumbs} />
 
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-    <header class="mb-10">
-      <div class="flex flex-wrap items-center gap-3 text-xs text-mid font-mono mb-4">
-        <time datetime={datePublished}>{pubDate}</time>
-        {readingTime && <span>· {readingTime} min de lectura</span>}
-        {modDate && dateModified !== datePublished && (
-          <span class="text-accent">· Actualizado: {modDate}</span>
-        )}
+  <!-- Hero del artículo -->
+  <section class="bg-primary pt-24 pb-12 lg:pt-28 lg:pb-16 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 800 400" class="w-full h-full" fill="none">
+        <circle cx="700" cy="50" r="300" stroke="white" stroke-width="1"/>
+        <circle cx="700" cy="50" r="200" stroke="white" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+      <Breadcrumbs crumbs={breadcrumbs} />
+      <div class="pt-4">
+        <div class="flex flex-wrap items-center gap-3 mb-5">
+          <span class="inline-block bg-accent/15 text-accent border border-accent/30 rounded-full px-3 py-1 text-xs font-semibold">
+            {categoryLabel}
+          </span>
+          <time datetime={datePublished} class="text-white/50 text-xs font-mono">{pubDate}</time>
+          {readingTime && <span class="text-white/50 text-xs font-mono">· {readingTime} min de lectura</span>}
+          {modDate && dateModified !== datePublished && (
+            <span class="text-accent text-xs font-mono">· Actualizado: {modDate}</span>
+          )}
+        </div>
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4">{title}</h1>
+        <p class="text-white/70 text-lg leading-relaxed">{description}</p>
       </div>
-      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight">{title}</h1>
-      <p class="text-mid text-lg mt-4 leading-relaxed speakable-intro">{description}</p>
-    </header>
+    </div>
+  </section>
+
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
     <div class="prose-zentro">
       <slot />
     </div>
+
+    <!-- Footer del artículo -->
+    <footer class="mt-12 pt-8 border-t border-line">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="text-xs text-mid">
+            Publicado el {pubDate}
+            {modDate && dateModified !== datePublished && <> · Actualizado el {modDate}</>}
+          </p>
+          <p class="text-xs text-mid mt-1">Por el equipo de <strong class="text-primary">Zentro Limpiezas</strong> · Ferrol, Galicia</p>
+        </div>
+        <a href={lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/'} class="btn-accent text-sm px-5 py-2.5">
+          Pedir presupuesto gratis
+        </a>
+      </div>
+    </footer>
   </article>
 
   <CTASection {lang} />

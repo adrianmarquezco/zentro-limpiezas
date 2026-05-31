@@ -1,8 +1,8 @@
 ---
 title: "Cómo elegir empresa de limpieza: 10 claves para no equivocarte"
 description: "Guía completa para elegir una empresa de limpieza doméstica o profesional en Galicia. Qué preguntar, qué señales de alerta evitar y qué garantías exigir."
-datePublished: "2025-07-01"
-dateModified: "2025-07-01"
+datePublished: "2026-02-10"
+dateModified: "2026-05-31"
 category: "sector"
 readingTime: 11
 tags: ["contratar limpieza", "consejos", "empresa limpieza", "cómo elegir"]

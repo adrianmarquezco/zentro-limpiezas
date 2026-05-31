@@ -1,8 +1,8 @@
 ---
 title: "Cómo limpiar la cocina a fondo: el método paso a paso"
 description: "Guía completa para hacer una limpieza profunda de la cocina. Encimera, horno, campana, frigorífico, armarios y suelos. Con productos ecológicos y técnica profesional."
-datePublished: "2025-06-15"
-dateModified: "2025-07-01"
+datePublished: "2026-03-05"
+dateModified: "2026-05-31"
 category: "guias"
 readingTime: 7
 tags: ["cocina", "limpieza a fondo", "horno", "grasa", "ecológico"]

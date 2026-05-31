@@ -4,8 +4,7 @@ import HeroService from '@/components/sections/HeroService.astro';
 import FAQAccordion from '@/components/ui/FAQAccordion.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
-import ZoneGrid from '@/components/sections/ZoneGrid.astro';
-import { SERVICIOS, getServicioBySlug } from '@/data/servicios';
+import { SERVICIOS } from '@/data/servicios';
 import { getMunicipioBySlug } from '@/data/municipios';
 import { BUSINESS } from '@/data/config';
 
@@ -36,43 +35,348 @@ const faqs: { q: string; a: string }[] = [
   {
     q: `¿Cuánto cuesta el servicio de ${servicio.nombre.toLowerCase()}?`,
     a: servicio.precioDesde
-      ? `El precio comienza desde ${servicio.precioDesde}. El presupuesto final depende del tamaño y estado. Te lo damos gratis y sin compromiso.`
-      : `El precio depende del tamaño, estado y frecuencia. Te hacemos un presupuesto personalizado y gratuito sin compromiso.`,
+      ? `El precio comienza desde ${servicio.precioDesde}. El presupuesto final depende del tamaño, el estado del espacio y la frecuencia. Te lo damos gratis, por teléfono o WhatsApp, sin visita obligatoria.`
+      : `El precio depende del tamaño, estado y frecuencia. Te hacemos un presupuesto personalizado y gratuito en menos de 24 horas, sin compromiso ni visita obligatoria.`,
   },
   {
     q: '¿Los productos ecológicos tienen coste adicional?',
-    a: 'No. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica sin coste extra. El precio que ves es el precio total.',
+    a: 'No, en absoluto. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin coste extra. Es nuestro estándar de trabajo desde hace más de 20 años, no un servicio premium.',
   },
   {
     q: '¿Con cuánta antelación hay que reservar?',
-    a: 'Normalmente podemos darte cita en 24-48 horas. Para trabajos de mayor envergadura o limpiezas de fin de obra, recomendamos avisar con 2-3 días de antelación.',
+    a: 'Para servicios de mantenimiento habitual (limpieza periódica, viviendas) normalmente podemos darte cita en 24-48 horas. Para trabajos de mayor envergadura como fin de obra o pazos para eventos, recomendamos avisar con 3-5 días de antelación.',
   },
   {
-    q: '¿Trabajáis fines de semana?',
-    a: 'Sí. Nuestro horario de atención es de lunes a viernes de 8:00 a 14:00 y sábados de 9:00 a 14:00, pero realizamos servicios también tardes y fines de semana según disponibilidad.',
+    q: '¿Trabajáis fines de semana y festivos?',
+    a: 'Sí. Realizamos servicios de lunes a domingo, incluyendo tardes, fines de semana y festivos según disponibilidad. Nuestro horario de atención telefónica es de lunes a viernes de 8:00 a 14:00 y sábados de 9:00 a 14:00, pero puedes escribirnos por WhatsApp cualquier día.',
   },
   {
     q: `¿En qué zonas ofrecéis ${servicio.nombre.toLowerCase()}?`,
-    a: `Trabajamos en Ferrol, A Coruña y más de 29 municipios de Ferrolterra y el área metropolitana coruñesa. Si tienes dudas sobre tu zona, llámanos al ${BUSINESS.phoneDisplay}.`,
+    a: `Cubrimos Ferrol, Narón, A Coruña y más de 29 municipios de Ferrolterra y el área metropolitana coruñesa. Si tienes dudas sobre si llegamos a tu zona, llámanos al ${BUSINESS.phoneDisplay} o escríbenos por WhatsApp.`,
+  },
+  {
+    q: '¿Traéis vosotros los materiales y productos?',
+    a: 'Sí, todo incluido. Material de limpieza profesional, maquinaria si se necesita y productos ecológicos certificados. No tienes que tener nada preparado en casa. El precio del presupuesto cubre la mano de obra y los materiales completos.',
   },
 ];
 
-// Contenido específico por servicio
-const contenidoMap: Record<string, string> = {
-  'limpieza-de-viviendas': `La limpieza del hogar es uno de los servicios más demandados en Galicia. En Zentro Limpiezas llevamos más de 20 años ayudando a familias de Ferrol y A Coruña a mantener sus hogares impecables. Cada limpieza de vivienda incluye fregado de suelos, limpieza de baños y cocina, aspirado, eliminación de polvo y desinfección completa. Usamos productos ecológicos certificados que son igualmente eficaces que los convencionales pero más seguros para tu familia y el medio ambiente. Puedes contratarnos para una limpieza puntual o establecer un servicio periódico semanal, quincenal o mensual con el mismo equipo siempre.`,
-  'limpieza-de-pisos': `Los pisos en bloque tienen necesidades específicas de limpieza que van desde el mantenimiento periódico hasta la limpieza a fondo en cambios de inquilino o venta. En Zentro Limpiezas trabajamos tanto con particulares como con agencias inmobiliarias y comunidades de propietarios. Nuestro servicio de limpieza de pisos incluye la limpieza completa de todas las estancias, baños, cocina, suelos y superficies, con productos 100% ecológicos sin recargo.`,
-  'limpieza-de-oficinas': `Las oficinas y espacios de trabajo requieren una limpieza regular que no interfiera con la actividad laboral. En Zentro Limpiezas nos adaptamos a tu horario: podemos limpiar antes de que llegues, durante la jornada o una vez terminada. Trabajamos con empresas de todos los tamaños, desde despachos individuales hasta oficinas de planta completa en Ferrol y A Coruña. Gestión de residuos, desinfección de superficies de trabajo y mantenimiento de zonas comunes incluidos.`,
-  'limpieza-de-locales-comerciales': `Los locales comerciales son la imagen de tu negocio. Un local limpio transmite confianza y profesionalidad. Trabajamos con tiendas, bares, restaurantes y todo tipo de comercios, adaptando el servicio a tus horarios de apertura. Limpiamos fuera del horario comercial para no molestar a tus clientes. Servicio disponible en Ferrol, A Coruña y municipios del área metropolitana.`,
-  'limpieza-de-comunidades': `Las zonas comunes de un edificio —portales, escaleras, garajes, ascensores— necesitan un mantenimiento regular para mantener el valor del inmueble y la convivencia. Zentro Limpiezas ofrece contratos de limpieza de comunidades con visitas periódicas. Trabajamos con administradores de fincas y directamente con las comunidades de propietarios en toda la comarca ferrolana y coruñesa.`,
-  'limpieza-a-fondo': `La limpieza a fondo o "gran limpieza" va más allá del mantenimiento habitual. Ideal para después de las vacaciones, en cambios de estación, o cuando el hogar necesita una puesta a punto completa. Incluye zonas que habitualmente no se limpian: parte posterior de electrodomésticos, interiores de armarios, persianas, zócalos, detrás de muebles. Con productos ecológicos de alta eficacia y sin productos tóxicos en tu hogar.`,
-  'limpieza-fin-de-obra': `Después de una reforma o construcción nueva, los residuos de obra son un reto: polvo fino de escayola, restos de pintura, adhesivos, silicona y suciedad acumulada en todas las superficies. Nuestro equipo de limpieza de fin de obra está especializado en este tipo de trabajo, con el material adecuado para dejar tu nuevo espacio listo para habitar o para que entren los muebles.`,
-  'limpieza-de-apartamentos-turisticos': `Los apartamentos turísticos y alojamientos Airbnb necesitan una limpieza rápida y completa entre huéspedes. Nos adaptamos a los check-out y check-in de tu calendario. Servicio con reposición de ropa de cama y toallas si lo necesitas, cambio de basuras, desinfección completa y reposición de consumibles. Disponible en A Coruña, Ferrol y zonas costeras de la comarca.`,
-  'limpieza-periodica': `El servicio de limpieza periódica es la opción más cómoda y económica para mantener tu hogar siempre en perfecto estado. Estableces la frecuencia que mejor se adapta a tu ritmo de vida: semanal, quincenal o mensual. Siempre el mismo equipo de confianza, siempre a la hora acordada. Precio bonificado respecto a los servicios puntuales, con productos ecológicos incluidos.`,
-  'limpieza-de-cristales': `Los cristales y ventanales acumulan suciedad, cal del agua y polvo que dificultan la entrada de luz y afean la imagen de tu hogar o negocio. Nuestro servicio profesional de limpieza de cristales trabaja tanto en interior como en exterior, con el material adecuado para alturas. Resultado perfecto sin rayas, incluso en ventanas de difícil acceso.`,
-  'limpieza-de-pazos-y-eventos': `Los pazos gallegos y fincas para eventos tienen una complejidad especial: superficies nobles, espacios amplios y la necesidad de preparación previa y limpieza post-evento en plazos ajustados. En Zentro Limpiezas tenemos experiencia en la preparación de espacios para bodas, celebraciones y eventos corporativos, así como en la limpieza posterior.`,
+// Contenido detallado por servicio
+type ContenidoServicio = {
+  intro: string;
+  parrafo2: string;
+  parrafo3?: string;
+  incluye: string[];
+  proceso: { titulo: string; desc: string }[];
+  porqueNosotros: string;
+  articulosRelacionados: { titulo: string; href: string }[];
 };
 
-const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
+const contenidoDetalladoMap: Record<string, ContenidoServicio> = {
+  'limpieza-de-viviendas': {
+    intro: `La limpieza del hogar es mucho más que pasar el aspirador y fregar el suelo. En Zentro Limpiezas llevamos más de 20 años ayudando a familias de Ferrol, A Coruña y toda Ferrolterra a tener sus hogares realmente limpios — no solo "presentables a primera vista", sino higienizados a fondo, con cada rincón tratado con la técnica y el producto correctos.`,
+    parrafo2: `Nuestro servicio de limpieza de viviendas cubre todas las estancias: salón, dormitorios, cocina, baños, pasillos y zonas de paso. Limpieza de polvo en muebles y superficies, aspirado de suelos y tapicerías, fregado, desinfección de baños y cocina, y atención a los detalles que marcan la diferencia —rodapiés, interruptores, pomos de puertas, cristales interiores. Todo con productos ecológicos con certificación Ecolabel, igual de eficaces que los convencionales pero seguros para tu familia, tus mascotas y el entorno.`,
+    parrafo3: `Puedes contratarnos para una limpieza puntual —antes de una visita, después de una temporada fuera, o simplemente cuando se acumula más de lo que el día a día permite— o establecer un servicio periódico semanal, quincenal o mensual. En el servicio periódico, siempre viene el mismo equipo: ya conocen tu casa y saben cómo la quieres sin que tengas que explicar nada cada vez.`,
+    incluye: [
+      'Aspirado completo de suelos, moquetas y tapicerías',
+      'Fregado de suelos con producto ecológico apropiado al material',
+      'Limpieza y desinfección de baños (azulejos, sanitarios, espejos, griferías)',
+      'Limpieza completa de cocina (encimera, electrodomésticos exteriores, fregadero)',
+      'Eliminación de polvo en muebles, estantes, rodapiés y zócalos',
+      'Limpieza de cristales interiores',
+      'Vaciado de papeleras y gestión básica de residuos',
+      'Productos ecológicos Ecolabel incluidos',
+      'Seguro de responsabilidad civil incluido',
+    ],
+    proceso: [
+      { titulo: 'Presupuesto en 24h', desc: 'Nos dices el tamaño de la vivienda, cuántas habitaciones y baños, y si hay mascotas. En menos de 24 horas tienes precio cerrado, sin sorpresas.' },
+      { titulo: 'Fijamos fecha y hora', desc: 'Elegimos juntos el día y la franja horaria que mejor te encaje. Mañana, tarde, fin de semana: nos adaptamos.' },
+      { titulo: 'El equipo llega puntual', desc: 'El mismo equipo siempre. Trae todos los materiales. Tú no tienes que preparar nada.' },
+      { titulo: 'Lo dejamos impecable', desc: 'Trabajamos de arriba abajo, estancia por estancia, con técnica profesional y productos ecológicos certificados.' },
+    ],
+    porqueNosotros: `Somos una empresa local fundada en Ferrol en 2004. No somos una franquicia ni una plataforma de intermediación: somos un equipo de personas que conocen el territorio, el tipo de vivienda gallega y sus particularidades. Llevamos más de 20 años construyendo una reputación basada en el trabajo bien hecho y la confianza de las familias que nos abren la puerta de sus hogares.`,
+    articulosRelacionados: [
+      { titulo: 'Cómo limpiar el piso a fondo: guía completa', href: '/blog/como-limpiar-el-piso-a-fondo/' },
+      { titulo: 'Cómo mantener el piso limpio entre limpiezas profesionales', href: '/blog/como-mantener-piso-limpio-entre-limpiezas/' },
+      { titulo: '¿Cuánto cuesta una limpieza del hogar en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+    ],
+  },
+  'limpieza-de-oficinas': {
+    intro: `La imagen de una oficina limpia y ordenada no es solo estética: afecta a la productividad del equipo, a la impresión que causa en clientes y visitas, y a la salud de las personas que trabajan allí. Polvo, bacterias en superficies de contacto frecuente y aire contaminado por productos de limpieza agresivos son problemas reales que un servicio de limpieza profesional bien ejecutado puede eliminar.`,
+    parrafo2: `En Zentro Limpiezas trabajamos con empresas de todos los tamaños en Ferrol y A Coruña: desde despachos individuales y clínicas hasta oficinas de planta completa y espacios de coworking. Nos adaptamos al horario de tu empresa —antes de que llegue el equipo, durante la jornada en zonas que no interrumpan el trabajo, o al final del día— para que la limpieza no interfiera con la actividad.`,
+    parrafo3: `Todos nuestros servicios de limpieza de oficinas incluyen productos ecológicos certificados, algo especialmente importante en entornos cerrados donde la ventilación es limitada. Sin olor químico agresivo, sin compuestos orgánicos volátiles que afecten al bienestar del equipo.`,
+    incluye: [
+      'Limpieza y desinfección de puestos de trabajo (mesas, teclados, teléfonos, sillas)',
+      'Aspirado y fregado de suelos (moquetas, tarima, gres)',
+      'Limpieza de zonas comunes: recepción, sala de reuniones, zonas de descanso',
+      'Desinfección de baños y cocina o office',
+      'Vaciado y gestión de residuos',
+      'Limpieza de cristales interiores y puertas',
+      'Desempolvado de equipos y mobiliario de oficina',
+      'Productos ecológicos certificados incluidos',
+      'Servicio adaptado al horario de la empresa',
+    ],
+    proceso: [
+      { titulo: 'Evaluamos tus necesidades', desc: 'Tamaño del espacio, número de personas, horarios de trabajo y zonas prioritarias. Presupuesto detallado en 24h.' },
+      { titulo: 'Plan personalizado', desc: 'Frecuencia, horario y scope definidos por escrito. Sin letra pequeña ni costes ocultos.' },
+      { titulo: 'Mismo equipo estable', desc: 'En servicios periódicos, el mismo equipo siempre. Conocen el espacio y el protocolo de tu empresa.' },
+      { titulo: 'Control de calidad', desc: 'Canal de comunicación directo con Zentro Limpiezas para cualquier incidencia o ajuste del servicio.' },
+    ],
+    porqueNosotros: `Trabajamos con empresas de Ferrol y A Coruña que necesitan un servicio fiable, puntual y discreto. Entendemos que en un entorno de trabajo la limpieza tiene que hacerse sin molestar, sin olor agresivo y sin sorpresas. Llevamos más de 20 años ganándose la confianza de empresas locales, y eso solo se consigue con resultados consistentes día tras día.`,
+    articulosRelacionados: [
+      { titulo: 'Limpieza de oficinas y empresas en Galicia', href: '/blog/limpieza-oficinas-empresas-galicia/' },
+      { titulo: '¿Cuánto cuesta una limpieza profesional en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+    ],
+  },
+  'limpieza-fin-de-obra': {
+    intro: `La limpieza después de una obra es uno de los trabajos más exigentes y especializados que existe en el sector. El polvo de escayola y cemento se filtra por todas partes —debajo de los enchufes, en el interior de los armarios, en las ranuras del parqué—, las salpicaduras de pintura quedan en cristales y griferías, y los restos de adhesivo y silicona requieren disolventes y técnicas específicas. No es una limpieza normal: es un trabajo de especialistas.`,
+    parrafo2: `En Zentro Limpiezas llevamos años realizando limpiezas de fin de obra en Ferrol, Narón, A Coruña y toda la comarca. Trabajamos tanto en obras nuevas —pisos recién construidos que necesitan una primera limpieza a fondo antes de entrar a vivir— como en reformas parciales de cocinas, baños o estancias completas. El objetivo siempre es el mismo: entregar el espacio listo para usar, sin rastro de la obra.`,
+    parrafo3: `Utilizamos maquinaria profesional para la aspiración de polvo fino, productos específicos para la eliminación de restos de lechada, pintura y adhesivos, y un protocolo de trabajo que empieza siempre de arriba hacia abajo —primero techos y paredes, luego superficies y por último suelos— para no tener que repetir trabajo.`,
+    incluye: [
+      'Eliminación de polvo de obra en todas las superficies (techos, paredes, muebles)',
+      'Limpieza de cristales con eliminación de restos de pintura y obra',
+      'Limpieza de griferías, sanitarios y electrodomésticos de restos de obra',
+      'Eliminación de restos de adhesivo, silicona y lechada',
+      'Limpieza a fondo de suelos (incluido parqué y tarima con producto apropiado)',
+      'Aspirado con filtro HEPA del polvo fino',
+      'Limpieza interior de armarios y espacios de almacenamiento',
+      'Gestión y retirada de residuos ligeros de limpieza',
+      'Productos ecológicos incluidos',
+    ],
+    proceso: [
+      { titulo: 'Valoramos el trabajo', desc: 'Metras, tipo de obra y materiales, estado de la suciedad. Presupuesto cerrado sin sorpresas.' },
+      { titulo: 'Coordinamos con la obra', desc: 'Nos adaptamos al calendario de entrega. Podemos trabajar en fases si la reforma aún está en curso.' },
+      { titulo: 'Protocolo de fin de obra', desc: 'Empezamos por arriba: techos, paredes, ventanas. Seguimos con superficies. Terminamos con suelos.' },
+      { titulo: 'Entrega impecable', desc: 'El espacio queda listo para habitar o para que entren los muebles. Sin polvo, sin restos, sin obra.' },
+    ],
+    porqueNosotros: `La limpieza de fin de obra requiere materiales y técnicas que van más allá de la limpieza doméstica habitual. Tenemos la experiencia, el equipo y los productos específicos para este tipo de trabajo. Y lo hacemos con productos ecológicos: incluso en limpiezas de obra, evitamos disolventes agresivos cuando existen alternativas igualmente eficaces.`,
+    articulosRelacionados: [
+      { titulo: 'Guía de limpieza de fin de obra', href: '/blog/limpieza-fin-de-obra-guia/' },
+      { titulo: 'Limpiar antes de una mudanza', href: '/blog/limpiar-antes-mudanza/' },
+    ],
+  },
+  'limpieza-de-comunidades': {
+    intro: `Las zonas comunes de un edificio son la primera impresión que reciben los vecinos y las visitas. Un portal limpio, unas escaleras sin polvo, un garaje bien mantenido: hablan del cuidado que existe en esa comunidad y contribuyen directamente al valor del inmueble. Zentro Limpiezas lleva más de 20 años gestionando contratos de limpieza de comunidades en Ferrol, Narón, A Coruña y toda la comarca.`,
+    parrafo2: `Trabajamos directamente con comunidades de propietarios o a través de administradores de fincas. El contrato se adapta a las necesidades de cada edificio: la frecuencia de visitas, las zonas que cubre el servicio y el presupuesto disponible. Establecemos un calendario de trabajo claro y un contacto directo para cualquier incidencia o necesidad puntual fuera del servicio habitual.`,
+    parrafo3: `A diferencia de los productos convencionales que muchas comunidades usan, nuestros productos ecológicos certificados no dejan residuos tóxicos en superficies de contacto, no generan olor agresivo en espacios cerrados como ascensores o garajes, y son más seguros para los vecinos —especialmente niños y personas mayores— que transitan por esas zonas.`,
+    incluye: [
+      'Limpieza de portal, escaleras y rellanos',
+      'Barrido y fregado de suelos de zonas comunes',
+      'Limpieza de ascensor (cabina, paredes y puerta)',
+      'Limpieza de buzones, interfonos y pasamanos',
+      'Limpieza de garaje y trasteros (según contrato)',
+      'Gestión de residuos de zonas comunes',
+      'Limpieza de cristales de portal y zonas comunes',
+      'Informe y canal de comunicación con administrador o presidente',
+      'Productos ecológicos certificados siempre incluidos',
+    ],
+    proceso: [
+      { titulo: 'Reunión inicial', desc: 'Visitamos el edificio, evaluamos las zonas y elaboramos un presupuesto detallado por escrito.' },
+      { titulo: 'Contrato claro', desc: 'Frecuencia, horario, zonas incluidas y precio fijo mensual. Sin sorpresas en la factura.' },
+      { titulo: 'Equipo estable', desc: 'El mismo equipo siempre. Conocen el edificio y sus particularidades.' },
+      { titulo: 'Comunicación directa', desc: 'Contacto directo con Zentro Limpiezas para incidencias o servicios adicionales puntuales.' },
+    ],
+    porqueNosotros: `Gestionamos comunidades de toda la comarca con un servicio que funciona. No tenemos turnos de empleados aleatorios: el mismo equipo, el mismo día, a la misma hora. Si hay algún problema, tienes un contacto directo, no un call center.`,
+    articulosRelacionados: [
+      { titulo: 'Guía de limpieza de comunidades de vecinos', href: '/blog/limpieza-comunidades-vecinos-guia/' },
+      { titulo: '¿Cuánto cuesta una limpieza profesional en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+    ],
+  },
+  'limpieza-a-fondo': {
+    intro: `La limpieza a fondo o "gran limpieza" es el servicio que devuelve el hogar a su estado original. Va mucho más allá del mantenimiento habitual: llega a los lugares que en el día a día no se tocan —la parte trasera de los electrodomésticos, el interior de los armarios, las persianas, los zócalos, detrás y debajo de los muebles, los marcos de puertas y ventanas. Es una puesta a punto completa.`,
+    parrafo2: `Se contrata habitualmente en momentos específicos: antes o después de una mudanza, al volver de vacaciones largas, en el cambio de temporada, cuando un piso ha estado mucho tiempo sin limpieza profesional o cuando simplemente el mantenimiento habitual ya no es suficiente. También es el primer servicio que hacemos cuando un cliente quiere empezar una limpieza periódica: la primera visita es siempre una limpieza a fondo para dejar la base bien establecida.`,
+    parrafo3: `Una limpieza a fondo bien hecha requiere tiempo —entre 4 y 8 horas según el tamaño de la vivienda— y técnica. Trabajamos siempre de arriba hacia abajo y de dentro hacia afuera, con el orden correcto para que ninguna zona quede sucia por el trabajo en otra. Usamos productos ecológicos específicos para cada superficie y tipo de suciedad: desengrasante para la cocina, antical para baños, limpiador neutro para suelos delicados.`,
+    incluye: [
+      'Limpieza completa de cocina: interior de armarios, encimera, electrodomésticos (exterior e interior)',
+      'Limpieza a fondo de baños: azulejos, lechadas, juntas, sanitarios, griferías',
+      'Limpieza de cristales interiores y exteriores accesibles',
+      'Limpieza de persianas, estores y marcos de ventanas',
+      'Aspirado y fregado de todos los suelos',
+      'Limpieza detrás y debajo de muebles y electrodomésticos',
+      'Limpieza interior de armarios (vaciado previo por el cliente)',
+      'Limpieza de rodapiés, zócalos e interruptores',
+      'Desempolvado completo de techos, lámparas y esquinas',
+      'Productos ecológicos certificados incluidos',
+    ],
+    proceso: [
+      { titulo: 'Presupuesto personalizado', desc: 'Según metros cuadrados, número de habitaciones y baños, y estado general. Precio cerrado en 24h.' },
+      { titulo: 'Preparación mínima', desc: 'Solo pedimos que los armarios que quieres limpiar por dentro estén vaciados antes de nuestra llegada.' },
+      { titulo: 'Equipo completo', desc: 'Venimos con todo: productos, maquinaria, paños de microfibra, cepillos específicos por superficie.' },
+      { titulo: 'Resultado garantizado', desc: 'Trabajamos hasta que cada zona queda como tiene que quedar. Sin prisas, con técnica.' },
+    ],
+    porqueNosotros: `Una limpieza a fondo hecha deprisa no es una limpieza a fondo. Nos tomamos el tiempo necesario y usamos la técnica correcta para cada superficie. Con 20 años de experiencia, sabemos dónde se acumula la suciedad que nadie ve y cómo tratarla sin dañar las superficies.`,
+    articulosRelacionados: [
+      { titulo: 'Cómo limpiar el piso a fondo: guía completa', href: '/blog/como-limpiar-el-piso-a-fondo/' },
+      { titulo: 'Cómo limpiar la cocina a fondo', href: '/blog/limpiar-cocina-a-fondo/' },
+      { titulo: 'Limpiar antes de una mudanza', href: '/blog/limpiar-antes-mudanza/' },
+    ],
+  },
+  'limpieza-fin-de-obra': {
+    intro: `La limpieza posterior a una obra o reforma es un trabajo especializado que requiere técnica, materiales adecuados y experiencia. No es una limpieza doméstica habitual. El polvo de escayola y cemento penetra en todos los huecos, las salpicaduras de pintura quedan en cristales y griferías, y los restos de adhesivos, silicona o lechada necesitan tratamiento específico.`,
+    parrafo2: `En Zentro Limpiezas realizamos limpiezas de fin de obra en Ferrol, Narón, A Coruña y toda la comarca. Trabajamos en obra nueva, en reformas integrales y en reformas parciales de cocinas, baños o una sola estancia. El resultado es siempre el mismo: el espacio listo para usar, sin rastro de obra.`,
+    parrafo3: `Usamos maquinaria profesional con filtros HEPA para la aspiración de polvo fino, productos específicos para cada tipo de residuo de obra y un protocolo de trabajo ordenado que garantiza que ninguna zona queda sucia por el trabajo en otra. Trabajamos de arriba hacia abajo: techos y paredes primero, luego superficies y por último suelos.`,
+    incluye: [
+      'Eliminación de polvo de obra en techos, paredes y superficies',
+      'Limpieza de cristales con eliminación de pintura y restos de obra',
+      'Limpieza de griferías y sanitarios nuevos',
+      'Eliminación de restos de adhesivo, silicona y lechada en azulejos y suelos',
+      'Limpieza a fondo de suelos nuevos (parqué, gres, mármol, tarima)',
+      'Aspirado profesional con filtro HEPA de polvo fino',
+      'Limpieza interior de armarios, cajones y espacios de almacenamiento',
+      'Retirada de residuos ligeros de la limpieza',
+      'Productos ecológicos incluidos',
+    ],
+    proceso: [
+      { titulo: 'Valoramos el trabajo', desc: 'Metros cuadrados, tipo de obra, materiales y estado. Presupuesto cerrado sin sorpresas.' },
+      { titulo: 'Coordinamos con la obra', desc: 'Nos adaptamos al calendario de entrega. Si la obra aún está en curso, podemos trabajar por fases.' },
+      { titulo: 'Protocolo especializado', desc: 'De arriba hacia abajo. Primero polvo y restos de obra, luego limpieza de superficies y cristales, por último suelos.' },
+      { titulo: 'Entrega lista para usar', desc: 'El espacio queda impecable. Sin polvo, sin restos de pintura, sin rastro de la reforma.' },
+    ],
+    porqueNosotros: `Hemos realizado cientos de limpiezas de fin de obra en toda la comarca. Tenemos el material, los productos específicos y la experiencia para hacerlo correctamente, respetando los materiales nuevos y dejando cada superficie en su estado óptimo.`,
+    articulosRelacionados: [
+      { titulo: 'Guía de limpieza de fin de obra', href: '/blog/limpieza-fin-de-obra-guia/' },
+      { titulo: 'Limpiar antes de una mudanza', href: '/blog/limpiar-antes-mudanza/' },
+    ],
+  },
+  'limpieza-de-apartamentos-turisticos': {
+    intro: `Un apartamento turístico sucio o mal cuidado significa malas reseñas, cancelaciones y pérdida de ingresos. En la era en que una sola foto del cuarto de baño puede determinar la reserva, la limpieza entre huéspedes no es un gasto: es una inversión en tu valoración y en tu ocupación. En Zentro Limpiezas gestionamos la limpieza de apartamentos turísticos y alojamientos de plataformas como Airbnb en A Coruña, Ferrol y toda la costa gallega.`,
+    parrafo2: `Nos adaptamos a tu calendario de check-out y check-in. Si tienes una salida a las 11:00 y una entrada a las 15:00, organizamos el servicio para que el apartamento esté listo a tiempo. El servicio incluye la limpieza completa del alojamiento, cambio de ropa de cama y toallas (si nos la facilitas o gestionamos su reposición), reposición de consumibles básicos y comprobación del estado del apartamento.`,
+    parrafo3: `Usamos productos ecológicos certificados en todos nuestros servicios de apartamentos turísticos. Es importante tanto para los huéspedes —que no quieren encontrarse con olor a lejía o químico agresivo en su alojamiento— como para los anfitriones, que cada vez más reciben mejor valoración cuando mencionan que el alojamiento usa productos respetuosos con el medio ambiente.`,
+    incluye: [
+      'Limpieza completa de todas las estancias entre huéspedes',
+      'Cambio de ropa de cama y toallas',
+      'Limpieza y desinfección de baños',
+      'Limpieza de cocina, electrodomésticos y utensilios',
+      'Fregado y aspirado de suelos',
+      'Vaciado de papeleras y gestión de residuos',
+      'Reposición de consumibles (jabón, papel, etc.) si se nos facilitan',
+      'Comprobación de desperfectos o necesidades del alojamiento',
+      'Adaptación al calendario de check-out y check-in',
+      'Productos ecológicos Ecolabel incluidos',
+    ],
+    proceso: [
+      { titulo: 'Evaluamos el alojamiento', desc: 'Tamaño, número de camas, baños y necesidades específicas. Presupuesto por rotación o mensual.' },
+      { titulo: 'Acceso coordinado', desc: 'Gestionamos el acceso con caja de llaves o coordinaremos la entrega. Sin complicaciones.' },
+      { titulo: 'Servicio flexible', desc: 'Nos adaptamos a tu calendario de reservas en tiempo real. Comunicación directa y ágil.' },
+      { titulo: 'Parte de estado', desc: 'Te informamos de cualquier desperfecto o necesidad que detectemos en el alojamiento.' },
+    ],
+    porqueNosotros: `Somos un equipo local que conoce el sector turístico de Galicia. No somos una plataforma de intermediación: somos las personas que van a limpiar tu apartamento. Comunicación directa, servicio fiable y sin sorpresas en la factura.`,
+    articulosRelacionados: [
+      { titulo: 'Limpieza de apartamentos turísticos y Airbnb en Galicia', href: '/blog/limpieza-apartamentos-turisticos-airbnb/' },
+      { titulo: '¿Cuánto cuesta una limpieza profesional en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+    ],
+  },
+  'limpieza-periodica': {
+    intro: `La limpieza periódica es el servicio más inteligente para quien quiere vivir en un hogar siempre en perfecto estado sin dedicarle horas cada semana. Estableces la frecuencia que mejor se adapta a tu ritmo de vida —semanal, quincenal o mensual— y nosotros nos encargamos. Siempre el mismo equipo, siempre a la hora acordada, siempre con productos ecológicos certificados incluidos en el precio.`,
+    parrafo2: `La principal ventaja del servicio periódico frente a las limpiezas puntuales no es solo el precio (que también es más favorable): es que el equipo aprende cómo está organizado tu hogar, qué cosas no hay que mover, dónde se acumula más polvo, qué superficies necesitan más atención. No tienes que explicar nada cada vez.`,
+    parrafo3: `La primera visita es siempre una limpieza a fondo para dejar la base bien establecida. A partir de ahí, el mantenimiento periódico mantiene ese nivel. El resultado es una vivienda que siempre está bien, no una que se limpia cuando ya no se puede aguantar más.`,
+    incluye: [
+      'Aspirado completo de suelos y zonas con moqueta o alfombra',
+      'Fregado con producto ecológico apropiado al tipo de suelo',
+      'Limpieza completa de baños (sanitarios, azulejos, griferías, espejos)',
+      'Limpieza de cocina (encimera, electrodomésticos exteriores, fregadero)',
+      'Desempolvado de muebles, estantes y superficies',
+      'Limpieza de cristales interiores',
+      'Vaciado de papeleras',
+      'Mismo equipo siempre en servicio periódico',
+      'Productos ecológicos Ecolabel incluidos',
+      'Precio bonificado respecto al servicio puntual',
+    ],
+    proceso: [
+      { titulo: 'Primera visita a fondo', desc: 'Empezamos con una limpieza a fondo para dejar la base perfecta. A partir de ahí, el mantenimiento es más ágil.' },
+      { titulo: 'Frecuencia a tu medida', desc: 'Semanal, quincenal o mensual según tu ritmo de vida y presupuesto. Ajustable en cualquier momento.' },
+      { titulo: 'Mismo equipo siempre', desc: 'En el servicio periódico, siempre las mismas personas. Ya saben cómo es tu casa y cómo la quieres.' },
+      { titulo: 'Sin ataduras', desc: 'Sin contratos indefinidos ni penalizaciones. Si necesitas pausar o cambiar la frecuencia, lo hablamos.' },
+    ],
+    porqueNosotros: `Llevamos más de 20 años siendo la empresa de limpieza periódica de referencia en Ferrolterra y el área de A Coruña. Cientos de familias confían en nosotros semana tras semana. Eso solo se consigue siendo puntuales, confiables y haciendo bien el trabajo de forma consistente.`,
+    articulosRelacionados: [
+      { titulo: 'Cómo mantener el piso limpio entre limpiezas profesionales', href: '/blog/como-mantener-piso-limpio-entre-limpiezas/' },
+      { titulo: '¿Cuánto cuesta una limpieza del hogar en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+      { titulo: 'Consejos para contratar servicio de limpieza', href: '/blog/contratar-servicio-limpieza-consejos/' },
+    ],
+  },
+  'limpieza-de-cristales': {
+    intro: `Los cristales y ventanales son uno de los elementos que más afectan visualmente a la luz y al aspecto de un espacio, y uno de los que más se descuidan en la limpieza doméstica habitual. La cal del agua, la suciedad ambiental y los restos de producto mal aplicado se acumulan en capas que terminan por bloquear la entrada de luz y que resultan muy difíciles de eliminar sin la técnica adecuada.`,
+    parrafo2: `En Zentro Limpiezas realizamos limpieza profesional de cristales tanto en interior como en exterior. Trabajamos en viviendas, oficinas, locales comerciales y edificios de toda la comarca. Contamos con el material adecuado para alturas: escaleras profesionales, raquetas y mojadores de distintos tamaños para un resultado perfecto sin rayas en cualquier tipo de ventana.`,
+    parrafo3: `El resultado de una limpieza de cristales profesional bien hecha —sin rayas, sin marcas de agua, sin restos de producto— es notablemente diferente al resultado de limpiar los cristales en casa con productos convencionales y papel de cocina. Y dura mucho más tiempo.`,
+    incluye: [
+      'Limpieza de cristales en interior y exterior accesible',
+      'Eliminación de cal, depósitos minerales y suciedad ambiental',
+      'Limpieza de marcos y perfiles de ventanas',
+      'Material profesional para alturas (escaleras, extensores)',
+      'Sin rayas ni marcas: técnica con mojador y raqueta profesional',
+      'Limpieza de mamparas de baño y superficies acristaladas interiores',
+      'Cristales de locales comerciales y escaparates',
+      'Productos ecológicos incluidos',
+    ],
+    proceso: [
+      { titulo: 'Evaluamos el trabajo', desc: 'Número de cristales, accesibilidad, altura y tipo de suciedad. Presupuesto en 24h.' },
+      { titulo: 'Técnica profesional', desc: 'Mojador + raqueta para un resultado sin rayas. No usamos papel ni productos que dejan marcas.' },
+      { titulo: 'Marcos y perfiles incluidos', desc: 'Limpiamos también los marcos y perfiles de PVC, aluminio o madera.' },
+      { titulo: 'Resultado duradero', desc: 'Una limpieza de cristales profesional bien ejecutada dura mucho más que una doméstica.' },
+    ],
+    porqueNosotros: `La limpieza de cristales sin rayas y sin marcas de agua requiere la técnica correcta: mojador, raqueta y movimiento adecuado. Es algo que parece sencillo pero que tiene mucha más técnica de lo que parece. Con 20 años de experiencia, lo hacemos bien a la primera.`,
+    articulosRelacionados: [
+      { titulo: 'Cómo limpiar cristales sin rayas', href: '/blog/limpiar-cristales-sin-rayas/' },
+      { titulo: 'Cómo limpiar el piso a fondo', href: '/blog/como-limpiar-el-piso-a-fondo/' },
+    ],
+  },
+  'limpieza-de-locales-comerciales': {
+    intro: `Un local comercial limpio es una declaración de intenciones. Es lo primero que ve un cliente al entrar, lo que determina si se queda o se va, y lo que construye o destruye la imagen de tu negocio antes de que hayas dicho una sola palabra. En Zentro Limpiezas llevamos más de 20 años siendo la empresa de limpieza de referencia para comercios, bares, restaurantes y todo tipo de negocios en Ferrol y A Coruña.`,
+    parrafo2: `Trabajamos fuera de tu horario comercial para que la limpieza no interfiera con tu actividad ni moleste a tus clientes. Nos adaptamos a tus horarios de apertura: podemos limpiar de madrugada, a primera hora de la mañana antes de abrir, o después del cierre. Tú pones las condiciones, nosotros nos adaptamos.`,
+    parrafo3: `El tipo de suciedad de un local comercial es específico: en un bar o restaurante hay grasas en superficies de cocina y aireadores, en una tienda hay polvo en estanterías y probadores, en un gimnasio hay humedad y bacterias en vestuarios. Sabemos cómo tratar cada tipo de espacio con los productos y técnicas adecuadas.`,
+    incluye: [
+      'Limpieza completa de suelos (fregado, aspirado, pulido según material)',
+      'Desinfección de superficies de contacto frecuente (mostrador, manillas, etc.)',
+      'Limpieza de escaparates y cristalería exterior',
+      'Limpieza de aseos y zonas de servicio',
+      'Gestión de residuos y cambio de bolsas de basura',
+      'Desempolvado de estanterías, expositores y mobiliario',
+      'Limpieza de cocina o zona de preparación (bares y restaurantes)',
+      'Adaptación al horario del negocio',
+      'Productos ecológicos certificados incluidos',
+    ],
+    proceso: [
+      { titulo: 'Visita de evaluación', desc: 'Evaluamos el tipo de local, la superficie y las necesidades específicas. Presupuesto detallado en 24h.' },
+      { titulo: 'Plan de limpieza', desc: 'Frecuencia, horario, zonas incluidas y protocolo específico para tu tipo de negocio.' },
+      { titulo: 'Equipo estable y de confianza', desc: 'Las mismas personas siempre. Tu negocio lo conocen y saben cómo tratarlo.' },
+      { titulo: 'Sin interferencias', desc: 'Limpiamos cuando tú no estás abierto. Tu actividad no se ve afectada.' },
+    ],
+    porqueNosotros: `Trabajamos con comercios y hostelería de toda la comarca. Entendemos que un local tiene exigencias diferentes a una vivienda: más tráfico de personas, superficies más específicas y la necesidad de una limpieza fiable que no falle nunca. Llevamos 20 años sin fallar.`,
+    articulosRelacionados: [
+      { titulo: 'Limpieza de oficinas y locales en Galicia', href: '/blog/limpieza-oficinas-empresas-galicia/' },
+      { titulo: '¿Cuánto cuesta una limpieza profesional en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+    ],
+  },
+  'limpieza-de-pazos-y-eventos': {
+    intro: `Los pazos gallegos son espacios únicos: arquitectura histórica, superficies nobles, espacios amplios que requieren un cuidado especial. Preparar un pazo para una boda o un evento corporativo y limpiarlo después no es un trabajo para cualquier empresa de limpieza. Requiere experiencia con superficies delicadas, capacidad para trabajar en plazos ajustados y el criterio para saber qué producto usar en cada superficie sin dañarla.`,
+    parrafo2: `En Zentro Limpiezas tenemos experiencia en la preparación pre-evento y la limpieza post-evento de pazos, fincas y espacios singulares en Galicia. Trabajamos coordinados con los organizadores del evento para garantizar que los plazos se cumplen: el espacio listo antes de que lleguen los invitados, y la limpieza post-evento completada en el tiempo que el pazo necesita para volver a su estado habitual.`,
+    parrafo3: `En espacios patrimoniales como los pazos gallegos, el uso de productos ecológicos no es solo una preferencia: es una necesidad. Las superficies de piedra, madera noble o hierro forjado requieren productos neutros que no las ataquen. Nuestros productos ecológicos certificados respetan todos estos materiales y no dejan residuos que puedan dañar el patrimonio.`,
+    incluye: [
+      'Limpieza de preparación pre-evento (suelos, superficies, baños, accesos)',
+      'Limpieza post-evento completa',
+      'Tratamiento específico de suelos de piedra, madera y otros materiales nobles',
+      'Limpieza de espacios exteriores (terrazas, jardines accesibles, accesos)',
+      'Gestión de residuos post-evento',
+      'Limpieza de baños y zonas de servicio',
+      'Coordinación con el equipo del pazo y los organizadores del evento',
+      'Disponibilidad en plazos ajustados',
+      'Productos ecológicos que respetan superficies patrimoniales',
+    ],
+    proceso: [
+      { titulo: 'Visita previa', desc: 'Visitamos el pazo para evaluar el espacio, los materiales y las necesidades específicas del evento.' },
+      { titulo: 'Plan coordinado', desc: 'Trabajamos con el calendario del evento. Cuándo llegamos, cuándo terminamos, qué zonas primero.' },
+      { titulo: 'Pre-evento', desc: 'El espacio impecable antes de que lleguen los invitados. Sin restos del día anterior, sin polvo.' },
+      { titulo: 'Post-evento', desc: 'Limpieza completa después del evento. El pazo vuelve a su estado en el plazo acordado.' },
+    ],
+    porqueNosotros: `Galicia es tierra de pazos y celebraciones. Conocemos estos espacios, sus materiales y sus exigencias. Hemos trabajado en celebraciones de todo tipo y sabemos cómo movernos en un entorno de alta exigencia y plazos ajustados.`,
+    articulosRelacionados: [
+      { titulo: '¿Cuánto cuesta una limpieza profesional en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
+      { titulo: 'Limpieza de apartamentos y espacios de alquiler', href: '/blog/limpieza-apartamentos-turisticos-airbnb/' },
+    ],
+  },
+};
+
+const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
 ---
 
 <ServiceLayout
@@ -90,55 +394,100 @@ const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
 >
   <HeroService
     servicio={servicio.nombre}
-    eyebrow="Limpieza profesional · Productos ecológicos"
+    eyebrow="Limpieza profesional · Productos ecológicos · Ferrol y A Coruña"
     h1={`${servicio.nombre}<br><span class="text-accent">en Galicia</span>`}
     subtitle={servicio.descripcionCorta}
     precioDesde={servicio.precioDesde}
     lang="es"
   />
 
-  <!-- Contenido principal -->
-  <section class="py-16 lg:py-24">
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
-        <div class="lg:col-span-2 space-y-8">
-          <div>
-            <div class="flex items-center gap-3 mb-4" data-reveal>
-              <span class="section-number">01</span>
-              <h2 class="font-serif text-2xl lg:text-3xl text-primary">{servicio.nombre} profesional</h2>
-            </div>
-            <p class="text-mid leading-relaxed speakable-intro" data-reveal>{contenido}</p>
-          </div>
 
-          <!-- Qué incluye -->
-          <div data-reveal>
-            <h3 class="font-serif text-xl text-primary mb-4">¿Qué incluye?</h3>
-            <ul class="space-y-2">
-              {[
-                'Mano de obra especializada',
-                'Productos de limpieza ecológicos certificados',
-                'Material y maquinaria profesional',
-                'Seguro de responsabilidad civil',
-                'Presupuesto personalizado sin compromiso',
-              ].map(item => (
-                <li class="flex items-start gap-2 text-mid text-sm">
-                  <span class="text-accent mt-0.5 shrink-0">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <!-- Columna de contenido -->
+        <div class="lg:col-span-2 space-y-10">
+
+          {contenidoDetallado ? (
+            <>
+              <!-- Introducción -->
+              <div data-reveal>
+                <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-5">{servicio.nombre} profesional en Galicia</h2>
+                <div class="space-y-4 text-charcoal leading-relaxed">
+                  <p class="speakable-intro">{contenidoDetallado.intro}</p>
+                  <p>{contenidoDetallado.parrafo2}</p>
+                  {contenidoDetallado.parrafo3 && <p>{contenidoDetallado.parrafo3}</p>}
+                </div>
+              </div>
+
+              <!-- Qué incluye -->
+              <div data-reveal>
+                <h3 class="font-serif text-xl text-primary mb-4">¿Qué incluye el servicio?</h3>
+                <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                  {contenidoDetallado.incluye.map(item => (
+                    <li class="flex items-start gap-2 text-charcoal text-sm">
+                      <span class="text-accent mt-0.5 shrink-0 font-bold">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Por qué nosotros -->
+              <div class="bg-white rounded-2xl border border-line p-6" data-reveal>
+                <h3 class="font-serif text-xl text-primary mb-3">Por qué elegir Zentro Limpiezas</h3>
+                <p class="text-charcoal text-sm leading-relaxed mb-4">{contenidoDetallado.porqueNosotros}</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-line">
+                  {[
+                    { num: '+20', label: 'años de experiencia' },
+                    { num: '29+', label: 'municipios cubiertos' },
+                    { num: '100%', label: 'productos ecológicos' },
+                    { num: '24h', label: 'presupuesto gratis' },
+                  ].map(stat => (
+                    <div class="text-center">
+                      <p class="font-mono text-accent text-xl font-bold">{stat.num}</p>
+                      <p class="text-mid text-xs mt-1">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Artículos relacionados -->
+              {contenidoDetallado.articulosRelacionados.length > 0 && (
+                <div data-reveal>
+                  <h3 class="font-serif text-lg text-primary mb-3">Artículos relacionados</h3>
+                  <ul class="space-y-2">
+                    {contenidoDetallado.articulosRelacionados.map(art => (
+                      <li>
+                        <a href={art.href} class="text-accent text-sm hover:underline flex items-center gap-1.5">
+                          <span>→</span>{art.titulo}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          ) : (
+            <div data-reveal>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-5">{servicio.nombre} en Galicia</h2>
+              <p class="text-charcoal leading-relaxed speakable-intro">{servicio.descripcionCorta}</p>
+            </div>
+          )}
         </div>
 
+        <!-- Aside / sidebar -->
         <aside class="space-y-6">
-          <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-4">Solicita presupuesto</h3>
+          <!-- Presupuesto -->
+          <div class="card p-6 sticky top-24" data-reveal>
+            <h3 class="font-serif text-lg text-primary mb-1">Solicita presupuesto</h3>
+            <p class="text-mid text-xs mb-4">Gratis · Sin compromiso · Respuesta en 24h</p>
             {servicio.precioDesde && (
-              <p class="font-mono text-accent text-2xl mb-4">desde {servicio.precioDesde}</p>
+              <p class="font-mono text-accent text-2xl font-bold mb-4">desde {servicio.precioDesde}</p>
             )}
-            <p class="text-mid text-sm mb-4">Presupuesto personalizado y gratuito en menos de 24h.</p>
             <div class="flex flex-col gap-2">
-              <a href="/presupuesto/" class="btn btn-accent w-full text-center">Pedir presupuesto</a>
+              <a href="/presupuesto/" class="btn btn-accent w-full text-center">→ Pedir presupuesto</a>
               <a href={BUSINESS.phoneHref} class="btn btn-outline w-full text-center">{BUSINESS.phoneDisplay}</a>
             </div>
             <div class="mt-4 pt-4 border-t border-line">
@@ -146,29 +495,73 @@ const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
             </div>
           </div>
 
+          <!-- Disponible en -->
           {municipiosConCombo.length > 0 && (
             <div class="card p-6" data-reveal>
               <h3 class="font-serif text-base text-primary mb-3">Disponible en</h3>
               <div class="flex flex-wrap gap-2">
                 {municipiosConCombo.map(m => (
-                  <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill hover:bg-accent hover:text-primary hover:border-accent">
+                  <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill">
                     {m!.nombre}
                   </a>
                 ))}
               </div>
+              <a href="/zonas/" class="text-accent text-xs mt-3 block hover:underline">Ver todas las zonas →</a>
             </div>
           )}
+
+          <!-- Otros servicios -->
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-base text-primary mb-3">Otros servicios</h3>
+            <ul class="space-y-1.5">
+              {SERVICIOS.filter(s => s.slug !== servicio.slug).slice(0, 5).map(s => (
+                <li>
+                  <a href={`/servicios/${s.slug}/`} class="text-accent text-sm hover:underline flex items-center gap-1">
+                    <span class="text-xs">→</span> {s.nombre}
+                  </a>
+                </li>
+              ))}
+              <li class="pt-1">
+                <a href="/servicios/" class="text-mid text-xs hover:text-primary transition-colors">Ver todos los servicios →</a>
+              </li>
+            </ul>
+          </div>
         </aside>
       </div>
     </div>
   </section>
 
+  <!-- PROCESO: CÓMO TRABAJAMOS -->
+  {contenidoDetallado && (
+    <section class="py-16 lg:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-10 text-center" data-reveal>Cómo trabajamos</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {contenidoDetallado.proceso.map((paso, i) => (
+            <div class="relative" data-reveal>
+              <div class="font-mono text-5xl font-bold text-primary opacity-5 absolute -top-3 -left-1 pointer-events-none select-none">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div class="card h-full relative z-10">
+                <p class="font-semibold text-primary text-sm mb-2">{paso.titulo}</p>
+                <p class="text-mid text-sm leading-relaxed">{paso.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- FAQ -->
   <section class="py-16 lg:py-24 bg-charcoal">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>
-        Preguntas frecuentes
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-2 text-center" data-reveal>
+        Preguntas frecuentes sobre {servicio.nombre.toLowerCase()}
       </h2>
+      <p class="text-white/50 text-sm text-center mb-8" data-reveal>
+        Si no encuentras tu pregunta, llámanos al <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a>
+      </p>
       <FAQAccordion {faqs} />
     </div>
   </section>
