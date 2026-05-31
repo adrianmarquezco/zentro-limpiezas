@@ -1,6 +1,7 @@
----
+﻿---
 title: "Limpeza de fin de obra: que é, canto custa e cando facela"
 description: "Todo o que precisas saber sobre a limpeza post-obra en Galicia. Fases do proceso, materiais especializados, canto tempo leva e cando contratar profesionais."
+image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
 tags: ["fin de obra", "reforma", "limpeza especializada"]
 lang: "gl"

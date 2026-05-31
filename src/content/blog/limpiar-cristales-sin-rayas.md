@@ -1,6 +1,7 @@
----
+﻿---
 title: "Cómo limpiar cristales sin rayas ni marcas: técnica profesional"
 description: "La técnica correcta para limpiar cristales, ventanas y mamparas sin dejar rayas ni vetas. Productos, herramientas y el método que usan los profesionales."
+image: '/images/blog/limpiar-cristales-sin-rayas.webp'
 datePublished: "2025-05-18"
 dateModified: "2026-05-31"
 category: "consejos"

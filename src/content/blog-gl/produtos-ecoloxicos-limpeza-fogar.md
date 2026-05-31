@@ -1,6 +1,7 @@
----
+﻿---
 title: "Produtos ecolóxicos de limpeza: guía práctica para o fogar"
 description: "Descubre que produtos ecolóxicos de limpeza son realmente eficaces, como identificar certificacións fiables e cales usar en cada zona do fogar."
+image: '/images/blog/productos-ecologicos-limpieza-hogar.webp'
 datePublished: "2025-01-22"
 tags: ["ecolóxico", "produtos limpeza", "sostibilidade"]
 lang: "gl"

@@ -1,6 +1,7 @@
----
+﻿---
 title: "Cómo limpiar el piso antes y después de una mudanza"
 description: "Guía práctica para limpiar una vivienda antes de mudarte o al dejar un piso alquilado. Qué hacer para recuperar la fianza y cómo organizarlo sin estrés."
+image: '/images/blog/limpiar-antes-mudanza.webp'
 datePublished: "2025-03-15"
 dateModified: "2026-05-31"
 category: "guias"

@@ -1,6 +1,7 @@
----
+﻿---
 title: "Productos ecológicos de limpieza: guía completa para el hogar"
 description: "Todo sobre los productos de limpieza ecológicos: qué certificaciones son reales, cuáles funcionan mejor en cada zona y por qué son la mejor elección para tu hogar."
+image: '/images/blog/productos-ecologicos-limpieza-hogar.webp'
 datePublished: "2025-01-22"
 dateModified: "2026-05-31"
 category: "consejos"

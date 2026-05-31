@@ -1,6 +1,7 @@
----
+﻿---
 title: "Como limpar a casa a fondo: guía completa paso a paso"
 description: "Aprende a limpar a túa casa de arriba a abaixo de maneira eficiente e con produtos ecolóxicos. Orde, técnica e trucos profesionais para un resultado impecable."
+image: '/images/blog/como-limpiar-el-piso-a-fondo.webp'
 datePublished: "2025-01-15"
 tags: ["limpeza vivenda", "consellos", "limpeza a fondo"]
 lang: "gl"

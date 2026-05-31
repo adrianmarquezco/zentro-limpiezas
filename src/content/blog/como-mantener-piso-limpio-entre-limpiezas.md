@@ -1,6 +1,7 @@
----
+﻿---
 title: "Cómo mantener el piso limpio entre limpiezas profesionales"
 description: "Rutinas diarias y semanales sencillas para mantener tu hogar ordenado y limpio entre las visitas del servicio de limpieza. Menos tiempo, mejores resultados."
+image: '/images/blog/como-mantener-piso-limpio-entre-limpiezas.webp'
 datePublished: "2025-02-18"
 dateModified: "2026-05-31"
 category: "consejos"

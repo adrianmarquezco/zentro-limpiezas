@@ -1,6 +1,7 @@
----
+﻿---
 title: "Limpieza de fin de obra: qué es, cuánto cuesta y cuándo hacerla"
 description: "Todo lo que necesitas saber sobre la limpieza post-obra: fases del proceso, materiales especializados, cuánto tiempo lleva y cuándo contratar profesionales."
+image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
 dateModified: "2026-05-31"
 category: "guias"

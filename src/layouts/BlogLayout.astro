@@ -45,12 +45,29 @@ const categoryLabel = category ? (categoryLabels[category] ?? category) : 'Artí
 
   <!-- Hero del artículo -->
   <section class="bg-primary pt-24 pb-12 lg:pt-28 lg:pb-16 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
-      <svg viewBox="0 0 800 400" class="w-full h-full" fill="none">
-        <circle cx="700" cy="50" r="300" stroke="white" stroke-width="1"/>
-        <circle cx="700" cy="50" r="200" stroke="white" stroke-width="1"/>
-      </svg>
-    </div>
+    {image && (
+      <div class="absolute inset-0 z-0">
+        <img
+          src={image}
+          alt=""
+          aria-hidden="true"
+          class="w-full h-full object-cover object-center"
+          width="1200"
+          height="630"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-primary/85"></div>
+      </div>
+    )}
+    {!image && (
+      <div class="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 800 400" class="w-full h-full" fill="none">
+          <circle cx="700" cy="50" r="300" stroke="white" stroke-width="1"/>
+          <circle cx="700" cy="50" r="200" stroke="white" stroke-width="1"/>
+        </svg>
+      </div>
+    )}
     <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
       <Breadcrumbs crumbs={breadcrumbs} />
       <div class="pt-4">

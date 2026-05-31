@@ -1,6 +1,7 @@
----
+﻿---
 title: "¿Cuánto cuesta una limpieza del hogar? Precios en Galicia 2025"
 description: "Guía completa de precios de servicios de limpieza doméstica en Galicia. Desde 55€ el piso. Qué factores determinan el coste y cómo conseguir el mejor presupuesto."
+image: '/images/blog/cuanto-cuesta-limpieza-hogar.webp'
 datePublished: "2026-04-01"
 dateModified: "2026-05-31"
 category: "precios"

@@ -1,6 +1,7 @@
----
+﻿---
 title: "Limpieza del hogar con mascotas: trucos y productos seguros"
 description: "Cómo mantener el hogar limpio cuando tienes perros o gatos. Eliminar pelo, olores y manchas con productos seguros para animales. Rutinas eficaces."
+image: '/images/blog/limpieza-hogar-con-mascotas.webp'
 datePublished: "2026-01-15"
 dateModified: "2026-05-31"
 category: "consejos"

@@ -1,6 +1,7 @@
----
+﻿---
 title: "Limpieza de comunidades de vecinos: todo lo que necesitas saber"
 description: "Guía completa sobre la gestión de la limpieza en comunidades de propietarios: frecuencias, costes, qué incluye el servicio y cómo elegir empresa."
+image: '/images/blog/limpieza-comunidades-vecinos-guia.webp'
 datePublished: "2025-03-01"
 dateModified: "2026-05-31"
 category: "guias"
