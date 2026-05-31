@@ -13,6 +13,11 @@ export default defineConfig({
         defaultLocale: 'es',
         locales: { es: 'es', gl: 'gl' },
       },
+      filter: (page) =>
+        !page.includes('/legal/') &&
+        !page.includes('/404') &&
+        page !== 'https://zentrolimpiezas.es/contacto/' &&
+        page !== 'https://zentrolimpiezas.es/gl/contacto/',
     }),
     tailwind({ applyBaseStyles: false }),
   ],

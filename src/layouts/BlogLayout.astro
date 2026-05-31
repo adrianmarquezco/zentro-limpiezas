@@ -14,6 +14,7 @@ interface Props {
   datePublished: string;
   dateModified?: string;
   image?: string;
+  readingTime?: number;
   breadcrumbs: { label: string; href: string }[];
   hreflangEs?: string;
   hreflangGl?: string;
@@ -21,24 +22,32 @@ interface Props {
 
 const {
   title, description, canonical, lang = 'es',
-  datePublished, dateModified, image,
+  datePublished, dateModified, image, readingTime,
   breadcrumbs, hreflangEs, hreflangGl,
 } = Astro.props;
+
+const locale = lang === 'gl' ? 'gl-ES' : 'es-ES';
+const pubDate = new Date(datePublished).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
+const modDate = dateModified ? new Date(dateModified).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }) : null;
 ---
 
 <BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article">
   <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} />
   <Breadcrumbs crumbs={breadcrumbs} />
 
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16 prose-zentro">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
     <header class="mb-10">
-      <time class="text-mid text-sm font-mono" datetime={datePublished}>
-        {new Date(datePublished).toLocaleDateString(lang === 'gl' ? 'gl-ES' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </time>
-      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-warm mt-3 leading-tight">{title}</h1>
-      <p class="text-mid text-lg mt-4 leading-relaxed">{description}</p>
+      <div class="flex flex-wrap items-center gap-3 text-xs text-mid font-mono mb-4">
+        <time datetime={datePublished}>{pubDate}</time>
+        {readingTime && <span>· {readingTime} min de lectura</span>}
+        {modDate && dateModified !== datePublished && (
+          <span class="text-accent">· Actualizado: {modDate}</span>
+        )}
+      </div>
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-warm leading-tight">{title}</h1>
+      <p class="text-mid text-lg mt-4 leading-relaxed speakable-intro">{description}</p>
     </header>
-    <div class="prose-content">
+    <div class="prose-zentro">
       <slot />
     </div>
   </article>

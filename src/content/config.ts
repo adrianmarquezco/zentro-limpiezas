@@ -9,8 +9,11 @@ const blogCollection = defineCollection({
     dateModified: z.string().optional(),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    category: z.enum(['precios', 'guias', 'consejos', 'sector']).default('guias'),
+    readingTime: z.number().optional(),
     lang: z.enum(['es', 'gl']).default('es'),
     draft: z.boolean().default(false),
+    pilar: z.boolean().default(false),
   }),
 });
 
@@ -23,6 +26,8 @@ const blogGlCollection = defineCollection({
     dateModified: z.string().optional(),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    category: z.enum(['precios', 'guias', 'consejos', 'sector']).default('guias'),
+    readingTime: z.number().optional(),
     lang: z.enum(['es', 'gl']).default('gl'),
     draft: z.boolean().default(false),
     slugEs: z.string().optional(),

@@ -8,8 +8,8 @@ import { getCollection } from 'astro:content';
 import { BUSINESS } from '@/data/config';
 
 const canonical = `${BUSINESS.url}/blog/`;
-const title = 'Blog de limpieza y hogar | Zentro Limpiezas';
-const description = 'Consejos de limpieza profesional, trucos para el hogar, guías ecológicas y novedades del sector. Blog de Zentro Limpiezas en Ferrol y A Coruña.';
+const title = 'Blog de limpieza — Guías, precios y consejos para Galicia | Zentro Limpiezas';
+const description = 'Guías prácticas, precios actualizados y consejos de limpieza profesional para hogares, oficinas y espacios en Ferrol, A Coruña y toda Galicia.';
 
 const breadcrumbs = [
   { label: 'Inicio', href: '/' },
@@ -18,39 +18,96 @@ const breadcrumbs = [
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  url: canonical,
+  hasPart: posts.map(p => ({
+    '@type': 'Article',
+    headline: p.data.title,
+    url: `${BUSINESS.url}/blog/${p.slug}/`,
+    datePublished: p.data.datePublished,
+  })),
+};
+
+const categoryLabels: Record<string, string> = {
+  todos: 'Todos',
+  precios: 'Precios',
+  guias: 'Guías',
+  consejos: 'Consejos',
+  sector: 'Sector',
+};
 ---
 
 <BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/blog/`}>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
   <Breadcrumbs crumbs={breadcrumbs} />
 
   <section class="bg-primary py-16 relative">
     <div class="noise-overlay" />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="font-serif text-4xl lg:text-5xl text-warm mb-4" data-reveal>Blog</h1>
-      <p class="text-mid text-lg max-w-xl" data-reveal>
-        Consejos de limpieza, guías ecológicas y todo lo que necesitas saber para mantener tu hogar en perfecto estado.
+      <p class="text-mid text-lg max-w-2xl speakable-intro" data-reveal>
+        Guías prácticas, precios actualizados y consejos de limpieza profesional para hogares, oficinas y espacios en Ferrol, A Coruña y toda Galicia. Contenido elaborado por el equipo de Zentro Limpiezas, con más de 20 años de experiencia en limpieza profesional ecológica.
       </p>
     </div>
   </section>
 
   <section class="py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Filtro de categorías — JS sin URLs -->
+      <div class="flex flex-wrap gap-2 mb-10" id="blog-filters">
+        {Object.entries(categoryLabels).map(([key, label]) => (
+          <button
+            data-filter={key}
+            class:list={[
+              'zone-pill cursor-pointer transition-colors',
+              key === 'todos' ? 'bg-accent/20 text-accent border-accent' : '',
+            ]}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
         {posts.map((post) => (
-          <article class="card flex flex-col" data-reveal>
+          <article
+            class="card flex flex-col"
+            data-category={post.data.category}
+            data-reveal
+          >
             <div class="p-6 flex flex-col gap-3 flex-1">
-              <time class="text-mid text-xs font-mono" datetime={post.data.datePublished}>
-                {new Date(post.data.datePublished).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </time>
+              <div class="flex items-center justify-between">
+                <time class="text-mid text-xs font-mono" datetime={post.data.datePublished}>
+                  {new Date(post.data.datePublished).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                <div class="flex items-center gap-2">
+                  {post.data.pilar && (
+                    <span class="text-xs bg-accent/10 text-accent border border-accent/30 rounded-full px-2 py-0.5">Guía completa</span>
+                  )}
+                  <span class="text-xs text-mid capitalize">{categoryLabels[post.data.category]}</span>
+                </div>
+              </div>
               <h2 class="font-serif text-xl text-warm leading-snug">
                 <a href={`/blog/${post.slug}/`} class="hover:text-accent transition-colors">
                   {post.data.title}
                 </a>
               </h2>
               <p class="text-mid text-sm leading-relaxed flex-1">{post.data.description}</p>
-              <a href={`/blog/${post.slug}/`} class="text-accent text-sm hover:underline mt-auto pt-4 border-t border-line block">
-                Leer artículo →
-              </a>
+              <div class="mt-auto pt-4 border-t border-line flex items-center justify-between">
+                <a href={`/blog/${post.slug}/`} class="text-accent text-sm hover:underline">
+                  Leer artículo →
+                </a>
+                {post.data.readingTime && (
+                  <span class="text-mid text-xs font-mono">{post.data.readingTime} min</span>
+                )}
+              </div>
             </div>
           </article>
         ))}
@@ -68,3 +125,22 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <WhatsAppFloat />
   <CTABar />
 </BaseLayout>
+
+<script>
+const pills = document.querySelectorAll<HTMLElement>('[data-filter]');
+const cards = document.querySelectorAll<HTMLElement>('[data-category]');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    const filter = pill.dataset.filter ?? 'todos';
+    pills.forEach(p => {
+      p.classList.remove('bg-accent/20', 'text-accent', 'border-accent');
+    });
+    pill.classList.add('bg-accent/20', 'text-accent', 'border-accent');
+    cards.forEach(card => {
+      const match = filter === 'todos' || card.dataset.category === filter;
+      (card as HTMLElement).style.display = match ? '' : 'none';
+    });
+  });
+});
+</script>
