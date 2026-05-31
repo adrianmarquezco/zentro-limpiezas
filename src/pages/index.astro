@@ -1,0 +1,364 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TrustBar from '@/components/ui/TrustBar.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import PriceHint from '@/components/ui/PriceHint.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
+import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
+
+const waUrl = buildWhatsAppUrl('Hola, me gustaría pedir presupuesto de limpieza');
+
+const servicios = [
+  { slug: 'limpieza-de-viviendas', nombre: 'Limpieza de viviendas', precio: 'desde 55€', icon: '🏠', descripcion: 'Puntual o periódica. Toda la vivienda impecable.' },
+  { slug: 'limpieza-de-oficinas', nombre: 'Limpieza de oficinas', precio: 'desde 80€', icon: '🏢', descripcion: 'Despachos y open spaces. Horario adaptable.' },
+  { slug: 'limpieza-fin-de-obra', nombre: 'Limpieza fin de obra', precio: 'presupuesto', icon: '🔧', descripcion: 'Tras construcción o reforma. Sin rastro de obra.' },
+  { slug: 'limpieza-de-comunidades', nombre: 'Comunidades', precio: 'contrato', icon: '🏘️', descripcion: 'Portales, garajes y zonas comunes.' },
+  { slug: 'limpieza-de-cristales', nombre: 'Cristales y ventanales', precio: 'presupuesto', icon: '🪟', descripcion: 'Interior y exterior, incluidas alturas.' },
+  { slug: 'limpieza-de-pazos-y-eventos', nombre: 'Pazos y eventos', precio: 'presupuesto', icon: '🏰', descripcion: 'Pre y post-evento. Bodas y celebraciones.' },
+  { slug: 'limpieza-periodica', nombre: 'Limpieza periódica', precio: 'desde 55€', icon: '📅', descripcion: 'Semanal, quincenal o mensual. Mismo equipo.' },
+  { slug: 'limpieza-de-apartamentos-turisticos', nombre: 'Apartamentos turísticos', precio: 'presupuesto', icon: '🛏️', descripcion: 'Entre huéspedes. Rápida y completa.' },
+  { slug: 'limpieza-a-fondo', nombre: 'Limpieza a fondo', precio: 'presupuesto', icon: '✨', descripcion: 'Mudanzas, post-verano o gran limpieza anual.' },
+  { slug: 'limpieza-de-locales-comerciales', nombre: 'Locales comerciales', precio: 'desde 70€', icon: '🏪', descripcion: 'Tiendas, bares, restaurantes. Fuera de horario.' },
+];
+
+const municipiosDestacados = [
+  'Ferrol','Narón','Neda','Fene','Mugardos','Valdoviño','Ares','Pontedeume',
+  'Cedeira','A Coruña','Culleredo','Arteixo','Cambre','Oleiros','Sada','Betanzos',
+];
+
+const municipiosSlugs: Record<string,string> = {
+  'Ferrol':'ferrol','Narón':'naron','Neda':'neda','Fene':'fene','Mugardos':'mugardos',
+  'Valdoviño':'valdovino','Ares':'ares','Pontedeume':'pontedeume','Cedeira':'cedeira',
+  'A Coruña':'a-coruna','Culleredo':'culleredo','Arteixo':'arteixo','Cambre':'cambre',
+  'Oleiros':'oleiros','Sada':'sada','Betanzos':'betanzos',
+};
+
+const pasos = [
+  { num: '01', icon: '📞', titulo: 'Nos llamas o escribes', desc: 'Cuéntanos qué necesitas: tipo de inmueble, zona y con qué frecuencia.' },
+  { num: '02', icon: '📋', titulo: 'Presupuesto en 24h', desc: 'Precio claro y detallado. Sin letra pequeña. Sin sorpresas.' },
+  { num: '03', icon: '📅', titulo: 'Fijamos fecha', desc: 'Adaptamos el horario a lo que mejor te venga: mañana, tarde o fin de semana.' },
+  { num: '04', icon: '✨', titulo: 'Lo dejamos impecable', desc: 'Con productos ecológicos certificados incluidos en el precio, sin coste adicional.' },
+];
+
+const testimonios = [
+  {
+    nombre: 'María G.',
+    zona: 'Caranza, Ferrol',
+    servicio: 'Limpieza periódica quincenal',
+    texto: 'Llevan más de un año viniendo a casa y siempre dejan todo perfecto. Lo que más valoro es que siempre vienen las mismas personas, ya saben cómo quiero las cosas sin que tenga que explicar nada. Y con productos ecológicos, que para mí era importante.',
+  },
+  {
+    nombre: 'Roberto F.',
+    zona: 'Matogrande, A Coruña',
+    servicio: 'Limpieza fin de obra',
+    texto: 'Contraté para la limpieza después de una reforma y el resultado fue increíble. El polvo de yeso en los techos, los cristales, los suelos... lo dejaron como nuevo. El precio fue exactamente el del presupuesto, sin ningún extra.',
+  },
+  {
+    nombre: 'Ana P.',
+    zona: 'Narón',
+    servicio: 'Limpieza a fondo + periódica mensual',
+    texto: 'Primero vinieron para una limpieza a fondo antes de una mudanza y quedé tan contenta que ahora vienen cada mes. Muy puntuales, muy profesionales y los productos que usan dejan un olor muy agradable, nada de ese olor químico tan fuerte.',
+  },
+];
+
+const faqs = [
+  {
+    q: '¿Cuánto cuesta una limpieza de piso en Ferrol o A Coruña?',
+    a: 'El precio orientativo para un piso de 50-70 m² empieza desde 55€. Para pisos de 70-100 m² el precio habitual es desde 70€. El precio final depende del estado del inmueble, si hay mascota, el tiempo que lleva sin limpieza profesional y la frecuencia. Pedimos visita o nos mandas fotos y te damos un precio cerrado en menos de 24 horas, sin letra pequeña.',
+  },
+  {
+    q: '¿Los productos de limpieza los traéis vosotros?',
+    a: 'Sí, todos los productos están incluidos en el precio. Usamos productos ecológicos certificados en todos nuestros servicios, sin coste adicional. No necesitas tener nada en casa. Los productos ecológicos que usamos son igual de efectivos que los convencionales pero sin químicos agresivos, sin olor fuerte y sin residuos tóxicos.',
+  },
+  {
+    q: '¿Trabajáis los fines de semana?',
+    a: 'Sí. El servicio de limpieza lo realizamos de lunes a domingo, incluyendo mañanas y tardes. Nuestro horario de atención telefónica es de lunes a viernes de 8:00 a 14:00, pero puedes escribirnos por WhatsApp cualquier día. Nos adaptamos al horario que mejor te venga.',
+  },
+  {
+    q: '¿En qué zonas prestáis servicio?',
+    a: 'Cubrimos toda Ferrolterra: Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, Moeche, San Sadurniño, Cabanas, Pontedeume, Cedeira, Ortigueira y Cerdido. También toda el Área Metropolitana de A Coruña: A Coruña ciudad y todos sus barrios, Culleredo, Arteixo, Cambre, Oleiros, Sada, Bergondo, Abegondo, Carral, Betanzos, Paderne y más. Si tienes dudas sobre tu zona concreta, escríbenos.',
+  },
+  {
+    q: '¿Cuánto tiempo tardáis en dar presupuesto?',
+    a: 'Menos de 24 horas. Normalmente respondemos en pocas horas. Nos puedes contactar por WhatsApp al 616 054 001 o a través del formulario de presupuesto. Cuéntanos qué necesitas y te damos un precio cerrado sin compromiso.',
+  },
+  {
+    q: '¿Los productos ecológicos limpian igual que los convencionales?',
+    a: 'Sí, y en muchos casos mejor. Los productos ecológicos de última generación son igual de efectivos contra la suciedad, la grasa y las bacterias que los químicos convencionales. La diferencia está en que no contienen sustancias tóxicas, no producen olor químico agresivo, son seguros para niños y mascotas y no dañan el medioambiente. Los llevamos usando más de 20 años y los resultados hablan por sí solos.',
+  },
+  {
+    q: '¿Hacéis limpieza periódica (semanal, quincenal, mensual)?',
+    a: 'Sí. El servicio periódico es uno de los más solicitados. Podemos organizarlo con la frecuencia que necesites: semanal, quincenal o mensual. La ventaja del servicio periódico es que siempre viene el mismo equipo, que ya conoce tu casa y sabe cómo la quieres, sin que tengas que explicar nada cada vez. El precio por limpieza también es más económico que si contratas cada vez puntualmente.',
+  },
+  {
+    q: '¿Hacéis limpieza de pazos para bodas y eventos?',
+    a: 'Sí. Tenemos experiencia en limpieza de pazos, fincas y espacios para bodas y celebraciones en toda Galicia. Realizamos tanto la limpieza de preparación antes del evento como la limpieza general posterior. En espacios patrimoniales como los pazos gallegos, los productos ecológicos son especialmente importantes para no dañar superficies delicadas. Contáctanos con antelación para preparar el presupuesto con tiempo.',
+  },
+];
+
+const faqSchema = faqs;
+---
+
+<BaseLayout
+  title="Zentro Limpiezas — Ferrol, A Coruña y Ferrolterra"
+  description="Limpieza de viviendas, oficinas y pazos en Ferrol y A Coruña. Productos ecológicos incluidos. Más de 20 años. Presupuesto en 24h."
+  hreflangEs="https://zentrolimpiezas.es/"
+  hreflangGl="https://zentrolimpiezas.es/gl/"
+>
+  <SchemaFAQ faqs={faqSchema} />
+  <WhatsAppFloat />
+  <CTABar />
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section relative min-h-screen flex items-center bg-primary noise-overlay overflow-hidden pt-16">
+    <!-- Elemento decorativo de fondo -->
+    <div class="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 500 500" class="w-full h-full" fill="none">
+        <circle cx="400" cy="200" r="300" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+        <circle cx="400" cy="200" r="200" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+        <circle cx="400" cy="200" r="100" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
+      <div class="max-w-3xl">
+        <!-- Eyebrow -->
+        <p class="hero-eyebrow inline-flex items-center gap-2 bg-accent/20 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-8">
+          <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
+          Ferrolterra · A Coruña · Más de 20 años
+        </p>
+
+        <!-- H1 -->
+        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 leading-none">
+          <span class="hero-h1-line1 block">Tu espacio,</span>
+          <span class="hero-h1-line2 block text-accent">impecable.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle text-lg lg:text-xl text-white/70 mb-10 max-w-2xl leading-relaxed">
+          Limpieza profesional de viviendas, oficinas, locales y pazos en toda la provincia de A Coruña.
+          <strong class="text-white font-medium">Productos ecológicos incluidos.</strong> Presupuesto personalizado en menos de 24 horas.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas flex flex-col sm:flex-row gap-3 mb-12">
+          <a href={BUSINESS.phoneHref} class="btn-whatsapp px-7 py-4 text-base">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.65 4.9 2 2 0 0 1 3.62 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Llamar: {BUSINESS.phoneDisplay}
+          </a>
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-accent px-7 py-4 text-base">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="/presupuesto/" class="btn-outline border-white/40 text-white px-7 py-4 text-base">
+            → Pedir presupuesto gratis
+          </a>
+        </div>
+
+        <!-- Trust bar -->
+        <div class="hero-trust">
+          <TrustBar variant="dark" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICIOS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <span class="section-number left-4 top-12" aria-hidden="true" data-parallax-rate="0.1">01</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Todo lo que necesitas, cubierto</h2>
+        <p class="text-mid text-lg leading-relaxed">
+          Desde la limpieza periódica de tu hogar hasta la preparación de un pazo para una boda.
+          En Zentro Limpiezas cubrimos todos los servicios con productos ecológicos incluidos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-reveal-stagger>
+        {servicios.map(s => (
+          <a
+            href={`/servicios/${s.slug}/`}
+            class="service-card card group cursor-pointer relative"
+            style="min-height: 160px;"
+          >
+            <div class="service-card-inner">
+              <!-- Anverso -->
+              <div class="service-card-front flex flex-col items-start gap-2 p-5 h-full">
+                <span class="text-2xl">{s.icon}</span>
+                <p class="font-semibold text-primary text-sm leading-tight">{s.nombre}</p>
+                <p class="text-mid text-xs leading-tight mt-auto hidden md:block">{s.descripcion}</p>
+                <span class="badge-eco text-xs py-0.5 mt-1">🌿 Eco</span>
+              </div>
+              <!-- Reverso -->
+              <div class="service-card-back bg-primary flex flex-col items-center justify-center gap-3 p-5 rounded-2xl">
+                <span class="font-mono-data font-bold text-accent text-lg">{s.precio}</span>
+                <p class="text-white text-xs text-center">{s.descripcion}</p>
+                <span class="text-accent text-sm font-semibold">Ver servicio →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ECOLÓGICO ═══ -->
+  <section class="py-20 lg:py-28 bg-primary noise-overlay relative overflow-hidden">
+    <span class="section-number right-4 top-12" aria-hidden="true">02</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div data-reveal-left>
+          <span class="badge-eco mb-6 inline-flex">🌿 Productos ecológicos siempre incluidos</span>
+          <h2 class="font-display text-4xl lg:text-5xl text-white mb-6">Limpiamos con productos ecológicos. Siempre.</h2>
+          <div class="space-y-5 text-white/70 text-base lg:text-lg leading-relaxed">
+            <p>
+              Cuando decidimos trabajar únicamente con productos ecológicos certificados, no fue una decisión de marketing. Fue una decisión de valores. Llevamos más de 20 años limpiando hogares, oficinas y espacios de toda Galicia, y hemos comprobado que no es necesario usar química agresiva para conseguir resultados impecables.
+            </p>
+            <p>
+              Los productos ecológicos que usamos están certificados con el distintivo Ecolabel europeo. Son igual de eficaces contra la grasa, la suciedad y las bacterias que los convencionales, pero sin compuestos orgánicos volátiles, sin amoniaco, sin cloro en concentraciones agresivas. Resultado: tu casa huele limpia, no a laboratorio. Y es segura para tus hijos, tu perro y tú.
+            </p>
+            <p>
+              Lo más importante: están incluidos en el precio. No es un extra ni una opción premium. Es cómo trabajamos.
+            </p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-3">
+            {[
+              'Seguros para niños y mascotas',
+              'Sin olor químico agresivo',
+              'Certificados Ecolabel UE',
+              'Incluidos en el precio',
+              'Respeto por las rías gallegas',
+              'Mismos resultados o mejores',
+            ].map(item => (
+              <div class="flex items-center gap-2 text-sm text-white/80">
+                <span class="text-accent font-bold">✓</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4" data-reveal-right>
+          {[
+            { num: '20+', label: 'Años usando ecológico' },
+            { num: '100%', label: 'De nuestros servicios' },
+            { num: '0€', label: 'Coste adicional' },
+            { num: '✓', label: 'Certificado Ecolabel' },
+          ].map(item => (
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <p class="font-mono-data text-3xl lg:text-4xl font-bold text-accent mb-1">{item.num}</p>
+              <p class="text-white/70 text-sm">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ZONAS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <span class="section-number left-4 top-12" aria-hidden="true">03</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Cubrimos toda Ferrolterra y el Área de A Coruña</h2>
+        <p class="text-mid text-lg">Más de 30 municipios y sus barrios, desde Ortigueira hasta Betanzos.</p>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-10" data-reveal-stagger>
+        {municipiosDestacados.map(m => (
+          <a href={`/zonas/${municipiosSlugs[m]}/`} class="zone-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {m}
+          </a>
+        ))}
+        <a href="/zonas/" class="zone-pill bg-primary text-white border-primary">Ver todas →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CÓMO FUNCIONA ═══ -->
+  <section class="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <span class="section-number right-4 top-12" aria-hidden="true">04</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Cuatro pasos. Sin complicaciones.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal-stagger>
+        {pasos.map(p => (
+          <div class="relative">
+            <div class="font-mono-data text-6xl font-bold text-primary opacity-5 absolute -top-4 -left-2 pointer-events-none select-none">{p.num}</div>
+            <div class="card relative z-10 h-full">
+              <span class="text-3xl mb-4 block">{p.icon}</span>
+              <h3 class="font-semibold text-primary mb-2">{p.titulo}</h3>
+              <p class="text-mid text-sm leading-relaxed">{p.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIOS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <span class="section-number left-4 top-12" aria-hidden="true">05</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Lo que dicen nuestros clientes</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {testimonios.map((t, i) => (
+          <div class="card" data-reveal>
+            <div class="flex gap-0.5 mb-4">
+              {[...Array(5)].map(() => <span class="text-yellow-400 text-lg">★</span>)}
+            </div>
+            <p class="text-charcoal text-sm leading-relaxed mb-6 italic">"{t.texto}"</p>
+            <div class="border-t border-line pt-4">
+              <p class="font-semibold text-primary text-sm">{t.nombre}</p>
+              <p class="text-mid text-xs">{t.zona}</p>
+              <p class="text-accent text-xs mt-0.5">{t.servicio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-xs text-mid mt-4">* Testimonios de clientes reales. Nombres abreviados por privacidad.</p>
+    </div>
+  </section>
+
+  <!-- ═══ PRECIOS ═══ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div data-reveal>
+          <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">¿Cuánto cuesta?</h2>
+          <p class="text-mid text-lg mb-8 leading-relaxed">
+            Aquí tienes precios orientativos. El presupuesto final lo hacemos siempre de forma personalizada, en menos de 24 horas, sin compromiso y sin sorpresas.
+          </p>
+          <a href="/presupuesto/" class="btn-primary px-8 py-4 text-base mb-4 inline-flex">
+            → Pedir presupuesto personalizado
+          </a>
+          <p class="text-xs text-mid">Sin compromiso · Respondemos en menos de 24h</p>
+        </div>
+        <div data-reveal>
+          <PriceHint />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="py-20 lg:py-28 bg-warm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Preguntas frecuentes</h2>
+      </div>
+      <div data-reveal>
+        <FAQAccordion faqs={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ═══ -->
+  <CTASection />
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+import type { Municipio } from '@/data/municipios';
+
+interface Props {
+  municipio: Municipio;
+  lang?: 'es' | 'gl';
+}
+const { municipio, lang = 'es' } = Astro.props;
+const nombre = lang === 'gl' ? municipio.nombreGL : municipio.nombre;
+const href = lang === 'gl'
+  ? `/gl/zonas/${municipio.slug}/`
+  : `/zonas/${municipio.slug}/`;
+---
+
+<a href={href} class="card group flex flex-col gap-2 p-5 hover:border-accent transition-colors duration-200" data-reveal>
+  <h3 class="font-serif text-lg text-warm group-hover:text-accent transition-colors">{nombre}</h3>
+  <p class="text-mid text-xs">{municipio.comarca}</p>
+  <span class="text-accent text-sm mt-auto">Ver zona →</span>
+</a>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import TrustBar from '@/components/ui/TrustBar.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  lang?: 'es' | 'gl';
+  faqs?: { q: string; a: string }[];
+  breadcrumbs: { label: string; href: string }[];
+  hreflangEs?: string;
+  hreflangGl?: string;
+}
+
+const {
+  title, description, canonical, lang = 'es',
+  faqs = [], breadcrumbs, hreflangEs, hreflangGl,
+} = Astro.props;
+---
+
+<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl}>
+  {faqs.length > 0 && <SchemaFAQ faqs={faqs} />}
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <slot />
+  <TrustBar variant="dark" {lang} />
+  <CTASection {lang} />
+  <WhatsAppFloat {lang} />
+  <CTABar {lang} />
+</BaseLayout>

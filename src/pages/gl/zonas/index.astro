@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ZoneGrid from '@/components/sections/ZoneGrid.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import { BUSINESS } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/gl/zonas/`;
+const breadcrumbs = [
+  { label: 'Inicio', href: '/gl/' },
+  { label: 'Zonas', href: '/gl/zonas/' },
+];
+---
+
+<BaseLayout
+  title="Zonas onde traballamos en Galicia | Zentro Limpiezas"
+  description="Servizo de limpeza profesional en Ferrol, A Coruña e máis de 29 municipios de Ferrolterra e a comarca coruñesa."
+  canonical={canonical}
+  lang="gl"
+  hreflangEs={`${BUSINESS.url}/zonas/`}
+  hreflangGl={canonical}
+>
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <section class="hero-section bg-primary py-20 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl text-warm mb-4" data-reveal>Zonas onde traballamos</h1>
+      <p class="text-mid text-lg max-w-2xl mx-auto" data-reveal>
+        Cubrimos máis de 29 municipios en Galicia. Desde Ferrol ata A Coruña, pasando por toda a súa comarca e área metropolitana.
+      </p>
+    </div>
+  </section>
+  <ZoneGrid variant="all" lang="gl" />
+  <CTASection lang="gl" />
+  <WhatsAppFloat lang="gl" />
+  <CTABar lang="gl" />
+</BaseLayout>

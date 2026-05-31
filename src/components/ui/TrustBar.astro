@@ -1,0 +1,27 @@
+---
+interface Props { variant?: 'dark' | 'light'; lang?: 'es' | 'gl'; }
+const { variant = 'light', lang = 'es' } = Astro.props;
+const isGL = lang === 'gl';
+
+const items = [
+  { icon: '🏆', text: isGL ? '+20 anos de experiencia' : '+20 años de experiencia' },
+  { icon: '🌿', text: isGL ? 'Ecolóxico incluído' : 'Ecológico incluido' },
+  { icon: '⚡', text: isGL ? 'Orzamento en 24h' : 'Presupuesto en 24h' },
+  { icon: '📅', text: isGL ? 'Fins de semana' : 'Fines de semana' },
+  { icon: '✓', text: isGL ? 'Equipo fixo' : 'Equipo fijo' },
+];
+
+const isDark = variant === 'dark';
+---
+
+<div
+  class={`flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 ${isDark ? 'text-white/80' : 'text-charcoal'}`}
+  data-reveal-stagger
+>
+  {items.map(item => (
+    <div class="trust-item text-xs lg:text-sm font-medium">
+      <span>{item.icon}</span>
+      <span>{item.text}</span>
+    </div>
+  ))}
+</div>

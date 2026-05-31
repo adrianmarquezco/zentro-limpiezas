@@ -1,0 +1,49 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import SchemaService from '@/components/schema/SchemaService.astro';
+import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import TrustBar from '@/components/ui/TrustBar.astro';
+import { BUSINESS } from '@/data/config';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  lang?: 'es' | 'gl';
+  serviceName: string;
+  serviceDesc: string;
+  price?: string;
+  faqs?: { q: string; a: string }[];
+  breadcrumbs: { label: string; href: string }[];
+  hreflang?: string;
+  hreflangEs?: string;
+  hreflangGl?: string;
+}
+
+const {
+  title, description, canonical, lang = 'es',
+  serviceName, serviceDesc, price, faqs = [],
+  breadcrumbs, hreflangEs, hreflangGl,
+} = Astro.props;
+
+const schema: any[] = [
+  { component: 'SchemaService', props: { name: serviceName, description: serviceDesc, url: canonical, price } },
+  ...(faqs.length ? [{ component: 'SchemaFAQ', faqs }] : []),
+];
+---
+
+<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl}>
+  <SchemaService name={serviceName} description={serviceDesc} url={canonical} price={price} />
+  {faqs.length > 0 && <SchemaFAQ faqs={faqs} />}
+
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <slot />
+  <TrustBar variant="dark" {lang} />
+  <CTASection {lang} />
+  <WhatsAppFloat {lang} />
+  <CTABar {lang} />
+</BaseLayout>

@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Variables de diseño ─── */
+:root {
+  --brand-primary:  #0A2540;
+  --brand-accent:   #00C48C;
+  --brand-eco:      #4CAF50;
+  --brand-warm:     #F5F0E8;
+  --brand-white:    #FFFFFF;
+  --brand-charcoal: #1A1A2E;
+  --brand-mid:      #6B7280;
+  --brand-line:     #E5E0D8;
+  --brand-success:  #25D366;
+
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-micro:      120ms;
+  --dur-fast:       250ms;
+  --dur-normal:     400ms;
+  --dur-slow:       650ms;
+}
+
+/* ─── Accesibilidad: reducir movimiento ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background-color: var(--brand-warm);
+    color: var(--brand-charcoal);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: "DM Serif Display", Georgia, serif;
+    color: var(--brand-primary);
+    line-height: 1.15;
+  }
+
+  h4, h5, h6 {
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--brand-primary);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── Componentes ─── */
+@layer components {
+
+  /* Botones */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-semibold transition-all;
+    transition: transform var(--dur-micro) var(--ease-bounce),
+                box-shadow var(--dur-micro) var(--ease-out-expo),
+                background var(--dur-fast) var(--ease-out-expo);
+  }
+
+  @media (hover: hover) {
+    .btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10,37,64,0.18); }
+    .btn:active { transform: translateY(0); box-shadow: none; }
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white px-6 py-3 text-sm lg:text-base;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: scale(0);
+    border-radius: inherit;
+    transition: transform var(--dur-fast) var(--ease-out-expo), opacity var(--dur-fast);
+    opacity: 0;
+  }
+
+  .btn-primary:active::after { transform: scale(1); opacity: 1; transition: none; }
+
+  .btn-accent {
+    @apply btn bg-accent text-primary px-6 py-3 text-sm lg:text-base font-bold;
+  }
+
+  .btn-whatsapp {
+    @apply btn text-white px-6 py-3 text-sm lg:text-base font-bold;
+    background: var(--brand-success);
+  }
+
+  @media (hover: hover) {
+    .btn-whatsapp:hover { background: #1DA851; }
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary bg-transparent px-6 py-3 text-sm lg:text-base;
+  }
+
+  @media (hover: hover) {
+    .btn-outline:hover { @apply bg-primary text-white; }
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl border border-line p-6;
+    transition: transform var(--dur-fast) var(--ease-out-expo),
+                box-shadow var(--dur-fast) var(--ease-out-expo);
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(10,37,64,0.10);
+    }
+  }
+
+  /* Badge eco */
+  .badge-eco {
+    @apply inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-green-200;
+    animation: ecoPulse 2.5s var(--ease-in-out) infinite;
+  }
+
+  /* Número decorativo de sección */
+  .section-number {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(6rem, 15vw, 14rem);
+    font-weight: 400;
+    color: var(--brand-primary);
+    opacity: 0.05;
+    line-height: 1;
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Etiqueta trust */
+  .trust-item {
+    @apply flex items-center gap-2 text-sm font-medium;
+  }
+
+  /* Separador diagonal */
+  .diagonal-sep {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .diagonal-sep-inv {
+    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 100%);
+  }
+
+  /* Input / select / textarea del formulario */
+  .form-field {
+    @apply w-full bg-white border border-line rounded-xl px-4 py-3 text-charcoal placeholder-mid
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors;
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-charcoal mb-1.5;
+  }
+
+  /* Pill de municipio */
+  .zone-pill {
+    @apply inline-flex items-center gap-1.5 bg-white border border-line rounded-full px-4 py-1.5
+           text-sm font-medium text-charcoal hover:bg-primary hover:text-white hover:border-primary transition-colors;
+  }
+}
+
+/* ─── Utilidades ─── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .font-display { font-family: "DM Serif Display", Georgia, serif; }
+  .font-mono-data { font-family: "Space Mono", monospace; }
+
+  .speakable-intro {
+    @apply text-base lg:text-lg text-charcoal leading-relaxed;
+  }
+}
+
+/* ─── Animaciones keyframes ─── */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ecoPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+  50%       { box-shadow: 0 0 0 7px rgba(76, 175, 80, 0); }
+}
+
+@keyframes waBounceIn {
+  from { opacity: 0; transform: scale(0.5) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes zoneReveal {
+  from { fill: #E5E0D8; }
+  to   { fill: #00C48C; }
+}
+
+/* ─── Hero entrada escalonada ─── */
+.hero-eyebrow  { animation: slideUpFade var(--dur-normal) var(--ease-out-expo) 0ms   both; }
+.hero-h1-line1 { animation: slideUpFade var(--dur-slow)   var(--ease-out-expo) 80ms  both; }
+.hero-h1-line2 { animation: slideUpFade var(--dur-slow)   var(--ease-out-expo) 160ms both; }
+.hero-subtitle { animation: slideUpFade var(--dur-normal) var(--ease-out-expo) 280ms both; }
+.hero-ctas     { animation: slideUpFade var(--dur-normal) var(--ease-out-expo) 400ms both; }
+.hero-trust    { animation: fadeIn      var(--dur-normal) var(--ease-out-expo) 560ms both; }
+
+/* ─── Scroll reveal ─── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--dur-slow) var(--ease-out-expo),
+              transform var(--dur-slow) var(--ease-out-expo);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-left]  { opacity: 0; transform: translateX(-24px); transition: opacity var(--dur-slow) var(--ease-out-expo), transform var(--dur-slow) var(--ease-out-expo); }
+[data-reveal-right] { opacity: 0; transform: translateX(24px);  transition: opacity var(--dur-slow) var(--ease-out-expo), transform var(--dur-slow) var(--ease-out-expo); }
+[data-reveal-left].is-visible,
+[data-reveal-right].is-visible { opacity: 1; transform: translateX(0); }
+
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--dur-normal) var(--ease-out-expo),
+              transform var(--dur-normal) var(--ease-out-expo);
+}
+[data-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms;   opacity: 1; transform: none; }
+[data-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 80ms;  opacity: 1; transform: none; }
+[data-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: none; }
+[data-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: none; }
+[data-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: none; }
+[data-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: none; }
+
+/* ─── Header scroll ─── */
+.header {
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: background var(--dur-normal) var(--ease-in-out),
+              backdrop-filter var(--dur-normal) var(--ease-in-out),
+              box-shadow var(--dur-normal) var(--ease-in-out);
+}
+.header.is-scrolled {
+  background: rgba(10, 37, 64, 0.94);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+}
+
+/* ─── FAQ Accordion ─── */
+.faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-normal) var(--ease-out-expo);
+  overflow: hidden;
+}
+.faq-body > div { min-height: 0; }
+.faq-item.is-open .faq-body { grid-template-rows: 1fr; }
+.faq-icon { transition: transform var(--dur-fast) var(--ease-out-expo); }
+.faq-item.is-open .faq-icon { transform: rotate(45deg); }
+
+/* ─── Service card flip ─── */
+.service-card { transform-style: preserve-3d; }
+.service-card-inner {
+  position: relative;
+  transition: transform var(--dur-normal) var(--ease-out-expo);
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+@media (hover: hover) {
+  .service-card:hover .service-card-inner { transform: rotateY(180deg); }
+}
+.service-card-front,
+.service-card-back { backface-visibility: hidden; position: absolute; inset: 0; }
+.service-card-back { transform: rotateY(180deg); }
+
+/* Mobile: sin flip, tap para expandir precio */
+@media (max-width: 767px) {
+  .service-card-inner { transform: none !important; }
+  .service-card-back  { display: none; }
+  .service-card.is-flipped .service-card-front { display: none; }
+  .service-card.is-flipped .service-card-back  { display: flex; transform: none; }
+}
+
+/* ─── WhatsApp flotante ─── */
+.wa-float {
+  animation: waBounceIn var(--dur-slow) var(--ease-bounce) 2000ms both;
+}
+@media (hover: hover) {
+  .wa-float:hover {
+    transform: scale(1.08);
+    transition: transform var(--dur-micro) var(--ease-bounce);
+  }
+}
+
+/* ─── Mapa SVG ─── */
+.map-zone {
+  fill: #E5E0D8;
+  transition: fill var(--dur-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .map-zone:hover { fill: var(--brand-primary); }
+}
+.map-zone--active { fill: var(--brand-accent); }
+
+/* ─── Noise texture overlay ─── */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ─── Prose para blog ─── */
+.prose-zentro {
+  @apply text-charcoal leading-relaxed;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+.prose-zentro h2 { @apply font-display text-2xl lg:text-3xl text-primary mt-10 mb-4; }
+.prose-zentro h3 { @apply font-display text-xl text-primary mt-8 mb-3; }
+.prose-zentro p  { @apply mb-4 text-base lg:text-lg; }
+.prose-zentro ul { @apply mb-4 space-y-2 pl-5 list-disc; }
+.prose-zentro ol { @apply mb-4 space-y-2 pl-5 list-decimal; }
+.prose-zentro li { @apply text-base lg:text-lg; }
+.prose-zentro strong { @apply font-semibold text-primary; }
+.prose-zentro table { @apply w-full border-collapse mb-6 text-sm; }
+.prose-zentro th { @apply bg-primary text-white text-left px-4 py-2 font-semibold; }
+.prose-zentro td { @apply border border-line px-4 py-2; }
+.prose-zentro tr:nth-child(even) td { @apply bg-warm; }
+.prose-zentro a { @apply text-accent underline underline-offset-2 hover:text-primary transition-colors; }
+.prose-zentro blockquote { @apply border-l-4 border-accent pl-4 italic text-mid my-6; }

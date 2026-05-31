@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import { BUSINESS } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/legal/aviso-legal/`;
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Aviso legal', href: '/legal/aviso-legal/' },
+];
+---
+
+<BaseLayout
+  title="Aviso legal | Zentro Limpiezas"
+  description="Aviso legal de Zentro Limpiezas. Información sobre el titular del sitio web y condiciones de uso."
+  canonical={canonical}
+  robots="noindex, follow"
+>
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16 prose-zentro">
+    <h1 class="font-serif text-3xl text-warm mb-8">Aviso legal</h1>
+
+    <h2>1. Datos identificativos</h2>
+    <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico, se informa al usuario de que el presente sitio web (<strong>zentrolimpiezas.es</strong>) es operado por:</p>
+    <ul>
+      <li><strong>Denominación:</strong> Zentro Limpiezas</li>
+      <li><strong>Actividad:</strong> Servicios de limpieza profesional</li>
+      <li><strong>Teléfono de contacto:</strong> {BUSINESS.phoneDisplay}</li>
+      <li><strong>Dominio:</strong> {BUSINESS.domain}</li>
+    </ul>
+
+    <h2>2. Objeto y ámbito de aplicación</h2>
+    <p>Las presentes condiciones regulan el acceso y la utilización del sitio web que {BUSINESS.name} pone a disposición del público en Internet con el fin de informar sobre sus servicios de limpieza profesional.</p>
+
+    <h2>3. Propiedad intelectual e industrial</h2>
+    <p>Todos los contenidos del presente sitio web, incluyendo textos, imágenes, diseño gráfico, logotipos y cualquier otro elemento, son propiedad de {BUSINESS.name} o de terceros que han autorizado su uso. Queda prohibida su reproducción, distribución, comunicación pública o transformación sin autorización expresa.</p>
+
+    <h2>4. Responsabilidad</h2>
+    <p>{BUSINESS.name} no se hace responsable de los daños que pudieran derivarse del acceso o uso del sitio web, ni de los contenidos de terceros que pudieran estar enlazados desde el mismo.</p>
+
+    <h2>5. Ley aplicable y jurisdicción</h2>
+    <p>Las presentes condiciones se rigen por la legislación española. Para la resolución de cualquier conflicto, las partes se someten a los juzgados y tribunales de Ferrol (A Coruña), con renuncia expresa a cualquier otro fuero.</p>
+
+    <p class="text-mid text-sm mt-8">Última actualización: enero de 2025</p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,46 @@
+---
+interface Row { tipo: string; tamano: string; precio: string; }
+interface Props {
+  rows?: Row[];
+  lang?: 'es' | 'gl';
+}
+const { lang = 'es' } = Astro.props;
+const isGL = lang === 'gl';
+
+const rows: Row[] = Astro.props.rows ?? [
+  { tipo: isGL ? 'Piso pequeno' : 'Piso pequeño', tamano: 'até 50 m²', precio: isGL ? 'dende 45€' : 'desde 45€' },
+  { tipo: isGL ? 'Piso estándar' : 'Piso estándar', tamano: '50–70 m²', precio: isGL ? 'dende 55€' : 'desde 55€' },
+  { tipo: isGL ? 'Piso grande' : 'Piso grande', tamano: '70–100 m²', precio: isGL ? 'dende 70€' : 'desde 70€' },
+  { tipo: isGL ? 'Chalé / unifamiliar' : 'Chalet / unifamiliar', tamano: 'consultar', precio: isGL ? 'orzamento personalizado' : 'presupuesto personalizado' },
+];
+
+const disclaimer = isGL
+  ? 'Prezos orientativos. O prezo final depende do estado do inmoble, a frecuencia e as necesidades específicas.'
+  : 'Precios orientativos. El precio final depende del estado del inmueble, la frecuencia y las necesidades específicas.';
+---
+
+<div class="bg-white rounded-2xl border border-line overflow-hidden" data-reveal>
+  <div class="bg-primary px-5 py-3 flex items-center justify-between">
+    <span class="font-semibold text-white text-sm">{isGL ? 'Prezos orientativos 2026' : 'Precios orientativos 2026'}</span>
+    <span class="badge-eco text-xs py-0.5">🌿 {isGL ? 'Ecolóxico incluído' : 'Ecológico incluido'}</span>
+  </div>
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="bg-warm">
+        <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">{isGL ? 'Tipo' : 'Tipo'}</th>
+        <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">{isGL ? 'Tamaño' : 'Tamaño'}</th>
+        <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide font-mono-data">{isGL ? 'Prezo' : 'Precio'}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-warm/40'}>
+          <td class="px-5 py-3 text-charcoal">{row.tipo}</td>
+          <td class="px-5 py-3 text-mid">{row.tamano}</td>
+          <td class="px-5 py-3 font-mono-data font-bold text-primary">{row.precio}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="px-5 py-3 text-xs text-mid bg-warm/30 border-t border-line">{disclaimer}</p>
+</div>

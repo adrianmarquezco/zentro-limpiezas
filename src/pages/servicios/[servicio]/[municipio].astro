@@ -1,0 +1,161 @@
+---
+import ComboLayout from '@/layouts/ComboLayout.astro';
+import HeroLocal from '@/components/sections/HeroLocal.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import { SERVICIOS } from '@/data/servicios';
+import { getMunicipioBySlug } from '@/data/municipios';
+import { BUSINESS } from '@/data/config';
+
+export function getStaticPaths() {
+  const paths: { params: { servicio: string; municipio: string }; props: any }[] = [];
+  for (const s of SERVICIOS) {
+    for (const mSlug of s.municipiosCombo) {
+      const m = getMunicipioBySlug(mSlug);
+      if (m) {
+        paths.push({ params: { servicio: s.slug, municipio: m.slug }, props: { servicio: s, municipio: m } });
+      }
+    }
+  }
+  return paths;
+}
+
+const { servicio, municipio } = Astro.props;
+const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/`;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/`;
+
+const title = `${servicio.nombre} en ${municipio.nombre} | Zentro Limpiezas`;
+const description = `${servicio.nombre} profesional en ${municipio.nombre}. Productos ecológicos incluidos${servicio.precioDesde ? ` desde ${servicio.precioDesde}` : ''}. Presupuesto gratis. Más de 20 años de experiencia.`;
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios/' },
+  { label: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+  { label: municipio.nombre, href: canonical },
+];
+
+const faqs: { q: string; a: string }[] = [
+  {
+    q: `¿Cuánto cuesta el ${servicio.nombre.toLowerCase()} en ${municipio.nombre}?`,
+    a: servicio.precioDesde
+      ? `El precio en ${municipio.nombre} empieza desde ${servicio.precioDesde}. El presupuesto final depende del tamaño y estado. Te lo damos gratis y sin compromiso.`
+      : `El precio depende del tamaño y estado. Te hacemos un presupuesto personalizado y gratuito sin compromiso para ${municipio.nombre}.`,
+  },
+  {
+    q: `¿Tardáis mucho en llegar a ${municipio.nombre}?`,
+    a: `${municipio.nombre} está dentro de nuestra zona de servicio habitual. Normalmente podemos darte cita en 24-48 horas.`,
+  },
+  {
+    q: '¿Los productos ecológicos están incluidos en el precio?',
+    a: 'Sí, todos nuestros servicios incluyen productos con certificación ecológica sin coste adicional. Sin sorpresas en la factura.',
+  },
+  {
+    q: `¿Trabajáis en toda la zona de ${municipio.nombre}?`,
+    a: `Sí, trabajamos en ${municipio.nombre} y sus ${municipio.parroquias.length > 0 ? `${municipio.parroquias.length} parroquias` : 'alrededores'}. Si tienes dudas sobre tu dirección concreta, llámanos al ${BUSINESS.phoneDisplay}.`,
+  },
+  {
+    q: '¿Puedo contratar un servicio periódico?',
+    a: `Por supuesto. Ofrecemos limpieza semanal, quincenal o mensual en ${municipio.nombre}. Con el mismo equipo siempre y precio bonificado respecto al servicio puntual.`,
+  },
+];
+---
+
+<ComboLayout
+  {title}
+  {description}
+  {canonical}
+  lang="es"
+  serviceName={`${servicio.nombre} en ${municipio.nombre}`}
+  serviceDesc={description}
+  price={servicio.precioDesde ?? undefined}
+  {faqs}
+  {breadcrumbs}
+  hreflangEs={canonical}
+  {hreflangGl}
+>
+  <HeroLocal
+    municipio={municipio.nombre}
+    servicio={servicio.nombre}
+    eyebrow={`${servicio.nombre} · ${municipio.nombre}`}
+    h1={`${servicio.nombre}<br><span class="text-accent">en ${municipio.nombre}</span>`}
+    subtitle={`Servicio profesional de ${servicio.nombre.toLowerCase()} en ${municipio.nombre}. Productos 100% ecológicos incluidos sin coste extra. Presupuesto gratis en menos de 24 horas.`}
+    lang="es"
+  />
+
+  <!-- Contenido combo -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 space-y-6">
+          <div>
+            <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-4" data-reveal>
+              {servicio.nombre} en {municipio.nombre}
+            </h2>
+            <p class="text-mid leading-relaxed speakable-intro" data-reveal>
+              En Zentro Limpiezas llevamos más de 20 años prestando servicios de {servicio.nombre.toLowerCase()} en {municipio.nombre} y toda la comarca de {municipio.comarca}. {municipio.contenidoUnico.split('.')[0]}. Cada trabajo incluye productos de limpieza ecológicos certificados sin coste adicional.
+            </p>
+          </div>
+          <div class="mt-6" data-reveal>
+            <h3 class="font-serif text-xl text-warm mb-4">¿Por qué elegirnos en {municipio.nombre}?</h3>
+            <ul class="space-y-3">
+              {[
+                `Conocemos bien ${municipio.nombre} y sus características`,
+                'Equipo local con más de 20 años en la comarca',
+                'Productos ecológicos incluidos siempre',
+                'Horario flexible: tardes y fines de semana',
+                'Mismo equipo en cada visita',
+                'Presupuesto gratuito en 24h',
+              ].map(item => (
+                <li class="flex items-start gap-2 text-mid text-sm">
+                  <span class="text-accent shrink-0 mt-0.5">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <aside class="space-y-6">
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-lg text-warm mb-3">Solicitar presupuesto</h3>
+            {servicio.precioDesde && (
+              <p class="font-mono text-accent text-2xl mb-3">desde {servicio.precioDesde}</p>
+            )}
+            <p class="text-mid text-xs mb-4">Para {municipio.nombre} y alrededores</p>
+            <div class="flex flex-col gap-2">
+              <a href="/presupuesto/" class="btn btn-accent w-full text-center">Pedir presupuesto</a>
+              <a href={BUSINESS.phoneHref} class="btn btn-outline w-full text-center">{BUSINESS.phoneDisplay}</a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-base text-warm mb-3">Otros servicios en {municipio.nombre}</h3>
+            <div class="space-y-1">
+              <a href={`/zonas/${municipio.slug}/`} class="block text-accent text-sm hover:underline">
+                → Todos los servicios en {municipio.nombre}
+              </a>
+              <a href={`/servicios/${servicio.slug}/`} class="block text-accent text-sm hover:underline">
+                → {servicio.nombre} en otras zonas
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>
+        Preguntas sobre {servicio.nombre.toLowerCase()} en {municipio.nombre}
+      </h2>
+      <FAQAccordion {faqs} />
+    </div>
+  </section>
+
+  <ContactStrip context={municipio.nombre} />
+</ComboLayout>

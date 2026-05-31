@@ -1,0 +1,178 @@
+---
+import ServiceLayout from '@/layouts/ServiceLayout.astro';
+import HeroService from '@/components/sections/HeroService.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import ZoneGrid from '@/components/sections/ZoneGrid.astro';
+import { SERVICIOS, getServicioBySlug } from '@/data/servicios';
+import { getMunicipioBySlug } from '@/data/municipios';
+import { BUSINESS } from '@/data/config';
+
+export function getStaticPaths() {
+  return SERVICIOS.map((s) => ({
+    params: { servicio: s.slug },
+    props: { servicio: s },
+  }));
+}
+
+const { servicio } = Astro.props;
+const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/`;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/`;
+
+const title = `${servicio.nombre} en Galicia | Zentro Limpiezas`;
+const description = `${servicio.descripcionCorta} Productos ecológicos incluidos. Más de 20 años de experiencia en Ferrol y A Coruña. Presupuesto gratis.`;
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios/' },
+  { label: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+];
+
+const municipiosConCombo = servicio.municipiosCombo
+  .map(slug => getMunicipioBySlug(slug))
+  .filter(Boolean);
+
+const faqs: { q: string; a: string }[] = [
+  {
+    q: `¿Cuánto cuesta el servicio de ${servicio.nombre.toLowerCase()}?`,
+    a: servicio.precioDesde
+      ? `El precio comienza desde ${servicio.precioDesde}. El presupuesto final depende del tamaño y estado. Te lo damos gratis y sin compromiso.`
+      : `El precio depende del tamaño, estado y frecuencia. Te hacemos un presupuesto personalizado y gratuito sin compromiso.`,
+  },
+  {
+    q: '¿Los productos ecológicos tienen coste adicional?',
+    a: 'No. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica sin coste extra. El precio que ves es el precio total.',
+  },
+  {
+    q: '¿Con cuánta antelación hay que reservar?',
+    a: 'Normalmente podemos darte cita en 24-48 horas. Para trabajos de mayor envergadura o limpiezas de fin de obra, recomendamos avisar con 2-3 días de antelación.',
+  },
+  {
+    q: '¿Trabajáis fines de semana?',
+    a: 'Sí. Nuestro horario de atención es de lunes a viernes de 8:00 a 14:00 y sábados de 9:00 a 14:00, pero realizamos servicios también tardes y fines de semana según disponibilidad.',
+  },
+  {
+    q: `¿En qué zonas ofrecéis ${servicio.nombre.toLowerCase()}?`,
+    a: `Trabajamos en Ferrol, A Coruña y más de 29 municipios de Ferrolterra y el área metropolitana coruñesa. Si tienes dudas sobre tu zona, llámanos al ${BUSINESS.phoneDisplay}.`,
+  },
+];
+
+// Contenido específico por servicio
+const contenidoMap: Record<string, string> = {
+  'limpieza-de-viviendas': `La limpieza del hogar es uno de los servicios más demandados en Galicia. En Zentro Limpiezas llevamos más de 20 años ayudando a familias de Ferrol y A Coruña a mantener sus hogares impecables. Cada limpieza de vivienda incluye fregado de suelos, limpieza de baños y cocina, aspirado, eliminación de polvo y desinfección completa. Usamos productos ecológicos certificados que son igualmente eficaces que los convencionales pero más seguros para tu familia y el medio ambiente. Puedes contratarnos para una limpieza puntual o establecer un servicio periódico semanal, quincenal o mensual con el mismo equipo siempre.`,
+  'limpieza-de-pisos': `Los pisos en bloque tienen necesidades específicas de limpieza que van desde el mantenimiento periódico hasta la limpieza a fondo en cambios de inquilino o venta. En Zentro Limpiezas trabajamos tanto con particulares como con agencias inmobiliarias y comunidades de propietarios. Nuestro servicio de limpieza de pisos incluye la limpieza completa de todas las estancias, baños, cocina, suelos y superficies, con productos 100% ecológicos sin recargo.`,
+  'limpieza-de-oficinas': `Las oficinas y espacios de trabajo requieren una limpieza regular que no interfiera con la actividad laboral. En Zentro Limpiezas nos adaptamos a tu horario: podemos limpiar antes de que llegues, durante la jornada o una vez terminada. Trabajamos con empresas de todos los tamaños, desde despachos individuales hasta oficinas de planta completa en Ferrol y A Coruña. Gestión de residuos, desinfección de superficies de trabajo y mantenimiento de zonas comunes incluidos.`,
+  'limpieza-de-locales-comerciales': `Los locales comerciales son la imagen de tu negocio. Un local limpio transmite confianza y profesionalidad. Trabajamos con tiendas, bares, restaurantes y todo tipo de comercios, adaptando el servicio a tus horarios de apertura. Limpiamos fuera del horario comercial para no molestar a tus clientes. Servicio disponible en Ferrol, A Coruña y municipios del área metropolitana.`,
+  'limpieza-de-comunidades': `Las zonas comunes de un edificio —portales, escaleras, garajes, ascensores— necesitan un mantenimiento regular para mantener el valor del inmueble y la convivencia. Zentro Limpiezas ofrece contratos de limpieza de comunidades con visitas periódicas. Trabajamos con administradores de fincas y directamente con las comunidades de propietarios en toda la comarca ferrolana y coruñesa.`,
+  'limpieza-a-fondo': `La limpieza a fondo o "gran limpieza" va más allá del mantenimiento habitual. Ideal para después de las vacaciones, en cambios de estación, o cuando el hogar necesita una puesta a punto completa. Incluye zonas que habitualmente no se limpian: parte posterior de electrodomésticos, interiores de armarios, persianas, zócalos, detrás de muebles. Con productos ecológicos de alta eficacia y sin productos tóxicos en tu hogar.`,
+  'limpieza-fin-de-obra': `Después de una reforma o construcción nueva, los residuos de obra son un reto: polvo fino de escayola, restos de pintura, adhesivos, silicona y suciedad acumulada en todas las superficies. Nuestro equipo de limpieza de fin de obra está especializado en este tipo de trabajo, con el material adecuado para dejar tu nuevo espacio listo para habitar o para que entren los muebles.`,
+  'limpieza-de-apartamentos-turisticos': `Los apartamentos turísticos y alojamientos Airbnb necesitan una limpieza rápida y completa entre huéspedes. Nos adaptamos a los check-out y check-in de tu calendario. Servicio con reposición de ropa de cama y toallas si lo necesitas, cambio de basuras, desinfección completa y reposición de consumibles. Disponible en A Coruña, Ferrol y zonas costeras de la comarca.`,
+  'limpieza-periodica': `El servicio de limpieza periódica es la opción más cómoda y económica para mantener tu hogar siempre en perfecto estado. Estableces la frecuencia que mejor se adapta a tu ritmo de vida: semanal, quincenal o mensual. Siempre el mismo equipo de confianza, siempre a la hora acordada. Precio bonificado respecto a los servicios puntuales, con productos ecológicos incluidos.`,
+  'limpieza-de-cristales': `Los cristales y ventanales acumulan suciedad, cal del agua y polvo que dificultan la entrada de luz y afean la imagen de tu hogar o negocio. Nuestro servicio profesional de limpieza de cristales trabaja tanto en interior como en exterior, con el material adecuado para alturas. Resultado perfecto sin rayas, incluso en ventanas de difícil acceso.`,
+  'limpieza-de-pazos-y-eventos': `Los pazos gallegos y fincas para eventos tienen una complejidad especial: superficies nobles, espacios amplios y la necesidad de preparación previa y limpieza post-evento en plazos ajustados. En Zentro Limpiezas tenemos experiencia en la preparación de espacios para bodas, celebraciones y eventos corporativos, así como en la limpieza posterior.`,
+};
+
+const contenido = contenidoMap[servicio.slug] ?? servicio.descripcionCorta;
+---
+
+<ServiceLayout
+  {title}
+  {description}
+  {canonical}
+  lang="es"
+  serviceName={servicio.nombre}
+  serviceDesc={servicio.descripcionCorta}
+  price={servicio.precioDesde ?? undefined}
+  {faqs}
+  {breadcrumbs}
+  hreflangEs={canonical}
+  {hreflangGl}
+>
+  <HeroService
+    servicio={servicio.nombre}
+    eyebrow="Limpieza profesional · Productos ecológicos"
+    h1={`${servicio.nombre}<br><span class="text-accent">en Galicia</span>`}
+    subtitle={servicio.descripcionCorta}
+    precioDesde={servicio.precioDesde}
+    lang="es"
+  />
+
+  <!-- Contenido principal -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 space-y-8">
+          <div>
+            <div class="flex items-center gap-3 mb-4" data-reveal>
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-warm">{servicio.nombre} profesional</h2>
+            </div>
+            <p class="text-mid leading-relaxed speakable-intro" data-reveal>{contenido}</p>
+          </div>
+
+          <!-- Qué incluye -->
+          <div data-reveal>
+            <h3 class="font-serif text-xl text-warm mb-4">¿Qué incluye?</h3>
+            <ul class="space-y-2">
+              {[
+                'Mano de obra especializada',
+                'Productos de limpieza ecológicos certificados',
+                'Material y maquinaria profesional',
+                'Seguro de responsabilidad civil',
+                'Presupuesto personalizado sin compromiso',
+              ].map(item => (
+                <li class="flex items-start gap-2 text-mid text-sm">
+                  <span class="text-accent mt-0.5 shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <aside class="space-y-6">
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-lg text-warm mb-4">Solicita presupuesto</h3>
+            {servicio.precioDesde && (
+              <p class="font-mono text-accent text-2xl mb-4">desde {servicio.precioDesde}</p>
+            )}
+            <p class="text-mid text-sm mb-4">Presupuesto personalizado y gratuito en menos de 24h.</p>
+            <div class="flex flex-col gap-2">
+              <a href="/presupuesto/" class="btn btn-accent w-full text-center">Pedir presupuesto</a>
+              <a href={BUSINESS.phoneHref} class="btn btn-outline w-full text-center">{BUSINESS.phoneDisplay}</a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+
+          {municipiosConCombo.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <h3 class="font-serif text-base text-warm mb-3">Disponible en</h3>
+              <div class="flex flex-wrap gap-2">
+                {municipiosConCombo.map(m => (
+                  <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill hover:bg-accent hover:text-primary hover:border-accent">
+                    {m!.nombre}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 lg:py-24 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>
+        Preguntas frecuentes
+      </h2>
+      <FAQAccordion {faqs} />
+    </div>
+  </section>
+
+  <ContactStrip />
+</ServiceLayout>

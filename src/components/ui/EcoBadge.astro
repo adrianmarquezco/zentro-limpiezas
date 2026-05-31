@@ -1,0 +1,7 @@
+---
+interface Props { lang?: 'es' | 'gl'; size?: 'sm' | 'md'; }
+const { lang = 'es', size = 'md' } = Astro.props;
+---
+<span class={`badge-eco ${size === 'sm' ? 'text-xs px-2 py-1' : ''}`}>
+  🌿 {lang === 'gl' ? 'Ecolóxico incluído' : 'Ecológico incluido'}
+</span>

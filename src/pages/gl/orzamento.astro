@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { SERVICIOS } from '@/data/servicios';
+
+const canonical = `${BUSINESS.url}/gl/orzamento/`;
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/gl/' },
+  { label: 'Orzamento', href: '/gl/orzamento/' },
+];
+---
+
+<BaseLayout
+  title="Solicitar orzamento de limpeza | Zentro Limpiezas"
+  description="Solicita o teu orzamento de limpeza gratuíto e sen compromiso. Respondémoste en menos de 24 horas. Ferrol, A Coruña e toda a comarca."
+  canonical={canonical}
+  lang="gl"
+  hreflangEs={`${BUSINESS.url}/presupuesto/`}
+  hreflangGl={canonical}
+>
+  <Breadcrumbs crumbs={breadcrumbs} />
+
+  <section class="hero-section bg-primary py-16 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl lg:text-5xl text-warm mb-4" data-reveal>
+        Orzamento <span class="text-accent">gratuíto</span>
+      </h1>
+      <p class="text-mid text-lg max-w-xl mx-auto" data-reveal>Sen compromiso. Respondémoste en menos de 24 horas.</p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <form
+        id="orzamento-form"
+        action="/api/presupuesto"
+        method="POST"
+        class="space-y-5"
+        data-reveal
+        novalidate
+      >
+        <div class="form-field">
+          <label for="nombre" class="form-label">O teu nome *</label>
+          <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="María García" class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+        </div>
+        <div class="form-field">
+          <label for="telefono" class="form-label">Teléfono *</label>
+          <input type="tel" id="telefono" name="telefono" required autocomplete="tel" placeholder="666 123 456" class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+        </div>
+        <div class="form-field">
+          <label for="email" class="form-label">Email (opcional)</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="maria@exemplo.com" class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+        </div>
+        <div class="form-field">
+          <label for="servicio" class="form-label">Servizo que necesitas *</label>
+          <select id="servicio" name="servicio" required class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm focus:outline-none focus:border-accent transition-colors">
+            <option value="">Selecciona un servizo</option>
+            {SERVICIOS.map(s => <option value={s.nombreGL}>{s.nombreGL}</option>)}
+            <option value="Outro">Outro / Non sei</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="zona" class="form-label">Municipio ou zona *</label>
+          <input type="text" id="zona" name="zona" required placeholder="Ferrol, A Coruña, Narón..." class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+        </div>
+        <div class="form-field">
+          <label for="mensaje" class="form-label">Cóntanos máis (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tamaño do piso, frecuencia, urxencia..." class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+        </div>
+        <div class="flex items-start gap-3">
+          <input type="checkbox" id="privacidad" name="privacidad" required class="mt-1 accent-accent" />
+          <label for="privacidad" class="text-mid text-sm">Lin e acepto a <a href="/legal/politica-privacidad/" class="text-accent hover:underline">política de privacidade</a> *</label>
+        </div>
+        <input type="text" name="_honeypot" class="hidden" tabindex="-1" autocomplete="off" />
+        <button type="submit" class="btn btn-accent w-full py-4 text-base font-semibold">Enviar solicitude →</button>
+      </form>
+
+      <div id="form-success" class="hidden mt-4 p-4 bg-accent/10 border border-accent/30 rounded-lg text-accent text-sm">
+        ✓ Mensaxe enviada. Contactámoste en menos de 24 horas.
+      </div>
+      <div id="form-error" class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+        Algo fallou. Chámanos directamente ao <a href={BUSINESS.phoneHref} class="underline">{BUSINESS.phoneDisplay}</a>.
+      </div>
+    </div>
+  </section>
+
+  <WhatsAppFloat lang="gl" />
+</BaseLayout>
+
+<script>
+const form = document.getElementById('orzamento-form') as HTMLFormElement;
+const successEl = document.getElementById('form-success');
+const errorEl = document.getElementById('form-error');
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  const data = new FormData(form);
+  if (data.get('_honeypot')) return;
+  try {
+    const res = await fetch('/api/presupuesto', { method: 'POST', body: data });
+    if (res.ok) { form.classList.add('hidden'); successEl?.classList.remove('hidden'); }
+    else throw new Error();
+  } catch {
+    errorEl?.classList.remove('hidden');
+    btn.disabled = false;
+    btn.textContent = 'Enviar solicitude →';
+  }
+});
+</script>

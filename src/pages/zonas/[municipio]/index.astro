@@ -1,0 +1,169 @@
+---
+import ZoneLayout from '@/layouts/ZoneLayout.astro';
+import HeroLocal from '@/components/sections/HeroLocal.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import ServiceGrid from '@/components/sections/ServiceGrid.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
+import { SERVICIOS } from '@/data/servicios';
+import { BUSINESS } from '@/data/config';
+
+export function getStaticPaths() {
+  return MUNICIPIOS.map((m) => ({
+    params: { municipio: m.slug },
+    props: { municipio: m },
+  }));
+}
+
+const { municipio } = Astro.props;
+const canonical = `${BUSINESS.url}/zonas/${municipio.slug}/`;
+const hreflangGl = `${BUSINESS.url}/gl/zonas/${municipio.slug}/`;
+
+const title = `Limpieza del hogar en ${municipio.nombre} | Zentro Limpiezas`;
+const description = `Limpieza profesional en ${municipio.nombre}. Productos ecológicos incluidos. Presupuesto gratis sin compromiso. Más de 20 años de experiencia.`;
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Zonas', href: '/zonas/' },
+  { label: municipio.nombre, href: `/zonas/${municipio.slug}/` },
+];
+
+const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1).slice(0, 4);
+---
+
+<ZoneLayout
+  {title}
+  {description}
+  {canonical}
+  lang="es"
+  faqs={municipio.faqs}
+  {breadcrumbs}
+  hreflangEs={canonical}
+  {hreflangGl}
+>
+  <HeroLocal
+    municipio={municipio.nombre}
+    eyebrow={`Limpieza profesional en ${municipio.nombre}`}
+    h1={`Limpieza a domicilio<br><span class="text-accent">${municipio.nombre}</span>`}
+    subtitle={`Servicio profesional de limpieza en ${municipio.nombre} con productos 100% ecológicos. Sin coste adicional. Presupuesto gratis en minutos.`}
+    lang="es"
+  />
+
+  <!-- Contenido único del municipio -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-6" data-reveal>
+            <span class="section-number">01</span>
+            <h2 class="font-serif text-2xl lg:text-3xl text-warm">
+              Empresa de limpieza en {municipio.nombre}
+            </h2>
+          </div>
+          <div class="prose-zentro space-y-4" data-reveal>
+            <p class="text-mid leading-relaxed speakable-intro">{municipio.contenidoUnico}</p>
+          </div>
+          {municipio.tipoVivienda && (
+            <div class="mt-6 p-4 bg-charcoal border border-line rounded-lg" data-reveal>
+              <p class="text-mid text-sm">
+                <span class="text-accent font-medium">Tipo de vivienda habitual:</span> {municipio.tipoVivienda}
+              </p>
+            </div>
+          )}
+        </div>
+        <aside class="space-y-6">
+          <!-- Datos rápidos -->
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-lg text-warm mb-4">Datos del servicio</h3>
+            <ul class="space-y-3 text-sm text-mid">
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> Zona: {municipio.comarca}
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> Productos ecológicos incluidos
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> Horario flexible (tardes y fines de semana)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> Presupuesto sin compromiso
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-accent">✓</span> +20 años de experiencia
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="md" />
+            </div>
+          </div>
+          <!-- Municipios cercanos -->
+          {municipio.municipiosCercanos.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <h3 class="font-serif text-base text-warm mb-3">Zonas próximas</h3>
+              <div class="flex flex-wrap gap-2">
+                {municipio.municipiosCercanos.slice(0, 6).map((slug) => {
+                  const m = getMunicipioBySlug(slug);
+                  return m ? (
+                    <a href={`/zonas/${m.slug}/`} class="zone-pill">{m.nombre}</a>
+                  ) : null;
+                })}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios disponibles -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>
+        Servicios disponibles en {municipio.nombre}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICIOS.map((s) => (
+          <a
+            href={`/servicios/${s.slug}/`}
+            class="card p-4 flex items-center gap-3 hover:border-accent transition-colors"
+            data-reveal
+          >
+            <span class="text-accent text-lg">✓</span>
+            <span class="text-warm text-sm font-medium">{s.nombre}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Parroquias -->
+  {municipio.parroquias.length > 0 && (
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-xl text-warm mb-6" data-reveal>
+          Parroquias de {municipio.nombre}
+        </h2>
+        <div class="flex flex-wrap gap-2" data-reveal>
+          {municipio.parroquias.map((p) => (
+            <span class="zone-pill">{p}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ -->
+  {municipio.faqs.length > 0 && (
+    <section class="py-16 lg:py-24 bg-charcoal">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>
+          Preguntas frecuentes sobre limpieza en {municipio.nombre}
+        </h2>
+        <FAQAccordion faqs={municipio.faqs} />
+      </div>
+    </section>
+  )}
+
+  <ContactStrip context={municipio.nombre} />
+</ZoneLayout>

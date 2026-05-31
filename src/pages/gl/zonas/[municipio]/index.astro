@@ -1,0 +1,108 @@
+---
+import ZoneLayout from '@/layouts/ZoneLayout.astro';
+import HeroLocal from '@/components/sections/HeroLocal.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
+import { SERVICIOS } from '@/data/servicios';
+import { BUSINESS } from '@/data/config';
+
+export function getStaticPaths() {
+  return MUNICIPIOS.map((m) => ({
+    params: { municipio: m.slug },
+    props: { municipio: m },
+  }));
+}
+
+const { municipio } = Astro.props;
+const canonical = `${BUSINESS.url}/gl/zonas/${municipio.slug}/`;
+const hreflangEs = `${BUSINESS.url}/zonas/${municipio.slug}/`;
+
+const title = `Limpeza do fogar en ${municipio.nombreGL} | Zentro Limpiezas`;
+const description = `Limpeza profesional en ${municipio.nombreGL}. Produtos ecolóxicos incluídos. Orzamento gratuíto sen compromiso. Máis de 20 anos de experiencia.`;
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/gl/' },
+  { label: 'Zonas', href: '/gl/zonas/' },
+  { label: municipio.nombreGL, href: canonical },
+];
+---
+
+<ZoneLayout
+  {title}
+  {description}
+  {canonical}
+  lang="gl"
+  faqs={municipio.faqs}
+  {breadcrumbs}
+  {hreflangEs}
+  hreflangGl={canonical}
+>
+  <HeroLocal
+    municipio={municipio.nombreGL}
+    eyebrow={`Limpeza profesional en ${municipio.nombreGL}`}
+    h1={`Limpeza a domicilio<br><span class="text-accent">${municipio.nombreGL}</span>`}
+    subtitle={`Servizo profesional de limpeza en ${municipio.nombreGL} con produtos 100% ecolóxicos incluídos. Sen custo adicional. Orzamento gratuíto en minutos.`}
+    lang="gl"
+  />
+
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-4" data-reveal>
+            Empresa de limpeza en {municipio.nombreGL}
+          </h2>
+          <p class="text-mid leading-relaxed speakable-intro" data-reveal>
+            {municipio.contenidoUnicoGL}
+          </p>
+        </div>
+        <aside class="space-y-6">
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-lg text-warm mb-4">Datos do servizo</h3>
+            <ul class="space-y-3 text-sm text-mid">
+              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Zona: {municipio.comarca}</li>
+              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Produtos ecolóxicos incluídos</li>
+              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Horario flexible</li>
+              <li class="flex items-center gap-2"><span class="text-accent">✓</span> Orzamento sen compromiso</li>
+              <li class="flex items-center gap-2"><span class="text-accent">✓</span> +20 anos de experiencia</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="md" />
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl text-warm mb-8 text-center" data-reveal>
+        Servizos dispoñibles en {municipio.nombreGL}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICIOS.map((s) => (
+          <a href={`/gl/servizos/${s.slugGL}/`} class="card p-4 flex items-center gap-3 hover:border-accent transition-colors" data-reveal>
+            <span class="text-accent text-lg">✓</span>
+            <span class="text-warm text-sm font-medium">{s.nombreGL}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {municipio.faqs.length > 0 && (
+    <section class="py-16 lg:py-24 bg-charcoal">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-2xl text-warm mb-8 text-center" data-reveal>
+          Preguntas frecuentes sobre limpeza en {municipio.nombreGL}
+        </h2>
+        <FAQAccordion faqs={municipio.faqs} />
+      </div>
+    </section>
+  )}
+
+  <ContactStrip context={municipio.nombreGL} lang="gl" />
+</ZoneLayout>

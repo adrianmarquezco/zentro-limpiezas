@@ -1,0 +1,50 @@
+---
+import ZoneCard from '@/components/ui/ZoneCard.astro';
+import { MUNICIPIOS, MUNICIPIOS_FERROLTERRA, MUNICIPIOS_CORUNA } from '@/data/municipios';
+
+interface Props {
+  lang?: 'es' | 'gl';
+  variant?: 'all' | 'ferrolterra' | 'coruna';
+  title?: string;
+}
+const { lang = 'es', variant = 'all', title } = Astro.props;
+const muns = variant === 'ferrolterra'
+  ? MUNICIPIOS_FERROLTERRA
+  : variant === 'coruna'
+    ? MUNICIPIOS_CORUNA
+    : MUNICIPIOS;
+
+const defaultTitle = lang === 'gl' ? 'Zonas onde traballamos' : 'Zonas donde trabajamos';
+---
+
+<section class="py-20 lg:py-28 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-serif text-3xl lg:text-4xl text-warm mb-4 text-center" data-reveal>
+      {title ?? defaultTitle}
+    </h2>
+    <p class="text-mid text-center mb-12 max-w-xl mx-auto" data-reveal>
+      {lang === 'gl'
+        ? 'Cubrimos Ferrol, A Coruña e toda a súa área metropolitana e comarcas próximas.'
+        : 'Cubrimos Ferrol, A Coruña y toda su área metropolitana y comarcas próximas.'}
+    </p>
+
+    {variant === 'all' && (
+      <div class="mb-10">
+        <h3 class="text-mid text-sm uppercase tracking-widest mb-4 font-medium" data-reveal>Ferrolterra</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
+          {MUNICIPIOS_FERROLTERRA.map((m) => <ZoneCard municipio={m} lang={lang} />)}
+        </div>
+        <h3 class="text-mid text-sm uppercase tracking-widest mb-4 font-medium" data-reveal>Área Metropolitana A Coruña</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {MUNICIPIOS_CORUNA.map((m) => <ZoneCard municipio={m} lang={lang} />)}
+        </div>
+      </div>
+    )}
+
+    {variant !== 'all' && (
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {muns.map((m) => <ZoneCard municipio={m} lang={lang} />)}
+      </div>
+    )}
+  </div>
+</section>

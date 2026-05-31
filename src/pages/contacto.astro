@@ -1,0 +1,88 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/contacto/`;
+const title = 'Contacto | Zentro Limpiezas · Ferrol y A Coruña';
+const description = `Contacta con Zentro Limpiezas. Teléfono: ${BUSINESS.phoneDisplay}. Atención de lunes a viernes de 8:00 a 14:00 y sábados de 9:00 a 14:00.`;
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Contacto', href: '/contacto/' },
+];
+
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
+---
+
+<BaseLayout {title} {description} {canonical} lang="es" robots="noindex, follow">
+  <Breadcrumbs crumbs={breadcrumbs} />
+
+  <section class="bg-primary py-16 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl text-warm mb-4">Contacto</h1>
+      <p class="text-mid text-lg max-w-xl mx-auto">Estamos aquí para ayudarte. Contáctanos por el canal que prefieras.</p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="card p-6 text-center" data-reveal>
+          <div class="text-accent text-3xl mb-3">📞</div>
+          <h2 class="font-serif text-lg text-warm mb-2">Teléfono</h2>
+          <a href={BUSINESS.phoneHref} class="text-accent text-xl font-mono hover:underline">
+            {BUSINESS.phoneDisplay}
+          </a>
+          <p class="text-mid text-xs mt-3">Lun–Vie 8:00–14:00<br>Sáb 9:00–14:00</p>
+        </div>
+
+        <div class="card p-6 text-center" data-reveal>
+          <div class="text-accent text-3xl mb-3">💬</div>
+          <h2 class="font-serif text-lg text-warm mb-2">WhatsApp</h2>
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp mx-auto">
+            Escribir ahora
+          </a>
+          <p class="text-mid text-xs mt-3">Respuesta rápida</p>
+        </div>
+
+        <div class="card p-6 text-center sm:col-span-2 lg:col-span-1" data-reveal>
+          <div class="text-accent text-3xl mb-3">📋</div>
+          <h2 class="font-serif text-lg text-warm mb-2">Formulario</h2>
+          <a href="/presupuesto/" class="btn btn-accent mx-auto">
+            Solicitar presupuesto
+          </a>
+          <p class="text-mid text-xs mt-3">Respuesta en 24h</p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 card p-8" data-reveal>
+        <h2 class="font-serif text-xl text-warm mb-6">Información de contacto</h2>
+        <dl class="space-y-4">
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Empresa</dt>
+            <dd class="text-warm text-sm">{BUSINESS.name}</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Zona de trabajo</dt>
+            <dd class="text-warm text-sm">Ferrol, A Coruña y más de 29 municipios de Galicia</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Horario atención</dt>
+            <dd class="text-warm text-sm">Lun–Vie 8:00–14:00 · Sáb 9:00–14:00</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Servicios</dt>
+            <dd class="text-warm text-sm">Horario flexible incluyendo tardes y fines de semana</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <WhatsAppFloat />
+</BaseLayout>

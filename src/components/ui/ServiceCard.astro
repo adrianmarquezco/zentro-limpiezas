@@ -1,0 +1,62 @@
+---
+import EcoBadge from './EcoBadge.astro';
+import type { Servicio } from '@/data/servicios';
+
+interface Props {
+  servicio: Servicio;
+  lang?: 'es' | 'gl';
+}
+const { servicio, lang = 'es' } = Astro.props;
+const nombre = lang === 'gl' ? servicio.nombreGL : servicio.nombre;
+const prefix = lang === 'gl' ? '/gl/servizos/' : '/servicios/';
+const slugRoute = lang === 'gl' ? servicio.slugGL : servicio.slug;
+const href = `${prefix}${slugRoute}/`;
+
+const icons: Record<string, string> = {
+  house: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M240,212H224V136l8.28-8.28a8,8,0,0,0-11.32-11.32l-2.95,2.95L128,29.37,37,119.34l-2.95-2.95a8,8,0,0,0-11.32,11.32L32,136v76H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,212H168V160a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v52H48V124.69l80-80,80,80ZM104,212V168h48v44Z"/></svg>`,
+  buildings: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M240,208H224V96a16,16,0,0,0-16-16H168V48a16,16,0,0,0-16-16H56A16,16,0,0,0,40,48V208H24a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H168V96ZM56,48H152V208H56Z"/></svg>`,
+  briefcase: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,200H40V72H216V200Z"/></svg>`,
+  storefront: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96v16a40,40,0,0,0,16,32V224a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32ZM54,48H202l13.33,48H40.67ZM104,208H56V160h48Zm96,0H120V160H56V136.43a39.46,39.46,0,0,0,8,.57,40.07,40.07,0,0,0,32-16,40,40,0,0,0,64,0,40.07,40.07,0,0,0,32,16,39.46,39.46,0,0,0,8-.57Z"/></svg>`,
+  'buildings-alt': `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M240,208H224V96a16,16,0,0,0-16-16H168V48a16,16,0,0,0-16-16H56A16,16,0,0,0,40,48V208H24a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H168V96ZM56,48H152V208H56ZM72,88h64a8,8,0,0,0,0-16H72a8,8,0,0,0,0,16Zm0,40h64a8,8,0,0,0,0-16H72a8,8,0,0,0,0,16Zm0,40h64a8,8,0,0,0,0-16H72a8,8,0,0,0,0,16Z"/></svg>`,
+  sparkle: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M208,144H168l-28-28,28-28h40a8,8,0,0,0,0-16H168a8,8,0,0,0-5.66,2.34L136,101.37V48a8,8,0,0,0-16,0v53.37L93.66,74.34A8,8,0,0,0,88,72H48a8,8,0,0,0,0,16H88l28,28-28,28H48a8,8,0,0,0,0,16H88a8,8,0,0,0,5.66-2.34L120,154.63V208a8,8,0,0,0,16,0V154.63l26.34,26.37A8,8,0,0,0,168,184h40a8,8,0,0,0,0-16Z"/></svg>`,
+  wrench: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M218.67,73.22a71.89,71.89,0,0,1-8.72,68.81,72,72,0,0,1-90,22.84l-61.2,61.21a24,24,0,0,1-33.94-33.94L86,131,76.14,121.11A8,8,0,1,1,87.45,109.8l64,64A56,56,0,0,0,210,80.43L190,100a8,8,0,0,1-11.31,0L148,69.31a8,8,0,0,1,0-11.31l19.6-19.59A56.11,56.11,0,0,0,96,96a57,57,0,0,0,.47,7.28L86.32,113.43a72.07,72.07,0,0,1,8.37-85.26A72,72,0,0,1,218.67,73.22Z"/></svg>`,
+  bed: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M240,112H208V72a16,16,0,0,0-16-16H64A16,16,0,0,0,48,72v40H16a8,8,0,0,0-8,8v80a8,8,0,0,0,16,0V184H232v16a8,8,0,0,0,16,0V120A8,8,0,0,0,240,112ZM64,72H192v40H160V104a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v8H64ZM112,112h32v0H112Zm120,56H24V128H232Z"/></svg>`,
+  'calendar-check': `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM208,208H48V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg>`,
+  window: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H216V96H40ZM40,200V112H120v88ZM136,200V112h80v88Z"/></svg>`,
+  castle: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M248,48V96a8,8,0,0,1-8,8H224V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V104H16a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H56a8,8,0,0,1,8,8V72H96V48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8V72h32V48a8,8,0,0,1,8-8h40A8,8,0,0,1,248,48ZM160,208V176a32,32,0,0,0-64,0v32ZM112,176a16,16,0,0,1,32,0v32H112Z"/></svg>`,
+};
+
+const svgIcon = icons[servicio.icono] ?? icons.house;
+---
+
+<article class="card service-card group relative" data-reveal>
+  <div class="service-card-inner">
+    <!-- Front -->
+    <div class="service-card-front flex flex-col gap-4 p-6">
+      <div class="text-accent" set:html={svgIcon} />
+      <h3 class="font-serif text-xl text-warm">{nombre}</h3>
+      <p class="text-mid text-sm leading-relaxed flex-1">
+        {servicio.descripcionCorta}
+      </p>
+      <div class="flex items-center justify-between mt-auto pt-4 border-t border-line">
+        <EcoBadge size="sm" />
+        {servicio.precioDesde && (
+          <span class="font-mono text-accent text-sm">desde {servicio.precioDesde}</span>
+        )}
+      </div>
+    </div>
+    <!-- Back -->
+    <div class="service-card-back flex flex-col gap-4 p-6 bg-primary">
+      <h3 class="font-serif text-xl text-warm">{nombre}</h3>
+      <p class="text-mid text-sm leading-relaxed flex-1">
+        Productos 100% ecológicos incluidos sin coste adicional. Sin sorpresas.
+      </p>
+      {servicio.precioDesde && (
+        <p class="font-mono text-accent text-2xl">desde {servicio.precioDesde}</p>
+      )}
+      <a href={href} class="btn btn-accent w-full text-center mt-auto">
+        Ver servicio →
+      </a>
+    </div>
+  </div>
+</article>

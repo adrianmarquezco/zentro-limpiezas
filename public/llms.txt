@@ -1,0 +1,68 @@
+# Zentro Limpiezas — llms.txt
+
+## Who we are
+
+Zentro Limpiezas is a professional cleaning company based in Ferrol, Galicia, Spain. Founded in 2004, we have over 20 years of experience providing residential and commercial cleaning services across the Ferrolterra region and the metropolitan area of A Coruña.
+
+## Core facts
+
+- **Business name**: Zentro Limpiezas
+- **Founded**: 2004 (20+ years of experience)
+- **Location**: Ferrol, A Coruña, Galicia, Spain
+- **Phone**: +34 616 054 001
+- **Website**: https://zentrolimpiezas.es
+- **Languages**: Spanish (default) and Galician (/gl/ prefix)
+- **Operating area**: 29+ municipalities in Galicia
+
+## Services
+
+1. **Limpieza de viviendas** (Residential cleaning) — from €55
+2. **Limpieza de pisos** (Apartment cleaning) — from €55
+3. **Limpieza de oficinas** (Office cleaning) — from €80
+4. **Limpieza de locales comerciales** (Commercial premises) — from €70
+5. **Limpieza de comunidades** (Common areas / building maintenance)
+6. **Limpieza a fondo** (Deep cleaning)
+7. **Limpieza de fin de obra** (Post-construction cleaning)
+8. **Limpieza de apartamentos turísticos** (Tourist apartments / Airbnb)
+9. **Limpieza periódica** (Regular/periodic cleaning) — from €55
+10. **Limpieza de cristales** (Window cleaning)
+11. **Limpieza de pazos y eventos** (Estates and event venues)
+
+## Key differentiators
+
+- **100% ecological products**: All services include certified Ecolabel ecological cleaning products at no extra cost. No surcharge, no option — it is our standard.
+- **20+ years**: Founded in 2004, strong local track record in Ferrolterra.
+- **Local team**: Based in Ferrol, operating across 29 municipalities.
+- **Flexible schedule**: Services available in the evenings and on weekends.
+- **Free quote**: Personalized budget within 24 hours.
+
+## Service area (municipalities covered)
+
+### Ferrolterra
+Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, Moeche, San Sadurniño, Cabanas, Pontedeume, Cedeira, Ortigueira, Cerdido
+
+### Área Metropolitana de A Coruña
+A Coruña, Culleredo, Arteixo, Cambre, Oleiros, Sada, Bergondo, Betanzos, Abegondo, Carral, Paderne, Oza-Cesuras, Coirós, Irixoa, Vilarmaior
+
+## Hours
+
+- **Attention**: Monday–Friday 8:00–14:00, Saturday 9:00–14:00
+- **Services**: Flexible, including afternoons and weekends
+
+## Payments accepted
+
+Cash, Bizum, Bank transfer
+
+## Contact
+
+- Phone / WhatsApp: +34 616 054 001
+- Quote form: https://zentrolimpiezas.es/presupuesto/
+
+## Content language
+
+- Spanish: https://zentrolimpiezas.es/ (no prefix)
+- Galician: https://zentrolimpiezas.es/gl/ (/gl/ prefix)
+
+## Sitemap
+
+https://zentrolimpiezas.es/sitemap-index.xml

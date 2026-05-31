@@ -1,0 +1,171 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import TrustBar from '@/components/ui/TrustBar.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import { BUSINESS } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/sobre-nosotros/`;
+const title = 'Sobre Zentro Limpiezas | Empresa de limpieza en Ferrol desde 2004';
+const description = 'Más de 20 años ofreciendo servicios de limpieza profesional en Ferrol y A Coruña. Equipo local, productos ecológicos, trato cercano. Conoce nuestra historia.';
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Sobre nosotros', href: '/sobre-nosotros/' },
+];
+---
+
+<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/sobre-nos/`}>
+  <Breadcrumbs crumbs={breadcrumbs} />
+
+  <!-- Hero -->
+  <section class="hero-section bg-primary py-20 lg:py-28 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
+          Desde 2004 en Galicia
+        </span>
+        <h1 class="font-serif text-4xl lg:text-5xl text-warm leading-tight mb-4">
+          Más de 20 años<br>
+          <span class="text-accent">limpiando hogares</span><br>
+          en Galicia
+        </h1>
+        <p class="text-mid text-lg leading-relaxed speakable-intro">
+          Somos una empresa familiar fundada en Ferrol en 2004. Hemos crecido construyendo una reputación basada en el trabajo bien hecho, el trato cercano y la confianza que depositan en nosotros las familias y empresas de la comarca.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historia -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="space-y-6">
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-warm">Nuestra historia</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>Zentro Limpiezas nació en Ferrol en 2004 con una idea simple: ofrecer un servicio de limpieza profesional con la cercanía y el trato de quien conoce bien el territorio. Empezamos con servicios de limpieza doméstica en la ciudad y poco a poco fuimos ganándonos la confianza de vecinos, comunidades y empresas.</p>
+              <p>Con el paso de los años expandimos nuestro radio de acción a toda Ferrolterra y el área metropolitana de A Coruña. Hoy trabajamos en más de 29 municipios, con un equipo estable que conoce perfectamente cada zona y sus particularidades.</p>
+              <p>El compromiso con el medio ambiente nos llevó a adoptar productos de limpieza ecológicos hace años, mucho antes de que se convirtiera en tendencia. Hoy es una seña de identidad: todos nuestros servicios incluyen productos con certificación ecológica sin coste adicional.</p>
+            </div>
+          </div>
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl text-warm">Nuestros valores</h2>
+            </div>
+            <ul class="space-y-4">
+              {[
+                {
+                  title: 'Profesionalidad',
+                  desc: 'Cada trabajo se hace con el mismo nivel de exigencia, tanto si es un piso pequeño como una gran empresa.',
+                },
+                {
+                  title: 'Confianza',
+                  desc: 'Entramos en tu hogar o en tu empresa. Eso implica una responsabilidad que tomamos muy en serio.',
+                },
+                {
+                  title: 'Respeto al medio ambiente',
+                  desc: 'Productos ecológicos certificados en cada servicio. Sin excusas, sin costes extra.',
+                },
+                {
+                  title: 'Cercanía',
+                  desc: 'Somos una empresa local. Conocemos la comarca y el carácter de la gente que vive aquí.',
+                },
+              ].map(v => (
+                <li class="flex items-start gap-3">
+                  <span class="text-accent mt-1 shrink-0">✓</span>
+                  <div>
+                    <p class="text-warm font-medium text-sm">{v.title}</p>
+                    <p class="text-mid text-sm mt-1">{v.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Stats -->
+          <div class="grid grid-cols-2 gap-4" data-reveal>
+            {[
+              { num: '+20', label: 'años de experiencia' },
+              { num: '29', label: 'municipios cubiertos' },
+              { num: '100%', label: 'ecológico siempre' },
+              { num: '2004', label: 'año de fundación' },
+            ].map(item => (
+              <div class="card p-6 text-center">
+                <p class="font-mono text-accent text-3xl font-bold">{item.num}</p>
+                <p class="text-mid text-sm mt-2">{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Eco compromiso -->
+          <div class="card p-6 border-accent/30" data-reveal>
+            <div class="flex items-center gap-3 mb-4">
+              <EcoBadge size="md" />
+            </div>
+            <h3 class="font-serif text-lg text-warm mb-3">Compromiso ecológico</h3>
+            <p class="text-mid text-sm leading-relaxed">
+              Usamos exclusivamente productos de limpieza con certificación ecológica Ecolabel. Son igual de eficaces que los convencionales, pero sin químicos agresivos para tu familia ni para el entorno natural de Galicia.
+            </p>
+            <p class="text-mid text-sm mt-3 font-medium text-accent">
+              Incluido en el precio. Sin recargos. Siempre.
+            </p>
+          </div>
+
+          <!-- Zona de trabajo -->
+          <div class="card p-6" data-reveal>
+            <h3 class="font-serif text-lg text-warm mb-3">Dónde trabajamos</h3>
+            <p class="text-mid text-sm leading-relaxed mb-3">
+              Nuestra sede está en Ferrol, pero operamos en toda Ferrolterra y el área metropolitana de A Coruña: más de 29 municipios cubiertos.
+            </p>
+            <a href="/zonas/" class="text-accent text-sm hover:underline">Ver todas las zonas →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo / Por qué nosotros -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-6" data-reveal>¿Por qué elegir Zentro Limpiezas?</h2>
+        <div class="grid sm:grid-cols-2 gap-4 mt-8">
+          {[
+            { icon: '🏠', title: 'Empresa local', desc: 'Nacidos y criados en Ferrol. Conocemos el territorio y la gente.' },
+            { icon: '🌿', title: 'Ecológico incluido', desc: 'Sin recargos por usar productos responsables. Es nuestro estándar.' },
+            { icon: '📅', title: 'Horario flexible', desc: 'Tardes, fines de semana, festivos. Nos adaptamos a ti.' },
+            { icon: '👥', title: 'Mismo equipo', desc: 'En los servicios periódicos, siempre los mismos profesionales.' },
+            { icon: '💬', title: 'Presupuesto en 24h', desc: 'Sin visita obligatoria. Por teléfono, WhatsApp o formulario.' },
+            { icon: '🛡️', title: 'Seguro de RC', desc: 'Cubiertos frente a cualquier incidencia durante el trabajo.' },
+          ].map(item => (
+            <div class="card p-5 flex items-start gap-3 text-left" data-reveal>
+              <span class="text-2xl">{item.icon}</span>
+              <div>
+                <p class="text-warm font-medium text-sm">{item.title}</p>
+                <p class="text-mid text-xs mt-1">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="dark" />
+  <CTASection />
+  <WhatsAppFloat />
+  <CTABar />
+</BaseLayout>

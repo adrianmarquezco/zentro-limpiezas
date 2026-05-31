@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: string;
+  location: string;
+  text: string;
+  service?: string;
+  stars?: number;
+}
+const { name, location, text, service, stars = 5 } = Astro.props;
+---
+
+<div class="card p-6 flex flex-col gap-4" data-reveal>
+  <div class="flex gap-1 text-accent">
+    {Array.from({ length: stars }).map(() => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0L165.94,81.28l59,4.76a16.46,16.46,0,0,1,9.36,28.81Z"/>
+      </svg>
+    ))}
+  </div>
+  <blockquote class="text-mid text-sm leading-relaxed italic">"{text}"</blockquote>
+  <footer class="mt-auto pt-4 border-t border-line">
+    <p class="text-warm font-medium text-sm">{name}*</p>
+    <p class="text-mid text-xs">{location}{service ? ` · ${service}` : ''}</p>
+  </footer>
+</div>

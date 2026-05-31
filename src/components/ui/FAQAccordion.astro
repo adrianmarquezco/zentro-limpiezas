@@ -1,0 +1,25 @@
+---
+interface FAQ { q: string; a: string; }
+interface Props { faqs: FAQ[]; }
+const { faqs } = Astro.props;
+---
+
+<div class="space-y-3">
+  {faqs.map((faq, i) => (
+    <div class="faq-item bg-white rounded-2xl border border-line overflow-hidden" data-faq>
+      <button
+        class="w-full flex items-center justify-between gap-4 px-6 py-4 text-left font-semibold text-primary hover:bg-warm/50 transition-colors"
+        aria-expanded="false"
+        data-faq-trigger
+      >
+        <span class="text-sm lg:text-base">{faq.q}</span>
+        <span class="faq-icon flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-accent/10 text-accent text-lg font-light" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-body" role="region">
+        <div class="px-6 pb-4 text-sm lg:text-base text-mid leading-relaxed">
+          {faq.a}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

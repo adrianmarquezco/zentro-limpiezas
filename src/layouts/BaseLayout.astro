@@ -1,0 +1,106 @@
+---
+import { BUSINESS } from '@/data/config';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import SchemaLocalBusiness from '@/components/schema/SchemaLocalBusiness.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  lang?: 'es' | 'gl';
+  hreflangEs?: string;
+  hreflangGl?: string;
+  robots?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = `${BUSINESS.url}/og-default.svg`,
+  ogType = 'website',
+  lang = 'es',
+  hreflangEs,
+  hreflangGl,
+  robots,
+  schema,
+} = Astro.props;
+
+const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A2540" />
+
+  <!-- SEO básico -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {robots && <meta name="robots" content={robots} />}
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- hreflang -->
+  {hreflangEs && <link rel="alternate" hreflang="es" href={hreflangEs} />}
+  {hreflangGl && <link rel="alternate" hreflang="gl" href={hreflangGl} />}
+  {hreflangEs && <link rel="alternate" hreflang="x-default" href={hreflangEs} />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content="Zentro Limpiezas" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content={lang === 'gl' ? 'gl_ES' : 'es_ES'} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Schema global -->
+  <SchemaLocalBusiness />
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+</head>
+
+<body class="bg-warm font-sans antialiased">
+  <Header lang={lang} />
+  <main>
+    <slot />
+  </main>
+  <Footer lang={lang} />
+
+  <!-- Scripts -->
+  <script src="/scripts/scroll-reveal.js" defer></script>
+  <script src="/scripts/header-scroll.js" defer></script>
+  <script src="/scripts/faq-accordion.js" defer></script>
+</body>
+</html>

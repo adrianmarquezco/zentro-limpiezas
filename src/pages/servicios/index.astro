@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import ServiceGrid from '@/components/sections/ServiceGrid.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import { BUSINESS } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/servicios/`;
+const title = 'Servicios de limpieza profesional en Galicia | Zentro Limpiezas';
+const description = 'Limpieza de viviendas, oficinas, locales, comunidades, fin de obra y más. Productos ecológicos incluidos. Más de 20 años en Ferrol y A Coruña.';
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios/' },
+];
+---
+
+<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/servizos/`}>
+  <Breadcrumbs crumbs={breadcrumbs} />
+
+  <section class="hero-section bg-primary py-20 lg:py-28 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
+          Limpieza profesional
+        </span>
+        <h1 class="font-serif text-4xl lg:text-5xl text-warm mb-4">
+          Todos nuestros servicios<br>
+          <span class="text-accent">de limpieza</span>
+        </h1>
+        <p class="text-mid text-lg leading-relaxed mb-6">
+          Desde la limpieza puntual de tu piso hasta contratos periódicos para empresas. Siempre con productos ecológicos incluidos sin coste extra.
+        </p>
+        <EcoBadge size="md" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid />
+
+  <!-- Por qué ecológico -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-4" data-reveal>
+          Productos ecológicos en todos los servicios
+        </h2>
+        <p class="text-mid leading-relaxed mb-6" data-reveal>
+          No es un extra ni una opción de pago. En Zentro Limpiezas usamos únicamente productos de limpieza con certificación ecológica en cada trabajo. Sin coste adicional. El precio que ves es lo que pagas.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+          {[
+            { num: '+20', label: 'años de experiencia' },
+            { num: '100%', label: 'ecológico siempre' },
+            { num: '0€', label: 'coste extra por eco' },
+            { num: '29', label: 'municipios cubiertos' },
+          ].map(item => (
+            <div class="card p-4 text-center" data-reveal>
+              <p class="font-mono text-accent text-2xl font-bold">{item.num}</p>
+              <p class="text-mid text-xs mt-1">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+  <WhatsAppFloat />
+  <CTABar />
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TrustBar from '@/components/ui/TrustBar.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { SERVICIOS } from '@/data/servicios';
+import { MUNICIPIOS_FERROLTERRA, MUNICIPIOS_CORUNA } from '@/data/municipios';
+
+const canonical = `${BUSINESS.url}/gl/`;
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
+
+const faqs = [
+  { q: 'En que zonas de Galicia traballades?', a: `Traballamos en Ferrol, A Coruña e máis de 29 municipios de Ferrolterra e o Área Metropolitana coruñesa. Chámanos ao ${BUSINESS.phoneDisplay} para confirmar a túa zona.` },
+  { q: 'Os produtos ecolóxicos están incluídos no prezo?', a: 'Si, todos os nosos servizos inclúen produtos de limpeza con certificación ecolóxica Ecolabel sen custo adicional. O prezo que ves é o prezo total.' },
+  { q: 'Canto custa o servizo de limpeza?', a: 'Depende do tamaño e estado do espazo. Dámosche un orzamento personalizado e gratuíto en menos de 24 horas.' },
+  { q: 'Traballades fins de semana?', a: 'Si. O noso horario de atención é de luns a venres de 8:00 a 14:00 e sábados de 9:00 a 14:00, pero realizamos servizos tamén tardes e fins de semana.' },
+  { q: 'Canto tempo levan máis de 20 anos en Galicia?', a: `${BUSINESS.name} foi fundada en Ferrol no ano 2004. Levamos máis de 20 anos prestando servizos de limpeza profesional na comarca.` },
+];
+---
+
+<BaseLayout
+  title="Empresa de limpeza en Ferrol e A Coruña | Zentro Limpiezas"
+  description="Servizo de limpeza profesional en Ferrol, A Coruña e toda a comarca. Produtos ecolóxicos incluídos. Máis de 20 anos de experiencia. Orzamento gratuíto."
+  canonical={canonical}
+  lang="gl"
+  hreflangEs={BUSINESS.url + '/'}
+  hreflangGl={canonical}
+>
+  <SchemaFAQ {faqs} />
+
+  <!-- Hero -->
+  <section class="hero-section relative bg-primary overflow-hidden py-24 lg:py-36">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
+          Ferrol · A Coruña · Galicia — Produtos 100% ecolóxicos
+        </span>
+        <h1 class="font-serif leading-tight text-warm mb-0">
+          <span class="hero-h1-line1 block text-4xl sm:text-5xl lg:text-6xl">Limpeza profesional</span>
+          <span class="hero-h1-line2 block text-4xl sm:text-5xl lg:text-6xl text-accent">en Galicia</span>
+        </h1>
+        <p class="hero-subtitle text-mid text-lg lg:text-xl mt-6 max-w-xl leading-relaxed speakable-intro">
+          Máis de 20 anos limpando fogares, oficinas e locais en Ferrol e A Coruña. Con produtos ecolóxicos certificados incluídos no prezo, sempre.
+        </p>
+        <div class="hero-ctas flex flex-wrap gap-3 mt-8">
+          <a href={BUSINESS.phoneHref} class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256" class="shrink-0">
+              <path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"/>
+            </svg>
+            {BUSINESS.phoneDisplay}
+          </a>
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            WhatsApp
+          </a>
+          <a href="/gl/orzamento/" class="btn btn-outline">Pedir orzamento</a>
+        </div>
+        <div class="hero-trust mt-10">
+          <TrustBar variant="dark" lang="gl" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servizos -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-3xl lg:text-4xl text-warm mb-12 text-center" data-reveal>Os nosos servizos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {SERVICIOS.slice(0, 6).map(s => (
+          <a href={`/gl/servizos/${s.slugGL}/`} class="card p-5 flex items-start gap-3 hover:border-accent transition-colors" data-reveal>
+            <span class="text-accent text-xl shrink-0">✓</span>
+            <div>
+              <p class="text-warm font-medium">{s.nombreGL}</p>
+              <p class="text-mid text-sm mt-1">{s.descripcionCorta}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/gl/servizos/" class="btn btn-outline">Ver todos os servizos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecolóxico -->
+  <section class="py-20 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <EcoBadge size="md" />
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mt-4 mb-4" data-reveal>Produtos ecolóxicos incluídos sempre</h2>
+      <p class="text-mid max-w-2xl mx-auto" data-reveal>
+        Usamos exclusivamente produtos de limpeza con certificación Ecolabel. Non é un extra nin unha opción de pago. É o noso estándar en todos os servizos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Zonas -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-3xl text-warm mb-8 text-center" data-reveal>Zonas onde traballamos</h2>
+      <div class="flex flex-wrap gap-2 justify-center" data-reveal>
+        {[...MUNICIPIOS_FERROLTERRA, ...MUNICIPIOS_CORUNA].map(m => (
+          <a href={`/gl/zonas/${m.slug}/`} class="zone-pill">{m.nombreGL}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>Preguntas frecuentes</h2>
+      <FAQAccordion {faqs} />
+    </div>
+  </section>
+
+  <CTASection lang="gl" />
+  <WhatsAppFloat lang="gl" />
+  <CTABar lang="gl" />
+</BaseLayout>

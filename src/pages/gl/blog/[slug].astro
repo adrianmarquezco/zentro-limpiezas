@@ -1,0 +1,39 @@
+---
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import { getCollection } from 'astro:content';
+import { BUSINESS } from '@/data/config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog-gl', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const canonical = `${BUSINESS.url}/gl/blog/${post.slug}/`;
+const hreflangEs = post.data.slugEs ? `${BUSINESS.url}/blog/${post.data.slugEs}/` : undefined;
+
+const breadcrumbs = [
+  { label: 'Inicio', href: '/gl/' },
+  { label: 'Blog', href: '/gl/blog/' },
+  { label: post.data.title, href: canonical },
+];
+---
+
+<BlogLayout
+  title={`${post.data.title} | Zentro Limpiezas`}
+  description={post.data.description}
+  {canonical}
+  lang="gl"
+  datePublished={post.data.datePublished}
+  dateModified={post.data.dateModified}
+  image={post.data.image}
+  {breadcrumbs}
+  hreflangEs={hreflangEs}
+  hreflangGl={canonical}
+>
+  <Content />
+</BlogLayout>

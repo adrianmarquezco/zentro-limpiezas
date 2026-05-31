@@ -1,0 +1,59 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import { getCollection } from 'astro:content';
+import { BUSINESS } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/gl/blog/`;
+const breadcrumbs = [
+  { label: 'Inicio', href: '/gl/' },
+  { label: 'Blog', href: '/gl/blog/' },
+];
+
+const posts = (await getCollection('blog-gl', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
+---
+
+<BaseLayout
+  title="Blog de limpeza e fogar | Zentro Limpiezas"
+  description="Consellos de limpeza profesional, trucos para o fogar e guías ecolóxicas. Blog de Zentro Limpiezas en Ferrol e A Coruña."
+  canonical={canonical}
+  lang="gl"
+  hreflangEs={`${BUSINESS.url}/blog/`}
+  hreflangGl={canonical}
+>
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <section class="bg-primary py-16 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-serif text-4xl text-warm mb-4" data-reveal>Blog en galego</h1>
+      <p class="text-mid text-lg max-w-xl" data-reveal>Consellos de limpeza, guías ecolóxicas e todo o que precisas saber para manter o teu fogar en perfecto estado.</p>
+    </div>
+  </section>
+  <section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <article class="card flex flex-col" data-reveal>
+            <div class="p-6 flex flex-col gap-3 flex-1">
+              <time class="text-mid text-xs font-mono" datetime={post.data.datePublished}>
+                {new Date(post.data.datePublished).toLocaleDateString('gl-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <h2 class="font-serif text-xl text-warm leading-snug">
+                <a href={`/gl/blog/${post.slug}/`} class="hover:text-accent transition-colors">{post.data.title}</a>
+              </h2>
+              <p class="text-mid text-sm leading-relaxed flex-1">{post.data.description}</p>
+              <a href={`/gl/blog/${post.slug}/`} class="text-accent text-sm hover:underline mt-auto pt-4 border-t border-line block">Ler artigo →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTASection lang="gl" />
+  <WhatsAppFloat lang="gl" />
+  <CTABar lang="gl" />
+</BaseLayout>

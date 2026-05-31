@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  url: string;
+  image?: string;
+}
+const { title, description, datePublished, dateModified, url, image } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished,
+  dateModified: dateModified ?? datePublished,
+  url,
+  image: image ?? 'https://zentrolimpiezas.es/images/og/og-default.webp',
+  author: {
+    '@type': 'Organization',
+    name: 'Zentro Limpiezas',
+    url: 'https://zentrolimpiezas.es',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Zentro Limpiezas',
+    logo: { '@type': 'ImageObject', url: 'https://zentrolimpiezas.es/images/logo.webp' },
+  },
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
