@@ -9,10 +9,6 @@ export default defineConfig({
   adapter: node({ mode: 'standalone' }),
   integrations: [
     sitemap({
-      i18n: {
-        defaultLocale: 'es',
-        locales: { es: 'es', gl: 'gl' },
-      },
       filter: (page) =>
         !page.includes('/legal/') &&
         !page.includes('/404') &&
