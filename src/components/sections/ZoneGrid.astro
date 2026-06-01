@@ -6,8 +6,9 @@ interface Props {
   lang?: 'es' | 'gl';
   variant?: 'all' | 'ferrolterra' | 'coruna';
   title?: string;
+  showHeading?: boolean;
 }
-const { lang = 'es', variant = 'all', title } = Astro.props;
+const { lang = 'es', variant = 'all', title, showHeading = true } = Astro.props;
 const muns = variant === 'ferrolterra'
   ? MUNICIPIOS_FERROLTERRA
   : variant === 'coruna'
@@ -19,9 +20,11 @@ const defaultTitle = lang === 'gl' ? 'Zonas onde traballamos' : 'Zonas donde tra
 
 <section class="py-20 lg:py-28 bg-charcoal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-serif text-3xl lg:text-4xl text-warm mb-4 text-center" data-reveal>
-      {title ?? defaultTitle}
-    </h2>
+    {showHeading && (
+      <h2 class="font-serif text-3xl lg:text-4xl text-warm mb-4 text-center" data-reveal>
+        {title ?? defaultTitle}
+      </h2>
+    )}
     <p class="text-mid text-center mb-12 max-w-xl mx-auto" data-reveal>
       {lang === 'gl'
         ? 'Cubrimos Ferrol, A Coruña e toda a súa área metropolitana e comarcas próximas.'

@@ -31,7 +31,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
       <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-white/80">
         <a href={`${base}/servicios/`} class="hover:text-white transition-colors">{isGL ? 'Servizos' : 'Servicios'}</a>
         <a href={`${base}/zonas/`} class="hover:text-white transition-colors">Zonas</a>
-        <a href={`${base}/sobre-nosotros/`} class="hover:text-white transition-colors">{isGL ? 'Sobre nós' : 'Sobre nosotros'}</a>
+        <a href={isGL ? '/gl/sobre-nos/' : '/sobre-nosotros/'} class="hover:text-white transition-colors">{isGL ? 'Sobre nós' : 'Sobre nosotros'}</a>
         <a href={`${base}/blog/`} class="hover:text-white transition-colors">Blog</a>
       </nav>
 
@@ -70,7 +70,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
     <nav class="space-y-3">
       <a href={`${base}/servicios/`} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">{isGL ? 'Servizos' : 'Servicios'}</a>
       <a href={`${base}/zonas/`} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">Zonas</a>
-      <a href={`${base}/sobre-nosotros/`} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">{isGL ? 'Sobre nós' : 'Sobre nosotros'}</a>
+      <a href={isGL ? '/gl/sobre-nos/' : '/sobre-nosotros/'} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">{isGL ? 'Sobre nós' : 'Sobre nosotros'}</a>
       <a href={`${base}/blog/`} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">Blog</a>
     </nav>
     <div class="pt-2 border-t border-white/10 space-y-3">

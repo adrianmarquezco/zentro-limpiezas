@@ -23,6 +23,7 @@ export const GET: APIRoute = async () => {
     `${SITE}/gl/`,
     `${SITE}/gl/servizos/`,
     `${SITE}/gl/zonas/`,
+    `${SITE}/gl/sobre-nos/`,
     `${SITE}/gl/orzamento/`,
     `${SITE}/gl/blog/`,
     // Servicios ES
