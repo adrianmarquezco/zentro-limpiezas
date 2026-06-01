@@ -11,12 +11,15 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
   }
 
-  const nombre = formData.get('nombre')?.toString().trim() ?? '';
-  const telefono = formData.get('telefono')?.toString().trim() ?? '';
-  const email = formData.get('email')?.toString().trim() ?? '';
-  const servicio = formData.get('servicio')?.toString().trim() ?? '';
-  const zona = formData.get('zona')?.toString().trim() ?? '';
-  const mensaje = formData.get('mensaje')?.toString().trim() ?? '';
+  const esc = (s: string) =>
+    s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+  const nombre   = esc(formData.get('nombre')?.toString().trim()   ?? '');
+  const telefono = esc(formData.get('telefono')?.toString().trim() ?? '');
+  const email    = esc(formData.get('email')?.toString().trim()    ?? '');
+  const servicio = esc(formData.get('servicio')?.toString().trim() ?? '');
+  const zona     = esc(formData.get('zona')?.toString().trim()     ?? '');
+  const mensaje  = esc(formData.get('mensaje')?.toString().trim()  ?? '');
 
   if (!nombre || !telefono || !servicio || !zona) {
     return new Response(JSON.stringify({ error: 'Campos requeridos incompletos' }), { status: 400 });

@@ -33,43 +33,44 @@ const breadcrumbs = [
     </div>
   </section>
 
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl text-primary mb-6" data-reveal>Cóntanos o que necesitas</h2>
       <form
         id="orzamento-form"
         action="/api/presupuesto"
         method="POST"
-        class="space-y-5"
+        class="space-y-4 bg-white rounded-2xl border border-line p-6 lg:p-8 shadow-sm"
         data-reveal
         novalidate
       >
-        <div class="form-field">
+        <div>
           <label for="nombre" class="form-label">O teu nome *</label>
-          <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="María García" class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+          <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="María García" class="form-field" />
         </div>
-        <div class="form-field">
+        <div>
           <label for="telefono" class="form-label">Teléfono *</label>
-          <input type="tel" id="telefono" name="telefono" required autocomplete="tel" placeholder="666 123 456" class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+          <input type="tel" id="telefono" name="telefono" required autocomplete="tel" placeholder="666 123 456" class="form-field" />
         </div>
-        <div class="form-field">
+        <div>
           <label for="email" class="form-label">Email (opcional)</label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="maria@exemplo.com" class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="maria@exemplo.com" class="form-field" />
         </div>
-        <div class="form-field">
+        <div>
           <label for="servicio" class="form-label">Servizo que necesitas *</label>
-          <select id="servicio" name="servicio" required class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm focus:outline-none focus:border-accent transition-colors">
+          <select id="servicio" name="servicio" required class="form-field">
             <option value="">Selecciona un servizo</option>
             {SERVICIOS.map(s => <option value={s.nombreGL}>{s.nombreGL}</option>)}
             <option value="Outro">Outro / Non sei</option>
           </select>
         </div>
-        <div class="form-field">
+        <div>
           <label for="zona" class="form-label">Municipio ou zona *</label>
-          <input type="text" id="zona" name="zona" required placeholder="Ferrol, A Coruña, Narón..." class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors" />
+          <input type="text" id="zona" name="zona" required placeholder="Ferrol, A Coruña, Narón..." class="form-field" />
         </div>
-        <div class="form-field">
+        <div>
           <label for="mensaje" class="form-label">Cóntanos máis (opcional)</label>
-          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tamaño do piso, frecuencia, urxencia..." class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tamaño do piso, frecuencia, urxencia..." class="form-field resize-none"></textarea>
         </div>
         <div class="flex items-start gap-3">
           <input type="checkbox" id="privacidad" name="privacidad" required class="mt-1 accent-accent" />

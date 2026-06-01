@@ -32,13 +32,15 @@ const locale = lang === 'gl' ? 'gl-ES' : 'es-ES';
 const pubDate = new Date(datePublished).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
 const modDate = dateModified ? new Date(dateModified).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }) : null;
 
-const categoryLabels: Record<string, string> = {
-  guias: 'Guía práctica',
-  consejos: 'Consejos',
-  precios: 'Precios',
-  sector: 'Sector',
+const categoryLabels: Record<string, Record<'es'|'gl', string>> = {
+  guias:    { es: 'Guía práctica', gl: 'Guía práctica' },
+  consejos: { es: 'Consejos',      gl: 'Consellos'     },
+  precios:  { es: 'Precios',       gl: 'Prezos'        },
+  sector:   { es: 'Sector',        gl: 'Sector'        },
 };
-const categoryLabel = category ? (categoryLabels[category] ?? category) : 'Artículo';
+const categoryLabel = category
+  ? (categoryLabels[category]?.[lang] ?? category)
+  : (lang === 'gl' ? 'Artigo' : 'Artículo');
 ---
 
 <BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article">
@@ -98,13 +100,13 @@ const categoryLabel = category ? (categoryLabels[category] ?? category) : 'Artí
       <div class="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p class="text-xs text-mid">
-            Publicado el {pubDate}
-            {modDate && dateModified !== datePublished && <> · Actualizado el {modDate}</>}
+            {lang === 'gl' ? 'Publicado o' : 'Publicado el'} {pubDate}
+            {modDate && dateModified !== datePublished && <> · {lang === 'gl' ? 'Actualizado o' : 'Actualizado el'} {modDate}</>}
           </p>
-          <p class="text-xs text-mid mt-1">Por el equipo de <strong class="text-primary">Zentro Limpiezas</strong> · Ferrol, Galicia</p>
+          <p class="text-xs text-mid mt-1">{lang === 'gl' ? 'Polo equipo de' : 'Por el equipo de'} <strong class="text-primary">Zentro Limpiezas</strong> · Ferrol, Galicia</p>
         </div>
         <a href={lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/'} class="btn-accent text-sm px-5 py-2.5">
-          Pedir presupuesto gratis
+          {lang === 'gl' ? 'Pedir orzamento gratis' : 'Pedir presupuesto gratis'}
         </a>
       </div>
     </footer>

@@ -101,7 +101,7 @@ const pasos = [
                 ¿Cuánto cuesta una limpieza en {municipio.nombre}?
               </h2>
             </div>
-            <p class="text-mid leading-relaxed mb-6">
+            <p class="text-charcoal leading-relaxed mb-6">
               Los precios que indicamos son orientativos. El precio final depende del estado del inmueble, los años que lleve sin limpieza profesional y si prefieres servicio puntual o periódico. El servicio periódico (semanal, quincenal o mensual) suele ser más económico por visita que el puntual.
             </p>
             <div class="grid sm:grid-cols-3 gap-4 mb-4">
@@ -128,7 +128,7 @@ const pasos = [
                   Servicios específicos en {municipio.nombre}
                 </h2>
               </div>
-              <p class="text-mid leading-relaxed mb-6">
+              <p class="text-charcoal leading-relaxed mb-6">
                 Para los servicios más demandados en {municipio.nombre} tenemos páginas detalladas con información, precios y formulario de presupuesto. Haz clic en el servicio que necesitas:
               </p>
               <div class="grid sm:grid-cols-2 gap-3">
@@ -183,7 +183,7 @@ const pasos = [
             )}
             <div class="flex flex-col gap-2">
               <a href="/presupuesto/" class="btn-accent w-full text-center text-sm">→ Formulario de presupuesto</a>
-              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-outline w-full text-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
             </div>
             <div class="mt-4 pt-4 border-t border-line">
               <EcoBadge size="sm" />
