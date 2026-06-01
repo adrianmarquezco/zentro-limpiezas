@@ -250,8 +250,8 @@ const faqSchema = faqs;
       </div>
       <div data-reveal>
         <BeforeAfter
-          beforeSrc="/images/antes-dormitorio.webp"
-          afterSrc="/images/despues-dormitorio.webp"
+          beforeSrc="/images/antes-dormitorio.jpg"
+          afterSrc="/images/despues-dormitorio.jpg"
           beforeAlt="Habitación con suciedad acumulada, ropa y basura en el suelo antes de la limpieza"
           afterAlt="Habitación limpia, ordenada y con moqueta impecable después del servicio de Zentro Limpiezas"
           beforeLabel="Antes"
@@ -449,74 +449,77 @@ const faqSchema = faqs;
 <script>
 // ─── Contador animado ─────────────────────────────────────────────────────────
 (function () {
-  const parse = (raw: string) => {
-    const m = raw.match(/^([^0-9]*)(\d+)([^0-9]*)$/);
+  function parseCounter(raw) {
+    var m = raw.match(/^([^0-9]*)(\d+)([^0-9]*)$/);
     if (!m) return null;
     return { prefix: m[1], value: parseInt(m[2], 10), suffix: m[3] };
-  };
+  }
 
-  const animateCounter = (el: HTMLElement) => {
-    const data = parse(el.dataset.counter ?? '');
+  function animateCounter(el) {
+    var raw = el.getAttribute('data-counter') || '';
+    var data = parseCounter(raw);
     if (!data || data.value === 0) return;
-    const { prefix, value, suffix } = data;
-    const duration = 1200;
-    const start = performance.now();
-    const step = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * value);
+    var prefix = data.prefix, value = data.value, suffix = data.suffix;
+    var duration = 1400;
+    var start = performance.now();
+    function step(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * value);
       el.textContent = prefix + current + suffix;
       if (progress < 1) requestAnimationFrame(step);
-    };
+    }
     requestAnimationFrame(step);
-  };
+  }
 
-  const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var counters = document.querySelectorAll('[data-counter]');
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        animateCounter(entry.target as HTMLElement);
-        io.unobserve(entry.target);
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
-  counters.forEach(c => io.observe(c));
+  counters.forEach(function(c) { counterObserver.observe(c); });
 })();
 
 // ─── Conector animado pasos ───────────────────────────────────────────────────
 (function () {
-  const connector = document.getElementById('steps-connector');
+  var connector = document.getElementById('steps-connector');
   if (!connector) return;
 
-  const dots = connector.querySelectorAll<HTMLElement>('.step-dot');
-  const lines = connector.querySelectorAll<HTMLElement>('.step-line');
+  var dots = connector.querySelectorAll('.step-dot');
+  var lines = connector.querySelectorAll('.step-line');
+  var fired = false;
 
-  const animate = () => {
-    dots.forEach((dot, i) => {
-      setTimeout(() => {
-        dot.style.borderColor = 'var(--brand-accent)';
-        dot.style.backgroundColor = 'var(--brand-accent)';
-        dot.style.transform = 'scale(1.4)';
-        setTimeout(() => { dot.style.transform = 'scale(1)'; }, 300);
-      }, i * 250);
+  function animate() {
+    if (fired) return;
+    fired = true;
+    dots.forEach(function(dot, i) {
+      setTimeout(function() {
+        dot.style.borderColor = '#00C48C';
+        dot.style.backgroundColor = '#00C48C';
+        dot.style.transform = 'scale(1.5)';
+        setTimeout(function() { dot.style.transform = 'scale(1)'; }, 280);
+      }, i * 260);
     });
-    lines.forEach((line, i) => {
-      setTimeout(() => {
+    lines.forEach(function(line, i) {
+      setTimeout(function() {
         line.style.width = '100%';
-        line.style.transitionDelay = '0ms';
-      }, (i + 1) * 250);
+      }, (i + 1) * 260);
     });
-  };
+  }
 
-  const io = new IntersectionObserver((entries) => {
+  var stepsObserver = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting) {
       animate();
-      io.disconnect();
+      stepsObserver.disconnect();
     }
-  }, { threshold: 0.6 });
+  }, { threshold: 0.3 });
 
-  io.observe(connector);
+  stepsObserver.observe(connector);
 })();
 </script>
