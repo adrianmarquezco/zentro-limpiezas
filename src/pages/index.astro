@@ -12,16 +12,16 @@ import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
 const waUrl = buildWhatsAppUrl('Hola, me gustaría pedir presupuesto de limpieza');
 
 const servicios = [
-  { slug: 'limpieza-de-viviendas', nombre: 'Limpieza de viviendas', precio: 'desde 55€', icon: '🏠', descripcion: 'Puntual o periódica. Toda la vivienda impecable.' },
-  { slug: 'limpieza-de-oficinas', nombre: 'Limpieza de oficinas', precio: 'desde 80€', icon: '🏢', descripcion: 'Despachos y open spaces. Horario adaptable.' },
-  { slug: 'limpieza-fin-de-obra', nombre: 'Limpieza fin de obra', precio: 'presupuesto', icon: '🔧', descripcion: 'Tras construcción o reforma. Sin rastro de obra.' },
-  { slug: 'limpieza-de-comunidades', nombre: 'Comunidades', precio: 'contrato', icon: '🏘️', descripcion: 'Portales, garajes y zonas comunes.' },
-  { slug: 'limpieza-de-cristales', nombre: 'Cristales y ventanales', precio: 'presupuesto', icon: '🪟', descripcion: 'Interior y exterior, incluidas alturas.' },
-  { slug: 'limpieza-de-pazos-y-eventos', nombre: 'Pazos y eventos', precio: 'presupuesto', icon: '🏰', descripcion: 'Pre y post-evento. Bodas y celebraciones.' },
-  { slug: 'limpieza-periodica', nombre: 'Limpieza periódica', precio: 'desde 55€', icon: '📅', descripcion: 'Semanal, quincenal o mensual. Mismo equipo.' },
-  { slug: 'limpieza-de-apartamentos-turisticos', nombre: 'Apartamentos turísticos', precio: 'presupuesto', icon: '🛏️', descripcion: 'Entre huéspedes. Rápida y completa.' },
-  { slug: 'limpieza-a-fondo', nombre: 'Limpieza a fondo', precio: 'presupuesto', icon: '✨', descripcion: 'Mudanzas, post-verano o gran limpieza anual.' },
-  { slug: 'limpieza-de-locales-comerciales', nombre: 'Locales comerciales', precio: 'desde 70€', icon: '🏪', descripcion: 'Tiendas, bares, restaurantes. Fuera de horario.' },
+  { slug: 'limpieza-de-viviendas', nombre: 'Limpieza de viviendas', precio: 'desde 55€', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', descripcion: 'Puntual o periódica. Toda la vivienda impecable.' },
+  { slug: 'limpieza-de-oficinas', nombre: 'Limpieza de oficinas', precio: 'desde 80€', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>', descripcion: 'Despachos y open spaces. Horario adaptable.' },
+  { slug: 'limpieza-fin-de-obra', nombre: 'Limpieza fin de obra', precio: 'presupuesto', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>', descripcion: 'Tras construcción o reforma. Sin rastro de obra.' },
+  { slug: 'limpieza-de-comunidades', nombre: 'Comunidades', precio: 'contrato', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>', descripcion: 'Portales, garajes y zonas comunes.' },
+  { slug: 'limpieza-de-cristales', nombre: 'Cristales y ventanales', precio: 'presupuesto', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>', descripcion: 'Interior y exterior, incluidas alturas.' },
+  { slug: 'limpieza-de-pazos-y-eventos', nombre: 'Pazos y eventos', precio: 'presupuesto', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>', descripcion: 'Pre y post-evento. Bodas y celebraciones.' },
+  { slug: 'limpieza-periodica', nombre: 'Limpieza periódica', precio: 'desde 55€', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>', descripcion: 'Semanal, quincenal o mensual. Mismo equipo.' },
+  { slug: 'limpieza-de-apartamentos-turisticos', nombre: 'Apartamentos turísticos', precio: 'presupuesto', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>', descripcion: 'Entre huéspedes. Rápida y completa.' },
+  { slug: 'limpieza-a-fondo', nombre: 'Limpieza a fondo', precio: 'presupuesto', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>', descripcion: 'Mudanzas, post-verano o gran limpieza anual.' },
+  { slug: 'limpieza-de-locales-comerciales', nombre: 'Locales comerciales', precio: 'desde 70€', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg>', descripcion: 'Tiendas, bares, restaurantes. Fuera de horario.' },
 ];
 
 const municipiosDestacados = [
@@ -37,10 +37,10 @@ const municipiosSlugs: Record<string,string> = {
 };
 
 const pasos = [
-  { num: '01', icon: '📞', titulo: 'Nos llamas o escribes', desc: 'Cuéntanos qué necesitas: tipo de inmueble, zona y con qué frecuencia.' },
-  { num: '02', icon: '📋', titulo: 'Presupuesto en 24h', desc: 'Precio claro y detallado. Sin letra pequeña. Sin sorpresas.' },
-  { num: '03', icon: '📅', titulo: 'Fijamos fecha', desc: 'Adaptamos el horario a lo que mejor te venga: mañana, tarde o fin de semana.' },
-  { num: '04', icon: '✨', titulo: 'Lo dejamos impecable', desc: 'Con productos ecológicos certificados incluidos en el precio, sin coste adicional.' },
+  { num: '01', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.65 4.9 2 2 0 0 1 3.62 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>', titulo: 'Nos llamas o escribes', desc: 'Cuéntanos qué necesitas: tipo de inmueble, zona y con qué frecuencia.' },
+  { num: '02', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>', titulo: 'Presupuesto en 24h', desc: 'Precio claro y detallado. Sin letra pequeña. Sin sorpresas.' },
+  { num: '03', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><line x1="8" x2="8" y1="14" y2="16"/></svg>', titulo: 'Fijamos fecha', desc: 'Adaptamos el horario a lo que mejor te venga: mañana, tarde o fin de semana.' },
+  { num: '04', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>', titulo: 'Lo dejamos impecable', desc: 'Con productos ecológicos certificados incluidos en el precio, sin coste adicional.' },
 ];
 
 const testimonios = [
@@ -103,7 +103,7 @@ const faqSchema = faqs;
 ---
 
 <BaseLayout
-  title="Zentro Limpiezas — Ferrol, A Coruña y Ferrolterra"
+  title="Limpieza profesional en Ferrol y A Coruña | Zentro Limpiezas"
   description="Limpieza de viviendas, oficinas y pazos en Ferrol y A Coruña. Productos ecológicos incluidos. Más de 20 años. Presupuesto en 24h."
   hreflangEs="https://zentrolimpiezas.es/"
   hreflangGl="https://zentrolimpiezas.es/gl/"
@@ -113,7 +113,7 @@ const faqSchema = faqs;
   <CTABar />
 
   <!-- ═══ HERO ═══ -->
-  <section class="hero-section relative min-h-screen flex items-center bg-primary noise-overlay overflow-hidden pt-16">
+  <section class="hero-section relative min-h-[600px] lg:min-h-screen flex items-center bg-primary noise-overlay overflow-hidden pt-16">
     <!-- Elemento decorativo de fondo -->
     <div class="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none" aria-hidden="true">
       <svg viewBox="0 0 500 500" class="w-full h-full" fill="none">
@@ -123,7 +123,7 @@ const faqSchema = faqs;
       </svg>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-24 relative z-10">
       <div class="max-w-3xl">
         <!-- Eyebrow -->
         <p class="hero-eyebrow inline-flex items-center gap-2 bg-accent/20 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-8">
@@ -133,8 +133,8 @@ const faqSchema = faqs;
 
         <!-- H1 -->
         <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 leading-none">
-          <span class="hero-h1-line1 block">Tu espacio,</span>
-          <span class="hero-h1-line2 block text-accent">impecable.</span>
+          <span class="hero-h1-line1 block">Limpieza profesional</span>
+          <span class="hero-h1-line2 block text-accent">en Ferrol y A Coruña</span>
         </h1>
 
         <!-- Subtitle -->
@@ -188,10 +188,10 @@ const faqSchema = faqs;
             <div class="service-card-inner">
               <!-- Anverso -->
               <div class="service-card-front flex flex-col items-start gap-2 p-5 h-full">
-                <span class="text-2xl">{s.icon}</span>
+                <span class="text-primary [&>svg]:w-6 [&>svg]:h-6" set:html={s.icon}></span>
                 <p class="font-semibold text-primary text-sm leading-tight">{s.nombre}</p>
                 <p class="text-mid text-xs leading-tight mt-auto hidden md:block">{s.descripcion}</p>
-                <span class="badge-eco text-xs py-0.5 mt-1">🌿 Eco</span>
+                <span class="badge-eco text-xs py-0.5 mt-1">Eco</span>
               </div>
               <!-- Reverso -->
               <div class="service-card-back bg-primary flex flex-col items-center justify-center gap-3 p-5 rounded-2xl">
@@ -212,7 +212,7 @@ const faqSchema = faqs;
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div data-reveal-left>
-          <span class="badge-eco mb-6 inline-flex">🌿 Productos ecológicos siempre incluidos</span>
+          <span class="badge-eco mb-6 inline-flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> Productos ecológicos siempre incluidos</span>
           <h2 class="font-display text-4xl lg:text-5xl text-white mb-6">Limpiamos con productos ecológicos. Siempre.</h2>
           <div class="space-y-5 text-white/70 text-base lg:text-lg leading-relaxed">
             <p>
@@ -290,7 +290,7 @@ const faqSchema = faqs;
           <div class="relative">
             <div class="font-mono-data text-6xl font-bold text-primary opacity-5 absolute -top-4 -left-2 pointer-events-none select-none">{p.num}</div>
             <div class="card relative z-10 h-full">
-              <span class="text-3xl mb-4 block">{p.icon}</span>
+              <span class="text-accent mb-4 block [&>svg]:w-7 [&>svg]:h-7" set:html={p.icon}></span>
               <h3 class="font-semibold text-primary mb-2">{p.titulo}</h3>
               <p class="text-mid text-sm leading-relaxed">{p.desc}</p>
             </div>
