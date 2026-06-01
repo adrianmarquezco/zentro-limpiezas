@@ -45,7 +45,9 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <!-- SEO básico -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  {robots && <meta name="robots" content={robots} />}
+  {(robots || import.meta.env.PUBLIC_NOINDEX === 'true') && (
+    <meta name="robots" content={import.meta.env.PUBLIC_NOINDEX === 'true' ? 'noindex, nofollow' : robots} />
+  )}
   <link rel="canonical" href={canonicalUrl} />
 
   <!-- hreflang -->
