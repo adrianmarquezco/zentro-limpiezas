@@ -6,7 +6,6 @@ import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
 import CTASection from '@/components/sections/CTASection.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
-import EcoBadge from '@/components/ui/EcoBadge.astro';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS_FERROLTERRA, MUNICIPIOS_CORUNA } from '@/data/municipios';
@@ -19,7 +18,36 @@ const faqs = [
   { q: 'Os produtos ecolóxicos están incluídos no prezo?', a: 'Si, todos os nosos servizos inclúen produtos de limpeza con certificación ecolóxica Ecolabel sen custo adicional. O prezo que ves é o prezo total.' },
   { q: 'Canto custa o servizo de limpeza?', a: 'Depende do tamaño e estado do espazo. Dámosche un orzamento personalizado e gratuíto en menos de 24 horas.' },
   { q: 'Traballades fins de semana?', a: 'Si. O noso horario de atención é de luns a venres de 8:00 a 14:00 e sábados de 9:00 a 14:00, pero realizamos servizos tamén tardes e fins de semana.' },
-  { q: 'Canto tempo levan máis de 20 anos en Galicia?', a: `${BUSINESS.name} foi fundada en Ferrol no ano 2004. Levamos máis de 20 anos prestando servizos de limpeza profesional na comarca.` },
+  { q: 'Canto tempo levan en Galicia?', a: `${BUSINESS.name} foi fundada en Ferrol no ano 2004. Levamos máis de 20 anos prestando servizos de limpeza profesional na comarca.` },
+  { q: 'Os produtos ecolóxicos limpan igual que os convencionais?', a: 'Si, e en moitos casos mellor. Os produtos ecolóxicos de última xeración son igual de eficaces contra a sucidade, a graxa e as bacterias. A diferenza é que non conteñen sustancias tóxicas, non producen cheiro químico agresivo e son seguros para nenos e mascotas.' },
+];
+
+const testimonios = [
+  {
+    nome: 'María G.',
+    zona: 'Caranza, Ferrol',
+    servizo: 'Limpeza periódica quincenal',
+    texto: 'Levan máis dun ano vindo a casa e sempre deixan todo perfecto. O que máis valoro é que sempre veñen as mesmas persoas, xa saben como quero as cousas sen que teña que explicar nada. E con produtos ecolóxicos, que para min era importante.',
+  },
+  {
+    nome: 'Roberto F.',
+    zona: 'Matogrande, A Coruña',
+    servizo: 'Limpeza fin de obra',
+    texto: 'Contratei para a limpeza despois dunha reforma e o resultado foi incrible. O po de xeso nos teitos, os cristais, os chans... deixárono como novo. O prezo foi exactamente o do orzamento, sen ningún extra.',
+  },
+  {
+    nome: 'Ana P.',
+    zona: 'Narón',
+    servizo: 'Limpeza a fondo + periódica mensual',
+    texto: 'Primeiro viñeron para unha limpeza a fondo antes dunha mudanza e quedei tan contenta que agora veñen cada mes. Moi puntuais, moi profesionais e os produtos que usan deixan un cheiro moi agradable, nada dese cheiro químico tan forte.',
+  },
+];
+
+const pasos = [
+  { num: '01', titulo: 'Chámanos ou escríbenos', desc: 'Cóntanos o que necesitas: tipo de inmoble, zona e con que frecuencia.' },
+  { num: '02', titulo: 'Orzamento en 24h', desc: 'Prezo claro e detallado. Sen letra pequena. Sen sorpresas.' },
+  { num: '03', titulo: 'Fixamos data', desc: 'Adaptamos o horario ao que mellor che veña: mañá, tarde ou fin de semana.' },
+  { num: '04', titulo: 'Deixámolo impecable', desc: 'Con produtos ecolóxicos certificados incluídos no prezo, sen custo adicional.' },
 ];
 ---
 
@@ -32,94 +60,225 @@ const faqs = [
   hreflangGl={canonical}
 >
   <SchemaFAQ {faqs} />
+  <WhatsAppFloat lang="gl" />
+  <CTABar lang="gl" />
 
-  <!-- Hero -->
-  <section class="hero-section relative bg-primary overflow-hidden py-24 lg:py-36">
-    <div class="noise-overlay" />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section relative min-h-[600px] lg:min-h-screen flex items-center bg-primary noise-overlay overflow-hidden pt-16">
+    <div class="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 500 500" class="w-full h-full" fill="none">
+        <circle cx="400" cy="200" r="300" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+        <circle cx="400" cy="200" r="200" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+        <circle cx="400" cy="200" r="100" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-24 relative z-10">
       <div class="max-w-3xl">
-        <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
-          Ferrol · A Coruña · Galicia — Produtos 100% ecolóxicos
-        </span>
-        <h1 class="font-serif leading-tight text-warm mb-0">
-          <span class="hero-h1-line1 block text-4xl sm:text-5xl lg:text-6xl">Limpeza profesional</span>
-          <span class="hero-h1-line2 block text-4xl sm:text-5xl lg:text-6xl text-accent">en Galicia</span>
-        </h1>
-        <p class="hero-subtitle text-mid text-lg lg:text-xl mt-6 max-w-xl leading-relaxed speakable-intro">
-          Máis de 20 anos limpando fogares, oficinas e locais en Ferrol e A Coruña. Con produtos ecolóxicos certificados incluídos no prezo, sempre.
+        <p class="hero-eyebrow inline-flex items-center gap-2 bg-accent/20 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-8">
+          <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
+          Ferrolterra · A Coruña · Máis de 20 anos
         </p>
-        <div class="hero-ctas flex flex-wrap gap-3 mt-8">
-          <a href={BUSINESS.phoneHref} class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256" class="shrink-0">
+
+        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 leading-none">
+          <span class="hero-h1-line1 block">Limpeza profesional</span>
+          <span class="hero-h1-line2 block text-accent">en Galicia</span>
+        </h1>
+
+        <p class="hero-subtitle text-lg lg:text-xl text-white/70 mb-10 max-w-2xl leading-relaxed">
+          Limpeza de vivendas, oficinas, locais e pazos en toda a provincia de A Coruña.
+          <strong class="text-white font-medium">Produtos ecolóxicos incluídos.</strong> Orzamento personalizado en menos de 24 horas.
+        </p>
+
+        <div class="hero-ctas flex flex-col sm:flex-row gap-3 mb-12">
+          <a href={BUSINESS.phoneHref} class="btn-whatsapp px-7 py-4 text-base">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
               <path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"/>
             </svg>
-            {BUSINESS.phoneDisplay}
+            Chamar: {BUSINESS.phoneDisplay}
           </a>
-          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-accent px-7 py-4 text-base">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
             WhatsApp
           </a>
-          <a href="/gl/orzamento/" class="btn btn-outline">Pedir orzamento</a>
+          <a href="/gl/orzamento/" class="btn-outline border-white/40 text-white px-7 py-4 text-base">
+            → Pedir orzamento gratis
+          </a>
         </div>
-        <div class="hero-trust mt-10">
+
+        <div class="hero-trust">
           <TrustBar variant="dark" lang="gl" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Servizos -->
-  <section class="py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-3xl lg:text-4xl text-warm mb-12 text-center" data-reveal>Os nosos servizos</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- ═══ SERVIZOS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <span class="section-number left-4 top-12" aria-hidden="true">01</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Todo o que necesitas, cuberto</h2>
+        <p class="text-mid text-lg leading-relaxed">
+          Dende a limpeza periódica do teu fogar ata a preparación dun pazo para unha boda.
+          En Zentro Limpiezas cubrimos todos os servizos con produtos ecolóxicos incluídos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4" data-reveal-stagger>
         {SERVICIOS.slice(0, 6).map(s => (
-          <a href={`/gl/servizos/${s.slugGL}/`} class="card p-5 flex items-start gap-3 hover:border-accent transition-colors" data-reveal>
-            <span class="text-accent text-xl shrink-0">✓</span>
+          <a
+            href={`/gl/servizos/${s.slugGL}/`}
+            class="card p-5 flex flex-col gap-3 hover:border-accent transition-colors group"
+          >
+            <span class="text-accent font-bold text-lg">✓</span>
             <div>
-              <p class="text-warm font-medium">{s.nombreGL}</p>
-              <p class="text-mid text-sm mt-1">{s.descripcionCorta}</p>
+              <p class="font-semibold text-primary text-sm leading-tight mb-1">{s.nombreGL}</p>
+              <p class="text-mid text-xs leading-snug">{s.descripcionCorta}</p>
             </div>
+            <span class="text-accent text-xs font-semibold mt-auto opacity-0 group-hover:opacity-100 transition-opacity">Ver servizo →</span>
           </a>
         ))}
       </div>
-      <div class="text-center mt-8">
-        <a href="/gl/servizos/" class="btn btn-outline">Ver todos os servizos</a>
+
+      <div class="text-center mt-8" data-reveal>
+        <a href="/gl/servizos/" class="btn-outline px-8 py-3">Ver todos os servizos</a>
       </div>
     </div>
   </section>
 
-  <!-- Ecolóxico -->
-  <section class="py-20 bg-charcoal">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <EcoBadge size="md" />
-      <h2 class="font-serif text-2xl lg:text-3xl text-warm mt-4 mb-4" data-reveal>Produtos ecolóxicos incluídos sempre</h2>
-      <p class="text-mid max-w-2xl mx-auto" data-reveal>
-        Usamos exclusivamente produtos de limpeza con certificación Ecolabel. Non é un extra nin unha opción de pago. É o noso estándar en todos os servizos.
-      </p>
+  <!-- ═══ ECOLÓXICO ═══ -->
+  <section class="py-20 lg:py-28 bg-primary noise-overlay relative overflow-hidden">
+    <span class="section-number right-4 top-12" aria-hidden="true">02</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div data-reveal-left>
+          <span class="badge-eco mb-6 inline-flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            Produtos ecolóxicos sempre incluídos
+          </span>
+          <h2 class="font-display text-4xl lg:text-5xl text-white mb-6">Limpamos con produtos ecolóxicos. Sempre.</h2>
+          <div class="space-y-5 text-white/70 text-base lg:text-lg leading-relaxed">
+            <p>
+              Cando decidimos traballar exclusivamente con produtos ecolóxicos certificados, non foi unha decisión de marketing. Foi unha decisión de valores. Levamos máis de 20 anos limpando fogares, oficinas e espazos de toda Galicia.
+            </p>
+            <p>
+              Os produtos ecolóxicos que usamos están certificados co distintivo Ecolabel europeo. Son igual de eficaces contra a graxa, a sucidade e as bacterias que os convencionais, pero sen compostos orgánicos volátiles nin amoníaco. Resultado: a túa casa cheira limpa, non a laboratorio.
+            </p>
+            <p>O máis importante: están incluídos no prezo. Non é un extra. É como traballamos.</p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-3">
+            {[
+              'Seguros para nenos e mascotas',
+              'Sen cheiro químico agresivo',
+              'Certificados Ecolabel UE',
+              'Incluídos no prezo',
+              'Respecto polas rías galegas',
+              'Mesmos resultados ou mellores',
+            ].map(item => (
+              <div class="flex items-center gap-2 text-sm text-white/80">
+                <span class="text-accent font-bold">✓</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4" data-reveal-right>
+          {[
+            { num: '20+', label: 'Anos usando ecolóxico' },
+            { num: '100%', label: 'Dos nosos servizos' },
+            { num: '0€', label: 'Custo adicional' },
+            { num: '✓', label: 'Certificado Ecolabel' },
+          ].map(item => (
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <p class="font-mono-data text-3xl lg:text-4xl font-bold text-accent mb-1">{item.num}</p>
+              <p class="text-white/70 text-sm">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Zonas -->
-  <section class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-3xl text-warm mb-8 text-center" data-reveal>Zonas onde traballamos</h2>
-      <div class="flex flex-wrap gap-2 justify-center" data-reveal>
+  <!-- ═══ ZONAS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <span class="section-number left-4 top-12" aria-hidden="true">03</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Cubrimos toda Ferrolterra e a Área de A Coruña</h2>
+        <p class="text-mid text-lg">Máis de 30 municipios e as súas parroquias, dende Ortigueira ata Betanzos.</p>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-10" data-reveal-stagger>
         {[...MUNICIPIOS_FERROLTERRA, ...MUNICIPIOS_CORUNA].map(m => (
-          <a href={`/gl/zonas/${m.slug}/`} class="zone-pill">{m.nombreGL}</a>
+          <a href={`/gl/zonas/${m.slug}/`} class="zone-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {m.nombreGL}
+          </a>
+        ))}
+        <a href="/gl/zonas/" class="zone-pill bg-primary text-white border-primary">Ver todas →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMO FUNCIONA ═══ -->
+  <section class="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <span class="section-number right-4 top-12" aria-hidden="true">04</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Catro pasos. Sen complicacións.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal-stagger>
+        {pasos.map(p => (
+          <div class="relative">
+            <div class="font-mono-data text-6xl font-bold text-primary opacity-5 absolute -top-4 -left-2 pointer-events-none select-none">{p.num}</div>
+            <div class="card relative z-10 h-full">
+              <p class="font-semibold text-primary mb-2">{p.titulo}</p>
+              <p class="text-mid text-sm leading-relaxed">{p.desc}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="py-20 bg-charcoal">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-8 text-center" data-reveal>Preguntas frecuentes</h2>
-      <FAQAccordion {faqs} />
+  <!-- ═══ TESTIMONIOS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <span class="section-number left-4 top-12" aria-hidden="true">05</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">O que din os nosos clientes</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {testimonios.map(t => (
+          <div class="card" data-reveal>
+            <div class="flex gap-0.5 mb-4">
+              {[...Array(5)].map(() => <span class="text-yellow-400 text-lg">★</span>)}
+            </div>
+            <p class="text-charcoal text-sm leading-relaxed mb-6 italic">"{t.texto}"</p>
+            <div class="border-t border-line pt-4">
+              <p class="font-semibold text-primary text-sm">{t.nome}</p>
+              <p class="text-mid text-xs">{t.zona}</p>
+              <p class="text-accent text-xs mt-0.5">{t.servizo}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-xs text-mid mt-4">* Testemuños de clientes reais. Nomes abreviados por privacidade.</p>
     </div>
   </section>
 
+  <!-- ═══ FAQ ═══ -->
+  <section class="py-20 lg:py-28 bg-warm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12" data-reveal>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Preguntas frecuentes</h2>
+      </div>
+      <div data-reveal>
+        <FAQAccordion {faqs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ═══ -->
   <CTASection lang="gl" />
-  <WhatsAppFloat lang="gl" />
-  <CTABar lang="gl" />
 </BaseLayout>
