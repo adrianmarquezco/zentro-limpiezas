@@ -6,19 +6,20 @@ interface Props {
   dateModified?: string;
   url: string;
   image?: string;
+  faqs?: { q: string; a: string }[];
 }
-const { title, description, datePublished, dateModified, url, image } = Astro.props;
+const { title, description, datePublished, dateModified, url, image, faqs } = Astro.props;
 
-const schema = {
+const articleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: title,
   description,
   datePublished,
   dateModified: dateModified ?? datePublished,
   url,
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-  image: image ?? 'https://zentrolimpiezas.es/og-default.svg',
+  image: image ? `https://zentrolimpiezas.es${image}` : 'https://zentrolimpiezas.es/og-default.svg',
   author: {
     '@type': 'Organization',
     name: 'Zentro Limpiezas',
@@ -30,5 +31,16 @@ const schema = {
     logo: { '@type': 'ImageObject', url: 'https://zentrolimpiezas.es/favicon.svg' },
   },
 };
+
+const faqSchema = faqs && faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+} : null;
 ---
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

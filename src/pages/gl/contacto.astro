@@ -1,0 +1,95 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/gl/contacto/`;
+const title = 'Contacto | Zentro Limpiezas · Ferrol e A Coruña';
+const description = `Contacta con Zentro Limpiezas. Teléfono: ${BUSINESS.phoneDisplay}. Atención de luns a venres de 8:00 a 14:00 e sábados de 9:00 a 14:00.`;
+
+const breadcrumbs = [
+  { label: 'Contacto', href: '/gl/contacto/' },
+];
+
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
+---
+
+<BaseLayout
+  {title}
+  {description}
+  {canonical}
+  lang="gl"
+  robots="noindex, follow"
+  hreflangEs={`${BUSINESS.url}/contacto/`}
+  hreflangGl={canonical}
+>
+  <Breadcrumbs crumbs={breadcrumbs} />
+
+  <section class="bg-primary py-16 relative">
+    <div class="noise-overlay" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl text-warm mb-4">Contacto</h1>
+      <p class="text-mid text-lg max-w-xl mx-auto">Estamos aquí para axudarche. Contáctanos polo canal que prefiras.</p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="card p-6 text-center" data-reveal>
+          <div class="text-accent mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.65 4.9 2 2 0 0 1 3.62 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h2 class="font-serif text-lg text-warm mb-2">Teléfono</h2>
+          <a href={BUSINESS.phoneHref} class="text-accent text-xl font-mono hover:underline">
+            {BUSINESS.phoneDisplay}
+          </a>
+          <p class="text-mid text-xs mt-3">Lun–Ven 8:00–14:00<br>Sáb 9:00–14:00</p>
+        </div>
+
+        <div class="card p-6 text-center" data-reveal>
+          <div class="text-accent mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h2 class="font-serif text-lg text-warm mb-2">WhatsApp</h2>
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp mx-auto">
+            Escribir agora
+          </a>
+          <p class="text-mid text-xs mt-3">Resposta rápida</p>
+        </div>
+
+        <div class="card p-6 text-center sm:col-span-2 lg:col-span-1" data-reveal>
+          <div class="text-accent mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></div>
+          <h2 class="font-serif text-lg text-warm mb-2">Formulario</h2>
+          <a href="/gl/orzamento/" class="btn btn-accent mx-auto">
+            Solicitar orzamento
+          </a>
+          <p class="text-mid text-xs mt-3">Resposta en 24h</p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 card p-8" data-reveal>
+        <h2 class="font-serif text-xl text-warm mb-6">Información de contacto</h2>
+        <dl class="space-y-4">
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Empresa</dt>
+            <dd class="text-warm text-sm">{BUSINESS.name}</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Zona de traballo</dt>
+            <dd class="text-warm text-sm">Ferrol, A Coruña e máis de 29 municipios de Galicia</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Horario atención</dt>
+            <dd class="text-warm text-sm">Lun–Ven 8:00–14:00 · Sáb 9:00–14:00</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="text-mid text-sm w-40 shrink-0">Servizos</dt>
+            <dd class="text-warm text-sm">Horario flexible incluíndo tardes e fins de semana</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <WhatsAppFloat lang="gl" />
+</BaseLayout>

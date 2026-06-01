@@ -14,6 +14,7 @@ const blogCollection = defineCollection({
     lang: z.enum(['es', 'gl']).default('es'),
     draft: z.boolean().default(false),
     pilar: z.boolean().default(false),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 
@@ -31,6 +32,7 @@ const blogGlCollection = defineCollection({
     lang: z.enum(['es', 'gl']).default('gl'),
     draft: z.boolean().default(false),
     slugEs: z.string().optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 

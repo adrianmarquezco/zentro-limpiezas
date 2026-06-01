@@ -8,6 +8,15 @@ category: "consejos"
 readingTime: 6
 tags: ["baño", "sarro", "cal", "ecológico", "trucos"]
 lang: "es"
+faqs:
+  - q: "¿Cómo eliminar el sarro del grifo sin productos químicos agresivos?"
+    a: "Aplica vinagre blanco con un pano sobre el grifo y déjalo actuar 5-10 minutos. Para sarro más persistente, usa ácido cítrico diluido (una cucharadita en un vaso de agua). Aclara bien y seca con microfibra. El vinagre y el ácido cítrico disuelven los depósitos calcáreos sin dañar el acabado cromado."
+  - q: "¿El vinagre puede dañar los grifos o azulejos?"
+    a: "El vinagre diluido es seguro para grifos cromados estándar, cerámica y gres. Evítalo en acabados especiales (negro mate, oro) y en piedra natural (mármol, caliza). Para mamparas de vidro templado, el vinagre o el ácido cítrico son perfectamente seguros."
+  - q: "¿Con qué frecuencia hay que tratar el sarro del baño?"
+    a: "Para prevención: una vez al mes en zonas de agua dura. Para eliminar sarro ya formado: cuando lo veas. El sarro fresco se elimina en minutos; el acumulado durante meses requiere más tiempo de actuación del producto o repetición del proceso."
+  - q: "¿El ácido cítrico es mejor que el vinagre para el sarro?"
+    a: "El ácido cítrico concentrado es más eficaz que el vinagre para sarro muy incrustado. El vinagre diluido 1:1 es suficiente para mantenimiento regular. Para tratamientos intensivos (mampara con años de sarro), usa 4-5 cucharadas de ácido cítrico en 500 ml de agua."
 ---
 
 > **En resumen:**

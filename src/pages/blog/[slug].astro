@@ -5,15 +5,20 @@ import { BUSINESS } from '@/data/config';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  const postsGL = await getCollection('blog-gl', ({ data }) => !data.draft);
+  return posts.map((post) => {
+    const glMatch = postsGL.find(p => p.data.slugEs === post.slug);
+    return {
+      params: { slug: post.slug },
+      props: { post, glSlug: glMatch?.slug ?? null },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, glSlug } = Astro.props;
 const { Content } = await post.render();
 const canonical = `${BUSINESS.url}/blog/${post.slug}/`;
+const hreflangGl = glSlug ? `${BUSINESS.url}/gl/blog/${glSlug}/` : undefined;
 
 const breadcrumbs = [
   { label: 'Blog', href: '/blog/' },
@@ -33,6 +38,8 @@ const breadcrumbs = [
   category={post.data.category}
   {breadcrumbs}
   hreflangEs={canonical}
+  {hreflangGl}
+  faqs={post.data.faqs}
 >
   <Content />
 </BlogLayout>

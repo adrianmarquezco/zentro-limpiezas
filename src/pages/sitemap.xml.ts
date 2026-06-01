@@ -25,6 +25,7 @@ export const GET: APIRoute = async () => {
     `${SITE}/gl/zonas/`,
     `${SITE}/gl/sobre-nos/`,
     `${SITE}/gl/orzamento/`,
+    `${SITE}/gl/contacto/`,
     `${SITE}/gl/blog/`,
     // Servicios ES
     ...SERVICIOS.map(s => `${SITE}/servicios/${s.slug}/`),
@@ -33,6 +34,10 @@ export const GET: APIRoute = async () => {
     // Combos servicio × municipio ES
     ...SERVICIOS.flatMap(s =>
       s.municipiosCombo.map(m => `${SITE}/servicios/${s.slug}/${m}/`)
+    ),
+    // Combos servizo × municipio GL
+    ...SERVICIOS.flatMap(s =>
+      s.municipiosCombo.map(m => `${SITE}/gl/servizos/${s.slugGL}/${m}/`)
     ),
     // Zonas ES
     ...MUNICIPIOS.map(m => `${SITE}/zonas/${m.slug}/`),

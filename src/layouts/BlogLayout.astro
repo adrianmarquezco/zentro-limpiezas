@@ -19,12 +19,13 @@ interface Props {
   breadcrumbs: { label: string; href: string }[];
   hreflangEs?: string;
   hreflangGl?: string;
+  faqs?: { q: string; a: string }[];
 }
 
 const {
   title, description, canonical, lang = 'es',
   datePublished, dateModified, image, readingTime, category,
-  breadcrumbs, hreflangEs, hreflangGl,
+  breadcrumbs, hreflangEs, hreflangGl, faqs,
 } = Astro.props;
 
 const locale = lang === 'gl' ? 'gl-ES' : 'es-ES';
@@ -41,7 +42,7 @@ const categoryLabel = category ? (categoryLabels[category] ?? category) : 'Artí
 ---
 
 <BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article">
-  <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} />
+  <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} {faqs} />
 
   <!-- Hero del artículo -->
   <section class="bg-primary pt-24 pb-12 lg:pt-28 lg:pb-16 relative overflow-hidden">

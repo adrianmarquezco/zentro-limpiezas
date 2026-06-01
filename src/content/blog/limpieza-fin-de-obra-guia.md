@@ -8,6 +8,15 @@ category: "guias"
 readingTime: 7
 tags: ["fin de obra", "reforma", "limpieza especializada"]
 lang: "es"
+faqs:
+  - q: "¿Cuándo se hace la limpieza fin de obra?"
+    a: "La limpieza fin de obra se hace cuando todos los gremios han terminado su trabajo y no va a entrar más personal de construcción. Si se hace antes, habrá que repetirla al menos parcialmente. Para obras largas, puede hacerse una limpieza de desescombro a mitad de obra y la limpieza final al terminar."
+  - q: "¿Cuánto tiempo tarda una limpieza fin de obra?"
+    a: "Para un piso de reforma integral de 80 m², un equipo de 2-3 personas tarda entre 4 y 8 horas según el estado de la obra. Para reformas parciales (baño o cocina), el tiempo es de 2-4 horas. El polvo de yeso y los restos de material alargan considerablemente el tiempo respecto a una limpieza doméstica normal."
+  - q: "¿Cuánto cuesta la limpieza fin de obra en Galicia?"
+    a: "La reforma parcial de baño o cocina cuesta desde 120-180 €. Una reforma integral de un piso de 60-90 m² va de 280 a 400 €. El precio depende de la superficie, el tipo de reforma y el estado real de la obra. Damos presupuesto cerrado en menos de 24 horas, en muchos casos sin visita previa."
+  - q: "¿Necesito estar en casa durante la limpieza fin de obra?"
+    a: "No es imprescindible. Muchos clientes entregan las llaves y recogen el piso al terminar. Lo importante es poder acceder a todos los espacios incluidos en la reforma. Si hay materiales o instalaciones especiales (parquet nuevo, superficies delicadas), es útil indicarlo antes para usar la técnica adecuada."
 ---
 
 > **En resumen:**

@@ -9,6 +9,13 @@ readingTime: 8
 tags: ["baño", "sarro", "limpeza a fondo", "técnica profesional"]
 lang: "gl"
 slugEs: "eliminar-sarro-cal-bano"
+faqs:
+  - q: "Como eliminar o sarro do grifo sen produtos químicos agresivos?"
+    a: "Aplica vinagre branco cun pano sobre o grifo e déixao actuar 5-10 minutos. Para sarro máis persistente, usa ácido cítrico diluído (unha cucharadita nun vaso de auga). Aclara ben e seca con microfibra."
+  - q: "O vinagre pode danar os griferías ou azulexos?"
+    a: "O vinagre diluído é seguro para griferías cromadas estándar, cerámica e gres. Evítao en acabados especiais (negro mate, ouro) e en pedra natural (mármore, caliza). Para mamparas de vidro temperado, o vinagre ou o ácido cítrico son perfectamente seguros."
+  - q: "Con que frecuencia hai que tratar o sarro do baño?"
+    a: "Para prevención: unha vez ao mes en zonas de auga dura. Para eliminar sarro xa formado: cando o vexas. O sarro fresco elimínase en minutos; o acumulado durante meses require máis tempo de actuación do produto."
 ---
 
 O baño é a estancia do fogar onde a diferenza entre "limpo" e "limpo de verdade" é máis evidente. O sarro, a cal, o xabón incrustado e a humidade acumulada non desaparecen só con pasar un pano húmido. Necesitan técnica, o produto axeitado e a orde correcta.

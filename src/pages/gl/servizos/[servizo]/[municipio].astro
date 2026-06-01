@@ -1,0 +1,282 @@
+---
+import ComboLayout from '@/layouts/ComboLayout.astro';
+import HeroLocal from '@/components/sections/HeroLocal.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import { SERVICIOS } from '@/data/servicios';
+import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+
+export function getStaticPaths() {
+  const paths: { params: { servizo: string; municipio: string }; props: any }[] = [];
+  for (const s of SERVICIOS) {
+    for (const mSlug of s.municipiosCombo) {
+      const m = getMunicipioBySlug(mSlug);
+      if (m) {
+        paths.push({ params: { servizo: s.slugGL, municipio: m.slug }, props: { servicio: s, municipio: m } });
+      }
+    }
+  }
+  return paths;
+}
+
+const { servicio, municipio } = Astro.props;
+const canonical = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/`;
+const hreflangEs = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/`;
+
+const title = `${servicio.nombreGL} en ${municipio.nombreGL} | Zentro Limpiezas`;
+const description = `${servicio.nombreGL} profesional en ${municipio.nombreGL}. Produtos ecolóxicos incluídos${servicio.precioDesde ? ` desde ${servicio.precioDesde}` : ''}. Orzamento gratis. Máis de 20 anos de experiencia.`;
+
+const breadcrumbs = [
+  { label: 'Servizos', href: '/gl/servizos/' },
+  { label: servicio.nombreGL, href: `/gl/servizos/${servicio.slugGL}/` },
+  { label: municipio.nombreGL, href: canonical },
+];
+
+const faqs: { q: string; a: string }[] = [
+  {
+    q: `Canto custa o ${servicio.nombreGL.toLowerCase()} en ${municipio.nombreGL}?`,
+    a: servicio.precioDesde
+      ? `O prezo en ${municipio.nombreGL} comeza desde ${servicio.precioDesde}. O orzamento final depende do tamaño, o estado do espazo e a frecuencia que elixas. Dámocho gratis, sen compromiso nin visita obrigatoria, en menos de 24 horas.`
+      : `O prezo depende do tamaño, estado e frecuencia. Facémosche un orzamento personalizado e gratuíto en menos de 24 horas, sen compromiso nin visita obrigatoria.`,
+  },
+  {
+    q: `Tardades moito en chegar a ${municipio.nombreGL}?`,
+    a: `${municipio.nombreGL} está dentro da nosa zona de servizo habitual en ${municipio.comarca}. Normalmente podemos darte cita en 24-48 horas. Somos un equipo local, sen intermediarios.`,
+  },
+  {
+    q: 'Os produtos ecolóxicos están incluídos no prezo?',
+    a: 'Si. Todos os nosos servizos inclúen produtos de limpeza con certificación ecolóxica Ecolabel sen custo adicional. Non é un extra: é o noso estándar desde 2004.',
+  },
+  {
+    q: `Cubrís todas as parroquias de ${municipio.nombreGL}?`,
+    a: municipio.parroquias.length > 0
+      ? `Si, cubrimos todo o municipio de ${municipio.nombreGL}: ${municipio.parroquias.slice(0, 5).join(', ')}${municipio.parroquias.length > 5 ? ` e ${municipio.parroquias.length - 5} máis` : ''}. Sen cargo extra por zona.`
+      : `Si, traballamos en todo o municipio de ${municipio.nombreGL}. Se tes dúbidas sobre o teu enderezo concreto, escríbenos.`,
+  },
+  {
+    q: 'Podo contratar un servizo periódico?',
+    a: `Si. Ofrecemos limpeza semanal, quincenal ou mensual en ${municipio.nombreGL}. Sempre o mesmo equipo, que xa coñece o teu espazo. O prezo por visita en servizo periódico é máis económico ca o puntual.`,
+  },
+  {
+    q: 'Traedes vós os materiais?',
+    a: 'Si. Todo incluído: material de limpeza profesional, maquinaria se se necesita e produtos ecolóxicos certificados. Non tes que preparar nada.',
+  },
+];
+
+const otrosServizosEnMunicipio = SERVICIOS.filter(
+  s => s.slugGL !== servicio.slugGL && s.municipiosCombo.includes(municipio.slug)
+);
+
+const outrosMunicipiosConServizo = servicio.municipiosCombo
+  .filter((slug: string) => slug !== municipio.slug)
+  .map((slug: string) => getMunicipioBySlug(slug))
+  .filter(Boolean)
+  .slice(0, 5);
+
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, municipio.nombreGL));
+
+const pasos = [
+  { n: '01', titulo: 'Orzamento en 24h', desc: `Cóntanos o tamaño e estado do espazo en ${municipio.nombreGL}. Prezo pechado en menos de 24 horas.` },
+  { n: '02', titulo: 'Fixamos data e hora', desc: 'Mañá, tarde ou fin de semana. Eliximos xuntos a franja que mellor che encaixe.' },
+  { n: '03', titulo: 'O equipo chega puntual', desc: 'Trae todo o material. Ti non tes que preparar nada.' },
+  { n: '04', titulo: 'Resultado impecable', desc: 'Técnica profesional e produtos ecolóxicos. Resultado garantido.' },
+];
+---
+
+<ComboLayout
+  {title}
+  {description}
+  {canonical}
+  lang="gl"
+  serviceName={`${servicio.nombreGL} en ${municipio.nombreGL}`}
+  serviceDesc={description}
+  price={servicio.precioDesde ?? undefined}
+  {faqs}
+  {breadcrumbs}
+  hreflangGl={canonical}
+  {hreflangEs}
+>
+  <HeroLocal
+    municipio={municipio.nombreGL}
+    servicio={servicio.nombreGL}
+    eyebrow={`${servicio.nombreGL} · ${municipio.nombreGL}`}
+    h1={`${servicio.nombreGL} <br><span class="text-accent">en ${municipio.nombreGL}</span>`}
+    subtitle={`Servizo profesional de ${servicio.nombreGL.toLowerCase()} en ${municipio.nombreGL}. Produtos 100% ecolóxicos incluídos. Orzamento gratis en menos de 24 horas.`}
+    lang="gl"
+  />
+
+  <section class="py-16 lg:py-24 bg-warm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+
+        <div class="lg:col-span-2 space-y-10">
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">
+                {servicio.nombreGL} en {municipio.nombreGL}
+              </h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p class="speakable-intro">
+                En Zentro Limpiezas levamos máis de 20 anos prestando servizos de {servicio.nombreGL.toLowerCase()} en {municipio.nombreGL} e en toda a comarca de {municipio.comarca}. Somos unha empresa familiar, sen intermediarios: o equipo que vén á túa casa é sempre o mesmo, coñece o territorio e sabe adaptar o traballo ao tipo de vivenda e ao estado real do espazo.
+              </p>
+              <p>
+                {municipio.contenidoUnicoGL.split('.').slice(0, 2).join('.')}. En Zentro Limpiezas adaptamos o noso servizo de {servicio.nombreGL.toLowerCase()} ás particularidades de cada tipo de inmoble en {municipio.nombreGL}, con produtos ecolóxicos con certificación Ecolabel incluídos no prezo, sen custo adicional.
+              </p>
+              {servicio.precioDesde && (
+                <div class="p-4 bg-white border border-line rounded-lg">
+                  <p class="text-sm text-charcoal">
+                    <span class="font-semibold text-primary">Prezo orientativo en {municipio.nombreGL}:</span> {servicio.nombreGL} desde <span class="font-mono text-accent font-bold">{servicio.precioDesde}</span>. Orzamento personalizado en 24h sen compromiso.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl text-primary">Por que elixirnos en {municipio.nombreGL}</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {[
+                { titulo: `Coñecemos ${municipio.nombreGL}`, desc: `Levamos máis de 20 anos traballando en ${municipio.comarca}. Coñecemos os tipos de vivenda, os accesos e as necesidades do municipio.` },
+                { titulo: 'Produtos ecolóxicos incluídos', desc: 'Certificación Ecolabel. Seguros para a túa familia e mascotas. Sen custo extra. O noso estándar desde 2004.' },
+                { titulo: 'Equipo fixo e de confianza', desc: 'Sempre as mesmas persoas. Xa coñecen a túa casa e como a queres sen que teñas que repetir instrucións.' },
+                { titulo: 'Horario flexible', desc: 'Tardes, sábados e domingos dispoñibles. Adaptamos a visita ao que mellor che encaixe.' },
+                { titulo: 'Orzamento en 24h', desc: 'Sen visita previa obrigatoria. Un prezo pechado, sen letra pequena nin sorpresas na factura.' },
+                { titulo: 'Servizo puntual ou periódico', desc: `Unha limpeza puntual cando a necesites, ou un contrato semanal, quincenal ou mensual en ${municipio.nombreGL}.` },
+              ].map(item => (
+                <div class="flex items-start gap-3 bg-white border border-line rounded-lg p-4">
+                  <span class="text-accent mt-0.5 flex-shrink-0 font-bold">✓</span>
+                  <div>
+                    <p class="font-medium text-primary text-sm">{item.titulo}</p>
+                    <p class="text-mid text-xs leading-relaxed mt-0.5">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {municipio.parroquias.length > 0 && (
+            <div data-reveal>
+              <h3 class="font-serif text-lg text-primary mb-3">
+                Cubrimos todas as parroquias de {municipio.nombreGL}
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {municipio.parroquias.map(p => (
+                  <span class="zone-pill">{p}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+
+        <aside class="space-y-6">
+
+          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+            <h3 class="font-serif text-lg text-primary mb-2">{servicio.nombreGL} en {municipio.nombreGL}</h3>
+            <p class="text-mid text-xs mb-4">Orzamento gratis · Sen compromiso · 24h</p>
+            {servicio.precioDesde && (
+              <p class="font-mono text-accent text-2xl font-bold mb-4">desde {servicio.precioDesde}</p>
+            )}
+            <div class="flex flex-col gap-2">
+              <a href="/gl/orzamento/" class="btn-accent w-full text-center text-sm">→ Pedir orzamento</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-outline w-full text-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+
+          {otrosServizosEnMunicipio.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <h3 class="font-serif text-base text-primary mb-3">Máis servizos en {municipio.nombreGL}</h3>
+              <ul class="space-y-2">
+                {otrosServizosEnMunicipio.map(s => (
+                  <li>
+                    <a href={`/gl/servizos/${s.slugGL}/${municipio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {s.nombreGL}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a href={`/gl/zonas/${municipio.slug}/`} class="text-xs text-accent hover:underline mt-3 block">
+                Todos os servizos en {municipio.nombreGL}
+              </a>
+            </div>
+          )}
+
+          {outrosMunicipiosConServizo.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <h3 class="font-serif text-base text-primary mb-3">{servicio.nombreGL} noutras zonas</h3>
+              <ul class="space-y-2">
+                {outrosMunicipiosConServizo.map(m => m && (
+                  <li>
+                    <a href={`/gl/servizos/${servicio.slugGL}/${m.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {m.nombreGL}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a href={`/gl/servizos/${servicio.slugGL}/`} class="text-xs text-accent hover:underline mt-3 block">
+                Ver todas as zonas
+              </a>
+            </div>
+          )}
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-3 text-center" data-reveal>
+        Como organizamos o teu {servicio.nombreGL.toLowerCase()} en {municipio.nombreGL}
+      </h2>
+      <p class="text-mid text-center max-w-2xl mx-auto mb-10" data-reveal>
+        Sen burocracia. Sen letra pequena. Sen sorpresas.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pasos.map((paso) => (
+          <div class="bg-warm rounded-xl p-6" data-reveal>
+            <p class="font-mono text-accent text-3xl font-bold mb-3">{paso.n}</p>
+            <h3 class="font-serif text-base text-primary mb-2">{paso.titulo}</h3>
+            <p class="text-mid text-sm leading-relaxed">{paso.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
+        Preguntas sobre {servicio.nombreGL.toLowerCase()} en {municipio.nombreGL}
+      </h2>
+      <p class="text-white/60 text-center mb-8" data-reveal>
+        Se tes máis dúbidas, chámanos ao <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
+      </p>
+      <div class="space-y-3" data-reveal>
+        {faqs.map((faq) => (
+          <details class="bg-charcoal border border-white/10 rounded-lg group">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none text-white/90 font-medium text-sm hover:text-white transition-colors">
+              {faq.q}
+              <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactStrip context={municipio.nombreGL} lang="gl" />
+</ComboLayout>
