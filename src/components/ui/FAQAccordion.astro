@@ -12,7 +12,7 @@ const { faqs } = Astro.props;
         aria-expanded="false"
         data-faq-trigger
       >
-        <span class="font-semibold text-primary text-sm lg:text-base leading-snug">{faq.q}</span>
+        <span class="font-semibold text-primary text-sm lg:text-base leading-snug" role="heading" aria-level="3">{faq.q}</span>
         <span class="faq-icon flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full border-2 border-accent/30 text-accent text-xl font-light" aria-hidden="true">+</span>
       </button>
       <div class="faq-body" data-faq-body>
