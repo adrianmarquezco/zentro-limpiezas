@@ -31,22 +31,22 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
     </div>
   </section>
 
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <!-- Formulario -->
         <div>
-          <h2 class="font-serif text-2xl text-warm mb-6" data-reveal>Cuéntanos qué necesitas</h2>
+          <h2 class="font-display text-2xl text-primary mb-6" data-reveal>Cuéntanos qué necesitas</h2>
           <form
             id="presupuesto-form"
             action="/api/presupuesto"
             method="POST"
-            class="space-y-5"
+            class="space-y-4 bg-white rounded-2xl border border-line p-6 lg:p-8 shadow-sm"
             data-reveal
             novalidate
           >
-            <div class="form-field">
+            <div>
               <label for="nombre" class="form-label">Tu nombre *</label>
               <input
                 type="text"
@@ -55,11 +55,11 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
                 required
                 autocomplete="name"
                 placeholder="María García"
-                class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors"
+                class="form-field"
               />
             </div>
 
-            <div class="form-field">
+            <div>
               <label for="telefono" class="form-label">Teléfono *</label>
               <input
                 type="tel"
@@ -68,11 +68,11 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
                 required
                 autocomplete="tel"
                 placeholder="666 123 456"
-                class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors"
+                class="form-field"
               />
             </div>
 
-            <div class="form-field">
+            <div>
               <label for="email" class="form-label">Email (opcional)</label>
               <input
                 type="email"
@@ -80,17 +80,17 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
                 name="email"
                 autocomplete="email"
                 placeholder="maria@ejemplo.com"
-                class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors"
+                class="form-field"
               />
             </div>
 
-            <div class="form-field">
+            <div>
               <label for="servicio" class="form-label">Servicio que necesitas *</label>
               <select
                 id="servicio"
                 name="servicio"
                 required
-                class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm focus:outline-none focus:border-accent transition-colors"
+                class="form-field"
               >
                 <option value="">Selecciona un servicio</option>
                 {SERVICIOS.map(s => (
@@ -100,7 +100,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
               </select>
             </div>
 
-            <div class="form-field">
+            <div>
               <label for="zona" class="form-label">Municipio o zona *</label>
               <input
                 type="text"
@@ -108,18 +108,18 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
                 name="zona"
                 required
                 placeholder="Ferrol, A Coruña, Narón..."
-                class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors"
+                class="form-field"
               />
             </div>
 
-            <div class="form-field">
+            <div>
               <label for="mensaje" class="form-label">Cuéntanos más (opcional)</label>
               <textarea
                 id="mensaje"
                 name="mensaje"
                 rows="4"
                 placeholder="Tamaño del piso, frecuencia, urgencia, cualquier detalle que nos ayude..."
-                class="w-full bg-charcoal border border-line rounded-lg px-4 py-3 text-warm placeholder:text-mid/50 focus:outline-none focus:border-accent transition-colors resize-none"
+                class="form-field resize-none"
               ></textarea>
             </div>
 
@@ -160,7 +160,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
         <!-- Alternativas + info -->
         <div class="space-y-6">
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-warm mb-4">¿Prefieres hablar directamente?</h3>
+            <h3 class="font-serif text-lg text-primary mb-4">¿Prefieres hablar directamente?</h3>
             <div class="flex flex-col gap-3">
               <a href={BUSINESS.phoneHref} class="btn btn-primary w-full flex items-center justify-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
@@ -178,7 +178,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
           </div>
 
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-warm mb-4">¿Qué pasa después?</h3>
+            <h3 class="font-serif text-lg text-primary mb-4">¿Qué pasa después?</h3>
             <ol class="space-y-4">
               {[
                 { n: '1', t: 'Recibimos tu solicitud', d: 'En horario de oficina, en menos de una hora.' },
@@ -189,7 +189,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
                 <li class="flex items-start gap-3">
                   <span class="font-mono text-accent text-sm w-5 shrink-0">{step.n}.</span>
                   <div>
-                    <p class="text-warm text-sm font-medium">{step.t}</p>
+                    <p class="text-charcoal text-sm font-semibold">{step.t}</p>
                     <p class="text-mid text-xs mt-0.5">{step.d}</p>
                   </div>
                 </li>
@@ -198,15 +198,15 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
           </div>
 
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-base text-warm mb-3">Horario de atención</h3>
-            <ul class="space-y-2 text-sm text-mid">
+            <h3 class="font-serif text-base text-primary mb-3">Horario de atención</h3>
+            <ul class="space-y-2 text-sm text-charcoal">
               <li class="flex justify-between">
                 <span>Lunes – Viernes</span>
-                <span class="font-mono text-warm">08:00 – 14:00</span>
+                <span class="font-mono text-primary font-semibold">08:00 – 14:00</span>
               </li>
               <li class="flex justify-between">
                 <span>Sábados</span>
-                <span class="font-mono text-warm">09:00 – 14:00</span>
+                <span class="font-mono text-primary font-semibold">09:00 – 14:00</span>
               </li>
             </ul>
             <p class="text-mid text-xs mt-3">Los servicios se realizan también tardes y fines de semana.</p>
