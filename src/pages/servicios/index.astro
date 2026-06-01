@@ -18,7 +18,7 @@ const breadcrumbs = [
 ---
 
 <BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/servizos/`}>
-  <Breadcrumbs crumbs={breadcrumbs} />
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
   <section class="hero-section bg-primary py-20 lg:py-28 relative">
     <div class="noise-overlay" />
@@ -31,7 +31,7 @@ const breadcrumbs = [
           Todos nuestros servicios<br>
           <span class="text-accent">de limpieza</span>
         </h1>
-        <p class="text-mid text-lg leading-relaxed mb-6">
+        <p class="text-white/70 text-lg leading-relaxed mb-6">
           Desde la limpieza puntual de tu piso hasta contratos periódicos para empresas. Siempre con productos ecológicos incluidos sin coste extra.
         </p>
         <EcoBadge size="md" />
