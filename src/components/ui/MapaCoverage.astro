@@ -1,0 +1,221 @@
+---
+interface Zone {
+  id: string;
+  nombre: string;
+  cx: number;
+  cy: number;
+  precio?: string;
+  comarca: 'ferrolterra' | 'coruna';
+  r?: number;
+}
+
+const zones: Zone[] = [
+  // Ferrolterra
+  { id: 'ortigueira',    nombre: 'Ortigueira',    cx: 55,  cy: 42,  comarca: 'ferrolterra' },
+  { id: 'cedeira',       nombre: 'Cedeira',       cx: 100, cy: 68,  comarca: 'ferrolterra' },
+  { id: 'cerdido',       nombre: 'Cerdido',       cx: 148, cy: 85,  comarca: 'ferrolterra' },
+  { id: 'valdovino',     nombre: 'Valdoviño',     cx: 98,  cy: 114, precio: 'desde 65€', comarca: 'ferrolterra' },
+  { id: 'moeche',        nombre: 'Moeche',        cx: 178, cy: 108, comarca: 'ferrolterra' },
+  { id: 'san-sadurnino', nombre: 'San Sadurniño', cx: 208, cy: 128, comarca: 'ferrolterra' },
+  { id: 'ferrol',        nombre: 'Ferrol',        cx: 150, cy: 155, precio: 'desde 55€', comarca: 'ferrolterra', r: 12 },
+  { id: 'naron',         nombre: 'Narón',         cx: 178, cy: 168, precio: 'desde 55€', comarca: 'ferrolterra', r: 10 },
+  { id: 'neda',          nombre: 'Neda',          cx: 126, cy: 188, comarca: 'ferrolterra' },
+  { id: 'fene',          nombre: 'Fene',          cx: 160, cy: 205, comarca: 'ferrolterra' },
+  { id: 'mugardos',      nombre: 'Mugardos',      cx: 120, cy: 220, comarca: 'ferrolterra' },
+  { id: 'ares',          nombre: 'Ares',          cx: 128, cy: 255, comarca: 'ferrolterra' },
+  { id: 'cabanas',       nombre: 'Cabanas',       cx: 172, cy: 265, comarca: 'ferrolterra' },
+  { id: 'pontedeume',    nombre: 'Pontedeume',    cx: 190, cy: 282, comarca: 'ferrolterra' },
+  // Área Metropolitana A Coruña
+  { id: 'a-coruna',    nombre: 'A Coruña',    cx: 255, cy: 315, precio: 'desde 55€', comarca: 'coruna', r: 14 },
+  { id: 'arteixo',     nombre: 'Arteixo',     cx: 218, cy: 348, precio: 'desde 55€', comarca: 'coruna' },
+  { id: 'culleredo',   nombre: 'Culleredo',   cx: 255, cy: 352, precio: 'desde 55€', comarca: 'coruna' },
+  { id: 'cambre',      nombre: 'Cambre',      cx: 278, cy: 368, precio: 'desde 60€', comarca: 'coruna' },
+  { id: 'oleiros',     nombre: 'Oleiros',     cx: 296, cy: 288, precio: 'desde 65€', comarca: 'coruna' },
+  { id: 'sada',        nombre: 'Sada',        cx: 322, cy: 275, comarca: 'coruna' },
+  { id: 'bergondo',    nombre: 'Bergondo',    cx: 334, cy: 302, comarca: 'coruna' },
+  { id: 'betanzos',    nombre: 'Betanzos',    cx: 336, cy: 328, comarca: 'coruna' },
+  { id: 'carral',      nombre: 'Carral',      cx: 278, cy: 390, comarca: 'coruna' },
+  { id: 'abegondo',    nombre: 'Abegondo',    cx: 308, cy: 382, comarca: 'coruna' },
+  { id: 'coiros',      nombre: 'Coirós',      cx: 338, cy: 350, comarca: 'coruna' },
+  { id: 'paderne',     nombre: 'Paderne',     cx: 356, cy: 365, comarca: 'coruna' },
+  { id: 'irixoa',      nombre: 'Irixoa',      cx: 364, cy: 384, comarca: 'coruna' },
+  { id: 'vilarmaior',  nombre: 'Vilarmaior',  cx: 360, cy: 402, comarca: 'coruna' },
+  { id: 'oza-cesuras', nombre: 'Oza-Cesuras', cx: 356, cy: 420, comarca: 'coruna' },
+];
+---
+
+<div class="mapa-wrapper relative" id="mapa-coverage">
+  <!-- Tooltip -->
+  <div
+    id="mapa-tooltip"
+    class="pointer-events-none absolute z-20 bg-primary text-white text-xs font-semibold px-3 py-2 rounded-xl shadow-xl opacity-0 transition-opacity whitespace-nowrap"
+    style="transform: translate(-50%, -110%); top: 0; left: 0;"
+  ></div>
+
+  <svg
+    viewBox="0 0 420 455"
+    class="w-full h-auto"
+    role="img"
+    aria-label="Mapa de cobertura de Zentro Limpiezas: Ferrolterra y Área Metropolitana de A Coruña"
+  >
+    <!-- Fondo suave Ferrolterra -->
+    <ellipse cx="155" cy="175" rx="165" ry="140" fill="#E8F4F0" opacity="0.6" />
+    <!-- Fondo suave A Coruña Metro -->
+    <ellipse cx="295" cy="350" rx="115" ry="95" fill="#EAF0F8" opacity="0.6" />
+
+    <!-- Ría de Ferrol (decorativo) -->
+    <path d="M 105 170 Q 135 180 165 195 Q 175 210 160 225" stroke="#B8D4E8" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.5" />
+
+    <!-- Etiquetas de comarca -->
+    <text x="72" y="22" font-family="DM Serif Display, serif" font-size="11" fill="#0A2540" opacity="0.5" font-weight="400">Ferrolterra</text>
+    <text x="238" y="258" font-family="DM Serif Display, serif" font-size="11" fill="#0A2540" opacity="0.5" font-weight="400">Área Metropolitana A Coruña</text>
+
+    <!-- Zonas clickables -->
+    {zones.map(z => (
+      <g
+        class="mapa-zone"
+        data-id={z.id}
+        data-nombre={z.nombre}
+        data-precio={z.precio ?? 'Consultar precio'}
+        data-comarca={z.comarca}
+        role="button"
+        aria-label={`Limpieza en ${z.nombre}${z.precio ? ` — ${z.precio}` : ''}`}
+        tabindex="0"
+      >
+        <circle
+          cx={z.cx}
+          cy={z.cy}
+          r={(z.r ?? 8) + 4}
+          fill="transparent"
+          class="mapa-hit"
+        />
+        <circle
+          cx={z.cx}
+          cy={z.cy}
+          r={z.r ?? 8}
+          class={`mapa-dot mapa-dot--${z.comarca}`}
+        />
+        <text
+          x={z.cx}
+          y={z.cy + (z.r ?? 8) + 11}
+          text-anchor="middle"
+          font-family="DM Sans, system-ui, sans-serif"
+          font-size={z.r && z.r >= 12 ? '9' : '8'}
+          font-weight={z.r && z.r >= 12 ? '600' : '500'}
+          class={`mapa-label mapa-label--${z.comarca}`}
+        >
+          {z.nombre}
+        </text>
+      </g>
+    ))}
+  </svg>
+
+  <!-- Leyenda -->
+  <div class="flex flex-wrap gap-4 mt-4 text-xs text-mid justify-center">
+    <span class="flex items-center gap-1.5">
+      <span class="w-3 h-3 rounded-full bg-accent inline-block"></span>
+      Ferrolterra
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="w-3 h-3 rounded-full bg-[#3B82F6] inline-block"></span>
+      Área Metropolitana A Coruña
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+      Ciudad principal
+    </span>
+  </div>
+</div>
+
+<style>
+  .mapa-dot {
+    transition: r 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), fill 0.2s ease;
+  }
+  .mapa-dot--ferrolterra {
+    fill: #00C48C;
+  }
+  .mapa-dot--coruna {
+    fill: #3B82F6;
+  }
+  .mapa-label {
+    transition: opacity 0.2s ease;
+    fill: #1A1A2E;
+    opacity: 0.75;
+  }
+  .mapa-label--coruna {
+    fill: #1E40AF;
+  }
+  .mapa-zone:hover .mapa-dot,
+  .mapa-zone:focus .mapa-dot {
+    fill: #0A2540;
+    r: 11px;
+  }
+  .mapa-zone:hover .mapa-label,
+  .mapa-zone:focus .mapa-label {
+    opacity: 1;
+    font-weight: 600;
+  }
+  .mapa-zone.is-active .mapa-dot {
+    fill: #0A2540;
+  }
+</style>
+
+<script>
+(function () {
+  const wrapper = document.getElementById('mapa-coverage');
+  const tooltip = document.getElementById('mapa-tooltip');
+  if (!wrapper || !tooltip) return;
+
+  const zones = wrapper.querySelectorAll<SVGGElement>('.mapa-zone');
+
+  zones.forEach(zone => {
+    const show = (e: MouseEvent | FocusEvent) => {
+      const nombre = zone.dataset.nombre ?? '';
+      const precio = zone.dataset.precio ?? '';
+      tooltip.textContent = `Limpieza en ${nombre} — ${precio}`;
+
+      const svgRect = wrapper.getBoundingClientRect();
+      let x: number, y: number;
+
+      if (e instanceof MouseEvent) {
+        x = e.clientX - svgRect.left;
+        y = e.clientY - svgRect.top;
+      } else {
+        const dot = zone.querySelector<SVGCircleElement>('.mapa-dot');
+        if (!dot) return;
+        const cx = parseFloat(dot.getAttribute('cx') ?? '0');
+        const cy = parseFloat(dot.getAttribute('cy') ?? '0');
+        const svg = wrapper.querySelector('svg') as SVGSVGElement;
+        const svgWidth = svg.clientWidth || 420;
+        const svgHeight = svg.clientHeight || 455;
+        x = (cx / 420) * svgWidth;
+        y = (cy / 455) * svgHeight;
+      }
+
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+      tooltip.style.opacity = '1';
+    };
+
+    const hide = () => { tooltip.style.opacity = '0'; };
+
+    zone.addEventListener('mouseenter', show);
+    zone.addEventListener('mousemove', (e) => {
+      tooltip.style.left = (e.clientX - wrapper.getBoundingClientRect().left) + 'px';
+      tooltip.style.top = (e.clientY - wrapper.getBoundingClientRect().top) + 'px';
+    });
+    zone.addEventListener('mouseleave', hide);
+    zone.addEventListener('focus', show);
+    zone.addEventListener('blur', hide);
+    zone.addEventListener('click', () => {
+      window.location.href = `/zonas/${zone.dataset.id}/`;
+    });
+    zone.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = `/zonas/${zone.dataset.id}/`;
+      }
+    });
+  });
+})();
+</script>

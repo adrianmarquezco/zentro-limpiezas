@@ -1,0 +1,103 @@
+---
+interface Props {
+  beforeSrc: string;
+  afterSrc: string;
+  beforeAlt: string;
+  afterAlt: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+  initialPos?: number;
+}
+const {
+  beforeSrc, afterSrc, beforeAlt, afterAlt,
+  beforeLabel = 'Antes', afterLabel = 'Después',
+  initialPos = 38,
+} = Astro.props;
+
+const uid = `ba-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div
+  id={uid}
+  class="ba-root relative overflow-hidden rounded-2xl lg:rounded-3xl cursor-ew-resize select-none touch-none shadow-2xl"
+  style="aspect-ratio: 4/3"
+  role="img"
+  aria-label={`Comparativa antes y después: ${beforeAlt} / ${afterAlt}`}
+>
+  <!-- AFTER — full background -->
+  <img
+    src={afterSrc}
+    alt={afterAlt}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+    draggable="false"
+    onerror="this.style.opacity='0'"
+  />
+
+  <!-- BEFORE — clipped left side -->
+  <div class="ba-clip absolute inset-0 overflow-hidden" style={`width: ${initialPos}%`}>
+    <img
+      src={beforeSrc}
+      alt={beforeAlt}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      draggable="false"
+      onerror="this.style.opacity='0'"
+    />
+    <!-- Dark overlay on before side for contrast -->
+    <div class="absolute inset-0 bg-black/20"></div>
+  </div>
+
+  <!-- Labels -->
+  <span class="absolute top-4 left-4 bg-charcoal/85 text-white text-[11px] font-bold px-3 py-1.5 rounded-full backdrop-blur-sm uppercase tracking-widest pointer-events-none">
+    {beforeLabel}
+  </span>
+  <span class="absolute top-4 right-4 bg-accent text-primary text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest pointer-events-none">
+    {afterLabel}
+  </span>
+
+  <!-- Divider -->
+  <div
+    class="ba-line absolute top-0 bottom-0 flex flex-col items-center pointer-events-none"
+    style={`left: ${initialPos}%`}
+  >
+    <div class="w-px flex-1 bg-white shadow-[0_0_12px_rgba(255,255,255,0.6)]"></div>
+    <!-- Handle circle -->
+    <div class="w-11 h-11 rounded-full bg-white shadow-2xl flex items-center justify-center flex-shrink-0 ring-2 ring-white/50 pointer-events-auto cursor-ew-resize">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A2540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 3 12 9 6"/>
+        <polyline points="15 6 21 12 15 18"/>
+      </svg>
+    </div>
+    <div class="w-px flex-1 bg-white shadow-[0_0_12px_rgba(255,255,255,0.6)]"></div>
+  </div>
+
+  <!-- Drag hint -->
+  <p class="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/60 text-[11px] font-medium whitespace-nowrap pointer-events-none select-none tracking-wide">
+    ← arrastra para comparar →
+  </p>
+</div>
+
+<script define:vars={{ uid, initialPos }}>
+(function () {
+  const root = document.getElementById(uid);
+  if (!root) return;
+  const clip = root.querySelector('.ba-clip');
+  const line = root.querySelector('.ba-line');
+  let active = false;
+
+  const update = (cx) => {
+    const r = root.getBoundingClientRect();
+    const pct = Math.max(4, Math.min(96, ((cx - r.left) / r.width) * 100));
+    clip.style.width = pct + '%';
+    line.style.left = pct + '%';
+  };
+
+  root.addEventListener('mousedown', (e) => { active = true; update(e.clientX); e.preventDefault(); });
+  root.addEventListener('touchstart', (e) => { active = true; update(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mousemove', (e) => { if (active) update(e.clientX); });
+  window.addEventListener('touchmove', (e) => { if (active) update(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mouseup', () => { active = false; });
+  window.addEventListener('touchend', () => { active = false; });
+})();
+</script>

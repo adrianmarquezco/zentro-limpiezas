@@ -15,8 +15,11 @@ const breadcrumbs = [
   { label: 'Blog', href: '/blog/' },
 ];
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
+
+const featured = allPosts.find(p => p.data.pilar);
+const posts = allPosts.filter(p => p !== featured);
 
 const collectionSchema = {
   '@context': 'https://schema.org',
@@ -24,7 +27,7 @@ const collectionSchema = {
   name: title,
   description,
   url: canonical,
-  hasPart: posts.map(p => ({
+  hasPart: allPosts.map(p => ({
     '@type': 'Article',
     headline: p.data.title,
     url: `${BUSINESS.url}/blog/${p.slug}/`,
@@ -58,6 +61,44 @@ const categoryLabels: Record<string, string> = {
 
   <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Artículo destacado -->
+      {featured && (
+        <article class="card flex flex-col md:flex-row gap-0 overflow-hidden group mb-12 p-0" data-reveal>
+          {featured.data.image && (
+            <a href={`/blog/${featured.slug}/`} class="block overflow-hidden md:w-2/5 flex-shrink-0 aspect-video md:aspect-auto bg-primary/20">
+              <img
+                src={featured.data.image}
+                alt={featured.data.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                width="600" height="400"
+                loading="eager"
+                decoding="async"
+              />
+            </a>
+          )}
+          <div class="p-8 flex flex-col gap-3 flex-1">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-xs bg-accent text-primary font-bold px-3 py-1 rounded-full">Guía destacada</span>
+              <time class="text-mid text-xs font-mono" datetime={featured.data.datePublished}>
+                {new Date(featured.data.datePublished).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              {featured.data.readingTime && (
+                <span class="text-mid text-xs font-mono">{featured.data.readingTime} min de lectura</span>
+              )}
+            </div>
+            <h2 class="font-display text-2xl lg:text-3xl text-primary leading-snug">
+              <a href={`/blog/${featured.slug}/`} class="hover:text-accent transition-colors">
+                {featured.data.title}
+              </a>
+            </h2>
+            <p class="text-mid leading-relaxed flex-1">{featured.data.description}</p>
+            <a href={`/blog/${featured.slug}/`} class="btn-primary inline-flex w-fit px-6 py-3 text-sm mt-2">
+              Leer guía completa →
+            </a>
+          </div>
+        </article>
+      )}
 
       <!-- Filtro de categorías — JS sin URLs -->
       <div class="flex flex-wrap gap-2 mb-10" id="blog-filters">
@@ -124,7 +165,7 @@ const categoryLabels: Record<string, string> = {
         ))}
       </div>
 
-      {posts.length === 0 && (
+      {allPosts.length === 0 && (
         <div class="text-center py-16 text-mid">
           <p>Próximamente — artículos sobre limpieza y hogar.</p>
         </div>
