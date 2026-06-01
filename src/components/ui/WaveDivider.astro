@@ -1,0 +1,34 @@
+---
+/**
+ * WaveDivider — separador ondulado entre secciones de distinto fondo.
+ * Coloca este componente ENTRE dos <section> para crear la transición.
+ *
+ * from: color CSS de la sección que termina (el fondo del div contenedor)
+ * to:   color CSS de la sección que empieza (color con que se pinta la ola)
+ * flip: invierte la curva (ola cóncava en lugar de convexa)
+ */
+interface Props {
+  from: string;
+  to: string;
+  flip?: boolean;
+}
+const { from, to, flip = false } = Astro.props;
+---
+
+<div
+  class="relative overflow-hidden pointer-events-none select-none -mt-px -mb-px"
+  style={`background-color: ${from}; height: 56px;`}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 1440 56"
+    preserveAspectRatio="none"
+    class="absolute inset-0 w-full h-full"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {flip
+      ? <path d="M0,28 C360,56 720,0 1080,28 C1260,42 1380,14 1440,0 L1440,56 L0,56 Z" fill={to} />
+      : <path d="M0,0 C360,42 720,0 1080,28 C1260,42 1380,56 1440,28 L1440,56 L0,56 Z" fill={to} />
+    }
+  </svg>
+</div>
