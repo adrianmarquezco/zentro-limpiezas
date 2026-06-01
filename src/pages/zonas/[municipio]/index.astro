@@ -150,20 +150,20 @@ const pasos = [
 
           <!-- Por qué elegirnos -->
           <div class="bg-primary rounded-xl p-6 lg:p-8 text-white" data-reveal>
-            <h3 class="font-serif text-xl mb-5">Por qué los vecinos de {municipio.nombre} nos eligen</h3>
-            <div class="grid sm:grid-cols-2 gap-4">
+            <h3 class="font-display text-xl mb-6">Por qué los vecinos de {municipio.nombre} nos eligen</h3>
+            <div class="grid sm:grid-cols-2 gap-5">
               {[
-                { stat: '+20 años', label: 'de experiencia en Galicia', desc: 'Llevamos desde 2004 limpiando hogares y empresas en toda la comarca.' },
+                { stat: '+20', label: 'años de experiencia', desc: 'Llevamos desde 2004 limpiando hogares y empresas en toda la comarca.' },
                 { stat: '100%', label: 'productos ecológicos', desc: 'Certificados Ecolabel. Incluidos en el precio, sin coste adicional.' },
                 { stat: '24h', label: 'presupuesto cerrado', desc: 'Sin esperas. Te respondemos con un precio firme en menos de 24 horas.' },
-                { stat: 'Siempre', label: 'el mismo equipo', desc: 'La misma persona o equipo en cada visita. Confianza y conocimiento de tu hogar.' },
+                { stat: 'Fijo', label: 'el mismo equipo', desc: 'La misma persona o equipo en cada visita. Confianza y conocimiento de tu hogar.' },
               ].map(item => (
-                <div class="flex gap-3">
-                  <div class="flex-shrink-0">
-                    <p class="font-mono text-accent text-xl font-bold">{item.stat}</p>
-                    <p class="text-white/60 text-xs">{item.label}</p>
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-16 text-center bg-white/10 rounded-xl p-3">
+                    <p class="font-mono text-accent text-lg font-bold leading-none">{item.stat}</p>
+                    <p class="text-white/50 text-[10px] mt-1 leading-tight">{item.label}</p>
                   </div>
-                  <p class="text-white/80 text-sm leading-relaxed">{item.desc}</p>
+                  <p class="text-white/80 text-sm leading-relaxed pt-1">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -172,10 +172,10 @@ const pasos = [
         </div>
 
         <!-- Aside -->
-        <aside class="space-y-6">
+        <aside class="space-y-6 self-start lg:sticky lg:top-28">
 
           <!-- CTA presupuesto -->
-          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+          <div class="card p-6 border-accent/30" data-reveal>
             <h3 class="font-serif text-lg text-primary mb-2">Presupuesto gratis en {municipio.nombre}</h3>
             <p class="text-mid text-xs mb-4">Sin compromiso · Respuesta en 24h · Precio cerrado</p>
             {municipio.precioDesde && (

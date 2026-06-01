@@ -104,7 +104,7 @@ const pasos = [
 
         <!-- Columna dereita: foto do equipo -->
         <div class="hidden lg:block relative">
-          <div class="relative rounded-3xl overflow-hidden h-[520px] shadow-2xl">
+          <div class="relative rounded-3xl overflow-hidden h-[520px] shadow-2xl bg-white/[0.06] border border-white/10">
             <img
               src="/images/hero-equipo.jpg"
               alt="Equipo profesional de Zentro Limpiezas limpando cristais e tapizaría nunha vivenda de Ferrol con luvas azuis e produtos ecolóxicos"
@@ -113,6 +113,7 @@ const pasos = [
               height="1040"
               loading="eager"
               decoding="async"
+              onerror="this.style.display='none'"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
