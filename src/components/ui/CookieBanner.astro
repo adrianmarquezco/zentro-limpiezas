@@ -1,0 +1,75 @@
+---
+interface Props { lang?: 'es' | 'gl'; }
+const { lang = 'es' } = Astro.props;
+const isGL = lang === 'gl';
+
+const t = {
+  text: isGL
+    ? 'Usamos cookies propias para mellorar a túa experiencia. Non compartimos datos con terceiros.'
+    : 'Usamos cookies propias para mejorar tu experiencia. No compartimos datos con terceros.',
+  accept: isGL ? 'Aceptar' : 'Aceptar',
+  reject: isGL ? 'Só esenciais' : 'Solo esenciales',
+  link: isGL ? 'Política de cookies' : 'Política de cookies',
+  href: isGL ? '/gl/legal/cookies/' : '/legal/cookies/',
+};
+---
+
+<div
+  id="cookie-banner"
+  role="dialog"
+  aria-label={isGL ? 'Aviso de cookies' : 'Aviso de cookies'}
+  aria-live="polite"
+  class="fixed bottom-0 left-0 right-0 z-50 p-4 hidden"
+>
+  <div class="max-w-4xl mx-auto bg-charcoal border border-white/10 rounded-xl shadow-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <p class="text-white/80 text-sm leading-relaxed flex-1">
+      {t.text}
+      <a href={t.href} class="text-accent underline underline-offset-2 ml-1 hover:text-accent/80">{t.link}</a>.
+    </p>
+    <div class="flex gap-2 flex-shrink-0">
+      <button
+        id="cookie-reject"
+        class="text-white/60 hover:text-white text-sm px-4 py-2 rounded-lg border border-white/20 hover:border-white/40 transition-colors"
+      >
+        {t.reject}
+      </button>
+      <button
+        id="cookie-accept"
+        class="bg-accent text-charcoal font-semibold text-sm px-5 py-2 rounded-lg hover:bg-accent/90 transition-colors"
+      >
+        {t.accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+const COOKIE_KEY = 'zentro_cookie_consent';
+const banner = document.getElementById('cookie-banner');
+
+function hideBanner() {
+  if (banner) {
+    banner.classList.add('hidden');
+  }
+}
+
+function showBanner() {
+  if (banner) {
+    banner.classList.remove('hidden');
+  }
+}
+
+if (!localStorage.getItem(COOKIE_KEY)) {
+  setTimeout(showBanner, 800);
+}
+
+document.getElementById('cookie-accept')?.addEventListener('click', () => {
+  localStorage.setItem(COOKIE_KEY, 'accepted');
+  hideBanner();
+});
+
+document.getElementById('cookie-reject')?.addEventListener('click', () => {
+  localStorage.setItem(COOKIE_KEY, 'essential');
+  hideBanner();
+});
+</script>

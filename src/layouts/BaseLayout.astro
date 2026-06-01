@@ -3,6 +3,7 @@ import { BUSINESS } from '@/data/config';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import SchemaLocalBusiness from '@/components/schema/SchemaLocalBusiness.astro';
+import CookieBanner from '@/components/ui/CookieBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -97,6 +98,7 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
     <slot />
   </main>
   <Footer lang={lang} />
+  <CookieBanner lang={lang} />
 
   <!-- Scripts -->
   <script src="/scripts/scroll-reveal.js" defer></script>

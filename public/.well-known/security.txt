@@ -1,0 +1,4 @@
+Contact: mailto:info@zentrolimpiezas.es
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: es, gl
+Canonical: https://zentrolimpiezas.es/.well-known/security.txt
