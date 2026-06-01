@@ -10,17 +10,20 @@ const canonical = `${BUSINESS.url}/404/`;
   description="La página que buscas no existe. Vuelve al inicio o contáctanos."
   canonical={canonical}
   robots="noindex, nofollow"
-
 >
-  <section class="min-h-[60vh] flex items-center justify-center py-24">
-    <div class="max-w-md mx-auto px-4 text-center">
-      <p class="font-mono text-accent text-7xl font-bold mb-4">404</p>
+  <section class="min-h-[70vh] flex items-center justify-center bg-primary py-24 relative overflow-hidden">
+    <div class="absolute inset-0 noise-overlay" />
+    <div class="max-w-md mx-auto px-4 text-center relative z-10">
+      <p class="font-mono text-accent text-8xl font-bold mb-2 opacity-80">404</p>
       <h1 class="font-serif text-3xl text-warm mb-4">Página no encontrada</h1>
-      <p class="text-mid mb-8">La dirección que buscas no existe o ha cambiado.</p>
+      <p class="text-white/70 mb-10 leading-relaxed">La dirección que buscas no existe o ha cambiado. Puede que haya sido movida o eliminada.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/" class="btn btn-accent">Ir al inicio</a>
-        <a href="/presupuesto/" class="btn btn-outline">Pedir presupuesto</a>
+        <a href="/" class="btn-accent px-6 py-3">Ir al inicio</a>
+        <a href="/presupuesto/" class="btn-outline-light px-6 py-3">Pedir presupuesto</a>
       </div>
+      <p class="text-white/40 text-sm mt-8">
+        ¿Buscabas un servicio? <a href="/servicios/" class="text-accent hover:underline">Ver todos los servicios →</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

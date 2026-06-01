@@ -10,21 +10,21 @@ const waUrl = buildWhatsAppUrl(context ? WA_MESSAGES.municipio(context) : WA_MES
 const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
 ---
 
-<div class="border-t border-line py-6">
+<div class="bg-warm border-t border-line py-6">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-mid text-sm">
+    <p class="text-charcoal text-sm font-medium">
       {lang === 'gl'
         ? '¿Tes dúbidas? Respondemos ao momento.'
         : '¿Tienes dudas? Respondemos al momento.'}
     </p>
     <div class="flex flex-wrap gap-3">
-      <a href={BUSINESS.phoneHref} class="btn btn-primary py-2 px-5 text-sm">
+      <a href={BUSINESS.phoneHref} class="btn-primary py-2 px-5 text-sm">
         {BUSINESS.phoneDisplay}
       </a>
-      <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp py-2 px-5 text-sm">
+      <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp py-2 px-5 text-sm">
         WhatsApp
       </a>
-      <a href={presupuestoHref} class="btn btn-outline py-2 px-5 text-sm">
+      <a href={presupuestoHref} class="btn-outline py-2 px-5 text-sm">
         {lang === 'gl' ? 'Orzamento' : 'Presupuesto'}
       </a>
     </div>

@@ -19,7 +19,7 @@ const { name, location, text, service, stars = 5 } = Astro.props;
   </div>
   <blockquote class="text-mid text-sm leading-relaxed italic">"{text}"</blockquote>
   <footer class="mt-auto pt-4 border-t border-line">
-    <p class="text-warm font-medium text-sm">{name}*</p>
+    <p class="text-primary font-semibold text-sm">{name}*</p>
     <p class="text-mid text-xs">{location}{service ? ` · ${service}` : ''}</p>
   </footer>
 </div>
