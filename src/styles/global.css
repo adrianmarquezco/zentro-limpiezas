@@ -132,6 +132,14 @@
     .btn-outline:hover { @apply bg-primary text-white; }
   }
 
+  .btn-outline-light {
+    @apply btn border-2 border-white/50 text-white bg-transparent px-6 py-3 text-sm lg:text-base;
+  }
+
+  @media (hover: hover) {
+    .btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
+  }
+
   /* Cards */
   .card {
     @apply bg-white rounded-2xl border border-line p-6;
@@ -304,13 +312,13 @@
 .faq-item.is-open .faq-icon { transform: rotate(45deg); }
 
 /* ─── Service card flip ─── */
-.service-card { transform-style: preserve-3d; }
+.service-card { transform-style: preserve-3d; min-height: 280px; }
 .service-card-inner {
   position: relative;
   transition: transform var(--dur-normal) var(--ease-out-expo);
   transform-style: preserve-3d;
   width: 100%;
-  height: 100%;
+  min-height: 280px;
 }
 @media (hover: hover) {
   .service-card:hover .service-card-inner { transform: rotateY(180deg); }

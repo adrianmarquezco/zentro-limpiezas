@@ -17,7 +17,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
 ---
 
 <BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/orzamento/`}>
-  <Breadcrumbs crumbs={breadcrumbs} />
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
   <section class="hero-section bg-primary py-16 relative">
     <div class="noise-overlay" />
@@ -25,7 +25,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
       <h1 class="font-serif text-4xl lg:text-5xl text-warm mb-4" data-reveal>
         Presupuesto <span class="text-accent">gratuito</span>
       </h1>
-      <p class="text-mid text-lg max-w-xl mx-auto" data-reveal>
+      <p class="text-white/70 text-lg max-w-xl mx-auto" data-reveal>
         Sin compromiso. Te respondemos en menos de 24 horas.
       </p>
     </div>
