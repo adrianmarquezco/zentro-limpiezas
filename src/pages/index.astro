@@ -250,8 +250,8 @@ const faqSchema = faqs;
       </div>
       <div data-reveal>
         <BeforeAfter
-          beforeSrc="/images/antes-dormitorio.jpg"
-          afterSrc="/images/despues-dormitorio.jpg"
+          beforeSrc="/images/antes-dormitorio.webp"
+          afterSrc="/images/despues-dormitorio.webp"
           beforeAlt="Habitación con suciedad acumulada, ropa y basura en el suelo antes de la limpieza"
           afterAlt="Habitación limpia, ordenada y con moqueta impecable después del servicio de Zentro Limpiezas"
           beforeLabel="Antes"
@@ -446,11 +446,12 @@ const faqSchema = faqs;
   <CTASection />
 </BaseLayout>
 
-<script>
-// ─── Contador animado ─────────────────────────────────────────────────────────
-(function () {
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ─── Contador animado ───────────────────────────────────────────────────────
   function parseCounter(raw) {
-    var m = raw.match(/^([^0-9]*)(\d+)([^0-9]*)$/);
+    var m = String(raw).match(/^([^0-9]*)(\d+)([^0-9]*)$/);
     if (!m) return null;
     return { prefix: m[1], value: parseInt(m[2], 10), suffix: m[3] };
   }
@@ -461,65 +462,61 @@ const faqSchema = faqs;
     if (!data || data.value === 0) return;
     var prefix = data.prefix, value = data.value, suffix = data.suffix;
     var duration = 1400;
-    var start = performance.now();
-    function step(now) {
-      var elapsed = now - start;
-      var progress = Math.min(elapsed / duration, 1);
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * value);
-      el.textContent = prefix + current + suffix;
+      el.textContent = prefix + Math.round(eased * value) + suffix;
       if (progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
-  var counters = document.querySelectorAll('[data-counter]');
-  var counterObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
+  var observed = new Set();
+  var counterObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !observed.has(entry.target)) {
+        observed.add(entry.target);
         animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
+        counterObs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.3 });
 
-  counters.forEach(function(c) { counterObserver.observe(c); });
-})();
+  document.querySelectorAll('[data-counter]').forEach(function (el) {
+    counterObs.observe(el);
+  });
 
-// ─── Conector animado pasos ───────────────────────────────────────────────────
-(function () {
+  // ─── Conector animado pasos ─────────────────────────────────────────────────
   var connector = document.getElementById('steps-connector');
-  if (!connector) return;
+  if (connector) {
+    var dots  = connector.querySelectorAll('.step-dot');
+    var lines = connector.querySelectorAll('.step-line');
+    var fired = false;
 
-  var dots = connector.querySelectorAll('.step-dot');
-  var lines = connector.querySelectorAll('.step-line');
-  var fired = false;
+    function animateSteps() {
+      if (fired) return;
+      fired = true;
+      dots.forEach(function (dot, i) {
+        setTimeout(function () {
+          dot.style.borderColor     = '#00C48C';
+          dot.style.backgroundColor = '#00C48C';
+          dot.style.transform       = 'scale(1.5)';
+          setTimeout(function () { dot.style.transform = 'scale(1)'; }, 280);
+        }, i * 260);
+      });
+      lines.forEach(function (line, i) {
+        setTimeout(function () { line.style.width = '100%'; }, (i + 1) * 260);
+      });
+    }
 
-  function animate() {
-    if (fired) return;
-    fired = true;
-    dots.forEach(function(dot, i) {
-      setTimeout(function() {
-        dot.style.borderColor = '#00C48C';
-        dot.style.backgroundColor = '#00C48C';
-        dot.style.transform = 'scale(1.5)';
-        setTimeout(function() { dot.style.transform = 'scale(1)'; }, 280);
-      }, i * 260);
-    });
-    lines.forEach(function(line, i) {
-      setTimeout(function() {
-        line.style.width = '100%';
-      }, (i + 1) * 260);
-    });
+    var stepsObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { animateSteps(); stepsObs.disconnect(); }
+    }, { threshold: 0.2 });
+
+    stepsObs.observe(connector);
   }
 
-  var stepsObserver = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) {
-      animate();
-      stepsObserver.disconnect();
-    }
-  }, { threshold: 0.3 });
-
-  stepsObserver.observe(connector);
-})();
+});
 </script>
