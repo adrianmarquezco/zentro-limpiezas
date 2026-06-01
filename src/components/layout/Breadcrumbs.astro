@@ -1,7 +1,7 @@
 ---
 interface Crumb { label: string; href: string; }
-interface Props { crumbs: Crumb[]; }
-const { crumbs } = Astro.props;
+interface Props { crumbs: Crumb[]; dark?: boolean; }
+const { crumbs, dark = false } = Astro.props;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -18,21 +18,23 @@ const schema = {
 };
 ---
 
-<nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-28 pb-2">
-  <ol class="flex flex-wrap items-center gap-1.5 text-xs text-mid">
-    <li>
-      <a href="/" class="hover:text-primary transition-colors">Inicio</a>
-    </li>
-    {crumbs.map((crumb, i) => (
-      <li class="flex items-center gap-1.5">
-        <span class="text-line">/</span>
-        {i === crumbs.length - 1
-          ? <span class="text-charcoal font-medium">{crumb.label}</span>
-          : <a href={crumb.href} class="hover:text-primary transition-colors">{crumb.label}</a>
-        }
+<div class:list={[dark ? "bg-primary" : "bg-warm"]}>
+  <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-28 pb-3">
+    <ol class:list={["flex flex-wrap items-center gap-1.5 text-xs", dark ? "text-white/40" : "text-mid"]}>
+      <li>
+        <a href="/" class:list={["transition-colors", dark ? "hover:text-white" : "hover:text-primary"]}>Inicio</a>
       </li>
-    ))}
-  </ol>
-</nav>
+      {crumbs.map((crumb, i) => (
+        <li class="flex items-center gap-1.5">
+          <span class:list={[dark ? "text-white/20" : "text-line"]}>/</span>
+          {i === crumbs.length - 1
+            ? <span class:list={[dark ? "text-white/80" : "text-charcoal", "font-medium"]}>{crumb.label}</span>
+            : <a href={crumb.href} class:list={["transition-colors", dark ? "hover:text-white" : "hover:text-primary"]}>{crumb.label}</a>
+          }
+        </li>
+      ))}
+    </ol>
+  </nav>
+</div>
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -24,15 +24,15 @@ const posts = (await getCollection('blog-gl', ({ data }) => !data.draft))
   hreflangEs={`${BUSINESS.url}/blog/`}
   hreflangGl={canonical}
 >
-  <Breadcrumbs crumbs={breadcrumbs} />
-  <section class="bg-primary py-16 relative">
-    <div class="noise-overlay" />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="font-serif text-4xl text-warm mb-4" data-reveal>Blog en galego</h1>
-      <p class="text-mid text-lg max-w-xl" data-reveal>Consellos de limpeza, guías ecolóxicas e todo o que precisas saber para manter o teu fogar en perfecto estado.</p>
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
+  <section class="bg-primary py-16 relative overflow-hidden">
+    <div class="noise-overlay absolute inset-0 pointer-events-none" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <h1 class="font-display text-4xl lg:text-5xl text-white mb-4">Consellos de limpeza para o teu fogar</h1>
+      <p class="text-white/70 text-lg max-w-xl">Guías prácticas, trucos profesionais e produtos ecolóxicos para manter a túa casa en perfecto estado.</p>
     </div>
   </section>
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
@@ -53,11 +53,11 @@ const posts = (await getCollection('blog-gl', ({ data }) => !data.draft))
               <time class="text-mid text-xs font-mono" datetime={post.data.datePublished}>
                 {new Date(post.data.datePublished).toLocaleDateString('gl-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
               </time>
-              <h2 class="font-serif text-xl text-warm leading-snug">
+              <h2 class="font-display text-xl text-primary leading-snug">
                 <a href={`/gl/blog/${post.slug}/`} class="hover:text-accent transition-colors">{post.data.title}</a>
               </h2>
               <p class="text-mid text-sm leading-relaxed flex-1">{post.data.description}</p>
-              <a href={`/gl/blog/${post.slug}/`} class="text-accent text-sm hover:underline mt-auto pt-4 border-t border-line block">Ler artigo →</a>
+              <a href={`/gl/blog/${post.slug}/`} class="text-accent text-sm font-semibold hover:underline mt-auto pt-4 border-t border-line block">Ler artigo →</a>
             </div>
           </article>
         ))}

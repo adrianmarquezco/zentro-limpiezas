@@ -17,12 +17,12 @@ const breadcrumbs = [
 ---
 
 <BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/zonas/`}>
-  <Breadcrumbs crumbs={breadcrumbs} />
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
-  <section class="hero-section bg-primary py-20 lg:py-28 relative">
-    <div class="noise-overlay" />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-serif text-4xl lg:text-5xl text-warm mb-4" data-reveal>
+  <section class="hero-section bg-primary py-20 lg:py-28 relative overflow-hidden">
+    <div class="noise-overlay absolute inset-0 pointer-events-none" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h1 class="font-display text-4xl lg:text-5xl text-white mb-4" data-reveal>
         Zonas donde trabajamos
       </h1>
       <p class="text-mid text-lg max-w-2xl mx-auto" data-reveal>

@@ -44,19 +44,19 @@ const categoryLabels: Record<string, string> = {
 <BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/blog/`}>
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
 
-  <Breadcrumbs crumbs={breadcrumbs} />
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
-  <section class="bg-primary py-16 relative">
-    <div class="noise-overlay" />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="font-serif text-4xl lg:text-5xl text-warm mb-4" data-reveal>Blog</h1>
+  <section class="bg-primary py-16 relative overflow-hidden">
+    <div class="noise-overlay absolute inset-0 pointer-events-none" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <h1 class="font-display text-4xl lg:text-5xl text-white mb-4">Consejos de limpieza profesional</h1>
       <p class="text-mid text-lg max-w-2xl speakable-intro" data-reveal>
         Guías prácticas, precios actualizados y consejos de limpieza profesional para hogares, oficinas y espacios en Ferrol, A Coruña y toda Galicia. Contenido elaborado por el equipo de Zentro Limpiezas, con más de 20 años de experiencia en limpieza profesional ecológica.
       </p>
     </div>
   </section>
 
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Filtro de categorías — JS sin URLs -->
@@ -105,7 +105,7 @@ const categoryLabels: Record<string, string> = {
                   <span class="text-xs text-mid capitalize">{categoryLabels[post.data.category]}</span>
                 </div>
               </div>
-              <h2 class="font-serif text-xl text-warm leading-snug">
+              <h2 class="font-display text-xl text-primary leading-snug">
                 <a href={`/blog/${post.slug}/`} class="hover:text-accent transition-colors">
                   {post.data.title}
                 </a>
