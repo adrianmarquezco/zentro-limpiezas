@@ -33,11 +33,15 @@ const defaultTitle = lang === 'gl' ? 'Servizo de limpeza nos municipios de Ferro
 
     {variant === 'all' && (
       <div class="mb-10">
-        <h3 class="text-white/40 text-xs uppercase tracking-widest mb-4 font-semibold" data-reveal>Ferrolterra</h3>
+        <p class="text-white/40 text-xs uppercase tracking-widest mb-4 font-semibold" data-reveal>
+          {lang === 'gl' ? 'Limpeza en Ferrolterra' : 'Limpieza en Ferrolterra'}
+        </p>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
           {MUNICIPIOS_FERROLTERRA.map((m) => <ZoneCard municipio={m} lang={lang} />)}
         </div>
-        <h3 class="text-white/40 text-xs uppercase tracking-widest mb-4 font-semibold" data-reveal>Área Metropolitana A Coruña</h3>
+        <p class="text-white/40 text-xs uppercase tracking-widest mb-4 font-semibold" data-reveal>
+          {lang === 'gl' ? 'Limpeza na Área Metropolitana de A Coruña' : 'Limpieza en el Área Metropolitana de A Coruña'}
+        </p>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {MUNICIPIOS_CORUNA.map((m) => <ZoneCard municipio={m} lang={lang} />)}
         </div>

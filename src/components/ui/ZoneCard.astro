@@ -13,7 +13,9 @@ const href = lang === 'gl'
 ---
 
 <a href={href} class="card group flex flex-col gap-2 p-5 hover:border-accent transition-colors duration-200" data-reveal>
-  <h3 class="font-serif text-lg text-primary group-hover:text-accent transition-colors">{nombre}</h3>
+  <h3 class="font-serif text-lg text-primary group-hover:text-accent transition-colors">
+    <span class="sr-only">{lang === 'gl' ? 'Limpeza en ' : 'Limpieza en '}</span>{nombre}
+  </h3>
   <p class="text-mid text-xs">{municipio.comarca}</p>
   <span class="text-accent text-sm mt-auto">Ver zona →</span>
 </a>

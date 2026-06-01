@@ -46,8 +46,8 @@ const svgIcon = icons[servicio.icono] ?? icons.house;
       </div>
     </div>
     <!-- Back -->
-    <div class="service-card-back flex flex-col gap-4 p-6 bg-primary">
-      <h3 class="font-serif text-xl text-warm">{nombre}</h3>
+    <div class="service-card-back flex flex-col gap-4 p-6 bg-primary" aria-hidden="true">
+      <p class="font-serif text-xl text-warm">{nombre}</p>
       <p class="text-white/70 text-sm leading-relaxed flex-1">
         {lang === 'gl' ? 'Produtos 100% ecolóxicos incluídos sen custo adicional. Sen sorpresas.' : 'Productos 100% ecológicos incluidos sin coste adicional. Sin sorpresas.'}
       </p>
