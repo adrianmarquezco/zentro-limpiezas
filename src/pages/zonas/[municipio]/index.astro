@@ -301,9 +301,42 @@ const pasos = [
     </div>
   </section>
 
-  <!-- Parroquias -->
+  <!-- Barrios con página propia -->
+  {municipio.barrios && municipio.barrios.length > 0 && (
+    <section class="py-16 bg-warm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10" data-reveal>
+          <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-2">
+            Limpieza por barrios en {municipio.nombre}
+          </h2>
+          <p class="text-mid text-sm">
+            Información y precios específicos para cada zona y barrio de {municipio.nombre}.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" data-reveal-stagger>
+          {municipio.barrios.map((b) => (
+            <a
+              href={`/zonas/${municipio.slug}/${b.slug}/`}
+              class="card group hover:border-accent transition-colors p-5"
+            >
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <h3 class="font-semibold text-primary text-sm group-hover:text-accent transition-colors">{b.nombre}</h3>
+                {b.precioDesde && (
+                  <span class="font-mono text-accent text-xs font-bold flex-shrink-0">{b.precioDesde}</span>
+                )}
+              </div>
+              <p class="text-mid text-xs leading-relaxed line-clamp-3">{b.descripcion}</p>
+              <span class="text-accent text-xs mt-3 block">Ver zona →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Parroquias (las que no tienen página propia) -->
   {municipio.parroquias.length > 0 && (
-    <section class="py-12 bg-warm">
+    <section class="py-12 bg-warm border-t border-line">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-serif text-xl text-primary mb-2" data-reveal>
           Cubrimos todas las parroquias de {municipio.nombre}
