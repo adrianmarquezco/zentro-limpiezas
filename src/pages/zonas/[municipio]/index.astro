@@ -18,8 +18,8 @@ const { municipio } = Astro.props;
 const canonical = `${BUSINESS.url}/zonas/${municipio.slug}/`;
 const hreflangGl = `${BUSINESS.url}/gl/zonas/${municipio.slug}/`;
 
-const title = `Limpieza del hogar en ${municipio.nombre} | Zentro Limpiezas`;
-const description = `Limpieza profesional en ${municipio.nombre}. Productos ecológicos incluidos. Presupuesto gratis sin compromiso. Más de 20 años de experiencia en Galicia.`;
+const title = `Limpieza a domicilio en ${municipio.nombre} | Zentro Limpiezas`;
+const description = `Empresa de limpieza en ${municipio.nombre}: viviendas, oficinas y locales. Productos ecológicos incluidos${municipio.precioDesde ? `. Desde ${municipio.precioDesde}` : ''}. Presupuesto gratis en 24h.`;
 
 const breadcrumbs = [
   { label: 'Zonas', href: '/zonas/' },

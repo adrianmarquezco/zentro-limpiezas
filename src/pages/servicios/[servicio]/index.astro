@@ -19,7 +19,8 @@ const { servicio } = Astro.props;
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/`;
 const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/`;
 
-const title = `${servicio.nombre} en Galicia | Zentro Limpiezas`;
+const tituloBase = servicio.tituloMeta ?? `${servicio.nombre} en Ferrol y A Coruña`;
+const title = `${tituloBase} | Zentro Limpiezas`;
 const description = `${servicio.descripcionCorta} Productos ecológicos incluidos. Más de 20 años de experiencia en Ferrol y A Coruña. Presupuesto gratis.`;
 
 const breadcrumbs = [
@@ -543,7 +544,7 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
   <HeroService
     servicio={servicio.nombre}
     eyebrow="Limpieza profesional · Productos ecológicos · Ferrol y A Coruña"
-    h1={`${servicio.nombre} <br><span class="text-accent">en Galicia</span>`}
+    h1={`${servicio.nombre} <br><span class="text-accent">en Ferrol y A Coruña</span>`}
     subtitle={servicio.descripcionCorta}
     precioDesde={servicio.precioDesde}
     lang="es"

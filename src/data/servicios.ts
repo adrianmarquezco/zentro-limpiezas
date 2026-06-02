@@ -8,6 +8,7 @@ export type Servicio = {
   descripcionCorta: string;
   tier: 1 | 2 | 3; // 1=servicio estrella, 2=importante, 3=complementario
   municipiosCombo: string[]; // slugs de municipios con página combo
+  tituloMeta?: string; // override para el meta title cuando el nombre es demasiado largo
 };
 
 export const SERVICIOS: Servicio[] = [
@@ -47,6 +48,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-locales-comerciales',
     slugGL: 'limpeza-de-locais',
+    tituloMeta: 'Limpieza de locales en Ferrol y A Coruña',
     nombre: 'Limpieza de locales comerciales',
     nombreGL: 'Limpeza de locais comerciais',
     icono: 'storefront',
@@ -91,6 +93,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-apartamentos-turisticos',
     slugGL: 'limpeza-de-apartamentos',
+    tituloMeta: 'Limpieza de apartamentos turísticos en Ferrol',
     nombre: 'Limpieza de apartamentos turísticos',
     nombreGL: 'Limpeza de apartamentos turísticos',
     icono: 'bed',
@@ -124,6 +127,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-pazos-y-eventos',
     slugGL: 'limpeza-de-pazos',
+    tituloMeta: 'Limpieza de pazos y eventos en Galicia',
     nombre: 'Limpieza de pazos y eventos',
     nombreGL: 'Limpeza de pazos e eventos',
     icono: 'castle',
