@@ -28,7 +28,11 @@ const articleSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'Zentro Limpiezas',
-    logo: { '@type': 'ImageObject', url: 'https://zentrolimpiezas.es/favicon.svg' },
+    logo: { '@type': 'ImageObject', url: 'https://zentrolimpiezas.es/images/logo.webp' },
+  },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.speakable-intro', 'h1', 'h2'],
   },
 };
 

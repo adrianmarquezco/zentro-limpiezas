@@ -20,7 +20,9 @@ const schema = {
     telephone: BUSINESS.phoneHref,
     url: BUSINESS.url,
   },
-  areaServed: { '@type': 'GeoCircle', name: 'Galicia, España' },
+  areaServed: [
+    'Ferrol','A Coruña','Narón','Ferrolterra','Área Metropolitana de A Coruña',
+  ].map(n => ({ '@type': 'City', name: n })),
   ...(price ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR' } } : {}),
 };
 ---

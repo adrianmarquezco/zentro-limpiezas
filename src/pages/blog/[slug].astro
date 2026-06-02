@@ -20,6 +20,10 @@ const { Content } = await post.render();
 const canonical = `${BUSINESS.url}/blog/${post.slug}/`;
 const hreflangGl = glSlug ? `${BUSINESS.url}/gl/blog/${glSlug}/` : undefined;
 
+// Títulos blog: si supera 65 chars con brand, Google lo añade solo (>46 chars de título base)
+const fullTitle = `${post.data.title} | Zentro Limpiezas`;
+const blogTitle = fullTitle.length <= 65 ? fullTitle : post.data.title;
+
 const breadcrumbs = [
   { label: 'Blog', href: '/blog/' },
   { label: post.data.title, href: canonical },
@@ -27,7 +31,7 @@ const breadcrumbs = [
 ---
 
 <BlogLayout
-  title={`${post.data.title} | Zentro Limpiezas`}
+  title={blogTitle}
   description={post.data.description}
   {canonical}
   lang="es"

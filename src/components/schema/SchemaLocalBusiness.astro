@@ -2,8 +2,10 @@
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'CleaningService',
+  '@id': 'https://zentrolimpiezas.es/#business',
   name: 'Zentro Limpiezas',
   image: 'https://zentrolimpiezas.es/images/logo.webp',
+  logo: 'https://zentrolimpiezas.es/images/logo.webp',
   telephone: '+34616054001',
   url: 'https://zentrolimpiezas.es',
   priceRange: '€€',
@@ -11,6 +13,9 @@ const schema = {
   paymentAccepted: 'Cash, Bizum, Bank Transfer',
   currenciesAccepted: 'EUR',
   description: 'Servicio profesional de limpieza de viviendas, oficinas, locales, cristales, comunidades, pazos y apartamentos turísticos en Ferrol, A Coruña y toda Ferrolterra. Productos ecológicos incluidos en el precio. Más de 20 años de experiencia.',
+  sameAs: [
+    'https://zentrolimpiezas.es',
+  ],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Ferrol',
@@ -23,9 +28,10 @@ const schema = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '09:00', closes: '14:00' },
   ],
   areaServed: [
-    'Ferrol','A Coruña','Narón','Neda','Fene','Mugardos','Valdoviño','Ares','Moeche','San Sadurniño',
-    'Cabanas','Pontedeume','Cedeira','Ortigueira','Culleredo','Arteixo','Cambre','Oleiros','Sada',
-    'Bergondo','Abegondo','Carral','Betanzos','Paderne',
+    'Ferrol','A Coruña','Narón','Neda','Fene','Mugardos','Valdoviño','Ares',
+    'Moeche','San Sadurniño','Cabanas','Pontedeume','Cedeira','Ortigueira','Cerdido',
+    'Culleredo','Arteixo','Cambre','Oleiros','Sada','Bergondo','Abegondo',
+    'Carral','Betanzos','Paderne','Oza-Cesuras','Coirós','Irixoa','Vilarmaior',
   ].map(n => ({ '@type': 'City', name: n })),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
