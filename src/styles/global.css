@@ -316,40 +316,6 @@
 .faq-icon { transition: transform var(--dur-fast) var(--ease-out-expo); }
 .faq-item.is-open .faq-icon { transform: rotate(45deg); }
 
-/* ─── Service card flip ─── */
-.service-card {
-  transform-style: preserve-3d;
-  perspective: 1200px;
-  min-height: 280px;
-}
-.service-card-inner {
-  position: relative;
-  transition: transform var(--dur-normal) var(--ease-out-expo);
-  transform-style: preserve-3d;
-  width: 100%;
-  min-height: 280px;
-}
-@media (hover: hover) {
-  .service-card:hover .service-card-inner { transform: rotateY(180deg); }
-}
-.service-card-front,
-.service-card-back {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-}
-.service-card-front { background: white; }
-.service-card-back { transform: rotateY(180deg); }
-
-/* Mobile: sin flip, tap para expandir precio */
-@media (max-width: 767px) {
-  .service-card-inner { transform: none !important; }
-  .service-card-back  { display: none; }
-  .service-card.is-flipped .service-card-front { display: none; }
-  .service-card.is-flipped .service-card-back  { display: flex; transform: none; }
-}
 
 /* ─── WhatsApp flotante ─── */
 .wa-float {
