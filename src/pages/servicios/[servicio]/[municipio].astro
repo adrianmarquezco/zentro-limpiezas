@@ -186,7 +186,7 @@ const pasos = [
         <aside class="space-y-6 self-start">
 
           <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-2">{servicio.nombre} en {municipio.nombre}</h3>
+            <p class="font-serif text-lg text-primary mb-2 font-semibold">{servicio.nombre} en {municipio.nombre}</p>
             <p class="text-mid text-xs mb-4">Presupuesto gratis · Sin compromiso · 24h</p>
             {servicio.precioDesde && (
               <p class="font-mono text-accent text-2xl font-bold mb-4">desde {servicio.precioDesde}</p>
@@ -202,7 +202,7 @@ const pasos = [
 
           {otrosServiciosEnMunicipio.length > 0 && (
             <div class="card p-6" data-reveal>
-              <h3 class="font-serif text-base text-primary mb-3">Más servicios en {municipio.nombre}</h3>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">Más servicios en {municipio.nombre}</p>
               <ul class="space-y-2">
                 {otrosServiciosEnMunicipio.map(s => (
                   <li>
@@ -220,7 +220,7 @@ const pasos = [
 
           {otrosMunicipiosConServicio.length > 0 && (
             <div class="card p-6" data-reveal>
-              <h3 class="font-serif text-base text-primary mb-3">{servicio.nombre} en otras zonas</h3>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">{servicio.nombre} en otras zonas</p>
               <ul class="space-y-2">
                 {otrosMunicipiosConServicio.map(m => m && (
                   <li>

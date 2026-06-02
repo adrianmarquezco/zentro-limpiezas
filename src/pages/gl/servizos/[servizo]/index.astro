@@ -200,7 +200,7 @@ const pasos = [
         <!-- Aside -->
         <aside class="space-y-6 self-start lg:sticky lg:top-28">
           <div class="card p-6 border-accent/30" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-2">Solicitar orzamento</h3>
+            <p class="font-serif text-lg text-primary mb-2 font-semibold">Solicitar orzamento</p>
             <p class="text-mid text-xs mb-4">Gratuíto · Sen compromiso · Resposta en 24h</p>
             {servicio.precioDesde && (
               <p class="font-mono text-accent text-2xl font-bold mb-4">desde {servicio.precioDesde}</p>
@@ -215,7 +215,7 @@ const pasos = [
           </div>
 
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-base text-primary mb-3">Outros servizos</h3>
+            <p class="font-serif text-base text-primary mb-3 font-semibold">Outros servizos</p>
             <ul class="space-y-2">
               {SERVICIOS.filter(s => s.slugGL !== servicio.slugGL && s.tier <= 2).slice(0, 6).map((s) => (
                 <li>
