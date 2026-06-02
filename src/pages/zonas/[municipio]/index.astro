@@ -176,7 +176,7 @@ const pasos = [
 
           <!-- CTA presupuesto -->
           <div class="card p-6 border-accent/30" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-2">Presupuesto gratis en {municipio.nombre}</h3>
+            <p class="font-serif text-lg text-primary mb-2 font-semibold">Presupuesto gratis en {municipio.nombre}</p>
             <p class="text-mid text-xs mb-4">Sin compromiso · Respuesta en 24h · Precio cerrado</p>
             {municipio.precioDesde && (
               <p class="font-mono text-accent text-2xl font-bold mb-4">desde {municipio.precioDesde}</p>
@@ -192,7 +192,7 @@ const pasos = [
 
           <!-- Datos del servicio -->
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-4">Datos del servicio</h3>
+            <p class="font-serif text-lg text-primary mb-4 font-semibold">Datos del servicio</p>
             <ul class="space-y-3 text-sm text-charcoal">
               <li class="flex items-start gap-2">
                 <span class="text-accent mt-0.5 flex-shrink-0">✓</span>
@@ -224,7 +224,7 @@ const pasos = [
           <!-- Municipios cercanos -->
           {municipio.municipiosCercanos.length > 0 && (
             <div class="card p-6" data-reveal>
-              <h3 class="font-serif text-base text-primary mb-3">Zonas próximas</h3>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">Zonas próximas</p>
               <div class="flex flex-wrap gap-2">
                 {municipio.municipiosCercanos.slice(0, 6).map((slug) => {
                   const m = getMunicipioBySlug(slug);
@@ -238,7 +238,7 @@ const pasos = [
 
           <!-- Todos los servicios -->
           <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-base text-primary mb-3">Todos nuestros servicios</h3>
+            <p class="font-serif text-base text-primary mb-3 font-semibold">Todos nuestros servicios</p>
             <ul class="space-y-2">
               {serviciosDestacados.map((s) => (
                 <li>
