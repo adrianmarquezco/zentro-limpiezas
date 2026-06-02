@@ -65,15 +65,67 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
   <!-- Menú mobile -->
   <div
     id="mobile-menu"
-    class="lg:hidden hidden bg-primary border-t border-white/10 px-4 py-6 space-y-4"
+    class="lg:hidden hidden bg-primary border-t border-white/10 px-4 py-5 space-y-1"
   >
-    <nav class="space-y-3">
-      <a href={isGL ? '/gl/servizos/' : '/servicios/'} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">{isGL ? 'Servizos' : 'Servicios'}</a>
-      <a href={isGL ? '/gl/zonas/' : '/zonas/'} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">Zonas</a>
-      <a href={isGL ? '/gl/sobre-nos/' : '/sobre-nosotros/'} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">{isGL ? 'Sobre nós' : 'Sobre nosotros'}</a>
-      <a href={isGL ? '/gl/blog/' : '/blog/'} class="block text-white/80 hover:text-white text-base font-medium py-1 transition-colors">Blog</a>
+    <nav>
+      <!-- Servicios expandible -->
+      <div>
+        <button
+          id="mob-servicios-btn"
+          class="w-full flex items-center justify-between text-white/80 hover:text-white text-base font-medium py-3 transition-colors"
+          aria-expanded="false"
+        >
+          <span>{isGL ? 'Servizos' : 'Servicios'}</span>
+          <svg id="mob-servicios-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div id="mob-servicios-sub" class="hidden pl-3 pb-2 space-y-1 border-l border-white/10">
+          <a href={`${base}/servicios/`} class="block text-accent text-sm font-semibold py-1.5 hover:underline">{isGL ? 'Ver todos os servizos →' : 'Ver todos los servicios →'}</a>
+          {[
+            { slug: isGL ? 'limpeza-de-vivendas' : 'limpieza-de-viviendas',   label: isGL ? 'Limpeza de vivendas'   : 'Limpieza de viviendas' },
+            { slug: isGL ? 'limpeza-de-oficinas' : 'limpieza-de-oficinas',    label: isGL ? 'Limpeza de oficinas'   : 'Limpieza de oficinas' },
+            { slug: isGL ? 'limpeza-fin-de-obra' : 'limpieza-fin-de-obra',    label: isGL ? 'Limpeza fin de obra'   : 'Limpieza fin de obra' },
+            { slug: isGL ? 'limpeza-periodica'   : 'limpieza-periodica',      label: isGL ? 'Limpeza periódica'     : 'Limpieza periódica' },
+            { slug: isGL ? 'limpeza-a-fondo'     : 'limpieza-a-fondo',        label: isGL ? 'Limpeza a fondo'       : 'Limpieza a fondo' },
+          ].map(item => (
+            <a href={`${base}/${isGL ? 'servizos' : 'servicios'}/${item.slug}/`} class="block text-white/60 hover:text-white text-sm py-1.5 transition-colors">
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Zonas expandible -->
+      <div>
+        <button
+          id="mob-zonas-btn"
+          class="w-full flex items-center justify-between text-white/80 hover:text-white text-base font-medium py-3 transition-colors"
+          aria-expanded="false"
+        >
+          <span>Zonas</span>
+          <svg id="mob-zonas-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div id="mob-zonas-sub" class="hidden pl-3 pb-2 space-y-1 border-l border-white/10">
+          <a href={`${base}/zonas/`} class="block text-accent text-sm font-semibold py-1.5 hover:underline">{isGL ? 'Ver todos os concellos →' : 'Ver todos los municipios →'}</a>
+          {[
+            { slug: 'ferrol',      label: 'Ferrol' },
+            { slug: 'naron',       label: 'Narón' },
+            { slug: 'a-coruna',    label: 'A Coruña' },
+            { slug: 'arteixo',     label: 'Arteixo' },
+            { slug: 'culleredo',   label: 'Culleredo' },
+            { slug: 'pontedeume',  label: 'Pontedeume' },
+          ].map(item => (
+            <a href={`${base}/zonas/${item.slug}/`} class="block text-white/60 hover:text-white text-sm py-1.5 transition-colors">
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a href={isGL ? '/gl/sobre-nos/' : '/sobre-nosotros/'} class="block text-white/80 hover:text-white text-base font-medium py-3 transition-colors">{isGL ? 'Sobre nós' : 'Sobre nosotros'}</a>
+      <a href={isGL ? '/gl/blog/' : '/blog/'} class="block text-white/80 hover:text-white text-base font-medium py-3 transition-colors">Blog</a>
     </nav>
-    <div class="pt-2 border-t border-white/10 space-y-3">
+
+    <div class="pt-3 border-t border-white/10 space-y-3">
       <a href={BUSINESS.phoneHref} class="btn-whatsapp w-full justify-center py-3">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.65 4.9 2 2 0 0 1 3.62 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         {BUSINESS.phoneDisplay}
@@ -105,4 +157,18 @@ toggle?.addEventListener('click', () => {
     b3?.classList.remove('-rotate-45', '-translate-y-2');
   }
 });
+
+function setupSubmenu(btnId: string, subId: string, iconId: string) {
+  const btn  = document.getElementById(btnId);
+  const sub  = document.getElementById(subId);
+  const icon = document.getElementById(iconId);
+  btn?.addEventListener('click', () => {
+    const open = sub?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+    icon?.classList.toggle('rotate-180', open);
+  });
+}
+
+setupSubmenu('mob-servicios-btn', 'mob-servicios-sub', 'mob-servicios-icon');
+setupSubmenu('mob-zonas-btn',     'mob-zonas-sub',     'mob-zonas-icon');
 </script>
