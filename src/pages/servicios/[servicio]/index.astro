@@ -19,8 +19,8 @@ const { servicio } = Astro.props;
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/`;
 const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/`;
 
-const tituloBase = servicio.tituloMeta ?? `${servicio.nombre} en Ferrol y A Coruña`;
-const title = `${tituloBase} | Zentro Limpiezas`;
+// Sin brand en título: Google lo añade automáticamente. Sin ciudad: diferencia del página servicio+municipio
+const title = servicio.tituloMeta ?? `${servicio.nombre} profesional`;
 const description = `${servicio.descripcionCorta} Productos ecológicos incluidos. Más de 20 años de experiencia en Ferrol y A Coruña. Presupuesto gratis.`;
 
 const breadcrumbs = [
