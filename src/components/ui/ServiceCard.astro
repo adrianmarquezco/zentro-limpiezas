@@ -44,6 +44,10 @@ const svgIcon = icons[servicio.icono] ?? icons.house;
           <span class="font-mono text-accent text-sm">desde {servicio.precioDesde}</span>
         )}
       </div>
+      <!-- Enlace visible solo en móvil (sin hover/flip disponible) -->
+      <a href={href} class="block sm:hidden mt-4 text-center text-sm font-semibold text-accent hover:underline">
+        {lang === 'gl' ? 'Ver servizo →' : 'Ver servicio →'}
+      </a>
     </div>
     <!-- Back -->
     <div class="service-card-back flex flex-col gap-4 p-6 bg-primary" aria-hidden="true">

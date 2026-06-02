@@ -396,8 +396,8 @@
 .prose-zentro li { @apply text-base lg:text-lg; }
 .prose-zentro strong { @apply font-semibold text-primary; }
 .prose-zentro table { @apply w-full border-collapse mb-6 text-sm; }
-.prose-zentro th { @apply bg-primary text-white text-left px-4 py-2 font-semibold; }
-.prose-zentro td { @apply border border-line px-4 py-2; }
+.prose-zentro th { @apply bg-primary text-left px-4 py-2 font-semibold; color: #fff !important; }
+.prose-zentro td { @apply border border-line px-4 py-2; color: var(--brand-charcoal); }
 .prose-zentro tr:nth-child(even) td { @apply bg-warm; }
 .prose-zentro a { @apply text-accent underline underline-offset-2 hover:text-primary transition-colors; }
 .prose-zentro blockquote { @apply border-l-4 border-accent pl-4 italic text-mid my-6; }
