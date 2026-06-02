@@ -35,17 +35,17 @@ const svgIcon = icons[servicio.icono] ?? icons.house;
     <div class="service-card-front flex flex-col gap-4 p-6">
       <div class="text-accent" set:html={svgIcon} />
       <h3 class="font-serif text-xl text-primary">{nombre}</h3>
-      <p class="text-mid text-sm leading-relaxed flex-1">
+      <p class="text-mid text-sm leading-relaxed flex-1 hidden sm:block">
         {servicio.descripcionCorta}
       </p>
-      <div class="flex items-center justify-between mt-auto pt-4 border-t border-line">
+      <div class="hidden sm:flex items-center justify-between mt-auto pt-4 border-t border-line">
         <EcoBadge size="sm" />
         {servicio.precioDesde && (
           <span class="font-mono text-accent text-sm">desde {servicio.precioDesde}</span>
         )}
       </div>
-      <!-- Enlace visible solo en móvil (sin hover/flip disponible) -->
-      <a href={href} class="block sm:hidden mt-4 text-center text-sm font-semibold text-accent hover:underline">
+      <!-- Botón solo móvil -->
+      <a href={href} class="sm:hidden mt-auto btn-accent w-full justify-center text-sm py-2.5">
         {lang === 'gl' ? 'Ver servizo →' : 'Ver servicio →'}
       </a>
     </div>
