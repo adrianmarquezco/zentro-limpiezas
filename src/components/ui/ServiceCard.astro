@@ -35,7 +35,7 @@ const svgIcon = icons[servicio.icono] ?? icons.house;
     <div class="service-card-front flex flex-col gap-4 p-6">
       <div class="text-accent" set:html={svgIcon} />
       <h3 class="font-serif text-xl text-primary">{nombre}</h3>
-      <p class="text-mid text-sm leading-relaxed flex-1 hidden sm:block">
+      <p class="text-mid text-sm leading-relaxed flex-1 line-clamp-2 sm:line-clamp-none">
         {servicio.descripcionCorta}
       </p>
       <div class="hidden sm:flex items-center justify-between mt-auto pt-4 border-t border-line">

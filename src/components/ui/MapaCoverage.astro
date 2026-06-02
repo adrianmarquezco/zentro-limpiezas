@@ -70,7 +70,7 @@ const zones: Zone[] = [
     <text x="72" y="22" font-family="DM Serif Display, serif" font-size="11" fill="#0A2540" opacity="0.5" font-weight="400">Ferrolterra</text>
     <text x="238" y="258" font-family="DM Serif Display, serif" font-size="11" fill="#0A2540" opacity="0.5" font-weight="400">Área Metropolitana A Coruña</text>
 
-    <!-- Zonas clickables -->
+    <!-- Pasada 1: áreas de hit + círculos -->
     {zones.map(z => (
       <g
         class="mapa-zone"
@@ -82,31 +82,24 @@ const zones: Zone[] = [
         aria-label={`Limpieza en ${z.nombre}${z.precio ? ` — ${z.precio}` : ''}`}
         tabindex="0"
       >
-        <circle
-          cx={z.cx}
-          cy={z.cy}
-          r={(z.r ?? 8) + 4}
-          fill="transparent"
-          class="mapa-hit"
-        />
-        <circle
-          cx={z.cx}
-          cy={z.cy}
-          r={z.r ?? 8}
-          class={`mapa-dot mapa-dot--${z.comarca}`}
-        />
-        <text
-          x={z.cx}
-          y={z.cy + (z.r ?? 8) + 11}
-          text-anchor="middle"
-          font-family="DM Sans, system-ui, sans-serif"
-          font-size={z.r && z.r >= 12 ? '9' : '8'}
-          font-weight={z.r && z.r >= 12 ? '600' : '500'}
-          class={`mapa-label mapa-label--${z.comarca}`}
-        >
-          {z.nombre}
-        </text>
+        <circle cx={z.cx} cy={z.cy} r={(z.r ?? 6) + 6} fill="transparent" class="mapa-hit" />
+        <circle cx={z.cx} cy={z.cy} r={z.r ?? 6} class={`mapa-dot mapa-dot--${z.comarca}`} />
       </g>
+    ))}
+    <!-- Pasada 2: etiquetas siempre encima de los círculos -->
+    {zones.map(z => (
+      <text
+        x={z.cx}
+        y={z.cy + (z.r ?? 6) + 10}
+        text-anchor="middle"
+        font-family="DM Sans, system-ui, sans-serif"
+        font-size={z.r && z.r >= 12 ? '9' : '7.5'}
+        font-weight={z.r && z.r >= 12 ? '600' : '500'}
+        class={`mapa-label mapa-label--${z.comarca}`}
+        style="pointer-events:none"
+      >
+        {z.nombre}
+      </text>
     ))}
   </svg>
 
