@@ -138,6 +138,9 @@ const faqSchema = faqs;
     <div aria-hidden="true" class="absolute top-0 right-0 w-[800px] h-[800px] pointer-events-none z-0" style="background: radial-gradient(circle at top right, rgba(0,196,140,0.10) 0%, transparent 55%); filter: blur(72px);"></div>
     <div aria-hidden="true" class="absolute bottom-20 -left-20 w-[500px] h-[500px] pointer-events-none z-0" style="background: radial-gradient(circle at bottom left, rgba(59,130,246,0.07) 0%, transparent 60%); filter: blur(56px);"></div>
 
+    <!-- Luz barriendo — como una superficie recién limpiada -->
+    <div class="hero-shine-bar" aria-hidden="true"></div>
+
     <!-- Contenido principal -->
     <div class="flex-1 flex items-center relative z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
@@ -203,6 +206,105 @@ const faqSchema = faqs;
 
   <WaveDivider from="#0A2540" to="#F5F0E8" />
 
+  <!-- Marquee de identidad -->
+  <div class="bg-white overflow-hidden border-b border-line py-4" aria-hidden="true">
+    <div class="marquee-track select-none">
+      {['Limpieza profesional', '✦', 'Ferrol y A Coruña', '✦', 'Eco certificado UE', '✦', '+20 años de experiencia', '✦', 'Presupuesto en 24h', '✦', 'Equipo fijo y de confianza', '✦', '29 municipios cubiertos', '✦', 'Sin sorpresas en el precio', '✦', 'Limpieza profesional', '✦', 'Ferrol y A Coruña', '✦', 'Eco certificado UE', '✦', '+20 años de experiencia', '✦', 'Presupuesto en 24h', '✦', 'Equipo fijo y de confianza', '✦', '29 municipios cubiertos', '✦', 'Sin sorpresas en el precio', '✦'].map((item) => (
+        <span class={`mx-5 shrink-0 text-xs font-bold tracking-widest uppercase ${item === '✦' ? 'text-accent' : 'text-primary/35'}`}>{item}</span>
+      ))}
+    </div>
+  </div>
+
+  <!-- ═══ ANTES / DESPUÉS ═══ -->
+  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12" data-reveal>
+        <span class="badge-eco mb-4 inline-flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Resultados reales · Caso real
+        </span>
+        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Arrastra y mira la diferencia</h2>
+        <p class="text-mid text-lg">Esto es lo que hacemos. Arrastra el comparador y ve la transformación real.</p>
+      </div>
+      <div data-reveal>
+        <BeforeAfter
+          beforeSrc="/images/antes-dormitorio.webp"
+          afterSrc="/images/despues-dormitorio.webp"
+          beforeAlt="Habitación con suciedad acumulada antes de la limpieza"
+          afterAlt="Habitación limpia e impecable después del servicio de Zentro Limpiezas"
+          beforeLabel="Antes"
+          afterLabel="Después"
+          initialPos={42}
+        />
+      </div>
+      <p class="text-center text-xs text-mid mt-6">Caso real de limpieza a fondo en Ferrol. Tiempo de servicio: 4 horas.</p>
+    </div>
+  </section>
+
+  <!-- ═══ GARANTÍA ═══ -->
+  <section class="py-20 lg:py-24 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <div data-reveal-left>
+          <span class="badge-eco mb-6 inline-flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Nuestra promesa
+          </span>
+          <h2 class="font-display text-4xl lg:text-5xl xl:text-6xl text-primary leading-[1.05] mb-6">
+            Si no quedas<br>
+            satisfecho al 100%,<br>
+            <span class="text-accent">volvemos gratis.</span>
+          </h2>
+          <p class="text-mid text-lg leading-relaxed mb-8 max-w-lg">
+            Llevamos más de 20 años limpiando hogares y negocios en Galicia. En ese tiempo nunca hemos tenido que aplicar esta garantía. Pero está ahí, real y sin letra pequeña.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/presupuesto/" class="btn-primary px-8 py-4 text-base">
+              → Pedir presupuesto gratis
+            </a>
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-8 py-4 text-base">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              WhatsApp directo
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4" data-reveal-right>
+          {[
+            {
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+              title: 'Eco siempre incluido',
+              desc: 'Productos Ecolabel UE. Sin cargo adicional en ningún servicio.',
+            },
+            {
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+              title: 'Siempre el mismo equipo',
+              desc: 'Ya conocen tu casa. No hay que explicar nada cada vez.',
+            },
+            {
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+              title: 'Respetamos tu horario',
+              desc: 'Mañana, tarde o fin de semana. Nos adaptamos a ti.',
+            },
+            {
+              icon: '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="1" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+              title: 'Precio cerrado',
+              desc: 'Lo que acordamos es lo que pagas. Sin extras de última hora.',
+            },
+          ].map(f => (
+            <div class="garantia-card">
+              <span class="text-accent mb-3 block [&>svg]:w-6 [&>svg]:h-6" set:html={f.icon}></span>
+              <h3 class="font-semibold text-primary text-sm mb-1 leading-snug">{f.title}</h3>
+              <p class="text-mid text-xs leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ SERVICIOS ═══ -->
   <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -218,51 +320,25 @@ const faqSchema = faqs;
         {servicios.map(s => (
           <a
             href={`/servicios/${s.slug}/`}
-            class="svc-card group relative rounded-2xl border border-line bg-white overflow-hidden p-5 flex flex-col gap-4 hover:-translate-y-1 transition-all duration-200"
+            class="svc-card group relative rounded-2xl border border-line bg-white overflow-hidden p-6 flex flex-col gap-4 hover:-translate-y-1 transition-all duration-200"
             style="box-shadow: 0 1px 3px rgba(10,37,64,0.06)"
           >
             <span aria-hidden="true" class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent/70 to-accent/20 opacity-60 group-hover:opacity-100 transition-opacity duration-200"></span>
-            <div class="w-11 h-11 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-all duration-200 shrink-0 [&>svg]:w-5 [&>svg]:h-5" set:html={`<span class="contents">${s.icon}</span>`}></div>
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-all duration-200 shrink-0 [&>svg]:w-7 [&>svg]:h-7" style="background: linear-gradient(135deg, rgba(10,37,64,0.07) 0%, rgba(0,196,140,0.09) 100%)" set:html={`<span class="contents">${s.icon}</span>`}></div>
             <div class="flex-1">
-              <h3 class="font-serif text-base lg:text-lg text-primary leading-snug mb-1.5">{s.nombre}</h3>
-              <p class="text-mid text-xs lg:text-sm leading-relaxed line-clamp-2">{s.descripcion}</p>
+              <h3 class="font-serif text-lg text-primary leading-snug mb-2">{s.nombre}</h3>
+              <p class="text-mid text-sm leading-relaxed line-clamp-2">{s.descripcion}</p>
             </div>
             <div class="flex items-center justify-between pt-3 border-t border-line">
-              <span class="text-xs text-mid bg-warm px-2.5 py-1 rounded-full">{s.precio}</span>
-              <span class="flex items-center gap-1 text-sm font-medium text-primary/40 group-hover:text-accent transition-colors">
-                Ver
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span class="text-xs font-semibold text-primary/60 bg-primary/5 px-3 py-1 rounded-full">{s.precio}</span>
+              <span class="flex items-center gap-1 text-sm font-semibold text-primary/40 group-hover:text-accent transition-colors">
+                Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </span>
             </div>
           </a>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ ANTES / DESPUÉS ═══ -->
-  <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12" data-reveal>
-        <span class="badge-eco mb-4 inline-flex items-center gap-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Resultados reales
-        </span>
-        <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">El antes y el después habla por sí solo</h2>
-        <p class="text-mid text-lg">Arrastra el comparador para ver la transformación real que conseguimos en cada servicio.</p>
-      </div>
-      <div data-reveal>
-        <BeforeAfter
-          beforeSrc="/images/antes-dormitorio.webp"
-          afterSrc="/images/despues-dormitorio.webp"
-          beforeAlt="Habitación con suciedad acumulada, ropa y basura en el suelo antes de la limpieza"
-          afterAlt="Habitación limpia, ordenada y con moqueta impecable después del servicio de Zentro Limpiezas"
-          beforeLabel="Antes"
-          afterLabel="Después"
-          initialPos={42}
-        />
-      </div>
-      <p class="text-center text-xs text-mid mt-6">Caso real de limpieza a fondo. Tiempo de servicio: 4 horas. Resultado garantizado.</p>
     </div>
   </section>
 

@@ -268,6 +268,52 @@
   to   { fill: #00C48C; }
 }
 
+/* Efecto de luz barriendo el hero — como una superficie recién limpiada */
+@keyframes heroShine {
+  0%   { left: -35%; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 115%; opacity: 0; }
+}
+.hero-shine-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 50%, transparent 100%);
+  transform: skewX(-12deg);
+  animation: heroShine 8s ease-in-out 1.2s infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Marquee ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation-play-state: paused; }
+}
+
+/* Garantía feature cards */
+.garantia-card {
+  @apply bg-warm rounded-2xl p-6 border border-line;
+  transition: transform var(--dur-fast) var(--ease-out-expo),
+              box-shadow var(--dur-fast) var(--ease-out-expo);
+}
+@media (hover: hover) {
+  .garantia-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(10,37,64,0.08);
+  }
+}
+
 /* ─── Hero entrada escalonada ─── */
 .hero-eyebrow  { animation: slideUpFade var(--dur-normal) var(--ease-out-expo) 0ms   both; }
 .hero-h1-line1 { animation: slideUpFade var(--dur-slow)   var(--ease-out-expo) 80ms  both; }
