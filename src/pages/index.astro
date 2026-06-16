@@ -116,85 +116,87 @@ const faqSchema = faqs;
   <CTABar />
 
   <!-- ═══ HERO ═══ -->
-  <section class="hero-section relative min-h-[600px] lg:min-h-[92vh] flex items-center bg-primary noise-overlay overflow-hidden pt-16">
-    <div aria-hidden="true" class="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(0,196,140,0.13) 0%, transparent 65%); filter: blur(48px);"></div>
-    <div aria-hidden="true" class="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(59,130,246,0.09) 0%, transparent 65%); filter: blur(48px);"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10 w-full">
-      <div class="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-16 items-center">
+  <section class="hero-section relative min-h-[100svh] flex flex-col bg-primary overflow-hidden pt-16">
 
-        <!-- Columna izquierda: texto -->
-        <div>
-          <p class="hero-eyebrow inline-flex items-center gap-2 bg-accent/20 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-8">
+    <!-- Imagen de fondo full-bleed -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/hero-equipo.webp"
+        alt="Equipo profesional de Zentro Limpiezas con equipamiento de limpieza en Ferrol"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <!-- Gradiente lateral: opaco en el texto, transparente en la foto -->
+      <div class="absolute inset-0" style="background: linear-gradient(108deg, rgba(10,37,64,0.97) 0%, rgba(10,37,64,0.93) 38%, rgba(10,37,64,0.72) 62%, rgba(10,37,64,0.35) 100%)"></div>
+      <!-- Gradiente inferior: para que la stats strip sea legible -->
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,37,64,0.90) 0%, transparent 42%)"></div>
+    </div>
+
+    <!-- Orbs decorativos -->
+    <div aria-hidden="true" class="absolute top-0 right-0 w-[800px] h-[800px] pointer-events-none z-0" style="background: radial-gradient(circle at top right, rgba(0,196,140,0.10) 0%, transparent 55%); filter: blur(72px);"></div>
+    <div aria-hidden="true" class="absolute bottom-20 -left-20 w-[500px] h-[500px] pointer-events-none z-0" style="background: radial-gradient(circle at bottom left, rgba(59,130,246,0.07) 0%, transparent 60%); filter: blur(56px);"></div>
+
+    <!-- Contenido principal -->
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
+        <div class="max-w-2xl lg:max-w-3xl">
+
+          <p class="hero-eyebrow inline-flex items-center gap-2 bg-accent/15 text-accent border border-accent/25 rounded-full px-4 py-1.5 text-sm font-semibold mb-8">
             <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
             Ferrolterra · A Coruña · Más de 20 años
           </p>
-          <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white mb-6 leading-none">
-            <span class="hero-h1-line1 block">Limpieza</span>
-            <span class="hero-h1-line1 block">profesional</span>
-            <span class="hero-h1-line2 block text-accent">en Ferrol y A Coruña</span>
+
+          <h1 class="font-display text-white mb-7" style="line-height: 0.93;">
+            <span class="hero-h1-line1 block text-[3.25rem] sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]">Limpieza</span>
+            <span class="hero-h1-line1 block text-[3.25rem] sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]">profesional</span>
+            <span class="hero-h1-line2 block text-[2.25rem] sm:text-5xl lg:text-[4rem] xl:text-[4.75rem] text-accent mt-3">en Ferrol y A Coruña</span>
           </h1>
-          <p class="hero-subtitle text-lg text-white/75 mb-10 max-w-xl leading-relaxed">
-            Viviendas, oficinas, locales y pazos en toda la provincia de A Coruña.
-            <strong class="text-white font-semibold">Productos ecológicos incluidos</strong> sin coste adicional.
+
+          <p class="hero-subtitle text-lg lg:text-xl text-white/75 mb-10 max-w-xl leading-relaxed">
+            Viviendas, oficinas, locales y pazos en toda la provincia.
+            <strong class="text-white font-semibold">Productos ecológicos certificados incluidos</strong> sin coste adicional.
           </p>
+
           <div class="hero-ctas flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
-            <a href={BUSINESS.phoneHref} class="btn-outline-light px-6 py-3.5 text-sm">
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-7 py-4 text-base">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Presupuesto por WhatsApp
+            </a>
+            <a href={BUSINESS.phoneHref} class="btn-outline-light px-7 py-4 text-base">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.65 4.9 2 2 0 0 1 3.62 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Llamar: {BUSINESS.phoneDisplay}
+              {BUSINESS.phoneDisplay}
             </a>
-            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-6 py-3.5 text-sm">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              WhatsApp
-            </a>
-            <a href="/presupuesto/" class="btn-outline-light px-6 py-3.5 text-sm">
+            <a href="/presupuesto/" class="btn-outline-light px-7 py-4 text-base">
               → Presupuesto gratis
             </a>
           </div>
+
           <div class="hero-trust">
             <TrustBar variant="dark" />
           </div>
-        </div>
 
-        <!-- Columna derecha: foto del equipo -->
-        <div class="hidden lg:block relative">
-          <div class="relative rounded-3xl overflow-hidden h-[520px] shadow-2xl bg-white/[0.06] border border-white/10">
-            <img
-              src="/images/hero-equipo.webp"
-              alt="Equipo profesional de Zentro Limpiezas limpiando cristales y tapicería en vivienda de Ferrol con guantes azules y productos ecológicos"
-              class="w-full h-full object-cover object-center"
-              width="840"
-              height="1040"
-              sizes="(max-width: 1024px) 0px, (max-width: 1280px) 420px, 840px"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              onerror="this.style.display='none'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent"></div>
-            <!-- Badges sobre la foto -->
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="grid grid-cols-2 gap-2">
-                {[
-                  { num: '+20', label: 'años experiencia' },
-                  { num: '100%', label: 'productos ecológicos' },
-                  { num: '29+', label: 'municipios cubiertos' },
-                  { num: '24h', label: 'respuesta garantizada' },
-                ].map(stat => (
-                  <div class="bg-primary/80 backdrop-blur-sm border border-white/10 rounded-xl px-3 py-2.5">
-                    <p class="font-mono text-accent text-lg font-bold leading-none" data-counter={stat.num}>{stat.num}</p>
-                    <p class="text-white/60 text-[11px] mt-1 leading-tight">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip en el borde inferior del hero -->
+    <div class="relative z-10 bg-[#0A2540] border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
+          {[
+            { num: '+20', label: 'años de experiencia' },
+            { num: '29+',  label: 'municipios cubiertos' },
+            { num: '100%', label: 'ecológico certificado' },
+            { num: '24h',  label: 'respuesta garantizada' },
+          ].map(stat => (
+            <div class="py-5 sm:py-6 text-center">
+              <p class="font-mono-data text-2xl sm:text-3xl font-bold text-accent" data-counter={stat.num}>{stat.num}</p>
+              <p class="text-white/55 text-[11px] sm:text-xs mt-1 leading-tight">{stat.label}</p>
             </div>
-          </div>
-          <!-- Badge eco flotante -->
-          <div class="absolute -top-3 -right-3 bg-accent text-primary text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Ecolabel certificado
-          </div>
+          ))}
         </div>
-
       </div>
     </div>
   </section>
@@ -203,7 +205,6 @@ const faqSchema = faqs;
 
   <!-- ═══ SERVICIOS ═══ -->
   <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
-    <span class="section-number left-4 top-12" aria-hidden="true" data-parallax-rate="0.1">01</span>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-2xl mb-12" data-reveal>
         <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Servicios de limpieza profesional en Ferrol y A Coruña</h2>
@@ -213,7 +214,7 @@ const faqSchema = faqs;
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-reveal-stagger>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" data-reveal-stagger>
         {servicios.map(s => (
           <a
             href={`/servicios/${s.slug}/`}
@@ -269,7 +270,6 @@ const faqSchema = faqs;
 
   <!-- ═══ ECOLÓGICO ═══ -->
   <section class="py-20 lg:py-28 bg-primary noise-overlay relative overflow-hidden">
-    <span class="section-number right-4 top-12" aria-hidden="true">02</span>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div data-reveal-left>
@@ -319,11 +319,8 @@ const faqSchema = faqs;
     </div>
   </section>
 
-  <WaveDivider from="#0A2540" to="#F5F0E8" />
-
   <!-- ═══ ZONAS ═══ -->
   <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
-    <span class="section-number left-4 top-12" aria-hidden="true">03</span>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-2xl mb-12" data-reveal>
         <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Servicio de limpieza a domicilio en Ferrolterra y Área Metropolitana de A Coruña</h2>
@@ -351,7 +348,6 @@ const faqSchema = faqs;
 
   <!-- ═══ CÓMO FUNCIONA ═══ -->
   <section class="py-20 lg:py-28 bg-white relative overflow-hidden">
-    <span class="section-number right-4 top-12" aria-hidden="true">04</span>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-2xl mb-10" data-reveal>
         <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Cómo funciona el servicio de limpieza profesional</h2>
@@ -385,11 +381,22 @@ const faqSchema = faqs;
 
   <!-- ═══ TESTIMONIOS ═══ -->
   <section class="py-20 lg:py-28 bg-warm relative overflow-hidden">
-    <span class="section-number left-4 top-12" aria-hidden="true">05</span>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-2xl mb-12" data-reveal>
         <h2 class="font-display text-4xl lg:text-5xl text-primary mb-4">Opiniones de clientes: servicio de limpieza en Ferrol y A Coruña</h2>
       </div>
+
+      <!-- Pull-quote destacada -->
+      <div class="mb-14 text-center" data-reveal>
+        <span class="font-display text-[7rem] leading-none text-accent/20 block -mb-8" aria-hidden="true">"</span>
+        <blockquote class="font-display text-2xl lg:text-3xl xl:text-4xl text-primary max-w-3xl mx-auto leading-snug mb-6">
+          Llevan más de un año viniendo a casa y siempre dejan todo perfecto. Lo que más valoro es que siempre vienen las mismas personas.
+        </blockquote>
+        <cite class="not-italic text-sm font-semibold text-accent tracking-widest uppercase">
+          María G. &nbsp;·&nbsp; Caranza, Ferrol &nbsp;·&nbsp; Limpieza periódica quincenal
+        </cite>
+      </div>
+
       <div class="grid md:grid-cols-3 gap-6">
         {testimonios.map((t, i) => (
           <div class="card" data-reveal>
