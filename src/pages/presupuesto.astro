@@ -139,6 +139,25 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
             </div>
 
             <div>
+              <span class="form-label block mb-2">¿Cuándo lo necesitas?</span>
+              <div class="grid grid-cols-2 gap-2">
+                {[
+                  { value: 'urgente',      label: 'Lo antes posible' },
+                  { value: 'esta-semana',  label: 'Esta semana' },
+                  { value: 'este-mes',     label: 'Este mes' },
+                  { value: 'sin-fecha',    label: 'Sin fecha fija' },
+                ].map(op => (
+                  <label class="cursor-pointer">
+                    <input type="radio" name="urgencia" value={op.value} class="sr-only peer" />
+                    <span class="flex items-center justify-center p-2.5 rounded-xl border-2 border-line bg-white text-xs font-medium text-mid peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-primary transition-all hover:border-primary/30 text-center">
+                      {op.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
               <label for="mensaje" class="form-label">Cuéntanos más (opcional)</label>
               <textarea
                 id="mensaje"
