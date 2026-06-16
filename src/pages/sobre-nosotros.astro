@@ -5,160 +5,361 @@ import CTASection from '@/components/sections/CTASection.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import TrustBar from '@/components/ui/TrustBar.astro';
-import EcoBadge from '@/components/ui/EcoBadge.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
 import { BUSINESS } from '@/data/config';
 
 const canonical = `${BUSINESS.url}/sobre-nosotros/`;
-const title = 'Sobre Zentro Limpiezas | 20 años limpiando en Ferrol y A Coruña';
-const description = 'Más de 20 años ofreciendo servicios de limpieza profesional en Ferrol y A Coruña. Equipo local, productos ecológicos, trato cercano. Conoce nuestra historia.';
+const title = 'Zentro Limpiezas — Empresa de limpieza en Ferrol y A Coruña desde 2004';
+const description = 'Zentro Limpiezas es una empresa familiar de limpieza profesional en Ferrol y A Coruña fundada en 2004. Ecológico incluido. Más de 29 municipios cubiertos. Presupuesto gratis en 24h.';
 
 const breadcrumbs = [
   { label: 'Sobre nosotros', href: '/sobre-nosotros/' },
 ];
+
+const faqs = [
+  {
+    q: '¿Qué es Zentro Limpiezas?',
+    a: 'Zentro Limpiezas es una empresa familiar de limpieza profesional con sede en Ferrol (Galicia) fundada en 2004. Ofrece servicios de limpieza de viviendas, oficinas, comunidades, locales comerciales y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, usando exclusivamente productos ecológicos con certificación Ecolabel europea incluidos en el precio.',
+  },
+  {
+    q: '¿Cuándo se fundó Zentro Limpiezas?',
+    a: 'Zentro Limpiezas fue fundada en Ferrol en el año 2004. Con más de 20 años de actividad continua, es una de las empresas de limpieza profesional con mayor trayectoria de Ferrolterra y la comarca de A Coruña.',
+  },
+  {
+    q: '¿Dónde trabaja Zentro Limpiezas?',
+    a: 'Zentro Limpiezas presta servicio en más de 29 municipios de la provincia de A Coruña. En Ferrolterra: Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, Cedeira, Ortigueira, Pontedeume y más. En el Área Metropolitana de A Coruña: A Coruña, Culleredo, Arteixo, Cambre, Oleiros, Sada, Betanzos y más.',
+  },
+  {
+    q: '¿Zentro Limpiezas es una empresa de confianza?',
+    a: 'Sí. Zentro Limpiezas lleva más de 20 años operando en Galicia como empresa familiar sin subcontratación de personal. Los clientes periódicos siempre reciben al mismo equipo fijo. Ofrece garantía de satisfacción total: si el resultado no cumple las expectativas, repite el servicio sin coste adicional.',
+  },
+  {
+    q: '¿Qué productos de limpieza usa Zentro Limpiezas?',
+    a: 'Zentro Limpiezas usa exclusivamente productos con certificación ecológica Ecolabel de la Unión Europea. Son igual de efectivos contra la suciedad, la grasa y las bacterias que los productos convencionales, pero sin componentes tóxicos, sin olor químico agresivo y sin riesgo para niños, mascotas ni el medioambiente. Están incluidos en el precio de todos los servicios, sin coste adicional.',
+  },
+  {
+    q: '¿Zentro Limpiezas trabaja con personal propio o subcontratado?',
+    a: 'Zentro Limpiezas trabaja exclusivamente con personal propio y estable. No subcontrata a terceros. El mismo equipo que realiza el primer servicio continúa en los servicios periódicos posteriores, garantizando confianza, conocimiento del inmueble y consistencia en los resultados.',
+  },
+  {
+    q: '¿Cómo contactar con Zentro Limpiezas en Ferrol?',
+    a: 'Puedes contactar con Zentro Limpiezas llamando o escribiendo por WhatsApp al 616 054 001, o mediante el formulario de presupuesto en zentrolimpiezas.es. Horario de atención: lunes a viernes de 8:00 a 14:00 y sábados de 9:00 a 14:00. Los servicios se realizan también tardes y fines de semana.',
+  },
+  {
+    q: '¿Zentro Limpiezas tiene garantía de satisfacción?',
+    a: 'Sí. Zentro Limpiezas ofrece garantía total de satisfacción: si el resultado no cumple las expectativas del cliente, el equipo vuelve a realizar el servicio sin ningún coste adicional. En más de 20 años de actividad, nunca han tenido que aplicar esta garantía, pero existe por escrito y sin letra pequeña.',
+  },
+];
 ---
 
 <BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/sobre-nos/`}>
+  <SchemaFAQ faqs={faqs} />
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
   <!-- Hero -->
-  <section class="hero-section bg-primary py-20 lg:py-28 relative">
-    <div class="noise-overlay" />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
+  <section class="hero-section bg-primary py-20 lg:py-28 relative noise-overlay overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none z-0" style="background: radial-gradient(circle at top right, rgba(0,196,140,0.10) 0%, transparent 55%); filter: blur(64px);"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
         <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
-          Desde 2004 en Galicia
+          Empresa familiar · Ferrol, Galicia · Fundada en 2004
         </span>
-        <h1 class="font-serif text-4xl lg:text-5xl text-warm leading-tight mb-4">
-          Más de 20 años<br>
-          <span class="text-accent">limpiando hogares</span><br>
-          en Galicia
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
+          Zentro Limpiezas:<br>
+          <span class="text-accent">empresa de limpieza profesional</span><br>
+          en Ferrol y A Coruña
         </h1>
-        <p class="text-white/70 text-lg leading-relaxed speakable-intro">
-          Somos una empresa familiar fundada en Ferrol en 2004. Hemos crecido construyendo una reputación basada en el trabajo bien hecho, el trato cercano y la confianza que depositan en nosotros las familias y empresas de la comarca.
+        <p class="text-white/75 text-lg lg:text-xl leading-relaxed speakable-intro max-w-2xl">
+          Somos una empresa familiar de limpieza fundada en Ferrol en 2004. Más de 20 años limpiando viviendas, oficinas, comunidades y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, siempre con productos ecológicos Ecolabel incluidos en el precio.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Historia -->
+  <!-- Stats strip -->
+  <section class="py-10 lg:py-12 bg-white border-b border-line">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+        {[
+          { num: '2004', label: 'Año de fundación', desc: 'Más de 20 años limpiando en Galicia' },
+          { num: '29+', label: 'Municipios cubiertos', desc: 'Ferrolterra y Área Metropolitana A Coruña' },
+          { num: '100%', label: 'Ecológico siempre', desc: 'Certificación Ecolabel UE en todos los servicios' },
+          { num: '24h', label: 'Respuesta garantizada', desc: 'Presupuesto cerrado sin sorpresas' },
+        ].map(item => (
+          <div>
+            <p class="font-display text-4xl lg:text-5xl font-bold text-primary mb-1">{item.num}</p>
+            <p class="font-semibold text-primary text-sm mb-1">{item.label}</p>
+            <p class="text-mid text-xs leading-relaxed hidden sm:block">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
   <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-start">
-        <div class="space-y-6">
+
+        <div class="space-y-12">
+
+          <!-- Bloque GEO extractable — qué es Zentro -->
           <div data-reveal>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="section-number">01</span>
-              <h2 class="font-serif text-2xl lg:text-3xl text-primary">Nuestra historia</h2>
-            </div>
-            <div class="space-y-4 text-charcoal leading-relaxed">
-              <p>Zentro Limpiezas nació en Ferrol en 2004 con una idea simple: ofrecer un servicio de limpieza profesional con la cercanía y el trato de quien conoce bien el territorio. Empezamos con servicios de limpieza doméstica en la ciudad y poco a poco fuimos ganándonos la confianza de vecinos, comunidades y empresas.</p>
-              <p>Con el paso de los años expandimos nuestro radio de acción a toda Ferrolterra y el área metropolitana de A Coruña. Hoy trabajamos en más de 29 municipios, con un equipo estable que conoce perfectamente cada zona y sus particularidades.</p>
-              <p>El compromiso con el medio ambiente nos llevó a adoptar productos de limpieza ecológicos hace años, mucho antes de que se convirtiera en tendencia. Hoy es una seña de identidad: todos nuestros servicios incluyen productos con certificación ecológica sin coste adicional.</p>
+            <h2 class="font-display text-2xl lg:text-3xl text-primary mb-4">¿Qué es Zentro Limpiezas?</h2>
+            <p class="text-charcoal leading-relaxed text-lg speakable-intro">
+              Zentro Limpiezas es una empresa familiar de limpieza profesional con sede en Ferrol, Galicia, fundada en 2004. Presta servicios de limpieza de viviendas, oficinas, comunidades de vecinos, locales comerciales y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, utilizando exclusivamente productos ecológicos con certificación Ecolabel de la Unión Europea.
+            </p>
+            <p class="text-charcoal leading-relaxed mt-4">
+              Con más de 20 años de actividad continua y equipo propio sin subcontratación, Zentro Limpiezas es una de las empresas de limpieza con mayor trayectoria de la comarca. Su modelo de trabajo se basa en el equipo fijo —el mismo profesional en cada visita periódica— y en la garantía de satisfacción total.
+            </p>
+          </div>
+
+          <!-- Historia con timeline -->
+          <div data-reveal>
+            <h2 class="font-display text-2xl lg:text-3xl text-primary mb-8">Historia de Zentro Limpiezas</h2>
+            <div class="relative space-y-0">
+              <div class="absolute left-[9px] top-3 bottom-3 w-px bg-line" aria-hidden="true"></div>
+              {[
+                {
+                  year: '2004',
+                  title: 'Fundación en Ferrol',
+                  desc: 'Zentro Limpiezas nace como empresa familiar en Ferrol con el objetivo de ofrecer limpieza profesional cercana y de confianza en Ferrolterra. Los primeros servicios son de limpieza doméstica y de pequeñas oficinas en la ciudad.',
+                },
+                {
+                  year: '~2008',
+                  title: 'Adopción del modelo 100% ecológico',
+                  desc: 'Mucho antes de que fuera tendencia, Zentro Limpiezas adopta productos con certificación ecológica en todos sus servicios. Una decisión de valores —no de marketing— que se convierte en seña de identidad permanente.',
+                },
+                {
+                  year: '2010–2015',
+                  title: 'Expansión por toda Ferrolterra',
+                  desc: 'El crecimiento por recomendación impulsa la expansión a toda la comarca: Narón, Fene, Neda, Mugardos, Valdoviño, Ares, Cedeira y más municipios. El equipo crece manteniendo el modelo de personal fijo.',
+                },
+                {
+                  year: '2015–2020',
+                  title: 'Llegada al Área Metropolitana de A Coruña',
+                  desc: 'La demanda de clientes en A Coruña, Oleiros, Cambre, Culleredo y Arteixo lleva a Zentro Limpiezas a ampliar su área de servicio hacia el sur, consolidándose en toda la provincia.',
+                },
+                {
+                  year: '2024',
+                  title: 'Más de 20 años y 29+ municipios',
+                  desc: 'Zentro Limpiezas celebra dos décadas como referente de limpieza profesional ecológica en Galicia. Más de 29 municipios cubiertos, mismo equipo, mismos valores, misma garantía de siempre.',
+                },
+              ].map((item) => (
+                <div class="flex gap-6 pb-8 relative">
+                  <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent border-2 border-white ring-2 ring-accent mt-1 z-10"></div>
+                  <div>
+                    <span class="font-mono-data text-[11px] text-accent font-bold tracking-widest uppercase">{item.year}</span>
+                    <h3 class="font-semibold text-primary text-sm mt-1 mb-2">{item.title}</h3>
+                    <p class="text-charcoal text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
+          <!-- Valores -->
           <div data-reveal>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="section-number">02</span>
-              <h2 class="font-serif text-2xl text-primary">Nuestros valores</h2>
-            </div>
-            <ul class="space-y-4">
+            <h2 class="font-display text-2xl lg:text-3xl text-primary mb-6">Los valores de Zentro Limpiezas</h2>
+            <div class="space-y-5">
               {[
                 {
-                  title: 'Profesionalidad',
-                  desc: 'Cada trabajo se hace con el mismo nivel de exigencia, tanto si es un piso pequeño como una gran empresa.',
+                  title: 'Profesionalidad sin excepciones',
+                  desc: 'Cada trabajo recibe el mismo nivel de exigencia: tanto en un estudio de 30 m² como en una gran empresa o un pazo para una boda. No hay servicios de primera y de segunda.',
                 },
                 {
-                  title: 'Confianza',
-                  desc: 'Entramos en tu hogar o en tu empresa. Eso implica una responsabilidad que tomamos muy en serio.',
+                  title: 'Confianza como responsabilidad',
+                  desc: 'Entramos en tu hogar o en tu empresa. Eso implica una responsabilidad que tomamos muy en serio: equipo propio, comunicación directa y resultado siempre garantizado.',
                 },
                 {
-                  title: 'Respeto al medio ambiente',
-                  desc: 'Productos ecológicos certificados en cada servicio. Sin excusas, sin costes extra.',
+                  title: 'Ecología sin concesiones',
+                  desc: 'Usamos productos ecológicos certificados Ecolabel UE en el 100% de los servicios. No es una opción premium ni un cargo extra. Es cómo trabajamos desde hace más de 15 años.',
                 },
                 {
-                  title: 'Cercanía',
-                  desc: 'Somos una empresa local. Conocemos la comarca y el carácter de la gente que vive aquí.',
+                  title: 'Empresa local con conocimiento local',
+                  desc: 'Somos de Ferrol. Conocemos los barrios, el tipo de viviendas —los pisos de terrazo de Caranza, los edificios históricos de A Magdalena—, el clima costero y las necesidades de las familias gallegas.',
                 },
               ].map(v => (
-                <li class="flex items-start gap-3">
-                  <svg class="text-accent mt-1 shrink-0 w-4 h-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <div class="flex gap-3">
+                  <svg class="text-accent mt-1 shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   <div>
-                    <p class="text-primary font-medium text-sm">{v.title}</p>
-                    <p class="text-mid text-sm mt-1">{v.desc}</p>
+                    <p class="font-semibold text-primary text-sm">{v.title}</p>
+                    <p class="text-mid text-sm mt-1 leading-relaxed">{v.desc}</p>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="space-y-6">
+
+          <!-- Zona de servicio — bloque GEO -->
+          <div class="card p-6" data-reveal>
+            <h2 class="font-serif text-lg text-primary mb-3 font-semibold">¿Dónde opera Zentro Limpiezas?</h2>
+            <p class="text-charcoal text-sm leading-relaxed mb-5 speakable-intro">
+              Zentro Limpiezas cubre más de 29 municipios de la provincia de A Coruña en dos grandes áreas:
+            </p>
+            <div class="space-y-5">
+              <div>
+                <p class="font-semibold text-primary text-[11px] uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+                  Ferrolterra
+                </p>
+                <p class="text-mid text-sm leading-relaxed">Ferrol · Narón · Neda · Fene · Mugardos · Valdoviño · Ares · Pontedeume · Cedeira · Ortigueira · Cerdido · Moeche · San Sadurniño · Cabanas</p>
+              </div>
+              <div>
+                <p class="font-semibold text-primary text-[11px] uppercase tracking-widest mb-2 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+                  Área Metropolitana de A Coruña
+                </p>
+                <p class="text-mid text-sm leading-relaxed">A Coruña · Culleredo · Arteixo · Cambre · Oleiros · Sada · Betanzos · Bergondo · Abegondo · Carral · Paderne</p>
+              </div>
+            </div>
+            <a href="/zonas/" class="text-accent text-sm hover:underline mt-5 block font-semibold">Ver mapa completo de cobertura →</a>
+          </div>
+
+          <!-- Por qué Zentro -->
+          <div class="card p-6" data-reveal>
+            <h2 class="font-serif text-lg text-primary mb-4 font-semibold">¿Por qué elegir Zentro Limpiezas?</h2>
+            <ul class="space-y-3">
+              {[
+                { key: '+20 años', desc: 'de experiencia en Galicia' },
+                { key: 'Empresa familiar', desc: 'sin franquicias ni subcontratación' },
+                { key: 'Equipo fijo propio', desc: 'siempre el mismo en tu hogar' },
+                { key: 'Ecolabel certificado', desc: 'incluido en el precio, siempre' },
+                { key: 'Garantía total', desc: 'si no quedas satisfecho, repetimos gratis' },
+                { key: 'Presupuesto en 24h', desc: 'precio cerrado, sin letra pequeña' },
+                { key: 'Seguro de responsabilidad civil', desc: 'cubiertos ante cualquier incidencia' },
+                { key: 'Horario adaptable', desc: 'mañana, tarde o fin de semana' },
+              ].map(item => (
+                <li class="flex items-start gap-3">
+                  <span class="text-accent font-bold text-sm shrink-0 mt-0.5">✓</span>
+                  <span class="text-sm text-charcoal"><strong class="text-primary">{item.key}</strong>{' '}{item.desc}</span>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
 
-        <div class="space-y-6">
-          <!-- Stats -->
-          <div class="grid grid-cols-2 gap-4" data-reveal>
-            {[
-              { num: '+20', label: 'años de experiencia' },
-              { num: '29', label: 'municipios cubiertos' },
-              { num: '100%', label: 'ecológico siempre' },
-              { num: '2004', label: 'año de fundación' },
-            ].map(item => (
-              <div class="card p-6 text-center">
-                <p class="font-mono text-accent text-3xl font-bold">{item.num}</p>
-                <p class="text-mid text-sm mt-2">{item.label}</p>
-              </div>
-            ))}
+          <!-- Foto equipo -->
+          <div class="rounded-2xl overflow-hidden shadow-sm" data-reveal>
+            <img
+              src="/images/equipo-limpieza-oficinas.webp"
+              alt="Equipo de limpieza profesional de Zentro Limpiezas en Ferrol realizando servicio en oficina"
+              class="w-full h-56 object-cover"
+              width="800"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
-          <!-- Eco compromiso -->
-          <div class="card p-6 border-accent/30" data-reveal>
-            <div class="flex items-center gap-3 mb-4">
-              <EcoBadge size="md" />
+          <!-- Compromiso ecológico -->
+          <div class="card p-6 border-green-200 bg-green-50/50" data-reveal>
+            <h3 class="font-serif text-base text-primary mb-3 font-semibold">Compromiso ecológico certificado</h3>
+            <p class="text-charcoal text-sm leading-relaxed mb-4">
+              Zentro Limpiezas usa exclusivamente productos con certificación <strong>Ecolabel de la Unión Europea</strong> en todos sus servicios. Son igual de efectivos que los convencionales contra la suciedad, la grasa y las bacterias, pero sin componentes tóxicos y sin olor químico agresivo.
+            </p>
+            <ul class="space-y-1.5 text-sm text-charcoal">
+              {[
+                'Seguros para niños y mascotas',
+                'Sin olor químico agresivo',
+                'Respeto por las rías gallegas',
+                'Incluidos en el precio, sin coste adicional',
+              ].map(item => (
+                <li class="flex items-center gap-2">
+                  <svg class="text-green-600 shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Contacto rápido -->
+          <div class="card p-6 border-accent/20 bg-accent/5" data-reveal>
+            <h3 class="font-serif text-base text-primary mb-3 font-semibold">Pide presupuesto sin compromiso</h3>
+            <p class="text-mid text-sm mb-4">Te respondemos en menos de 24 horas con precio cerrado.</p>
+            <div class="flex flex-col gap-2">
+              <a href="/presupuesto/" class="btn-primary text-center text-sm py-3">→ Formulario de presupuesto</a>
+              <a href="https://wa.me/34616054001" target="_blank" rel="noopener noreferrer" class="btn-whatsapp justify-center text-sm py-3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                WhatsApp · {BUSINESS.phoneDisplay}
+              </a>
             </div>
-            <h3 class="font-serif text-lg text-primary mb-3">Compromiso ecológico</h3>
-            <p class="text-mid text-sm leading-relaxed">
-              Usamos exclusivamente productos de limpieza con certificación ecológica Ecolabel. Son igual de eficaces que los convencionales, pero sin químicos agresivos para tu familia ni para el entorno natural de Galicia.
-            </p>
-            <p class="text-mid text-sm mt-3 font-medium text-accent">
-              Incluido en el precio. Sin recargos. Siempre.
-            </p>
           </div>
 
-          <!-- Zona de trabajo -->
-          <div class="card p-6" data-reveal>
-            <h3 class="font-serif text-lg text-primary mb-3">Dónde trabajamos</h3>
-            <p class="text-mid text-sm leading-relaxed mb-3">
-              Nuestra sede está en Ferrol, pero operamos en toda Ferrolterra y el área metropolitana de A Coruña: más de 29 municipios cubiertos.
-            </p>
-            <a href="/zonas/" class="text-accent text-sm hover:underline">Ver todas las zonas →</a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Equipo / Por qué nosotros -->
-  <section class="py-16 bg-charcoal overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-display text-2xl lg:text-3xl text-warm mb-6" data-reveal>¿Por qué elegir Zentro Limpiezas?</h2>
-        <div class="grid sm:grid-cols-2 gap-4 mt-8" data-reveal-stagger>
-          {[
-            { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', title: 'Empresa local', desc: 'Nacidos y criados en Ferrol. Conocemos el territorio y la gente.' },
-            { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>', title: 'Ecológico incluido', desc: 'Sin recargos por usar productos responsables. Es nuestro estándar.' },
-            { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>', title: 'Horario flexible', desc: 'Tardes, fines de semana, festivos. Nos adaptamos a ti.' },
-            { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>', title: 'Mismo equipo', desc: 'En los servicios periódicos, siempre los mismos profesionales.' },
-            { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>', title: 'Presupuesto en 24h', desc: 'Sin visita obligatoria. Por teléfono, WhatsApp o formulario.' },
-            { icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', title: 'Seguro de RC', desc: 'Cubiertos frente a cualquier incidencia durante el trabajo.' },
-          ].map(item => (
-            <div class="card p-5 flex items-start gap-3 text-left">
-              <span class="text-accent shrink-0 mt-0.5 [&>svg]:w-5 [&>svg]:h-5" set:html={item.icon}></span>
-              <div>
-                <p class="text-primary font-medium text-sm">{item.title}</p>
-                <p class="text-mid text-xs mt-1">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+  <!-- Por qué Zentro vs. otras empresas — sección comparativa -->
+  <section class="py-16 lg:py-20 bg-primary noise-overlay relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
+        <h2 class="font-display text-3xl lg:text-4xl text-white mb-4">¿Por qué Zentro Limpiezas y no otra empresa?</h2>
+        <p class="text-white/70 text-lg">En Ferrolterra y A Coruña hay muchas empresas de limpieza. Esto es lo que nos diferencia tras 20 años.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+            title: 'Personal propio, sin subcontratación',
+            desc: 'Todo nuestro equipo es propio. No subcontratamos personal externo. Sabes exactamente quién entra en tu casa y siempre es la misma persona.',
+          },
+          {
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+            title: 'Garantía de satisfacción real',
+            desc: 'Si no quedas satisfecho con el resultado, volvemos a realizarlo sin coste. Sin argumentos, sin excusas. En 20 años nunca la hemos aplicado.',
+          },
+          {
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+            title: 'Ecológico como estándar, no como opción',
+            desc: 'No cobramos extra por productos ecológicos. Es cómo trabajamos desde hace más de 15 años, en todos los servicios, sin excepción.',
+          },
+          {
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+            title: 'Empresa local de Ferrol, no franquicia',
+            desc: 'Fundada y gestionada en Ferrol. Conocemos el territorio, los barrios, el tipo de viviendas y las necesidades específicas de Galicia.',
+          },
+          {
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+            title: 'Presupuesto cerrado en menos de 24h',
+            desc: 'Sin esperas largas. Te respondemos con precio firme en menos de 24 horas, sin visita previa obligatoria.',
+          },
+          {
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="1" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+            title: 'Precio pactado = precio final',
+            desc: 'El presupuesto que aceptas es exactamente lo que pagas. Sin extras de última hora, sin costes ocultos.',
+          },
+        ].map(item => (
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6" data-reveal>
+            <span class="text-accent mb-4 block [&>svg]:w-6 [&>svg]:h-6" set:html={item.icon}></span>
+            <h3 class="font-semibold text-white text-sm mb-2">{item.title}</h3>
+            <p class="text-white/65 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SEO/AEO — optimizado para fragmentos destacados y búsqueda por voz -->
+  <section class="py-16 lg:py-24 bg-warm">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10" data-reveal>
+        <h2 class="font-display text-3xl lg:text-4xl text-primary mb-3">Preguntas frecuentes sobre Zentro Limpiezas</h2>
+        <p class="text-mid text-lg">Todo lo que necesitas saber sobre quiénes somos, dónde trabajamos y cómo operamos como empresa de limpieza en Ferrol y A Coruña.</p>
+      </div>
+      <div data-reveal>
+        <FAQAccordion faqs={faqs} />
+      </div>
+      <div class="mt-10 p-5 bg-white rounded-xl border border-line text-center" data-reveal>
+        <p class="text-charcoal text-sm mb-3">¿Tienes más preguntas? Escríbenos directamente.</p>
+        <a href={`tel:${BUSINESS.phone}`} class="text-accent font-semibold hover:underline">{BUSINESS.phoneDisplay}</a>
+        <span class="text-mid mx-2">·</span>
+        <a href="/presupuesto/" class="text-accent font-semibold hover:underline">Formulario de contacto</a>
       </div>
     </div>
   </section>

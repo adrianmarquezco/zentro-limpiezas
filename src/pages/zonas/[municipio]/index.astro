@@ -73,12 +73,9 @@ const pasos = [
 
           <!-- Quiénes somos en este municipio -->
           <div data-reveal>
-            <div class="flex items-center gap-3 mb-5">
-              <span class="section-number">01</span>
-              <h2 class="font-serif text-2xl lg:text-3xl text-primary">
-                Servicio de limpieza profesional en {municipio.nombre}
-              </h2>
-            </div>
+            <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-5">
+              Servicio de limpieza profesional en {municipio.nombre}
+            </h2>
             <div class="space-y-4 text-charcoal leading-relaxed">
               <p class="speakable-intro">{municipio.contenidoUnico}</p>
               <p>
@@ -96,12 +93,9 @@ const pasos = [
 
           <!-- Precios orientativos -->
           <div data-reveal>
-            <div class="flex items-center gap-3 mb-5">
-              <span class="section-number">02</span>
-              <h2 class="font-serif text-2xl lg:text-3xl text-primary">
-                ¿Cuánto cuesta una limpieza en {municipio.nombre}?
-              </h2>
-            </div>
+            <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-5">
+              ¿Cuánto cuesta una limpieza en {municipio.nombre}?
+            </h2>
             <p class="text-charcoal leading-relaxed mb-6">
               Los precios que indicamos son orientativos. El precio final depende del estado del inmueble, los años que lleve sin limpieza profesional y si prefieres servicio puntual o periódico. El servicio periódico (semanal, quincenal o mensual) suele ser más económico por visita que el puntual.
             </p>
@@ -123,12 +117,9 @@ const pasos = [
           <!-- Servicios con página propia en este municipio -->
           {serviciosConCombo.length > 0 && (
             <div data-reveal>
-              <div class="flex items-center gap-3 mb-5">
-                <span class="section-number">03</span>
-                <h2 class="font-serif text-2xl lg:text-3xl text-primary">
-                  Servicios específicos en {municipio.nombre}
-                </h2>
-              </div>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-5">
+                Servicios de limpieza disponibles en {municipio.nombre}
+              </h2>
               <p class="text-charcoal leading-relaxed mb-6">
                 Para los servicios más demandados en {municipio.nombre} tenemos páginas detalladas con información, precios y formulario de presupuesto. Haz clic en el servicio que necesitas:
               </p>
@@ -177,17 +168,21 @@ const pasos = [
 
           <!-- CTA presupuesto -->
           <div class="card p-6 border-accent/30" data-reveal>
-            <p class="font-serif text-lg text-primary mb-2 font-semibold">Presupuesto gratis en {municipio.nombre}</p>
+            <p class="font-serif text-lg text-primary mb-1 font-semibold">Presupuesto gratis en {municipio.nombre}</p>
             <p class="text-mid text-xs mb-4">Sin compromiso · Respuesta en 24h · Precio cerrado</p>
             {municipio.precioDesde && (
-              <p class="font-mono text-accent text-2xl font-bold mb-4">desde {municipio.precioDesde}</p>
+              <div class="mb-5 pb-4 border-b border-line">
+                <p class="text-[11px] text-mid uppercase tracking-widest mb-1">Precio orientativo desde</p>
+                <p class="font-display text-3xl font-bold text-primary">{municipio.precioDesde}</p>
+              </div>
             )}
             <div class="flex flex-col gap-2">
-              <a href="/presupuesto/" class="btn-accent w-full text-center text-sm">→ Formulario de presupuesto</a>
+              <a href="/presupuesto/" class="btn-primary w-full text-center text-sm">→ Solicitar presupuesto</a>
               <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
             </div>
-            <div class="mt-4 pt-4 border-t border-line">
-              <EcoBadge size="sm" />
+            <div class="mt-4 pt-4 border-t border-line flex items-center gap-2 text-xs text-mid">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 shrink-0"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              <span>Productos ecológicos Ecolabel incluidos en el precio</span>
             </div>
           </div>
 
