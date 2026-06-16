@@ -30,26 +30,25 @@ const svgIcon = icons[servicio.icono] ?? icons.house;
 
 <a
   href={href}
-  class="group rounded-2xl border border-line bg-white p-5 flex flex-col gap-3 hover:border-accent hover:shadow-md transition-all duration-200"
+  class="group rounded-2xl border border-line bg-white p-5 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
   data-reveal
 >
-  <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-200 shrink-0">
+  <div class="w-11 h-11 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-all duration-200 shrink-0">
     <Fragment set:html={svgIcon} />
   </div>
 
-  <h3 class="font-serif text-lg text-primary leading-snug">{nombre}</h3>
+  <div class="flex-1">
+    <h3 class="font-serif text-lg text-primary leading-snug mb-2">{nombre}</h3>
+    <p class="text-mid text-sm leading-relaxed">{servicio.descripcionCorta}</p>
+  </div>
 
-  <p class="text-mid text-sm leading-relaxed flex-1">
-    {servicio.descripcionCorta}
-  </p>
-
-  <div class="flex items-center justify-between pt-3 border-t border-line mt-auto">
-    {servicio.precioDesde
-      ? <span class="font-mono text-accent text-sm font-semibold">desde {servicio.precioDesde}</span>
-      : <span class="text-xs text-mid">{lang === 'gl' ? 'Presuposto' : 'Presupuesto'}</span>
-    }
-    <span class="text-sm font-semibold text-primary/40 group-hover:text-accent transition-colors">
-      {lang === 'gl' ? 'Ver →' : 'Ver →'}
+  <div class="flex items-center justify-between pt-3 border-t border-line">
+    <span class="text-xs text-mid bg-warm px-2.5 py-1 rounded-full">
+      {servicio.precioDesde ? `desde ${servicio.precioDesde}` : (lang === 'gl' ? 'Presuposto' : 'Presupuesto')}
+    </span>
+    <span class="flex items-center gap-1 text-sm font-medium text-primary/40 group-hover:text-accent transition-colors">
+      {lang === 'gl' ? 'Ver' : 'Ver'}
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </span>
   </div>
 </a>
