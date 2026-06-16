@@ -117,6 +117,8 @@ const faqSchema = faqs;
 
   <!-- ═══ HERO ═══ -->
   <section class="hero-section relative min-h-[600px] lg:min-h-[92vh] flex items-center bg-primary noise-overlay overflow-hidden pt-16">
+    <div aria-hidden="true" class="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(0,196,140,0.13) 0%, transparent 65%); filter: blur(48px);"></div>
+    <div aria-hidden="true" class="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(59,130,246,0.09) 0%, transparent 65%); filter: blur(48px);"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10 w-full">
       <div class="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-16 items-center">
 
@@ -215,8 +217,10 @@ const faqSchema = faqs;
         {servicios.map(s => (
           <a
             href={`/servicios/${s.slug}/`}
-            class="group rounded-2xl border border-line bg-white p-5 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+            class="svc-card group relative rounded-2xl border border-line bg-white overflow-hidden p-5 flex flex-col gap-4 hover:-translate-y-1 transition-all duration-200"
+            style="box-shadow: 0 1px 3px rgba(10,37,64,0.06)"
           >
+            <span aria-hidden="true" class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent/70 to-accent/20 opacity-60 group-hover:opacity-100 transition-opacity duration-200"></span>
             <div class="w-11 h-11 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-white transition-all duration-200 shrink-0 [&>svg]:w-5 [&>svg]:h-5" set:html={`<span class="contents">${s.icon}</span>`}></div>
             <div class="flex-1">
               <h3 class="font-serif text-base lg:text-lg text-primary leading-snug mb-1.5">{s.nombre}</h3>

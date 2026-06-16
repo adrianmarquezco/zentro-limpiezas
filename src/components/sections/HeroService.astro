@@ -16,6 +16,8 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
 
 <section class="hero-section relative bg-primary overflow-hidden py-24 lg:py-32">
   <div class="noise-overlay" />
+  <div aria-hidden="true" class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(0,196,140,0.13) 0%, transparent 65%); filter: blur(48px);"></div>
+  <div aria-hidden="true" class="absolute -bottom-20 -left-20 w-[360px] h-[360px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(59,130,246,0.09) 0%, transparent 65%); filter: blur(48px);"></div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
@@ -23,7 +25,7 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
       </span>
       <h1 class="hero-h1-line1 font-serif text-4xl sm:text-5xl lg:text-6xl text-warm leading-tight" set:html={h1} />
       {precioDesde && (
-        <p class="mt-4 font-mono text-accent text-xl">desde <span class="text-3xl font-bold">{precioDesde}</span></p>
+        <p class="mt-4 text-white/70 text-lg">desde <span class="text-accent font-bold text-3xl">{precioDesde}</span></p>
       )}
       <p class="hero-subtitle text-white/70 text-lg mt-6 max-w-xl leading-relaxed speakable-intro">{subtitle}</p>
       <div class="hero-ctas flex flex-wrap gap-3 mt-8">
