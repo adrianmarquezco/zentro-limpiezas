@@ -9,8 +9,9 @@ export const BUSINESS = {
   phoneHref: 'tel:+34616054001',
   phoneDisplay: '616 054 001',
   whatsappBase: 'https://wa.me/34616054001',
-  foundingYear: 2004,
-  yearsExperience: 20,
+  foundingYear: 2026,
+  sectorExperienceYear: 2004,   // año en que el fundador empezó en el sector
+  yearsExperience: 20,           // años de experiencia en el sector (no de la empresa)
   priceRange: '€€',
   currency: 'EUR',
   payments: ['Efectivo', 'Bizum', 'Transferencia bancaria'],
@@ -54,7 +55,7 @@ export function buildWhatsAppUrl(message: string): string {
 
 // USPs para TrustBar y secciones
 export const USPS = [
-  { icon: 'trophy', text: '+20 años de experiencia', detail: 'Desde 2004 en Galicia' },
+  { icon: 'trophy', text: '+20 años en el sector', detail: 'Experiencia real desde dentro' },
   { icon: 'leaf', text: 'Productos ecológicos incluidos', detail: 'Sin coste adicional' },
   { icon: 'lightning', text: 'Presupuesto en 24h', detail: 'Sin compromiso' },
   { icon: 'calendar', text: 'Fines de semana disponibles', detail: 'Mañanas y tardes' },
