@@ -18,6 +18,8 @@ export const GET: APIRoute = async () => {
     `${SITE}/zonas/`,
     `${SITE}/sobre-nosotros/`,
     `${SITE}/presupuesto/`,
+    `${SITE}/precios/`,
+    `${SITE}/contacto/`,
     `${SITE}/blog/`,
     // Páginas principales GL
     `${SITE}/gl/`,
