@@ -1,0 +1,266 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import { MUNICIPIOS } from '@/data/municipios';
+import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const m of MUNICIPIOS) {
+    if (!m.barrios || m.barrios.length === 0) continue;
+    for (const b of m.barrios) {
+      paths.push({
+        params: { municipio: m.slug, barrio: b.slug },
+        props: { municipio: m, barrio: b },
+      });
+    }
+  }
+  return paths;
+}
+
+const { municipio, barrio } = Astro.props;
+
+const canonical = `${BUSINESS.url}/gl/zonas/${municipio.slug}/${barrio.slug}/`;
+const hreflangEs = `${BUSINESS.url}/zonas/${municipio.slug}/${barrio.slug}/`;
+const nombreGL = municipio.nombreGL ?? municipio.nombre;
+const title = `Limpeza profesional en ${barrio.nombre}, ${nombreGL} | Zentro Limpiezas`;
+const description = `Limpeza profesional en ${barrio.nombre}, ${nombreGL}. Produtos ecolóxicos incluídos${barrio.precioDesde ? `. Desde ${barrio.precioDesde}` : ''}. Orzamento gratis en menos de 24h.`;
+
+const breadcrumbs = [
+  { label: 'Zonas', href: '/gl/zonas/' },
+  { label: nombreGL, href: `/gl/zonas/${municipio.slug}/` },
+  { label: barrio.nombre, href: canonical },
+];
+
+const waUrl = buildWhatsAppUrl(`Ola, gustaríame pedir orzamento de limpeza en ${barrio.nombre}, ${nombreGL}`);
+const otrosBarrios = (municipio.barrios ?? []).filter(b => b.slug !== barrio.slug);
+
+const faqs = [
+  {
+    q: `¿Canto custa limpiar un piso en ${barrio.nombre}, ${nombreGL}?`,
+    a: `O prezo orientativo para un piso estándar en ${barrio.nombre} comeza${barrio.precioDesde ? ` desde ${barrio.precioDesde}` : ' desde 55€'}. O prezo final depende do tamaño do inmoble, o estado e a frecuencia do servizo. Dámosche orzamento pechado en menos de 24 horas, sen compromiso.`,
+  },
+  {
+    q: `¿Vides ao barrio de ${barrio.nombre} a limpiar?`,
+    a: `Si, prestamos servizo de limpeza en ${barrio.nombre} e en todos os barrios e parroquias de ${nombreGL}. Se tes dúbidas sobre o teu enderezo exacto, escríbenos por WhatsApp ao ${BUSINESS.phoneDisplay} e confirmámosche enseguida.`,
+  },
+  {
+    q: `¿Incluídes os produtos de limpeza en ${barrio.nombre}?`,
+    a: `Si, todos os produtos ecolóxicos con certificación Ecolabel europeo van incluídos no prezo. Non necesitas ter nada na casa. Son igual de efectivos que os convencionais pero sen químicos agresivos, sen cheiro forte e seguros para nenos e mascotas.`,
+  },
+  {
+    q: `¿Facedes servizo periódico en ${barrio.nombre}?`,
+    a: `Si. O servizo periódico (semanal, quincenal ou mensual) é o máis solicitado en ${barrio.nombre}. A vantaxe é que sempre vén o mesmo equipo, que xa coñece a túa casa. O prezo por visita tamén é máis económico que contratando cada vez de forma puntual.`,
+  },
+];
+
+const schemaFAQ = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const schemaLocal = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Zentro Limpiezas',
+  description: `Servizo de limpeza profesional en ${barrio.nombre}, ${nombreGL}`,
+  url: canonical,
+  telephone: BUSINESS.phone,
+  areaServed: {
+    '@type': 'Place',
+    name: `${barrio.nombre}, ${nombreGL}, Galicia`,
+  },
+  priceRange: barrio.precioDesde ? `desde ${barrio.precioDesde}` : 'desde 55€',
+};
+---
+
+<BaseLayout {title} {description} {canonical} lang="gl" {hreflangEs}>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
+  <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
+
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
+  <WhatsAppFloat />
+  <CTABar />
+
+  <!-- Hero -->
+  <section class="bg-primary py-16 lg:py-24 relative overflow-hidden">
+    <div class="noise-overlay absolute inset-0 pointer-events-none" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-[1fr_320px] gap-10 items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 bg-accent/20 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+            <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
+            {municipio.comarca} · {nombreGL}
+          </p>
+          <h1 class="font-display text-4xl lg:text-5xl xl:text-6xl text-white mb-5 leading-tight">
+            Limpeza profesional en<br />
+            <span class="text-accent">{barrio.nombre}</span>
+          </h1>
+          <p class="text-white/75 text-lg mb-8 max-w-xl leading-relaxed">
+            Servizo de limpeza a domicilio en {barrio.nombre}, {nombreGL}.
+            <strong class="text-white">Produtos ecolóxicos incluídos</strong> no prezo. Orzamento en menos de 24h.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-6 py-3.5 text-sm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href="/gl/orzamento/" class="btn-outline-light px-6 py-3.5 text-sm">
+              → Orzamento gratis
+            </a>
+          </div>
+        </div>
+        <!-- CTA card -->
+        <div class="hidden lg:block bg-white/[0.07] border border-white/10 rounded-2xl p-6">
+          <h2 class="font-display text-xl text-white mb-1">Limpeza en {barrio.nombre}</h2>
+          <p class="text-white/50 text-xs mb-4">{nombreGL} · {municipio.comarca}</p>
+          {barrio.precioDesde && (
+            <p class="font-mono text-accent text-3xl font-bold mb-4">desde {barrio.precioDesde}</p>
+          )}
+          <div class="space-y-2 mb-5">
+            {['Produtos ecolóxicos incluídos', 'Orzamento en 24h', 'Mesmo equipo sempre', 'Fins de semana dispoñible'].map(item => (
+              <div class="flex items-center gap-2 text-white/70 text-sm">
+                <span class="text-accent">✓</span> {item}
+              </div>
+            ))}
+          </div>
+          <a href="/gl/orzamento/" class="btn-accent w-full text-center text-sm block">→ Pedir orzamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contido principal -->
+  <section class="py-16 lg:py-24 bg-warm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Sobre o barrio -->
+      <div class="card mb-8" data-reveal>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">01</span>
+          <h2 class="font-display text-2xl text-primary">Servizo de limpeza en {barrio.nombre}, {nombreGL}</h2>
+        </div>
+        <p class="text-charcoal leading-relaxed mb-4">{barrio.descripcion}</p>
+        <p class="text-charcoal leading-relaxed">
+          En Zentro Limpiezas levamos máis de 20 anos prestando servizo de limpeza en {nombreGL} e os seus barrios.
+          O noso equipo coñece ben as características das vivendas de {barrio.nombre} e adapta o servizo a cada tipo de inmoble.
+          Todos os produtos que usamos son ecolóxicos con certificación Ecolabel, incluídos no prezo sen custo adicional.
+        </p>
+        {barrio.tipoVivienda && (
+          <div class="mt-4 p-4 bg-warm border border-line rounded-lg">
+            <p class="text-sm text-charcoal">
+              <span class="font-semibold text-primary">Tipo de vivenda habitual en {barrio.nombre}:</span> {barrio.tipoVivienda}
+            </p>
+          </div>
+        )}
+      </div>
+
+      <!-- Prezo -->
+      <div class="card mb-8" data-reveal>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">02</span>
+          <h2 class="font-display text-2xl text-primary">¿Canto custa a limpeza en {barrio.nombre}?</h2>
+        </div>
+        <p class="text-charcoal leading-relaxed mb-6">
+          O prezo depende do tamaño do inmoble, o seu estado e a frecuencia do servizo.
+          O servizo periódico (semanal, quincenal ou mensual) adoita ser máis económico por visita que o puntual.
+          Dámosche orzamento pechado en menos de 24 horas, sen compromiso e sen sorpresas.
+        </p>
+        <div class="grid sm:grid-cols-3 gap-4 mb-5">
+          {[
+            { label: 'Piso ata 70 m²', precio: barrio.precioDesde ?? '55€', tipo: 'limpeza puntual' },
+            { label: 'Servizo periódico', precio: 'desde 50€/visita', tipo: 'quincenal ou mensual' },
+            { label: 'Limpeza a fondo', precio: 'orzamento', tipo: 'personalizado' },
+          ].map(row => (
+            <div class="bg-warm border border-line rounded-lg p-4 text-center">
+              <p class="text-xs text-mid mb-1">{row.label}</p>
+              <p class="text-xs text-mid mb-2">{row.tipo}</p>
+              <p class="font-mono text-accent font-bold text-lg">{row.precio}</p>
+            </div>
+          ))}
+        </div>
+        <a href="/gl/orzamento/" class="btn-primary inline-flex px-6 py-3 text-sm">→ Pedir orzamento personalizado</a>
+      </div>
+
+      <!-- Por que elegirnos -->
+      <div class="bg-primary rounded-2xl p-6 lg:p-8 mb-8" data-reveal>
+        <h3 class="font-display text-xl text-white mb-6">Por que os veciños de {barrio.nombre} nos elixen</h3>
+        <div class="grid sm:grid-cols-2 gap-5">
+          {[
+            { stat: '+20', label: 'anos no sector', desc: `Experiencia acumulada desde dentro do sector. Coñecemos ben cada barrio de ${nombreGL}.` },
+            { stat: '100%', label: 'ecolóxico', desc: 'Produtos Ecolabel incluídos. Sen químicos agresivos, seguros para toda a familia.' },
+            { stat: '24h', label: 'orzamento', desc: 'Prezo pechado sen sorpresas en menos de 24 horas. Sen compromiso.' },
+            { stat: '= equipo', label: 'sempre', desc: 'Sempre a mesma persoa ou equipo. Confianza e coñecemento do teu fogar.' },
+          ].map(item => (
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-20 text-center bg-white/10 rounded-xl p-3">
+                <p class="font-mono text-accent text-sm font-bold leading-none">{item.stat}</p>
+                <p class="text-white/50 text-[9px] mt-1 leading-tight">{item.label}</p>
+              </div>
+              <p class="text-white/80 text-sm leading-relaxed pt-1">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-5 py-3 text-sm">WhatsApp directo</a>
+          <a href={`tel:${BUSINESS.phone}`} class="btn-outline-light px-5 py-3 text-sm">{BUSINESS.phoneDisplay}</a>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-8" data-reveal>
+        <h2 class="font-display text-2xl text-primary mb-6">Preguntas frecuentes sobre limpeza en {barrio.nombre}</h2>
+        <div class="space-y-3">
+          {faqs.map(faq => (
+            <details class="card group cursor-pointer">
+              <summary class="flex items-center justify-between gap-3 list-none font-semibold text-primary text-sm">
+                {faq.q}
+                <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform duration-200">+</span>
+              </summary>
+              <p class="text-mid text-sm leading-relaxed mt-3">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navegación: municipio e outros barrios -->
+      <div class="grid sm:grid-cols-2 gap-6" data-reveal>
+
+        <!-- Volver ao municipio -->
+        <div class="card">
+          <h3 class="font-semibold text-primary text-sm mb-3">Limpeza en {nombreGL}</h3>
+          <p class="text-mid text-xs mb-4">Ver toda a información do noso servizo no municipio de {nombreGL}.</p>
+          <a href={`/gl/zonas/${municipio.slug}/`} class="btn-primary inline-flex px-4 py-2 text-xs">
+            → Ver páxina de {nombreGL}
+          </a>
+        </div>
+
+        <!-- Outros barrios -->
+        {otrosBarrios.length > 0 && (
+          <div class="card">
+            <h3 class="font-semibold text-primary text-sm mb-3">Outros barrios de {nombreGL}</h3>
+            <div class="flex flex-wrap gap-2">
+              {otrosBarrios.map(b => (
+                <a href={`/gl/zonas/${municipio.slug}/${b.slug}/`} class="zone-pill text-xs">
+                  {b.nombre}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
+
+    </div>
+  </section>
+
+  <CTASection lang="gl" />
+</BaseLayout>

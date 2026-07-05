@@ -1,0 +1,252 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
+import CTABar from '@/components/ui/CTABar.astro';
+import { BUSINESS, PRICE_HINTS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+
+const canonical = `${BUSINESS.url}/gl/precios/`;
+const hreflangEs = `${BUSINESS.url}/precios/`;
+const title = 'Prezos de limpeza en Ferrol e A Coruña 2026 | Zentro Limpiezas';
+const description = 'Prezos orientativos de limpeza de vivendas, oficinas e locais en Ferrol, Narón e A Coruña. Desde 45€. Orzamento gratuíto en 24h. Produtos ecolóxicos incluídos.';
+
+const breadcrumbs = [{ label: 'Prezos', href: '/gl/precios/' }];
+
+const waUrl = buildWhatsAppUrl('Ola, gustaríame pedir orzamento de limpeza');
+
+const faqs = [
+  {
+    q: '¿Canto custa limpiar un piso en Ferrol ou A Coruña?',
+    a: 'O prezo orientativo para limpiar un piso estándar de 50–70 m² en Ferrol ou A Coruña comeza desde 55€ para unha limpeza puntual. Un piso pequeno de ata 50 m² desde 45€ e un piso grande de 70–100 m² desde 70€. O prezo final depende do estado do inmoble, canto tempo leva sen limpeza profesional e se escolles servizo puntual ou periódico.',
+  },
+  {
+    q: '¿Os produtos ecolóxicos teñen custo adicional?',
+    a: 'Non. Os produtos ecolóxicos con certificación Ecolabel da Unión Europea están incluídos no prezo de todos os servizos de Zentro Limpiezas. Non se aplica ningún cargo adicional. É o estándar de traballo, non unha opción premium.',
+  },
+  {
+    q: '¿É máis barato o servizo de limpeza periódico?',
+    a: 'Si. O prezo por visita no servizo periódico (semanal, quincenal ou mensual) é inferior ao do servizo puntual. Ademais, o equipo xa coñece a túa casa e cada visita é máis eficiente. Para moitos clientes, o servizo quincenal resulta a opción máis equilibrada entre custo e resultado.',
+  },
+  {
+    q: '¿Canto custa unha limpeza fin de obra en Ferrol?',
+    a: 'O prezo da limpeza fin de obra calcúlase con orzamento personalizado porque depende de moitos factores: metros cadrados, tipo de obra (parcial ou integral), materiais (mármore, terrazo, parqué), cantidade de xeso e po acumulado, e se hai ou non ascensores. Solicita orzamento sen compromiso e respondémosche en menos de 24h.',
+  },
+  {
+    q: '¿Canto custa limpiar unha oficina en Ferrol ou A Coruña?',
+    a: 'Para despachos pequenos de ata 40 m² o prezo orientativo comeza desde 60€. Oficinas medianas de 40–80 m² desde 80€. Para open spaces ou grandes oficinas o prezo calcúlase con orzamento personalizado. Os produtos ecolóxicos están incluídos e o horario adáptase ao da empresa.',
+  },
+  {
+    q: '¿Hai algún custo se non quedo satisfeito?',
+    a: 'Non. Zentro Limpiezas ofrece garantía total de satisfacción: se o resultado non cumpre as túas expectativas, o equipo repite o servizo sen ningún custo adicional. En máis de 20 anos de actividade nunca foi necesario, pero a garantía existe e está por escrito.',
+  },
+  {
+    q: '¿Como se obtén un orzamento personalizado?',
+    a: 'Podes solicitar orzamento gratuíto e sen compromiso por WhatsApp ao 616 054 001, chamando ao mesmo número, ou mediante o formulario en zentrolimpiezas.es. Respondémosche cun prezo pechado en menos de 24 horas. Non fai falta visita previa na maioría dos casos.',
+  },
+];
+
+const priceHintsGL = {
+  vivienda: [
+    { tipo: 'Piso pequeno', tamano: 'ata 50 m²', precio: 'desde 45€' },
+    { tipo: 'Piso estándar', tamano: '50–70 m²', precio: 'desde 55€' },
+    { tipo: 'Piso grande', tamano: '70–100 m²', precio: 'desde 70€' },
+    { tipo: 'Chalé / unifamiliar', tamano: 'consultar', precio: 'orzamento personalizado' },
+  ],
+  oficina: [
+    { tipo: 'Despacho pequeno', tamano: 'ata 40 m²', precio: 'desde 60€' },
+    { tipo: 'Oficina mediana', tamano: '40–80 m²', precio: 'desde 80€' },
+    { tipo: 'Open space / oficina grande', tamano: 'máis de 80 m²', precio: 'orzamento personalizado' },
+  ],
+  local: [
+    { tipo: 'Local pequeno', tamano: 'ata 50 m²', precio: 'desde 70€' },
+    { tipo: 'Local mediano', tamano: '50–100 m²', precio: 'desde 90€' },
+    { tipo: 'Restaurante / bar', tamano: 'consultar', precio: 'orzamento personalizado' },
+  ],
+  disclaimer: 'Prezos orientativos. O prezo final depende do estado do inmoble, a frecuencia e as necesidades específicas. Solicita orzamento sen compromiso.',
+};
+---
+
+<BaseLayout {title} {description} {canonical} lang="gl" {hreflangEs}>
+  <SchemaFAQ faqs={faqs} />
+  <Breadcrumbs crumbs={breadcrumbs} dark={true} />
+
+  <!-- Hero -->
+  <section class="hero-section bg-primary py-16 lg:py-20 relative noise-overlay overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl">
+        <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-5">
+          Prezos actualizados 2026 · Ferrol e A Coruña
+        </span>
+        <h1 class="font-display text-4xl sm:text-5xl text-white leading-tight mb-4">
+          Prezos de limpeza profesional<br>
+          <span class="text-accent">en Ferrol e A Coruña</span>
+        </h1>
+        <p class="text-white/75 text-lg leading-relaxed speakable-intro">
+          Prezos orientativos para limpeza de vivendas, oficinas e locais en 2026. Produtos ecolóxicos Ecolabel incluídos en todos os servizos. Orzamento personalizado e pechado en menos de 24h, sen compromiso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Táboas de prezos -->
+  <section class="py-16 lg:py-24 bg-warm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+
+      <!-- Vivendas -->
+      <div data-reveal>
+        <h2 class="font-display text-2xl lg:text-3xl text-primary mb-2">¿Canto custa limpiar unha vivenda en Ferrol e A Coruña?</h2>
+        <p class="text-charcoal text-base leading-relaxed mb-6 speakable-intro">
+          O prezo de limpeza de vivenda en Ferrol e A Coruña comeza desde 45€ para pisos pequenos de ata 50 m². Para pisos estándar de 50–70 m² o prezo habitual é desde 55€. O prezo final depende do estado do inmoble, a frecuencia e se hai mascotas ou requisitos especiais.
+        </p>
+        <div class="bg-white rounded-2xl border border-line overflow-hidden">
+          <div class="bg-primary px-5 py-3 flex items-center justify-between">
+            <span class="font-semibold text-white text-sm">Limpeza de vivenda — Prezos orientativos 2026</span>
+            <span class="text-accent text-xs font-semibold">Eco incluído</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-warm">
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Tipo de inmoble</th>
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Tamaño</th>
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Prezo orientativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {priceHintsGL.vivienda.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-warm/40'}>
+                  <td class="px-5 py-3 text-charcoal font-medium">{row.tipo}</td>
+                  <td class="px-5 py-3 text-mid">{row.tamano}</td>
+                  <td class="px-5 py-3 font-bold text-primary">{row.precio}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p class="px-5 py-3 text-xs text-mid bg-warm/30 border-t border-line">{priceHintsGL.disclaimer}</p>
+        </div>
+      </div>
+
+      <!-- Oficinas -->
+      <div data-reveal>
+        <h2 class="font-display text-2xl lg:text-3xl text-primary mb-2">¿Canto custa limpiar unha oficina en Ferrol e A Coruña?</h2>
+        <p class="text-charcoal text-base leading-relaxed mb-6">
+          O prezo de limpeza de oficina en Ferrol e A Coruña comeza desde 60€ para despachos pequenos de ata 40 m². Para oficinas medianas de 40–80 m² o prezo habitual é desde 80€. O horario adáptase ao da empresa: antes de abrir, despois de pechar ou fins de semana.
+        </p>
+        <div class="bg-white rounded-2xl border border-line overflow-hidden">
+          <div class="bg-primary px-5 py-3 flex items-center justify-between">
+            <span class="font-semibold text-white text-sm">Limpeza de oficina — Prezos orientativos 2026</span>
+            <span class="text-accent text-xs font-semibold">Eco incluído</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-warm">
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Tipo</th>
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Tamaño</th>
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Prezo orientativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {priceHintsGL.oficina.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-warm/40'}>
+                  <td class="px-5 py-3 text-charcoal font-medium">{row.tipo}</td>
+                  <td class="px-5 py-3 text-mid">{row.tamano}</td>
+                  <td class="px-5 py-3 font-bold text-primary">{row.precio}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p class="px-5 py-3 text-xs text-mid bg-warm/30 border-t border-line">{priceHintsGL.disclaimer}</p>
+        </div>
+      </div>
+
+      <!-- Locais -->
+      <div data-reveal>
+        <h2 class="font-display text-2xl lg:text-3xl text-primary mb-2">¿Canto custa limpiar un local comercial en Ferrol e A Coruña?</h2>
+        <p class="text-charcoal text-base leading-relaxed mb-6">
+          O prezo de limpeza de local comercial comeza desde 70€ para locais pequenos de ata 50 m². Para bares, restaurantes ou comercios con maior esixencia, o prezo calcúlase con orzamento personalizado segundo as necesidades específicas.
+        </p>
+        <div class="bg-white rounded-2xl border border-line overflow-hidden">
+          <div class="bg-primary px-5 py-3 flex items-center justify-between">
+            <span class="font-semibold text-white text-sm">Limpeza de local — Prezos orientativos 2026</span>
+            <span class="text-accent text-xs font-semibold">Eco incluído</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-warm">
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Tipo</th>
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Tamaño</th>
+                <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">Prezo orientativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {priceHintsGL.local.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-warm/40'}>
+                  <td class="px-5 py-3 text-charcoal font-medium">{row.tipo}</td>
+                  <td class="px-5 py-3 text-mid">{row.tamano}</td>
+                  <td class="px-5 py-3 font-bold text-primary">{row.precio}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p class="px-5 py-3 text-xs text-mid bg-warm/30 border-t border-line">{priceHintsGL.disclaimer}</p>
+        </div>
+      </div>
+
+      <!-- Que inclúe o prezo -->
+      <div class="bg-primary noise-overlay rounded-2xl p-8 lg:p-10 relative overflow-hidden" data-reveal>
+        <h2 class="font-display text-2xl lg:text-3xl text-white mb-6">¿Que inclúe sempre o prezo de Zentro Limpiezas?</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { title: 'Produtos ecolóxicos Ecolabel', desc: 'Certificados pola Unión Europea. Sen custo adicional.' },
+            { title: 'Mesmo equipo de profesionais', desc: 'En servizos periódicos, sempre as mesmas persoas.' },
+            { title: 'Desprazamento incluído', desc: 'Sen recargo por distancia dentro da nosa zona de cobertura.' },
+            { title: 'Garantía de satisfacción', desc: 'Se o resultado non te convence, repetimos sen custo.' },
+            { title: 'Orzamento pechado', desc: 'O prezo acordado é o prezo final. Sen sorpresas.' },
+            { title: 'Seguro de responsabilidade civil', desc: 'Cubertos ante calquera incidencia durante o traballo.' },
+          ].map(item => (
+            <div class="flex gap-3">
+              <svg class="text-accent mt-0.5 shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <p class="text-white text-sm font-semibold">{item.title}</p>
+                <p class="text-white/60 text-xs mt-0.5">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA Orzamento -->
+      <div class="text-center py-4" data-reveal>
+        <h2 class="font-display text-2xl lg:text-3xl text-primary mb-3">Pide o teu orzamento personalizado</h2>
+        <p class="text-mid text-lg mb-6 max-w-xl mx-auto">Sen compromiso. Prezo pechado en menos de 24 horas. Sen visita previa necesaria na maioría dos casos.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/gl/orzamento/" class="btn-primary px-8 py-4 text-base">→ Formulario de orzamento</a>
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-8 py-4 text-base">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp · {BUSINESS.phoneDisplay}
+          </a>
+        </div>
+        <p class="text-mid text-sm mt-3">Sen compromiso · Resposta garantida en menos de 24h</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ prezos -->
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10" data-reveal>
+        <h2 class="font-display text-2xl lg:text-3xl text-primary mb-3">Preguntas frecuentes sobre prezos de limpeza en Ferrol e A Coruña</h2>
+      </div>
+      <div data-reveal>
+        <FAQAccordion faqs={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <CTASection lang="gl" />
+  <WhatsAppFloat />
+  <CTABar />
+</BaseLayout>

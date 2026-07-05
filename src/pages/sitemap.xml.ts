@@ -27,6 +27,7 @@ export const GET: APIRoute = async () => {
     `${SITE}/gl/zonas/`,
     `${SITE}/gl/sobre-nos/`,
     `${SITE}/gl/orzamento/`,
+    `${SITE}/gl/precios/`,
     `${SITE}/gl/contacto/`,
     `${SITE}/gl/blog/`,
     // Servicios ES
@@ -47,6 +48,8 @@ export const GET: APIRoute = async () => {
     ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => `${SITE}/zonas/${m.slug}/${b.slug}/`)),
     // Zonas GL
     ...MUNICIPIOS.map(m => `${SITE}/gl/zonas/${m.slug}/`),
+    // Barrios GL
+    ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => `${SITE}/gl/zonas/${m.slug}/${b.slug}/`)),
     // Blog ES
     ...posts.map(p => `${SITE}/blog/${p.slug}/`),
     // Blog GL
