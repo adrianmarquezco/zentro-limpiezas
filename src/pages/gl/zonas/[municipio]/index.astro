@@ -310,7 +310,7 @@ const pasos = [
                   <span class="font-mono text-accent text-xs font-bold flex-shrink-0">{b.precioDesde}</span>
                 )}
               </div>
-              <p class="text-mid text-xs leading-relaxed line-clamp-3">{b.descripcion}</p>
+              <p class="text-mid text-xs leading-relaxed line-clamp-3">{b.descripcionGL ?? b.descripcion}</p>
               <span class="text-accent text-xs mt-3 block">Ver zona →</span>
             </a>
           ))}
