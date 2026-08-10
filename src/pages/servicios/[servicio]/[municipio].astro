@@ -33,7 +33,7 @@ const breadcrumbs = [
   { label: municipio.nombre, href: canonical },
 ];
 
-const faqs: { q: string; a: string }[] = [
+const faqsLocalizacion: { q: string; a: string }[] = [
   {
     q: `¿Cuánto cuesta el ${servicio.nombre.toLowerCase()} en ${municipio.nombre}?`,
     a: servicio.precioDesde
@@ -45,14 +45,17 @@ const faqs: { q: string; a: string }[] = [
     a: `${municipio.nombre} está dentro de nuestra zona de servicio habitual en ${municipio.comarca}. Normalmente podemos darte cita en 24-48 horas. Somos un equipo local, sin intermediarios.`,
   },
   {
-    q: '¿Los productos ecológicos están incluidos en el precio?',
-    a: 'Sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin coste adicional. No es un extra ni una opción premium: es nuestro estándar, fruto de años trabajando en el sector y viendo los problemas que generan los productos químicos agresivos.',
-  },
-  {
     q: `¿Cubrís todas las parroquias de ${municipio.nombre}?`,
     a: municipio.parroquias.length > 0
       ? `Sí, cubrimos todo el municipio de ${municipio.nombre}: ${municipio.parroquias.slice(0, 5).join(', ')}${municipio.parroquias.length > 5 ? ` y ${municipio.parroquias.length - 5} más` : ''}. Sin recargo por zona.`
       : `Sí, trabajamos en todo el municipio de ${municipio.nombre}. Si tienes dudas sobre tu dirección concreta, escríbenos.`,
+  },
+];
+
+const faqsEspecificas: { q: string; a: string }[] = servicio.faqsServicio ?? [
+  {
+    q: '¿Los productos ecológicos están incluidos en el precio?',
+    a: 'Sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin coste adicional. No es un extra ni una opción premium: es nuestro estándar.',
   },
   {
     q: '¿Puedo contratar un servicio periódico?',
@@ -63,6 +66,8 @@ const faqs: { q: string; a: string }[] = [
     a: 'Sí. Todo incluido: material de limpieza profesional, maquinaria si se necesita y productos ecológicos certificados. No tienes que preparar nada.',
   },
 ];
+
+const faqs = [...faqsLocalizacion, ...faqsEspecificas];
 
 // Otros servicios disponibles en este municipio (excluye el actual)
 const otrosServiciosEnMunicipio = SERVICIOS.filter(
@@ -124,12 +129,25 @@ const pasos = [
               </h2>
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
-              <p class="speakable-intro">
-                En Zentro Limpiezas llevamos más de 20 años prestando servicios de {servicio.nombre.toLowerCase()} en {municipio.nombre} y en toda la comarca de {municipio.comarca}. Somos dos profesionales locales, sin intermediarios: el equipo que viene a tu casa es siempre el mismo, conoce el territorio y sabe adaptar el trabajo al tipo de vivienda y al estado real del espacio.
-              </p>
-              <p>
-                {municipio.contenidoUnico.split('.').slice(0, 2).join('.')}. En Zentro Limpiezas adaptamos nuestro servicio de {servicio.nombre.toLowerCase()} a las particularidades de cada tipo de inmueble en {municipio.nombre}, con productos ecológicos con certificación Ecolabel incluidos en el precio, sin coste adicional.
-              </p>
+              {servicio.descripcion ? (
+                <>
+                  {servicio.descripcion.split('\n\n').map((parrafo, i) => (
+                    <p class={i === 0 ? 'speakable-intro' : ''}>{parrafo}</p>
+                  ))}
+                  <p>
+                    {municipio.tipoVivienda} En {municipio.nombre}, como en el resto de {municipio.comarca}, adaptamos el servicio a las características del inmueble y del entorno. Productos ecológicos con certificación Ecolabel incluidos en el precio.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p class="speakable-intro">
+                    En Zentro Limpiezas llevamos más de 20 años prestando servicios de {servicio.nombre.toLowerCase()} en {municipio.nombre} y en toda la comarca de {municipio.comarca}. Somos dos profesionales locales, sin intermediarios: el equipo que viene a tu casa es siempre el mismo, conoce el territorio y sabe adaptar el trabajo al tipo de vivienda y al estado real del espacio.
+                  </p>
+                  <p>
+                    {municipio.contenidoUnico.split('.').slice(0, 2).join('.')}. En Zentro Limpiezas adaptamos nuestro servicio de {servicio.nombre.toLowerCase()} a las particularidades de cada tipo de inmueble en {municipio.nombre}, con productos ecológicos con certificación Ecolabel incluidos en el precio, sin coste adicional.
+                  </p>
+                </>
+              )}
               {servicio.precioDesde && (
                 <div class="p-4 bg-white border border-line rounded-lg">
                   <p class="text-sm text-charcoal">

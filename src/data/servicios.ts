@@ -1,3 +1,5 @@
+export type ServicioFAQ = { q: string; a: string };
+
 export type Servicio = {
   slug: string;
   slugGL: string;
@@ -6,9 +8,11 @@ export type Servicio = {
   icono: string;
   precioDesde: string | null;
   descripcionCorta: string;
-  tier: 1 | 2 | 3; // 1=servicio estrella, 2=importante, 3=complementario
-  municipiosCombo: string[]; // slugs de municipios con página combo
-  tituloMeta?: string; // override para el meta title cuando el nombre es demasiado largo
+  descripcion?: string;        // párrafo largo específico del servicio para combo pages
+  faqsServicio?: ServicioFAQ[]; // FAQs propias del servicio (no genéricas de localización)
+  tier: 1 | 2 | 3;
+  municipiosCombo: string[];
+  tituloMeta?: string;
 };
 
 export const SERVICIOS: Servicio[] = [
@@ -20,6 +24,14 @@ export const SERVICIOS: Servicio[] = [
     icono: 'house',
     precioDesde: '55€',
     descripcionCorta: 'Limpieza completa de pisos, chalets y casas unifamiliares. Puntual o periódica.',
+    descripcion: 'La limpieza de viviendas abarca pisos en bloque, casas unifamiliares, chalets y viviendas rurales, y cada tipo de inmueble tiene su propio ritmo y sus propias zonas críticas. En Zentro Limpiezas trabajamos con un orden sistemático: empezamos siempre por las alturas —luminarias, cornisas, parte superior de armarios y muebles— y terminamos por los suelos, para no deshacer lo ya hecho. Baños y cocina son las zonas que más tiempo requieren: cal acumulada en griferías, grasa en encimeras y campanas, juntas de azulejo. Las dejamos para el tramo final de tiempo intensivo.\n\nDistinguimos entre limpieza puntual y periódica porque son servicios distintos. La puntual —para mudanzas, post-obras, vuelta de vacaciones o vivienda que lleva tiempo cerrada— requiere más tiempo y un nivel de atención diferente. La periódica es de mantenimiento: el nivel de suciedad es bajo, el equipo ya conoce la vivienda y los puntos que más se ensucian, y el resultado es más consistente con el tiempo.',
+    faqsServicio: [
+      { q: '¿Qué incluye una limpieza completa de vivienda?', a: 'Baños completos (griferías, inodoro, plato de ducha o bañera, espejos, cal en azulejos), cocina (encimera, campana, frontales de muebles, fregadero), dormitorios, salón, pasillos y escaleras interiores. Los cristales interiores y los suelos se incluyen siempre. Los interiores de armarios o nevera solo si se solicita expresamente al hacer el presupuesto.' },
+      { q: '¿Necesito estar en casa mientras limpiáis?', a: 'No es obligatorio. Muchos clientes periódicos nos facilitan acceso sin estar presentes. Trabajamos con total discreción y al terminar te enviamos un mensaje por WhatsApp. Si prefieres estar, sin problema.' },
+      { q: '¿Cuántas personas vienen a limpiar la vivienda?', a: 'Normalmente una o dos personas, según el tamaño del inmueble y el tiempo disponible. El equipo es siempre el mismo en los servicios periódicos, lo que permite conocer bien la casa y trabajar con más eficiencia en cada visita.' },
+      { q: '¿Cuál es la diferencia entre limpieza de vivienda y limpieza a fondo?', a: 'La limpieza de vivienda es el servicio estándar, puntual o de mantenimiento. La limpieza a fondo va más allá: incluye zonas habitualmente ignoradas como detrás de muebles, interior de horno y nevera, armarios interiores y rodapiés en profundidad. Está pensada para situaciones especiales o como "reseteo" antes de empezar con el servicio periódico.' },
+      { q: '¿Limpiáis casas rurales de piedra o viviendas con materiales especiales?', a: 'Sí. Tenemos experiencia con viviendas rurales en el interior de Ferrolterra y A Coruña: suelos de baldosa hidráulica, piedra vista, madera de pino o roble, terrazos de distintas épocas. Usamos productos neutros certificados que no atacan ni oxidan estos materiales.' },
+    ],
     tier: 1,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'valdovino', 'fene', 'neda', 'mugardos', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros', 'sada'],
   },
@@ -31,6 +43,14 @@ export const SERVICIOS: Servicio[] = [
     icono: 'buildings',
     precioDesde: '55€',
     descripcionCorta: 'Limpieza profesional de pisos en bloque. Puntual para ocasiones especiales o periódica.',
+    descripcion: 'Limpiar un piso en bloque no es lo mismo que limpiar una casa unifamiliar. Las superficies más problemáticas suelen ser los baños —cal acumulada en griferías, mamparas y azulejos— y la cocina, donde la grasa se instala en campanas, frontales de muebles y encimeras. A eso se suma el tipo de suelo: el terrazo de los años 70-80, frecuente en pisos de Ferrolterra, requiere producto neutro y sin abrasivos; el porcelánico o el mármol, técnicas distintas.\n\nEn Zentro Limpiezas trabajamos con método: primero las alturas, después las superficies verticales y finalmente los suelos. Así evitamos que el polvo removido en techos y cornisas caiga sobre lo ya limpiado. Para el servicio periódico, el equipo aprende los hábitos de la casa, los puntos que más se ensucian y los productos que mejor funcionan en cada superficie, lo que hace que el resultado mejore con el tiempo.',
+    faqsServicio: [
+      { q: '¿Cuál es la diferencia entre limpieza puntual y periódica en un piso?', a: 'La puntual es una limpieza a fondo, sin restricciones de tiempo: ideal cuando el piso lleva meses sin limpieza profesional, hay una mudanza o hay que dejarlo en perfecto estado. La periódica (semanal, quincenal o mensual) es de mantenimiento: más rápida porque el nivel de suciedad es bajo y el equipo ya conoce el piso y sus particularidades.' },
+      { q: '¿Qué hacéis con los suelos de terrazo?', a: 'El terrazo requiere fregona con producto neutro, sin lejía ni abrillantadores ácidos que lo queman y lo dejan opaco con el tiempo. Es el suelo más frecuente en pisos de los años 70-80 en Ferrol, Narón o Fene. Tenemos experiencia con él y sabemos exactamente qué producto usar según su estado.' },
+      { q: '¿Limpiáis también terrazas y balcones?', a: 'Sí. Los balcones y terrazas con suelo de baldosa o terrazo se incluyen si el cliente lo solicita. Para suelos de madera exterior o composite usamos productos específicos. Lo indicamos en el presupuesto.' },
+      { q: '¿Puedo estar en el piso mientras limpiáis?', a: 'Sí, sin problema. Muchos clientes están en casa. El equipo trabaja de forma ordenada y discreta, zona a zona, sin interferir en el resto del piso.' },
+      { q: '¿Limpiáis el interior de la nevera y el horno?', a: 'En la limpieza puntual o a fondo sí, si el cliente lo solicita. En la periódica de mantenimiento solo si se acuerda expresamente, ya que añade tiempo de servicio. Lo aclaramos siempre en el presupuesto.' },
+    ],
     tier: 1,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'matogrande', 'mesoiro', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
@@ -53,6 +73,14 @@ export const SERVICIOS: Servicio[] = [
     icono: 'storefront',
     precioDesde: '70€',
     descripcionCorta: 'Limpieza de tiendas, bares, restaurantes y comercios. Fuera de horario de apertura.',
+    descripcion: 'La limpieza de un local comercial tiene una lógica distinta a la de una vivienda: el tráfico de personas es constante, las zonas de alta exigencia son otras —mostradores, escaparates, baños de público, suelos de entrada— y el horario debe encajar con la actividad del negocio sin interferir en ella. Trabajamos antes de apertura, después del cierre o en días de descanso.\n\nPara bares y restaurantes la zona más crítica es la cocina: grasa acumulada en campanas, filtros, suelos y superficies de preparación. Usamos desengrasantes profesionales con certificación ecológica válidos para uso en entornos alimentarios. Para tiendas y despachos, la prioridad son los suelos, cristales y zonas de atención al público. Cada tipo de local tiene sus zonas críticas y adaptamos el protocolo en consecuencia.',
+    faqsServicio: [
+      { q: '¿A qué horas trabajáis para no molestar al negocio?', a: 'Nos adaptamos completamente al horario del local: antes de apertura (desde las 6-7h si hace falta), después del cierre o en días de descanso del negocio. Es el punto de partida de cualquier presupuesto: cuándo podemos entrar sin interrumpir la actividad.' },
+      { q: '¿Con qué frecuencia se recomienda limpiar un local comercial?', a: 'Depende del tipo de negocio y el volumen de clientes. Un bar o restaurante necesita limpieza diaria o cada dos días. Una tienda o despacho puede funcionar bien con limpieza semanal o quincenal. Te orientamos según tu caso y el volumen de tráfico.' },
+      { q: '¿Limpiáis cocinas de bares y restaurantes con grasa acumulada?', a: 'Sí. Es uno de los trabajos más exigentes: campanas, filtros de acero, suelos de cocina y superficies de acero inoxidable con meses de grasa acumulada. Usamos desengrasantes profesionales ecológicos certificados para entornos de manipulación de alimentos.' },
+      { q: '¿Emitís factura para autónomos y empresas?', a: 'Sí. Facturamos con IVA. La limpieza de un local es un gasto deducible para autónomos y empresas siempre que el local esté vinculado a la actividad económica.' },
+      { q: '¿Podéis incluir la limpieza de escaparates y cristales del local?', a: 'Sí. La limpieza de cristales exteriores e interiores se puede añadir al contrato de mantenimiento o contratar por separado. Para escaparates con vinilo o rotulación tenemos especial cuidado de no dañarlos.' },
+    ],
     tier: 2,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
@@ -97,6 +125,14 @@ export const SERVICIOS: Servicio[] = [
     icono: 'bed',
     precioDesde: null,
     descripcionCorta: 'Limpieza entre huéspedes de alojamientos turísticos y Airbnb. Rápida y completa.',
+    descripcion: 'La limpieza de apartamentos turísticos y alojamientos Airbnb tiene una exigencia que no tiene la limpieza doméstica habitual: el siguiente huésped entra pocas horas después del check-out, el tiempo disponible es ajustado y el estado del apartamento condiciona directamente la valoración y las reservas futuras. En Zentro Limpiezas trabajamos con propietarios y gestores de toda la costa de Ferrolterra y el área metropolitana de A Coruña con un protocolo de rotación estandarizado.\n\nEl servicio incluye limpieza completa de baños y cocina, ventilación del espacio, cambio de ropa de cama y toallas si el propietario las deja preparadas, comprobación visual de consumibles (jabón, papel, bolsas) y aviso por WhatsApp con foto ante cualquier desperfecto detectado. Coordinamos los horarios directamente con el propietario o gestor para garantizar que el apartamento esté listo antes del check-in marcado.',
+    faqsServicio: [
+      { q: '¿Podéis gestionar las rotaciones de forma autónoma según el calendario de reservas?', a: 'Sí. Trabajamos con propietarios que nos facilitan acceso y calendario. Nos coordinamos para saber los días de check-out y check-in y organizamos el servicio sin que el propietario tenga que avisar cada vez.' },
+      { q: '¿Avisáis si hay desperfectos o falta algo en el apartamento?', a: 'Sí. Enviamos mensaje por WhatsApp al propietario si detectamos roturas, manchas difíciles de quitar, consumibles agotados o cualquier incidencia relevante. Si hace falta, adjuntamos foto.' },
+      { q: '¿Hacéis el cambio de ropa de cama y toallas?', a: 'Sí, si el propietario deja la ropa limpia preparada en el apartamento. No incluimos servicio de lavandería, pero gestionamos el cambio in situ: retiramos la usada y ponemos la limpia.' },
+      { q: '¿Cuánto tarda la limpieza de un apartamento turístico?', a: 'Un estudio o apartamento de 1 habitación suele estar listo en 45-60 minutos. Uno de 2 habitaciones, entre 75 y 90 minutos. Para apartamentos más grandes o con mayor grado de suciedad, calculamos el tiempo en el presupuesto.' },
+      { q: '¿Trabajáis en temporada alta con muchas rotaciones seguidas?', a: 'Sí. La temporada alta en la costa gallega —junio a septiembre— es nuestra época de mayor actividad en este servicio, especialmente en Valdoviño, Cedeira, Ares y A Coruña. Recomendamos fijar el calendario con antelación para garantizar disponibilidad.' },
+    ],
     tier: 2,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido', 'sada', 'oleiros'],
   },
@@ -119,18 +155,34 @@ export const SERVICIOS: Servicio[] = [
     icono: 'window',
     precioDesde: null,
     descripcionCorta: 'Limpieza profesional de cristales y ventanales. Interior y exterior. Alturas.',
+    descripcion: 'Los cristales son la parte de un inmueble que más rápido revela la falta de limpieza y que más transforma el aspecto cuando están en buen estado. En la costa de Ferrolterra el problema principal es la cal del agua y la salinidad del ambiente: se acumula en el vidrio formando una capa blanquecina que con el tiempo resulta difícil de eliminar sin productos específicos. Usamos quitacales profesionales con ph controlado y técnica de escurridor para un acabado sin rayas y sin rastro de agua.\n\nTrabajamos tanto en interiores como en exteriores, incluidas alturas que requieren pértiga telescópica o acceso con escalera. La limpieza de cristales se contrata de forma independiente o como añadido al servicio de vivienda, local o comunidad. En espacios con grandes ventanales, fachadas acristaladas o negocios con escaparates la recomendación es limpiarlos cada 4-6 semanas para mantener el aspecto y evitar que la cal penetre el vidrio.',
+    faqsServicio: [
+      { q: '¿Limpiáis cristales por fuera si hay altura o difícil acceso?', a: 'Sí. Usamos pértigas telescópicas para alcanzar ventanas en altura desde el suelo, sin necesidad de andamios ni escalas de gran altura. Para accesos más complejos valoramos in situ y lo indicamos en el presupuesto.' },
+      { q: '¿Qué productos usáis en la limpieza de cristales?', a: 'Quitacales profesionales con ph neutro o ácido controlado según el grado de incrustación, seguidos de limpiacristales estándar y secado con escurridor de goma para evitar rayas y marcas de agua. Son productos ecológicos certificados y seguros para marcos de PVC, aluminio o madera.' },
+      { q: '¿Con qué frecuencia hay que limpiar los cristales en la costa?', a: 'En la costa gallega la salinidad y la humedad aceleran la acumulación de cal y suciedad. En viviendas frente al mar o en municipios como Valdoviño, Cedeira o Ares, recomendamos limpiar cada 4-6 semanas. En el interior, cada 2-3 meses suele ser suficiente.' },
+      { q: '¿Limpiáis también marcos, persianas y rejas?', a: 'Sí. La limpieza de marcos de PVC o aluminio, persianas enrollables y rejas se puede incluir en el servicio. En el presupuesto especificamos qué elementos están incluidos para que no haya dudas.' },
+      { q: '¿Se puede incluir la limpieza de cristales en el contrato de limpieza del local o la vivienda?', a: 'Sí. Muchos clientes periódicos tienen una visita de cristales cada 4-6 semanas combinada con la limpieza general. Es la opción más cómoda y sale a mejor precio que contratarlo por separado.' },
+    ],
     tier: 2,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
   {
     slug: 'limpieza-de-pazos-y-eventos',
     slugGL: 'limpeza-de-pazos',
-    tituloMeta: 'Limpieza de pazos y eventos en Galicia', // "pazo" es gallego → Galicia tiene sentido aquí
+    tituloMeta: 'Limpieza de pazos y eventos en Galicia',
     nombre: 'Limpieza de pazos y eventos',
     nombreGL: 'Limpeza de pazos e eventos',
     icono: 'castle',
     precioDesde: null,
     descripcionCorta: 'Preparación y post-evento de pazos, fincas y espacios para bodas y celebraciones.',
+    descripcion: 'Un pazo, una finca o un espacio para eventos es un inmueble con características muy concretas: superficies de piedra granítica, suelos de madera noble o baldosa hidráulica centenaria, grandes volúmenes de espacio y —tras una boda o celebración— un nivel de suciedad que no tiene nada que ver con la limpieza doméstica habitual. En Zentro Limpiezas diferenciamos dos fases del servicio: la preparación pre-evento, para recibir a los invitados con el espacio en perfectas condiciones, y la limpieza post-evento, donde la prioridad es la velocidad y la recuperación del espacio.\n\nLos materiales nobles de un pazo o finca histórica exigen productos específicos: no todos los desengrasantes son válidos en piedra vista, ni todos los productos de suelo sirven en tarima de castaño o en baldosa hidráulica. Hacemos siempre una visita previa para valorar superficies, volumen de trabajo y tiempo necesario antes de dar el presupuesto definitivo.',
+    faqsServicio: [
+      { q: '¿Hacéis limpieza pre-evento y post-evento?', a: 'Sí. La limpieza pre-evento se hace el día antes o la mañana del evento, para que el espacio esté impecable en el momento de recibir a los invitados. La post-evento se organiza para el día siguiente al cierre, cuando queda el grueso de la suciedad: restos de comida, cristalería, manchas en suelo.' },
+      { q: '¿Limpiáis suelos de madera, piedra y baldosa hidráulica?', a: 'Sí. Son los materiales más frecuentes en pazos y fincas históricas de Ferrolterra y el entorno rural de A Coruña. Usamos productos específicos para cada uno: neutros para la baldosa hidráulica, jabón natural para la madera, y desengrasante con pH controlado para la piedra granítica.' },
+      { q: '¿Cuánto tiempo se tarda en limpiar un pazo tras una boda?', a: 'Depende del tamaño del espacio y del número de invitados. Un espacio para 100-150 personas suele requerir entre 6 y 10 horas con un equipo de 2-3 personas. Para bodas grandes o espacios de más de 1000 m², hacemos visita previa y damos presupuesto específico.' },
+      { q: '¿Trabajáis en municipios del interior de Ferrolterra como San Sadurniño o Moeche?', a: 'Sí. Cubrimos todos los municipios de Ferrolterra, incluidos los del interior donde se concentran buena parte de los pazos y fincas de celebraciones: San Sadurniño, Moeche, Neda, As Somozas y alrededores. El desplazamiento se valora en el presupuesto.' },
+      { q: '¿Necesitáis hacer visita previa antes de dar precio?', a: 'Para eventos grandes o espacios con características especiales, sí. La visita es gratuita y nos permite valorar los materiales, el acceso, el volumen de trabajo y el tiempo necesario. Para eventos estándar en espacios conocidos, damos orientación por WhatsApp antes de la visita.' },
+    ],
     tier: 2,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
