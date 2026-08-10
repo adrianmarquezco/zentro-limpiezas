@@ -22,6 +22,8 @@ export type Municipio = {
   municipiosCercanos: string[];
   faqs: FAQ[];
   precioDesde?: string;
+  seoTitle?: string;
+  seoDescription?: string;
 };
 
 export const MUNICIPIOS: Municipio[] = [
@@ -50,6 +52,8 @@ export const MUNICIPIOS: Municipio[] = [
     contenidoUnicoGL: 'Ferrol é a cidade máis grande de Ferrolterra, con preto de 65.000 habitantes e unha identidade forxada en torno ao porto militar e os estaleiros navais. En Zentro Limpezas coñecemos ben cada barrio e cada tipo de vivenda. Os pisos de Recimil, cos seus pavimentos de terrazo e as súas cociñas de hai corenta anos, necesitan un tratamento diferente ao dun chalé novo en Serantes. Levamos máis de 20 anos prestando servizo en Ferrol con produtos ecolóxicos certificados incluídos no prezo.',
     municipiosCercanos: ['naron','fene','neda'],
     precioDesde: '55€',
+    seoTitle: 'Servicio de limpieza en Ferrol | Hogar, oficinas y locales',
+    seoDescription: 'Servicio profesional de limpieza en Ferrol para hogares, oficinas y locales. Todos los barrios cubiertos. Productos ecológicos incluidos. Desde 55€. Presupuesto en 24h.',
     faqs: [
       { q: '¿Cuánto cuesta limpiar un piso en Ferrol?', a: 'El precio orientativo para un piso de 50-70 m² en Ferrol empieza desde 55€ en limpieza puntual. Un piso de 70-100 m² suele costar desde 70€. El precio final depende del estado del inmueble, cuánto tiempo lleva sin limpieza profesional y si quieres servicio puntual o periódico. Te damos presupuesto cerrado en menos de 24 horas, sin compromiso.' },
       { q: '¿Venís a todos los barrios de Ferrol?', a: 'Sí, cubrimos todos los barrios de Ferrol: Centro, Caranza, Recimil, Esteiro, A Magdalena, Serantes, Canido, Inferniño y parroquias como Doniños y Covas. Si tienes dudas sobre tu dirección exacta, escríbenos por WhatsApp y te confirmamos en seguida.' },
@@ -80,6 +84,8 @@ export const MUNICIPIOS: Municipio[] = [
     contenidoUnicoGL: 'Narón é o concello de maior crecemento de Ferrolterra. Limítrofe con Ferrol, ten un tecido residencial en plena expansión. No Centro e O Couto predominan os bloques de pisos modernos, mentres que parroquias como Sedes e Pedroso manteñen a esencia rural galega. En Zentro Limpezas prestamos servizo en todas as parroquias de Narón con produtos ecolóxicos incluídos.',
     municipiosCercanos: ['ferrol','neda','fene'],
     precioDesde: '55€',
+    seoTitle: 'Limpieza de pisos en Narón | Servicio a domicilio | Zentro Limpiezas',
+    seoDescription: 'Servicio de limpieza en Narón desde 55€. Todas las parroquias: A Gándara, O Couto, Sedes, Pedroso y más. Productos ecológicos incluidos. Presupuesto en 24h.',
     faqs: [
       { q: '¿Cuánto cuesta limpiar un piso en Narón?', a: 'El precio orientativo para un piso de 50-70 m² en Narón empieza desde 55€. Para pisos más grandes o chalets, hacemos presupuesto personalizado en menos de 24 horas. Escríbenos por WhatsApp con las características de tu inmueble.' },
       { q: '¿Venís a Sedes y Pedroso también?', a: 'Sí. Cubrimos todas las parroquias de Narón: Sedes, Pedroso, Vallestora, San Xiao, O Couto, A Gándara, Trasancos y el núcleo urbano. Si tienes una casa rural en Sedes o un piso en el Centro, podemos ayudarte igualmente.' },
