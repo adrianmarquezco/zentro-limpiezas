@@ -21,7 +21,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: '55€',
     descripcionCorta: 'Limpieza completa de pisos, chalets y casas unifamiliares. Puntual o periódica.',
     tier: 1,
-    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'valdovino', 'fene', 'neda', 'mugardos', 'ares', 'pontedeume', 'culleredo', 'arteixo', 'cambre', 'oleiros', 'sada', 'cedeira'],
+    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'valdovino', 'fene', 'neda', 'mugardos', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros', 'sada'],
   },
   {
     slug: 'limpieza-de-pisos',
@@ -32,7 +32,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: '55€',
     descripcionCorta: 'Limpieza profesional de pisos en bloque. Puntual para ocasiones especiales o periódica.',
     tier: 1,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'matogrande', 'mesoiro'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'matogrande', 'mesoiro', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
   {
     slug: 'limpieza-de-oficinas',
@@ -54,7 +54,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: '70€',
     descripcionCorta: 'Limpieza de tiendas, bares, restaurantes y comercios. Fuera de horario de apertura.',
     tier: 2,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
   {
     slug: 'limpieza-de-comunidades',
@@ -98,7 +98,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: null,
     descripcionCorta: 'Limpieza entre huéspedes de alojamientos turísticos y Airbnb. Rápida y completa.',
     tier: 2,
-    municipiosCombo: ['a-coruna', 'ferrol', 'sada', 'oleiros'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido', 'sada', 'oleiros'],
   },
   {
     slug: 'limpieza-periodica',
@@ -120,7 +120,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: null,
     descripcionCorta: 'Limpieza profesional de cristales y ventanales. Interior y exterior. Alturas.',
     tier: 2,
-    municipiosCombo: ['a-coruna', 'ferrol'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
   {
     slug: 'limpieza-de-pazos-y-eventos',
@@ -132,7 +132,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: null,
     descripcionCorta: 'Preparación y post-evento de pazos, fincas y espacios para bodas y celebraciones.',
     tier: 2,
-    municipiosCombo: ['ferrol', 'a-coruna', 'pontedeume'],
+    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
   {
     slug: 'limpieza-de-garajes',
