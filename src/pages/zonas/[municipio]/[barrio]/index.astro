@@ -24,7 +24,9 @@ export function getStaticPaths() {
 
 const { municipio, barrio } = Astro.props;
 
-const canonical = `${BUSINESS.url}/zonas/${municipio.slug}/${barrio.slug}/`;
+const canonical = barrio.canonicalParent
+  ? `${BUSINESS.url}/zonas/${municipio.slug}/`
+  : `${BUSINESS.url}/zonas/${municipio.slug}/${barrio.slug}/`;
 const title = `Limpieza profesional en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
 const description = `Limpieza profesional en ${barrio.nombre}, ${municipio.nombre}. Productos ecológicos incluidos${barrio.precioDesde ? `. Desde ${barrio.precioDesde}` : ''}. Presupuesto gratis en menos de 24h.`;
 
