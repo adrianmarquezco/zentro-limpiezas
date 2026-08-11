@@ -20,17 +20,18 @@ interface Props {
   breadcrumbs: { label: string; href: string }[];
   hreflangEs?: string;
   hreflangGl?: string;
+  areaServed?: string[];
 }
 
 const {
   title, description, canonical, lang = 'es',
   serviceName, serviceDesc, price, faqs = [],
-  breadcrumbs, hreflangEs, hreflangGl,
+  breadcrumbs, hreflangEs, hreflangGl, areaServed,
 } = Astro.props;
 ---
 
 <BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl}>
-  <SchemaService name={serviceName} description={serviceDesc} url={canonical} price={price} />
+  <SchemaService name={serviceName} description={serviceDesc} url={canonical} price={price} {areaServed} />
   {faqs.length > 0 && <SchemaFAQ faqs={faqs} />}
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
   <slot />

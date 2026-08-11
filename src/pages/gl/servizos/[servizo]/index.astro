@@ -265,8 +265,8 @@ const pasos = [
       <div class="space-y-3" data-reveal>
         {faqs.map((faq) => (
           <details class="bg-charcoal border border-white/10 rounded-lg group">
-            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none text-white/90 font-medium text-sm hover:text-white transition-colors">
-              {faq.q}
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none hover:text-white transition-colors">
+              <h3 class="text-white/90 font-medium text-sm m-0 group-open:text-white">{faq.q}</h3>
               <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
             </summary>
             <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">

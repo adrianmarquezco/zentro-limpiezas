@@ -41,8 +41,8 @@ const faqsLocalizacion: { q: string; a: string }[] = [
       : `El precio depende del tamaño, estado y frecuencia. Te hacemos un presupuesto personalizado y gratuito en menos de 24 horas, sin compromiso ni visita obligatoria.`,
   },
   {
-    q: `¿Tardáis mucho en llegar a ${municipio.nombre}?`,
-    a: `${municipio.nombre} está dentro de nuestra zona de servicio habitual en ${municipio.comarca}. Normalmente podemos darte cita en 24-48 horas. Somos un equipo local, sin intermediarios.`,
+    q: `¿Tenéis disponibilidad esta semana en ${municipio.nombre}?`,
+    a: `Sí, normalmente. ${municipio.nombre} está dentro de nuestra zona de trabajo habitual en ${municipio.comarca} y solemos poder darte cita en 24-48 horas. Si lo necesitas urgente, escríbenos por WhatsApp y miramos la agenda en el momento.`,
   },
   {
     q: `¿Cubrís todas las parroquias de ${municipio.nombre}?`,
@@ -103,6 +103,7 @@ const pasos = [
   {breadcrumbs}
   hreflangEs={canonical}
   {hreflangGl}
+  areaServed={[municipio.nombre, municipio.comarca]}
 >
   <HeroLocal
     municipio={municipio.nombre}
@@ -292,8 +293,8 @@ const pasos = [
       <div class="space-y-3" data-reveal>
         {faqs.map((faq) => (
           <details class="bg-charcoal border border-white/10 rounded-lg group">
-            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none text-white/90 font-medium text-sm hover:text-white transition-colors">
-              {faq.q}
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none hover:text-white transition-colors">
+              <h3 class="text-white/90 font-medium text-sm m-0 group-open:text-white">{faq.q}</h3>
               <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
             </summary>
             <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">
