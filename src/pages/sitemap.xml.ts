@@ -11,54 +11,56 @@ export const GET: APIRoute = async () => {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const postsGL = await getCollection('blog-gl', ({ data }) => !data.draft);
 
-  const urls: string[] = [
+  type UrlEntry = { loc: string; priority: string; changefreq: string };
+
+  const entries: UrlEntry[] = [
     // Páginas principales ES
-    `${SITE}/`,
-    `${SITE}/servicios/`,
-    `${SITE}/zonas/`,
-    `${SITE}/sobre-nosotros/`,
-    `${SITE}/presupuesto/`,
-    `${SITE}/precios/`,
-    `${SITE}/contacto/`,
-    `${SITE}/blog/`,
+    { loc: `${SITE}/`,                  priority: '1.0', changefreq: 'weekly' },
+    { loc: `${SITE}/servicios/`,        priority: '0.9', changefreq: 'monthly' },
+    { loc: `${SITE}/zonas/`,            priority: '0.9', changefreq: 'monthly' },
+    { loc: `${SITE}/presupuesto/`,      priority: '0.9', changefreq: 'monthly' },
+    { loc: `${SITE}/precios/`,          priority: '0.8', changefreq: 'monthly' },
+    { loc: `${SITE}/sobre-nosotros/`,   priority: '0.6', changefreq: 'yearly' },
+    { loc: `${SITE}/contacto/`,         priority: '0.7', changefreq: 'yearly' },
+    { loc: `${SITE}/blog/`,             priority: '0.7', changefreq: 'weekly' },
     // Páginas principales GL
-    `${SITE}/gl/`,
-    `${SITE}/gl/servizos/`,
-    `${SITE}/gl/zonas/`,
-    `${SITE}/gl/sobre-nos/`,
-    `${SITE}/gl/orzamento/`,
-    `${SITE}/gl/precios/`,
-    `${SITE}/gl/contacto/`,
-    `${SITE}/gl/blog/`,
-    // Servicios ES
-    ...SERVICIOS.map(s => `${SITE}/servicios/${s.slug}/`),
+    { loc: `${SITE}/gl/`,               priority: '1.0', changefreq: 'weekly' },
+    { loc: `${SITE}/gl/servizos/`,      priority: '0.9', changefreq: 'monthly' },
+    { loc: `${SITE}/gl/zonas/`,         priority: '0.9', changefreq: 'monthly' },
+    { loc: `${SITE}/gl/orzamento/`,     priority: '0.9', changefreq: 'monthly' },
+    { loc: `${SITE}/gl/precios/`,       priority: '0.8', changefreq: 'monthly' },
+    { loc: `${SITE}/gl/sobre-nos/`,     priority: '0.6', changefreq: 'yearly' },
+    { loc: `${SITE}/gl/contacto/`,      priority: '0.7', changefreq: 'yearly' },
+    { loc: `${SITE}/gl/blog/`,          priority: '0.7', changefreq: 'weekly' },
+    // Servicios ES (páginas de categoría)
+    ...SERVICIOS.map(s => ({ loc: `${SITE}/servicios/${s.slug}/`, priority: '0.8', changefreq: 'monthly' })),
     // Servicios GL
-    ...SERVICIOS.map(s => `${SITE}/gl/servizos/${s.slugGL}/`),
-    // Combos servicio × municipio ES
+    ...SERVICIOS.map(s => ({ loc: `${SITE}/gl/servizos/${s.slugGL}/`, priority: '0.8', changefreq: 'monthly' })),
+    // Zonas ES (páginas de municipio — alta prioridad local)
+    ...MUNICIPIOS.map(m => ({ loc: `${SITE}/zonas/${m.slug}/`, priority: '0.85', changefreq: 'monthly' })),
+    // Zonas GL
+    ...MUNICIPIOS.map(m => ({ loc: `${SITE}/gl/zonas/${m.slug}/`, priority: '0.85', changefreq: 'monthly' })),
+    // Combos servicio × municipio ES (long tail — prioridad media)
     ...SERVICIOS.flatMap(s =>
-      s.municipiosCombo.map(m => `${SITE}/servicios/${s.slug}/${m}/`)
+      s.municipiosCombo.map(m => ({ loc: `${SITE}/servicios/${s.slug}/${m}/`, priority: '0.7', changefreq: 'monthly' }))
     ),
     // Combos servizo × municipio GL
     ...SERVICIOS.flatMap(s =>
-      s.municipiosCombo.map(m => `${SITE}/gl/servizos/${s.slugGL}/${m}/`)
+      s.municipiosCombo.map(m => ({ loc: `${SITE}/gl/servizos/${s.slugGL}/${m}/`, priority: '0.7', changefreq: 'monthly' }))
     ),
-    // Zonas ES
-    ...MUNICIPIOS.map(m => `${SITE}/zonas/${m.slug}/`),
-    // Barrios ES
-    ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => `${SITE}/zonas/${m.slug}/${b.slug}/`)),
-    // Zonas GL
-    ...MUNICIPIOS.map(m => `${SITE}/gl/zonas/${m.slug}/`),
+    // Barrios ES (páginas de barrio — lower priority)
+    ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => ({ loc: `${SITE}/zonas/${m.slug}/${b.slug}/`, priority: '0.6', changefreq: 'yearly' }))),
     // Barrios GL
-    ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => `${SITE}/gl/zonas/${m.slug}/${b.slug}/`)),
+    ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => ({ loc: `${SITE}/gl/zonas/${m.slug}/${b.slug}/`, priority: '0.6', changefreq: 'yearly' }))),
     // Blog ES
-    ...posts.map(p => `${SITE}/blog/${p.slug}/`),
+    ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly' })),
     // Blog GL
-    ...postsGL.map(p => `${SITE}/gl/blog/${p.slug}/`),
+    ...postsGL.map(p => ({ loc: `${SITE}/gl/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly' })),
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}
+${entries.map(e => `  <url><loc>${e.loc}</loc><priority>${e.priority}</priority><changefreq>${e.changefreq}</changefreq></url>`).join('\n')}
 </urlset>`;
 
   return new Response(xml, {

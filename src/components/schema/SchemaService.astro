@@ -14,15 +14,14 @@ const defaultArea = ['Ferrol','A Coruña','Narón','Ferrolterra','Área Metropol
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  serviceType: 'Cleaning Service',
   name,
   description,
   url,
   provider: {
-    '@type': 'LocalBusiness',
+    '@type': 'CleaningService',
+    '@id': `${BUSINESS.url}/#business`,
     name: BUSINESS.name,
-    telephone: BUSINESS.phoneHref,
-    url: BUSINESS.url,
-    areaServed: defaultArea.map(n => ({ '@type': 'City', name: n })),
   },
   areaServed: (areaServed ?? defaultArea).map(n => ({ '@type': 'City', name: n })),
   ...(price ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR', availability: 'https://schema.org/InStock' } } : {}),
