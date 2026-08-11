@@ -7,14 +7,16 @@ const { faqs } = Astro.props;
 <div class="space-y-2">
   {faqs.map((faq, i) => (
     <div class="faq-item rounded-2xl border border-line bg-white overflow-hidden" data-faq>
-      <button
-        class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-warm/60 transition-colors"
-        aria-expanded="false"
-        data-faq-trigger
-      >
-        <span class="font-semibold text-primary text-sm lg:text-base leading-snug" role="heading" aria-level="3">{faq.q}</span>
-        <span class="faq-icon flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full border-2 border-accent/30 text-accent text-xl font-light" aria-hidden="true">+</span>
-      </button>
+      <h3 class="m-0">
+        <button
+          class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-warm/60 transition-colors"
+          aria-expanded="false"
+          data-faq-trigger
+        >
+          <span class="font-semibold text-primary text-sm lg:text-base leading-snug">{faq.q}</span>
+          <span class="faq-icon flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full border-2 border-accent/30 text-accent text-xl font-light" aria-hidden="true">+</span>
+        </button>
+      </h3>
       <div class="faq-body" data-faq-body>
         <div class="px-6 pb-5 text-sm lg:text-base text-mid leading-relaxed border-t border-line pt-4">
           {faq.a}

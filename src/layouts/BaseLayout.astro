@@ -94,11 +94,28 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <!-- Preload LCP image (hero) -->
   <link rel="preload" as="image" href="/images/hero-equipo.webp" fetchpriority="high" />
 
+  <!-- WebSite schema (activa Sitelinks Search Box en Google) -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${BUSINESS.url}/#website`,
+    url: BUSINESS.url,
+    name: BUSINESS.name,
+    inLanguage: ['es', 'gl'],
+    publisher: { '@type': 'CleaningService', '@id': `${BUSINESS.url}/#business` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: { '@type': 'EntryPoint', urlTemplate: `${BUSINESS.url}/search?q={search_term_string}` },
+      'query-input': 'required name=search_term_string',
+    },
+  })} />
+
   <!-- Speakable schema -->
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     url: canonicalUrl,
+    isPartOf: { '@id': `${BUSINESS.url}/#website` },
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: ['.speakable-intro', 'h1'],
