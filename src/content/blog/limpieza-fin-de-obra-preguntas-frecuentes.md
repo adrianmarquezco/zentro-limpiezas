@@ -9,6 +9,15 @@ readingTime: 8
 tags: ["fin de obra", "reforma", "limpieza post-obra", "precios", "FAQ"]
 lang: "es"
 pilar: false
+faqs:
+  - q: "¿Cuánto cuesta una limpieza de fin de obra en Galicia?"
+    a: "El precio varía según el tamaño y el tipo de obra. Para reformas parciales (baño o cocina) el coste orientativo está entre 150€ y 250€. Para obras completas de piso, entre 300€ y 600€. Las obras de nueva construcción pueden superar esa cifra según los metros cuadrados y el estado de suciedad acumulada."
+  - q: "¿Cuándo debo contratar la limpieza fin de obra?"
+    a: "Cuando la obra esté al 100% terminada: todos los gremios han finalizado, no quedan materiales en el espacio y ya no va a entrar más personal de construcción. Si hay trabajos pendientes, conviene esperar para no tener que repetir la limpieza."
+  - q: "¿Qué diferencia hay entre una limpieza fin de obra y una limpieza normal?"
+    a: "La limpieza fin de obra usa técnicas y productos específicos para eliminar polvo de yeso, restos de mortero, pintura en cristales y protecciones plásticas. Requiere aspiradoras industriales y productos que no se usan en limpieza doméstica habitual. El tiempo también es muy superior: una obra de piso completo puede llevar 6-10 horas de trabajo profesional."
+  - q: "¿Emitís factura por la limpieza post-reforma?"
+    a: "Sí. Facturamos con IVA. La limpieza fin de obra es un gasto que puede deducirse en el contexto de una reforma si está vinculada a un inmueble de uso profesional o si se solicita como parte del presupuesto de obra."
 ---
 
 > **En resumen:**

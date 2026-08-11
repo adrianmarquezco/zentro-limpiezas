@@ -8,6 +8,15 @@ category: "guias"
 readingTime: 7
 tags: ["limpieza viviendas", "consejos", "limpieza a fondo"]
 lang: "es"
+faqs:
+  - q: "¿Cuánto tiempo lleva limpiar un piso a fondo?"
+    a: "Un piso de 80 m² lleva entre 3 y 5 horas con dos personas o entre 6 y 8 horas en solitario. La duración depende del estado de suciedad acumulada, el número de baños y si incluye interiores de armarios, nevera u horno."
+  - q: "¿Con qué frecuencia hay que hacer una limpieza a fondo?"
+    a: "La mayoría de hogares con mantenimiento semanal necesitan una limpieza a fondo cada 3-6 meses. Si hay mascotas, niños pequeños o el piso lleva tiempo sin limpieza profesional, conviene hacerla antes. Los pisos que se alquilan deberían tener una limpieza a fondo entre inquilinos."
+  - q: "¿Qué diferencia hay entre limpiar a fondo y la limpieza de mantenimiento?"
+    a: "La limpieza de mantenimiento cubre las zonas de uso frecuente y mantiene el nivel de higiene. La limpieza a fondo llega a donde el mantenimiento no llega: detrás de muebles, interior de electrodomésticos, rodapiés en profundidad, cal acumulada en griferías y juntas de azulejo. Es un trabajo diferente en técnica, tiempo y productos."
+  - q: "¿Merece la pena contratar una limpieza a fondo profesional?"
+    a: "Para pisos con más de 2-3 meses sin limpieza profesional, pisos post-verano, o viviendas que han estado cerradas, sí. La diferencia en resultado es notable sobre todo en baños, cocina y suelos, donde la cal, la grasa y la suciedad incrustada requieren productos y técnica específicos."
 ---
 
 > **En resumen:**

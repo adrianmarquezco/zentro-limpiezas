@@ -8,6 +8,15 @@ category: "consejos"
 readingTime: 6
 tags: ["mascotas", "perros", "gatos", "pelo mascota", "ecológico"]
 lang: "es"
+faqs:
+  - q: "¿Qué productos de limpieza son peligrosos para perros y gatos?"
+    a: "Los más peligrosos son: productos con fenol o cresol (desinfectantes de suelo de marcas tradicionales), amoníaco, aceites de pino concentrados, productos con xilitol, y algunos desinfectantes con benzalconio. Los gatos son especialmente sensibles porque se lamen las patas y absorben residuos del suelo. La regla práctica: evitar cualquier producto con olor fuerte a pino o con amoníaco si tienes mascotas."
+  - q: "¿Cómo eliminar definitivamente el olor a orina de gato?"
+    a: "El truco es actuar cuando aún está húmeda: absorber todo lo que se pueda con papel, aplicar una mezcla de agua y vinagre blanco al 50%, dejar actuar 10 minutos, absorber de nuevo y aplicar bicarbonato seco por encima. Dejar secar y aspirar. La orina de gato contiene compuestos de azufre que los productos convencionales no eliminan; el ácido del vinagre sí los neutraliza. Si ya está seca, puede requerir un producto enzimático específico."
+  - q: "¿Con qué frecuencia hay que limpiar a fondo si se tienen mascotas?"
+    a: "Con mascotas, la limpieza de mantenimiento (barrer/aspirar pelo) debe ser más frecuente: 2-3 veces por semana en lugar de una. La limpieza a fondo profunda conviene cada 2-3 meses en vez de los 4-6 meses habituales. El pelo de mascota se acumula detrás de muebles, en rodapiés y en ventilaciones de forma mucho más rápida."
+  - q: "¿Puede venir el equipo de limpieza si tengo mascota en casa?"
+    a: "Sí. Lo ideal es que la mascota esté en una habitación o en otra zona mientras se limpia, para facilitar el trabajo y evitar que el animal se estrese. Si la mascota está suelta, hay que indicarlo antes para que el equipo sepa con qué trato manejar la situación. En ningún caso se usan productos incompatibles con mascotas sin informar antes."
 ---
 
 > **En resumen:**

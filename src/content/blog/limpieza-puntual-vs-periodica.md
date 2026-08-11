@@ -9,6 +9,15 @@ readingTime: 7
 tags: ["periódica", "puntual", "frecuencia", "precio", "consejos"]
 lang: "es"
 pilar: false
+faqs:
+  - q: "¿Es más barata la limpieza periódica que contratar limpiezas puntuales?"
+    a: "Por visita sí. La limpieza periódica suele ser un 15-25% más económica por sesión que la puntual porque el equipo ya conoce el espacio, la suciedad es menor y la logística es más eficiente. En total puede salir más caro si la frecuencia no encaja con tu uso real del piso, por eso merece la pena analizar cuántas veces al mes lo necesitarías."
+  - q: "¿Cuándo conviene contratar una limpieza puntual en lugar de periódica?"
+    a: "La limpieza puntual es ideal para situaciones concretas: entrega o recepción de un piso de alquiler, después de una reforma, limpieza post-evento, después de una temporada con el piso cerrado o cuando se quiere probar el servicio antes de comprometerse con una periodicidad. También la usan personas que prefieren limpiar ellas mismas en el día a día pero necesitan una limpieza a fondo de vez en cuando."
+  - q: "¿Puedo empezar con una puntual y luego pasar a periódica?"
+    a: "Sí, y es la secuencia que recomendamos para pisos que llevan tiempo sin limpieza profesional. Primero una limpieza a fondo que ponga el piso en nivel base, y después un mantenimiento periódico que lo mantiene en ese nivel. El coste total es menor que hacer limpiezas puntuales a fondo repetidas porque cada visita de mantenimiento es más corta."
+  - q: "¿Qué frecuencia de limpieza periódica es la más habitual?"
+    a: "La frecuencia más contratada para viviendas es quincenal (cada dos semanas). Para pisos con alta ocupación, mascotas o personas con alergias, semanal. Para personas que viajan mucho o usan poco el piso, mensual. Para oficinas y locales, 2-3 veces por semana suele ser el mínimo recomendado."
 ---
 
 > **En resumen:**

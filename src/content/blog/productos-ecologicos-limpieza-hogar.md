@@ -9,6 +9,15 @@ readingTime: 12
 tags: ["ecológico", "productos limpieza", "sostenibilidad", "certificaciones"]
 lang: "es"
 pilar: true
+faqs:
+  - q: "¿Los productos de limpieza ecológicos son igual de eficaces que los convencionales?"
+    a: "Para la mayoría de tareas domésticas, sí. El bicarbonato elimina grasa y desodoriza; el vinagre blanco quita cal y limpia cristales; el jabón de Castilla diluido friega suelos y superficies. Las diferencias aparecen en situaciones muy concretas de suciedad extrema o incrustada, donde los productos industriales convencionales tienen más potencia química. Para el mantenimiento doméstico regular, los ecológicos son completamente equivalentes."
+  - q: "¿Qué certificación garantiza que un producto de limpieza es realmente ecológico?"
+    a: "La más fiable en Europa es la Ecolabel europea (flor verde con doce estrellas). También son equivalentes el Nordic Swan (países nórdicos) y el Ángel Azul (Alemania). Estas certificaciones verifican la fórmula completa, los ingredientes, la biodegradabilidad y el proceso de fabricación. Las marcas que usan términos como 'natural', 'verde' o 'bio' sin certificación no tienen garantía verificada."
+  - q: "¿Son más caros los productos de limpieza ecológicos?"
+    a: "Por unidad de venta, pueden costar más. Por uso real, no necesariamente. Los productos ecológicos suelen ser concentrados y requieren dilución, por lo que el coste por uso es similar al convencional o incluso menor. El bicarbonato, el vinagre y el jabón de Castilla son más baratos que los productos convencionales equivalentes para las mismas funciones."
+  - q: "¿Qué productos de limpieza puedo hacer en casa?"
+    a: "Los más útiles y sencillos: spray multiusos (agua + vinagre blanco al 50% + unas gotas de aceite esencial de lavanda o limón), limpiacristales (vinagre blanco y agua a partes iguales), desengrasante de cocina (jabón de Castilla diluido en agua con unas gotas de aceite esencial de limón), y antical para baños (ácido cítrico en polvo disuelto en agua, 1-2 cucharaditas por vaso)."
 ---
 
 > **En resumen:**

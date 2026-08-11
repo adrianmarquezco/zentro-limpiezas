@@ -6,6 +6,15 @@ datePublished: "2025-05-18"
 dateModified: "2026-05-31"
 category: "consejos"
 readingTime: 5
+faqs:
+  - q: "¿Por qué los cristales quedan con rayas después de limpiarlos?"
+    a: "Las rayas aparecen por tres razones: usar un trapo con fibras abrasivas, limpiar en seco (el polvo actúa como lija), o secar con papel de cocina que deja microfibras. La solución es usar limpiacristales aplicado con paño de microfibra limpio y secar con escurridor de goma o gamuza."
+  - q: "¿Cuál es el mejor producto para limpiar cristales en la costa de Galicia?"
+    a: "En zonas costeras la cal del agua y la salinidad crean una capa blanquecina difícil de quitar con limpiacristales convencional. Para eso hace falta un quitacales con pH ácido controlado que disuelva la incrustación sin atacar el vidrio. Una vez retirada la cal, se usa limpiacristales estándar para el acabado final."
+  - q: "¿Con qué frecuencia hay que limpiar los cristales?"
+    a: "En interiores, cada 4-8 semanas es suficiente. En exteriores en la costa gallega (Ferrol, Cedeira, Valdoviño, Ares), la salinidad y la humedad requieren limpiar cada 3-4 semanas para evitar que la cal penetre el vidrio y se vuelva muy difícil de eliminar."
+  - q: "¿Se pueden limpiar ventanas en altura sin andamios?"
+    a: "Sí. Con pértigas telescópicas se pueden alcanzar ventanas de 2º o 3º piso desde el suelo. Para alturas mayores o fachadas acristaladas se valora el acceso en cada caso. En la mayoría de viviendas unifamiliares y pisos, la pértiga es suficiente sin necesidad de medios especiales."
 tags: ["cristales", "ventanas", "técnica profesional", "trucos"]
 lang: "es"
 ---

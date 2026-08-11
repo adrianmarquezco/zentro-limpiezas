@@ -8,6 +8,15 @@ category: "guias"
 readingTime: 7
 tags: ["cocina", "limpieza a fondo", "horno", "grasa", "ecológico"]
 lang: "es"
+faqs:
+  - q: "¿Cuánto tiempo lleva limpiar la cocina a fondo?"
+    a: "Una cocina de tamaño mediano (10-15 m²) lleva entre 2 y 4 horas con una persona. Con dos personas, entre 90 minutos y 2,5 horas. El tiempo varía mucho según el estado de la grasa en campana y encimera, el interior del horno y si la limpieza incluye interior de armarios. Una cocina con mantenimiento regular se limpia bastante más rápido que una que lleva meses sin atención."
+  - q: "¿Con qué frecuencia hay que hacer una limpieza a fondo de la cocina?"
+    a: "La limpieza diaria básica (encimera, vitrocerámica, fregadero) debe ser diaria o cada vez que se cocina. La limpieza a fondo de campana, filtros, horno, frigorífico e interior de armarios es recomendable hacerla cada 2-3 meses. La campana y sus filtros son los elementos más críticos: unos filtros saturados de grasa reducen la eficacia y pueden ser un riesgo."
+  - q: "¿Cómo limpiar los filtros de la campana extractora?"
+    a: "Los filtros metálicos de malla se limpian sumergiéndolos en agua muy caliente con bicarbonato o lavavajillas concentrado durante 15-20 minutos. La grasa se disuelve y sale casi sola con un cepillo suave. Los filtros de carbón (campanas sin salida exterior) no se lavan, se sustituyen cuando están saturados, normalmente cada 3-6 meses."
+  - q: "¿Se puede limpiar el horno sin productos químicos agresivos?"
+    a: "Sí. La técnica con bicarbonato funciona perfectamente para hornos con grasa normal: aplica una pasta densa de bicarbonato y agua en todas las superficies interiores (no en la resistencia), cierra y deja actuar toda la noche o al menos 8 horas. Al día siguiente, retira con trapo húmedo. Para la resistencia eléctrica superior, usa vinagre con un paño. El resultado es equivalente al de los productos de horno convencionales sin los vapores tóxicos."
 ---
 
 > **En resumen:**

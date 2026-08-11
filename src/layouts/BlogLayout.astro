@@ -43,7 +43,7 @@ const categoryLabel = category
   : (lang === 'gl' ? 'Artigo' : 'Artículo');
 ---
 
-<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article">
+<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article" ogImage={image ? `https://zentrolimpiezas.es${image}` : undefined}>
   <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} {faqs} />
 
   <!-- Hero del artículo -->

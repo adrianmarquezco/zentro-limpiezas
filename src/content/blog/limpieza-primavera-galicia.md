@@ -8,6 +8,15 @@ category: "guias"
 readingTime: 7
 tags: ["primavera", "limpieza a fondo", "Galicia", "humedad"]
 lang: "es"
+faqs:
+  - q: "¿Por qué es importante hacer la limpieza de primavera en Galicia?"
+    a: "En Galicia el invierno húmedo y con poca ventilación favorece la acumulación de moho en rincones poco iluminados, condensación en ventanas, y acumulación de polvo y humedad en textiles y muebles. La limpieza de primavera es también una revisión de daños: manchas de humedad en paredes, juntas de ventanas deterioradas, o moho incipiente que si no se trata se extiende."
+  - q: "¿Cómo eliminar el moho que aparece en las paredes en invierno?"
+    a: "Para manchas de moho superficiales (en pintura, azulejo o silicona), agua oxigenada al 3% o aceite de árbol del té diluido en agua son los mejores antifúngicos ecológicos. Aplica, deja actuar 15-20 minutos y frota con cepillo. Si el moho ha penetrado en el material o la mancha vuelve repetidamente, puede haber un problema de humedad estructural que requiere solución de obra, no solo limpieza."
+  - q: "¿Cuándo es el mejor momento para hacer la limpieza de primavera en Galicia?"
+    a: "Marzo o abril, cuando el tiempo permite ventilación cruzada durante horas (se puede tener ventanas abiertas sin lluvia constante). La ventilación durante la limpieza es fundamental para eliminar el exceso de humedad de los textiles y para que los productos de limpieza se evaporen bien. Esperar a que la temperatura exterior suba también facilita que las superficies se sequen más rápido."
+  - q: "¿Cuánto tiempo lleva una limpieza de primavera completa?"
+    a: "Para un piso de 80-100 m² con un equipo de 2 personas, entre 5 y 8 horas si se hace a fondo (incluyendo armarios, cristales, electrodomésticos, zonas altas y detrás de muebles). Si se aborda en dos jornadas —una para las habitaciones y otra para cocina, baños y zonas comunes— el trabajo resulta más manejable y el resultado es mejor."
 ---
 
 > **En resumen:**

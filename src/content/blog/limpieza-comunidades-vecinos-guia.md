@@ -8,6 +8,15 @@ category: "guias"
 readingTime: 7
 tags: ["comunidades", "portal", "administrador fincas"]
 lang: "es"
+faqs:
+  - q: "¿Cuánto cuesta la limpieza de un portal o comunidad de vecinos en Ferrol o A Coruña?"
+    a: "El precio depende del número de plantas, portales, accesos y si incluye garaje o zonas comunes adicionales. Para un edificio de 10-20 viviendas con un portal y 4-5 plantas, el servicio semanal puede estar entre 150€ y 300€ al mes. Repartido entre los vecinos, suele ser inferior a lo que costaría el turno rotatorio en tiempo y conflictos."
+  - q: "¿Quién decide contratar una empresa de limpieza para la comunidad?"
+    a: "La decisión se toma en junta de propietarios por mayoría simple de cuotas de participación. El administrador de fincas puede gestionar el contrato y la relación con la empresa una vez aprobado. También es posible que la comunidad lo contrate directamente sin administrador, aunque es menos habitual."
+  - q: "¿Qué incluye el servicio de limpieza de comunidades de vecinos?"
+    a: "El servicio estándar incluye: portal (suelo, buzones, paredes y puertas de acceso), escaleras y rellanos, pasamanos, ascensor, y zonas comunes de planta baja. Puede incluir también garaje, trasteros comunes, jardines y piscina como servicios adicionales. Lo que incluye exactamente se especifica en el contrato."
+  - q: "¿Con qué frecuencia mínima hay que limpiar las zonas comunes de un edificio?"
+    a: "No existe una obligación legal de frecuencia mínima, pero la recomendación general para un edificio residencial es limpiar las escaleras y portal al menos una vez por semana. Para edificios con mucho tráfico (más de 30 viviendas, locales comerciales en planta baja) o con mascotas, dos veces por semana es más adecuado."
 ---
 
 > **En resumen:**

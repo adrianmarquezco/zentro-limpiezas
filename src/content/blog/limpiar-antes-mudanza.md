@@ -8,6 +8,15 @@ category: "guias"
 readingTime: 6
 tags: ["mudanza", "alquiler", "limpieza a fondo", "fianza"]
 lang: "es"
+faqs:
+  - q: "¿Cuánto cuesta una limpieza de mudanza profesional en Ferrol o A Coruña?"
+    a: "Para un piso de 70-90 m², el precio orientativo está entre 120€ y 200€ dependiendo del estado y si incluye interiores de armarios y electrodomésticos. Pisos más pequeños (estudios, 1 dormitorio) pueden estar entre 80€ y 130€. Para pisos muy grandes o en muy mal estado, se presupuesta caso a caso."
+  - q: "¿Qué zonas debo limpiar para recuperar la fianza?"
+    a: "Las zonas que más problemas causan en la devolución de fianza son: horno y vitrocerámica (grasa incrustada), baños (sarro, moho en juntas de ducha), suelos (cal, manchas), interior de armarios y nevera, y los cristales. El resto de limpieza general suele considerarse dentro del desgaste normal, pero estas zonas concretas sí pueden justificar una retención."
+  - q: "¿Cuándo debo hacer la limpieza en una mudanza?"
+    a: "Al dejar un piso: después de sacar todos los muebles y antes de entregar las llaves, para llegar a todas las zonas del suelo y las paredes. Al entrar en un piso nuevo: antes de meter los muebles, así llegas a rincones a los que no podrás acceder en años. Si el piso nuevo viene de otro inquilino, esta limpieza previa es especialmente importante."
+  - q: "¿Puede el propietario retener la fianza solo por limpieza?"
+    a: "Sí, si el estado del piso al entregarlo es notablemente peor que al recibirlo. La ley permite retención de fianza por daños y por limpieza deficiente que supere el desgaste normal. La mejor protección es un acta de entrada con fotos y una limpieza profesional con factura al salir. La factura prueba que se hizo la limpieza aunque haya discrepancias."
 ---
 
 > **En resumen:**

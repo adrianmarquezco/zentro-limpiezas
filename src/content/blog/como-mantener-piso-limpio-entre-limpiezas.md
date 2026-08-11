@@ -8,6 +8,15 @@ category: "consejos"
 readingTime: 5
 tags: ["rutinas limpieza", "mantenimiento hogar", "consejos"]
 lang: "es"
+faqs:
+  - q: "¿Cuánto tiempo hay que dedicar al día para mantener el piso limpio?"
+    a: "Con una rutina bien organizada, 10-15 minutos diarios son suficientes para la mayoría de hogares con una o dos personas. Esto incluye fregar los platos o encender el lavavajillas, limpiar la encimera, y recoger lo que se haya dejado fuera de su sitio. Añadir una pasada rápida al baño una vez a la semana (5-10 minutos) cubre el 80% del mantenimiento."
+  - q: "¿Qué debo hacer antes de que llegue el equipo de limpieza profesional?"
+    a: "Lo ideal es recoger los objetos personales de las superficies para que el equipo pueda limpiar sin tener que moverlos. No hace falta fregar ni pasar la aspiradora — para eso viene el equipo. Si hay ropa en el suelo o en sillas, recogerla facilita el acceso. Las zonas de trabajo (escritorio, mesa de cocina) con papeles u objetos también es mejor despejarlas."
+  - q: "¿Con qué frecuencia mínima conviene tener un servicio de limpieza periódico?"
+    a: "Para un piso de 1-2 personas con hábitos de mantenimiento básico, mensual o quincenal puede ser suficiente. Para 3 o más personas, pisos con mascotas, o personas con poco tiempo para el mantenimiento diario, semanal o quincenal es más adecuado. La clave es que cada visita sea de mantenimiento, no de recuperación: si el piso necesita una limpieza a fondo cada vez, la frecuencia es insuficiente."
+  - q: "¿Qué zonas se ensucian más rápido entre limpiezas profesionales?"
+    a: "La cocina (encimera y vitrocerámica), los baños (sobre todo la ducha y el lavabo), y los suelos de zonas de tráfico alto (entrada, cocina, pasillo). Estas tres zonas son las que más se benefician del mantenimiento diario básico: limpiar encimera y vitrocerámica después de cocinar, y un repaso rápido del lavabo y ducha una vez por semana."
 ---
 
 > **En resumen:**

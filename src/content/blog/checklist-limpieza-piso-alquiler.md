@@ -9,6 +9,15 @@ readingTime: 8
 tags: ["alquiler", "checklist", "mudanza", "fianza", "entrega llaves"]
 lang: "es"
 pilar: false
+faqs:
+  - q: "¿Cuánto cuesta una limpieza profesional para fin de contrato de alquiler?"
+    a: "Para un piso de 70-90 m² en Ferrol o A Coruña, entre 120€ y 200€. Para pisos pequeños (estudios, 1 dormitorio), entre 80€ y 130€. Si el piso tiene interiores de armarios, nevera y horno muy sucios, o ha estado varios años sin limpieza a fondo, el precio puede ser mayor. La mayoría de veces es bastante inferior a la retención de fianza que evita."
+  - q: "¿Qué pasa si el propietario dice que el piso no está limpio aunque haya contratado a profesionales?"
+    a: "Con una factura de empresa de limpieza, estás en posición muy fuerte. La factura prueba que se realizó el servicio y que tuviste la diligencia necesaria. Si el propietario reclama algún punto concreto, lo razonable es negociarlo, pero la retención total de fianza por limpieza no es sostenible si tienes documentación. Guardar fotos del estado al entregar también es muy útil."
+  - q: "¿Cuándo hacer la limpieza, los últimos días o el día de entrega de llaves?"
+    a: "Lo ideal es la víspera o los días previos a la entrega, una vez sacados los muebles. Limpiar antes de sacar los muebles no tiene sentido porque durante la mudanza se ensucia de nuevo. Hacerlo el mismo día de entrega es factible si el piso es pequeño o si contratas un equipo profesional que trabaja con rapidez."
+  - q: "¿Puedo reclamar si el piso nuevo no estaba limpio al entrar?"
+    a: "Sí. Al recibir el piso debes hacer constar en el contrato o en un acta de entrega el estado real en que está, incluyendo fotos. Si el propietario anterior no lo entregó limpio, puedes reclamar el coste de la limpieza de entrada o descontarlo de la primera renta, previa negociación. Documentar el estado al entrar te protege también al salir."
 ---
 
 > **En resumen:**

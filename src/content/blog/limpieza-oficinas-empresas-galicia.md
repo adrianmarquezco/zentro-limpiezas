@@ -8,6 +8,15 @@ category: "sector"
 readingTime: 6
 tags: ["oficinas", "empresas", "limpieza profesional"]
 lang: "es"
+faqs:
+  - q: "¿Cuánto cuesta la limpieza de una oficina en Ferrol o A Coruña?"
+    a: "Para una oficina de 50-100 m² con servicio 3 veces por semana, el coste mensual orientativo está entre 200€ y 400€. Para oficinas más grandes (100-300 m²), entre 400€ y 800€/mes. El precio varía según la frecuencia, el número de aseos, si hay cocina o comedor, y si el servicio se realiza dentro o fuera del horario laboral."
+  - q: "¿Con qué frecuencia debe limpiarse profesionalmente una oficina?"
+    a: "La frecuencia mínima recomendada para una oficina con más de 5 personas es 2-3 veces por semana. Para oficinas con mucho tráfico de clientes, sala de reuniones de uso frecuente o más de 15 personas, todos los días laborables es lo habitual. El aseo siempre necesita más frecuencia que el resto de la oficina."
+  - q: "¿Conviene limpiar la oficina en horario laboral o fuera de él?"
+    a: "Fuera del horario laboral es lo más habitual y lo más cómodo para los empleados. La limpieza no interrumpe el trabajo y el equipo puede acceder a todas las zonas sin obstáculos. La limpieza en horario de apertura solo tiene sentido en negocios con horarios que no permiten otra opción (locales con horario nocturno, consultas médicas, etc.)."
+  - q: "¿Qué incluye el servicio estándar de limpieza de oficinas?"
+    a: "El servicio estándar cubre: suelos (aspirado y fregado), papeleras, superficies de trabajo y estanterías, aseos completos, cocina o zona de descanso, y cristales interiores. No suele incluir por defecto: archivadores y armarios por dentro, limpieza de equipos informáticos, cristales exteriores o mantenimiento de plantas. Estos pueden añadirse como servicio adicional."
 ---
 
 > **En resumen:**
