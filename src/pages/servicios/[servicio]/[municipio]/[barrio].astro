@@ -41,7 +41,20 @@ const contenido = getContenidoBarrio(
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
 
-const title = `${contenido.tituloPagina} | Zentro Limpiezas`;
+// Rota entre "cristales" y "ventanas" por arquetipo para cubrir las dos keywords
+// sin que todas las páginas repitan el mismo patrón
+const KW_ARCHETYPE: Record<BarrioArchetype, 'cristales' | 'ventanas'> = {
+  'bloque-obrero':       'ventanas',
+  'historico':           'ventanas',
+  'marinero':            'cristales',
+  'segunda-residencia':  'cristales',
+  'chalet':              'ventanas',
+  'rural':               'ventanas',
+  'industrial':          'cristales',
+};
+const kw = KW_ARCHETYPE[barrio.archetype as BarrioArchetype];
+
+const title = `Limpieza de ${kw} en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
 const description = `${contenido.metaDescAngle} Servicio en ${barrio.nombre}, ${municipio.nombre}. Presupuesto gratis en menos de 24h.`;
 
 const breadcrumbs = [
@@ -54,7 +67,7 @@ const breadcrumbs = [
 // 2 FAQs de localización + 2 del arquetipo
 const faqsLocales: { q: string; a: string }[] = [
   {
-    q: `¿Cuánto cuesta la limpieza de cristales en ${barrio.nombre}?`,
+    q: `¿Cuánto cuesta la limpieza de ${kw} en ${barrio.nombre}?`,
     a: `En ${barrio.nombre} el servicio de limpieza de cristales empieza desde 35€ para un piso estándar, según el número de ventanas y el estado del vidrio. Si hay cal, salitre o verdín acumulado puede añadir entre 15-25€ a la primera sesión. Presupuesto cerrado en menos de 24 horas, sin visita previa obligatoria.`,
   },
   {
@@ -72,7 +85,7 @@ const otrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && servicioMap?.[b.archetype],
 );
 
-const h1 = `Limpieza de cristales en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
+const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
 ---
 
 <ComboLayout
@@ -129,10 +142,10 @@ const h1 = `Limpieza de cristales en ${barrio.nombre}<br><span class="text-accen
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">03</span>
-              <h2 class="font-serif text-2xl text-primary">¿Cuánto cuesta la limpieza de cristales en {barrio.nombre}?</h2>
+              <h2 class="font-serif text-2xl text-primary">¿Cuánto cuesta la limpieza de {kw} en {barrio.nombre}?</h2>
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
-              <p>El precio depende del número de ventanas, el estado del vidrio y si hay tratamiento especial de cal, salitre o verdín. Como orientación para {barrio.nombre}:</p>
+              <p>El precio depende del número de {kw}, el estado del vidrio y si hay tratamiento especial de cal, salitre o verdín. Como orientación para {barrio.nombre}:</p>
               <ul class="space-y-2 ml-4">
                 <li class="flex items-start gap-2">
                   <span class="text-accent font-bold mt-0.5">·</span>
@@ -190,7 +203,7 @@ const h1 = `Limpieza de cristales en ${barrio.nombre}<br><span class="text-accen
 
           {otrosBarrios.length > 0 && (
             <div class="card p-6" data-reveal>
-              <p class="font-serif text-base text-primary mb-3 font-semibold">Cristales en otros barrios de {municipio.nombre}</p>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">Limpieza de {kw} en otros barrios de {municipio.nombre}</p>
               <ul class="space-y-2">
                 {otrosBarrios.slice(0, 7).map(b => (
                   <li>
@@ -218,7 +231,7 @@ const h1 = `Limpieza de cristales en ${barrio.nombre}<br><span class="text-accen
   <section class="py-16 bg-charcoal">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
-        Preguntas sobre limpieza de cristales en {barrio.nombre}
+        Preguntas sobre limpieza de {kw} en {barrio.nombre}
       </h2>
       <p class="text-white/60 text-center mb-8" data-reveal>
         Si tienes más dudas, llámanos al <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> o escríbenos por WhatsApp.
