@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
+import type { BarrioArchetype } from '@/data/municipios';
+import { CONTENIDO_BARRIO } from '@/data/combos-barrio';
 import { getCollection } from 'astro:content';
 
 export const prerender = true;
@@ -52,6 +54,18 @@ export const GET: APIRoute = async () => {
     ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => ({ loc: `${SITE}/zonas/${m.slug}/${b.slug}/`, priority: '0.6', changefreq: 'yearly' }))),
     // Barrios GL
     ...MUNICIPIOS.flatMap(m => (m.barrios ?? []).map(b => ({ loc: `${SITE}/gl/zonas/${m.slug}/${b.slug}/`, priority: '0.6', changefreq: 'yearly' }))),
+    // Combos servicio × barrio ES (4º nivel — prioridad local long tail)
+    ...SERVICIOS.flatMap(s => {
+      const servicioMap = CONTENIDO_BARRIO[s.slug];
+      if (!servicioMap) return [];
+      return MUNICIPIOS
+        .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+        .flatMap(m =>
+          (m.barrios ?? [])
+            .filter(b => b.archetype && servicioMap[b.archetype as BarrioArchetype])
+            .map(b => ({ loc: `${SITE}/servicios/${s.slug}/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+        );
+    }),
     // Blog ES
     ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly' })),
     // Blog GL
