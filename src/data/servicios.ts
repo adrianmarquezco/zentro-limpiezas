@@ -93,7 +93,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: null,
     descripcionCorta: 'Limpieza de portales, zonas comunes, garajes y ascensores. Contrato periódico.',
     tier: 2,
-    municipiosCombo: [],
+    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'fene', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
   },
   {
     slug: 'limpieza-a-fondo',
@@ -104,7 +104,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: null,
     descripcionCorta: 'Limpieza profunda ocasional. Ideal para mudanzas, post-verano o gran limpieza anual.',
     tier: 2,
-    municipiosCombo: [],
+    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
   },
   {
     slug: 'limpieza-fin-de-obra',
@@ -145,7 +145,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: '55€',
     descripcionCorta: 'Servicio regular semanal, quincenal o mensual. Mismo equipo siempre.',
     tier: 1,
-    municipiosCombo: [],
+    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
   },
   {
     slug: 'limpieza-de-cristales',
@@ -217,7 +217,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: null,
     descripcionCorta: 'Vaciado, organización y limpieza a fondo de trasteros y almacenes.',
     tier: 3,
-    municipiosCombo: [],
+    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'culleredo'],
   },
   {
     slug: 'desinfeccion-profesional',
