@@ -114,6 +114,7 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': canonicalUrl,
     url: canonicalUrl,
     isPartOf: { '@id': `${BUSINESS.url}/#website` },
     speakable: {
@@ -140,6 +141,13 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <script src="/scripts/header-scroll.js" defer></script>
   <script src="/scripts/faq-accordion.js" defer></script>
   <script src="/scripts/external-links.js" defer></script>
+
+  <!-- Service Worker -->
+  <script is:inline>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+  }
+  </script>
 
   <!-- Exit intent — solo desktop, solo 1 vez por sesión -->
   <script is:inline>
