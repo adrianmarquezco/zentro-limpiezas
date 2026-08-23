@@ -9,20 +9,19 @@ import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
-const ES_BARRIO_SLUGS = new Set([
-  'limpieza-periodica',
-  'limpieza-de-viviendas',
-  'limpieza-de-pisos',
-  'limpieza-a-fondo',
-  'limpieza-de-apartamentos-turisticos',
-  'limpieza-de-cristales',
-  'limpieza-de-locales-comerciales',
-  'limpieza-de-garajes',
-  'limpieza-de-mudanzas',
-  'limpieza-de-trasteros',
-]);
-
 export function getStaticPaths() {
+  const ES_BARRIO_SLUGS = new Set([
+    'limpieza-periodica',
+    'limpieza-de-viviendas',
+    'limpieza-de-pisos',
+    'limpieza-a-fondo',
+    'limpieza-de-apartamentos-turisticos',
+    'limpieza-de-cristales',
+    'limpieza-de-locales-comerciales',
+    'limpieza-de-garajes',
+    'limpieza-de-mudanzas',
+    'limpieza-de-trasteros',
+  ]);
   const paths: { params: { servizo: string; municipio: string; barrio: string }; props: any }[] = [];
   for (const servicio of SERVICIOS) {
     if (!GL_SERVIZO_SLUGS.has(servicio.slugGL)) continue;
