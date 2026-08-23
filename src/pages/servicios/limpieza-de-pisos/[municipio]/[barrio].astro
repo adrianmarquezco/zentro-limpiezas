@@ -32,9 +32,10 @@ const { servicio, municipio, barrio, contenido } = Astro.props;
 
 const canonical = `${BUSINESS.url}/servicios/limpieza-de-pisos/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
+const ogImage = `${BUSINESS.url}/images/blog/como-limpiar-el-piso-a-fondo.webp`;
 
-const title = `Limpieza de piso en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
-const description = contenido.metaDesc;
+const title = `Limpieza de Piso en ${barrio.nombre}, ${municipio.nombre} · Presupuesto Gratis 24h | Zentro Limpiezas`;
+const description = `Limpieza profesional de pisos en ${barrio.nombre}. ${contenido.metaDesc} Limpiadoras con experiencia. Presupuesto gratis en 24h, sin visita previa.`.slice(0, 160);
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
@@ -46,11 +47,19 @@ const breadcrumbs = [
 const faqsLocales: { q: string; a: string }[] = [
   {
     q: `¿Cuánto cuesta limpiar un piso en ${barrio.nombre}?`,
-    a: `En ${barrio.nombre} la limpieza de un piso de 2 habitaciones empieza desde 130€. El precio final depende de los metros cuadrados y del estado. Presupuesto cerrado en menos de 24h sin necesidad de visita previa.`,
+    a: `En ${barrio.nombre} la limpieza de un piso de 2 habitaciones empieza desde 130€. Para pisos de 3 habitaciones, desde 170€. El precio exacto depende de los metros cuadrados y el estado. Presupuesto cerrado en menos de 24h sin necesidad de visita previa.`,
   },
   {
-    q: `¿Trabajáis en ${barrio.nombre} con llave si yo no puedo estar presente?`,
-    a: `Sí. Guardamos tu llave o usamos tu código de acceso, hacemos la limpieza y te enviamos foto de confirmación por WhatsApp al terminar. Es la opción preferida de la mayoría de nuestros clientes en ${barrio.nombre}.`,
+    q: `¿Cuánto tiempo tardáis en limpiar un piso en ${barrio.nombre}?`,
+    a: `Para un piso estándar de 70 m² en ${barrio.nombre}, entre 3 y 4 horas con dos personas. Si lleva tiempo sin limpieza a fondo o necesitas interior de armarios, puede extenderse. Lo indicamos siempre en el presupuesto antes de empezar.`,
+  },
+  {
+    q: `¿Limpiáis el interior del horno y la nevera en el servicio de limpieza de pisos de ${barrio.nombre}?`,
+    a: `Sí, a petición. El interior del horno y la nevera están incluidos sin suplemento si lo pides al presupuestar. El horno con grasa muy incrustada puede necesitar tiempo adicional que reflejamos en el presupuesto.`,
+  },
+  {
+    q: `¿Podéis limpiar el piso de ${barrio.nombre} con llave mientras yo trabajo?`,
+    a: `Sí. Guardamos tu llave o código de acceso. Entramos, limpiamos y enviamos foto de confirmación de cada habitación al terminar. Es la opción que prefieren la mayoría de nuestros clientes en ${barrio.nombre}.`,
   },
 ];
 const faqs = [...faqsLocales, ...contenido.faqs];
@@ -61,6 +70,12 @@ const otrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && getContenidoPisos(b.archetype as BarrioArchetype, '', ''),
 );
 
+const serviciosRelacionados = [
+  { nombre: 'Limpieza periódica del hogar', slug: 'limpieza-periodica' },
+  { nombre: 'Limpieza de viviendas', slug: 'limpieza-de-viviendas' },
+  { nombre: 'Limpieza de cristales', slug: 'limpieza-de-cristales' },
+];
+
 const h1 = `Limpieza de piso en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
 ---
 
@@ -68,9 +83,11 @@ const h1 = `Limpieza de piso en ${barrio.nombre}<br><span class="text-accent">${
   {title}
   {description}
   {canonical}
+  {ogImage}
   lang="es"
-  serviceName={`${servicio.nombre} en ${barrio.nombre}, ${municipio.nombre}`}
+  serviceName={`Limpieza de piso en ${barrio.nombre}, ${municipio.nombre}`}
   serviceDesc={description}
+  price="100"
   {faqs}
   {breadcrumbs}
   {hreflangEs}
@@ -91,7 +108,7 @@ const h1 = `Limpieza de piso en ${barrio.nombre}<br><span class="text-accent">${
 
         <div class="lg:col-span-2 space-y-10">
 
-          <!-- Contexto específico del barrio -->
+          <!-- 01 · Contexto específico del barrio -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">01</span>
@@ -102,45 +119,92 @@ const h1 = `Limpieza de piso en ${barrio.nombre}<br><span class="text-accent">${
             </div>
           </div>
 
-          <!-- Qué incluye -->
+          <!-- 02 · Qué incluye la limpieza del piso -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">02</span>
               <h2 class="font-serif text-2xl text-primary">{contenido.incluyeH2}</h2>
             </div>
-            <ul class="space-y-2">
+            <ul class="space-y-0 divide-y divide-line">
               {contenido.incluyeItems.map(item => (
-                <li class="flex items-start gap-3 py-2 border-b border-line last:border-0">
+                <li class="flex items-start gap-3 py-3">
                   <span class="text-accent font-bold flex-shrink-0 mt-0.5">→</span>
                   <span class="text-mid text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
             <p class="text-mid text-sm mt-5 leading-relaxed">
-              Productos Ecolabel incluidos. Traemos todo el material necesario: no hace falta que tengas nada preparado en casa.
+              Llevamos todos los productos Ecolabel y el material necesario. No tienes que preparar nada antes de la visita.
             </p>
           </div>
 
-          <!-- Precio y tiempo -->
+          <!-- Imagen optimizada -->
+          <figure data-reveal class="rounded-xl overflow-hidden border border-line">
+            <img
+              src="/images/blog/como-limpiar-el-piso-a-fondo.webp"
+              alt={`Limpiadoras profesionales limpiando un piso en ${barrio.nombre}, ${municipio.nombre} — Zentro Limpiezas`}
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full object-cover"
+            />
+            <figcaption class="text-xs text-mid text-center py-2 px-4">
+              Limpieza a fondo de piso en {barrio.nombre} · Zentro Limpiezas
+            </figcaption>
+          </figure>
+
+          <!-- 03 · Precio -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">03</span>
-              <h2 class="font-serif text-2xl text-primary">Precio de limpieza de piso en {barrio.nombre}</h2>
+              <h2 class="font-serif text-2xl text-primary">¿Cuánto cuesta limpiar un piso en {barrio.nombre}?</h2>
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
+              <p>Precio orientativo para pisos en {barrio.nombre} según el tamaño:</p>
               <ul class="space-y-2 ml-4">
                 {contenido.precioItems.map(item => (
                   <li class="flex items-start gap-2">
                     <span class="text-accent font-bold mt-0.5">·</span>
-                    <span set:html={item.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
               <div class="p-4 bg-white border border-line rounded-lg">
                 <p class="text-sm text-charcoal">
-                  <span class="font-semibold text-primary">¿Tienes más de un piso en {barrio.nombre}?</span>{' '}
-                  Propietarios con varios pisos o comunidades de vecinos tienen condiciones especiales. Cuéntanos cuántos pisos son y te preparamos un presupuesto conjunto.
+                  <span class="font-semibold text-primary">¿Tienes varios pisos en {barrio.nombre}?</span>{' '}
+                  Propietarios con varios pisos de alquiler o comunidades de vecinos tienen condiciones especiales. Cuéntanos cuántos son al pedir presupuesto.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 · Por qué elegirnos (trust + LSI) -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">04</span>
+              <h2 class="font-serif text-2xl text-primary">¿Por qué Zentro Limpiezas para la limpieza de tu piso en {barrio.nombre}?</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                Zentro Limpiezas es la empresa de limpieza de pisos de referencia en {barrio.nombre} y en todo {municipio.nombre}. Más de 20 años limpiando hogares en Ferrolterra avalan nuestro trabajo. Equipo propio, sin subcontrataciones, con las mismas limpiadoras en cada visita para que conozcan tu piso.
+              </p>
+              <p>
+                Tanto si necesitas la limpieza del piso después de una mudanza, antes de entregarlo al propietario, como limpieza a fondo puntual o limpieza periódica regular: lo organizamos todo para que tú no tengas que preocuparte. Presupuesto cerrado sin visita previa y respuesta en menos de 24 horas.
+              </p>
+              <div class="grid sm:grid-cols-3 gap-3 mt-4">
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">+20</p>
+                  <p class="text-mid text-xs mt-1">años en Ferrolterra</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">24h</p>
+                  <p class="text-mid text-xs mt-1">presupuesto sin visita previa</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">100%</p>
+                  <p class="text-mid text-xs mt-1">equipo propio sin subcontratas</p>
+                </div>
               </div>
             </div>
           </div>
@@ -166,17 +230,30 @@ const h1 = `Limpieza de piso en ${barrio.nombre}<br><span class="text-accent">${
 
           <div class="card p-6" data-reveal>
             <p class="font-serif text-base text-primary mb-1 font-semibold">Limpieza de pisos en todo {municipio.nombre}</p>
-            <p class="text-mid text-xs mb-3">Cobertura completa para el municipio.</p>
+            <p class="text-mid text-xs mb-3">Cobertura completa y precios para el municipio.</p>
             <a href={`/servicios/limpieza-de-pisos/${municipio.slug}/`} class="text-sm text-accent hover:underline">
               → Limpieza de pisos en {municipio.nombre}
             </a>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <p class="font-serif text-base text-primary mb-3 font-semibold">Otros servicios en {barrio.nombre}</p>
+            <ul class="space-y-2">
+              {serviciosRelacionados.map(s => (
+                <li>
+                  <a href={`/servicios/${s.slug}/${municipio.slug}/${barrio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    → {s.nombre}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {otrosBarrios.length > 0 && (
             <div class="card p-6" data-reveal>
               <p class="font-serif text-base text-primary mb-3 font-semibold">Limpieza de pisos en otros barrios de {municipio.nombre}</p>
               <ul class="space-y-2">
-                {otrosBarrios.slice(0, 7).map(b => (
+                {otrosBarrios.slice(0, 6).map(b => (
                   <li>
                     <a href={`/servicios/limpieza-de-pisos/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
                       → {b.nombre}
@@ -202,7 +279,7 @@ const h1 = `Limpieza de piso en ${barrio.nombre}<br><span class="text-accent">${
   <section class="py-16 bg-charcoal">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
-        Preguntas sobre limpieza de pisos en {barrio.nombre}
+        Preguntas frecuentes sobre limpieza de pisos en {barrio.nombre}
       </h2>
       <p class="text-white/60 text-center mb-8" data-reveal>
         Llámanos al <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> o escríbenos por WhatsApp.
