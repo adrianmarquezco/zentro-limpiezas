@@ -24,7 +24,18 @@ const schema = {
     name: BUSINESS.name,
   },
   areaServed: (areaServed ?? defaultArea).map(n => ({ '@type': 'City', name: n })),
-  ...(price ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR', availability: 'https://schema.org/InStock' } } : {}),
+  ...(price ? {
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: price,
+        priceCurrency: 'EUR',
+      },
+    },
+  } : {}),
 };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
