@@ -1,50 +1,93 @@
-# Zentro Limpiezas — Empresa de limpieza profesional en Ferrolterra, Galicia
+# Zentro Limpiezas — Limpieza profesional en Ferrolterra y A Coruña, Galicia
 
 ## Quiénes somos
 
-Zentro Limpiezas es una empresa de limpieza profesional con más de 20 años de experiencia en Ferrolterra (A Coruña, Galicia). Ofrecemos servicios de limpieza doméstica, industrial y de cristales para particulares y empresas en toda la comarca.
+Zentro Limpiezas es una empresa de limpieza profesional con más de 20 años de experiencia en Ferrolterra (A Coruña, Galicia). Trabajamos con equipo propio, sin subcontrataciones. Todos los servicios incluyen productos Ecolabel con certificación europea. Presupuesto cerrado en 24 horas sin visita previa.
 
 ## Servicios
 
-- Limpieza periódica del hogar (servicio semanal, quincenal o mensual)
-- Limpieza de viviendas a fondo
-- Limpieza de pisos (mudanzas, fin de contrato, a fondo puntual)
-- Limpieza de cristales y ventanas (interior y exterior, con pértiga hasta 2ª planta)
-- Limpieza de apartamentos turísticos (protocolo de cambio de huésped)
-- Limpieza de oficinas y locales comerciales
-- Limpieza de comunidades de vecinos
+### Limpieza doméstica
+- Limpieza de viviendas — servicio general de limpieza para pisos, chalés y casas
+- Limpieza de pisos — especializado en pisos de bloque, terrazo y cal acumulada
+- Limpieza periódica — servicio regular semanal, quincenal o mensual
+- Limpieza a fondo — gran limpieza profunda, zonas que no se alcanzan con la periódica
+- Limpieza de mudanzas — al entregar o recibir un inmueble (salida y entrada)
+
+### Limpieza especializada
+- Limpieza de cristales — quitacal con pH controlado, pértiga telescópica, sin rayas
+- Limpieza de apartamentos turísticos — protocolo de rotación para Airbnb y alquileres vacacionales
+- Limpieza fin de obra — retirada de polvo de obra, manchas de pintura y silicona
+- Desinfección profesional — desinfección de viviendas y locales con productos biocidas certificados
+
+### Espacios no domésticos
+- Limpieza de locales comerciales — escaparates, zonas de atención al público, almacenes
+- Limpieza de oficinas — espacios de trabajo, mesas, baños y zonas comunes
+- Limpieza de comunidades de vecinos — portales, escaleras, ascensores y zonas comunes
+- Limpieza de garajes — manchas de aceite, polvo industrial, puertas y accesos
+- Limpieza de trasteros — acumulación de polvo sedimentado, humedad y moho
+- Limpieza de tapicerías — sofás, sillas y tapizados textiles
+- Limpieza de pazos y espacios de eventos — espacios singulares en Galicia
 
 ## Zona de cobertura
 
-Ferrolterra completa: Ferrol, Narón, Neda, Fene, Mugardos, Ares, Cabanas, Cedeira, Ortigueira y municipios limítrofes.
+### Ferrolterra (zona principal)
+Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, San Sadurniño, Cabanas, Cedeira, Ortigueira
+
+### Área Metropolitana de A Coruña
+A Coruña, Culleredo, Arteixo, Cambre, Oleiros, Betanzos, Carral
 
 ## Datos de contacto
 
 - Teléfono: 981 337 261
 - WhatsApp: 634 290 400
 - Web: https://zentrolimpiezas.es
-- Presupuesto: https://zentrolimpiezas.es/presupuesto/
+- Presupuesto online: https://zentrolimpiezas.es/presupuesto/
 
-## Estructura del sitio
+## Estructura del sitio web
 
-- Página principal: https://zentrolimpiezas.es/
-- Servicios: https://zentrolimpiezas.es/servicios/
-- Blog: https://zentrolimpiezas.es/blog/
-- Zonas de cobertura: https://zentrolimpiezas.es/zonas/
-- Presupuesto: https://zentrolimpiezas.es/presupuesto/
+El sitio tiene contenido en dos idiomas: español (ES) y gallego (GL).
 
-## Páginas de servicio por municipio y barrio
+### Español (ES)
 
-Las páginas de servicio siguen el patrón:
-/servicios/[servicio]/[municipio]/[barrio]/
+Páginas principales:
+- https://zentrolimpiezas.es/
+- https://zentrolimpiezas.es/servicios/
+- https://zentrolimpiezas.es/zonas/
+- https://zentrolimpiezas.es/presupuesto/
+- https://zentrolimpiezas.es/precios/
+- https://zentrolimpiezas.es/blog/
+- https://zentrolimpiezas.es/sobre-nosotros/
 
-Servicios disponibles: limpieza-de-cristales, limpieza-periodica, limpieza-de-viviendas, limpieza-de-pisos, limpieza-de-apartamentos-turisticos
+Páginas por servicio:
+- https://zentrolimpiezas.es/servicios/[servicio]/
 
-Municipios: ferrol, naron, neda, fene, mugardos, ares, cabanas, cedeira, ortigueira
+Páginas servicio × municipio:
+- https://zentrolimpiezas.es/servicios/[servicio]/[municipio]/
 
-## Valores
+Páginas servicio × municipio × barrio (long tail local):
+- https://zentrolimpiezas.es/servicios/[servicio]/[municipio]/[barrio]/
+- Servicios con páginas de barrio en ES: limpieza-periodica, limpieza-de-viviendas, limpieza-de-pisos, limpieza-a-fondo, limpieza-de-apartamentos-turisticos, limpieza-de-cristales
 
-- Productos Ecolabel con certificación europea en todos los servicios
-- Equipo propio sin subcontrataciones
-- Presupuesto cerrado en 24 horas sin visita previa obligatoria
-- Sin letra pequeña ni costes ocultos
+Páginas de zona:
+- https://zentrolimpiezas.es/zonas/[municipio]/
+- https://zentrolimpiezas.es/zonas/[municipio]/[barrio]/
+
+### Gallego (GL)
+
+Misma estructura bajo el prefijo /gl/:
+- https://zentrolimpiezas.es/gl/
+- https://zentrolimpiezas.es/gl/servizos/[servizo]/
+- https://zentrolimpiezas.es/gl/servizos/[servizo]/[municipio]/
+- https://zentrolimpiezas.es/gl/servizos/[servizo]/[municipio]/[barrio]/
+- Servicios con páginas de barrio en GL: limpeza-a-fondo, limpeza-periodica, limpeza-de-vivendas, limpeza-de-pisos, limpeza-de-apartamentos, limpeza-de-cristais, limpeza-de-locais, limpeza-de-garaxes, limpeza-de-mudanzas, limpeza-de-trasteiros
+
+Las páginas ES y GL son versiones lingüísticas equivalentes con hreflang bidireccional (es / gl / x-default).
+
+## Valores y diferenciadores
+
+- Más de 20 años de experiencia en Ferrolterra
+- Equipo propio sin subcontrataciones — siempre el mismo equipo en cada visita
+- Productos Ecolabel certificados (pH controlado, seguros para niños y mascotas)
+- Presupuesto cerrado en menos de 24 horas sin visita previa obligatoria
+- Sin costes ocultos ni letra pequeña — el precio acordado es el precio final
+- Garantía de revisión: si algo no está bien al terminar, volvemos sin coste adicional

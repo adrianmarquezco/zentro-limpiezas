@@ -39,9 +39,12 @@ const schema = {
     '@type': 'OfferCatalog',
     name: 'Servicios de limpieza ecológica',
     itemListElement: [
-      'Limpieza de viviendas','Limpieza de pisos','Limpieza de oficinas',
-      'Limpieza fin de obra','Limpieza de comunidades','Limpieza de cristales',
-      'Limpieza de pazos y eventos','Limpieza de apartamentos turísticos','Limpieza periódica',
+      'Limpieza de viviendas','Limpieza de pisos','Limpieza periódica',
+      'Limpieza a fondo','Limpieza de cristales','Limpieza de apartamentos turísticos',
+      'Limpieza de locales comerciales','Limpieza de oficinas','Limpieza de comunidades',
+      'Limpieza de garajes','Limpieza de trasteros','Limpieza de mudanzas',
+      'Limpieza de tapicerías','Limpieza fin de obra','Limpieza de pazos y eventos',
+      'Desinfección de viviendas y locales',
     ].map(n => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })),
   },
 };
