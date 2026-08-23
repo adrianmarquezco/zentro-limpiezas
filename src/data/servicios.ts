@@ -223,7 +223,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'desinfeccion-profesional',
     slugGL: 'desinfeccion-profesional',
-    tituloMeta: 'Desinfectar piso o local en Ferrol · Empresa de desinfección',
+    tituloMeta: 'Desinfección de viviendas y locales en Ferrol y A Coruña',
     nombre: 'Desinfección profesional',
     nombreGL: 'Desinfección profesional',
     icono: 'shield',
