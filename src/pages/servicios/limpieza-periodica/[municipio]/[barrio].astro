@@ -32,6 +32,7 @@ const { servicio, municipio, barrio, contenido } = Astro.props;
 
 const canonical = `${BUSINESS.url}/servicios/limpieza-periodica/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
 const ogImage = `${BUSINESS.url}/images/blog/limpieza-puntual-vs-periodica.webp`;
 
 const title = `Limpieza Periódica en ${barrio.nombre}, ${municipio.nombre} · Empresa Local | Zentro Limpiezas`;
@@ -91,6 +92,7 @@ const h1 = `Limpieza periódica en ${barrio.nombre}<br><span class="text-accent"
   {faqs}
   {breadcrumbs}
   {hreflangEs}
+  hreflangGl={hreflangGl}
   areaServed={[barrio.nombre, municipio.nombre, municipio.comarca]}
 >
   <HeroLocal

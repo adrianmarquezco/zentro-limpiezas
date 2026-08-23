@@ -223,7 +223,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'desinfeccion-profesional',
     slugGL: 'desinfeccion-profesional',
-    tituloMeta: 'Desinfección con biocidas certificados · Ferrolterra',
+    tituloMeta: 'Desinfectar piso o local en Ferrol · Empresa de desinfección',
     nombre: 'Desinfección profesional',
     nombreGL: 'Desinfección profesional',
     icono: 'shield',

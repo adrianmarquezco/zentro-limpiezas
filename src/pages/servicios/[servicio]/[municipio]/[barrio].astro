@@ -40,6 +40,7 @@ const contenido = getContenidoBarrio(
 
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
 const ogImage = `${BUSINESS.url}/images/blog/limpiar-cristales-sin-rayas.webp`;
 
 // Rota entre "cristales" y "ventanas" por arquetipo para cubrir las dos keywords
@@ -112,6 +113,7 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
   {faqs}
   {breadcrumbs}
   {hreflangEs}
+  hreflangGl={hreflangGl}
   areaServed={[barrio.nombre, municipio.nombre, municipio.comarca]}
 >
   <HeroLocal

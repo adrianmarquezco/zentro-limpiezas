@@ -32,6 +32,7 @@ const { servicio, municipio, barrio, contenido } = Astro.props;
 
 const canonical = `${BUSINESS.url}/servicios/limpieza-de-viviendas/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
 const ogImage = `${BUSINESS.url}/images/blog/contratar-servicio-limpieza-consejos.webp`;
 
 const title = `Limpieza de Vivienda en ${barrio.nombre}, ${municipio.nombre} · Presupuesto sin Sorpresas | Zentro Limpiezas`;
@@ -91,6 +92,7 @@ const h1 = `Limpieza de vivienda en ${barrio.nombre}<br><span class="text-accent
   {faqs}
   {breadcrumbs}
   {hreflangEs}
+  hreflangGl={hreflangGl}
   areaServed={[barrio.nombre, municipio.nombre, municipio.comarca]}
 >
   <HeroLocal

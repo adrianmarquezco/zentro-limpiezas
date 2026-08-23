@@ -32,6 +32,7 @@ const { servicio, municipio, barrio, contenido } = Astro.props;
 
 const canonical = `${BUSINESS.url}/servicios/limpieza-de-apartamentos-turisticos/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
 const ogImage = `${BUSINESS.url}/images/blog/limpieza-apartamentos-turisticos-airbnb.webp`;
 
 const title = `Limpieza de Apartamento Turístico en ${barrio.nombre} · Cambio de Huésped | Zentro Limpiezas`;
@@ -104,6 +105,7 @@ const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}<br><span clas
   {faqs}
   {breadcrumbs}
   {hreflangEs}
+  hreflangGl={hreflangGl}
   areaServed={[barrio.nombre, municipio.nombre, municipio.comarca]}
 >
   <!-- HowTo schema inline -->

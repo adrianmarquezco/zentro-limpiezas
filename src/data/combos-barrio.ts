@@ -1638,3 +1638,390 @@ export function getContenidoBarrio(
     })),
   };
 }
+
+// ─── GL: Contenido por arquetipo e servizo ────────────────────────────────────
+
+function tGL(s: string, barrio: string, municipio: string): string {
+  return s.replace(/\{barrio\}/g, barrio).replace(/\{municipio\}/g, municipio);
+}
+
+export type ContenidoGLBarrio = {
+  h1Qualifier: string;
+  metaDesc: string;
+  intro: string;
+  seccion1H2: string;
+  seccion1P1: string;
+  seccion1P2: string;
+  queIncluyeH2: string;
+  queIncluyeItems: string[];
+  cuandoH2: string;
+  cuandoItems: string[];
+  precioH2: string;
+  precioItems: string[];
+  faqs: { q: string; a: string }[];
+};
+
+const GL_ARQUETIPOS_RAW: Record<BarrioArchetype, {
+  h1Qualifier: string;
+  introBarrio: string;
+  desafiosPrinc: string[];
+  cuandoH2: string;
+  cuandoItems: string[];
+  faqArq: { q: string; a: string };
+}> = {
+  'bloque-obrero': {
+    h1Qualifier: 'pisos de bloque · terrazo, cal e vida de barrio',
+    introBarrio: 'Os pisos de bloque de {barrio} son das vivendas máis comúns de Ferrolterra: construídos nos anos 70-80, con chans de terrazo, cociñas que xa teñen historia e baños onde o cal da auga deixa marca rápido. O equipo de Zentro Limpezas traballa neste tipo de inmoble desde hai máis de 20 anos.',
+    desafiosPrinc: [
+      'Cal incrustado en griferías, mampara de ducha e azulexos do baño',
+      'Graxa acumulada en campá extractora, frontais de mobles e encimeira',
+      'Terrazo dos anos 70-80 que precisa produto neutro, sen abrasivos nin lixivia',
+      'Cantos, rodapés e zonas baixas con po adherido que a limpeza diaria non alcanza',
+      'Zonas altas de armarios e mobles con po sedimentado de meses',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'O piso leva meses sen limpeza profesional e a cal e a graxa acumuláronse',
+      'Acabas de facer unha reforma ou mudanza e hai po de obras por todo',
+      'A cal da grifería e da mampara non sae con produtos domésticos normais',
+      'Tes persoas maiores ou con mobilidade reducida na casa que non poden facelo',
+      'Queres que o mesmo equipo veña sempre e coñeza o teu piso sen ter que repetir instrucións',
+    ],
+    faqArq: {
+      q: '¿Os vosos produtos son seguros para o terrazo dos pisos de {barrio}?',
+      a: 'Si. O terrazo dos anos 70-80, frecuente en {barrio}, precisa produtos neutros sen abrasivos nin lixivia que o opacan ou raian. Usamos limpadores ecolóxicos con pH controlado que eliminan a sucidade sen danar o material.',
+    },
+  },
+  'historico': {
+    h1Qualifier: 'edificios históricos · materiais nobres coidados co produto axeitado',
+    introBarrio: 'Os edificios históricos de {barrio} teñen características únicas: teitos altos con molduras de escaiola, pavimentos de madeira ou baldosa hidráulica centenaria e carpinterías de época que non admiten calquera produto. Zentro Limpezas leva décadas traballando nestas vivendas e coñece os produtos e técnicas correctos para cada material.',
+    desafiosPrinc: [
+      'Madeira nobre (parqué, tarima, friso) que pide produto neutro e fregado suave',
+      'Baldosa hidráulica sensible a produtos ácidos ou alcalinos que lle alteran a cor',
+      'Molduras de escaiola nos teitos que acumulan po en zonas de difícil acceso',
+      'Cristais con marcos de madeira que non admiten produtos agresivos nin auga en exceso',
+      'Paredes con grande altura onde o po sobe e nunca se limpa con medios domésticos',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'O inmoble leva tempo sen limpeza profesional de fondo das zonas altas',
+      'Non sabes que produtos usar nos materiais históricos sen risco de danalos',
+      'A moldura dos teitos e as zonas altas acumularon po e non tes como chegar',
+      'Acabas de adquirir ou rehabilitar un inmoble histórico en {barrio}',
+      'Buscas un equipo que coñeza os materiais e non os dañe con produtos incorrectos',
+    ],
+    faqArq: {
+      q: '¿Que produtos usades nos inmobles históricos de {barrio}?',
+      a: 'Produtos neutros con pH controlado, seguros para madeira, baldosa hidráulica e escaiola. Sen lixivia nin abrasivos. Antes de empezar revisamos as superficies e adaptamos os produtos a cada material para non danar o acabado nin alterar a cor.',
+    },
+  },
+  'marinero': {
+    h1Qualifier: 'zona costeira · salitre, humidade e cristais sen marcas de mar',
+    introBarrio: 'As vivendas de {barrio} están expostas á humidade e ao salitre do mar de xeito constante. Os cristais acumulan sal e cal máis rápido que no interior, os baños mostran mofo antes e os materiais metálicos necesitan máis atención. Zentro Limpezas coñece estes problemas e ten os produtos específicos para resolvelos.',
+    desafiosPrinc: [
+      'Cristais con depósitos brancos de sal e cal pola brisa mariña constante',
+      'Humidade en baños e cociña que acelera a aparición de fungos e mofo nas xuntas',
+      'Griferías e elementos metálicos que se oxidan con máis facilidade pola salinidade',
+      'Po con partículas de sal que se deposita en todas as superficies horizontais',
+      'Carpinterías de madeira ou PVC que necesitan atención máis frecuente ca no interior',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'Os cristais están brancos de sal e cal e non saen con produtos domésticos',
+      'Apareceu mofo nos cantos do baño, xuntas da ducha ou baixo as ventás',
+      'A vivenda leva semanas sen limpeza e o salitre acumulouse en todo',
+      'Queres abrir a segunda residencia en {barrio} e deixala en condicións',
+      'Buscas un servizo periódico que manteña a casa sen salitre nin humidade acumulada',
+    ],
+    faqArq: {
+      q: '¿Con que frecuencia recomendades limpiar en {barrio} pola humidade e o salitre?',
+      a: 'En zonas costeiras como {barrio} recomendamos visita quincenal para vivendas habituais, e mensual mínimo para segundas residencias. O salitre e a humidade aceleran a acumulación de depósitos e favorecen a aparición de mofo se non hai mantemento regular.',
+    },
+  },
+  'segunda-residencia': {
+    h1Qualifier: 'segunda residencia · apertura e peche a fondo antes de cada estancia',
+    introBarrio: 'As vivendas de {barrio} usadas como segunda residencia necesitan un tipo de limpeza diferente: preparación para que a casa estea en condicións ao chegar e peche correcto ao marchar. Po sedimentado, humidade acumulada e mofo en baños son os problemas máis frecuentes tras meses pechada.',
+    desafiosPrinc: [
+      'Po fino sedimentado en todas as superficies tras meses coa vivenda pechada',
+      'Mofo en xuntas do baño, baixo ventás e en zonas con humidade acumulada',
+      'Olores de pechado que hai que eliminar antes de usar a vivenda',
+      'Neveira, forno e bañeira que precisan limpeza profunda en apertura de tempada',
+      'Roupa de cama e armarios que absorben humidade durante os meses de peche',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'Antes de chegar: a vivenda leva meses pechada e queres encontrala lista',
+      'Ao marchar: queres deixar a casa recollida e limpa para o vindeiro ano',
+      'Apareceu mofo que non sabes eliminar correctamente sen danar as superficies',
+      'Queres limpeza durante a tempada de estancia en {barrio} sen ocuparte ti',
+      'Acabas de mercar ou alugar unha segunda residencia en {barrio}',
+    ],
+    faqArq: {
+      q: '¿Cantas horas leva a limpeza de apertura dunha segunda residencia en {barrio}?',
+      a: 'Para un piso de 60-80 m² pechado 6 meses calculamos entre 4 e 6 horas con equipo de dúas persoas. Para vivendas máis grandes ou en peor estado pode ser máis. O tempo e o prezo dámoscho pechados no orzamento antes de empezar.',
+    },
+  },
+  'chalet': {
+    h1Qualifier: 'chalés e adosados · limpeza a fondo de todas as plantas e exteriores',
+    introBarrio: 'Os chalés e adosados de {barrio} teñen máis superficie e máis zonas críticas que un piso de bloque: escaleiras entre plantas, garaxe ou baixo, terraza ou xardín e normalmente máis baños. Zentro Limpezas traballa con chalés en toda Ferrolterra e adapta o protocolo ao volume e tipo de inmoble.',
+    desafiosPrinc: [
+      'Escaleiras entre plantas que acumulan po e sucidade en cada pasamáns e chanzo',
+      'Terraza ou varanda con pavimento exterior, mobles e plantas que precisan atención específica',
+      'Garaxe ou baixo con graxa, po e material acumulado de meses',
+      'Múltiples baños con máis superficie de cal e humidade que xestionar',
+      'Zonas altas con teitos a dúas augas e esquinas de difícil acceso',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'O chalé leva tempo sen limpeza profesional completa de todas as plantas',
+      'Tes visita ou evento próximo e queres o inmoble impecable de alto a abaixo',
+      'A terraza, o garaxe ou o baixo necesitan limpeza específica que non fas normalmente',
+      'Buscas un servizo periódico que cubra todas as zonas, non só as principais',
+      'Fixeches obra ou reforma e hai po de construción por todas as plantas',
+    ],
+    faqArq: {
+      q: '¿Cubrís a terraza e o garaxe no servizo para chalés de {barrio}?',
+      a: 'Si, se o cliente o solicita. A terraza (baldosa, pedra ou madeira exterior), o garaxe e o baixo pódense incluír no servizo. Especificámolo no orzamento para que sexa un prezo pechado sen sorpresas nin cobros extra.',
+    },
+  },
+  'rural': {
+    h1Qualifier: 'casas rurais · materiais tradicionais limpos con respecto',
+    introBarrio: 'As casas rurais de {barrio} teñen características propias da arquitectura galega: pedra vista, madeira de piñeiro ou carballo, baldosa hidráulica e chemineas. Estes materiais necesitan produtos específicos e técnica axeitada para non danar o acabado. Zentro Limpezas ten experiencia con este tipo de inmoble en toda Ferrolterra.',
+    desafiosPrinc: [
+      'Pedra vista que acumula po entre as xuntas e nas superficies rugosas',
+      'Madeira de piñeiro ou carballo que pide produto neutro e aplicación suave',
+      'Baldosa hidráulica sensible a produtos ácidos ou alcalinos que lle alteran a cor',
+      'Cheminea e contorna con tizne, cinsas e graxa acumulada ao longo do inverno',
+      'Zonas exteriores de pedra ou granito con musgo e humidade persistente',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'A casa rural leva tempo sen limpeza profesional de fondo',
+      'Non sabes que produtos usar nos materiais sen arriscarte a danalos',
+      'A cheminea e a contorna acumularon tizne e precisan tratamento específico',
+      'Queres abrir a casa rural en {barrio} en condicións para a tempada',
+      'Buscas un equipo que coñeza e respecte os materiais tradicionais galegos',
+    ],
+    faqArq: {
+      q: '¿Que produtos usades en casas de pedra e madeira en {barrio}?',
+      a: 'Produtos neutros con pH controlado para madeira, e desengrasantes suaves para pedra e granito. Non usamos lixivia nin abrasivos que danen o acabado ou alteren a cor dos materiais tradicionais. Antes de empezar revisamos as superficies e adaptamos o protocolo.',
+    },
+  },
+  'industrial': {
+    h1Qualifier: 'zona de polígono · desengrase de partículas industriais incluído',
+    introBarrio: 'As vivendas de {barrio}, próximas a polígonos industriais ou rúas con tráfico pesado, acumulan un tipo de po diferente: partículas grasas que flotan no aire e se pegan a todas as superficies. Esta sucidade precisa un paso previo de desengrase profesional antes da limpeza estándar.',
+    desafiosPrinc: [
+      'Po graxo de orixe industrial depositado en superficies horizontais e filtros de ventilación',
+      'Campá extractora e filtros con graxa industrial que non sae con produtos domésticos',
+      'Cristais con depósitos de partículas grasas que empeoran ao intentar limpalos sen produto correcto',
+      'Rodapés e cantos con po adherido por efecto da graxa ambiental',
+      'Teitos e zonas altas con po industrial que baixa ao limpar as zonas inferiores',
+    ],
+    cuandoH2: '¿Cando é o momento de chamarnos?',
+    cuandoItems: [
+      'O po e a graxa industrial acumuláronse e os produtos normais non son suficientes',
+      'Os cristais están opacos con depósitos que non saen con limpadores domésticos',
+      'A cociña e os filtros da campá teñen graxa industrial adherida de semanas',
+      'Buscas un equipo con produtos profesionais para este tipo de sucidade específica',
+      'Queres un servizo periódico que evite a acumulación de partículas industriais',
+    ],
+    faqArq: {
+      q: '¿Por que o po dunha vivenda en {barrio} é diferente ao doutras zonas?',
+      a: 'As zonas próximas a polígonos ou rúas con tráfico pesado acumulan partículas grasas que se adhiren ás superficies e non saen con produtos domésticos estándar. Usamos desengrasantes profesionais ecolóxicos que eliminan este tipo de sucidade antes de facer a limpeza xeral.',
+    },
+  },
+};
+
+const GL_SERVIZOS_RAW: Record<string, {
+  seccion1H2: string;
+  seccion1Content: string;
+  queIncluyeH2: string;
+  queIncluyeBase: string[];
+  precioH2: string;
+  precioItems: string[];
+  faqServizo: { q: string; a: string };
+}> = {
+  'limpeza-a-fondo': {
+    seccion1H2: '¿Que é a limpeza a fondo en {barrio}?',
+    seccion1Content: 'A limpeza a fondo é un servizo de limpeza profunda ocasional que vai máis aló do mantemento habitual. Inclúe zonas que normalmente quedan fóra: detrás e debaixo dos mobles, interior de armarios, forno e neveira, rodapés en profundidade e todas as superficies de alto a abaixo, con produtos específicos para cada material.',
+    queIncluyeH2: '¿Que inclúe a limpeza a fondo en {barrio}?',
+    queIncluyeBase: [
+      'Baños completos: griferías con antical, vátere, plato de ducha ou bañeira, espellos e azulexos',
+      'Cociña: encimeira, campá extractora, frontais dos mobles e fregadoiro con desengrasante',
+      'Interior de forno e microondas se o cliente o solicita',
+      'Dormitorios, salón e corredores: po alto e baixo, detrás e debaixo dos mobles',
+      'Chan de toda a vivenda con produto axeitado ao material (terrazo, parqué, porcelánico)',
+      'Cristais interiores e exteriores de baixa altura',
+    ],
+    precioH2: '¿Canto custa a limpeza a fondo en {barrio}?',
+    precioItems: [
+      'Piso de 1-2 habitacións: desde 120 €',
+      'Piso de 3 habitacións: desde 170 €',
+      'Chalé ou vivenda grande (>100 m²): orzamento personalizado',
+      'Prezo pechado que inclúe desprazamento, produtos e o tempo necesario',
+    ],
+    faqServizo: {
+      q: '¿A limpeza a fondo inclúe os produtos en {barrio}?',
+      a: 'Si. Incluímos todos os produtos Ecolabel certificados: antical para baño, desengrasante para cociña e limpador xeral para o resto. Non tes que preparar nada nin comprar nada: o equipo chega co material completo.',
+    },
+  },
+  'limpeza-periodica': {
+    seccion1H2: '¿Por que contratar limpeza periódica do fogar en {barrio}?',
+    seccion1Content: 'A limpeza periódica é un servizo regular de mantemento: o mesmo equipo, nos mesmos días, cun protocolo que coñece o teu fogar. Co tempo, o equipo sabe onde se acumula máis sucidade, que produtos funcionan mellor en cada superficie e como traballar sen molestar. O prezo por visita é máis económico ca o servizo puntual.',
+    queIncluyeH2: '¿Que inclúe cada visita periódica en {barrio}?',
+    queIncluyeBase: [
+      'Baños: griferías, vátere, plato de ducha ou bañeira e espellos',
+      'Cociña: encimeira, campá exterior, fregadoiro e frontais dos mobles',
+      'Dormitorios e salón: po de mobles e superficies accesibles',
+      'Chan de toda a vivenda',
+      'Papeleiras e bolsas de lixo',
+    ],
+    precioH2: '¿Canto custa a limpeza periódica en {barrio}?',
+    precioItems: [
+      'Piso de 1-2 habitacións: desde 50 €/visita',
+      'Piso de 3 habitacións: desde 65 €/visita',
+      '10 % de desconto con contrato mensual',
+      'Sen permanencia mínima · Cancelación con 48 h de aviso',
+    ],
+    faqServizo: {
+      q: '¿Sempre vén o mesmo equipo ao meu fogar en {barrio}?',
+      a: 'Si. Co servizo periódico o equipo é sempre o mesmo. Coñecen o teu piso, as túas preferencias e onde se acumula máis sucidade, polo que non hai que repetir instrucións en cada visita.',
+    },
+  },
+  'limpeza-de-vivendas': {
+    seccion1H2: '¿Que inclúe a limpeza de vivendas en {barrio}?',
+    seccion1Content: 'A limpeza de vivendas é un servizo completo para pisos, chalés e casas unifamiliares, puntual ou periódico. Cobre todas as zonas do inmoble con orde e método: primeiro as alturas, despois as superficies verticais e finalmente os chans, para non desfacer o xa limpado. Incluímos produtos Ecolabel certificados sen custo adicional.',
+    queIncluyeH2: '¿Que inclúe o servizo de vivenda en {barrio}?',
+    queIncluyeBase: [
+      'Baños completos: griferías, vátere, plato de ducha ou bañeira, espellos e azulexos',
+      'Cociña: encimeira, campá, frontais dos mobles e fregadoiro',
+      'Dormitorios, salón e corredores: mobles, po e superficies',
+      'Chan de toda a vivenda con produto axeitado ao material',
+      'Papeleiras e lixo',
+      'Cristais interiores de baixa altura',
+    ],
+    precioH2: '¿Canto custa a limpeza de vivenda en {barrio}?',
+    precioItems: [
+      'Piso de 50-70 m²: desde 55 €',
+      'Piso de 70-100 m²: desde 75 €',
+      'Vivenda grande ou chalé: orzamento personalizado',
+      'Con contrato periódico, prezo por visita máis económico',
+    ],
+    faqServizo: {
+      q: '¿Necesito estar na vivenda mentres limpades en {barrio}?',
+      a: 'Non é obrigatorio. Moitos clientes facilítannos acceso sen estar presentes. Ao terminar enviamos mensaxe por WhatsApp. Se prefires estar en casa, tamén podemos organizalo así.',
+    },
+  },
+  'limpeza-de-pisos': {
+    seccion1H2: '¿Por que contratar limpeza de piso en {barrio}?',
+    seccion1Content: 'Limpar un piso en bloque non é o mesmo ca limpar unha vivenda unifamiliar. As superficies máis problemáticas son os baños (cal nas griferías e mampara) e a cociña (graxa en campás, frontais e encimeira). A isto súmase o tipo de chan: o terrazo dos anos 70-80, frecuente en {barrio}, precisa produto neutro e sen abrasivos.',
+    queIncluyeH2: '¿Que inclúe a limpeza do piso en {barrio}?',
+    queIncluyeBase: [
+      'Baños: griferías con antical, vátere, plato de ducha ou bañeira, espellos e azulexos',
+      'Cociña: encimeira, campá, frontais e fregadoiro con desengrasante profesional',
+      'Dormitorios, salón e corredor: po e superficies',
+      'Chan con produto axeitado (terrazo, porcelánico, parqué)',
+      'Papeleiras e lixo',
+    ],
+    precioH2: '¿Canto custa a limpeza de piso en {barrio}?',
+    precioItems: [
+      'Piso de 1-2 habitacións: desde 55 €',
+      'Piso de 3 habitacións: desde 70 €',
+      '10 % de desconto con contrato periódico',
+      'Prezo pechado que inclúe produtos e desprazamento',
+    ],
+    faqServizo: {
+      q: '¿Que facedes cos chans de terrazo en {barrio}?',
+      a: 'O terrazo precisa limpeza con produto neutro, sen lixivia nin abrillantadores ácidos que o opacan. É o chan máis frecuente nos pisos dos anos 70-80 de Ferrolterra e temos experiencia con el desde hai máis de 20 anos.',
+    },
+  },
+  'limpeza-de-apartamentos': {
+    seccion1H2: '¿Como funciona a limpeza de apartamentos turísticos en {barrio}?',
+    seccion1Content: 'A limpeza de apartamentos turísticos e Airbnb ten una esixencia que non ten a limpeza doméstica habitual: o próximo hóspede entra poucas horas despois do check-out, o tempo é axustado e o estado do apartamento condiciona directamente as valoracións e as reservas futuras. Zentro Limpezas traballa con propietarios de toda Ferrolterra con protocolo de rotación estandarizado.',
+    queIncluyeH2: '¿Que inclúe a limpeza de rotación en {barrio}?',
+    queIncluyeBase: [
+      'Limpeza completa de baños e cociña',
+      'Ventilación do espazo e eliminación de olores',
+      'Cambio de roupa de cama e toallas se o propietario as deixa preparadas',
+      'Comprobación visual de consumibles (xabón, papel, bolsas)',
+      'Aviso por WhatsApp con foto ante calquera desperfecto detectado',
+      'Chan e superficies de toda a vivenda',
+    ],
+    precioH2: '¿Canto custa a limpeza de rotación en {barrio}?',
+    precioItems: [
+      'Estudio ou 1 habitación: desde 45 €/rotación',
+      '2 habitacións: desde 65 €/rotación',
+      'Prezo pechado por rotación, sen cobros extra',
+      'Coordinamos directamente co propietario segundo o calendario',
+    ],
+    faqServizo: {
+      q: '¿Podedes xestionar as rotacións de forma autónoma en {barrio}?',
+      a: 'Si. Traballamos con propietarios que nos facilitan acceso e calendario de reservas. Organizamos o servizo sen que o propietario teña que avisar cada vez. Ao terminar enviamos confirmación por WhatsApp.',
+    },
+  },
+  'limpeza-de-cristais': {
+    seccion1H2: '¿Por que é importante a limpeza de cristais en {barrio}?',
+    seccion1Content: 'Os cristais son a parte dun inmoble que antes revela a falta de limpeza e que máis transforma o aspecto cando están en bo estado. Na costa de Ferrolterra o problema principal é o cal da auga e o salitre do ambiente: acumúlase no vidro formando una capa branca que co tempo é difícil de eliminar sen produtos específicos e técnica correcta.',
+    queIncluyeH2: '¿Que inclúe a limpeza de cristais en {barrio}?',
+    queIncluyeBase: [
+      'Cristais interiores e exteriores de toda a vivenda',
+      'Marcos de PVC, aluminio ou madeira limpos con produto axeitado',
+      'Persianas e reixas se o cliente o solicita',
+      'Quitacal profesional con pH controlado máis escuridor sen marcas nin raias',
+      'Pórtiga telescópica para cristais en altura desde o chan',
+    ],
+    precioH2: '¿Canto custa a limpeza de cristais en {barrio}?',
+    precioItems: [
+      'Piso con 4-6 ventás: desde 45 €',
+      'Piso con 7-10 ventás: desde 65 €',
+      'Con servizo periódico de vivenda: desconto incluído',
+      'Prezo pechado que inclúe produtos e desprazamento',
+    ],
+    faqServizo: {
+      q: '¿Con que frecuencia recomendades limpar os cristais en {barrio}?',
+      a: 'En zonas costeiras de Ferrolterra recomendamos cada 4-6 semanas. O salitre e o cal acumúlanse rápido, especialmente en épocas de vento e choiva. No interior, cada 2-3 meses adoita ser suficiente.',
+    },
+  },
+};
+
+const GL_SERVIZO_SLUGS = new Set(Object.keys(GL_SERVIZOS_RAW));
+
+export function getContenidoGLBarrio(
+  servicioSlugGL: string,
+  archetype: BarrioArchetype,
+  barrioNombre: string,
+  municipioNombre: string,
+): ContenidoGLBarrio | null {
+  const arqRaw = GL_ARQUETIPOS_RAW[archetype];
+  const serRaw = GL_SERVIZOS_RAW[servicioSlugGL];
+  if (!arqRaw || !serRaw) return null;
+
+  const g = (s: string) => tGL(s, barrioNombre, municipioNombre);
+
+  const intro = g(arqRaw.introBarrio);
+  const metaDescBase = `${g(serRaw.seccion1Content).slice(0, 110)} Orzamento gratis en 24h.`;
+
+  return {
+    h1Qualifier: arqRaw.h1Qualifier,
+    metaDesc: metaDescBase.slice(0, 158),
+    intro,
+    seccion1H2: g(serRaw.seccion1H2),
+    seccion1P1: g(serRaw.seccion1Content),
+    seccion1P2: intro,
+    queIncluyeH2: g(serRaw.queIncluyeH2),
+    queIncluyeItems: [
+      ...serRaw.queIncluyeBase,
+      ...arqRaw.desafiosPrinc.slice(0, 2),
+    ],
+    cuandoH2: g(arqRaw.cuandoH2),
+    cuandoItems: arqRaw.cuandoItems.map(g),
+    precioH2: g(serRaw.precioH2),
+    precioItems: serRaw.precioItems,
+    faqs: [
+      { q: g(arqRaw.faqArq.q), a: g(arqRaw.faqArq.a) },
+      { q: g(serRaw.faqServizo.q), a: g(serRaw.faqServizo.a) },
+    ],
+  };
+}
+
+export { GL_SERVIZO_SLUGS };

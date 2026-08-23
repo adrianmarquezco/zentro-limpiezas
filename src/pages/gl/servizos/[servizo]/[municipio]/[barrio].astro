@@ -1,0 +1,290 @@
+---
+import ComboLayout from '@/layouts/ComboLayout.astro';
+import HeroLocal from '@/components/sections/HeroLocal.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import { SERVICIOS } from '@/data/servicios';
+import { MUNICIPIOS } from '@/data/municipios';
+import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import type { BarrioArchetype } from '@/data/municipios';
+
+export function getStaticPaths() {
+  const paths: { params: { servizo: string; municipio: string; barrio: string }; props: any }[] = [];
+  for (const servicio of SERVICIOS) {
+    if (!GL_SERVIZO_SLUGS.has(servicio.slugGL)) continue;
+    for (const municipio of MUNICIPIOS) {
+      if (municipio.comarca !== 'Ferrolterra') continue;
+      if (!municipio.barrios) continue;
+      for (const barrio of municipio.barrios) {
+        if (!barrio.archetype) continue;
+        const contenido = getContenidoGLBarrio(servicio.slugGL, barrio.archetype as BarrioArchetype, barrio.nombre, municipio.nombre);
+        if (!contenido) continue;
+        paths.push({
+          params: { servizo: servicio.slugGL, municipio: municipio.slug, barrio: barrio.slug },
+          props: { servicio, municipio, barrio, contenido },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { servicio, municipio, barrio, contenido } = Astro.props;
+
+const canonical = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
+const hreflangGl = canonical;
+const hreflangEs = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/${barrio.slug}/`;
+const ogImage = `${BUSINESS.url}/images/hero-equipo.webp`;
+
+const title = `${servicio.nombreGL} en ${barrio.nombre}, ${municipio.nombreGL} | Zentro Limpiezas`;
+const description = `${servicio.nombreGL} en ${barrio.nombre}. ${contenido.metaDesc}`.slice(0, 160);
+
+const breadcrumbs = [
+  { label: 'Servizos', href: '/gl/servizos/' },
+  { label: servicio.nombreGL, href: `/gl/servizos/${servicio.slugGL}/` },
+  { label: municipio.nombreGL, href: `/gl/servizos/${servicio.slugGL}/${municipio.slug}/` },
+  { label: barrio.nombre, href: canonical },
+];
+
+const faqsLocais: { q: string; a: string }[] = [
+  {
+    q: `¿Canto custa o ${servicio.nombreGL.toLowerCase()} en ${barrio.nombre}?`,
+    a: contenido.precioItems.join(' ') + ` Orzamento pechado en menos de 24 horas sen compromiso.`,
+  },
+  {
+    q: `¿Cubrís todos os barrios de ${municipio.nombreGL}?`,
+    a: `Si. Traballamos en ${barrio.nombre} e en todo ${municipio.nombreGL} con equipo propio, sen subcontratacións. Sen cargo extra por desprazamento dentro do municipio.`,
+  },
+  {
+    q: `¿Tedes dispoñibilidade esta semana en ${barrio.nombre}?`,
+    a: `Normalmente si. ${barrio.nombre} está dentro da nosa zona de traballo habitual e adoitamos ter cita en 24-48 horas. Se o precisas urxente, escríbenos por WhatsApp e miramos a axenda no momento.`,
+  },
+];
+const faqs = [...faqsLocais, ...contenido.faqs];
+
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, barrio.nombre));
+
+const outrosBarrios = (municipio.barrios ?? []).filter(
+  b => b.slug !== barrio.slug && b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', ''),
+);
+
+const h1 = `${servicio.nombreGL} en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
+---
+
+<ComboLayout
+  {title}
+  {description}
+  {canonical}
+  {ogImage}
+  lang="gl"
+  serviceName={`${servicio.nombreGL} en ${barrio.nombre}, ${municipio.nombreGL}`}
+  serviceDesc={description}
+  {faqs}
+  {breadcrumbs}
+  {hreflangEs}
+  {hreflangGl}
+  areaServed={[barrio.nombre, municipio.nombreGL, municipio.comarca]}
+>
+  <HeroLocal
+    municipio={barrio.nombre}
+    servicio={servicio.nombreGL}
+    eyebrow={`${servicio.nombreGL} · ${barrio.nombre}, ${municipio.nombreGL}`}
+    {h1}
+    subtitle={contenido.intro}
+    lang="gl"
+  />
+
+  <section class="py-16 lg:py-24 bg-warm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+
+        <div class="lg:col-span-2 space-y-10">
+
+          <!-- 01 · Que é e que inclúe -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">{contenido.seccion1H2}</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p class="speakable-intro">{contenido.seccion1P1}</p>
+              <p>{contenido.seccion1P2}</p>
+            </div>
+          </div>
+
+          <!-- 02 · Que inclúe -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl text-primary">{contenido.queIncluyeH2}</h2>
+            </div>
+            <ul class="space-y-3 text-mid">
+              {contenido.queIncluyeItems.map(item => (
+                <li class="flex items-start gap-3">
+                  <span class="text-accent font-bold text-lg leading-tight mt-0.5 flex-shrink-0">✓</span>
+                  <span class="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-mid text-sm mt-5 leading-relaxed">
+              Todos os produtos son Ecolabel con certificación europea. Sen cheiro a químico agresivo e sen risco para nenos nin mascotas.
+            </p>
+          </div>
+
+          <!-- 03 · Cando chamarnos -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">03</span>
+              <h2 class="font-serif text-2xl text-primary">{contenido.cuandoH2}</h2>
+            </div>
+            <ul class="space-y-2 text-mid">
+              {contenido.cuandoItems.map(item => (
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- 04 · Prezo -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">04</span>
+              <h2 class="font-serif text-2xl text-primary">{contenido.precioH2}</h2>
+            </div>
+            <ul class="space-y-2 text-mid ml-4">
+              {contenido.precioItems.map(item => (
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="p-4 bg-white border border-line rounded-lg mt-4">
+              <p class="text-sm text-charcoal">
+                <span class="font-semibold text-primary">Orzamento pechado, sen sorpresas.</span>{' '}
+                O prezo que che damos inclúe desprazamento, produtos e o tempo necesario. Sen custos ocultos nin cobros extra por materiais.
+              </p>
+            </div>
+          </div>
+
+          <!-- 05 · Por que elegirnos -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">05</span>
+              <h2 class="font-serif text-2xl text-primary">¿Por que contratar o {servicio.nombreGL.toLowerCase()} en {barrio.nombre} con Zentro Limpezas?</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                Zentro Limpezas é unha empresa de limpeza con máis de 20 anos de experiencia en Ferrolterra. Traballamos en {barrio.nombre} e en todo {municipio.nombreGL} con equipo propio, sen subcontratacións. Sempre o mesmo equipo en cada visita: así coñecen o teu inmoble e saben onde se acumula máis sucidade sen que teñas que repetir instrucións.
+              </p>
+              <p>
+                Se buscas unha empresa de {servicio.nombreGL.toLowerCase()} en {barrio.nombre} con orzamento fixo e sen letra pequena, somos o que buscas. O prezo que che damos é o prezo final. Se ao rematar atopas algo que non está ben, volvemos sen custo adicional.
+              </p>
+              <div class="grid sm:grid-cols-3 gap-3 mt-4">
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">+20</p>
+                  <p class="text-mid text-xs mt-1">anos limpando en Ferrolterra</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">24h</p>
+                  <p class="text-mid text-xs mt-1">para darte orzamento pechado</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">100%</p>
+                  <p class="text-mid text-xs mt-1">produtos Ecolabel certificados</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Aside -->
+        <aside class="space-y-6 self-start">
+
+          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+            <p class="font-serif text-lg text-primary mb-2 font-semibold">{servicio.nombreGL} en {barrio.nombre}</p>
+            <p class="text-mid text-xs mb-4">Orzamento gratis · Sen compromiso · 24h</p>
+            <div class="flex flex-col gap-2">
+              <a href="/gl/orzamento/" class="btn-accent w-full text-center text-sm">→ Pedir orzamento</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">
+                WhatsApp {BUSINESS.phoneDisplay}
+              </a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <p class="font-serif text-base text-primary mb-1 font-semibold">{servicio.nombreGL} en todo {municipio.nombreGL}</p>
+            <p class="text-mid text-xs mb-3">Prezos e cobertura para todos os barrios.</p>
+            <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/`} class="text-sm text-accent hover:underline">
+              → {servicio.nombreGL} en {municipio.nombreGL}
+            </a>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <p class="font-serif text-base text-primary mb-1 font-semibold">Versión en castelán</p>
+            <p class="text-mid text-xs mb-3">Tamén dispoñible en español.</p>
+            <a href={hreflangEs} class="text-sm text-accent hover:underline" hreflang="es">
+              → {servicio.nombre} en {barrio.nombre}
+            </a>
+          </div>
+
+          {outrosBarrios.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">{servicio.nombreGL} noutros barrios de {municipio.nombreGL}</p>
+              <ul class="space-y-2">
+                {outrosBarrios.slice(0, 6).map(b => (
+                  <li>
+                    <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {b.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div class="card p-4" data-reveal>
+            <a href={`/gl/zonas/${municipio.slug}/${barrio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline transition-colors">
+              → Todos os servizos dispoñibles en {barrio.nombre}
+            </a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
+        Preguntas sobre {servicio.nombreGL.toLowerCase()} en {barrio.nombre}
+      </h2>
+      <p class="text-white/60 text-center mb-8" data-reveal>
+        Se tes máis dúbidas, chámanos ao <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
+      </p>
+      <div class="space-y-3" data-reveal>
+        {faqs.map((faq) => (
+          <details class="bg-charcoal border border-white/10 rounded-lg group">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none hover:text-white transition-colors">
+              <h3 class="text-white/90 font-medium text-sm m-0 group-open:text-white">{faq.q}</h3>
+              <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactStrip context={`${barrio.nombre}, ${municipio.nombreGL}`} lang="gl" />
+</ComboLayout>
