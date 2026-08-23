@@ -164,10 +164,10 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
           <a href={`${base}/${isGL ? 'servizos' : 'servicios'}/`} class="block text-accent text-sm font-semibold py-1.5 hover:underline">{isGL ? 'Ver todos os servizos →' : 'Ver todos los servicios →'}</a>
           {[
             { slug: isGL ? 'limpeza-de-vivendas' : 'limpieza-de-viviendas',   label: isGL ? 'Limpeza de vivendas'   : 'Limpieza de viviendas' },
+            { slug: isGL ? 'limpeza-de-pisos'   : 'limpieza-de-pisos',        label: isGL ? 'Limpeza de pisos'      : 'Limpieza de pisos' },
             { slug: isGL ? 'limpeza-de-oficinas' : 'limpieza-de-oficinas',    label: isGL ? 'Limpeza de oficinas'   : 'Limpieza de oficinas' },
             { slug: isGL ? 'limpeza-fin-de-obra' : 'limpieza-fin-de-obra',    label: isGL ? 'Limpeza fin de obra'   : 'Limpieza fin de obra' },
             { slug: isGL ? 'limpeza-periodica'   : 'limpieza-periodica',      label: isGL ? 'Limpeza periódica'     : 'Limpieza periódica' },
-            { slug: isGL ? 'limpeza-a-fondo'     : 'limpieza-a-fondo',        label: isGL ? 'Limpeza a fondo'       : 'Limpieza a fondo' },
           ].map(item => (
             <a href={`${base}/${isGL ? 'servizos' : 'servicios'}/${item.slug}/`} class="block text-white/60 hover:text-white text-sm py-1.5 transition-colors">
               {item.label}
