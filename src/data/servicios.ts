@@ -52,7 +52,7 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Limpiáis el interior de la nevera y el horno?', a: 'En la limpieza puntual o a fondo sí, si el cliente lo solicita. En la periódica de mantenimiento solo si se acuerda expresamente, ya que añade tiempo de servicio. Lo aclaramos siempre en el presupuesto.' },
     ],
     tier: 1,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'matogrande', 'mesoiro', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
   {
     slug: 'limpieza-de-oficinas',

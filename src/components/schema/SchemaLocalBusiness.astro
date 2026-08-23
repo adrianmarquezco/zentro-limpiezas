@@ -8,7 +8,7 @@ const schema = {
   name: BUSINESS.name,
   image: `${BUSINESS.url}/images/logo.png`,
   logo: `${BUSINESS.url}/images/logo.png`,
-  telephone: BUSINESS.phoneHref,
+  telephone: BUSINESS.phoneHref.replace('tel:', ''),
   url: BUSINESS.url,
   priceRange: BUSINESS.priceRange,
   foundingDate: String(BUSINESS.foundingYear),
