@@ -98,6 +98,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-a-fondo',
     slugGL: 'limpeza-a-fondo',
+    tituloMeta: 'Limpieza a fondo · gran limpieza de pisos y viviendas',
     nombre: 'Limpieza a fondo',
     nombreGL: 'Limpeza a fondo',
     icono: 'sparkle',
@@ -222,6 +223,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'desinfeccion-profesional',
     slugGL: 'desinfeccion-profesional',
+    tituloMeta: 'Desinfección con biocidas certificados · Ferrolterra',
     nombre: 'Desinfección profesional',
     nombreGL: 'Desinfección profesional',
     icono: 'shield',

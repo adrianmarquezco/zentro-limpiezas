@@ -1275,6 +1275,340 @@ export function getContenidoTuristicos(
   };
 }
 
+// ─── LIMPIEZA A FONDO ────────────────────────────────────────────────────────
+
+export type ContenidoAfondo = {
+  h1Qualifier: string;
+  metaDesc: string;
+  intro: string;
+  queEsH2: string;
+  queEsContent: string;
+  queIncluyeH2: string;
+  queIncluyeItems: string[];
+  cuandoH2: string;
+  cuandoItems: string[];
+  precioItems: string[];
+  faqs: { q: string; a: string }[];
+};
+
+const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
+  'bloque-obrero': {
+    h1Qualifier: 'pisos de bloque · cal, grasa y zonas que el día a día no alcanza',
+    metaDesc: 'Limpieza a fondo en pisos de bloque de {barrio}: cal incrustada en baños, grasa acumulada en cocina y zonas que la limpieza habitual nunca alcanza. Desde 120€.',
+    intro: 'La limpieza a fondo de un piso de bloque en {barrio} es el servicio que llega donde la limpieza de mantenimiento nunca llega: el interior de los armarios de cocina, la campana con años de grasa acumulada, la cal en el plato de ducha, los rodapiés y los interruptores. Los bloques de los años 70-80, frecuentes en {barrio}, tienen materiales específicos —gres, terrazo, aluminio de época— que necesitan el producto correcto para limpiarse de verdad sin deteriorarse.',
+    queEsH2: '¿Qué es y qué incluye una limpieza a fondo en un piso de bloque de {barrio}?',
+    queEsContent: 'La limpieza a fondo es el "reseteo" del piso: se hace cuando se necesita llegar donde el mantenimiento habitual no llega. En los pisos de bloque de {barrio}, eso significa dedicar tiempo específico a la campana extractora con grasa acumulada, la cal en griferías y plato de ducha, el interior de armarios de cocina, y el polvo detrás y debajo de los electrodomésticos. Se trabaja de arriba hacia abajo: primero alturas y techos, después muebles y armarios, finalmente suelos.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo en {barrio}',
+    queIncluyeItems: [
+      'Cocina a fondo: interior y exterior de armarios, encimera, azulejos, campana extractora, electrodomésticos y suelo',
+      'Baños: antical en griferías, inodoro, plato de ducha o bañera, mampara, juntas de azulejo, espejo y suelo',
+      'Dormitorios: interior de armarios a petición, debajo de la cama, ventanas interiores, rodapiés y suelo',
+      'Salón/comedor: detrás de muebles, estanterías, ventanas interiores, zócalos y suelo',
+      'Interruptores, pomos y marcos de puerta: zonas de contacto frecuente con suciedad acumulada',
+      'Lámparas, techos y esquinas: polvo acumulado en esquinas y luminarias',
+      'Productos Ecolabel: antical, desengrasante y limpiahogar certificados incluidos',
+    ],
+    cuandoH2: '¿Cuándo conviene contratar una limpieza a fondo en un piso de {barrio}?',
+    cuandoItems: [
+      'Antes o después de una mudanza: el piso queda listo para entrar o para entregar',
+      'Vuelta de vacaciones largas: cuando el piso ha estado cerrado semanas',
+      'Primera limpieza con empresa: para establecer la base antes de empezar con periódica',
+      'Cambio de inquilinos: el piso queda como nuevo para los siguientes residentes',
+      'Acumulación de tiempo: más de 6 meses sin limpieza profesional a fondo',
+    ],
+    precioItems: [
+      'Piso 1-2 habitaciones (45-65 m²): desde 120-170€',
+      'Piso 3 habitaciones (70-90 m²): desde 170-240€',
+      'Interior de armarios y electrodomésticos: incluidos a petición',
+      'Presupuesto cerrado en 24h: sin sorpresas en la factura',
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto tiempo dura una limpieza a fondo en un piso de bloque de {barrio}?',
+        a: 'Para un piso de 70-80 m² en {barrio}, entre 4 y 6 horas con un equipo de dos personas. Para pisos más descuidados o más grandes, puede extenderse a 7-8 horas. Lo indicamos en el presupuesto.',
+      },
+      {
+        q: '¿Tengo que vaciar los armarios antes de la limpieza a fondo en {barrio}?',
+        a: 'Solo si quieres que los limpiemos por dentro. Muchos clientes vacían ellos los armarios de cocina antes de la visita y nosotros los limpiamos y rellenamos. Si prefieres que nos encarguemos del vaciado, también lo hacemos.',
+      },
+    ],
+  },
+
+  'historico': {
+    h1Qualifier: 'edificios históricos · materiales nobles limpios con el producto correcto',
+    metaDesc: 'Limpieza a fondo en {barrio}: parquet, baldosa hidráulica y molduras de escayola tratados con productos neutros. Resultado profundo sin dañar los acabados de época.',
+    intro: 'Las viviendas en los edificios históricos de {barrio} son un reto de limpieza: cada sala puede tener un tipo de suelo diferente —parquet, baldosa hidráulica, mosaico—, las molduras y cornisas acumulan polvo en sus relieves, y los materiales envejecidos exigen productos que los cuiden en lugar de dañarlos. En Zentro Limpiezas identificamos los materiales antes de empezar y adaptamos producto y técnica a cada superficie para un resultado real.',
+    queEsH2: '¿Qué hace diferente la limpieza a fondo en los pisos históricos de {barrio}?',
+    queEsContent: 'La limpieza a fondo de un piso histórico en {barrio} no es solo ir más despacio: es saber qué producto usar en cada material. El parquet antiguo se daña con agua en exceso; la baldosa hidráulica absorbe los ácidos de limpiadores agresivos; las molduras de escayola acumulan polvo en relieves que una fregona no alcanza. La diferencia en el resultado, cuando se hace con el producto y la técnica correctos, es completamente visible.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo en una vivienda histórica de {barrio}',
+    queIncluyeItems: [
+      'Suelos de parquet/madera: mopa casi seca con producto específico sin agua en exceso',
+      'Suelos de baldosa hidráulica o mosaico: limpieza con producto neutro pH 7',
+      'Molduras, cornisas y techos altos: cepillo extensible para relieves y recovecos',
+      'Cocina: interior y exterior de muebles, encimera, azulejos, campana y electrodomésticos',
+      'Baños con azulejo antiguo: sanitarios, grifería, mampara y suelo con productos neutros',
+      'Ventanas de guillotina: cristales, carriles y marcos con cepillo fino',
+      'Detrás y debajo de muebles: polvo de sedimentación en zonas sin acceso habitual',
+    ],
+    cuandoH2: '¿Cuándo tiene más sentido contratar una limpieza a fondo en {barrio}?',
+    cuandoItems: [
+      'Inicio de temporada o apertura tras meses cerrado',
+      'Antes de recibir visitas importantes o alquilar el piso',
+      'Para establecer la base antes de empezar con limpieza periódica',
+      'Cuando la suciedad acumulada ha superado lo que el mantenimiento puede abordar',
+      'Mudanza: para dejar el piso impecable al entregar o al recibir',
+    ],
+    precioItems: [
+      'Piso histórico 50-70 m²: desde 160-220€',
+      'Piso histórico 70-100 m²: desde 220-290€',
+      'Tratamiento específico para parquet y baldosa hidráulica: incluido sin suplemento',
+      'Molduras y techos altos: incluidos',
+    ],
+    faqs: [
+      {
+        q: '¿Dañáis los suelos de parquet al hacer la limpieza a fondo en {barrio}?',
+        a: 'No si se hace correctamente, que es como lo hacemos nosotros. Mopa de microfibra casi seca con producto específico para madera, sin agua en exceso. El parquet antiguo es más sensible que el moderno y lo tratamos con el cuidado que requiere.',
+      },
+      {
+        q: '¿Cuánto tarda una limpieza a fondo en un piso histórico de {barrio}?',
+        a: 'Para un piso de 80-90 m² con materiales de época, entre 5 y 7 horas. Los materiales específicos y los detalles arquitectónicos requieren más tiempo y técnica. Lo indicamos en el presupuesto.',
+      },
+    ],
+  },
+
+  'marinero': {
+    h1Qualifier: 'zona costera · salitre, humedad y cristales sin marcas de mar',
+    metaDesc: 'Limpieza a fondo en {barrio}: salitre en marcos y alféizares, humedad en baños y manchas de condensación en cristales. Tratamiento completo para casas costeras.',
+    intro: 'Una limpieza a fondo en una casa costera de {barrio} tiene que abordar lo que el ambiente marino hace al inmueble: el salitre que se deposita en marcos, alféizares y superficies metálicas, la humedad que genera moho en baños y juntas, y las manchas de condensación en cristales. Son problemas que en casas del interior no existen, y que requieren tratamiento específico.',
+    queEsH2: '¿Qué incluye la limpieza a fondo en una casa costera de {barrio}?',
+    queEsContent: 'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora tratamiento de salitre en marcos y alféizares, antifúngico en juntas de baño donde la humedad marina acelera el crecimiento de moho, y tratamiento de manchas de condensación en cristales. Estos elementos diferenciadores son lo que hace que la limpieza a fondo de una casa costera sea distinta a la de una casa del interior.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo en {barrio}',
+    queIncluyeItems: [
+      'Marcos y alféizares: neutralizador de sales marinas para eliminar salitre acumulado',
+      'Baños: antifúngico en juntas, techos y zonas con humedad; sanitarios, mampara y grifería',
+      'Cristales: tratamiento de manchas de condensación interior y salitre exterior',
+      'Cocina: interior de armarios, campana, encimera, electrodomésticos y suelo',
+      'Dormitorios: muebles, interior de armarios, debajo de camas y suelo',
+      'Salón: detrás de muebles, estanterías, ventanas y suelo',
+      'Terraza: salitre en barandilla, suelo y muebles exteriores',
+    ],
+    cuandoH2: '¿Cuándo conviene hacer una limpieza a fondo en tu casa de {barrio}?',
+    cuandoItems: [
+      'Apertura tras el invierno: la casa ha acumulado meses de humedad y salitre cerrada',
+      'Antes del verano: para recibir la temporada con el inmueble en perfecto estado',
+      'Cambio de inquilinos o turistas: el apartamento queda impecable para el siguiente',
+      'Cuando el moho ya es visible en baños: tratamiento a fondo antes de que se extienda',
+      'Mudanza: entrada o salida con el piso completamente limpio',
+    ],
+    precioItems: [
+      'Piso o casa hasta 70 m² en {barrio}: desde 130-180€',
+      'Piso o casa 70-100 m²: desde 180-250€',
+      'Tratamiento de salitre y antifúngico: incluidos sin suplemento',
+      'Terraza costera: incluida',
+    ],
+    faqs: [
+      {
+        q: '¿El salitre marino daña los marcos de las ventanas si no se limpia regularmente en {barrio}?',
+        a: 'Con el tiempo, sí. El ambiente salino puede acelerar la oxidación de marcos de aluminio. Con una limpieza a fondo periódica y neutralizador de sales, ese deterioro se previene eficazmente.',
+      },
+      {
+        q: '¿Podéis eliminar el moho del baño en la limpieza a fondo de {barrio}?',
+        a: 'Sí. El moho visible en juntas y techo del baño se elimina con antifúngico profesional. Si el moho está muy extendido o penetra en la pared, puede requerir un tratamiento adicional que presupuestamos aparte.',
+      },
+    ],
+  },
+
+  'segunda-residencia': {
+    h1Qualifier: 'segunda residencia · apertura o cierre a fondo antes o después de la estancia',
+    metaDesc: 'Limpieza a fondo de segunda residencia en {barrio}: apertura tras meses cerrada, piso ventilado, sin moho ni polvo de sedimentación. Gestionamos con tu llave.',
+    intro: 'Una segunda residencia en {barrio} que pasa meses cerrada acumula una suciedad diferente a la de uso diario: polvo de sedimentación en todas las superficies, manchas de condensación en cristales, moho superficial en baños sin usar, olor a cerrado y en algunos casos filtraciones que hay que detectar. La limpieza a fondo de apertura deja el piso listo para disfrutar desde el primer momento en que llegas.',
+    queEsH2: '¿En qué estado está una segunda residencia de {barrio} después de meses cerrada?',
+    queEsContent: 'Un piso cerrado durante el invierno en {barrio} acumula polvo de sedimentación en muebles y suelos, manchas de condensación en cristales por el diferencial térmico, moho superficial en juntas de baño y encimera, y el olor característico de espacio sin ventilar. Si además está en zona costera, añade salitre en marcos y superficies metálicas. La limpieza de apertura lo resuelve todo en una visita: ventilación activa, tratamiento de humedad y limpieza completa.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo de apertura de segunda residencia en {barrio}',
+    queIncluyeItems: [
+      'Toda la vivienda: polvo de sedimentación eliminado en muebles, superficies y suelos',
+      'Baños: desinfección completa, antifúngico en juntas y zonas con humedad, sanitarios y mampara',
+      'Cocina: interior de nevera y horno a petición, armarios, campana, encimera y suelo',
+      'Cristales interiores: manchas de condensación y polvo de sedimentación',
+      'Ventilación activa durante todo el proceso',
+      'Revisión visual de filtraciones o humedades (aviso por WhatsApp si encontramos algo)',
+      'Cambio de ropa de cama si nos dejas juego preparado',
+    ],
+    cuandoH2: '¿Cuándo se contrata la limpieza a fondo de segunda residencia en {barrio}?',
+    cuandoItems: [
+      'Apertura de primavera/verano: para llegar y encontrar el piso listo',
+      'Cierre de temporada: limpieza a fondo antes de dejarlo cerrado meses',
+      'Antes de alquilarlo en plataformas: apartamento impecable para los primeros huéspedes',
+      'Cuando detectas olor, moho visible o polvo excesivo al llegar',
+      'Cambio de inquilino: entre un inquilino y otro',
+    ],
+    precioItems: [
+      'Piso hasta 70 m² (limpieza de apertura): desde 130-180€',
+      'Piso 70-100 m² (limpieza de apertura): desde 180-250€',
+      'Limpieza de cierre (más breve que la apertura): desde 90€',
+      'Gestión con tu llave: sin coste adicional',
+    ],
+    faqs: [
+      {
+        q: '¿Podéis hacer la limpieza de apertura en {barrio} el día antes de que llegue yo?',
+        a: 'Exactamente así es como lo hacemos normalmente. Nos das la fecha de llegada, acordamos el día anterior y al llegar tú el piso está limpio, ventilado y listo. Foto de confirmación por WhatsApp al terminar.',
+      },
+      {
+        q: '¿Limpiais también el interior de la nevera y el horno en la apertura de {barrio}?',
+        a: 'Sí, si nos lo indicas al pedir el presupuesto. El interior de la nevera y el horno están incluidos a petición en la limpieza de apertura de segunda residencia.',
+      },
+    ],
+  },
+
+  'chalet': {
+    h1Qualifier: 'chalés y adosados · gran limpieza de todas las plantas y exteriores',
+    metaDesc: 'Limpieza a fondo en chalés de {barrio}: planta baja, primera planta, garaje, terraza y zonas exteriores. Equipo adaptado al tamaño y al tiempo necesario.',
+    intro: 'La limpieza a fondo de un chalé o adosado en {barrio} no se parece a la de un piso de bloque: hay más plantas, más metros de cocina y baños, terraza que tratar, garaje, y la suciedad de jardín que se distribuye por toda la planta baja. En Zentro Limpiezas adaptamos el equipo al tamaño real de tu chalé para que la limpieza a fondo quede completa en el tiempo acordado, sin dejar ninguna zona sin atender.',
+    queEsH2: '¿Qué áreas de un chalé de {barrio} se cubren en la limpieza a fondo?',
+    queEsContent: 'En un chalé, la limpieza a fondo va más allá de las zonas estándar. Además de cocina, baños, dormitorios y salón, incluye la escalera interior con barandilla, la terraza con suelo y muebles, el interior del garaje con barrido, y la entrada y accesos exteriores. Son las zonas que en un piso de bloque no existen y que en el chalé acumulan suciedad específica que la visita de mantenimiento habitual no resuelve a fondo.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo de chalés en {barrio}',
+    queIncluyeItems: [
+      'Cocina completa: interior y exterior de todos los armarios, campana, encimera, azulejos y electrodomésticos',
+      'Todos los baños: sanitarios, grifería con antical, mamparas, juntas, suelos y espejos',
+      'Dormitorios (todas las plantas): interior de armarios, debajo de camas, ventanas y suelos',
+      'Salón y comedor: detrás de muebles, ventanales grandes, estanterías y suelo',
+      'Escalera interior: peldaños, barandilla y rellanos',
+      'Terraza: suelo, muebles exteriores y barandilla',
+      'Garaje: barrido de polvo y recogida de suciedad superficial',
+    ],
+    cuandoH2: '¿Cuándo conviene contratar la limpieza a fondo del chalé en {barrio}?',
+    cuandoItems: [
+      'Post-verano o post-temporada: después de meses de uso intensivo con familia',
+      'Antes de celebraciones en casa: recibir invitados con el chalé en perfecto estado',
+      'Primera vez con empresa: establecer la base antes de empezar con servicio periódico',
+      'Mudanza entrante o saliente: el chalé listo para los nuevos propietarios o inquilinos',
+      'Cuando la terraza y el garaje ya no se pueden dejar para después',
+    ],
+    precioItems: [
+      'Adosado 2 plantas hasta 130 m²: desde 220-290€',
+      'Chalé independiente 130-200 m²: desde 290-380€',
+      'Chalé más de 200 m²: presupuesto personalizado',
+      'Terraza, escalera y garaje: incluidos',
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto tiempo necesitáis para la limpieza a fondo de un chalé en {barrio}?',
+        a: 'Para un adosado de dos plantas de 120-130 m², 2 personas durante 5-7 horas. Para chalés de más de 150 m², ajustamos el equipo para hacerlo en el tiempo acordado. Siempre lo indicamos en el presupuesto.',
+      },
+      {
+        q: '¿Limpiais también el garaje en la limpieza a fondo del chalé de {barrio}?',
+        a: 'Incluimos barrido de polvo y recogida de suciedad superficial del garaje. Para una limpieza a fondo del garaje con eliminación de manchas de aceite y fregado total, se presupuesta como servicio específico.',
+      },
+    ],
+  },
+
+  'rural': {
+    h1Qualifier: 'casas rurales · limpieza a fondo con respeto por los materiales tradicionales',
+    metaDesc: 'Limpieza a fondo en casas rurales de {barrio}: suelos de piedra y madera, chimenea, vigas y suciedad de campo. Productos Ecolabel respetuosos con el entorno.',
+    intro: 'La limpieza a fondo de una casa rural en {barrio} tiene su propia complejidad: los suelos de piedra, baldosa de barro o madera no admiten los mismos productos que los pisos urbanos; la chimenea activa deja ceniza en zonas próximas; las vigas de los techos acumulan polvo y telarañas que solo se eliminan con cepillo extensible; y el campo trae su propia suciedad —barro, polvo orgánico— que se acumula de forma diferente. Trabajamos con el producto correcto para cada material.',
+    queEsH2: '¿Qué es diferente en la limpieza a fondo de una casa rural de {barrio}?',
+    queEsContent: 'La principal diferencia está en los materiales y el tipo de suciedad. La piedra natural y la baldosa de barro son porosas: absorben los ácidos de los productos de limpieza estándar y se dañan. La madera de suelos y vigas necesita mínima humedad. La chimenea activa genera hollín en superficies próximas que requiere tratamiento específico. Y la suciedad que entra del campo —barro, polvo orgánico— se distribuye por todas las estancias de forma diferente a la suciedad urbana.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo en una casa rural de {barrio}',
+    queIncluyeItems: [
+      'Suelos de piedra o baldosa de barro: fregado con producto neutro pH 7 sin ácidos',
+      'Suelos de madera o tarima: mopa casi seca con producto específico para madera',
+      'Chimenea: hogar exterior, cenicero, zona con hollín y superficies próximas',
+      'Techos con vigas: cepillo extensible para polvo, hollín y telarañas en recovecos',
+      'Cocina: interior de armarios, campana, fogones, encimera y electrodomésticos',
+      'Baños: desinfección completa con antifúngico en zonas de humedad',
+      'Marcos de madera: verdín y humedad con producto antifúngico ecológico',
+    ],
+    cuandoH2: '¿Cuándo tiene más sentido una limpieza a fondo en {barrio}?',
+    cuandoItems: [
+      'Final de invierno: después de la temporada con chimenea activa',
+      'Apertura de temporada: si la casa ha estado cerrada meses',
+      'Antes de alquilarla o recibirla: turismo rural o visitas familiares',
+      'Cuando el hollín y el polvo de campo han superado el mantenimiento habitual',
+      'Mudanza: para entrar o salir con la casa completamente limpia',
+    ],
+    precioItems: [
+      'Casa rural hasta 100 m²: desde 170-230€',
+      'Casa rural 100-160 m²: desde 230-310€',
+      'Tratamiento de suelos de piedra, barro y madera: incluido',
+      'Zona de chimenea y vigas: incluidas',
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto tiempo lleva la limpieza a fondo de una casa rural en {barrio}?',
+        a: 'Para una casa de 80-100 m² con materiales tradicionales, entre 5 y 8 horas con dos personas. Los materiales específicos y los techos con vigas requieren más tiempo que un piso estándar. Lo indicamos en el presupuesto.',
+      },
+      {
+        q: '¿Podéis limpiar suelos de barro cocido sin que pierdan color en {barrio}?',
+        a: 'Sí, con producto neutro pH 7. El barro cocido sin barnizar es muy poroso y se daña con ácidos. Si el suelo lleva mucho tiempo sin limpieza a fondo, puede necesitar un tratamiento de sellado posterior que presupuestamos aparte.',
+      },
+    ],
+  },
+
+  'industrial': {
+    h1Qualifier: 'zona polígono · gran limpieza con desengrase de partículas industriales',
+    metaDesc: 'Limpieza a fondo en {barrio}: desengrase de capa industrial en alféizares, cocina y encimeras. Limpieza integral de pisos en zona de polígono.',
+    intro: 'La limpieza a fondo de un piso en {barrio}, en el entorno del polígono industrial, tiene un reto extra: la capa de partículas grasas procedentes de la actividad industrial y el tráfico pesado que se deposita en alféizares, encimeras y superficies próximas a ventanas. Esta capa requiere una fase de desengrase antes de cualquier limpieza a fondo efectiva. Sin ese paso previo, el producto habitual redistribuye las partículas grasas en lugar de eliminarlas.',
+    queEsH2: '¿Qué tiene de diferente la limpieza a fondo en un piso de {barrio}?',
+    queEsContent: 'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora como primer paso un desengrase específico de las superficies más expuestas a partículas industriales: alféizares, marcos de ventana, encimeras próximas a ventanas y suelos de entrada. Esta fase de desengrase es lo que determina si la limpieza a fondo resuelve realmente la suciedad característica del entorno industrial o simplemente la distribuye de otra manera.',
+    queIncluyeH2: 'Qué incluye la limpieza a fondo en {barrio}',
+    queIncluyeItems: [
+      'Alféizares y marcos: desengrase previo de partículas industriales, limpieza completa',
+      'Encimeras y superficies horizontales: desengrase antes del limpiahogar habitual',
+      'Cocina a fondo: campana, interior y exterior de armarios, electrodomésticos y suelo con desengrase',
+      'Baños: limpieza completa con antical en griferías, sanitarios, mampara y suelo',
+      'Dormitorios: interior de armarios, debajo de camas, ventanas y suelo',
+      'Salón: detrás de muebles, encimeras, ventanas y suelo',
+      'Terraza o balcón: suelo y barandilla con tratamiento de partículas',
+    ],
+    cuandoH2: '¿Cuándo conviene hacer una limpieza a fondo en un piso de {barrio}?',
+    cuandoItems: [
+      'Cuando el nivel de suciedad industrial supera lo que la periódica resuelve',
+      'Mudanza entrante: el piso queda limpio de la capa de partículas para empezar bien',
+      'Mudanza saliente: entregar el piso en perfectas condiciones al siguiente inquilino',
+      'Cambio de temporada: antes de que la capa industrial se vuelva crónica',
+      'Primera vez con empresa: para establecer la base antes de empezar con periódica',
+    ],
+    precioItems: [
+      'Piso 1-2 habitaciones (45-65 m²): desde 130-175€',
+      'Piso 3 habitaciones (65-90 m²): desde 175-240€',
+      'Desengrasante Ecolabel de alta eficacia: incluido sin suplemento',
+      'Presupuesto cerrado en 24h: sin sorpresas',
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto tiempo dura una limpieza a fondo en un piso de {barrio}?',
+        a: 'El desengrase previo añade 30-45 minutos a la limpieza a fondo estándar. Para un piso de 70-80 m² en {barrio}, calcular entre 4,5 y 6,5 horas con un equipo de dos personas.',
+      },
+      {
+        q: '¿Cómo sé si mi piso de {barrio} necesita limpieza a fondo o solo limpieza periódica?',
+        a: 'Si al pasar el dedo por el alféizar queda una capa grasienta oscura, si la campana tiene grasa visible acumulada, o si la cocina ya no recupera el estado de limpieza con una visita de mantenimiento, necesitas una limpieza a fondo primero.',
+      },
+    ],
+  },
+};
+
+export function getContenidoAfondo(
+  archetype: BarrioArchetype,
+  barrioNombre: string,
+  municipioNombre: string,
+): ContenidoAfondo | null {
+  const raw = AFONDO_POR_ARQUETIPO[archetype];
+  if (!raw) return null;
+  return {
+    h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
+    metaDesc: t(raw.metaDesc, barrioNombre, municipioNombre),
+    intro: t(raw.intro, barrioNombre, municipioNombre),
+    queEsH2: t(raw.queEsH2, barrioNombre, municipioNombre),
+    queEsContent: t(raw.queEsContent, barrioNombre, municipioNombre),
+    queIncluyeH2: t(raw.queIncluyeH2, barrioNombre, municipioNombre),
+    queIncluyeItems: raw.queIncluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
+    cuandoH2: t(raw.cuandoH2, barrioNombre, municipioNombre),
+    cuandoItems: raw.cuandoItems.map(s => t(s, barrioNombre, municipioNombre)),
+    precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
+    faqs: raw.faqs.map(f => ({ q: t(f.q, barrioNombre, municipioNombre), a: t(f.a, barrioNombre, municipioNombre) })),
+  };
+}
+
 export const CONTENIDO_BARRIO: Partial<Record<string, Record<BarrioArchetype, ContenidoArquetipo>>> = {
   'limpieza-de-cristales': CRISTALES_POR_ARQUETIPO,
 };
