@@ -40,9 +40,9 @@ const contenido = getContenidoBarrio(
 
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
+const ogImage = `${BUSINESS.url}/images/blog/limpiar-cristales-sin-rayas.webp`;
 
 // Rota entre "cristales" y "ventanas" por arquetipo para cubrir las dos keywords
-// sin que todas las páginas repitan el mismo patrón
 const KW_ARCHETYPE: Record<BarrioArchetype, 'cristales' | 'ventanas'> = {
   'bloque-obrero':       'ventanas',
   'historico':           'ventanas',
@@ -54,8 +54,8 @@ const KW_ARCHETYPE: Record<BarrioArchetype, 'cristales' | 'ventanas'> = {
 };
 const kw = KW_ARCHETYPE[barrio.archetype as BarrioArchetype];
 
-const title = `Limpieza de ${kw} en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
-const description = `${contenido.metaDescAngle} Servicio en ${barrio.nombre}, ${municipio.nombre}. Presupuesto gratis en menos de 24h.`;
+const title = `Limpieza de ${kw} en ${barrio.nombre}, ${municipio.nombre} · Sin Rayas ni Cal | Zentro Limpiezas`;
+const description = `Limpieza profesional de ${kw} en ${barrio.nombre}. ${contenido.metaDescAngle} Empresa local con 20 años en Ferrolterra. Presupuesto gratis en 24h.`.slice(0, 160);
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
@@ -64,7 +64,6 @@ const breadcrumbs = [
   { label: barrio.nombre, href: canonical },
 ];
 
-// 2 FAQs de localización + 2 del arquetipo
 const faqsLocales: { q: string; a: string }[] = [
   {
     q: `¿Cuánto cuesta la limpieza de ${kw} en ${barrio.nombre}?`,
@@ -74,16 +73,29 @@ const faqsLocales: { q: string; a: string }[] = [
     q: `¿Tenéis disponibilidad esta semana para ${barrio.nombre}?`,
     a: `Sí, normalmente. ${barrio.nombre} está dentro de nuestra zona habitual de trabajo en ${municipio.nombre} y solemos dar cita en 24-48 horas. Si lo necesitas urgente, escríbenos por WhatsApp al ${BUSINESS.phoneDisplay} y miramos la agenda en el momento.`,
   },
+  {
+    q: `¿Limpiáis también los marcos y el aluminio de las ventanas en ${barrio.nombre}?`,
+    a: `Sí, siempre. En ${barrio.nombre} la limpieza de cristales incluye el lavado de marcos, juntas y perfiles de aluminio o PVC. Si hay cal incrustada en el aluminio usamos productos específicos desincrutantes sin dañar el acabado.`,
+  },
+  {
+    q: `¿Podéis limpiar ${kw} en altura desde el exterior en ${barrio.nombre}?`,
+    a: `Sí. Usamos pértiga telescópica hasta segunda planta desde el exterior sin necesidad de andamio ni acceso interior. Para plantas superiores o fachadas de difícil acceso consultamos la situación y presupuestamos por separado.`,
+  },
 ];
 const faqs = [...faqsLocales, ...contenido.faqs];
 
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, barrio.nombre));
 
-// Otros barrios del mismo municipio con contenido para este servicio
 const servicioMap = CONTENIDO_BARRIO[servicio.slug];
 const otrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && servicioMap?.[b.archetype],
 );
+
+const serviciosRelacionados = [
+  { nombre: 'Limpieza periódica del hogar', slug: 'limpieza-periodica' },
+  { nombre: 'Limpieza de viviendas', slug: 'limpieza-de-viviendas' },
+  { nombre: 'Limpieza de pisos', slug: 'limpieza-de-pisos' },
+];
 
 const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
 ---
@@ -92,9 +104,11 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
   {title}
   {description}
   {canonical}
+  {ogImage}
   lang="es"
   serviceName={`${servicio.nombre} en ${barrio.nombre}, ${municipio.nombre}`}
   serviceDesc={description}
+  price="35"
   {faqs}
   {breadcrumbs}
   {hreflangEs}
@@ -115,7 +129,7 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
 
         <div class="lg:col-span-2 space-y-10">
 
-          <!-- Sección problema específico del arquetipo -->
+          <!-- 01 · Problema específico del arquetipo -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">01</span>
@@ -126,7 +140,7 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
             </div>
           </div>
 
-          <!-- Sección con keyword "ventanas" -->
+          <!-- 02 · Sección con keyword "ventanas" -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">02</span>
@@ -138,7 +152,23 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
             </div>
           </div>
 
-          <!-- Precio -->
+          <!-- Imagen optimizada -->
+          <figure data-reveal class="rounded-xl overflow-hidden border border-line">
+            <img
+              src="/images/blog/limpiar-cristales-sin-rayas.webp"
+              alt={`Limpieza profesional de ${kw} sin rayas en ${barrio.nombre}, ${municipio.nombre} — Zentro Limpiezas`}
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full object-cover"
+            />
+            <figcaption class="text-xs text-mid text-center py-2 px-4">
+              Limpieza de {kw} sin rayas ni cal en {barrio.nombre} · Zentro Limpiezas
+            </figcaption>
+          </figure>
+
+          <!-- 03 · Precio -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">03</span>
@@ -174,6 +204,36 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
             </div>
           </div>
 
+          <!-- 04 · Por qué elegirnos (trust + LSI) -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">04</span>
+              <h2 class="font-serif text-2xl text-primary">¿Por qué Zentro Limpiezas para la limpieza de {kw} en {barrio.nombre}?</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                Zentro Limpiezas es la empresa de limpieza de cristales de referencia en {barrio.nombre} y en todo {municipio.nombre}. Más de 20 años limpiando ventanas en Ferrolterra, con técnicas específicas para cada tipo de suciedad: cal del agua dura gallega, salitre de la brisa marina y verdín de las fachadas húmedas.
+              </p>
+              <p>
+                Trabajamos con productos desincrutantes profesionales Ecolabel y pértiga telescópica para alcanzar {kw} en altura sin andamio. Equipo propio, sin subcontrataciones, con las mismas personas en cada visita para que conozcan tu edificio y sus accesos. Presupuesto cerrado en 24h, sin visita previa obligatoria.
+              </p>
+              <div class="grid sm:grid-cols-3 gap-3 mt-4">
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">+20</p>
+                  <p class="text-mid text-xs mt-1">años en Ferrolterra</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">24h</p>
+                  <p class="text-mid text-xs mt-1">presupuesto sin visita previa</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">Ecolabel</p>
+                  <p class="text-mid text-xs mt-1">certificación europea incluida</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Aside -->
@@ -199,6 +259,19 @@ const h1 = `Limpieza de ${kw} en ${barrio.nombre}<br><span class="text-accent">$
             <a href={`/servicios/${servicio.slug}/${municipio.slug}/`} class="text-sm text-accent hover:underline">
               → {servicio.nombre} en {municipio.nombre}
             </a>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <p class="font-serif text-base text-primary mb-3 font-semibold">Otros servicios en {barrio.nombre}</p>
+            <ul class="space-y-2">
+              {serviciosRelacionados.map(s => (
+                <li>
+                  <a href={`/servicios/${s.slug}/${municipio.slug}/${barrio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    → {s.nombre}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {otrosBarrios.length > 0 && (
