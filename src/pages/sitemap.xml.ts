@@ -111,6 +111,38 @@ export const GET: APIRoute = async () => {
           .filter(b => b.archetype && getContenidoBarrio('limpieza-de-cristales', b.archetype as BarrioArchetype, '', ''))
           .map(b => ({ loc: `${SITE}/servicios/limpieza-de-cristales/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
       ),
+    // Combos servicio × barrio ES — limpieza de locales comerciales
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoBarrio('limpieza-de-locales-comerciales', b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-locales-comerciales/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
+    // Combos servicio × barrio ES — limpieza de garajes
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoBarrio('limpieza-de-garajes', b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-garajes/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
+    // Combos servicio × barrio ES — limpieza de mudanzas
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoBarrio('limpieza-de-mudanzas', b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-mudanzas/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
+    // Combos servicio × barrio ES — limpieza de trasteros
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoBarrio('limpieza-de-trasteros', b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-trasteros/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
     // Combos servizo × barrio GL (hreflang pair)
     ...SERVICIOS.flatMap(s => {
       if (!GL_SERVIZO_SLUGS.has(s.slugGL)) return [];

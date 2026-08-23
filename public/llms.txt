@@ -66,7 +66,7 @@ Páginas servicio × municipio:
 
 Páginas servicio × municipio × barrio (long tail local):
 - https://zentrolimpiezas.es/servicios/[servicio]/[municipio]/[barrio]/
-- Servicios con páginas de barrio en ES: limpieza-periodica, limpieza-de-viviendas, limpieza-de-pisos, limpieza-a-fondo, limpieza-de-apartamentos-turisticos, limpieza-de-cristales
+- Servicios con páginas de barrio en ES: limpieza-periodica, limpieza-de-viviendas, limpieza-de-pisos, limpieza-a-fondo, limpieza-de-apartamentos-turisticos, limpieza-de-cristales, limpieza-de-locales-comerciales, limpieza-de-garajes, limpieza-de-mudanzas, limpieza-de-trasteros
 
 Páginas de zona:
 - https://zentrolimpiezas.es/zonas/[municipio]/
