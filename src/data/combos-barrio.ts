@@ -1982,6 +1982,99 @@ const GL_SERVIZOS_RAW: Record<string, {
       a: 'En zonas costeiras de Ferrolterra recomendamos cada 4-6 semanas. O salitre e o cal acumúlanse rápido, especialmente en épocas de vento e choiva. No interior, cada 2-3 meses adoita ser suficiente.',
     },
   },
+  'limpeza-de-locais': {
+    seccion1H2: '¿Por que a limpeza do local comercial en {barrio} require un servizo profesional?',
+    seccion1Content: 'Un local comercial en {barrio} precisa máis limpeza ca un fogar: o tráfico de clientes, a exposición á rúa e a imaxe cara ao público esixen un nivel que vai máis aló do mantemento doméstico. Moitos locais contratan o servizo antes da apertura, ao pechar ou con visitas periódicas para non interromper a actividade.',
+    queIncluyeH2: '¿Que inclúe a limpeza do local en {barrio}?',
+    queIncluyeBase: [
+      'Escaparates e cristais interiores e exteriores',
+      'Chan: fregado con produto axeitado ao material (gres, vinilo, madeira)',
+      'Baños ou aseos do local',
+      'Zona de atención ao público: mostradores, estantes e superficies',
+      'Almacén ou zona de traballo se se solicita',
+      'Recollida de basura e vaciado de papeleiras',
+    ],
+    precioH2: '¿Canto custa a limpeza do local en {barrio}?',
+    precioItems: [
+      'Local ata 50 m²: desde 55 €/visita',
+      'Local de 50-100 m²: desde 80 €/visita',
+      'Local grande: orzamento personalizado',
+      'Con contrato periódico, prezo por visita máis económico',
+    ],
+    faqServizo: {
+      q: '¿Podedes traballar fóra do horario de apertura do local en {barrio}?',
+      a: 'Si. A maioría dos clientes prefiren que entremos antes da apertura ou despois do peche para non interromper a actividade. Adaptamos o horario ao que mellor convén ao negocio.',
+    },
+  },
+  'limpeza-de-garaxes': {
+    seccion1H2: '¿Que inclúe a limpeza de garaxe en {barrio}?',
+    seccion1Content: 'O garaxe acumula un tipo de sucidade diferente á do fogar: po de caucho, manchas de aceite e líquidos do vehículo, partículas de freos e terra da rúa que entra coas rodas. Esta sucidade require desengrasantes industriais ecolóxicos e, en moitos casos, auga a presión ou fregadora de alta eficacia para deixar o pavimento limpo.',
+    queIncluyeH2: '¿Que inclúe o servizo de garaxe en {barrio}?',
+    queIncluyeBase: [
+      'Chan: eliminación de manchas de aceite e líquidos do vehículo con desengrasante industrial',
+      'Paredes: eliminación de po e manchas a media altura',
+      'Porta do garaxe: interior e mecanismo de apertura',
+      'Recollida e retirada de residuos lixeiros',
+    ],
+    precioH2: '¿Canto custa a limpeza de garaxe en {barrio}?',
+    precioItems: [
+      'Praza de garaxe individual: desde 45 €',
+      'Garaxe de chalé ou vivenda unifamiliar: desde 75 €',
+      'Garaxe comunitario: orzamento personalizado segundo metros',
+      'Prezo pechado que inclúe produtos e desprazamento',
+    ],
+    faqServizo: {
+      q: '¿Podedes eliminar as manchas de aceite do chan do garaxe en {barrio}?',
+      a: 'Si. Usamos desengrasantes industriais ecolóxicos con poder específico para o aceite de motor. Para manchas moi antigas e incrustadas pode ser necesario un segundo tratamento, que indicamos no orzamento.',
+    },
+  },
+  'limpeza-de-mudanzas': {
+    seccion1H2: '¿Cando se necesita limpeza de mudanza en {barrio}?',
+    seccion1Content: 'A limpeza de mudanza realízase en dúas situacións: ao deixar un inmoble —para entregar ao propietario ou ao comprador en perfectas condicións— ou ao chegar a un inmoble novo, que pode ter sucidade da obra ou dos anteriores inquilinos. En ambos os casos o nivel de profundidade é maior ca nunha limpeza doméstica habitual.',
+    queIncluyeH2: '¿Que inclúe a limpeza de mudanza en {barrio}?',
+    queIncluyeBase: [
+      'Limpeza a fondo de todos os cuartos, cociña e baños',
+      'Eliminación de restos de obra: po, manchas de pintura e silicona',
+      'Interior de armarios fixos e empotrados',
+      'Cristais e marcos de ventás',
+      'Baños: descalcificación e desinfección completa',
+      'Cociña: desengrase de campá, encimeira e electrodomésticos fixos',
+    ],
+    precioH2: '¿Canto custa a limpeza de mudanza en {barrio}?',
+    precioItems: [
+      'Piso de 1-2 habitacións: desde 130 €',
+      'Piso de 3 habitacións: desde 180 €',
+      'Chalé ou vivenda grande: orzamento personalizado',
+      'Prezo pechado inclúe produtos, tempo e desprazamento',
+    ],
+    faqServizo: {
+      q: '¿Canto tempo leva a limpeza de mudanza dun piso en {barrio}?',
+      a: 'Para un piso estándar de 70-80 m² en {barrio}, entre 4 e 7 horas con equipo de dúas persoas. Depende do estado, a antigüidade e se hai restos de obra. O tempo e o prezo dámoscho pechados antes de empezar.',
+    },
+  },
+  'limpeza-de-trasteiros': {
+    seccion1H2: '¿Por que contratar a limpeza do trasteiro en {barrio}?',
+    seccion1Content: 'O trasteiro é o espazo que máis tempo pasa sen limpeza profesional e onde se acumula máis po, humidade e sucidade difícil. Unha limpeza a fondo precisa aspirado en profundidade, eliminación de po sedimentado en anos e, en moitos casos, tratamento de humidade e mofo se o espazo non está ben ventilado.',
+    queIncluyeH2: '¿Que inclúe a limpeza do trasteiro en {barrio}?',
+    queIncluyeBase: [
+      'Eliminación de po sedimentado en chans, paredes e estantes',
+      'Aspirado en profundidade antes de fregar',
+      'Fregado do chan con produto antifúngico se hai humidade',
+      'Paredes e teito: retirada de po e telarañas',
+      'Porta e zona de acceso',
+    ],
+    precioH2: '¿Canto custa a limpeza do trasteiro en {barrio}?',
+    precioItems: [
+      'Trasteiro ata 10 m²: desde 45 €',
+      'Trasteiro de 10-25 m²: desde 65 €',
+      'Trasteiro grande ou baixo: orzamento personalizado',
+      'Prezo pechado que inclúe produtos e desprazamento',
+    ],
+    faqServizo: {
+      q: '¿Tratades o mofo e a humidade no trasteiro de {barrio}?',
+      a: 'Si. Aplicamos produto antifúngico en paredes e chan cando hai manchas de humidade ou mofo. Para problemas estruturais de humidade (filtracións, condensación crónica) avisámoste para que o resolvas cun especialista antes de que se agrave.',
+    },
+  },
 };
 
 const GL_SERVIZO_SLUGS = new Set(Object.keys(GL_SERVIZOS_RAW));

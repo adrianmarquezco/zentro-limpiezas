@@ -1,0 +1,291 @@
+---
+import ComboLayout from '@/layouts/ComboLayout.astro';
+import HeroLocal from '@/components/sections/HeroLocal.astro';
+import EcoBadge from '@/components/ui/EcoBadge.astro';
+import ContactStrip from '@/components/sections/ContactStrip.astro';
+import { SERVICIOS } from '@/data/servicios';
+import { MUNICIPIOS } from '@/data/municipios';
+import { getContenidoBarrio } from '@/data/combos-barrio';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import type { BarrioArchetype } from '@/data/municipios';
+
+export function getStaticPaths() {
+  const servicio = SERVICIOS.find(s => s.slug === 'limpieza-de-cristales')!;
+  const paths: { params: { municipio: string; barrio: string }; props: any }[] = [];
+  for (const municipio of MUNICIPIOS) {
+    if (municipio.comarca !== 'Ferrolterra') continue;
+    if (!municipio.barrios) continue;
+    for (const barrio of municipio.barrios) {
+      if (!barrio.archetype) continue;
+      const contenido = getContenidoBarrio('limpieza-de-cristales', barrio.archetype as BarrioArchetype, barrio.nombre, municipio.nombre);
+      if (!contenido) continue;
+      paths.push({
+        params: { municipio: municipio.slug, barrio: barrio.slug },
+        props: { servicio, municipio, barrio, contenido },
+      });
+    }
+  }
+  return paths;
+}
+
+const { servicio, municipio, barrio, contenido } = Astro.props;
+
+const canonical = `${BUSINESS.url}/servicios/limpieza-de-cristales/${municipio.slug}/${barrio.slug}/`;
+const hreflangEs = canonical;
+const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
+const ogImage = `${BUSINESS.url}/images/hero-equipo.webp`;
+
+const title = `Limpieza de Cristales en ${barrio.nombre}, ${municipio.nombre} · Sin Cal ni Rayas | Zentro Limpiezas`;
+const description = `Limpieza de cristales en ${barrio.nombre}. ${contenido.metaDescAngle} Presupuesto gratis en 24h.`.slice(0, 160);
+
+const breadcrumbs = [
+  { label: 'Servicios', href: '/servicios/' },
+  { label: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+  { label: municipio.nombre, href: `/servicios/${servicio.slug}/${municipio.slug}/` },
+  { label: barrio.nombre, href: canonical },
+];
+
+const faqsLocales: { q: string; a: string }[] = [
+  {
+    q: `¿Cuánto cuesta limpiar los cristales en ${barrio.nombre}?`,
+    a: `En ${barrio.nombre}, la limpieza de cristales de un piso con 4-6 ventanas empieza desde 45€. Para pisos con más ventanas o cristaleras grandes, desde 65€. El precio incluye productos y desplazamiento. Presupuesto cerrado en menos de 24h.`,
+  },
+  {
+    q: `¿Podéis limpiar también las mamparas de ducha en ${barrio.nombre}?`,
+    a: `Sí. Limpiamos mamparas de ducha con el mismo tratamiento que los cristales exteriores: quitacal de pH controlado y escurridor profesional. Sin rayas y sin residuos de producto. En la misma visita que las ventanas, sin coste adicional.`,
+  },
+  {
+    q: `¿Cuánto tiempo lleva la limpieza de cristales en ${barrio.nombre}?`,
+    a: `Para un piso con 4-6 ventanas, entre 1 y 2 horas. Si hay mamparas, cristalera de terraza o mucho depósito de cal acumulado, puede alargarse. Lo indicamos siempre en el presupuesto antes de empezar.`,
+  },
+];
+const faqs = [...faqsLocales, ...contenido.faqs];
+
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, barrio.nombre));
+
+const otrosBarrios = (municipio.barrios ?? []).filter(
+  b => b.slug !== barrio.slug && b.archetype && getContenidoBarrio('limpieza-de-cristales', b.archetype as BarrioArchetype, '', ''),
+);
+
+const serviciosRelacionados = [
+  { nombre: 'Limpieza de pisos', slug: 'limpieza-de-pisos' },
+  { nombre: 'Limpieza periódica', slug: 'limpieza-periodica' },
+  { nombre: 'Limpieza a fondo', slug: 'limpieza-a-fondo' },
+];
+
+const h1 = `Limpieza de cristales en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
+---
+
+<ComboLayout
+  {title}
+  {description}
+  {canonical}
+  {ogImage}
+  lang="es"
+  serviceName={`Limpieza de cristales en ${barrio.nombre}, ${municipio.nombre}`}
+  serviceDesc={description}
+  price="45"
+  {faqs}
+  {breadcrumbs}
+  {hreflangEs}
+  hreflangGl={hreflangGl}
+  areaServed={[barrio.nombre, municipio.nombre, municipio.comarca]}
+>
+  <HeroLocal
+    municipio={barrio.nombre}
+    servicio={servicio.nombre}
+    eyebrow={`${servicio.nombre} · ${barrio.nombre}, ${municipio.nombre}`}
+    {h1}
+    subtitle={contenido.speakableIntro}
+    lang="es"
+  />
+
+  <section class="py-16 lg:py-24 bg-warm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+
+        <div class="lg:col-span-2 space-y-10">
+
+          <!-- 01 · Problema específico del barrio -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">01</span>
+              <h2 class="font-serif text-2xl lg:text-3xl text-primary">{contenido.problemaH2}</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>{contenido.problemaContent}</p>
+            </div>
+          </div>
+
+          <!-- 02 · Ventanas y mamparas -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl text-primary">{contenido.ventanasH2}</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>{contenido.ventanasContent}</p>
+            </div>
+          </div>
+
+          <!-- Imagen -->
+          <figure data-reveal class="rounded-xl overflow-hidden border border-line">
+            <img
+              src="/images/hero-equipo.webp"
+              alt={`Limpieza de cristales en ${barrio.nombre}, ${municipio.nombre} — Zentro Limpiezas`}
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full object-cover"
+            />
+            <figcaption class="text-xs text-mid text-center py-2 px-4">
+              Limpieza de cristales en {barrio.nombre} · Zentro Limpiezas
+            </figcaption>
+          </figure>
+
+          <!-- 03 · Precio -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">03</span>
+              <h2 class="font-serif text-2xl text-primary">¿Cuánto cuesta la limpieza de cristales en {barrio.nombre}?</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <ul class="space-y-2 ml-4">
+                <li class="flex items-start gap-2"><span class="text-accent font-bold mt-0.5">·</span><span>Piso con 4-6 ventanas: desde 45€</span></li>
+                <li class="flex items-start gap-2"><span class="text-accent font-bold mt-0.5">·</span><span>Piso con 7-10 ventanas: desde 65€</span></li>
+                <li class="flex items-start gap-2"><span class="text-accent font-bold mt-0.5">·</span><span>Con servicio periódico de vivienda: descuento incluido</span></li>
+                <li class="flex items-start gap-2"><span class="text-accent font-bold mt-0.5">·</span><span>Precio cerrado que incluye productos y desplazamiento</span></li>
+              </ul>
+              <div class="p-4 bg-white border border-line rounded-lg">
+                <p class="text-sm text-charcoal">
+                  <span class="font-semibold text-primary">Presupuesto cerrado, sin sorpresas.</span>{' '}
+                  El precio incluye desplazamiento, quitacal profesional y el tiempo necesario. Sin costes ocultos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 · Por qué elegirnos -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">04</span>
+              <h2 class="font-serif text-2xl text-primary">¿Por qué Zentro Limpiezas para los cristales de {barrio.nombre}?</h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                En Ferrolterra, el agua calcárea y el salitre marino hacen que los productos domésticos convencionales no sean suficientes: los cristales quedan limpios un día y vuelven a estar blancos al siguiente. Zentro Limpiezas usa quitacal de pH controlado con certificación Ecolabel que disuelve el depósito mineral sin atacar el vidrio ni los marcos.
+              </p>
+              <p>
+                Más de 20 años limpiando cristales en {municipio.nombre} nos dan el conocimiento de qué problema tiene cada barrio y qué técnica resuelve cada tipo de suciedad. Sin rayas, sin residuos de producto, con un acabado que dura.
+              </p>
+              <div class="grid sm:grid-cols-3 gap-3 mt-4">
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">+20</p>
+                  <p class="text-mid text-xs mt-1">años limpiando en Ferrolterra</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">24h</p>
+                  <p class="text-mid text-xs mt-1">presupuesto sin visita previa</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">100%</p>
+                  <p class="text-mid text-xs mt-1">productos Ecolabel certificados</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Aside -->
+        <aside class="space-y-6 self-start">
+
+          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+            <p class="font-serif text-lg text-primary mb-2 font-semibold">Cristales en {barrio.nombre}</p>
+            <p class="text-mid text-xs mb-4">Presupuesto gratis · Sin compromiso · 24h</p>
+            <div class="flex flex-col gap-2">
+              <a href="/presupuesto/" class="btn-accent w-full text-center text-sm">→ Pedir presupuesto</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">
+                WhatsApp {BUSINESS.phoneDisplay}
+              </a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line">
+              <EcoBadge size="sm" />
+            </div>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <p class="font-serif text-base text-primary mb-1 font-semibold">Cristales en todo {municipio.nombre}</p>
+            <p class="text-mid text-xs mb-3">Precios y cobertura para todos los barrios.</p>
+            <a href={`/servicios/limpieza-de-cristales/${municipio.slug}/`} class="text-sm text-accent hover:underline">
+              → Cristales en {municipio.nombre}
+            </a>
+          </div>
+
+          <div class="card p-6" data-reveal>
+            <p class="font-serif text-base text-primary mb-3 font-semibold">Otros servicios en {barrio.nombre}</p>
+            <ul class="space-y-2">
+              {serviciosRelacionados.map(s => (
+                <li>
+                  <a href={`/servicios/${s.slug}/${municipio.slug}/${barrio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    → {s.nombre}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {otrosBarrios.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">Cristales en otros barrios de {municipio.nombre}</p>
+              <ul class="space-y-2">
+                {otrosBarrios.slice(0, 6).map(b => (
+                  <li>
+                    <a href={`/servicios/limpieza-de-cristales/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {b.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div class="card p-4" data-reveal>
+            <a href={`/zonas/${municipio.slug}/${barrio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline transition-colors">
+              → Todos los servicios disponibles en {barrio.nombre}
+            </a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-charcoal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
+        Preguntas sobre limpieza de cristales en {barrio.nombre}
+      </h2>
+      <p class="text-white/60 text-center mb-8" data-reveal>
+        Llámanos al <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> o escríbenos por WhatsApp.
+      </p>
+      <div class="space-y-3" data-reveal>
+        {faqs.map((faq) => (
+          <details class="bg-charcoal border border-white/10 rounded-lg group">
+            <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none hover:text-white transition-colors">
+              <h3 class="text-white/90 font-medium text-sm m-0 group-open:text-white">{faq.q}</h3>
+              <span class="text-accent flex-shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="px-5 pb-5 text-white/70 text-sm leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactStrip context={`${barrio.nombre}, ${municipio.nombre}`} />
+</ComboLayout>
