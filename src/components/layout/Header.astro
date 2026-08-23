@@ -161,7 +161,7 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
           <svg id="mob-servicios-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div id="mob-servicios-sub" class="hidden pl-3 pb-2 space-y-1 border-l border-white/10">
-          <a href={`${base}/servicios/`} class="block text-accent text-sm font-semibold py-1.5 hover:underline">{isGL ? 'Ver todos os servizos →' : 'Ver todos los servicios →'}</a>
+          <a href={`${base}/${isGL ? 'servizos' : 'servicios'}/`} class="block text-accent text-sm font-semibold py-1.5 hover:underline">{isGL ? 'Ver todos os servizos →' : 'Ver todos los servicios →'}</a>
           {[
             { slug: isGL ? 'limpeza-de-vivendas' : 'limpieza-de-viviendas',   label: isGL ? 'Limpeza de vivendas'   : 'Limpieza de viviendas' },
             { slug: isGL ? 'limpeza-de-oficinas' : 'limpieza-de-oficinas',    label: isGL ? 'Limpeza de oficinas'   : 'Limpieza de oficinas' },

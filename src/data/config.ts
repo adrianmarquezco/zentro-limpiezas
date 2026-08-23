@@ -9,7 +9,7 @@ export const BUSINESS = {
   phoneHref: 'tel:+34616054001',
   phoneDisplay: '616 054 001',
   whatsappBase: 'https://wa.me/34616054001',
-  foundingYear: 2004,            // año de inicio de actividad en el sector
+  foundingYear: 2026,
   sectorExperienceYear: 2004,
   yearsExperience: 20,
   priceRange: '€€',

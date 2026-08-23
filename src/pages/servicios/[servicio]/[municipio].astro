@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
 import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
-import { CONTENIDO_BARRIO, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos } from '@/data/combos-barrio';
+import { CONTENIDO_BARRIO, getContenidoBarrio, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos, getContenidoAfondo } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 export function getStaticPaths() {
@@ -37,26 +37,18 @@ const SERVICE_IMAGE: Record<string, string> = {
 const serviceImage = SERVICE_IMAGE[servicio.slug] ?? null;
 const ogImage = serviceImage ? `${BUSINESS.url}${serviceImage}` : undefined;
 
-// Qué servicios tienen páginas propias a nivel barrio
-const SERVICIOS_CON_BARRIO = new Set([
-  'limpieza-de-cristales',
-  'limpieza-periodica',
-  'limpieza-de-viviendas',
-  'limpieza-de-pisos',
-  'limpieza-de-apartamentos-turisticos',
-]);
-
 function barrioTieneContenido(servicioSlug: string, archetype: BarrioArchetype): boolean {
-  if (!SERVICIOS_CON_BARRIO.has(servicioSlug)) return false;
-  if (servicioSlug === 'limpieza-de-cristales') {
-    return !!CONTENIDO_BARRIO['limpieza-de-cristales']?.[archetype];
-  }
-  // Los 4 servicios con plantillas dedicadas tienen contenido para todos los arquetipos
   switch (servicioSlug) {
-    case 'limpieza-periodica':                  return !!getContenidoPeriodica(archetype, '', '');
-    case 'limpieza-de-viviendas':               return !!getContenidoViviendas(archetype, '', '');
-    case 'limpieza-de-pisos':                   return !!getContenidoPisos(archetype, '', '');
-    case 'limpieza-de-apartamentos-turisticos': return !!getContenidoTuristicos(archetype, '', '');
+    case 'limpieza-periodica':                   return !!getContenidoPeriodica(archetype, '', '');
+    case 'limpieza-de-viviendas':                return !!getContenidoViviendas(archetype, '', '');
+    case 'limpieza-de-pisos':                    return !!getContenidoPisos(archetype, '', '');
+    case 'limpieza-de-apartamentos-turisticos':  return !!getContenidoTuristicos(archetype, '', '');
+    case 'limpieza-a-fondo':                     return !!getContenidoAfondo(archetype, '', '');
+    case 'limpieza-de-cristales':
+    case 'limpieza-de-locales-comerciales':
+    case 'limpieza-de-garajes':
+    case 'limpieza-de-mudanzas':
+    case 'limpieza-de-trasteros':                return !!getContenidoBarrio(servicioSlug, archetype, '', '');
     default: return false;
   }
 }

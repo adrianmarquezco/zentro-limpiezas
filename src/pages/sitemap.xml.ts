@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
-import { CONTENIDO_BARRIO, getContenidoBarrio, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos, getContenidoAfondo, getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
+import { getContenidoBarrio, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos, getContenidoAfondo, getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
 import { getCollection } from 'astro:content';
 
 export const prerender = true;

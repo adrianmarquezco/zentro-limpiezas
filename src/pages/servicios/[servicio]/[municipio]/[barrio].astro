@@ -9,9 +9,18 @@ import { CONTENIDO_BARRIO, getContenidoBarrio } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
+// Servicios con template de barrio dedicado — excluidos de este fallback
+const DEDICATED_BARRIO_SLUGS = new Set([
+  'limpieza-periodica', 'limpieza-de-viviendas', 'limpieza-de-pisos',
+  'limpieza-a-fondo', 'limpieza-de-apartamentos-turisticos',
+  'limpieza-de-cristales', 'limpieza-de-locales-comerciales',
+  'limpieza-de-garajes', 'limpieza-de-mudanzas', 'limpieza-de-trasteros',
+]);
+
 export function getStaticPaths() {
   const paths: { params: { servicio: string; municipio: string; barrio: string }; props: any }[] = [];
   for (const servicio of SERVICIOS) {
+    if (DEDICATED_BARRIO_SLUGS.has(servicio.slug)) continue;
     const servicioMap = CONTENIDO_BARRIO[servicio.slug];
     if (!servicioMap) continue;
     for (const municipio of MUNICIPIOS) {
