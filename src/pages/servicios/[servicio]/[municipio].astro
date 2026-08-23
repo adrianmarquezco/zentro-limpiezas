@@ -5,7 +5,9 @@ import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
 import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
-import { BUSINESS, PRICE_HINTS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import type { BarrioArchetype } from '@/data/municipios';
+import { CONTENIDO_BARRIO, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos } from '@/data/combos-barrio';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 export function getStaticPaths() {
   const paths: { params: { servicio: string; municipio: string }; props: any }[] = [];
@@ -24,8 +26,48 @@ const { servicio, municipio } = Astro.props;
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/`;
 const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/`;
 
-const title = `${servicio.nombre} en ${municipio.nombre} | Zentro Limpiezas`;
-const description = `${servicio.nombre} profesional en ${municipio.nombre}. Productos ecológicos incluidos${servicio.precioDesde ? ` desde ${servicio.precioDesde}` : ''}. Presupuesto gratis. Más de 20 años de experiencia.`;
+// Imagen representativa por servicio
+const SERVICE_IMAGE: Record<string, string> = {
+  'limpieza-de-cristales':              '/images/blog/limpiar-cristales-sin-rayas.webp',
+  'limpieza-periodica':                 '/images/blog/limpieza-puntual-vs-periodica.webp',
+  'limpieza-de-viviendas':              '/images/blog/contratar-servicio-limpieza-consejos.webp',
+  'limpieza-de-pisos':                  '/images/blog/como-limpiar-el-piso-a-fondo.webp',
+  'limpieza-de-apartamentos-turisticos':'/images/blog/limpieza-apartamentos-turisticos-airbnb.webp',
+};
+const serviceImage = SERVICE_IMAGE[servicio.slug] ?? null;
+const ogImage = serviceImage ? `${BUSINESS.url}${serviceImage}` : undefined;
+
+// Qué servicios tienen páginas propias a nivel barrio
+const SERVICIOS_CON_BARRIO = new Set([
+  'limpieza-de-cristales',
+  'limpieza-periodica',
+  'limpieza-de-viviendas',
+  'limpieza-de-pisos',
+  'limpieza-de-apartamentos-turisticos',
+]);
+
+function barrioTieneContenido(servicioSlug: string, archetype: BarrioArchetype): boolean {
+  if (!SERVICIOS_CON_BARRIO.has(servicioSlug)) return false;
+  if (servicioSlug === 'limpieza-de-cristales') {
+    return !!CONTENIDO_BARRIO['limpieza-de-cristales']?.[archetype];
+  }
+  // Los 4 servicios con plantillas dedicadas tienen contenido para todos los arquetipos
+  switch (servicioSlug) {
+    case 'limpieza-periodica':                  return !!getContenidoPeriodica(archetype, '', '');
+    case 'limpieza-de-viviendas':               return !!getContenidoViviendas(archetype, '', '');
+    case 'limpieza-de-pisos':                   return !!getContenidoPisos(archetype, '', '');
+    case 'limpieza-de-apartamentos-turisticos': return !!getContenidoTuristicos(archetype, '', '');
+    default: return false;
+  }
+}
+
+// Barrios con página propia para este servicio en este municipio
+const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrios
+  ? municipio.barrios.filter(b => b.archetype && barrioTieneContenido(servicio.slug, b.archetype as BarrioArchetype))
+  : [];
+
+const title = `${servicio.nombre} en ${municipio.nombre} · +20 años | Zentro Limpiezas`;
+const description = `Empresa de ${servicio.nombre.toLowerCase()} en ${municipio.nombre} con más de 20 años en Ferrolterra. ${municipio.tipoVivienda.slice(0, 60)}. Presupuesto gratis en 24h.`.slice(0, 160);
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
@@ -33,61 +75,48 @@ const breadcrumbs = [
   { label: municipio.nombre, href: canonical },
 ];
 
+// FAQs locales (servicio + municipio) — únicas por combinación
 const faqsLocalizacion: { q: string; a: string }[] = [
   {
     q: `¿Cuánto cuesta el ${servicio.nombre.toLowerCase()} en ${municipio.nombre}?`,
     a: servicio.precioDesde
-      ? `El precio en ${municipio.nombre} empieza desde ${servicio.precioDesde}. El presupuesto final depende del tamaño, el estado del espacio y la frecuencia que elijas. Te lo damos gratis, sin compromiso ni visita obligatoria, en menos de 24 horas.`
-      : `El precio depende del tamaño, estado y frecuencia. Te hacemos un presupuesto personalizado y gratuito en menos de 24 horas, sin compromiso ni visita obligatoria.`,
+      ? `En ${municipio.nombre} el servicio de ${servicio.nombre.toLowerCase()} empieza desde ${servicio.precioDesde}. El precio final depende del tamaño, el estado del espacio y la frecuencia que elijas. Presupuesto cerrado en menos de 24 horas, sin visita previa obligatoria y sin letra pequeña.`
+      : `El precio depende del tamaño, el estado del espacio y la frecuencia. Te hacemos un presupuesto personalizado y gratuito en menos de 24 horas, sin compromiso ni visita previa obligatoria.`,
   },
   {
     q: `¿Tenéis disponibilidad esta semana en ${municipio.nombre}?`,
-    a: `Sí, normalmente. ${municipio.nombre} está dentro de nuestra zona de trabajo habitual en ${municipio.comarca} y solemos poder darte cita en 24-48 horas. Si lo necesitas urgente, escríbenos por WhatsApp y miramos la agenda en el momento.`,
+    a: `Sí, normalmente. ${municipio.nombre} está dentro de nuestra zona de trabajo habitual en ${municipio.comarca} y solemos dar cita en 24-48 horas. Si lo necesitas urgente, escríbenos por WhatsApp al ${BUSINESS.phoneDisplay} y miramos la agenda en el momento.`,
   },
   {
-    q: `¿Cubrís todas las parroquias de ${municipio.nombre}?`,
+    q: `¿Cubrís todas las zonas de ${municipio.nombre}?`,
     a: municipio.parroquias.length > 0
-      ? `Sí, cubrimos todo el municipio de ${municipio.nombre}: ${municipio.parroquias.slice(0, 5).join(', ')}${municipio.parroquias.length > 5 ? ` y ${municipio.parroquias.length - 5} más` : ''}. Sin recargo por zona.`
-      : `Sí, trabajamos en todo el municipio de ${municipio.nombre}. Si tienes dudas sobre tu dirección concreta, escríbenos.`,
+      ? `Sí, cubrimos todo el municipio de ${municipio.nombre}: ${municipio.parroquias.slice(0, 5).join(', ')}${municipio.parroquias.length > 5 ? ` y ${municipio.parroquias.length - 5} parroquias más` : ''}. Sin recargo por zona dentro del municipio.`
+      : `Sí, trabajamos en todo el municipio de ${municipio.nombre}. Si tienes dudas sobre tu dirección concreta, llámanos o escríbenos.`,
   },
 ];
 
-const faqsEspecificas: { q: string; a: string }[] = servicio.faqsServicio ?? [
-  {
-    q: '¿Los productos ecológicos están incluidos en el precio?',
-    a: 'Sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin coste adicional. No es un extra ni una opción premium: es nuestro estándar.',
-  },
-  {
-    q: '¿Puedo contratar un servicio periódico?',
-    a: `Sí. Ofrecemos limpieza semanal, quincenal o mensual en ${municipio.nombre}. Siempre el mismo equipo, que ya conoce tu espacio. El precio por visita en servicio periódico es más económico que el puntual.`,
-  },
-  {
-    q: '¿Traéis vosotros los materiales?',
-    a: 'Sí. Todo incluido: material de limpieza profesional, maquinaria si se necesita y productos ecológicos certificados. No tienes que preparar nada.',
-  },
-];
+// FAQs propias del municipio (contenido rico y único)
+const faqsMunicipio = (municipio.faqs ?? []).slice(0, 3);
 
-const faqs = [...faqsLocalizacion, ...faqsEspecificas];
+const faqs = [...faqsLocalizacion, ...faqsMunicipio];
 
-// Otros servicios disponibles en este municipio (excluye el actual)
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, municipio.nombre));
+
 const otrosServiciosEnMunicipio = SERVICIOS.filter(
   s => s.slug !== servicio.slug && s.municipiosCombo.includes(municipio.slug)
 );
 
-// Otros municipios donde está disponible este servicio (excluye el actual)
 const otrosMunicipiosConServicio = servicio.municipiosCombo
   .filter(slug => slug !== municipio.slug)
   .map(slug => getMunicipioBySlug(slug))
   .filter(Boolean)
-  .slice(0, 5);
-
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, municipio.nombre));
+  .slice(0, 6);
 
 const pasos = [
-  { n: '01', titulo: 'Presupuesto en 24h', desc: `Cuéntanos el tamaño y estado del espacio en ${municipio.nombre}. Precio cerrado en menos de 24 horas.` },
-  { n: '02', titulo: 'Fijamos fecha y hora', desc: 'Mañana, tarde o fin de semana. Elegimos juntos la franja que mejor te encaje.' },
+  { n: '01', titulo: 'Presupuesto en 24h', desc: `Cuéntanos el tamaño y estado del espacio en ${municipio.nombre}. Precio cerrado sin compromiso.` },
+  { n: '02', titulo: 'Fijamos fecha y hora', desc: 'Mañana, tarde o fin de semana. Elegimos la franja que mejor te encaje.' },
   { n: '03', titulo: 'El equipo llega puntual', desc: 'Trae todo el material. Tú no tienes que preparar nada.' },
-  { n: '04', titulo: 'Resultado impecable', desc: 'Técnica profesional y productos ecológicos. Resultado garantizado.' },
+  { n: '04', titulo: 'Resultado impecable', desc: 'Técnica profesional y productos ecológicos Ecolabel. Resultado garantizado.' },
 ];
 ---
 
@@ -95,6 +124,7 @@ const pasos = [
   {title}
   {description}
   {canonical}
+  {ogImage}
   lang="es"
   serviceName={`${servicio.nombre} en ${municipio.nombre}`}
   serviceDesc={description}
@@ -110,86 +140,188 @@ const pasos = [
     servicio={servicio.nombre}
     eyebrow={`${servicio.nombre} · ${municipio.nombre}`}
     h1={`${servicio.nombre} <br><span class="text-accent">en ${municipio.nombre}</span>`}
-    subtitle={`Servicio profesional de ${servicio.nombre.toLowerCase()} en ${municipio.nombre}. Productos 100% ecológicos incluidos. Presupuesto gratis en menos de 24 horas.`}
+    subtitle={`Empresa local de ${servicio.nombre.toLowerCase()} en ${municipio.nombre} con más de 20 años en Ferrolterra. Productos 100% ecológicos incluidos. Presupuesto gratis en menos de 24 horas.`}
     lang="es"
   />
 
-  <!-- Contenido principal -->
   <section class="py-16 lg:py-24 bg-warm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-12">
 
         <div class="lg:col-span-2 space-y-10">
 
-          <!-- Intro -->
+          <!-- 01 · Por qué en este municipio -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">01</span>
               <h2 class="font-serif text-2xl lg:text-3xl text-primary">
-                {servicio.nombre} en {municipio.nombre}
+                ¿Por qué contratar {servicio.nombre.toLowerCase()} en {municipio.nombre}?
               </h2>
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
+              <p class="speakable-intro">{municipio.contenidoUnico.split('.').slice(0, 3).join('.')}.</p>
               {servicio.descripcion ? (
-                <>
-                  {servicio.descripcion.split('\n\n').map((parrafo, i) => (
-                    <p class={i === 0 ? 'speakable-intro' : ''}>{parrafo}</p>
-                  ))}
-                  <p>
-                    {municipio.tipoVivienda} En {municipio.nombre}, como en el resto de {municipio.comarca}, adaptamos el servicio a las características del inmueble y del entorno. Productos ecológicos con certificación Ecolabel incluidos en el precio.
-                  </p>
-                </>
+                <p>{servicio.descripcion.split('\n\n')[0]}</p>
               ) : (
-                <>
-                  <p class="speakable-intro">
-                    En Zentro Limpiezas llevamos más de 20 años prestando servicios de {servicio.nombre.toLowerCase()} en {municipio.nombre} y en toda la comarca de {municipio.comarca}. Somos dos profesionales locales, sin intermediarios: el equipo que viene a tu casa es siempre el mismo, conoce el territorio y sabe adaptar el trabajo al tipo de vivienda y al estado real del espacio.
-                  </p>
-                  <p>
-                    {municipio.contenidoUnico.split('.').slice(0, 2).join('.')}. En Zentro Limpiezas adaptamos nuestro servicio de {servicio.nombre.toLowerCase()} a las particularidades de cada tipo de inmueble en {municipio.nombre}, con productos ecológicos con certificación Ecolabel incluidos en el precio, sin coste adicional.
-                  </p>
-                </>
+                <p>
+                  En Zentro Limpiezas llevamos más de 20 años prestando {servicio.nombre.toLowerCase()} en {municipio.nombre} y en toda la comarca de {municipio.comarca}. Equipo propio, sin subcontrataciones, con los mismos profesionales en cada visita para que conozcan tu espacio y sus particularidades.
+                </p>
               )}
               {servicio.precioDesde && (
                 <div class="p-4 bg-white border border-line rounded-lg">
                   <p class="text-sm text-charcoal">
-                    <span class="font-semibold text-primary">Precio orientativo en {municipio.nombre}:</span> {servicio.nombre} desde <span class="font-mono text-accent font-bold">{servicio.precioDesde}</span>. Presupuesto personalizado en 24h sin compromiso.
+                    <span class="font-semibold text-primary">Precio orientativo en {municipio.nombre}:</span>{' '}
+                    {servicio.nombre} desde{' '}
+                    <span class="font-mono text-accent font-bold">{servicio.precioDesde}</span>.
+                    {' '}Presupuesto personalizado en 24h sin visita previa ni compromiso.
                   </p>
                 </div>
               )}
             </div>
           </div>
 
-          <!-- Por qué elegirnos -->
+          <!-- 02 · Zonas y barrios cubiertos -->
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">02</span>
-              <h2 class="font-serif text-2xl text-primary">Por qué elegirnos en {municipio.nombre}</h2>
+              <h2 class="font-serif text-2xl text-primary">
+                ¿Dónde prestamos {servicio.nombre.toLowerCase()} en {municipio.nombre}?
+              </h2>
             </div>
-            <div class="grid sm:grid-cols-2 gap-3">
-              {[
-                { titulo: `Conocemos ${municipio.nombre}`, desc: `Llevamos más de 20 años trabajando en ${municipio.comarca}. Conocemos los tipos de vivienda, los accesos y las necesidades del municipio.` },
-                { titulo: 'Productos ecológicos incluidos', desc: 'Certificación Ecolabel. Seguros para tu familia y mascotas. Sin coste extra. Nuestro estándar desde el primer día.' },
-                { titulo: 'Equipo fijo y de confianza', desc: 'Siempre las mismas personas. Ya conocen tu casa y cómo la quieres sin que tengas que repetir instrucciones.' },
-                { titulo: 'Horario flexible', desc: 'Tardes, sábados y domingos disponibles. Adaptamos la visita a lo que mejor te encaje.' },
-                { titulo: 'Presupuesto en 24h', desc: 'Sin visita previa obligatoria. Un precio cerrado, sin letra pequeña ni sorpresas en la factura.' },
-                { titulo: 'Servicio puntual o periódico', desc: `Una limpieza puntual cuando la necesites, o un contrato semanal, quincenal o mensual en ${municipio.nombre}.` },
-              ].map(item => (
-                <div class="flex items-start gap-3 bg-white border border-line rounded-lg p-4">
-                  <span class="text-accent mt-0.5 flex-shrink-0 font-bold">✓</span>
-                  <div>
-                    <p class="font-medium text-primary text-sm">{item.titulo}</p>
-                    <p class="text-mid text-xs leading-relaxed mt-0.5">{item.desc}</p>
+            <div class="space-y-5 text-mid leading-relaxed">
+              <p>
+                Cubrimos todo el municipio de {municipio.nombre} sin recargo por zona. {municipio.tipoVivienda.charAt(0).toUpperCase() + municipio.tipoVivienda.slice(1)}: adaptamos el servicio a cada tipo de inmueble y a las características del entorno.
+              </p>
+
+              {barriosConPagina.length > 0 ? (
+                <>
+                  <p class="text-sm text-mid">Información detallada de precios, qué incluye y disponibilidad por barrio:</p>
+                  <div class="grid sm:grid-cols-2 gap-2">
+                    {barriosConPagina.map(b => (
+                      <a
+                        href={`/servicios/${servicio.slug}/${municipio.slug}/${b.slug}/`}
+                        class="flex items-center gap-3 p-3 bg-white border border-line rounded-lg hover:border-accent/50 hover:shadow-sm transition-all group"
+                      >
+                        <span class="text-accent font-bold flex-shrink-0 group-hover:translate-x-0.5 transition-transform">→</span>
+                        <div>
+                          <p class="text-sm font-medium text-primary">{b.nombre}</p>
+                          {b.tipoVivienda && (
+                            <p class="text-xs text-mid leading-tight mt-0.5 line-clamp-1">{b.tipoVivienda}</p>
+                          )}
+                        </div>
+                      </a>
+                    ))}
                   </div>
-                </div>
-              ))}
+                </>
+              ) : municipio.parroquias.length > 0 ? (
+                <>
+                  <p class="text-sm text-mid">Parroquias y zonas de {municipio.nombre} donde trabajamos:</p>
+                  <div class="flex flex-wrap gap-2">
+                    {municipio.parroquias.map(p => (
+                      <span class="zone-pill">{p}</span>
+                    ))}
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
 
-          <!-- Parroquias si hay -->
-          {municipio.parroquias.length > 0 && (
+          <!-- Imagen optimizada (solo para servicios con imagen asignada) -->
+          {serviceImage && (
+            <figure data-reveal class="rounded-xl overflow-hidden border border-line">
+              <img
+                src={serviceImage}
+                alt={`${servicio.nombre} profesional en ${municipio.nombre}, ${municipio.comarca} — Zentro Limpiezas`}
+                width="800"
+                height="450"
+                loading="lazy"
+                decoding="async"
+                class="w-full object-cover"
+              />
+              <figcaption class="text-xs text-mid text-center py-2 px-4">
+                {servicio.nombre} en {municipio.nombre} · Zentro Limpiezas
+              </figcaption>
+            </figure>
+          )}
+
+          <!-- 03 · Precio -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">03</span>
+              <h2 class="font-serif text-2xl text-primary">
+                ¿Cuánto cuesta el {servicio.nombre.toLowerCase()} en {municipio.nombre}?
+              </h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                El precio del {servicio.nombre.toLowerCase()} en {municipio.nombre} depende del tamaño del inmueble, su estado y la frecuencia que necesites. Damos presupuesto cerrado en menos de 24 horas, sin necesidad de visita previa.
+              </p>
+              <ul class="space-y-2 ml-4">
+                {servicio.precioDesde && (
+                  <li class="flex items-start gap-2">
+                    <span class="text-accent font-bold mt-0.5">·</span>
+                    <span>Precio orientativo desde <strong>{servicio.precioDesde}</strong> en {municipio.nombre}</span>
+                  </li>
+                )}
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>Productos Ecolabel certificados incluidos en el precio — sin costes ocultos</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>Desplazamiento sin recargo dentro de {municipio.nombre}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>Servicio puntual o con contrato periódico (el periódico sale a mejor precio por visita)</span>
+                </li>
+              </ul>
+              <div class="p-4 bg-white border border-line rounded-lg">
+                <p class="text-sm text-charcoal">
+                  <span class="font-semibold text-primary">¿Tienes más de un servicio que necesites?</span>{' '}
+                  Muchos clientes en {municipio.nombre} combinan {servicio.nombre.toLowerCase()} con otros servicios en la misma visita. Cuéntanos al pedir presupuesto y lo organizamos juntos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 · Por qué Zentro (trust + LSI) -->
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">04</span>
+              <h2 class="font-serif text-2xl text-primary">
+                ¿Por qué Zentro Limpiezas para el {servicio.nombre.toLowerCase()} en {municipio.nombre}?
+              </h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                Zentro Limpiezas es la empresa de {servicio.nombre.toLowerCase()} de referencia en {municipio.nombre} y en toda la comarca de {municipio.comarca}. Más de 20 años trabajando en el territorio nos han dado un conocimiento real del tipo de vivienda, los accesos y las necesidades específicas de cada zona del municipio.
+              </p>
+              <p>
+                Trabajamos con equipo propio, sin subcontrataciones. Siempre las mismas personas en cada visita para que conozcan tu espacio sin que tengas que repetir instrucciones. Presupuesto cerrado antes de empezar, sin letra pequeña, con los productos ecológicos Ecolabel incluidos en el precio.
+              </p>
+              <div class="grid sm:grid-cols-3 gap-3 mt-4">
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">+20</p>
+                  <p class="text-mid text-xs mt-1">años en {municipio.comarca}</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">24h</p>
+                  <p class="text-mid text-xs mt-1">presupuesto sin visita previa</p>
+                </div>
+                <div class="p-3 bg-white border border-line rounded-lg text-center">
+                  <p class="text-accent font-bold text-xl">Ecolabel</p>
+                  <p class="text-mid text-xs mt-1">certificación europea incluida</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parroquias (si no hay barrios con página, ya están en sección 02; si hay barrios, las mostramos aquí como cobertura extra) -->
+          {barriosConPagina.length > 0 && municipio.parroquias.length > 0 && (
             <div data-reveal>
               <h3 class="font-serif text-lg text-primary mb-3">
-                Cubrimos todas las parroquias de {municipio.nombre}
+                Cobertura completa: todas las parroquias de {municipio.nombre}
               </h3>
               <div class="flex flex-wrap gap-2">
                 {municipio.parroquias.map(p => (
@@ -212,18 +344,35 @@ const pasos = [
             )}
             <div class="flex flex-col gap-2">
               <a href="/presupuesto/" class="btn-accent w-full text-center text-sm">→ Pedir presupuesto</a>
-              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">
+                WhatsApp {BUSINESS.phoneDisplay}
+              </a>
             </div>
             <div class="mt-4 pt-4 border-t border-line">
               <EcoBadge size="sm" />
             </div>
           </div>
 
+          {barriosConPagina.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">{servicio.nombre} por barrios de {municipio.nombre}</p>
+              <ul class="space-y-2">
+                {barriosConPagina.slice(0, 8).map(b => (
+                  <li>
+                    <a href={`/servicios/${servicio.slug}/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {b.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {otrosServiciosEnMunicipio.length > 0 && (
             <div class="card p-6" data-reveal>
               <p class="font-serif text-base text-primary mb-3 font-semibold">Más servicios en {municipio.nombre}</p>
               <ul class="space-y-2">
-                {otrosServiciosEnMunicipio.map(s => (
+                {otrosServiciosEnMunicipio.slice(0, 7).map(s => (
                   <li>
                     <a href={`/servicios/${s.slug}/${municipio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
                       → {s.nombre}
@@ -232,7 +381,7 @@ const pasos = [
                 ))}
               </ul>
               <a href={`/zonas/${municipio.slug}/`} class="text-xs text-accent hover:underline mt-3 block">
-                Todos los servicios en {municipio.nombre}
+                Todos los servicios en {municipio.nombre} →
               </a>
             </div>
           )}
@@ -250,7 +399,7 @@ const pasos = [
                 ))}
               </ul>
               <a href={`/servicios/${servicio.slug}/`} class="text-xs text-accent hover:underline mt-3 block">
-                Ver todas las zonas
+                Ver todas las zonas →
               </a>
             </div>
           )}
