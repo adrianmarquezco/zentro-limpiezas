@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
-import { CONTENIDO_BARRIO } from '@/data/combos-barrio';
+import { CONTENIDO_BARRIO, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos } from '@/data/combos-barrio';
 import { getCollection } from 'astro:content';
 
 export const prerender = true;
@@ -66,6 +66,35 @@ export const GET: APIRoute = async () => {
             .map(b => ({ loc: `${SITE}/servicios/${s.slug}/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
         );
     }),
+    // Combos servicio × barrio ES — plantillas dedicadas (periódica, viviendas, pisos, turísticos)
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoPeriodica(b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-periodica/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoViviendas(b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-viviendas/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoPisos(b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-pisos/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
+    ...MUNICIPIOS
+      .filter(m => m.comarca === 'Ferrolterra' && m.barrios)
+      .flatMap(m =>
+        (m.barrios ?? [])
+          .filter(b => b.archetype && getContenidoTuristicos(b.archetype as BarrioArchetype, '', ''))
+          .map(b => ({ loc: `${SITE}/servicios/limpieza-de-apartamentos-turisticos/${m.slug}/${b.slug}/`, priority: '0.65', changefreq: 'monthly' }))
+      ),
     // Blog ES
     ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly' })),
     // Blog GL
