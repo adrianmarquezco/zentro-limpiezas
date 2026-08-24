@@ -269,9 +269,9 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
 export type ContenidoPeriodica = {
   h1Qualifier: string;
   metaDesc: string;
-  intro: string;
+  intro: string | string[];
   porQueH2: string;
-  porQueContent: string;
+  porQueContent: string | string[];
   queIncluyeH2: string;
   queIncluyeItems: string[];
   frecuencia: string;
@@ -283,9 +283,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'bloque-obrero': {
     h1Qualifier: 'pisos de bloque · limpieza regular sin sorpresas',
     metaDesc: 'Limpieza periódica de pisos en {barrio}: cocinas con grasa, baños con cal y suelos de tráfico intenso. Presupuesto cerrado, día fijo, productos Ecolabel.',
-    intro: 'En los pisos de bloque de {barrio}, la limpieza periódica profesional no es un lujo: es la forma más eficiente de mantener una vivienda habitada por familias con ritmo intenso. La cocina acumula grasa semanalmente, el baño genera cal con el agua de Ferrol y los suelos de tráfico diario necesitan fregado sistemático. Con un servicio periódico fijo, la casa nunca cae por debajo de un nivel mínimo y cada limpieza dura menos que la anterior.',
+    intro: [
+      'En los pisos de bloque de {barrio}, la limpieza periódica profesional no es un lujo: es la forma más eficiente de mantener una vivienda habitada por familias con ritmo intenso. La cocina acumula grasa semanalmente, el baño genera cal con el agua de Ferrol y los suelos de tráfico diario necesitan fregado sistemático. Con un servicio periódico fijo, la casa nunca cae por debajo de un nivel mínimo y cada limpieza dura menos que la anterior.',
+      'La limpieza periódica en los pisos de bloque de {barrio} no es un capricho: es la forma más eficiente de mantener una vivienda con ritmo familiar intenso. La cocina acumula grasa cada semana, el baño genera cal con el agua de Ferrol, y los suelos de tráfico diario necesitan fregado constante. Con un servicio fijo, la casa no baja nunca de un nivel mínimo y cada visita cuesta menos tiempo que la anterior.',
+      'En un piso de bloque de {barrio}, un servicio periódico bien planteado ahorra más de lo que cuesta: la cocina genera grasa semana tras semana, el baño acumula cal por el agua de Ferrol, y los suelos con tráfico diario necesitan fregado regular. Con visitas fijas la vivienda nunca cae por debajo de un nivel razonable, y cada limpieza se vuelve más rápida que la anterior.',
+    ],
     porQueH2: '¿Por qué contratar limpieza periódica en {barrio} en lugar de hacerlo tú?',
-    porQueContent: 'Los pisos de bloque de {barrio} tienen una composición de suciedad muy específica: grasa de cocción en campana y azulejos, cal incrustada en baños por el agua calcárea de Ferrol, y suelos de vinilo o gres con tráfico de 3-4 personas a diario. Limpiar esto bien requiere productos específicos y una secuencia correcta. El servicio periódico ajusta la intensidad según lo que haya acumulado la semana, no aplica siempre lo mismo sin mirar.',
+    porQueContent: [
+      'Los pisos de bloque de {barrio} tienen una composición de suciedad muy específica: grasa de cocción en campana y azulejos, cal incrustada en baños por el agua calcárea de Ferrol, y suelos de vinilo o gres con tráfico de 3-4 personas a diario. Limpiar esto bien requiere productos específicos y una secuencia correcta. El servicio periódico ajusta la intensidad según lo que haya acumulado la semana, no aplica siempre lo mismo sin mirar.',
+      'En {barrio}, los pisos de bloque tienen un patrón de suciedad muy predecible: grasa de cocción en campana y azulejos, cal por el agua calcárea de Ferrol en el baño, y suelos de vinilo o gres con el tráfico de 3-4 personas al día. Limpiarlo bien exige productos específicos y un orden correcto. El servicio periódico ajusta la intensidad según lo acumulado esa semana, no repite siempre lo mismo sin mirar el estado real.',
+      'Los pisos de bloque de {barrio} acumulan siempre el mismo tipo de suciedad: grasa en campana y azulejos, cal del agua de Ferrol en el baño, y suelos de vinilo o gres desgastados por el tráfico diario de la familia. Un servicio periódico no aplica el mismo protocolo cada vez, sino que ajusta la intensidad según lo que realmente se ha acumulado desde la última visita.',
+    ],
     queIncluyeH2: 'Qué incluye cada visita de limpieza periódica en {barrio}',
     queIncluyeItems: [
       'Cocina: campana, encimera, azulejos y electrodomésticos exteriores',
@@ -317,9 +325,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'historico': {
     h1Qualifier: 'edificios históricos · cuidado de suelos y madera',
     metaDesc: 'Limpieza periódica en {barrio}: suelos de madera, parquet y tarima de época cuidados con productos neutros. Regularidad sin dañar los acabados históricos.',
-    intro: 'Los pisos en edificios históricos de {barrio} tienen características únicas que exigen atención especial en la limpieza regular: suelos de madera o parquet de época, molduras y rodapiés con relieve, y muros de piedra o yeso que acumulan humedad y polvo de forma diferente a la construcción moderna. Una limpieza periódica profesional en este tipo de viviendas no puede ser la misma que en un piso estándar: los productos y la técnica cambian para no dañar los acabados históricos.',
+    intro: [
+      'Los pisos en edificios históricos de {barrio} tienen características únicas que exigen atención especial en la limpieza regular: suelos de madera o parquet de época, molduras y rodapiés con relieve, y muros de piedra o yeso que acumulan humedad y polvo de forma diferente a la construcción moderna. Una limpieza periódica profesional en este tipo de viviendas no puede ser la misma que en un piso estándar: los productos y la técnica cambian para no dañar los acabados históricos.',
+      'Un piso histórico en {barrio} exige atención especial también en la limpieza regular: suelos de madera o parquet de época, molduras y rodapiés con relieve, y muros de piedra o yeso que acumulan humedad y polvo de forma distinta a la construcción moderna. Una limpieza periódica aquí cambia de producto y técnica frente a un piso estándar, para no dañar los acabados.',
+      'En {barrio}, un piso histórico no admite el mismo protocolo de limpieza regular que uno moderno: suelos de madera o parquet, molduras con relieve, muros de piedra o yeso que retienen humedad y polvo de forma distinta. Adaptamos siempre producto y técnica para cuidar los acabados de época.',
+    ],
     porQueH2: '¿Qué tiene de especial la limpieza de los pisos históricos de {barrio}?',
-    porQueContent: 'El principal reto en los pisos históricos de {barrio} es el suelo. La madera y el parquet de época no admiten agua en exceso: se hinchan, se decoloran y las juntas se abren. La limpieza correcta usa paños muy bien escurridos o sistemas de vapor de baja presión. Los rodapiés con moldura acumulan polvo en los recovecos que no recoge una mopa plana estándar. Y las ventanas de guillotina necesitan limpieza de los carriles con cepillos finos que no se incluyen en una limpieza convencional.',
+    porQueContent: [
+      'El principal reto en los pisos históricos de {barrio} es el suelo. La madera y el parquet de época no admiten agua en exceso: se hinchan, se decoloran y las juntas se abren. La limpieza correcta usa paños muy bien escurridos o sistemas de vapor de baja presión. Los rodapiés con moldura acumulan polvo en los recovecos que no recoge una mopa plana estándar. Y las ventanas de guillotina necesitan limpieza de los carriles con cepillos finos que no se incluyen en una limpieza convencional.',
+      'El principal reto en los pisos históricos de {barrio} sigue siendo el suelo. La madera y el parquet no toleran agua en exceso —se hinchan, se decoloran, las juntas se abren—, así que usamos paños muy escurridos o vapor de baja presión. Los rodapiés con moldura acumulan polvo en recovecos que una mopa plana no llega a tocar, y las ventanas de guillotina necesitan cepillo fino en los carriles.',
+      'En un piso histórico de {barrio}, el suelo sigue siendo el punto crítico: la madera y el parquet de época se hinchan o decoloran con agua en exceso, así que trabajamos con paños casi secos o vapor de baja presión. Las molduras de los rodapiés atrapan polvo que una mopa normal no alcanza, y los carriles de las ventanas de guillotina necesitan cepillo fino, algo que una limpieza convencional no incluye.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en un piso histórico de {barrio}',
     queIncluyeItems: [
       'Suelos de madera: limpieza en seco con mopa de microfibra y mínima humedad',
@@ -351,9 +367,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'marinero': {
     h1Qualifier: 'zona costera · control de humedad y salitre',
     metaDesc: 'Limpieza periódica en {barrio}: control de humedad marina, salitre en superficies y condensaciones frecuentes. Servicio regular con productos certificados.',
-    intro: 'Las viviendas de {barrio} están expuestas a un ambiente marino que lo cambia todo en la limpieza doméstica: la humedad se asienta en paredes y techos, el salitre se deposita en ventanas y superficies metálicas, y los hongos aparecen antes que en zonas del interior. La limpieza periódica en {barrio} tiene que incorporar ventilación activa, control de manchas por condensación y atención a los marcos metálicos antes de que el ambiente salino los deteriore.',
+    intro: [
+      'Las viviendas de {barrio} están expuestas a un ambiente marino que lo cambia todo en la limpieza doméstica: la humedad se asienta en paredes y techos, el salitre se deposita en ventanas y superficies metálicas, y los hongos aparecen antes que en zonas del interior. La limpieza periódica en {barrio} tiene que incorporar ventilación activa, control de manchas por condensación y atención a los marcos metálicos antes de que el ambiente salino los deteriore.',
+      'Las viviendas de {barrio} están expuestas a un ambiente marino que cambia por completo la limpieza doméstica: humedad en paredes y techos, salitre en ventanas y superficies metálicas, y hongos que aparecen antes que en el interior. La limpieza periódica aquí incorpora siempre ventilación activa, control de condensación y atención a los marcos antes de que el salitre los deteriore.',
+      'En {barrio}, limpiar de forma regular implica lidiar con el ambiente marino en cada visita: humedad en paredes y techos, salitre en ventanas y metales, hongos que aparecen antes que en zonas de interior. La limpieza periódica incluye siempre ventilación activa, control de condensación y atención a los marcos para frenar el deterioro por salitre.',
+    ],
     porQueH2: '¿Cómo afecta el ambiente marino de {barrio} a la limpieza regular del hogar?',
-    porQueContent: 'En {barrio}, la brisa marina carga el aire de partículas de sal y humedad que se depositan en todas las superficies horizontales: estantes, encimeras, alféizares. La sal combinada con la humedad acelera la aparición de manchas en paredes y techos, especialmente en baños y cocinas. El salitre en marcos de aluminio, si no se limpia con regularidad, puede acelerar la oxidación. Un servicio periódico que atiende específicamente estas zonas previene daños mayores y mantiene la vivienda en buen estado más tiempo.',
+    porQueContent: [
+      'En {barrio}, la brisa marina carga el aire de partículas de sal y humedad que se depositan en todas las superficies horizontales: estantes, encimeras, alféizares. La sal combinada con la humedad acelera la aparición de manchas en paredes y techos, especialmente en baños y cocinas. El salitre en marcos de aluminio, si no se limpia con regularidad, puede acelerar la oxidación. Un servicio periódico que atiende específicamente estas zonas previene daños mayores y mantiene la vivienda en buen estado más tiempo.',
+      'La brisa marina de {barrio} carga el aire de sal y humedad que se deposita en cada superficie horizontal: estantes, encimeras, alféizares. Esa combinación acelera las manchas en paredes y techos, sobre todo en baño y cocina, y puede oxidar los marcos de aluminio si no se limpian con regularidad. Un servicio periódico que trate específicamente estas zonas previene daños mayores más adelante.',
+      'En {barrio}, la sal y la humedad del aire se depositan constantemente en estantes, encimeras y alféizares, acelerando las manchas de paredes y techos —especialmente en baño y cocina— y la oxidación de los marcos de aluminio si no se tratan a tiempo. Atender estas zonas en cada visita periódica evita que el problema se agrave con los meses.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en las casas de {barrio}',
     queIncluyeItems: [
       'Superficies horizontales: limpieza de salitre depositado en alféizares, encimeras y estantes',
@@ -385,9 +409,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'segunda-residencia': {
     h1Qualifier: 'segunda residencia · limpieza antes y después de cada estancia',
     metaDesc: 'Limpieza periódica para segunda residencia en {barrio}: apertura de temporada, mantenimiento durante la estancia y cierre. Sin preocupaciones cuando no estás.',
-    intro: 'Una segunda residencia en {barrio} necesita un modelo de limpieza diferente al de una vivienda habitual. No es frecuente sino puntual: apertura antes de llegar, mantenimiento si la estancia es larga, y cierre correcto cuando te vas. En Zentro Limpiezas gestionamos el ciclo completo para propietarios de segunda residencia en {barrio}: coordinamos por WhatsApp, entramos con llave si nos la dejas y la casa está lista cuando tú llegues.',
+    intro: [
+      'Una segunda residencia en {barrio} necesita un modelo de limpieza diferente al de una vivienda habitual. No es frecuente sino puntual: apertura antes de llegar, mantenimiento si la estancia es larga, y cierre correcto cuando te vas. En Zentro Limpiezas gestionamos el ciclo completo para propietarios de segunda residencia en {barrio}: coordinamos por WhatsApp, entramos con llave si nos la dejas y la casa está lista cuando tú llegues.',
+      'Una segunda residencia en {barrio} necesita otro modelo de limpieza: no es frecuente, sino puntual —apertura antes de llegar, mantenimiento si la estancia se alarga, y cierre correcto al irte—. Gestionamos el ciclo completo, coordinando por WhatsApp y entrando con llave si nos la dejas, para que la casa esté lista cuando llegues.',
+      'En {barrio}, una segunda residencia no encaja en el modelo de limpieza periódica habitual: funciona por ciclos —apertura, mantenimiento si la estancia dura, cierre al marcharte—. Coordinamos todo por WhatsApp y entramos con llave si nos la confías, así la vivienda está lista cuando llegas sin que tengas que organizarte tú.',
+    ],
     porQueH2: '¿Qué necesita una segunda residencia de {barrio} que lleva meses cerrada?',
-    porQueContent: 'El invierno gallego es húmedo. Una casa cerrada en {barrio} durante varios meses acumula polvo, manchas de condensación en ventanas y techos, posible olor a cerrado, y en casos con vegetación cercana, pequeños insectos. La limpieza de apertura no es un repaso superficial: requiere ventilar bien, tratar la condensación en cristales y techos, desinfectar baños y cocina después del cierre, y revisar que no haya problemas de humedad o filtraciones que hayan pasado inadvertidos.',
+    porQueContent: [
+      'El invierno gallego es húmedo. Una casa cerrada en {barrio} durante varios meses acumula polvo, manchas de condensación en ventanas y techos, posible olor a cerrado, y en casos con vegetación cercana, pequeños insectos. La limpieza de apertura no es un repaso superficial: requiere ventilar bien, tratar la condensación en cristales y techos, desinfectar baños y cocina después del cierre, y revisar que no haya problemas de humedad o filtraciones que hayan pasado inadvertidos.',
+      'El invierno gallego es húmedo, y una casa de {barrio} cerrada varios meses acumula polvo, condensación en ventanas y techos, posible olor a cerrado y, con vegetación cerca, algún insecto. La limpieza de apertura no es un repaso: hay que ventilar, tratar la condensación en cristales y techos, desinfectar baño y cocina, y revisar visualmente si hay humedad o filtraciones sin detectar.',
+      'Tras meses cerrada durante el invierno gallego, una casa en {barrio} acumula polvo, condensación en ventanas y techos, y a veces olor a cerrado o algún insecto si hay vegetación cerca. La apertura exige ventilar a fondo, tratar la condensación, desinfectar baño y cocina, y revisar si hay señales de humedad que hayan pasado desapercibidas durante la ausencia.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza de apertura de segunda residencia en {barrio}',
     queIncluyeItems: [
       'Ventilación controlada de todas las estancias',
@@ -420,9 +452,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'chalet': {
     h1Qualifier: 'chalés y adosados · más metros, más estancias',
     metaDesc: 'Limpieza periódica en chalés de {barrio}: planta baja, primera planta, garaje, terraza y zonas exteriores. Equipo adaptado al tamaño de tu vivienda.',
-    intro: 'Un chalé o adosado en {barrio} tiene superficies que no existen en un piso de bloque: garaje, terraza, jardín que se trae a casa en la suela del zapato, segunda planta con escalera, y en muchos casos más de un baño completo. La limpieza periódica de un chalé no es escalar el servicio de un piso sino un trabajo distinto en organización y tiempo. Adaptamos el equipo y la frecuencia al tamaño real de tu vivienda.',
+    intro: [
+      'Un chalé o adosado en {barrio} tiene superficies que no existen en un piso de bloque: garaje, terraza, jardín que se trae a casa en la suela del zapato, segunda planta con escalera, y en muchos casos más de un baño completo. La limpieza periódica de un chalé no es escalar el servicio de un piso sino un trabajo distinto en organización y tiempo. Adaptamos el equipo y la frecuencia al tamaño real de tu vivienda.',
+      'Un chalé o adosado en {barrio} tiene superficies que no existen en un piso de bloque: garaje, terraza, jardín que se cuela en casa con cada suela de zapato, segunda planta con escalera, y a menudo más de un baño completo. La limpieza periódica de un chalé no es simplemente escalar la de un piso, sino un trabajo distinto en organización y tiempo, adaptado al tamaño real de la vivienda.',
+      'En {barrio}, un chalé pide un enfoque distinto al de un piso: garaje, terraza, jardín que entra con cada paso, escalera entre plantas, y a menudo varios baños completos. No es cuestión de hacer más de lo mismo, sino de organizar el servicio periódico de otra manera, según el tamaño real de la propiedad.',
+    ],
     porQueH2: '¿Por qué los chalés de {barrio} necesitan un servicio de limpieza diferente al de un piso?',
-    porQueContent: 'La mayor superficie no es el único factor. Los chalés de {barrio} tienen suciedad de entrada procedente del jardín (barro, hojas, polvo orgánico) que se distribuye por toda la planta baja con el tráfico diario. La terraza necesita atención independiente. El garaje acumula polvo de la calzada y manchas de aceite. Y la escalera interior entre plantas es una zona de acumulación de polvo que en un piso de bloque no existe. Un servicio periódico bien organizado cubre todo esto en una visita eficiente.',
+    porQueContent: [
+      'La mayor superficie no es el único factor. Los chalés de {barrio} tienen suciedad de entrada procedente del jardín (barro, hojas, polvo orgánico) que se distribuye por toda la planta baja con el tráfico diario. La terraza necesita atención independiente. El garaje acumula polvo de la calzada y manchas de aceite. Y la escalera interior entre plantas es una zona de acumulación de polvo que en un piso de bloque no existe. Un servicio periódico bien organizado cubre todo esto en una visita eficiente.',
+      'La superficie no es el único factor en los chalés de {barrio}. El jardín aporta barro, hojas y polvo orgánico que se distribuyen por toda la planta baja con el tráfico diario. La terraza necesita atención propia, el garaje acumula polvo de calzada y manchas de aceite, y la escalera interior es una zona de acumulación de polvo que en un piso de bloque no existe. Un servicio periódico bien organizado cubre todo esto en una visita eficiente.',
+      'En un chalé de {barrio}, más allá de los metros, hay puntos que un piso de bloque nunca tiene: barro y polvo orgánico del jardín que se reparte por la planta baja, terraza con su propio mantenimiento, garaje con polvo de calzada, y escalera interior que acumula suciedad entre plantas. Un servicio periódico bien planteado cubre todo esto sin alargar innecesariamente la visita.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza periódica de chalés en {barrio}',
     queIncluyeItems: [
       'Planta baja completa: salón, cocina, aseo y zonas de paso',
@@ -455,9 +495,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'rural': {
     h1Qualifier: 'casas rurales · leña, barro y polvo orgánico',
     metaDesc: 'Limpieza periódica en casas rurales de {barrio}: suelos de piedra, chimenea y cocina de leña, polvo orgánico del entorno. Productos Ecolabel respetuosos con el entorno.',
-    intro: 'Las casas rurales de {barrio} tienen una suciedad característica muy diferente a la de los pisos urbanos: el barro que entra con las botas, el polvo y la ceniza de la chimenea o el horno de leña, el polvo orgánico del campo y la humedad que genera verdín en las zonas sombrías. La limpieza periódica en una casa rural de {barrio} requiere productos adecuados para suelos de piedra, baldosa antigua o madera, y una actitud respetuosa con el entorno, por eso usamos solo productos Ecolabel.',
+    intro: [
+      'Las casas rurales de {barrio} tienen una suciedad característica muy diferente a la de los pisos urbanos: el barro que entra con las botas, el polvo y la ceniza de la chimenea o el horno de leña, el polvo orgánico del campo y la humedad que genera verdín en las zonas sombrías. La limpieza periódica en una casa rural de {barrio} requiere productos adecuados para suelos de piedra, baldosa antigua o madera, y una actitud respetuosa con el entorno, por eso usamos solo productos Ecolabel.',
+      'Las casas rurales de {barrio} tienen una suciedad muy distinta a la de un piso urbano: barro que entra con las botas, ceniza de la chimenea o el horno de leña, polvo orgánico del campo y humedad que genera verdín en las zonas de sombra. La limpieza periódica aquí exige productos adecuados para piedra, baldosa antigua o madera, siempre con Ecolabel por respeto al entorno.',
+      'En {barrio}, una casa rural acumula un tipo de suciedad que un piso de ciudad no conoce: barro de las botas, ceniza de chimenea, polvo orgánico de campo y humedad que favorece el verdín en las zonas más sombrías. La limpieza periódica se adapta a piedra, baldosa antigua o madera, siempre con productos Ecolabel por el entorno.',
+    ],
     porQueH2: '¿Qué particularidades tiene la limpieza periódica de las casas rurales de {barrio}?',
-    porQueContent: 'Las casas rurales de {barrio} acumulan tipos de suciedad que no existen en los pisos urbanos. La chimenea o el horno de leña generan ceniza que se deposita en superficies cercanas y en el suelo. El barro de la huerta entra a diario por la puerta principal. Los techos con vigas de madera acumulan polvo y telarañas en recovecos que una mopa plana no alcanza. Y en primavera, el polen de la vegetación circundante se cuela por ventanas y se asienta en todas las superficies. El servicio periódico se adapta a la estación del año.',
+    porQueContent: [
+      'Las casas rurales de {barrio} acumulan tipos de suciedad que no existen en los pisos urbanos. La chimenea o el horno de leña generan ceniza que se deposita en superficies cercanas y en el suelo. El barro de la huerta entra a diario por la puerta principal. Los techos con vigas de madera acumulan polvo y telarañas en recovecos que una mopa plana no alcanza. Y en primavera, el polen de la vegetación circundante se cuela por ventanas y se asienta en todas las superficies. El servicio periódico se adapta a la estación del año.',
+      'Las casas rurales de {barrio} tienen tipos de suciedad que no existen en la ciudad: ceniza de la chimenea o el horno de leña en superficies cercanas, barro de la huerta que entra a diario, polvo y telarañas en techos con vigas que una mopa plana no alcanza, y en primavera, polen que se cuela por las ventanas. El servicio periódico se adapta según la estación del año.',
+      'En una casa rural de {barrio}, cada estación trae su propia suciedad: ceniza de chimenea en invierno, barro constante de la huerta, polvo y telarañas en las vigas del techo, y polen en primavera colándose por las ventanas. Ajustamos el servicio periódico a lo que la temporada exige, no a un protocolo fijo todo el año.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en una casa rural de {barrio}',
     queIncluyeItems: [
       'Suelos de piedra, baldosa o madera: fregado con producto adecuado a cada material',
@@ -490,9 +538,17 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   'industrial': {
     h1Qualifier: 'zona polígono · limpieza contra partículas y grasa ambiental',
     metaDesc: 'Limpieza periódica en {barrio}: desengrase de partículas industriales en superficies, ventilación y cocina. Más frecuente por el entorno del polígono.',
-    intro: 'Las viviendas de {barrio}, en el entorno del polígono industrial de Narón, acumulan un tipo de suciedad que no se da en otras zonas: partículas finas de combustión diésel, polvo de caucho y residuos de actividad industrial que el viento deposita en las superficies exteriores e incluso penetra por ventanas. Esta capa grasienta fina se deposita también en el interior: marcos de ventana, alféizares, encimeras cercanas a ventanas. La limpieza periódica en {barrio} necesita incorporar un paso de desengrase que en otras zonas no sería necesario.',
+    intro: [
+      'Las viviendas de {barrio}, en el entorno del polígono industrial de Narón, acumulan un tipo de suciedad que no se da en otras zonas: partículas finas de combustión diésel, polvo de caucho y residuos de actividad industrial que el viento deposita en las superficies exteriores e incluso penetra por ventanas. Esta capa grasienta fina se deposita también en el interior: marcos de ventana, alféizares, encimeras cercanas a ventanas. La limpieza periódica en {barrio} necesita incorporar un paso de desengrase que en otras zonas no sería necesario.',
+      'Las viviendas de {barrio}, junto al polígono industrial de Narón, acumulan un tipo de suciedad que no se da en otras zonas: partículas de combustión diésel, polvo de caucho y residuos industriales que el viento deposita fuera y que también entran por las ventanas —marcos, alféizares, encimeras cercanas—. La limpieza periódica aquí incluye siempre un paso de desengrase que en otras zonas no haría falta.',
+      'En {barrio}, junto al polígono industrial, cualquier vivienda recibe una suciedad distinta a la del resto de la comarca: partículas de combustión, polvo de caucho y residuos que se depositan en el exterior y entran por las ventanas. Nuestra limpieza periódica aquí incorpora siempre un desengrase previo, un paso que en zonas alejadas del polígono no sería necesario.',
+    ],
     porQueH2: '¿Por qué las viviendas de {barrio} necesitan limpieza más frecuente que en otras zonas?',
-    porQueContent: 'La actividad del polígono industrial y el tráfico pesado de la N-651 generan partículas en suspensión que se depositan continuamente sobre todas las superficies. A diferencia del polvo doméstico, estas partículas tienen componentes grasos que se adhieren con más fuerza y requieren desengrasante para eliminarse. El resultado visible es que los alféizares, las encimeras y los suelos cercanos a ventanas se ensucian mucho más rápido que en zonas residenciales alejadas del polígono. Una visita cada 1-2 semanas es lo que más valoran los clientes en {barrio}.',
+    porQueContent: [
+      'La actividad del polígono industrial y el tráfico pesado de la N-651 generan partículas en suspensión que se depositan continuamente sobre todas las superficies. A diferencia del polvo doméstico, estas partículas tienen componentes grasos que se adhieren con más fuerza y requieren desengrasante para eliminarse. El resultado visible es que los alféizares, las encimeras y los suelos cercanos a ventanas se ensucian mucho más rápido que en zonas residenciales alejadas del polígono. Una visita cada 1-2 semanas es lo que más valoran los clientes en {barrio}.',
+      'La actividad del polígono y el tráfico pesado de la N-651 generan partículas en suspensión que se posan constantemente sobre cualquier superficie. A diferencia del polvo doméstico, tienen componentes grasos que se adhieren con más fuerza y necesitan desengrasante para salir del todo. El resultado: alféizares, encimeras y suelos cerca de ventanas se ensucian mucho más rápido que en zonas alejadas del polígono, lo que explica por qué en {barrio} se prefiere una visita cada 1-2 semanas.',
+      'En {barrio}, la actividad del polígono y el tráfico de la N-651 dejan partículas grasas en suspensión que se posan en cualquier superficie, con más fuerza de adherencia que el polvo doméstico normal. Alféizares, encimeras y suelos cerca de ventanas se ensucian visiblemente más rápido que en el resto de la comarca, por eso aquí la mayoría de clientes prefiere visita cada 1-2 semanas en vez de mensual.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en viviendas de {barrio}',
     queIncluyeItems: [
       'Alféizares y marcos de ventana: desengrase de partículas industriales',
@@ -522,19 +578,24 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   },
 };
 
+export type ContenidoPeriodicaResuelto = Omit<ContenidoPeriodica, 'intro' | 'porQueContent'> & {
+  intro: string;
+  porQueContent: string;
+};
+
 export function getContenidoPeriodica(
   archetype: BarrioArchetype,
   barrioNombre: string,
   municipioNombre: string,
-): ContenidoPeriodica | null {
+): ContenidoPeriodicaResuelto | null {
   const raw = PERIODICA_POR_ARQUETIPO[archetype];
   if (!raw) return null;
   return {
     h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
     metaDesc: t(raw.metaDesc, barrioNombre, municipioNombre),
-    intro: t(raw.intro, barrioNombre, municipioNombre),
+    intro: tVariant(raw.intro, barrioNombre, municipioNombre),
     porQueH2: t(raw.porQueH2, barrioNombre, municipioNombre),
-    porQueContent: t(raw.porQueContent, barrioNombre, municipioNombre),
+    porQueContent: tVariant(raw.porQueContent, barrioNombre, municipioNombre),
     queIncluyeH2: t(raw.queIncluyeH2, barrioNombre, municipioNombre),
     queIncluyeItems: raw.queIncluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
     frecuencia: t(raw.frecuencia, barrioNombre, municipioNombre),
