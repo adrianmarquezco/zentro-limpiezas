@@ -1562,9 +1562,9 @@ export function getContenidoTuristicos(
 export type ContenidoAfondo = {
   h1Qualifier: string;
   metaDesc: string;
-  intro: string;
+  intro: string | string[];
   queEsH2: string;
-  queEsContent: string;
+  queEsContent: string | string[];
   queIncluyeH2: string;
   queIncluyeItems: string[];
   cuandoH2: string;
@@ -1577,9 +1577,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'bloque-obrero': {
     h1Qualifier: 'pisos de bloque · cal, grasa y zonas que el día a día no alcanza',
     metaDesc: 'Limpieza a fondo en pisos de bloque de {barrio}: cal incrustada en baños, grasa acumulada en cocina y zonas que la limpieza habitual nunca alcanza. Desde 120€.',
-    intro: 'La limpieza a fondo de un piso de bloque en {barrio} es el servicio que llega donde la limpieza de mantenimiento nunca llega: el interior de los armarios de cocina, la campana con años de grasa acumulada, la cal en el plato de ducha, los rodapiés y los interruptores. Los bloques de los años 70-80, frecuentes en {barrio}, tienen materiales específicos —gres, terrazo, aluminio de época— que necesitan el producto correcto para limpiarse de verdad sin deteriorarse.',
+    intro: [
+      'La limpieza a fondo de un piso de bloque en {barrio} es el servicio que llega donde la limpieza de mantenimiento nunca llega: el interior de los armarios de cocina, la campana con años de grasa acumulada, la cal en el plato de ducha, los rodapiés y los interruptores. Los bloques de los años 70-80, frecuentes en {barrio}, tienen materiales específicos —gres, terrazo, aluminio de época— que necesitan el producto correcto para limpiarse de verdad sin deteriorarse.',
+      'En un piso de bloque de {barrio}, la limpieza a fondo llega justo donde el mantenimiento habitual no llega: interior de armarios de cocina, campana con grasa de años, cal en el plato de ducha, rodapiés e interruptores. Los bloques de los 70-80, típicos de {barrio}, tienen materiales de época —gres, terrazo, aluminio— que piden el producto correcto para limpiarse de verdad.',
+      'Un piso de bloque en {barrio} necesita, de vez en cuando, algo más que el mantenimiento habitual: la campana con grasa acumulada, la cal del plato de ducha, el interior de los armarios, los rodapiés e interruptores. Con materiales de los años 70-80 como gres, terrazo o aluminio de época, hace falta el producto adecuado para que la limpieza sea real.',
+    ],
     queEsH2: '¿Qué es y qué incluye una limpieza a fondo en un piso de bloque de {barrio}?',
-    queEsContent: 'La limpieza a fondo es el "reseteo" del piso: se hace cuando se necesita llegar donde el mantenimiento habitual no llega. En los pisos de bloque de {barrio}, eso significa dedicar tiempo específico a la campana extractora con grasa acumulada, la cal en griferías y plato de ducha, el interior de armarios de cocina, y el polvo detrás y debajo de los electrodomésticos. Se trabaja de arriba hacia abajo: primero alturas y techos, después muebles y armarios, finalmente suelos.',
+    queEsContent: [
+      'La limpieza a fondo es el "reseteo" del piso: se hace cuando se necesita llegar donde el mantenimiento habitual no llega. En los pisos de bloque de {barrio}, eso significa dedicar tiempo específico a la campana extractora con grasa acumulada, la cal en griferías y plato de ducha, el interior de armarios de cocina, y el polvo detrás y debajo de los electrodomésticos. Se trabaja de arriba hacia abajo: primero alturas y techos, después muebles y armarios, finalmente suelos.',
+      'La limpieza a fondo es el reseteo del piso: llega donde el mantenimiento diario no alcanza. En {barrio}, eso significa dedicar tiempo a la campana con grasa acumulada, la cal en griferías y plato de ducha, el interior de armarios de cocina, y el polvo detrás y debajo de los electrodomésticos. Trabajamos de arriba abajo: alturas y techos primero, muebles después, suelos al final.',
+      'Pensada como un reseteo completo, la limpieza a fondo en {barrio} cubre lo que el día a día no toca: campana con grasa de meses, cal en griferías y plato de ducha, interior de armarios y el polvo acumulado detrás de los electrodomésticos. El orden de trabajo siempre es el mismo: de arriba hacia abajo, empezando por alturas y techos y terminando en el suelo.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo en {barrio}',
     queIncluyeItems: [
       'Cocina a fondo: interior y exterior de armarios, encimera, azulejos, campana extractora, electrodomésticos y suelo',
@@ -1619,9 +1627,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'historico': {
     h1Qualifier: 'edificios históricos · materiales nobles limpios con el producto correcto',
     metaDesc: 'Limpieza a fondo en {barrio}: parquet, baldosa hidráulica y molduras de escayola tratados con productos neutros. Resultado profundo sin dañar los acabados de época.',
-    intro: 'Las viviendas en los edificios históricos de {barrio} son un reto de limpieza: cada sala puede tener un tipo de suelo diferente —parquet, baldosa hidráulica, mosaico—, las molduras y cornisas acumulan polvo en sus relieves, y los materiales envejecidos exigen productos que los cuiden en lugar de dañarlos. En Zentro Limpiezas identificamos los materiales antes de empezar y adaptamos producto y técnica a cada superficie para un resultado real.',
+    intro: [
+      'Las viviendas en los edificios históricos de {barrio} son un reto de limpieza: cada sala puede tener un tipo de suelo diferente —parquet, baldosa hidráulica, mosaico—, las molduras y cornisas acumulan polvo en sus relieves, y los materiales envejecidos exigen productos que los cuiden en lugar de dañarlos. En Zentro Limpiezas identificamos los materiales antes de empezar y adaptamos producto y técnica a cada superficie para un resultado real.',
+      'Un piso en un edificio histórico de {barrio} es un reto de limpieza: cada sala puede tener un suelo distinto —parquet, baldosa hidráulica, mosaico—, las molduras acumulan polvo en sus relieves, y los materiales de época exigen productos que los cuiden. Identificamos qué hay antes de empezar y adaptamos producto y técnica a cada superficie para un resultado real.',
+      'En {barrio}, un piso histórico exige identificar los materiales antes de nada: parquet, baldosa hidráulica o mosaico según la sala, molduras con polvo en cada relieve, acabados de época que un producto agresivo puede dañar. Evaluamos cada superficie antes de tocar nada, así el resultado no compromete el material.',
+    ],
     queEsH2: '¿Qué hace diferente la limpieza a fondo en los pisos históricos de {barrio}?',
-    queEsContent: 'La limpieza a fondo de un piso histórico en {barrio} no es solo ir más despacio: es saber qué producto usar en cada material. El parquet antiguo se daña con agua en exceso; la baldosa hidráulica absorbe los ácidos de limpiadores agresivos; las molduras de escayola acumulan polvo en relieves que una fregona no alcanza. La diferencia en el resultado, cuando se hace con el producto y la técnica correctos, es completamente visible.',
+    queEsContent: [
+      'La limpieza a fondo de un piso histórico en {barrio} no es solo ir más despacio: es saber qué producto usar en cada material. El parquet antiguo se daña con agua en exceso; la baldosa hidráulica absorbe los ácidos de limpiadores agresivos; las molduras de escayola acumulan polvo en relieves que una fregona no alcanza. La diferencia en el resultado, cuando se hace con el producto y la técnica correctos, es completamente visible.',
+      'La limpieza a fondo de un piso histórico en {barrio} no es solo ir más despacio: es saber qué producto va en cada material. El parquet antiguo se daña con exceso de agua, la baldosa hidráulica absorbe ácidos agresivos, las molduras de escayola atrapan polvo que una fregona no toca. Con el producto y la técnica correctos, la diferencia en el resultado se nota a simple vista.',
+      'En {barrio}, hacer bien una limpieza a fondo en un piso histórico depende del producto elegido para cada material, no de la velocidad: el parquet sufre con exceso de agua, la baldosa hidráulica no tolera ácidos, las molduras de escayola guardan polvo en cada relieve. El resultado, hecho con cuidado, es visiblemente distinto al de una limpieza genérica.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo en una vivienda histórica de {barrio}',
     queIncluyeItems: [
       'Suelos de parquet/madera: mopa casi seca con producto específico sin agua en exceso',
@@ -1661,9 +1677,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'marinero': {
     h1Qualifier: 'zona costera · salitre, humedad y cristales sin marcas de mar',
     metaDesc: 'Limpieza a fondo en {barrio}: salitre en marcos y alféizares, humedad en baños y manchas de condensación en cristales. Tratamiento completo para casas costeras.',
-    intro: 'Una limpieza a fondo en una casa costera de {barrio} tiene que abordar lo que el ambiente marino hace al inmueble: el salitre que se deposita en marcos, alféizares y superficies metálicas, la humedad que genera moho en baños y juntas, y las manchas de condensación en cristales. Son problemas que en casas del interior no existen, y que requieren tratamiento específico.',
+    intro: [
+      'Una limpieza a fondo en una casa costera de {barrio} tiene que abordar lo que el ambiente marino hace al inmueble: el salitre que se deposita en marcos, alféizares y superficies metálicas, la humedad que genera moho en baños y juntas, y las manchas de condensación en cristales. Son problemas que en casas del interior no existen, y que requieren tratamiento específico.',
+      'En una casa costera de {barrio}, la limpieza a fondo tiene que abordar lo que el ambiente marino le hace a la vivienda: salitre en marcos y superficies metálicas, humedad que genera moho en baños y juntas, y condensación en cristales. Son problemas que no existen tierra adentro y que necesitan tratamiento específico.',
+      'Una limpieza a fondo en {barrio} no puede ignorar lo que trae el mar: salitre depositado en marcos y metales, humedad que favorece el moho en baños, y condensación en los cristales. Ninguno de estos frentes se resuelve con un producto genérico; requieren tratamiento propio.',
+    ],
     queEsH2: '¿Qué incluye la limpieza a fondo en una casa costera de {barrio}?',
-    queEsContent: 'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora tratamiento de salitre en marcos y alféizares, antifúngico en juntas de baño donde la humedad marina acelera el crecimiento de moho, y tratamiento de manchas de condensación en cristales. Estos elementos diferenciadores son lo que hace que la limpieza a fondo de una casa costera sea distinta a la de una casa del interior.',
+    queEsContent: [
+      'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora tratamiento de salitre en marcos y alféizares, antifúngico en juntas de baño donde la humedad marina acelera el crecimiento de moho, y tratamiento de manchas de condensación en cristales. Estos elementos diferenciadores son lo que hace que la limpieza a fondo de una casa costera sea distinta a la de una casa del interior.',
+      'Más allá de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora tratamiento de salitre en marcos y alféizares, antifúngico en juntas de baño donde la humedad marina acelera el moho, y tratamiento de condensación en cristales. Son estos elementos los que diferencian una limpieza a fondo costera de una de interior.',
+      'En {barrio}, una limpieza a fondo no se limita a las estancias habituales: suma tratamiento de salitre en marcos y alféizares, antifúngico en juntas de baño donde la humedad acelera el moho, y atención a la condensación de los cristales. Sin estos tres frentes, la limpieza no está completa en una casa costera.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo en {barrio}',
     queIncluyeItems: [
       'Marcos y alféizares: neutralizador de sales marinas para eliminar salitre acumulado',
@@ -1703,9 +1727,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'segunda-residencia': {
     h1Qualifier: 'segunda residencia · apertura o cierre a fondo antes o después de la estancia',
     metaDesc: 'Limpieza a fondo de segunda residencia en {barrio}: apertura tras meses cerrada, piso ventilado, sin moho ni polvo de sedimentación. Gestionamos con tu llave.',
-    intro: 'Una segunda residencia en {barrio} que pasa meses cerrada acumula una suciedad diferente a la de uso diario: polvo de sedimentación en todas las superficies, manchas de condensación en cristales, moho superficial en baños sin usar, olor a cerrado y en algunos casos filtraciones que hay que detectar. La limpieza a fondo de apertura deja el piso listo para disfrutar desde el primer momento en que llegas.',
+    intro: [
+      'Una segunda residencia en {barrio} que pasa meses cerrada acumula una suciedad diferente a la de uso diario: polvo de sedimentación en todas las superficies, manchas de condensación en cristales, moho superficial en baños sin usar, olor a cerrado y en algunos casos filtraciones que hay que detectar. La limpieza a fondo de apertura deja el piso listo para disfrutar desde el primer momento en que llegas.',
+      'Una segunda residencia en {barrio} que pasa meses cerrada acumula una suciedad distinta a la de uso diario: polvo de sedimentación, condensación en cristales, moho superficial en baños sin usar, olor a cerrado, y a veces filtraciones sin detectar. La limpieza a fondo de apertura deja el piso listo para disfrutar desde que llegas.',
+      'En {barrio}, una segunda residencia cerrada durante meses no se limpia como una vivienda de uso habitual: hay polvo sedimentado, condensación en cristales, algo de moho en baños sin uso y ese olor tan característico a cerrado. La limpieza a fondo de apertura lo resuelve todo antes de tu llegada.',
+    ],
     queEsH2: '¿En qué estado está una segunda residencia de {barrio} después de meses cerrada?',
-    queEsContent: 'Un piso cerrado durante el invierno en {barrio} acumula polvo de sedimentación en muebles y suelos, manchas de condensación en cristales por el diferencial térmico, moho superficial en juntas de baño y encimera, y el olor característico de espacio sin ventilar. Si además está en zona costera, añade salitre en marcos y superficies metálicas. La limpieza de apertura lo resuelve todo en una visita: ventilación activa, tratamiento de humedad y limpieza completa.',
+    queEsContent: [
+      'Un piso cerrado durante el invierno en {barrio} acumula polvo de sedimentación en muebles y suelos, manchas de condensación en cristales por el diferencial térmico, moho superficial en juntas de baño y encimera, y el olor característico de espacio sin ventilar. Si además está en zona costera, añade salitre en marcos y superficies metálicas. La limpieza de apertura lo resuelve todo en una visita: ventilación activa, tratamiento de humedad y limpieza completa.',
+      'Un piso cerrado durante el invierno en {barrio} acumula polvo en muebles y suelos, condensación en cristales por el cambio de temperatura, moho superficial en juntas de baño y encimera, y el olor propio de un espacio sin ventilar. En zona costera, se suma el salitre en marcos. La limpieza de apertura lo resuelve todo en una visita: ventilación, tratamiento de humedad y limpieza completa.',
+      'Tras el invierno cerrado, un piso de {barrio} tiene polvo acumulado en cada superficie, condensación en cristales, algo de moho en juntas de baño, y el olor típico de un espacio sin ventilar durante meses. Si está cerca del mar, también hay salitre en los marcos. Resolvemos todo en una única visita de apertura, con ventilación activa incluida.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo de apertura de segunda residencia en {barrio}',
     queIncluyeItems: [
       'Toda la vivienda: polvo de sedimentación eliminado en muebles, superficies y suelos',
@@ -1745,9 +1777,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'chalet': {
     h1Qualifier: 'chalés y adosados · gran limpieza de todas las plantas y exteriores',
     metaDesc: 'Limpieza a fondo en chalés de {barrio}: planta baja, primera planta, garaje, terraza y zonas exteriores. Equipo adaptado al tamaño y al tiempo necesario.',
-    intro: 'La limpieza a fondo de un chalé o adosado en {barrio} no se parece a la de un piso de bloque: hay más plantas, más metros de cocina y baños, terraza que tratar, garaje, y la suciedad de jardín que se distribuye por toda la planta baja. En Zentro Limpiezas adaptamos el equipo al tamaño real de tu chalé para que la limpieza a fondo quede completa en el tiempo acordado, sin dejar ninguna zona sin atender.',
+    intro: [
+      'La limpieza a fondo de un chalé o adosado en {barrio} no se parece a la de un piso de bloque: hay más plantas, más metros de cocina y baños, terraza que tratar, garaje, y la suciedad de jardín que se distribuye por toda la planta baja. En Zentro Limpiezas adaptamos el equipo al tamaño real de tu chalé para que la limpieza a fondo quede completa en el tiempo acordado, sin dejar ninguna zona sin atender.',
+      'La limpieza a fondo de un chalé o adosado en {barrio} no se parece a la de un piso de bloque: más plantas, más metros de cocina y baños, terraza propia, garaje, y la suciedad de jardín que se reparte por la planta baja. Adaptamos el equipo al tamaño real de tu chalé para completar el trabajo en el tiempo acordado, sin dejar ninguna zona pendiente.',
+      'En {barrio}, un chalé pide una limpieza a fondo distinta a la de un piso: más plantas, más baños, terraza, garaje, y el barro y polvo del jardín repartidos por la planta baja. El equipo se dimensiona según el tamaño real de la propiedad para cumplir el tiempo acordado sin dejar zonas sin tratar.',
+    ],
     queEsH2: '¿Qué áreas de un chalé de {barrio} se cubren en la limpieza a fondo?',
-    queEsContent: 'En un chalé, la limpieza a fondo va más allá de las zonas estándar. Además de cocina, baños, dormitorios y salón, incluye la escalera interior con barandilla, la terraza con suelo y muebles, el interior del garaje con barrido, y la entrada y accesos exteriores. Son las zonas que en un piso de bloque no existen y que en el chalé acumulan suciedad específica que la visita de mantenimiento habitual no resuelve a fondo.',
+    queEsContent: [
+      'En un chalé, la limpieza a fondo va más allá de las zonas estándar. Además de cocina, baños, dormitorios y salón, incluye la escalera interior con barandilla, la terraza con suelo y muebles, el interior del garaje con barrido, y la entrada y accesos exteriores. Son las zonas que en un piso de bloque no existen y que en el chalé acumulan suciedad específica que la visita de mantenimiento habitual no resuelve a fondo.',
+      'En un chalé, la limpieza a fondo va más allá de las zonas estándar: además de cocina, baños, dormitorios y salón, cubre la escalera interior, la terraza con suelo y muebles, el interior del garaje y los accesos exteriores. Son zonas que un piso de bloque no tiene, y que en el chalé acumulan una suciedad específica que el mantenimiento habitual no resuelve del todo.',
+      'En un chalé de {barrio}, la limpieza a fondo cubre más terreno que en un piso: escalera interior, terraza con suelo y mobiliario, garaje y accesos exteriores, además de cocina, baños, dormitorios y salón. Son zonas que solo existen en este tipo de vivienda y que acumulan una suciedad que el mantenimiento habitual no llega a resolver.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo de chalés en {barrio}',
     queIncluyeItems: [
       'Cocina completa: interior y exterior de todos los armarios, campana, encimera, azulejos y electrodomésticos',
@@ -1787,9 +1827,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'rural': {
     h1Qualifier: 'casas rurales · limpieza a fondo con respeto por los materiales tradicionales',
     metaDesc: 'Limpieza a fondo en casas rurales de {barrio}: suelos de piedra y madera, chimenea, vigas y suciedad de campo. Productos Ecolabel respetuosos con el entorno.',
-    intro: 'La limpieza a fondo de una casa rural en {barrio} tiene su propia complejidad: los suelos de piedra, baldosa de barro o madera no admiten los mismos productos que los pisos urbanos; la chimenea activa deja ceniza en zonas próximas; las vigas de los techos acumulan polvo y telarañas que solo se eliminan con cepillo extensible; y el campo trae su propia suciedad —barro, polvo orgánico— que se acumula de forma diferente. Trabajamos con el producto correcto para cada material.',
+    intro: [
+      'La limpieza a fondo de una casa rural en {barrio} tiene su propia complejidad: los suelos de piedra, baldosa de barro o madera no admiten los mismos productos que los pisos urbanos; la chimenea activa deja ceniza en zonas próximas; las vigas de los techos acumulan polvo y telarañas que solo se eliminan con cepillo extensible; y el campo trae su propia suciedad —barro, polvo orgánico— que se acumula de forma diferente. Trabajamos con el producto correcto para cada material.',
+      'La limpieza a fondo de una casa rural en {barrio} tiene su propia complejidad: suelos de piedra, baldosa de barro o madera que no admiten los mismos productos que un piso urbano, chimenea activa que deja ceniza cerca, vigas con polvo y telarañas que solo salen con cepillo extensible, y la suciedad propia del campo. Trabajamos con el producto correcto para cada material.',
+      'En {barrio}, una casa rural exige otra forma de hacer la limpieza a fondo: piedra, baldosa de barro o madera que no toleran cualquier producto, ceniza de chimenea en superficies cercanas, vigas con polvo y telarañas que solo un cepillo extensible alcanza, y la suciedad propia del entorno rural. Cada material recibe su tratamiento específico.',
+    ],
     queEsH2: '¿Qué es diferente en la limpieza a fondo de una casa rural de {barrio}?',
-    queEsContent: 'La principal diferencia está en los materiales y el tipo de suciedad. La piedra natural y la baldosa de barro son porosas: absorben los ácidos de los productos de limpieza estándar y se dañan. La madera de suelos y vigas necesita mínima humedad. La chimenea activa genera hollín en superficies próximas que requiere tratamiento específico. Y la suciedad que entra del campo —barro, polvo orgánico— se distribuye por todas las estancias de forma diferente a la suciedad urbana.',
+    queEsContent: [
+      'La principal diferencia está en los materiales y el tipo de suciedad. La piedra natural y la baldosa de barro son porosas: absorben los ácidos de los productos de limpieza estándar y se dañan. La madera de suelos y vigas necesita mínima humedad. La chimenea activa genera hollín en superficies próximas que requiere tratamiento específico. Y la suciedad que entra del campo —barro, polvo orgánico— se distribuye por todas las estancias de forma diferente a la suciedad urbana.',
+      'La principal diferencia está en los materiales y la suciedad. La piedra natural y la baldosa de barro son porosas y se dañan con los ácidos de productos estándar. La madera de suelos y vigas necesita mínima humedad. La chimenea activa genera hollín cerca. Y el barro y polvo orgánico del campo se reparte por las estancias de forma distinta a la suciedad urbana.',
+      'En una casa rural de {barrio}, lo que cambia es tanto el material como el tipo de suciedad: piedra y baldosa de barro porosas que no toleran ácidos, madera que exige poca humedad, hollín de chimenea en las zonas próximas, y barro o polvo orgánico del campo repartido de forma muy distinta a la suciedad de una vivienda urbana.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo en una casa rural de {barrio}',
     queIncluyeItems: [
       'Suelos de piedra o baldosa de barro: fregado con producto neutro pH 7 sin ácidos',
@@ -1829,9 +1877,17 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'industrial': {
     h1Qualifier: 'zona polígono · gran limpieza con desengrase de partículas industriales',
     metaDesc: 'Limpieza a fondo en {barrio}: desengrase de capa industrial en alféizares, cocina y encimeras. Limpieza integral de pisos en zona de polígono.',
-    intro: 'La limpieza a fondo de un piso en {barrio}, en el entorno del polígono industrial, tiene un reto extra: la capa de partículas grasas procedentes de la actividad industrial y el tráfico pesado que se deposita en alféizares, encimeras y superficies próximas a ventanas. Esta capa requiere una fase de desengrase antes de cualquier limpieza a fondo efectiva. Sin ese paso previo, el producto habitual redistribuye las partículas grasas en lugar de eliminarlas.',
+    intro: [
+      'La limpieza a fondo de un piso en {barrio}, en el entorno del polígono industrial, tiene un reto extra: la capa de partículas grasas procedentes de la actividad industrial y el tráfico pesado que se deposita en alféizares, encimeras y superficies próximas a ventanas. Esta capa requiere una fase de desengrase antes de cualquier limpieza a fondo efectiva. Sin ese paso previo, el producto habitual redistribuye las partículas grasas en lugar de eliminarlas.',
+      'En {barrio}, cerca del polígono industrial, la limpieza a fondo tiene un reto extra: la capa de partículas grasas de la actividad industrial y el tráfico pesado que se deposita en alféizares, encimeras y superficies próximas a ventanas. Sin un desengrase previo, el producto habitual solo redistribuye esas partículas.',
+      'Un piso cerca del polígono industrial de {barrio} necesita un paso que otros no: desengrasar antes de limpiar. Las partículas grasas de la actividad y el tráfico se posan en alféizares, encimeras y superficies próximas a ventanas, y sin ese tratamiento previo, cualquier producto normal solo las mueve de sitio.',
+    ],
     queEsH2: '¿Qué tiene de diferente la limpieza a fondo en un piso de {barrio}?',
-    queEsContent: 'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora como primer paso un desengrase específico de las superficies más expuestas a partículas industriales: alféizares, marcos de ventana, encimeras próximas a ventanas y suelos de entrada. Esta fase de desengrase es lo que determina si la limpieza a fondo resuelve realmente la suciedad característica del entorno industrial o simplemente la distribuye de otra manera.',
+    queEsContent: [
+      'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} incorpora como primer paso un desengrase específico de las superficies más expuestas a partículas industriales: alféizares, marcos de ventana, encimeras próximas a ventanas y suelos de entrada. Esta fase de desengrase es lo que determina si la limpieza a fondo resuelve realmente la suciedad característica del entorno industrial o simplemente la distribuye de otra manera.',
+      'Además de la limpieza integral de todas las estancias, la limpieza a fondo en {barrio} empieza con un desengrase específico de las superficies más expuestas: alféizares, marcos de ventana, encimeras cerca de ventanas y suelos de entrada. Esta fase es lo que determina si la limpieza resuelve de verdad la suciedad del entorno industrial o simplemente la redistribuye.',
+      'En {barrio}, antes de tocar el resto de la vivienda, la limpieza a fondo arranca con un desengrase de las zonas más expuestas al entorno industrial: alféizares, marcos, encimeras cerca de ventanas y suelo de entrada. Sin ese primer paso, el resto de la limpieza no consigue eliminar de verdad la capa de partículas.',
+    ],
     queIncluyeH2: 'Qué incluye la limpieza a fondo en {barrio}',
     queIncluyeItems: [
       'Alféizares y marcos: desengrase previo de partículas industriales, limpieza completa',
@@ -1869,19 +1925,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   },
 };
 
+export type ContenidoAfondoResuelto = Omit<ContenidoAfondo, 'intro' | 'queEsContent'> & {
+  intro: string;
+  queEsContent: string;
+};
+
 export function getContenidoAfondo(
   archetype: BarrioArchetype,
   barrioNombre: string,
   municipioNombre: string,
-): ContenidoAfondo | null {
+): ContenidoAfondoResuelto | null {
   const raw = AFONDO_POR_ARQUETIPO[archetype];
   if (!raw) return null;
   return {
     h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
     metaDesc: t(raw.metaDesc, barrioNombre, municipioNombre),
-    intro: t(raw.intro, barrioNombre, municipioNombre),
+    intro: tVariant(raw.intro, barrioNombre, municipioNombre),
     queEsH2: t(raw.queEsH2, barrioNombre, municipioNombre),
-    queEsContent: t(raw.queEsContent, barrioNombre, municipioNombre),
+    queEsContent: tVariant(raw.queEsContent, barrioNombre, municipioNombre),
     queIncluyeH2: t(raw.queIncluyeH2, barrioNombre, municipioNombre),
     queIncluyeItems: raw.queIncluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
     cuandoH2: t(raw.cuandoH2, barrioNombre, municipioNombre),
