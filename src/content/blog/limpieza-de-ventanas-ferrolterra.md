@@ -8,7 +8,7 @@ category: "precios"
 readingTime: 10
 faqs:
   - q: "¿Cuánto cuesta la limpieza de ventanas en Ferrolterra?"
-    a: "Para un piso con 4-6 ventanas, entre 35€ y 60€ por visita. Una vivienda unifamiliar con 8-12 ventanas y ventanales grandes, entre 60€ y 110€. El precio final depende del número de hojas, si hay altura sin acceso fácil y del estado de suciedad o cal acumulada. Presupuesto cerrado en 24h sin visita previa."
+    a: "Depende del número y tamaño de las ventanas: para un piso suele empezar en torno a 35-40€, y en viviendas unifamiliares con ventanales grandes, desde 60-70€. El precio puede subir si hay mucha altura, difícil acceso, cal muy incrustada o más ventanas de lo habitual. Te damos un presupuesto cerrado y personalizado en menos de 24h."
   - q: "¿Quién limpia ventanas cerca de mí en Ferrol, Narón o el resto de la comarca?"
     a: "En Zentro Limpiezas cubrimos limpieza de ventanas en Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, Pontedeume, Cedeira y el resto de Ferrolterra con equipo propio, sin subcontratar. Escríbenos por WhatsApp o pide presupuesto online y te confirmamos disponibilidad en tu zona en 24h."
   - q: "¿Limpiáis ventanales y cristaleras en altura sin necesidad de andamios?"
@@ -16,7 +16,7 @@ faqs:
   - q: "¿Con qué frecuencia hay que limpiar las ventanas en la costa de Ferrolterra?"
     a: "En municipios de costa como Valdoviño, Cedeira o Ares, la salinidad y la humedad ensucian las ventanas más rápido: conviene limpiar cada 4-6 semanas por fuera. En Ferrol, Narón o zonas de interior, cada 2-3 meses suele ser suficiente para mantenerlas sin cal ni suciedad acumulada."
   - q: "¿La limpieza de ventanas incluye marcos, persianas y mosquiteras?"
-    a: "Sí, se puede incluir en el mismo servicio. Limpiamos marcos de PVC, aluminio o madera, persianas enrollables y mosquiteras si las hay. Lo especificamos siempre en el presupuesto para que sepas exactamente qué está incluido antes de confirmar el servicio."
+    a: "Sí, se puede incluir en el mismo servicio. Limpiamos marcos de PVC, aluminio o madera, persianas enrollables y mosquiteras si las hay."
   - q: "¿Puedo contratar solo la limpieza de ventanas sin el resto de la vivienda?"
     a: "Sí. Muchos clientes contratan solo ventanas y cristales, sin el resto de la limpieza del hogar, con visitas puntuales o periódicas cada 4-8 semanas. También se puede combinar con la limpieza general de la vivienda en la misma visita para ahorrar en desplazamiento."
 tags: ["ventanas", "cristales", "ventanales", "Ferrolterra", "precios"]
@@ -25,7 +25,7 @@ lang: "es"
 
 > **En resumen:**
 > - Limpieza de ventanas en Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, Pontedeume, Cedeira y toda Ferrolterra
-> - Precio orientativo: 35-60€ para un piso, 60-110€ para una vivienda unifamiliar con ventanales grandes
+> - Precio orientativo desde 35€ para un piso, desde 60€ para una vivienda unifamiliar con ventanales grandes
 > - Ventanas en altura sin andamios, con pértiga telescópica desde el suelo
 > - En la costa, la salinidad exige limpiar cada 4-6 semanas para evitar la cal incrustada
 
@@ -43,13 +43,13 @@ El precio depende sobre todo del número de hojas de ventana, no de los metros c
 
 | Tipo de vivienda | Nº aproximado de ventanas | Precio orientativo |
 |---|---|---|
-| Piso pequeño (1-2 hab.) | 4-6 ventanas | 35€ - 50€ |
-| Piso mediano/grande | 6-9 ventanas | 45€ - 65€ |
-| Vivienda unifamiliar | 8-12 ventanas | 60€ - 90€ |
-| Chalet con ventanales grandes | 12+ ventanas o cristaleras | 90€ - 130€ |
+| Piso pequeño (1-2 hab.) | 4-6 ventanas | Desde 35€ |
+| Piso mediano/grande | 6-9 ventanas | Desde 45€ |
+| Vivienda unifamiliar | 8-12 ventanas | Desde 60€ |
+| Chalet con ventanales grandes | 12+ ventanas o cristaleras | Desde 90€ |
 | Local u oficina | Según superficie acristalada | Presupuesto a medida |
 
-Estos precios son orientativos para limpieza estándar (interior + exterior) sin cal severamente incrustada. El presupuesto final es cerrado y se confirma en menos de 24 horas, sin necesidad de visita previa en la mayoría de los casos. Si quieres una referencia más amplia de precios de limpieza del hogar en general, puedes consultar nuestra [guía de precios de limpieza en Galicia](/blog/cuanto-cuesta-limpieza-hogar/).
+Estos precios son orientativos y de partida para una limpieza estándar (interior + exterior) sin cal severamente incrustada. El precio final puede ser mayor según el número de ventanas, la altura, la dificultad de acceso o el estado de suciedad. El presupuesto se confirma cerrado y sin sorpresas en menos de 24 horas, sin necesidad de visita previa en la mayoría de los casos. Si quieres una referencia más amplia de precios de limpieza del hogar en general, puedes consultar nuestra [guía de precios de limpieza en Galicia](/blog/cuanto-cuesta-limpieza-hogar/).
 
 ## Limpieza de ventanas y ventanales en Ferrol, Narón y toda la comarca
 
@@ -138,7 +138,7 @@ Trabajamos con equipo propio, sin subcontratar, en Ferrol, Narón y toda Ferrolt
 
 ### ¿Cuánto cuesta la limpieza de ventanas en Ferrolterra?
 
-Para un piso con 4-6 ventanas, entre 35€ y 60€ por visita. Una vivienda unifamiliar con 8-12 ventanas y ventanales grandes, entre 60€ y 110€. El precio final depende del número de hojas, si hay altura sin acceso fácil y del estado de suciedad o cal acumulada.
+Depende del número y tamaño de las ventanas: para un piso suele empezar en torno a 35-40€, y en viviendas unifamiliares con ventanales grandes, desde 60-70€. El precio puede subir si hay mucha altura, difícil acceso, cal muy incrustada o más ventanas de lo habitual.
 
 ### ¿Quién limpia ventanas cerca de mí en Ferrol, Narón o el resto de la comarca?
 
@@ -154,7 +154,7 @@ En municipios de costa como Valdoviño, Cedeira o Ares, la salinidad ensucia las
 
 ### ¿La limpieza de ventanas incluye marcos, persianas y mosquiteras?
 
-Sí, se puede incluir en el mismo servicio. Limpiamos marcos de PVC, aluminio o madera, persianas enrollables y mosquiteras si las hay, y lo especificamos siempre en el presupuesto.
+Sí, se puede incluir en el mismo servicio. Limpiamos marcos de PVC, aluminio o madera, persianas enrollables y mosquiteras si las hay.
 
 ### ¿Puedo contratar solo la limpieza de ventanas sin el resto de la vivienda?
 
