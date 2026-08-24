@@ -4,11 +4,11 @@ export type ContenidoArquetipo = {
   tituloPagina: string;
   h1Qualifier: string;
   metaDescAngle: string;
-  speakableIntro: string;
+  speakableIntro: string | string[];
   problemaH2: string;
-  problemaContent: string;
+  problemaContent: string | string[];
   ventanasH2: string;
-  ventanasContent: string;
+  ventanasContent: string | string[];
   faqs: { q: string; a: string }[];
 };
 
@@ -16,16 +16,43 @@ function t(template: string, barrio: string, municipio: string): string {
   return template.replace(/\{barrio\}/g, barrio).replace(/\{municipio\}/g, municipio);
 }
 
+// Selecciona una variante de forma determinista según barrio+municipio, para que
+// dos barrios con el mismo arquetipo no muestren siempre el mismo texto,
+// pero cada barrio muestre siempre la misma variante (estable entre despliegues).
+function pickVariant<T>(value: T | T[], barrio: string, municipio: string): T {
+  if (!Array.isArray(value)) return value;
+  const seed = `${municipio}-${barrio}`;
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+  return value[hash % value.length];
+}
+
+function tVariant(value: string | string[], barrio: string, municipio: string): string {
+  return t(pickVariant(value, barrio, municipio), barrio, municipio);
+}
+
 const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
   'bloque-obrero': {
     tituloPagina: 'Limpiar ventanas de bloque en {barrio}: cal acumulada',
     h1Qualifier: 'pisos de bloque · cal acumulada',
     metaDescAngle: 'Eliminamos la cal incrustada en ventanas de bloques de los años 70-80 con quitacal de pH ácido certificado Ecolabel. Sin rayas.',
-    speakableIntro: 'Los pisos de bloque de {barrio} son en su mayoría viviendas de los años 70-80 con ventanas de carpintería de aluminio de época. El agua de Ferrol tiene un contenido alto de cal, y en décadas de uso sin limpieza profesional esa cal se deposita en capas sobre el vidrio hasta formar una película blanca opaca que el limpiacristales convencional no elimina. En Zentro Limpiezas usamos quitacales de pH ácido certificado Ecolabel que disuelven el depósito sin atacar el aluminio ni el vidrio.',
+    speakableIntro: [
+      'Los pisos de bloque de {barrio} son en su mayoría viviendas de los años 70-80 con ventanas de carpintería de aluminio de época. El agua de Ferrol tiene un contenido alto de cal, y en décadas de uso sin limpieza profesional esa cal se deposita en capas sobre el vidrio hasta formar una película blanca opaca que el limpiacristales convencional no elimina. En Zentro Limpiezas usamos quitacales de pH ácido certificado Ecolabel que disuelven el depósito sin atacar el aluminio ni el vidrio.',
+      'Si vives en un piso de bloque en {barrio} y notas que los cristales tienen una especie de velo blanco que no desaparece por mucho que frotes, no es suciedad: es cal incrustada. Es habitual en construcciones de los años 70-80 con carpintería de aluminio, donde décadas de agua calcárea sin tratamiento profesional han ido formando una capa mineral sobre el vidrio. El limpiacristales normal no la disuelve; hace falta un quitacal de pH ácido certificado Ecolabel, que es lo que usamos en cada visita.',
+      'En {barrio}, como en la mayoría de barrios de bloques de {municipio}, el problema de los cristales casi nunca es la suciedad del día a día, sino la cal acumulada durante años. El agua de la zona es dura, y en pisos de los años 70-80 con ventanas de aluminio de época, esa cal termina formando una película opaca imposible de retirar con un limpiacristales convencional. Nuestro tratamiento con quitacal de pH ácido certificado Ecolabel resuelve el problema de raíz sin dañar el marco.',
+    ],
     problemaH2: '¿Por qué los cristales de los pisos de {barrio} acumulan tanta cal?',
-    problemaContent: 'El agua calcárea de Ferrol deja un depósito mineral en cada limpieza doméstica que, con los años, forma una capa blanca incrustada en el vidrio. Los bloques de {barrio}, con décadas de antigüedad y carpintería de aluminio de época, concentran este problema más que las viviendas modernas. Un quitacal de pH ácido controlado disuelve el depósito sin dañar el aluminio; sin él, el frotado solo redistribuye la cal sin eliminarla.',
+    problemaContent: [
+      'El agua calcárea de Ferrol deja un depósito mineral en cada limpieza doméstica que, con los años, forma una capa blanca incrustada en el vidrio. Los bloques de {barrio}, con décadas de antigüedad y carpintería de aluminio de época, concentran este problema más que las viviendas modernas. Un quitacal de pH ácido controlado disuelve el depósito sin dañar el aluminio; sin él, el frotado solo redistribuye la cal sin eliminarla.',
+      'Cada vez que se limpia un cristal con agua del grifo sin tratar, queda un residuo mineral microscópico. Un par de veces no se nota, pero repetido durante 40 o 50 años —la antigüedad habitual de los bloques de {barrio}— ese residuo se convierte en una capa incrustada que ya no es suciedad superficial, sino un depósito adherido al propio vidrio. Frotar con un paño normal no hace más que mover esa capa de un lado a otro; solo un quitacal de pH ácido controlado la disuelve de verdad.',
+      'La carpintería de aluminio de los pisos de {barrio}, típica de construcciones de los años 70-80, tiene un problema añadido frente a la de PVC moderno: el propio metal reacciona peor a los productos ácidos agresivos, así que no vale cualquier quitacal. El que usamos en Zentro Limpiezas está formulado con pH ácido controlado, lo bastante eficaz para disolver la cal acumulada durante décadas pero seguro para el marco. Es la combinación que marca la diferencia entre un cristal limpio y uno que vuelve a mancharse a las pocas semanas.',
+    ],
     ventanasH2: 'Limpieza de ventanas y mamparas en pisos de bloque de {barrio}',
-    ventanasContent: 'Las mamparas de ducha de los pisos de bloque de {barrio} acumulan sarro por las mismas razones que los cristales exteriores: agua con alta concentración de cal. En una misma visita limpiamos todas las ventanas y la mampara del baño con el mismo tratamiento de ácido cítrico certificado, sin coste adicional. Resultado sin rayas y sin residuos de producto gracias al secado con escurridor de goma profesional.',
+    ventanasContent: [
+      'Las mamparas de ducha de los pisos de bloque de {barrio} acumulan sarro por las mismas razones que los cristales exteriores: agua con alta concentración de cal. En una misma visita limpiamos todas las ventanas y la mampara del baño con el mismo tratamiento de ácido cítrico certificado, sin coste adicional. Resultado sin rayas y sin residuos de producto gracias al secado con escurridor de goma profesional.',
+      'No solo las ventanas de {barrio} sufren la cal del agua: las mamparas de ducha tienen exactamente el mismo problema, por el mismo motivo. Por eso en cada visita incluimos ambas cosas con el mismo tratamiento de ácido cítrico certificado, sin recargo. El acabado final, tanto en ventanas como en mampara, se hace siempre con escurridor de goma profesional para que no quede ni una marca de agua.',
+      'Si en tu piso de {barrio} las ventanas tienen cal, es muy probable que la mampara del baño también la tenga —es el mismo agua, el mismo problema—. Aprovechamos la visita para tratar las dos superficies con ácido cítrico certificado sin coste extra, y terminamos siempre con escurridor de goma profesional, la única forma de garantizar un secado sin rayas ni restos de producto.',
+    ],
     faqs: [
       {
         q: '¿Cuántas limpiezas necesito para eliminar la cal acumulada durante años en los cristales de {barrio}?',
@@ -42,11 +69,23 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     tituloPagina: 'Ventanas históricas en {barrio}: limpieza sin dañar marcos',
     h1Qualifier: 'edificios históricos · carpintería de época',
     metaDescAngle: 'Limpiamos cristales de carpintería histórica con productos neutros certificados que no atacan la madera ni el vidrio antiguo.',
-    speakableIntro: '{barrio} concentra algunos de los edificios más antiguos de {municipio}, con pisos en construcciones del siglo XVIII-XIX. Sus ventanas tienen carpintería de madera, vidrio antiguo y marcos que absorben la humedad con el tiempo. Limpiar estos cristales bien requiere productos que no ataquen la madera ni degraden el vidrio antiguo. Los productos Ecolabel de pH neutro que usamos en Zentro Limpiezas son especialmente apropiados para estas superficies delicadas, donde un quitacal agresivo podría dañar el acabado del marco.',
+    speakableIntro: [
+      '{barrio} concentra algunos de los edificios más antiguos de {municipio}, con pisos en construcciones del siglo XVIII-XIX. Sus ventanas tienen carpintería de madera, vidrio antiguo y marcos que absorben la humedad con el tiempo. Limpiar estos cristales bien requiere productos que no ataquen la madera ni degraden el vidrio antiguo. Los productos Ecolabel de pH neutro que usamos en Zentro Limpiezas son especialmente apropiados para estas superficies delicadas, donde un quitacal agresivo podría dañar el acabado del marco.',
+      'Limpiar los cristales de un piso en {barrio} no es como limpiar los de una vivienda moderna: aquí hablamos de edificios del siglo XVIII-XIX, con carpintería de madera original y vidrio de época que absorbe la humedad con el tiempo. Un producto agresivo puede dejar el vidrio limpio pero dañar el marco de forma irreversible. Por eso usamos siempre productos Ecolabel de pH neutro, pensados para no atacar ni la madera ni el acabado antiguo.',
+      '{municipio} conserva en {barrio} algunos de sus edificios más antiguos, y eso se nota en el tipo de ventana: carpintería de madera, vidrio de época y marcos que llevan décadas absorbiendo humedad. Es un tipo de superficie que exige cuidado, no fuerza. Trabajamos con productos Ecolabel de pH neutro que limpian el vidrio en profundidad sin poner en riesgo el marco original, algo que un quitacal convencional sí podría hacer.',
+    ],
     problemaH2: '¿Cómo se limpian los cristales de carpintería histórica de {barrio} sin dañar la madera?',
-    problemaContent: 'La diferencia clave con los cristales modernos está en el marco. La madera de las ventanas históricas de {barrio} absorbe los productos líquidos si se aplican sin control. La técnica correcta es aplicar el limpiacristales solo sobre el vidrio con paño de microfibra bien escurrido y secar de inmediato. Nunca spray directo cerca del marco de madera. Las manchas incrustadas se eliminan con rasqueta de goma sin riesgo para el vidrio de época.',
+    problemaContent: [
+      'La diferencia clave con los cristales modernos está en el marco. La madera de las ventanas históricas de {barrio} absorbe los productos líquidos si se aplican sin control. La técnica correcta es aplicar el limpiacristales solo sobre el vidrio con paño de microfibra bien escurrido y secar de inmediato. Nunca spray directo cerca del marco de madera. Las manchas incrustadas se eliminan con rasqueta de goma sin riesgo para el vidrio de época.',
+      'El riesgo real al limpiar ventanas antiguas en {barrio} no está en el vidrio, sino en el marco: la madera absorbe cualquier líquido que se aplique sin control, y con el tiempo eso deteriora el acabado. Por eso nunca usamos spray directo cerca del marco: aplicamos el limpiacristales sobre un paño de microfibra bien escurrido y secamos de inmediato. Para manchas más incrustadas, la rasqueta de goma hace el trabajo sin poner en riesgo el vidrio de época.',
+      'Muchas ventanas de {barrio} llevan más de un siglo en el mismo sitio, y eso significa marcos de madera que ya han absorbido humedad de sobra. Aplicar un producto líquido sin control ahí es un error que se paga con el tiempo. La técnica que usamos es sencilla pero exige disciplina: producto solo sobre el vidrio, aplicado con paño de microfibra escurrido, secado inmediato y nada de spray cerca del marco. Así se limpia sin acelerar el deterioro.',
+    ],
     ventanasH2: 'Limpieza de ventanas de guillotina y vidrios planos en {barrio}',
-    ventanasContent: 'Muchos pisos de {barrio} tienen ventanas de guillotina (que suben y bajan verticalmente) o contraventanas de madera. Estas carpinterías acumulan polvo, suciedad y verdín en ranuras y recovecos. La limpieza requiere cepillos finos para los carriles, atención especial al sellado entre vidrio y marco, y productos ecológicos que no manchen la madera. Lo hacemos con el mismo tiempo de dedicación que una ventana moderna lleva el doble: el resultado se nota.',
+    ventanasContent: [
+      'Muchos pisos de {barrio} tienen ventanas de guillotina (que suben y bajan verticalmente) o contraventanas de madera. Estas carpinterías acumulan polvo, suciedad y verdín en ranuras y recovecos. La limpieza requiere cepillos finos para los carriles, atención especial al sellado entre vidrio y marco, y productos ecológicos que no manchen la madera. Lo hacemos con el mismo tiempo de dedicación que una ventana moderna lleva el doble: el resultado se nota.',
+      'Las ventanas de guillotina, muy habituales en los pisos antiguos de {barrio}, tienen un problema que no existe en la carpintería moderna: los carriles verticales por donde suben y bajan acumulan polvo y suciedad que una limpieza rápida no llega a tocar. Usamos cepillos finos específicos para esos carriles y prestamos atención especial al sellado entre vidrio y marco, siempre con productos que no manchen la madera. Lleva el doble de tiempo que una ventana estándar, pero se nota en el resultado.',
+      'Si tu vivienda en {barrio} conserva ventanas de guillotina o contraventanas de madera originales, ya sabrás que no se limpian como una ventana corredera moderna: los recovecos y carriles acumulan suciedad que hay que tratar con cepillo fino, no con un paño cualquiera. Cuidamos especialmente el sellado entre vidrio y marco y usamos solo productos ecológicos que no dejen manchas en la madera. El tiempo de trabajo es mayor, pero es lo que exige este tipo de carpintería.',
+    ],
     faqs: [
       {
         q: '¿Se puede usar ácido cítrico para eliminar la cal en cristales de carpintería de madera histórica de {barrio}?',
@@ -63,11 +102,23 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     tituloPagina: 'Cristales con salitre en {barrio}: limpieza de vidrios costeros',
     h1Qualifier: 'zona costera · salitre y brisa marina',
     metaDescAngle: 'Eliminamos el salitre marino incrustado en cristales de casas costeras con neutralizadores de sales certificados. Sin micro-rayaduras.',
-    speakableIntro: '{barrio} es uno de los barrios más expuestos a la brisa marina de {municipio}. La salinidad del ambiente deposita salitre sobre los cristales formando una película blanca nacarada que el limpiacristales convencional apenas toca. El salitre no es cal: es una mezcla de sales minerales con cristales microscópicos que pueden crear micro-rayaduras si se frota en seco. En Zentro Limpiezas usamos neutralizadores de sales marinas certificados que disuelven el depósito sin residuos.',
+    speakableIntro: [
+      '{barrio} es uno de los barrios más expuestos a la brisa marina de {municipio}. La salinidad del ambiente deposita salitre sobre los cristales formando una película blanca nacarada que el limpiacristales convencional apenas toca. El salitre no es cal: es una mezcla de sales minerales con cristales microscópicos que pueden crear micro-rayaduras si se frota en seco. En Zentro Limpiezas usamos neutralizadores de sales marinas certificados que disuelven el depósito sin residuos.',
+      'Si en {barrio} tienes la sensación de que los cristales nunca están del todo limpios por mucho que los frotes, el motivo es la brisa marina: deposita salitre de forma constante, y el salitre no se comporta como la cal. Es una mezcla de sales minerales con cristales microscópicos que, si se frotan en seco, pueden dejar micro-rayaduras en el vidrio. La solución no es frotar más fuerte, sino usar neutralizadores de sales marinas certificados, que es justo lo que aplicamos en cada visita.',
+      'La cercanía al mar tiene su precio para las ventanas de {barrio}: una película blanca nacarada de salitre que el limpiacristales normal apenas consigue tocar. A diferencia de la cal, el salitre está formado por cristales de sal microscópicos que pueden rayar el vidrio si se frota en seco, así que la técnica importa tanto como el producto. Trabajamos con neutralizadores de sales marinas certificados que disuelven el depósito de forma segura, sin dejar residuo ni marcas.',
+    ],
     problemaH2: '¿Qué hace el salitre marino a los cristales de las casas de {barrio}?',
-    problemaContent: 'El salitre de la brisa marina se deposita en capas finas pero continuas. A diferencia de la cal del agua, el salitre tiene cristales de sal que crean micro-rayaduras si se frota en seco. Con el tiempo forma una capa blanca nacarada que reduce la transparencia del vidrio y puede volverse permanente. La frecuencia de limpieza en zonas costeras como {barrio} debe ser mayor que en el interior: cada 4-6 semanas en lugar de cada 3-4 meses.',
+    problemaContent: [
+      'El salitre de la brisa marina se deposita en capas finas pero continuas. A diferencia de la cal del agua, el salitre tiene cristales de sal que crean micro-rayaduras si se frota en seco. Con el tiempo forma una capa blanca nacarada que reduce la transparencia del vidrio y puede volverse permanente. La frecuencia de limpieza en zonas costeras como {barrio} debe ser mayor que en el interior: cada 4-6 semanas en lugar de cada 3-4 meses.',
+      'A diferencia de la cal, que se deposita cada vez que se limpia con agua sin tratar, el salitre llega directamente del aire: se posa en capas finas pero constantes, día tras día, incluso sin que llueva ni se limpie nada. Con el tiempo esa acumulación reduce la transparencia del cristal y, si no se trata, puede volverse casi permanente. Por eso en zonas como {barrio}, mucho más expuestas que el interior, recomendamos limpiar cada 4-6 semanas en vez de cada 3-4 meses.',
+      'Lo que hace especialmente difícil el salitre en {barrio} no es solo que se deposite rápido, sino que sus cristales de sal son abrasivos: frotar en seco, el gesto más natural para quitar una mancha, es precisamente lo que puede rayar el vidrio. Con el tiempo la capa se vuelve nacarada y opaca, y cuanto más tiempo pasa, más difícil es de retirar sin dañar la superficie. En zonas costeras como esta, limpiar cada 4-6 semanas evita que el problema llegue a ese punto.',
+    ],
     ventanasH2: 'Limpieza de ventanas y marcos en casas de {barrio} expuestas al mar',
-    ventanasContent: 'En {barrio}, los marcos de aluminio también sufren el ambiente salino: el salitre actúa como acelerador de la corrosión. Una limpieza regular con productos sin ácidos agresivos que atacen el aluminio alarga considerablemente la vida de las ventanas. El servicio incluye cristales, marcos y cualquier mampara o ventana interior que acumule humedad por el ambiente costero.',
+    ventanasContent: [
+      'En {barrio}, los marcos de aluminio también sufren el ambiente salino: el salitre actúa como acelerador de la corrosión. Una limpieza regular con productos sin ácidos agresivos que atacen el aluminio alarga considerablemente la vida de las ventanas. El servicio incluye cristales, marcos y cualquier mampara o ventana interior que acumule humedad por el ambiente costero.',
+      'El salitre no se queda solo en el cristal: en {barrio}, los marcos de aluminio también lo notan, porque el ambiente salino acelera la corrosión del metal. Una limpieza regular con productos que no lleven ácidos agresivos protege el marco además del vidrio y alarga bastante la vida útil de la ventana. Incluimos en la misma visita cristales, marcos y cualquier mampara o ventana interior afectada por la humedad del ambiente costero.',
+      'Vivir cerca del mar en {barrio} tiene ventajas evidentes, pero también un coste de mantenimiento que no siempre se tiene en cuenta: el salitre corroe el aluminio de los marcos igual que ensucia el cristal. Con una limpieza regular y productos sin ácidos agresivos evitamos acelerar ese desgaste. Aprovechamos siempre la visita para revisar también mamparas y ventanas interiores que puedan estar acumulando humedad por el propio ambiente costero.',
+    ],
     faqs: [
       {
         q: '¿El salitre marino daña los marcos de las ventanas de {barrio} además del cristal?',
@@ -84,11 +135,23 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     tituloPagina: 'Apertura de temporada en {barrio}: cristales y ventanas listos',
     h1Qualifier: 'segunda residencia · apertura de temporada',
     metaDescAngle: 'Limpieza de cristales para apertura de segunda residencia en {barrio}. Eliminamos polvo, verdín y manchas de condensación acumulados en meses cerrada.',
-    speakableIntro: 'En {barrio}, una parte significativa de las viviendas son segunda residencia: casas que pasan meses cerradas y se abren en verano o Navidades. Durante ese tiempo los cristales acumulan polvo, manchas de condensación y, en marcos exteriores, verdín por la humedad del invierno gallego. La limpieza de apertura de temporada es uno de los servicios más demandados en esta zona: dejamos la vivienda a punto antes de que llegues, con todos los cristales y ventanas sin rayas.',
+    speakableIntro: [
+      'En {barrio}, una parte significativa de las viviendas son segunda residencia: casas que pasan meses cerradas y se abren en verano o Navidades. Durante ese tiempo los cristales acumulan polvo, manchas de condensación y, en marcos exteriores, verdín por la humedad del invierno gallego. La limpieza de apertura de temporada es uno de los servicios más demandados en esta zona: dejamos la vivienda a punto antes de que llegues, con todos los cristales y ventanas sin rayas.',
+      'Si tu casa en {barrio} pasa la mayor parte del año cerrada y solo la usas en verano o en Navidades, ya sabrás lo que te encuentras al llegar: cristales con polvo acumulado, manchas de condensación y, muchas veces, verdín en los marcos por la humedad del invierno gallego. Es de los servicios que más pedimos en esta zona en concreto: dejar la vivienda lista con todos los cristales sin rayas antes de que llegues, sin que tengas que ocuparte de nada.',
+      '{barrio} tiene un perfil muy característico: una parte importante de las viviendas son de uso estacional, cerradas buena parte del año. Meses sin ventilación ni limpieza pasan factura a los cristales —polvo, condensación, verdín en los marcos exteriores— y eso es exactamente lo que resolvemos con la limpieza de apertura de temporada, uno de los servicios que más solicitan aquí. La vivienda queda lista, con las ventanas sin rayas, antes de que pongas un pie dentro.',
+    ],
     problemaH2: '¿Qué le ocurre a los cristales de una casa de {barrio} que lleva meses cerrada?',
-    problemaContent: 'El invierno gallego es húmedo y hay poca ventilación en una casa cerrada. La condensación se deposita en los cristales y al secarse deja manchas de agua y polvo incrustado. En marcos exteriores, la humedad favorece el crecimiento de verdín. Si la casa tiene vistas al campo o a la ría, el polvo orgánico también se deposita sobre el vidrio. En la limpieza de apertura tratamos cada uno de estos problemas de forma específica.',
+    problemaContent: [
+      'El invierno gallego es húmedo y hay poca ventilación en una casa cerrada. La condensación se deposita en los cristales y al secarse deja manchas de agua y polvo incrustado. En marcos exteriores, la humedad favorece el crecimiento de verdín. Si la casa tiene vistas al campo o a la ría, el polvo orgánico también se deposita sobre el vidrio. En la limpieza de apertura tratamos cada uno de estos problemas de forma específica.',
+      'Una casa cerrada durante meses en invierno acumula un tipo de suciedad distinto al de una vivienda habitada: sin ventilación, la humedad se condensa en los cristales y, al secarse sola, deja manchas de agua mezcladas con polvo. En los marcos exteriores esa misma humedad favorece la aparición de verdín. Si además la vivienda tiene vistas al campo o a la ría, como suele pasar en {barrio}, el polvo orgánico del entorno se suma al problema. Tratamos cada uno de estos frentes por separado en la limpieza de apertura.',
+      'El problema de una vivienda cerrada en {barrio} no es solo el polvo que se acumula sin nadie que limpie, sino la humedad propia del invierno gallego, que se condensa en el cristal sin ventilación y deja manchas de agua difíciles de quitar con un paño normal. Los marcos exteriores, expuestos a esa misma humedad, suelen tener además verdín. En la limpieza de apertura no tratamos todo por igual: cada uno de estos problemas necesita su propio proceso.',
+    ],
     ventanasH2: 'Servicio de limpieza de ventanas para apertura de casa en {barrio}',
-    ventanasContent: 'El servicio de apertura en {barrio} incluye: todos los cristales interior y exterior accesible desde el suelo, tratamiento del verdín en marcos con antifúngico ecológico, eliminación de manchas de agua y condensación, y revisión de mamparas de ducha si las hay. Muchos clientes nos dejan la llave y entramos solos: cuando llegues, la casa está lista desde el primer momento.',
+    ventanasContent: [
+      'El servicio de apertura en {barrio} incluye: todos los cristales interior y exterior accesible desde el suelo, tratamiento del verdín en marcos con antifúngico ecológico, eliminación de manchas de agua y condensación, y revisión de mamparas de ducha si las hay. Muchos clientes nos dejan la llave y entramos solos: cuando llegues, la casa está lista desde el primer momento.',
+      'Para una vivienda de segunda residencia en {barrio}, el servicio de apertura cubre todos los cristales —interior y exterior accesible desde el suelo—, el tratamiento del verdín en los marcos con antifúngico ecológico y la eliminación de manchas de agua y condensación acumuladas durante los meses cerrada. Si hay mampara de ducha, la revisamos también. Muchos propietarios nos dejan la llave y nos encargamos sin que tengan que estar presentes: al llegar, la casa ya está lista.',
+      'No hace falta que estés presente para la limpieza de apertura de tu casa en {barrio}: muchos clientes nos dejan la llave y nosotros nos ocupamos de todo. El servicio incluye cristales interior y exterior, tratamiento antifúngico ecológico del verdín en marcos, y eliminación de las manchas de agua y condensación típicas de una vivienda cerrada varios meses. Si hay mampara, también entra en la visita. Cuando llegues, todo está listo desde el primer momento.',
+    ],
     faqs: [
       {
         q: '¿Con cuánta antelación hay que pedir la limpieza de apertura de temporada en {barrio}?',
@@ -105,11 +168,23 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     tituloPagina: 'Ventanas de chalé en {barrio}: exteriores, terraza y planta alta',
     h1Qualifier: 'chalés y unifamiliares · cristales exteriores',
     metaDescAngle: 'Limpieza de cristales en chalés y adosados de {barrio}: ventanales grandes, segunda planta y cristaleras de terraza con pértiga telescópica.',
-    speakableIntro: 'Los chalés y adosados de {barrio} tienen más superficie de cristal que un piso de bloque: ventanales grandes en salón, cristaleras de terraza, ventanas de planta alta y, en muchos casos, lucernarios. El jardín y la vegetación aportan barro en los días de lluvia y polvo orgánico en verano. En Zentro Limpiezas trabajamos con pértigas telescópicas que alcanzan primera y segunda planta desde el exterior sin escalera. Todos los cristales accesibles en una sola visita.',
+    speakableIntro: [
+      'Los chalés y adosados de {barrio} tienen más superficie de cristal que un piso de bloque: ventanales grandes en salón, cristaleras de terraza, ventanas de planta alta y, en muchos casos, lucernarios. El jardín y la vegetación aportan barro en los días de lluvia y polvo orgánico en verano. En Zentro Limpiezas trabajamos con pértigas telescópicas que alcanzan primera y segunda planta desde el exterior sin escalera. Todos los cristales accesibles en una sola visita.',
+      'Un chalé o adosado en {barrio} tiene, de media, mucha más superficie de cristal que un piso de bloque: ventanales de salón, cristaleras de terraza, ventanas de planta alta y a veces lucernarios. A eso se suma el jardín, que aporta barro los días de lluvia y polvo orgánico en verano. Para cubrirlo todo sin poner en riesgo a nadie, trabajamos con pértigas telescópicas que llegan a primera y segunda planta desde el exterior, sin necesidad de escalera.',
+      'Vivir en un chalé de {barrio} significa, entre otras cosas, más cristal que limpiar: ventanales grandes, cristaleras de terraza, ventanas en altura y, en muchos casos, algún lucernario. El jardín tampoco ayuda —barro en invierno, polvo orgánico en verano—. Resolvemos toda la superficie accesible en una sola visita, usando pértigas telescópicas para llegar a primera y segunda planta desde fuera, sin necesidad de subir a ningún sitio.',
+    ],
     problemaH2: '¿Cómo se limpian los cristales de la segunda planta en los chalés de {barrio}?',
-    problemaContent: 'Para ventanas de primera y segunda planta en chalés de {barrio}, trabajamos con pértigas telescópicas de hasta 6 metros con cabezal de rasqueta. Desde el exterior, sin escalera y sin riesgo. Para ventanas de tercera planta o superiores se evalúa el acceso en cada caso. La mayoría de chalés de {barrio} tienen 2 plantas, lo que cubre perfectamente la pértiga estándar sin necesidad de equipos adicionales.',
+    problemaContent: [
+      'Para ventanas de primera y segunda planta en chalés de {barrio}, trabajamos con pértigas telescópicas de hasta 6 metros con cabezal de rasqueta. Desde el exterior, sin escalera y sin riesgo. Para ventanas de tercera planta o superiores se evalúa el acceso en cada caso. La mayoría de chalés de {barrio} tienen 2 plantas, lo que cubre perfectamente la pértiga estándar sin necesidad de equipos adicionales.',
+      'La pregunta que más nos hacen en chalés de {barrio} es cómo se limpia una ventana de segunda planta sin subirse a nada. La respuesta es la pértiga telescópica: llegamos hasta 6 metros de altura con cabezal de rasqueta, trabajando siempre desde el exterior y desde el suelo. Como la mayoría de chalés de la zona tienen dos plantas, la pértiga estándar cubre perfectamente todas las ventanas sin necesidad de equipos adicionales ni de acceder al interior en altura.',
+      'En un chalé de dos plantas, que es lo habitual en {barrio}, limpiar las ventanas de la planta superior sin arriesgarse es el principal reto. Lo resolvemos con pértigas telescópicas de hasta 6 metros con cabezal de rasqueta, trabajando siempre desde el exterior sin necesidad de escalera. Si el chalé tiene una tercera planta o zonas de acceso más complicado, lo valoramos in situ antes de dar el presupuesto final.',
+    ],
     ventanasH2: 'Limpieza de ventanales de salón y cristaleras de terraza en {barrio}',
-    ventanasContent: 'Los ventanales grandes de los salones de chalés en {barrio} son la superficie que más se nota cuando está sucia y que más impacto visual tiene cuando está limpia. Para grandes formatos usamos el sistema profesional de mopa y rasqueta: extiende el producto en toda la superficie de una pasada y elimina el agua limpiamente sin marcas. El resultado es visiblemente diferente al de los cristales pequeños trabajados con spray y microfibra.',
+    ventanasContent: [
+      'Los ventanales grandes de los salones de chalés en {barrio} son la superficie que más se nota cuando está sucia y que más impacto visual tiene cuando está limpia. Para grandes formatos usamos el sistema profesional de mopa y rasqueta: extiende el producto en toda la superficie de una pasada y elimina el agua limpiamente sin marcas. El resultado es visiblemente diferente al de los cristales pequeños trabajados con spray y microfibra.',
+      'En los chalés de {barrio}, el ventanal grande del salón es la superficie que más se nota, para bien o para mal: cuando está sucio se ve desde cualquier ángulo, y cuando está limpio, también. Para ese tipo de formato usamos mopa y rasqueta en vez de spray y microfibra —el sistema profesional que extiende el producto de una pasada y retira el agua sin dejar marcas—. El resultado se nota especialmente en superficies grandes.',
+      'No todos los cristales se limpian igual, y los ventanales grandes de los chalés de {barrio} son un buen ejemplo: con spray y microfibra, como se limpia una ventana pequeña, el resultado nunca queda igual de uniforme. Usamos mopa y rasqueta, el sistema que emplean los profesionales para grandes superficies, que reparte el producto de una sola pasada y retira el agua sin dejar marcas ni vetas visibles a la luz.',
+    ],
     faqs: [
       {
         q: '¿Limpiáis también la cristalera de la terraza y el porche cubierto en {barrio}?',
@@ -126,11 +201,23 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     tituloPagina: 'Ventanas con verdín en {barrio}: limpieza rural con antifúngico',
     h1Qualifier: 'rural gallego · humedad y verdín en marcos',
     metaDescAngle: 'Limpieza de cristales en casas rurales de {barrio}: eliminamos verdín en marcos de madera y polvo orgánico con antifúngico ecológico certificado.',
-    speakableIntro: 'Las casas rurales de {barrio} son en su mayoría viviendas de piedra o construcción tradicional gallega, con marcos de madera o carpintería más antigua. El invierno húmedo de Ferrolterra, con lluvias frecuentes y poca luz directa, favorece el crecimiento de verdín y musgo en marcos exteriores y, en algunos casos, en la parte inferior del propio vidrio. Además, el polvo orgánico del entorno —prados, árboles, huertos— se deposita sobre los cristales con cada brisa. En Zentro Limpiezas limpiamos vidrio y marcos con antifúngico ecológico que no daña la madera.',
+    speakableIntro: [
+      'Las casas rurales de {barrio} son en su mayoría viviendas de piedra o construcción tradicional gallega, con marcos de madera o carpintería más antigua. El invierno húmedo de Ferrolterra, con lluvias frecuentes y poca luz directa, favorece el crecimiento de verdín y musgo en marcos exteriores y, en algunos casos, en la parte inferior del propio vidrio. Además, el polvo orgánico del entorno —prados, árboles, huertos— se deposita sobre los cristales con cada brisa. En Zentro Limpiezas limpiamos vidrio y marcos con antifúngico ecológico que no daña la madera.',
+      'En {barrio}, como en buena parte del entorno rural de {municipio}, predominan las casas de piedra con carpintería de madera tradicional. El invierno húmedo, con pocas horas de luz directa, es el escenario perfecto para que aparezca verdín y musgo en los marcos exteriores —a veces incluso en la parte baja del propio cristal—. A eso se suma el polvo orgánico de prados y huertos cercanos. Tratamos vidrio y marco con antifúngico ecológico que respeta la madera.',
+      'Las viviendas de {barrio} tienen un rasgo común: construcción tradicional gallega, piedra y marcos de madera que llevan años expuestos a un clima húmedo con poca luz directa. Esa combinación es la que hace aparecer verdín y musgo en los marcos, y en ocasiones en la parte inferior del cristal. El entorno rural —prados, árboles, huertos cercanos— añade además polvo orgánico constante. Nuestro tratamiento combina limpieza de vidrio y antifúngico ecológico específico para no dañar la madera.',
+    ],
     problemaH2: '¿Por qué aparece verdín en los marcos de las ventanas de las casas de {barrio}?',
-    problemaContent: 'El verdín en marcos exteriores de {barrio} es consecuencia directa de la combinación de humedad, sombra y material orgánico. La madera de las casas rurales retiene la humedad y en zonas con poco sol directo las algas y el musgo encuentran las condiciones ideales. No es un problema de suciedad sino biológico. Se elimina con biocida ecológico y se previene con una limpieza periódica que no deje humedad acumulada en las ranuras del marco.',
+    problemaContent: [
+      'El verdín en marcos exteriores de {barrio} es consecuencia directa de la combinación de humedad, sombra y material orgánico. La madera de las casas rurales retiene la humedad y en zonas con poco sol directo las algas y el musgo encuentran las condiciones ideales. No es un problema de suciedad sino biológico. Se elimina con biocida ecológico y se previene con una limpieza periódica que no deje humedad acumulada en las ranuras del marco.',
+      'Es importante entender que el verdín de los marcos en {barrio} no es suciedad en el sentido habitual: es un problema biológico, no de higiene. La combinación de madera que retiene humedad, poca exposición directa al sol y material orgánico alrededor crea las condiciones ideales para que crezcan algas y musgo. Por eso frotar no basta —hace falta un biocida ecológico que elimine el problema de raíz, y una limpieza periódica que evite que vuelva a acumularse humedad en las ranuras.',
+      'Si en tu casa de {barrio} el verdín reaparece por mucho que limpies el cristal, es porque el origen no está ahí: está en el marco, donde la madera retiene humedad y la falta de sol directo favorece el crecimiento de algas y musgo. No es un problema que se resuelva con más frotado, sino con un biocida ecológico específico, seguido de una limpieza periódica que evite que la humedad vuelva a acumularse en las ranuras.',
+    ],
     ventanasH2: 'Limpieza de ventanas en casas de piedra de {barrio}: cuidados específicos',
-    ventanasContent: 'Las ventanas de las casas de piedra de {barrio} tienen particularidades que no existen en pisos de bloque: el contorno de piedra puede acumular agua, los marcos de madera tienen más superficie expuesta, y algunos vidrios son más delgados que los modernos. Usamos productos de pH neutro o ligeramente ácido para el vidrio y antifúngico específico en base acuosa para los marcos de madera, sin dañarlos. El secado cuidadoso con microfibra evita la condensación que vuelve a generar verdín.',
+    ventanasContent: [
+      'Las ventanas de las casas de piedra de {barrio} tienen particularidades que no existen en pisos de bloque: el contorno de piedra puede acumular agua, los marcos de madera tienen más superficie expuesta, y algunos vidrios son más delgados que los modernos. Usamos productos de pH neutro o ligeramente ácido para el vidrio y antifúngico específico en base acuosa para los marcos de madera, sin dañarlos. El secado cuidadoso con microfibra evita la condensación que vuelve a generar verdín.',
+      'Limpiar una ventana en una casa de piedra de {barrio} no es lo mismo que limpiar la de un piso moderno: el contorno de piedra retiene agua, el marco de madera tiene mucha más superficie expuesta y, en muchos casos, el vidrio es más fino que el actual. Por eso usamos productos de pH neutro o ligeramente ácido para el cristal, y un antifúngico en base acuosa específico para la madera. El secado con microfibra es clave: mal secada, la humedad vuelve a generar verdín en poco tiempo.',
+      'Las casas de piedra de {barrio} tienen ventanas que requieren un trato distinto al de cualquier vivienda moderna: contornos que retienen agua, marcos de madera con mucha superficie expuesta y vidrios a menudo más delgados. Adaptamos el producto según la superficie —pH neutro o ligeramente ácido para el vidrio, antifúngico en base acuosa para la madera— y cuidamos especialmente el secado final con microfibra, porque un secado descuidado es la causa más habitual de que el verdín vuelva a aparecer.',
+    ],
     faqs: [
       {
         q: '¿El verdín en los marcos de madera de {barrio} indica que la madera está dañada?',
@@ -146,20 +233,32 @@ const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
   'industrial': {
     tituloPagina: 'Cristales con polvo industrial en {barrio}: desengrase profesional',
     h1Qualifier: 'zona polígono · polvo industrial y tráfico',
-    metaDescAngle: 'Limpieza de cristales en O Val con desengrasantes Ecolabel de alta eficacia: eliminamos la capa de polvo industrial y grasa ambiental de viviendas y locales.',
-    speakableIntro: 'O Val concentra la actividad comercial e industrial de Narón, con polígonos, tráfico pesado y actividad logística que genera partículas mucho más abrasivas que el polvo doméstico. Los cristales de viviendas y locales de O Val acumulan una capa de polvo fino mezclado con grasa ambiental y partículas de combustión que se adhiere al vidrio con más fuerza que la suciedad convencional. En Zentro Limpiezas usamos desengrasantes Ecolabel de alta eficacia que disuelven esta capa sin necesidad de frotar fuerte.',
-    problemaH2: '¿Por qué los cristales de O Val se ensucian más rápido que en otras zonas de Narón?',
-    problemaContent: 'La cercanía al polígono industrial de Narón y al tráfico pesado de la N-651 hace que el aire de O Val tenga mayor concentración de partículas en suspensión: polvo de caucho de neumáticos, partículas de combustión diésel, polvo de materiales de construcción. Estas partículas forman sobre el vidrio una película grasienta que no sale con limpiacristales convencional. Requiere un desengrasante previo que disuelva la grasa y luego el limpiacristales para el acabado sin rayas.',
-    ventanasH2: 'Limpieza de ventanas y escaparates para locales de O Val',
-    ventanasContent: 'En O Val hay muchos locales comerciales y oficinas cuyas ventanas miran a la calle o al polígono. La imagen de un local con cristales sucios es la primera impresión que ve el cliente. El servicio de limpieza de cristales para locales en O Val incluye escaparates, ventanales de oficina y particiones interiores. Podemos trabajar en horario nocturno o de madrugada para no interrumpir la actividad comercial.',
+    metaDescAngle: 'Limpieza de cristales con desengrasantes Ecolabel de alta eficacia: eliminamos la capa de polvo industrial y grasa ambiental de viviendas y locales.',
+    speakableIntro: [
+      '{barrio} concentra buena parte de la actividad comercial e industrial de {municipio}, con polígonos, tráfico pesado y actividad logística que genera partículas mucho más abrasivas que el polvo doméstico. Los cristales de viviendas y locales de {barrio} acumulan una capa de polvo fino mezclado con grasa ambiental y partículas de combustión que se adhiere al vidrio con más fuerza que la suciedad convencional. En Zentro Limpiezas usamos desengrasantes Ecolabel de alta eficacia que disuelven esta capa sin necesidad de frotar fuerte.',
+      'Si tienes una vivienda o un local en {barrio}, ya sabrás que los cristales se ensucian de una forma distinta a la de una zona residencial normal: la actividad comercial e industrial de la zona, con polígonos y tráfico pesado, genera partículas mucho más abrasivas que el polvo doméstico habitual. Esa mezcla de polvo fino y grasa ambiental se adhiere al vidrio con fuerza. Usamos desengrasantes Ecolabel de alta eficacia que disuelven esa capa sin necesidad de frotar con fuerza.',
+      'La actividad industrial y comercial de {barrio}, con tráfico pesado y actividad logística constante, deja en el aire un tipo de partícula que no se ve en zonas residenciales tranquilas: más abrasiva, mezclada con grasa ambiental y combustión. Sobre el cristal, esa combinación forma una capa que un limpiacristales convencional no consigue disolver. Nuestro tratamiento con desengrasantes Ecolabel de alta eficacia está pensado exactamente para este tipo de suciedad.',
+    ],
+    problemaH2: '¿Por qué los cristales de {barrio} se ensucian más rápido que en otras zonas de {municipio}?',
+    problemaContent: [
+      'La cercanía a polígonos industriales y al tráfico pesado hace que el aire de {barrio} tenga mayor concentración de partículas en suspensión: polvo de caucho de neumáticos, partículas de combustión diésel, polvo de materiales de construcción. Estas partículas forman sobre el vidrio una película grasienta que no sale con limpiacristales convencional. Requiere un desengrasante previo que disuelva la grasa y luego el limpiacristales para el acabado sin rayas.',
+      'El aire de {barrio} tiene una composición distinta a la de una zona puramente residencial: más partículas en suspensión por la cercanía a la actividad industrial y al tráfico pesado —caucho de neumáticos, combustión diésel, polvo de obra—. Sobre el vidrio, todo eso forma una película grasienta que el limpiacristales convencional simplemente no puede disolver. El proceso correcto tiene dos fases: primero un desengrasante que rompa esa grasa, después el limpiacristales para el acabado final sin rayas.',
+      'No es casualidad que los cristales de {barrio} necesiten un tratamiento distinto al de una zona residencial tranquila: la cercanía a la actividad industrial y al tráfico pesado deja en el aire partículas más abrasivas y grasientas —caucho, combustión, polvo de construcción— que se adhieren al vidrio con fuerza. Un limpiacristales normal no las disuelve, solo las redistribuye. Por eso empezamos siempre con un desengrasante específico antes de pasar al acabado final.',
+    ],
+    ventanasH2: 'Limpieza de ventanas y escaparates para locales de {barrio}',
+    ventanasContent: [
+      'En {barrio} hay muchos locales comerciales y oficinas cuyas ventanas miran a la calle o al polígono. La imagen de un local con cristales sucios es la primera impresión que ve el cliente. El servicio de limpieza de cristales para locales en {barrio} incluye escaparates, ventanales de oficina y particiones interiores. Podemos trabajar en horario nocturno o de madrugada para no interrumpir la actividad comercial.',
+      'Para los locales comerciales y oficinas de {barrio}, el estado del escaparate es la primera impresión que se lleva cualquier cliente antes de entrar. Nuestro servicio de limpieza de cristales aquí cubre escaparates, ventanales de oficina y particiones interiores, y podemos trabajar en horario nocturno o de madrugada para no interferir con la actividad del negocio durante el día.',
+      'Un escaparate sucio en {barrio} transmite lo contrario de lo que cualquier negocio busca: descuido, en vez de profesionalidad. Cubrimos la limpieza de cristales de locales y oficinas de la zona —escaparates, ventanales, particiones interiores— con la posibilidad de trabajar de madrugada o en horario nocturno, para que la limpieza no interfiera nunca con tu actividad comercial.',
+    ],
     faqs: [
       {
-        q: '¿Hay que usar productos especiales para limpiar los cristales de locales en zonas industriales como O Val?',
+        q: '¿Hay que usar productos especiales para limpiar los cristales de locales en zonas industriales como {barrio}?',
         a: 'Sí. El polvo industrial tiene componentes grasos que el limpiacristales estándar no disuelve completamente. Aplicamos una fase de desengrase con producto neutro certificado Ecolabel antes del limpiacristales final. El resultado es visiblemente mejor, especialmente en cristales de escaparate que son la imagen del negocio.',
       },
       {
-        q: '¿Cuánto tarda en volver a ensuciarse un cristal en O Val después de la limpieza?',
-        a: 'En O Val, los cristales exteriores de locales se ensucian visiblemente en 3-6 semanas. Para viviendas, algo más: entre 4-8 semanas según la orientación. Lo que sí cambia con la limpieza profesional es el tipo de suciedad: una vez retirada la capa de grasa, las siguientes suciedades son más superficiales y más fáciles de eliminar.',
+        q: '¿Cuánto tarda en volver a ensuciarse un cristal en {barrio} después de la limpieza?',
+        a: 'En zonas con actividad industrial como esta, los cristales exteriores de locales se ensucian visiblemente en 3-6 semanas. Para viviendas, algo más: entre 4-8 semanas según la orientación. Lo que sí cambia con la limpieza profesional es el tipo de suciedad: una vez retirada la capa de grasa, las siguientes suciedades son más superficiales y más fáciles de eliminar.',
       },
     ],
   },
@@ -2029,12 +2128,24 @@ export const CONTENIDO_BARRIO: Partial<Record<string, Record<BarrioArchetype, Co
   'limpieza-de-trasteros': TRASTEROS_POR_ARQUETIPO,
 };
 
+export type ContenidoArquetipoResuelto = {
+  tituloPagina: string;
+  h1Qualifier: string;
+  metaDescAngle: string;
+  speakableIntro: string;
+  problemaH2: string;
+  problemaContent: string;
+  ventanasH2: string;
+  ventanasContent: string;
+  faqs: { q: string; a: string }[];
+};
+
 export function getContenidoBarrio(
   servicioSlug: string,
   archetype: BarrioArchetype,
   barrioNombre: string,
   municipioNombre: string,
-): ContenidoArquetipo | null {
+): ContenidoArquetipoResuelto | null {
   const servicioMap = CONTENIDO_BARRIO[servicioSlug];
   if (!servicioMap) return null;
   const raw = servicioMap[archetype];
@@ -2043,11 +2154,11 @@ export function getContenidoBarrio(
     tituloPagina: t(raw.tituloPagina, barrioNombre, municipioNombre),
     h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
     metaDescAngle: t(raw.metaDescAngle, barrioNombre, municipioNombre),
-    speakableIntro: t(raw.speakableIntro, barrioNombre, municipioNombre),
+    speakableIntro: tVariant(raw.speakableIntro, barrioNombre, municipioNombre),
     problemaH2: t(raw.problemaH2, barrioNombre, municipioNombre),
-    problemaContent: t(raw.problemaContent, barrioNombre, municipioNombre),
+    problemaContent: tVariant(raw.problemaContent, barrioNombre, municipioNombre),
     ventanasH2: t(raw.ventanasH2, barrioNombre, municipioNombre),
-    ventanasContent: t(raw.ventanasContent, barrioNombre, municipioNombre),
+    ventanasContent: tVariant(raw.ventanasContent, barrioNombre, municipioNombre),
     faqs: raw.faqs.map(f => ({
       q: t(f.q, barrioNombre, municipioNombre),
       a: t(f.a, barrioNombre, municipioNombre),
