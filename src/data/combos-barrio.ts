@@ -548,9 +548,9 @@ export function getContenidoPeriodica(
 export type ContenidoViviendas = {
   h1Qualifier: string;
   metaDesc: string;
-  intro: string;
+  intro: string | string[];
   particularH2: string;
-  particularContent: string;
+  particularContent: string | string[];
   habitacionesH2: string;
   habitacionesItems: string[];
   precioItems: string[];
@@ -561,9 +561,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'bloque-obrero': {
     h1Qualifier: 'pisos de bloque · limpieza completa habitación por habitación',
     metaDesc: 'Limpieza de vivienda en {barrio}: pisos de bloque con cocinas de grasa acumulada, baños con cal y suelos de alto tráfico. Presupuesto gratis en 24h.',
-    intro: 'La limpieza integral de una vivienda en los bloques de {barrio} incluye todo lo que la limpieza semanal deja para después: el interior de armarios y electrodomésticos, los rodapiés, la parte trasera de muebles y las juntas de azulejo del baño. En Zentro Limpiezas trabajamos habitación por habitación con un checklist cerrado: la vivienda queda en un estado de limpieza profunda que se mantiene fácil durante semanas.',
+    intro: [
+      'La limpieza integral de una vivienda en los bloques de {barrio} incluye todo lo que la limpieza semanal deja para después: el interior de armarios y electrodomésticos, los rodapiés, la parte trasera de muebles y las juntas de azulejo del baño. En Zentro Limpiezas trabajamos habitación por habitación con un checklist cerrado: la vivienda queda en un estado de limpieza profunda que se mantiene fácil durante semanas.',
+      'En los bloques de {barrio}, la limpieza integral cubre justo lo que la semanal deja pendiente: interior de armarios y electrodomésticos, rodapiés, parte trasera de muebles y juntas de azulejo del baño. Trabajamos con un checklist cerrado habitación por habitación, así que la vivienda queda en un estado que aguanta semanas antes de necesitar otra a fondo.',
+      'Una limpieza integral en un piso de bloque de {barrio} no se parece a la semanal: entra en armarios, electrodomésticos, rodapiés, la parte trasera de los muebles y las juntas del baño. Trabajamos con checklist cerrado por habitación, para que el resultado dure semanas, no días.',
+    ],
     particularH2: '¿Qué tienen de especial los pisos de bloque de {barrio} para la limpieza?',
-    particularContent: 'Los pisos de bloque de {barrio} construidos entre los años 60 y 90 acumulan capas de suciedad en sitios específicos: la cal del agua de Ferrol incrusta en las griferías y en los azulejos del baño; la grasa de cocción impregna los azulejos de la cocina y la campana tras años de uso; y los suelos de gres o vinilo de época tienen juntas oscurecidas que el fregado normal no aclara. Nuestra limpieza de vivienda atiende específicamente cada uno de estos puntos.',
+    particularContent: [
+      'Los pisos de bloque de {barrio} construidos entre los años 60 y 90 acumulan capas de suciedad en sitios específicos: la cal del agua de Ferrol incrusta en las griferías y en los azulejos del baño; la grasa de cocción impregna los azulejos de la cocina y la campana tras años de uso; y los suelos de gres o vinilo de época tienen juntas oscurecidas que el fregado normal no aclara. Nuestra limpieza de vivienda atiende específicamente cada uno de estos puntos.',
+      'Los pisos de bloque de {barrio}, en su mayoría de los años 60 a 90, concentran suciedad en puntos muy concretos: cal incrustada en griferías y azulejos del baño por el agua de Ferrol, grasa de cocción impregnada en azulejos y campana tras años de uso, y juntas oscurecidas en suelos de gres o vinilo de época que un fregado normal no aclara. Nuestra limpieza atiende cada uno de estos puntos por separado.',
+      'En {barrio}, los pisos de bloque de décadas atrás tienen la suciedad concentrada siempre en los mismos sitios: cal en griferías y azulejos del baño, grasa acumulada en la campana y los azulejos de cocina, y juntas de suelo oscurecidas que resisten al fregado habitual. Tratamos cada uno de esos puntos de forma específica, no con un repaso general.',
+    ],
     habitacionesH2: 'Estancias incluidas en la limpieza de vivienda en {barrio}',
     habitacionesItems: [
       'Cocina: interior y exterior de armarios, encimera, azulejos, campana, electrodomésticos y suelo',
@@ -594,9 +602,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'historico': {
     h1Qualifier: 'edificios históricos · limpieza con cuidado de acabados de época',
     metaDesc: 'Limpieza de vivienda en edificios históricos de {barrio}: suelos de madera, parquet y baldosa hidráulica tratados con productos específicos para cada material.',
-    intro: 'Las viviendas en los edificios históricos de {barrio} son un reto de limpieza profesional: cada sala puede tener un tipo de suelo diferente (parquet, baldosa hidráulica, mosaico, tarima), las molduras y techos tienen relieves que acumulan polvo en capas, y los materiales envejecidos exigen productos que los cuiden en lugar de dañarlos. En Zentro Limpiezas identificamos los materiales antes de empezar y adaptamos el producto y la técnica a cada superficie.',
+    intro: [
+      'Las viviendas en los edificios históricos de {barrio} son un reto de limpieza profesional: cada sala puede tener un tipo de suelo diferente (parquet, baldosa hidráulica, mosaico, tarima), las molduras y techos tienen relieves que acumulan polvo en capas, y los materiales envejecidos exigen productos que los cuiden en lugar de dañarlos. En Zentro Limpiezas identificamos los materiales antes de empezar y adaptamos el producto y la técnica a cada superficie.',
+      'Una vivienda en un edificio histórico de {barrio} es un reto distinto: cada sala puede tener un suelo diferente —parquet, baldosa hidráulica, mosaico, tarima—, las molduras acumulan polvo en sus relieves, y los materiales de época exigen productos que los cuiden, no que los ataquen. Identificamos cada material antes de empezar y adaptamos técnica y producto a cada superficie.',
+      'En {barrio}, limpiar una vivienda histórica exige identificar antes de nada qué material tiene cada sala: puede ser parquet, baldosa hidráulica, mosaico o tarima, cada uno con su propio producto. Las molduras de techo acumulan polvo en relieves que una fregona no alcanza. Adaptamos la técnica a cada superficie en vez de aplicar un protocolo único.',
+    ],
     particularH2: '¿Por qué la limpieza en los pisos históricos de {barrio} es diferente?',
-    particularContent: 'El principal reto no es la suciedad sino los materiales. La baldosa hidráulica de muchos pisos históricos de {barrio} es porosa y absorbe productos inadecuados. El parquet antiguo sin tratar no admite agua en exceso. Las molduras de escayola acumulan polvo en sus relieves que una fregona no alcanza. Y los techos altos con cornisas necesitan equipos con extensión. Evaluamos todo esto antes de empezar para garantizar que ningún material resulte dañado.',
+    particularContent: [
+      'El principal reto no es la suciedad sino los materiales. La baldosa hidráulica de muchos pisos históricos de {barrio} es porosa y absorbe productos inadecuados. El parquet antiguo sin tratar no admite agua en exceso. Las molduras de escayola acumulan polvo en sus relieves que una fregona no alcanza. Y los techos altos con cornisas necesitan equipos con extensión. Evaluamos todo esto antes de empezar para garantizar que ningún material resulte dañado.',
+      'El reto en un piso histórico de {barrio} no es la cantidad de suciedad sino los materiales: la baldosa hidráulica es porosa y absorbe productos inadecuados, el parquet sin tratar no admite exceso de agua, las molduras de escayola atrapan polvo que la fregona no llega a tocar, y los techos altos con cornisas necesitan equipo con extensión. Evaluamos todo esto antes de empezar para no dañar nada.',
+      'En {barrio}, el desafío de un piso histórico está en los materiales, no en la cantidad de suciedad: baldosa hidráulica porosa, parquet que sufre con exceso de agua, molduras de escayola con polvo en cada relieve, y techos altos que necesitan equipo específico. Antes de tocar nada, identificamos qué hay y ajustamos producto y técnica.',
+    ],
     habitacionesH2: 'Estancias y superficies incluidas en la limpieza de pisos históricos de {barrio}',
     habitacionesItems: [
       'Suelos de parquet y madera: limpieza con mopa seca y mínima humedad',
@@ -627,9 +643,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'marinero': {
     h1Qualifier: 'zona costera · control de humedad y condensación en cada rincón',
     metaDesc: 'Limpieza de vivienda en {barrio}: control de manchas por condensación, antifúngico en juntas y atención a marcos metálicos expuestos al ambiente marino.',
-    intro: 'Las viviendas de {barrio} acumulan un tipo de suciedad muy específica del ambiente marino: manchas de condensación en paredes y techos, manchas de agua en alféizares y marcos, y en algunas orientaciones, puntos de humedad en esquinas y techos de baño. La limpieza de vivienda en {barrio} incluye el tratamiento específico de estas zonas con antifúngico preventivo y productos que eliminan las manchas de condensación sin dañar la pintura.',
+    intro: [
+      'Las viviendas de {barrio} acumulan un tipo de suciedad muy específica del ambiente marino: manchas de condensación en paredes y techos, manchas de agua en alféizares y marcos, y en algunas orientaciones, puntos de humedad en esquinas y techos de baño. La limpieza de vivienda en {barrio} incluye el tratamiento específico de estas zonas con antifúngico preventivo y productos que eliminan las manchas de condensación sin dañar la pintura.',
+      'En {barrio}, las viviendas acumulan un tipo de suciedad muy propia del ambiente marino: condensación en paredes y techos, manchas de agua en alféizares y marcos, y en algunas orientaciones, humedad en esquinas y techos de baño. Tratamos todo esto con antifúngico preventivo y productos que eliminan la condensación sin dañar la pintura.',
+      'Una vivienda en {barrio} tiene un tipo de suciedad que no existe tierra adentro: condensación en paredes y techos, manchas de agua en marcos y alféizares, y humedad en esquinas según la orientación. La limpieza aquí incorpora siempre antifúngico preventivo, no como extra sino como parte estándar del servicio.',
+    ],
     particularH2: '¿Qué marca la diferencia en la limpieza de casas costeras de {barrio}?',
-    particularContent: 'La humedad marina penetra por ventanas y crea condensación en las superficies más frías. Los techos de baños y cocinas, los marcos de ventanas y los muros exteriores expuestos son las zonas más afectadas. En {barrio}, cada limpieza de vivienda incorpora atención a estas superficies: tratamiento preventivo de manchas de condensación, antifúngico en juntas de baño y limpieza de marcos con neutralizador de sales. No es un extra: es parte del servicio estándar en una vivienda costera.',
+    particularContent: [
+      'La humedad marina penetra por ventanas y crea condensación en las superficies más frías. Los techos de baños y cocinas, los marcos de ventanas y los muros exteriores expuestos son las zonas más afectadas. En {barrio}, cada limpieza de vivienda incorpora atención a estas superficies: tratamiento preventivo de manchas de condensación, antifúngico en juntas de baño y limpieza de marcos con neutralizador de sales. No es un extra: es parte del servicio estándar en una vivienda costera.',
+      'La humedad marina entra por las ventanas y condensa en las superficies más frías de {barrio}: techos de baño y cocina, marcos de ventana y muros exteriores expuestos. Por eso cada limpieza incluye tratamiento preventivo de condensación, antifúngico en juntas de baño y limpieza de marcos con neutralizador de sales. No es un añadido: es parte del servicio estándar en una vivienda costera.',
+      'En {barrio}, la humedad marina se condensa siempre en los mismos sitios: techos de baño y cocina, marcos de ventana, muros exteriores. Tratamos esas zonas en cada visita con antifúngico preventivo y neutralizador de sales en los marcos, incluido en el servicio estándar de cualquier vivienda de la costa, no como extra.',
+    ],
     habitacionesH2: 'Estancias y puntos críticos en la limpieza de viviendas de {barrio}',
     habitacionesItems: [
       'Baños: antifúngico en juntas, suelo, mampara y techo — especialmente importante en zonas costeras',
@@ -660,9 +684,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'segunda-residencia': {
     h1Qualifier: 'segunda residencia · limpieza a fondo para empezar bien la temporada',
     metaDesc: 'Limpieza de vivienda para segunda residencia en {barrio}: apertura completa tras meses cerrada, cierre correcto antes de irse, sin que tengas que preocuparte de nada.',
-    intro: 'Una segunda residencia en {barrio} que lleva meses cerrada acumula una suciedad diferente a la de una vivienda de uso diario: polvo de sedimentación, manchas de condensación en ventanas, moho preventivo en baños, posible olor a cerrado y en algunos casos insectos. La limpieza de vivienda que hacemos para apertura de temporada en {barrio} es un trabajo a fondo distinto de la limpieza periódica de mantenimiento.',
+    intro: [
+      'Una segunda residencia en {barrio} que lleva meses cerrada acumula una suciedad diferente a la de una vivienda de uso diario: polvo de sedimentación, manchas de condensación en ventanas, moho preventivo en baños, posible olor a cerrado y en algunos casos insectos. La limpieza de vivienda que hacemos para apertura de temporada en {barrio} es un trabajo a fondo distinto de la limpieza periódica de mantenimiento.',
+      'Una segunda residencia en {barrio} que lleva meses cerrada acumula una suciedad distinta a la de uso diario: polvo de sedimentación, condensación en ventanas, moho preventivo en baños, olor a cerrado y, a veces, algún insecto. La limpieza de apertura que hacemos aquí es un trabajo a fondo, no un mantenimiento periódico.',
+      'En {barrio}, una vivienda de temporada cerrada varios meses no se limpia como una de uso habitual: hay polvo sedimentado, condensación en ventanas, posible moho en baños y ese olor a cerrado tan característico. La apertura de temporada es un trabajo completo, distinto de una limpieza de mantenimiento.',
+    ],
     particularH2: '¿Qué necesita una segunda residencia de {barrio} para estar lista en tu llegada?',
-    particularContent: 'Cuando una vivienda lleva meses sin uso en {barrio}, las prioridades de limpieza cambian: el polvo de sedimentación en muebles y suelos tiene que eliminarse antes que cualquier otra cosa; los baños necesitan desinfección completa y revisión de juntas; la cocina requiere limpieza de la nevera si se dejó en marcha, y del horno si quedaron restos; y los cristales acumulan manchas de condensación que en una vivienda de uso diario no aparecen. También revisamos visualmente si hay alguna filtración o problema que no haya sido notado en meses de ausencia.',
+    particularContent: [
+      'Cuando una vivienda lleva meses sin uso en {barrio}, las prioridades de limpieza cambian: el polvo de sedimentación en muebles y suelos tiene que eliminarse antes que cualquier otra cosa; los baños necesitan desinfección completa y revisión de juntas; la cocina requiere limpieza de la nevera si se dejó en marcha, y del horno si quedaron restos; y los cristales acumulan manchas de condensación que en una vivienda de uso diario no aparecen. También revisamos visualmente si hay alguna filtración o problema que no haya sido notado en meses de ausencia.',
+      'Cuando una vivienda de {barrio} lleva meses cerrada, las prioridades cambian: primero el polvo de sedimentación en muebles y suelos, luego los baños con desinfección completa y revisión de juntas, la cocina con nevera y horno si quedaron restos, y los cristales con las manchas de condensación que no aparecen en una vivienda de uso diario. También revisamos visualmente si hay alguna filtración que haya pasado desapercibida.',
+      'En {barrio}, una vivienda cerrada durante meses exige un orden distinto de trabajo: polvo de sedimentación primero, después baños con desinfección y revisión de juntas, cocina con nevera y horno si hubo restos, y cristales con condensación que no se ve en el uso diario. De paso, revisamos visualmente si hay alguna filtración que haya pasado desapercibida en la ausencia.',
+    ],
     habitacionesH2: 'Qué incluye la limpieza de apertura de segunda residencia en {barrio}',
     habitacionesItems: [
       'Toda la vivienda: eliminación de polvo de sedimentación en todas las superficies',
@@ -694,9 +726,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'chalet': {
     h1Qualifier: 'chalés y unifamiliares · limpieza integral de planta a planta',
     metaDesc: 'Limpieza de vivienda en chalés de {barrio}: todas las plantas, terraza, garaje y espacios de exterior. Equipo adaptado a la superficie real de tu casa.',
-    intro: 'La limpieza a fondo de un chalé en {barrio} es uno de los servicios más completos que ofrecemos: implica trabajar en varias plantas, atender la terraza y el porche, limpiar el garaje, y dedicar tiempo a los ventanales grandes del salón y las zonas exteriores. Para un chalé de 150-200 m² enviamos un equipo de 2-3 personas para completar el trabajo en el tiempo acordado.',
+    intro: [
+      'La limpieza a fondo de un chalé en {barrio} es uno de los servicios más completos que ofrecemos: implica trabajar en varias plantas, atender la terraza y el porche, limpiar el garaje, y dedicar tiempo a los ventanales grandes del salón y las zonas exteriores. Para un chalé de 150-200 m² enviamos un equipo de 2-3 personas para completar el trabajo en el tiempo acordado.',
+      'La limpieza a fondo de un chalé en {barrio} es de los servicios más completos que hacemos: varias plantas, terraza, porche, garaje y los ventanales grandes del salón, todo en el mismo servicio. Para un chalé de 150-200 m² enviamos equipo de 2-3 personas para cumplir el tiempo acordado.',
+      'Un chalé en {barrio} pide una limpieza a fondo mucho más extensa que un piso: varias plantas, terraza, porche, garaje y ventanales de salón que necesitan su propia técnica. Para propiedades de 150-200 m² trabajamos con equipo de 2-3 personas para cumplir el plazo acordado.',
+    ],
     particularH2: '¿Qué hace diferente la limpieza de un chalé de {barrio} respecto a un piso?',
-    particularContent: 'La diferencia no es solo el tamaño: en un chalé de {barrio} hay suciedad de jardín y exterior que en un piso de bloque no existe. El barro y las hojas que se traen del jardín ensucian la planta baja; la terraza tiene su propia lógica de limpieza; el garaje necesita tratamiento específico para manchas de aceite; y los ventanales del salón requieren sistema de mopa y rasqueta profesional para quedarse sin marcas. Organizamos el trabajo con un checklist por estancia para no olvidar ninguna zona.',
+    particularContent: [
+      'La diferencia no es solo el tamaño: en un chalé de {barrio} hay suciedad de jardín y exterior que en un piso de bloque no existe. El barro y las hojas que se traen del jardín ensucian la planta baja; la terraza tiene su propia lógica de limpieza; el garaje necesita tratamiento específico para manchas de aceite; y los ventanales del salón requieren sistema de mopa y rasqueta profesional para quedarse sin marcas. Organizamos el trabajo con un checklist por estancia para no olvidar ninguna zona.',
+      'No es solo cuestión de tamaño: un chalé en {barrio} tiene suciedad de jardín y exterior que un piso de bloque no conoce. Barro y hojas ensucian la planta baja, la terraza tiene su propia lógica de limpieza, el garaje necesita tratamiento específico para manchas de aceite, y los ventanales grandes exigen mopa y rasqueta profesional. Organizamos el trabajo con checklist por estancia para no dejar ninguna zona sin cubrir.',
+      'La diferencia de un chalé en {barrio} frente a un piso no es solo el tamaño: entra suciedad de jardín que un piso de bloque nunca tiene —barro, hojas en planta baja—, la terraza necesita su propio protocolo, el garaje su propio tratamiento de aceite, y los ventanales grandes su propia técnica de mopa y rasqueta. Trabajamos con checklist por estancia para cubrir todo sin excepción.',
+    ],
     habitacionesH2: 'Estancias y zonas incluidas en la limpieza de chalés en {barrio}',
     habitacionesItems: [
       'Planta baja: salón con ventanales, cocina completa, aseo y entrada',
@@ -728,9 +768,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'rural': {
     h1Qualifier: 'casas rurales · materiales de época y entorno natural',
     metaDesc: 'Limpieza de vivienda en casas rurales de {barrio}: piedra, madera, baldosa antigua, chimenea. Productos Ecolabel respetuosos con los materiales y el entorno.',
-    intro: 'Las casas rurales de {barrio} son construcciones únicas: piedra, vigas de madera, suelos de baldosa antigua o pizarra, chimeneas y en muchos casos distribuciones irregulares con techos a distintas alturas. La limpieza a fondo de una casa rural en {barrio} requiere experiencia con estos materiales y una actitud de respeto hacia la arquitectura tradicional gallega. Usamos productos Ecolabel adaptados a cada superficie y trabajamos con el cuidado que merece una vivienda con historia.',
+    intro: [
+      'Las casas rurales de {barrio} son construcciones únicas: piedra, vigas de madera, suelos de baldosa antigua o pizarra, chimeneas y en muchos casos distribuciones irregulares con techos a distintas alturas. La limpieza a fondo de una casa rural en {barrio} requiere experiencia con estos materiales y una actitud de respeto hacia la arquitectura tradicional gallega. Usamos productos Ecolabel adaptados a cada superficie y trabajamos con el cuidado que merece una vivienda con historia.',
+      'Las casas rurales de {barrio} son construcciones singulares: piedra, vigas de madera, baldosa antigua o pizarra, chimenea y distribuciones irregulares con techos a distintas alturas. Limpiarlas a fondo exige experiencia con estos materiales y respeto por la arquitectura tradicional gallega. Usamos productos Ecolabel adaptados a cada superficie.',
+      'En {barrio}, cada casa rural es distinta: piedra, madera, baldosa antigua o pizarra, chimenea, techos irregulares. Una limpieza a fondo aquí exige conocer estos materiales y tratarlos con cuidado, no con un protocolo genérico. Trabajamos siempre con productos Ecolabel adaptados a cada superficie de la vivienda.',
+    ],
     particularH2: '¿Qué hay que tener en cuenta al limpiar una casa rural de {barrio}?',
-    particularContent: 'Los materiales de las casas rurales de {barrio} exigen tratamientos específicos: la piedra interior y exterior no admite productos ácidos que la ataquen; la madera de vigas y suelos necesita mínima humedad y producto específico; la chimenea genera ceniza que se deposita en las superficies cercanas; y los suelos de pizarra o baldosa antigua son porosos y absorben productos equivocados. Antes de empezar, identificamos los materiales presentes y ajustamos el producto a cada zona.',
+    particularContent: [
+      'Los materiales de las casas rurales de {barrio} exigen tratamientos específicos: la piedra interior y exterior no admite productos ácidos que la ataquen; la madera de vigas y suelos necesita mínima humedad y producto específico; la chimenea genera ceniza que se deposita en las superficies cercanas; y los suelos de pizarra o baldosa antigua son porosos y absorben productos equivocados. Antes de empezar, identificamos los materiales presentes y ajustamos el producto a cada zona.',
+      'Cada material de una casa rural en {barrio} pide su propio tratamiento: la piedra no admite ácidos, la madera de vigas y suelos necesita mínima humedad, la chimenea genera ceniza en las superficies cercanas, y la pizarra o baldosa antigua es porosa y absorbe productos equivocados. Antes de empezar, identificamos qué hay en cada zona y ajustamos el producto en consecuencia.',
+      'En una casa rural de {barrio}, ningún material se limpia igual: piedra sin ácidos, madera con mínima humedad, ceniza de chimenea en las superficies cercanas, y pizarra o baldosa antigua porosa que no tolera cualquier producto. Identificamos los materiales presentes antes de tocar nada, y ajustamos el tratamiento a cada uno.',
+    ],
     habitacionesH2: 'Estancias y elementos incluidos en la limpieza de casas rurales de {barrio}',
     habitacionesItems: [
       'Suelos de piedra, pizarra o baldosa antigua: fregado con producto neutro específico',
@@ -762,9 +810,17 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   'industrial': {
     h1Qualifier: 'viviendas y locales en polígono · limpieza contra grasa y partículas',
     metaDesc: 'Limpieza de vivienda y locales en {barrio}: desengrase de partículas industriales en superficies, ventilación y exteriores con mayor acumulación de suciedad.',
-    intro: 'Las viviendas y locales de {barrio}, en la zona de polígono industrial de Narón, acumulan suciedad específica de la actividad industrial: capas de polvo graso de partículas de combustión y caucho que se depositan en todas las superficies exteriores y penetran por las ventanas. La limpieza completa de una vivienda en {barrio} incorpora una fase de desengrase previa en las superficies más afectadas, especialmente encimeras, alféizares y cocina.',
+    intro: [
+      'Las viviendas y locales de {barrio}, en la zona de polígono industrial de Narón, acumulan suciedad específica de la actividad industrial: capas de polvo graso de partículas de combustión y caucho que se depositan en todas las superficies exteriores y penetran por las ventanas. La limpieza completa de una vivienda en {barrio} incorpora una fase de desengrase previa en las superficies más afectadas, especialmente encimeras, alféizares y cocina.',
+      'En {barrio}, cerca del polígono industrial de Narón, las viviendas acumulan una suciedad específica: polvo graso de partículas de combustión y caucho que se deposita en las superficies exteriores y entra por las ventanas. La limpieza incorpora siempre una fase de desengrase previa, sobre todo en encimeras, alféizares y cocina.',
+      'La cercanía al polígono industrial deja una marca propia en las viviendas de {barrio}: polvo graso de combustión y caucho que se posa en cada superficie expuesta y entra por las ventanas. Nuestra limpieza aquí incluye siempre un desengrase previo en encimeras, alféizares y cocina, no como extra sino como paso necesario.',
+    ],
     particularH2: '¿Cómo afecta el entorno industrial de {barrio} a la suciedad de las viviendas?',
-    particularContent: 'Las viviendas de {barrio} cerca del polígono tienen una capa de suciedad fina pero persistente en todas las superficies expuestas: los alféizares se oscurecen rápido, la cocina cerca de ventanas acumula grasa ambiental además de la de cocción, y los suelos recogen partículas de combustión con el tráfico diario que dan un aspecto grisáceo incluso poco después de fregar. El desengrasante previo en estas superficies es el paso que más diferencia hace en el resultado final.',
+    particularContent: [
+      'Las viviendas de {barrio} cerca del polígono tienen una capa de suciedad fina pero persistente en todas las superficies expuestas: los alféizares se oscurecen rápido, la cocina cerca de ventanas acumula grasa ambiental además de la de cocción, y los suelos recogen partículas de combustión con el tráfico diario que dan un aspecto grisáceo incluso poco después de fregar. El desengrasante previo en estas superficies es el paso que más diferencia hace en el resultado final.',
+      'Las viviendas de {barrio} cerca del polígono tienen una capa fina pero persistente de suciedad en todas las superficies expuestas: alféizares que se oscurecen rápido, cocina con grasa ambiental además de la de cocción, y suelos con aspecto grisáceo poco después de fregar por las partículas de combustión del tráfico. El desengrasante previo es el paso que más diferencia marca en el resultado.',
+      'En {barrio}, la actividad industrial cercana deja una película fina en cada superficie de la vivienda: alféizares oscurecidos, cocina con grasa que no es solo de cocción, suelos que parecen sucios poco después de fregarlos por las partículas del tráfico. Sin un desengrase previo, el resultado final nunca queda del todo limpio.',
+    ],
     habitacionesH2: 'Estancias y zonas incluidas en la limpieza de viviendas de {barrio}',
     habitacionesItems: [
       'Alféizares y marcos de ventana: desengrase de partículas industriales adheridas',
@@ -794,19 +850,24 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   },
 };
 
+export type ContenidoViviendasResuelto = Omit<ContenidoViviendas, 'intro' | 'particularContent'> & {
+  intro: string;
+  particularContent: string;
+};
+
 export function getContenidoViviendas(
   archetype: BarrioArchetype,
   barrioNombre: string,
   municipioNombre: string,
-): ContenidoViviendas | null {
+): ContenidoViviendasResuelto | null {
   const raw = VIVIENDAS_POR_ARQUETIPO[archetype];
   if (!raw) return null;
   return {
     h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
     metaDesc: t(raw.metaDesc, barrioNombre, municipioNombre),
-    intro: t(raw.intro, barrioNombre, municipioNombre),
+    intro: tVariant(raw.intro, barrioNombre, municipioNombre),
     particularH2: t(raw.particularH2, barrioNombre, municipioNombre),
-    particularContent: t(raw.particularContent, barrioNombre, municipioNombre),
+    particularContent: tVariant(raw.particularContent, barrioNombre, municipioNombre),
     habitacionesH2: t(raw.habitacionesH2, barrioNombre, municipioNombre),
     habitacionesItems: raw.habitacionesItems.map(s => t(s, barrioNombre, municipioNombre)),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
