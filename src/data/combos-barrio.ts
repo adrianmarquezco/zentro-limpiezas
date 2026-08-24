@@ -880,9 +880,9 @@ export function getContenidoViviendas(
 export type ContenidoPisos = {
   h1Qualifier: string;
   metaDesc: string;
-  intro: string;
+  intro: string | string[];
   contextoH2: string;
-  contextoContent: string;
+  contextoContent: string | string[];
   incluyeH2: string;
   incluyeItems: string[];
   precioItems: string[];
@@ -893,9 +893,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'bloque-obrero': {
     h1Qualifier: 'pisos de bloque · limpieza eficiente de la A a la Z',
     metaDesc: 'Limpieza de pisos en {barrio}: bloques de los años 70-90, cal en baños, grasa en cocina y suelos de vinilo o gres con juntas oscurecidas. Presupuesto en 24h.',
-    intro: 'La limpieza profesional de un piso de bloque en {barrio} marca la diferencia en las zonas que el fregado habitual nunca llega a tratar bien: las juntas del baño, la parte trasera de la campana, los rodapiés, los marcos de puerta y los rincones de la cocina. En Zentro Limpiezas trabajamos con un checklist cerrado por estancia y te entregamos el piso en un estado de limpieza real, no solo de aspecto limpio.',
+    intro: [
+      'La limpieza profesional de un piso de bloque en {barrio} marca la diferencia en las zonas que el fregado habitual nunca llega a tratar bien: las juntas del baño, la parte trasera de la campana, los rodapiés, los marcos de puerta y los rincones de la cocina. En Zentro Limpiezas trabajamos con un checklist cerrado por estancia y te entregamos el piso en un estado de limpieza real, no solo de aspecto limpio.',
+      'En un piso de bloque de {barrio}, lo que marca la diferencia no es lo que se ve a simple vista, sino lo que el fregado del día a día nunca llega a tocar: juntas del baño, parte trasera de la campana, rodapiés, marcos de puerta y rincones de cocina. Trabajamos con checklist cerrado por estancia para entregar limpieza real, no solo aspecto limpio.',
+      'Un piso de bloque en {barrio} puede parecer limpio y no estarlo del todo: las juntas del baño, la parte trasera de la campana, los rodapiés y los rincones de cocina son lo que el fregado habitual deja siempre pendiente. Trabajamos estancia por estancia con checklist cerrado para que el resultado sea limpieza de verdad.',
+    ],
     contextoH2: '¿Qué acumula un piso de bloque de {barrio} que no sale con la limpieza del día a día?',
-    contextoContent: 'Los pisos de bloque de {barrio} de los años 70-90 acumulan capas de cal en griferías y azulejos del baño que el limpiabaños convencional no elimina. La campana de la cocina retiene grasa en el filtro y en las superficies interiores que se endurece con el calor. Las juntas de azulejo oscurecen con el tiempo y necesitan cepillado con antihongos. Los rodapiés y los marcos de puerta acumulan suciedad de manos y polvo pegado que solo sale frotando. Todo esto lo cubrimos en la limpieza de piso.',
+    contextoContent: [
+      'Los pisos de bloque de {barrio} de los años 70-90 acumulan capas de cal en griferías y azulejos del baño que el limpiabaños convencional no elimina. La campana de la cocina retiene grasa en el filtro y en las superficies interiores que se endurece con el calor. Las juntas de azulejo oscurecen con el tiempo y necesitan cepillado con antihongos. Los rodapiés y los marcos de puerta acumulan suciedad de manos y polvo pegado que solo sale frotando. Todo esto lo cubrimos en la limpieza de piso.',
+      'En los pisos de bloque de {barrio}, construidos entre los 70 y los 90, la cal se acumula en griferías y azulejos del baño de forma que el limpiabaños normal no resuelve. La campana retiene grasa endurecida por el calor en filtro y superficies interiores, las juntas de azulejo se oscurecen y necesitan cepillado con antihongos, y rodapiés y marcos acumulan suciedad de manos que solo sale frotando. Todo eso entra en la limpieza.',
+      'Un piso de bloque de {barrio} de los años 70-90 acumula suciedad en los mismos puntos siempre: cal incrustada en baño que el limpiabaños convencional no toca, grasa endurecida en la campana, juntas de azulejo oscurecidas que piden cepillado con antihongos, y rodapiés o marcos con suciedad de manos que solo sale frotando. Cubrimos cada uno de esos puntos en la limpieza del piso.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de tu piso en {barrio}',
     incluyeItems: [
       'Cocina: campana (interior y filtro), encimera, azulejos, exterior de electrodomésticos, interior de microondas y armarios a petición',
@@ -926,9 +934,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'historico': {
     h1Qualifier: 'pisos históricos · cada material tratado como merece',
     metaDesc: 'Limpieza de pisos históricos en {barrio}: parquet, baldosa hidráulica y molduras de escayola limpiados con productos neutros que no dañan los acabados de época.',
-    intro: 'Limpiar bien un piso histórico en {barrio} implica conocer los materiales antes de empezar. El parquet antiguo se daña con agua en exceso; la baldosa hidráulica absorbe productos ácidos; las molduras de escayola acumulan polvo en relieves que una fregona no alcanza. En Zentro Limpiezas evaluamos los materiales presentes antes de aplicar ningún producto y adaptamos la técnica a cada superficie.',
+    intro: [
+      'Limpiar bien un piso histórico en {barrio} implica conocer los materiales antes de empezar. El parquet antiguo se daña con agua en exceso; la baldosa hidráulica absorbe productos ácidos; las molduras de escayola acumulan polvo en relieves que una fregona no alcanza. En Zentro Limpiezas evaluamos los materiales presentes antes de aplicar ningún producto y adaptamos la técnica a cada superficie.',
+      'Limpiar bien un piso histórico en {barrio} empieza por conocer los materiales: el parquet antiguo se estropea con exceso de agua, la baldosa hidráulica absorbe productos ácidos, y las molduras de escayola atrapan polvo en relieves que una fregona no toca. Evaluamos qué hay antes de aplicar cualquier producto y adaptamos la técnica a cada superficie.',
+      'En {barrio}, un piso histórico exige identificar los materiales antes de tocar nada: parquet que sufre con el agua en exceso, baldosa hidráulica que no admite ácidos, molduras de escayola con polvo en cada relieve. Nunca aplicamos producto sin confirmar antes qué superficie tenemos delante.',
+    ],
     contextoH2: '¿Qué materiales hay en los pisos históricos de {barrio} que exigen cuidado especial?',
-    contextoContent: 'Los pisos en edificios históricos de {barrio} suelen combinar varios materiales en el mismo espacio: parquet o tarima de madera en dormitorios, baldosa hidráulica o mosaico en salón y cocina, y azulejo antiguo en baños. Cada material tiene su protocolo: mopa casi seca para la madera, producto neutro sin ácidos para la cerámica, y cepillo fino para las juntas. Las molduras y cornisas de escayola necesitan cepillo de extensión, no mopa. El resultado cuando se hace bien es visiblemente diferente.',
+    contextoContent: [
+      'Los pisos en edificios históricos de {barrio} suelen combinar varios materiales en el mismo espacio: parquet o tarima de madera en dormitorios, baldosa hidráulica o mosaico en salón y cocina, y azulejo antiguo en baños. Cada material tiene su protocolo: mopa casi seca para la madera, producto neutro sin ácidos para la cerámica, y cepillo fino para las juntas. Las molduras y cornisas de escayola necesitan cepillo de extensión, no mopa. El resultado cuando se hace bien es visiblemente diferente.',
+      'Los pisos históricos de {barrio} suelen combinar varios materiales en el mismo espacio: parquet o tarima en dormitorios, baldosa hidráulica o mosaico en salón y cocina, azulejo antiguo en baños. Cada uno pide su propio protocolo —mopa casi seca para la madera, producto neutro para la cerámica, cepillo fino para las juntas—, y las molduras necesitan cepillo de extensión, no mopa. El resultado bien hecho se nota.',
+      'En {barrio}, un piso histórico rara vez tiene un solo material: parquet en dormitorios, baldosa hidráulica o mosaico en salón y cocina, azulejo antiguo en baños. Cada superficie exige su propio tratamiento —mopa casi seca, producto neutro, cepillo fino en juntas—, y las molduras piden cepillo de extensión en vez de fregona. Es la única forma de que el resultado se note de verdad.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de un piso histórico en {barrio}',
     incluyeItems: [
       'Suelos de parquet/madera: mopa casi seca con producto específico para madera',
@@ -959,9 +975,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'marinero': {
     h1Qualifier: 'zona costera · pisos con humedad y salitre bajo control',
     metaDesc: 'Limpieza de pisos en {barrio}: manchas de condensación, antifúngico en baños y tratamiento de salitre en marcos y alféizares. Servicio adaptado al entorno marino.',
-    intro: 'Los pisos en {barrio} tienen una realidad cotidiana: la humedad del ambiente marino se mete en los baños, crea condensación en ventanas y paredes, y deposita salitre en todas las superficies exteriores. La limpieza profesional de tu piso en {barrio} atiende específicamente estas zonas: antifúngico preventivo en baños, tratamiento de condensación en ventanas y neutralizador de sales en marcos, todo incluido sin suplemento.',
+    intro: [
+      'Los pisos en {barrio} tienen una realidad cotidiana: la humedad del ambiente marino se mete en los baños, crea condensación en ventanas y paredes, y deposita salitre en todas las superficies exteriores. La limpieza profesional de tu piso en {barrio} atiende específicamente estas zonas: antifúngico preventivo en baños, tratamiento de condensación en ventanas y neutralizador de sales en marcos, todo incluido sin suplemento.',
+      'Un piso en {barrio} convive a diario con la humedad del ambiente marino: se cuela en los baños, condensa en ventanas y paredes, y deja salitre en cada superficie exterior. La limpieza aquí trata específicamente esas zonas —antifúngico en baños, tratamiento de condensación en ventanas, neutralizador de sales en marcos— siempre incluido, sin coste extra.',
+      'En {barrio}, la humedad marina forma parte del día a día de cualquier piso: baños con más tendencia a moho, condensación en ventanas y paredes, salitre en todo lo exterior. Nuestra limpieza atiende cada uno de esos frentes —antifúngico, tratamiento de condensación, neutralizador de sales— como parte estándar del servicio.',
+    ],
     contextoH2: '¿Qué acumula un piso costero de {barrio} que no tiene un piso del interior?',
-    contextoContent: 'La diferencia principal entre un piso de {barrio} y uno del interior de Ferrol es el salitre y la humedad. El salitre se deposita en marcos, alféizares y superficies metálicas en capa fina pero constante. La humedad marina acelera el crecimiento de moho en juntas de baño y techos de zonas húmedas. Las ventanas acumulan manchas de condensación que en el interior apenas aparecen. La limpieza del piso en {barrio} incorpora el tratamiento de todos estos elementos como parte del servicio estándar.',
+    contextoContent: [
+      'La diferencia principal entre un piso de {barrio} y uno del interior de Ferrol es el salitre y la humedad. El salitre se deposita en marcos, alféizares y superficies metálicas en capa fina pero constante. La humedad marina acelera el crecimiento de moho en juntas de baño y techos de zonas húmedas. Las ventanas acumulan manchas de condensación que en el interior apenas aparecen. La limpieza del piso en {barrio} incorpora el tratamiento de todos estos elementos como parte del servicio estándar.',
+      'La diferencia entre un piso de {barrio} y uno de interior es el salitre y la humedad. El salitre se deposita en marcos y alféizares en capa fina pero constante; la humedad acelera el moho en juntas de baño y techos húmedos; las ventanas acumulan condensación que en el interior apenas se ve. Tratamos todo esto como parte del servicio estándar.',
+      'Lo que distingue a un piso de {barrio} de uno de interior son dos cosas: salitre y humedad. El primero se deposita constantemente en marcos y alféizares; la segunda acelera el moho en juntas de baño y techos húmedos, y deja condensación en ventanas que en el interior casi no aparece. Incluimos el tratamiento de ambos en cada visita, no como extra.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de piso en {barrio}',
     incluyeItems: [
       'Baños: antifúngico en juntas y techo, sanitarios, grifería y mampara',
@@ -992,9 +1016,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'segunda-residencia': {
     h1Qualifier: 'segunda residencia · piso listo cuando llegas, protegido cuando te vas',
     metaDesc: 'Limpieza de pisos segunda residencia en {barrio}: apertura completa, mantenimiento durante la estancia y cierre antes de irse. Gestionamos con tu llave sin que tengas que estar.',
-    intro: 'Tener un piso de segunda residencia en {barrio} que pasa meses cerrado exige un tipo de limpieza diferente a la habitual. La apertura tras el invierno gallego necesita un trabajo a fondo: polvo de sedimentación, manchas de condensación en cristales, baños sin usar durante meses y olor a cerrado. Lo hacemos antes de que llegues, con tu llave si nos la dejas, y enviamos confirmación por WhatsApp.',
+    intro: [
+      'Tener un piso de segunda residencia en {barrio} que pasa meses cerrado exige un tipo de limpieza diferente a la habitual. La apertura tras el invierno gallego necesita un trabajo a fondo: polvo de sedimentación, manchas de condensación en cristales, baños sin usar durante meses y olor a cerrado. Lo hacemos antes de que llegues, con tu llave si nos la dejas, y enviamos confirmación por WhatsApp.',
+      'Un piso de segunda residencia en {barrio} que pasa meses cerrado necesita otro tipo de limpieza: polvo de sedimentación, condensación en cristales, baños sin uso durante meses y olor a cerrado tras el invierno gallego. Lo dejamos listo antes de tu llegada, con tu llave si nos la dejas y confirmación por WhatsApp al terminar.',
+      'En {barrio}, un piso de temporada cerrado durante el invierno pide un trabajo distinto al de una limpieza normal: polvo acumulado, condensación en cristales, baños sin usar en meses y ese olor característico a cerrado. Lo resolvemos antes de que llegues, gestionando la llave si nos la confías y avisándote por WhatsApp al terminar.',
+    ],
     contextoH2: '¿En qué estado está un piso de segunda residencia de {barrio} después de meses cerrado?',
-    contextoContent: 'Un piso cerrado en {barrio} durante el invierno acumula polvo de sedimentación en todos los muebles y superficies horizontales, manchas de condensación en los cristales por el diferencial de temperatura entre interior y exterior, y un punto de humedad en baños y cocina que puede generar moho superficial en juntas. La nevera, si se dejó encendida, puede tener olores. Y el olor a cerrado se elimina con ventilación activa durante la limpieza. Todo esto lo resolvemos en la limpieza de apertura.',
+    contextoContent: [
+      'Un piso cerrado en {barrio} durante el invierno acumula polvo de sedimentación en todos los muebles y superficies horizontales, manchas de condensación en los cristales por el diferencial de temperatura entre interior y exterior, y un punto de humedad en baños y cocina que puede generar moho superficial en juntas. La nevera, si se dejó encendida, puede tener olores. Y el olor a cerrado se elimina con ventilación activa durante la limpieza. Todo esto lo resolvemos en la limpieza de apertura.',
+      'Tras el invierno cerrado, un piso de {barrio} tiene polvo sedimentado en muebles y superficies horizontales, condensación en los cristales por el cambio de temperatura, y humedad en baños y cocina que puede generar moho superficial en las juntas. Si la nevera quedó encendida, puede haber olores. Todo se resuelve en la limpieza de apertura, incluyendo la ventilación activa para eliminar el olor a cerrado.',
+      'Un piso de {barrio} cerrado todo el invierno acumula polvo en cada superficie horizontal, condensación en los cristales por el contraste de temperatura, y a veces algo de moho superficial en las juntas de baño y cocina por la humedad. Si la nevera se dejó encendida, revisamos posibles olores. La ventilación activa durante la limpieza es lo que termina de quitar el olor a cerrado.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de apertura de tu piso de segunda residencia en {barrio}',
     incluyeItems: [
       'Toda la vivienda: polvo de sedimentación eliminado en muebles, suelos y techos',
@@ -1026,9 +1058,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'chalet': {
     h1Qualifier: 'pisos en chalés · más metros, mejor resultado',
     metaDesc: 'Limpieza de pisos en chalés y adosados de {barrio}: salón con ventanales, cocina grande, baños completos, terraza y todas las plantas. Equipo adaptado al tamaño.',
-    intro: 'Los pisos en chalés y adosados de {barrio} tienen superficies que no existen en los bloques de pisos: ventanales grandes de salón, terraza con suelo y mobiliario, más de un baño, y la suciedad de jardín que entra con el tráfico diario. La limpieza completa de tu chalet en {barrio} implica organizar el trabajo por plantas y estancias con un checklist que no deja ninguna zona sin atender.',
+    intro: [
+      'Los pisos en chalés y adosados de {barrio} tienen superficies que no existen en los bloques de pisos: ventanales grandes de salón, terraza con suelo y mobiliario, más de un baño, y la suciedad de jardín que entra con el tráfico diario. La limpieza completa de tu chalet en {barrio} implica organizar el trabajo por plantas y estancias con un checklist que no deja ninguna zona sin atender.',
+      'Un piso en chalé o adosado de {barrio} tiene superficies que un bloque de pisos no tiene: ventanales grandes de salón, terraza con suelo y mobiliario propio, más de un baño, y la suciedad de jardín que entra a diario. Organizamos el trabajo por plantas y estancias con un checklist que no deja ninguna zona sin cubrir.',
+      'En {barrio}, un chalé pide una limpieza más extensa que un piso de bloque: ventanales grandes, terraza propia, varios baños y la suciedad de jardín que entra con cada paso. Trabajamos por plantas con checklist cerrado para no dejar ninguna zona a medias.',
+    ],
     contextoH2: '¿Qué tiene de particular la limpieza de los pisos de chalé en {barrio}?',
-    contextoContent: 'El chalé tiene más metros de cocina, más metros de baño y más suelos que un piso de bloque equivalente. Pero la diferencia principal es la suciedad de entrada: el jardín y el exterior traen barro, hojas y polvo orgánico que se acumula en la entrada y la planta baja. Los ventanales grandes del salón son la superficie que más impacto visual tiene cuando está sucia. Y la terraza necesita atención independiente. Todo esto lo atendemos en la misma visita.',
+    contextoContent: [
+      'El chalé tiene más metros de cocina, más metros de baño y más suelos que un piso de bloque equivalente. Pero la diferencia principal es la suciedad de entrada: el jardín y el exterior traen barro, hojas y polvo orgánico que se acumula en la entrada y la planta baja. Los ventanales grandes del salón son la superficie que más impacto visual tiene cuando está sucia. Y la terraza necesita atención independiente. Todo esto lo atendemos en la misma visita.',
+      'Un chalé tiene más metros de cocina, más baños y más suelos que un piso equivalente de bloque. Pero la diferencia real está en la suciedad de entrada: jardín y exterior traen barro, hojas y polvo orgánico que se acumula en planta baja. Los ventanales grandes son la superficie de más impacto visual cuando están sucios, y la terraza necesita atención aparte. Todo entra en la misma visita.',
+      'Más allá de los metros, la limpieza de un piso en chalé de {barrio} se diferencia por lo que entra desde fuera: barro, hojas y polvo orgánico del jardín que se acumulan en la planta baja. Los ventanales grandes del salón marcan la diferencia visual entre sucio y limpio, y la terraza requiere su propio proceso. Todo se atiende en la misma visita.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de tu chalé o adosado en {barrio}',
     incluyeItems: [
       'Cocina completa: campana, encimera, azulejos, electrodomésticos y armarios exteriores',
@@ -1060,9 +1100,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'rural': {
     h1Qualifier: 'pisos en casas rurales · materiales tradicionales con cuidado',
     metaDesc: 'Limpieza de pisos en casas rurales de {barrio}: piedra, madera, baldosa antigua y chimenea. Servicio profesional adaptado a la arquitectura gallega tradicional.',
-    intro: 'Los pisos en casas rurales de {barrio} combinan materiales que no admiten los mismos productos que un piso urbano: piedra natural, tarima de madera antigua, baldosas de barro o gres sin esmaltar, y en muchos casos chimeneas activas que generan ceniza. La limpieza a fondo de un piso rural en {barrio} requiere identificar cada material, elegir el producto correcto y trabajar con cuidado en las zonas donde la arquitectura tradicional es irreemplazable.',
+    intro: [
+      'Los pisos en casas rurales de {barrio} combinan materiales que no admiten los mismos productos que un piso urbano: piedra natural, tarima de madera antigua, baldosas de barro o gres sin esmaltar, y en muchos casos chimeneas activas que generan ceniza. La limpieza a fondo de un piso rural en {barrio} requiere identificar cada material, elegir el producto correcto y trabajar con cuidado en las zonas donde la arquitectura tradicional es irreemplazable.',
+      'Un piso en una casa rural de {barrio} combina materiales que un piso urbano no tiene: piedra natural, tarima antigua, baldosa de barro o gres sin esmaltar, y a veces chimeneas activas que generan ceniza. Identificamos cada material antes de elegir producto, con especial cuidado en lo que hace única a la vivienda.',
+      'En {barrio}, un piso rural pide identificar el material antes que nada: piedra, madera antigua, baldosa de barro sin esmaltar, y en muchos casos chimenea activa con su propia ceniza. Elegimos el producto según cada superficie, no al revés, para no dañar lo que hace singular a la casa.',
+    ],
     contextoH2: '¿Qué hace diferente la limpieza de un piso rural en {barrio}?',
-    contextoContent: 'Los pisos rurales de {barrio} tienen suciedad que los urbanos no tienen: ceniza y hollín de la chimenea, barro y polvo orgánico del campo, manchas de verdín en marcos de madera y un nivel de humedad invernal que genera condensación y manchas en paredes. Los materiales tampoco son los mismos: la piedra y la baldosa de barro son porosas y absorben los ácidos de los productos estándar. Hay que trabajar con producto neutro y técnica específica para no dañar lo que hace única a la casa.',
+    contextoContent: [
+      'Los pisos rurales de {barrio} tienen suciedad que los urbanos no tienen: ceniza y hollín de la chimenea, barro y polvo orgánico del campo, manchas de verdín en marcos de madera y un nivel de humedad invernal que genera condensación y manchas en paredes. Los materiales tampoco son los mismos: la piedra y la baldosa de barro son porosas y absorben los ácidos de los productos estándar. Hay que trabajar con producto neutro y técnica específica para no dañar lo que hace única a la casa.',
+      'Un piso rural en {barrio} tiene suciedad que un piso urbano no conoce: ceniza y hollín de chimenea, barro y polvo orgánico del campo, verdín en marcos de madera y humedad invernal que deja manchas en las paredes. Los materiales tampoco son iguales: piedra y baldosa de barro son porosas y absorben los ácidos de los productos estándar. Trabajamos con producto neutro y técnica específica en cada caso.',
+      'En {barrio}, un piso rural acumula un tipo de suciedad muy distinta a la urbana: ceniza de chimenea, barro de campo, verdín en marcos de madera, y manchas de humedad invernal en las paredes. La piedra y la baldosa de barro, además, son porosas y no toleran los ácidos habituales. Cada superficie recibe su propio producto neutro, no un tratamiento genérico.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de un piso rural en {barrio}',
     incluyeItems: [
       'Suelos de piedra o baldosa de barro: fregado con producto neutro sin ácidos',
@@ -1094,9 +1142,17 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   'industrial': {
     h1Qualifier: 'zona polígono · desengrase profesional en cada visita',
     metaDesc: 'Limpieza de pisos en {barrio}: capa de partículas industriales en superficies, desengrase previo en cocina y alféizares, producto específico para entornos de polígono.',
-    intro: 'Los pisos en {barrio}, en el entorno del polígono industrial, acumulan en sus superficies algo que no aparece en los pisos de otras zonas: una capa fina de partículas grasas procedentes de la actividad industrial y el tráfico pesado. Esta capa se deposita en alféizares, cocinas próximas a ventanas y suelos de entrada, y requiere una fase de desengrase antes del limpiahogar habitual para eliminarla de verdad.',
+    intro: [
+      'Los pisos en {barrio}, en el entorno del polígono industrial, acumulan en sus superficies algo que no aparece en los pisos de otras zonas: una capa fina de partículas grasas procedentes de la actividad industrial y el tráfico pesado. Esta capa se deposita en alféizares, cocinas próximas a ventanas y suelos de entrada, y requiere una fase de desengrase antes del limpiahogar habitual para eliminarla de verdad.',
+      'Un piso en {barrio}, cerca del polígono industrial, acumula algo que otros pisos no tienen: una capa fina de partículas grasas por la actividad industrial y el tráfico pesado. Se deposita en alféizares, cocinas próximas a ventanas y suelos de entrada, y necesita un desengrase previo antes del limpiahogar habitual para eliminarse de verdad.',
+      'En {barrio}, la cercanía al polígono industrial deja una marca en cualquier piso: partículas grasas de la actividad y el tráfico que se posan en alféizares, cocina y suelo de entrada. Un limpiahogar normal no las quita del todo; hace falta un desengrase previo para que el resultado sea real.',
+    ],
     contextoH2: '¿Por qué los pisos de {barrio} necesitan un producto de limpieza diferente?',
-    contextoContent: 'Las partículas de combustión y el polvo industrial que genera el polígono de Narón tienen componentes grasos que se adhieren al vidrio, los alféizares y las encimeras con más fuerza que el polvo doméstico. Con un limpiacristales o limpiahogar estándar, estas partículas se redistribuyen en lugar de eliminarse. El desengrasante disuelve la capa grasienta antes de aplicar el producto de limpieza final. Es un paso adicional que en otras zonas no sería necesario pero que en {barrio} marca la diferencia en el resultado.',
+    contextoContent: [
+      'Las partículas de combustión y el polvo industrial que genera el polígono de Narón tienen componentes grasos que se adhieren al vidrio, los alféizares y las encimeras con más fuerza que el polvo doméstico. Con un limpiacristales o limpiahogar estándar, estas partículas se redistribuyen en lugar de eliminarse. El desengrasante disuelve la capa grasienta antes de aplicar el producto de limpieza final. Es un paso adicional que en otras zonas no sería necesario pero que en {barrio} marca la diferencia en el resultado.',
+      'El polvo industrial y las partículas de combustión del polígono de Narón tienen componentes grasos que se pegan al vidrio, los alféizares y las encimeras más que el polvo doméstico. Un limpiacristales estándar solo las redistribuye. El desengrasante disuelve esa capa antes del producto de limpieza final, un paso que en otras zonas no haría falta pero aquí marca la diferencia.',
+      'En {barrio}, las partículas de combustión y polvo industrial del entorno tienen un componente graso que se adhiere al cristal, los alféizares y la encimera con más fuerza que el polvo doméstico normal. Sin desengrasante previo, cualquier limpiacristales solo las mueve de sitio. Ese paso extra es lo que aquí marca la diferencia en el resultado.',
+    ],
     incluyeH2: 'Qué incluye la limpieza de un piso en {barrio}',
     incluyeItems: [
       'Alféizares y marcos de ventana: desengrase de partículas industriales',
@@ -1125,19 +1181,24 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   },
 };
 
+export type ContenidoPisosResuelto = Omit<ContenidoPisos, 'intro' | 'contextoContent'> & {
+  intro: string;
+  contextoContent: string;
+};
+
 export function getContenidoPisos(
   archetype: BarrioArchetype,
   barrioNombre: string,
   municipioNombre: string,
-): ContenidoPisos | null {
+): ContenidoPisosResuelto | null {
   const raw = PISOS_POR_ARQUETIPO[archetype];
   if (!raw) return null;
   return {
     h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
     metaDesc: t(raw.metaDesc, barrioNombre, municipioNombre),
-    intro: t(raw.intro, barrioNombre, municipioNombre),
+    intro: tVariant(raw.intro, barrioNombre, municipioNombre),
     contextoH2: t(raw.contextoH2, barrioNombre, municipioNombre),
-    contextoContent: t(raw.contextoContent, barrioNombre, municipioNombre),
+    contextoContent: tVariant(raw.contextoContent, barrioNombre, municipioNombre),
     incluyeH2: t(raw.incluyeH2, barrioNombre, municipioNombre),
     incluyeItems: raw.incluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
