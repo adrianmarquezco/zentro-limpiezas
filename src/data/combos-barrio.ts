@@ -1272,9 +1272,9 @@ export function getContenidoPisos(
 export type ContenidoTuristicos = {
   h1Qualifier: string;
   metaDesc: string;
-  intro: string;
+  intro: string | string[];
   rotacionH2: string;
-  rotacionContent: string;
+  rotacionContent: string | string[];
   protocoloH2: string;
   protocoloItems: string[];
   precioItems: string[];
@@ -1285,9 +1285,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'bloque-obrero': {
     h1Qualifier: 'apartamentos turísticos en bloque · cambio de huésped rápido y fiable',
     metaDesc: 'Limpieza de apartamentos turísticos en {barrio}: cambio de huésped en 2-3 horas, checklist cerrado, fotos de confirmación. Disponibilidad en 24-48h.',
-    intro: 'Gestionar un apartamento turístico en los bloques de {barrio} implica coordinar los cambios de huésped con precisión: el siguiente inquilino entra pocas horas después de que salga el anterior, y la limpieza tiene que hacerse con rapidez y sin dejar nada sin revisar. En Zentro Limpiezas hacemos cambios de huésped en apartamentos de {barrio} con checklist cerrado, foto de confirmación y disponibilidad en 24-48 horas.',
+    intro: [
+      'Gestionar un apartamento turístico en los bloques de {barrio} implica coordinar los cambios de huésped con precisión: el siguiente inquilino entra pocas horas después de que salga el anterior, y la limpieza tiene que hacerse con rapidez y sin dejar nada sin revisar. En Zentro Limpiezas hacemos cambios de huésped en apartamentos de {barrio} con checklist cerrado, foto de confirmación y disponibilidad en 24-48 horas.',
+      'Un apartamento turístico en los bloques de {barrio} necesita cambios de huésped precisos: el siguiente inquilino suele entrar pocas horas después de que salga el anterior, así que la limpieza tiene que ser rápida y sin fisuras. Trabajamos con checklist cerrado, foto de confirmación y disponibilidad en 24-48 horas.',
+      'Gestionar un apartamento turístico en {barrio} es cuestión de tiempos ajustados: entre la salida de un huésped y la entrada del siguiente a veces quedan solo unas horas, y la limpieza no puede fallar en ese margen. Trabajamos con checklist cerrado, foto de confirmación por WhatsApp y disponibilidad de 24-48 horas.',
+    ],
     rotacionH2: '¿Cómo gestionamos el cambio de huésped en tu apartamento de {barrio}?',
-    rotacionContent: 'El protocolo de cambio de huésped empieza en cuanto el inquilino anterior sale: revisión visual del estado del apartamento, retirada de sábanas y toallas, limpieza de baños y cocina, fregado de suelos, reposición de la ropa de cama y toallas limpias si nos las dejas preparadas, y foto final de cada habitación enviada por WhatsApp. Si detectamos un desperfecto o falta de suministros, te avisamos en el momento. Todo en 2-3 horas para un apartamento estándar de 1-2 habitaciones.',
+    rotacionContent: [
+      'El protocolo de cambio de huésped empieza en cuanto el inquilino anterior sale: revisión visual del estado del apartamento, retirada de sábanas y toallas, limpieza de baños y cocina, fregado de suelos, reposición de la ropa de cama y toallas limpias si nos las dejas preparadas, y foto final de cada habitación enviada por WhatsApp. Si detectamos un desperfecto o falta de suministros, te avisamos en el momento. Todo en 2-3 horas para un apartamento estándar de 1-2 habitaciones.',
+      'En cuanto sale el huésped anterior, arrancamos el protocolo: revisión visual del apartamento, retirada de sábanas y toallas, limpieza de baño y cocina, fregado de suelos, reposición de ropa de cama si la dejas preparada, y foto final de cada habitación por WhatsApp. Cualquier desperfecto o falta de suministros, te lo decimos en el momento. Todo en 2-3 horas para un apartamento estándar.',
+      'El cambio de huésped en {barrio} sigue siempre el mismo orden: revisión del estado nada más entrar, retirada de ropa de cama y toallas, baño y cocina a fondo, fregado general, reposición si nos dejas la ropa preparada, y fotos por WhatsApp al terminar. Si hay algo roto o falta algún amenity, te avisamos antes de irnos. Para un apartamento estándar, 2-3 horas.',
+    ],
     protocoloH2: 'Protocolo de limpieza entre huéspedes en apartamentos de {barrio}',
     protocoloItems: [
       'Recogida de ropa de cama y toallas usadas',
@@ -1321,9 +1329,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'historico': {
     h1Qualifier: 'apartamentos históricos · limpieza que cuida los acabados de época',
     metaDesc: 'Limpieza de apartamentos turísticos en el casco histórico de {barrio}: parquet, azulejo antiguo y carpintería de época cuidados en cada cambio de huésped.',
-    intro: 'Los apartamentos turísticos en los edificios históricos de {barrio} son un producto especial: los huéspedes llegan atraídos por el encanto de los materiales de época, y ese encanto hay que mantenerlo. El parquet, el azulejo hidráulico y la carpintería de madera necesitan un trato diferente al de los apartamentos modernos: productos neutros, mínima humedad en suelos de madera, y atención a los detalles que hacen que un apartamento histórico parezca cuidado.',
+    intro: [
+      'Los apartamentos turísticos en los edificios históricos de {barrio} son un producto especial: los huéspedes llegan atraídos por el encanto de los materiales de época, y ese encanto hay que mantenerlo. El parquet, el azulejo hidráulico y la carpintería de madera necesitan un trato diferente al de los apartamentos modernos: productos neutros, mínima humedad en suelos de madera, y atención a los detalles que hacen que un apartamento histórico parezca cuidado.',
+      'Un apartamento turístico en un edificio histórico de {barrio} atrae huéspedes precisamente por el encanto de sus materiales de época, y ese encanto hay que cuidarlo en cada cambio: parquet, azulejo hidráulico y carpintería de madera piden un trato distinto al de un apartamento moderno, con productos neutros y mínima humedad.',
+      'En {barrio}, los apartamentos turísticos en edificios históricos venden algo más que ubicación: el propio material de la vivienda —parquet, azulejo hidráulico, carpintería de madera— es parte de la experiencia, y se cuida como tal en cada cambio de huésped, con productos neutros y sin exceso de agua.',
+    ],
     rotacionH2: '¿Cómo hacemos el cambio de huésped en un apartamento histórico de {barrio}?',
-    rotacionContent: 'En los apartamentos históricos de {barrio}, el protocolo de cambio de huésped incorpora el cuidado específico de los materiales: mopa casi seca para suelos de parquet, producto neutro para la baldosa hidráulica, limpieza de marcos de madera con paño controlado sin producto agresivo. Los huéspedes que eligen estos apartamentos valoran los detalles, así que la revisión final es especialmente exhaustiva: manchas en parquet, residuos en azulejo, polvo en molduras.',
+    rotacionContent: [
+      'En los apartamentos históricos de {barrio}, el protocolo de cambio de huésped incorpora el cuidado específico de los materiales: mopa casi seca para suelos de parquet, producto neutro para la baldosa hidráulica, limpieza de marcos de madera con paño controlado sin producto agresivo. Los huéspedes que eligen estos apartamentos valoran los detalles, así que la revisión final es especialmente exhaustiva: manchas en parquet, residuos en azulejo, polvo en molduras.',
+      'En un apartamento histórico de {barrio}, el cambio de huésped incorpora el cuidado del material: mopa casi seca en parquet, producto neutro en baldosa hidráulica, marcos de madera con paño controlado sin producto agresivo. Como los huéspedes de este tipo de apartamento se fijan en los detalles, la revisión final es más exhaustiva: manchas en parquet, residuos en azulejo, polvo en molduras.',
+      'Limpiar entre huéspedes un apartamento histórico en {barrio} exige más cuidado que uno moderno: mopa casi seca para el parquet, producto neutro para la baldosa hidráulica, y marcos de madera tratados con paño, nunca con spray directo. La revisión final es más minuciosa porque este tipo de huésped se fija en los detalles del material, no solo en la limpieza general.',
+    ],
     protocoloH2: 'Protocolo de limpieza entre huéspedes en apartamentos históricos de {barrio}',
     protocoloItems: [
       'Recogida de ropa de cama y toallas',
@@ -1357,9 +1373,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'marinero': {
     h1Qualifier: 'apartamentos con vistas al mar · impecables para cada huésped',
     metaDesc: 'Limpieza de apartamentos turísticos en {barrio}: control de salitre y humedad marina en cada cambio de huésped. Presentación impecable para las reseñas de tus huéspedes.',
-    intro: 'Un apartamento turístico con vistas al mar en {barrio} es un producto de alto valor que los huéspedes eligen por la ubicación, pero que repiten o recomiendan por el estado de limpieza. La humedad y el salitre marino afectan los marcos, las superficies metálicas y los baños mucho más rápido que en el interior. El cambio de huésped en {barrio} incorpora tratamiento de salitre en marcos y antifúngico preventivo en baños, para que cada entrada sea perfecta.',
+    intro: [
+      'Un apartamento turístico con vistas al mar en {barrio} es un producto de alto valor que los huéspedes eligen por la ubicación, pero que repiten o recomiendan por el estado de limpieza. La humedad y el salitre marino afectan los marcos, las superficies metálicas y los baños mucho más rápido que en el interior. El cambio de huésped en {barrio} incorpora tratamiento de salitre en marcos y antifúngico preventivo en baños, para que cada entrada sea perfecta.',
+      'Un apartamento con vistas al mar en {barrio} lo eligen por la ubicación, pero lo recomiendan o repiten por el estado de limpieza. La humedad y el salitre afectan marcos, metales y baños mucho más rápido que en el interior, así que cada cambio de huésped incorpora tratamiento de salitre y antifúngico preventivo.',
+      'En {barrio}, un apartamento turístico con vistas al mar tiene un reto añadido en cada cambio: el salitre y la humedad deterioran marcos, superficies metálicas y baños con más rapidez que en el interior. Tratamos ambos frentes en cada limpieza para que la entrada sea siempre impecable.',
+    ],
     rotacionH2: '¿Qué tiene de especial la limpieza entre huéspedes en un apartamento costero de {barrio}?',
-    rotacionContent: 'En {barrio}, el ambiente marino acelera la acumulación de salitre en marcos y superficies metálicas entre un huésped y otro. Las manchas de condensación en ventanas con vistas al mar aparecen en horas con cambio de temperatura. Y los baños, en un ambiente húmedo, necesitan antifúngico preventivo en cada limpieza para evitar que el moho empiece a aparecer después de varias rotaciones. Todo esto está incluido en nuestro protocolo de cambio de huésped para apartamentos de {barrio}.',
+    rotacionContent: [
+      'En {barrio}, el ambiente marino acelera la acumulación de salitre en marcos y superficies metálicas entre un huésped y otro. Las manchas de condensación en ventanas con vistas al mar aparecen en horas con cambio de temperatura. Y los baños, en un ambiente húmedo, necesitan antifúngico preventivo en cada limpieza para evitar que el moho empiece a aparecer después de varias rotaciones. Todo esto está incluido en nuestro protocolo de cambio de huésped para apartamentos de {barrio}.',
+      'El ambiente marino acelera el salitre en marcos y metales entre un huésped y otro en {barrio}, y las manchas de condensación en las ventanas con vistas aparecen en cuestión de horas por el cambio de temperatura. Los baños, en ambiente húmedo, necesitan antifúngico preventivo en cada limpieza para que el moho no aparezca tras varias rotaciones. Todo esto va incluido en el protocolo estándar.',
+      'En {barrio}, entre huésped y huésped el salitre se acumula rápido en marcos y metales, y la condensación aparece en las ventanas con vistas en cuestión de horas. Por eso cada limpieza incluye antifúngico preventivo en el baño y tratamiento de salitre: sin ese paso, tras varias rotaciones el moho y la corrosión terminan apareciendo.',
+    ],
     protocoloH2: 'Protocolo de limpieza entre huéspedes en {barrio}',
     protocoloItems: [
       'Recogida de ropa de cama y toallas',
@@ -1393,9 +1417,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'segunda-residencia': {
     h1Qualifier: 'segunda residencia en alquiler · tranquilidad sin estar presente',
     metaDesc: 'Limpieza de apartamentos turísticos segunda residencia en {barrio}: cambios de huésped gestionados con tu llave, fotos de confirmación y aviso si hay incidencias.',
-    intro: 'Muchos propietarios de segunda residencia en {barrio} alquilan su apartamento cuando no lo usan. Gestionar los cambios de huésped a distancia exige un servicio de limpieza de confianza: que entre con tu llave, que deje el apartamento impecable, que te avise si hay algo mal y que te mande foto de confirmación. Eso es exactamente lo que hacemos en Zentro Limpiezas para los propietarios de segunda residencia en {barrio}.',
+    intro: [
+      'Muchos propietarios de segunda residencia en {barrio} alquilan su apartamento cuando no lo usan. Gestionar los cambios de huésped a distancia exige un servicio de limpieza de confianza: que entre con tu llave, que deje el apartamento impecable, que te avise si hay algo mal y que te mande foto de confirmación. Eso es exactamente lo que hacemos en Zentro Limpiezas para los propietarios de segunda residencia en {barrio}.',
+      'Muchos propietarios de segunda residencia en {barrio} alquilan el apartamento cuando no lo usan, y gestionar los cambios de huésped a distancia exige confianza: que entremos con tu llave, dejemos todo impecable, avisemos si hay algún problema y mandemos foto de confirmación. Es justo lo que hacemos.',
+      'En {barrio}, alquilar una segunda residencia cuando no la usas implica delegar los cambios de huésped en alguien de confianza: acceso con llave, limpieza impecable, aviso si algo no está bien, y foto de confirmación al terminar. Ese es exactamente nuestro protocolo con los propietarios de la zona.',
+    ],
     rotacionH2: '¿Cómo gestionamos los cambios de huésped en tu segunda residencia de {barrio}?',
-    rotacionContent: 'El protocolo es claro: te avisamos cuando entramos, hacemos la limpieza con nuestro checklist cerrado, te enviamos foto de cada habitación al terminar y te avisamos por WhatsApp si detectamos algún desperfecto o falta de suministros. Guardamos una copia de tu llave o tu código. No necesitas estar en {barrio} para que tu apartamento esté listo para el siguiente huésped.',
+    rotacionContent: [
+      'El protocolo es claro: te avisamos cuando entramos, hacemos la limpieza con nuestro checklist cerrado, te enviamos foto de cada habitación al terminar y te avisamos por WhatsApp si detectamos algún desperfecto o falta de suministros. Guardamos una copia de tu llave o tu código. No necesitas estar en {barrio} para que tu apartamento esté listo para el siguiente huésped.',
+      'Te avisamos al entrar, limpiamos siguiendo nuestro checklist cerrado, enviamos foto de cada habitación al terminar, y si detectamos algún desperfecto o falta de suministros, te lo decimos por WhatsApp en el momento. Guardamos copia de tu llave o código, así que no necesitas estar en {barrio} para que el apartamento esté listo para el siguiente huésped.',
+      'El proceso en {barrio} es siempre igual: aviso al entrar, limpieza con checklist cerrado, foto de cada habitación al terminar, y aviso inmediato por WhatsApp si hay algún desperfecto o falta algo. Con tu llave o código guardados, no hace falta que estés presente para que todo quede listo para el siguiente huésped.',
+    ],
     protocoloH2: 'Protocolo de cambio de huésped en segunda residencia de {barrio}',
     protocoloItems: [
       'Aviso de entrada por WhatsApp',
@@ -1430,9 +1462,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'chalet': {
     h1Qualifier: 'villas y chalés turísticos · limpieza completa entre huéspedes',
     metaDesc: 'Limpieza de chalés turísticos en {barrio}: todas las plantas, terraza, barbacoa y espacios exteriores listos para el siguiente grupo. Equipo adaptado al tamaño.',
-    intro: 'Un chalé o villa turística en {barrio} implica un cambio de huésped completamente diferente al de un apartamento: más metros, más baños, terraza y barbacoa que limpiar, jardín que recoger, y habitaciones que organizar para grupos más grandes. En Zentro Limpiezas enviamos el equipo necesario para completar la limpieza del chalé en el tiempo de rotación disponible, sin comprometer el resultado.',
+    intro: [
+      'Un chalé o villa turística en {barrio} implica un cambio de huésped completamente diferente al de un apartamento: más metros, más baños, terraza y barbacoa que limpiar, jardín que recoger, y habitaciones que organizar para grupos más grandes. En Zentro Limpiezas enviamos el equipo necesario para completar la limpieza del chalé en el tiempo de rotación disponible, sin comprometer el resultado.',
+      'Un chalé o villa turística en {barrio} implica un cambio de huésped muy distinto al de un apartamento: más metros, más baños, terraza y barbacoa, jardín que recoger, habitaciones para grupos grandes. Ajustamos el equipo para completar todo en el tiempo de rotación disponible, sin bajar el nivel.',
+      'En {barrio}, un chalé turístico pide un tipo de cambio de huésped que no se parece al de un apartamento: más superficie, más baños, terraza con barbacoa, jardín, habitaciones para grupos numerosos. Enviamos el equipo necesario para completarlo en el tiempo de rotación sin sacrificar el resultado.',
+    ],
     rotacionH2: '¿Qué implica el cambio de huésped en un chalé turístico de {barrio}?',
-    rotacionContent: 'Un chalé turístico en {barrio} puede tener 3-5 dormitorios, 2-3 baños, salón grande con cocina americana, terraza con barbacoa y jardín. Limpiar todo esto entre huéspedes en el tiempo disponible exige un equipo de 2-3 personas trabajando en paralelo por plantas y estancias. Organizamos el trabajo con checklist por habitación, foto de confirmación al terminar y aviso inmediato si detectamos un desperfecto.',
+    rotacionContent: [
+      'Un chalé turístico en {barrio} puede tener 3-5 dormitorios, 2-3 baños, salón grande con cocina americana, terraza con barbacoa y jardín. Limpiar todo esto entre huéspedes en el tiempo disponible exige un equipo de 2-3 personas trabajando en paralelo por plantas y estancias. Organizamos el trabajo con checklist por habitación, foto de confirmación al terminar y aviso inmediato si detectamos un desperfecto.',
+      'Un chalé turístico en {barrio} puede tener 3-5 dormitorios, 2-3 baños, salón con cocina americana, terraza con barbacoa y jardín. Cubrir todo esto entre huéspedes exige un equipo de 2-3 personas trabajando en paralelo por plantas, con checklist por habitación, foto de confirmación al terminar y aviso inmediato ante cualquier desperfecto.',
+      'Con 3-5 dormitorios, varios baños, salón, terraza con barbacoa y jardín, un chalé turístico en {barrio} necesita un equipo de 2-3 personas trabajando por plantas en paralelo para cumplir el tiempo de rotación. Cada habitación tiene su propio checklist, y avisamos al momento si aparece algún desperfecto.',
+    ],
     protocoloH2: 'Protocolo de cambio de huésped en chalés turísticos de {barrio}',
     protocoloItems: [
       'Recogida de toda la ropa de cama y toallas (todos los dormitorios)',
@@ -1467,9 +1507,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'rural': {
     h1Qualifier: 'casas de turismo rural · experiencia auténtica, limpieza profesional',
     metaDesc: 'Limpieza de apartamentos de turismo rural en {barrio}: suelos de piedra, chimenea y materiales de época listos para cada huésped. Servicio de confianza para propietarios.',
-    intro: 'Las casas de turismo rural en {barrio} son un producto premium que los huéspedes eligen por la autenticidad: piedra, madera, chimenea, entorno natural. Esa autenticidad necesita un mantenimiento impecable en cada cambio de huésped: los suelos de piedra y madera bien tratados, la chimenea y el hogar limpios, y los materiales de época cuidados con los productos correctos. Trabajamos con propietarios de casas rurales en {barrio} que saben que la limpieza es parte de la experiencia que ofrecen.',
+    intro: [
+      'Las casas de turismo rural en {barrio} son un producto premium que los huéspedes eligen por la autenticidad: piedra, madera, chimenea, entorno natural. Esa autenticidad necesita un mantenimiento impecable en cada cambio de huésped: los suelos de piedra y madera bien tratados, la chimenea y el hogar limpios, y los materiales de época cuidados con los productos correctos. Trabajamos con propietarios de casas rurales en {barrio} que saben que la limpieza es parte de la experiencia que ofrecen.',
+      'Las casas de turismo rural en {barrio} venden autenticidad: piedra, madera, chimenea, entorno natural. Mantener esa autenticidad exige un cuidado impecable en cada cambio de huésped —suelos bien tratados, chimenea limpia, materiales de época cuidados con el producto correcto—. Trabajamos con propietarios que saben que la limpieza forma parte de la experiencia.',
+      'En {barrio}, el turismo rural se vende sobre autenticidad —piedra, madera, chimenea, naturaleza—, y esa autenticidad se cuida en cada cambio de huésped: suelos tratados con el producto correcto, chimenea sin ceniza acumulada, materiales de época respetados. Los propietarios que trabajamos aquí entienden que la limpieza es parte de lo que venden.',
+    ],
     rotacionH2: '¿Qué hay que atender en el cambio de huésped de una casa rural de {barrio}?',
-    rotacionContent: 'Las casas rurales de {barrio} tienen elementos que los apartamentos urbanos no tienen: el hogar o la chimenea usada deja ceniza y hollín; los suelos de piedra o barro traen barro de los huéspedes que han recorrido la finca; la madera de los muebles y las vigas acumula polvo orgánico del entorno; y los baños de las casas rurales más antiguas necesitan antifúngico preventivo por la mayor humedad. El checklist de cambio de huésped rural tiene más elementos que el de un apartamento urbano.',
+    rotacionContent: [
+      'Las casas rurales de {barrio} tienen elementos que los apartamentos urbanos no tienen: el hogar o la chimenea usada deja ceniza y hollín; los suelos de piedra o barro traen barro de los huéspedes que han recorrido la finca; la madera de los muebles y las vigas acumula polvo orgánico del entorno; y los baños de las casas rurales más antiguas necesitan antifúngico preventivo por la mayor humedad. El checklist de cambio de huésped rural tiene más elementos que el de un apartamento urbano.',
+      'Las casas rurales de {barrio} tienen elementos que un apartamento urbano no tiene: la chimenea usada deja ceniza y hollín, los suelos de piedra o barro traen tierra de la finca, la madera de muebles y vigas acumula polvo del entorno, y los baños más antiguos necesitan antifúngico preventivo por la mayor humedad. El checklist rural tiene más puntos que el de un apartamento urbano estándar.',
+      'En {barrio}, el cambio de huésped en una casa rural cubre puntos que un apartamento de ciudad no tiene: ceniza y hollín de la chimenea, barro de la finca en suelos de piedra, polvo orgánico en madera y vigas, y antifúngico preventivo en baños con más humedad. Es, por naturaleza, un checklist más largo que el de un apartamento urbano.',
+    ],
     protocoloH2: 'Protocolo de cambio de huésped en casas rurales de {barrio}',
     protocoloItems: [
       'Recogida de ropa de cama y toallas',
@@ -1504,9 +1552,17 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   'industrial': {
     h1Qualifier: 'apartamentos en polígono · limpieza eficiente para trabajadores',
     metaDesc: 'Limpieza de apartamentos de alquiler temporal en {barrio}: rotación de trabajadores, cambio de huésped rápido con desengrase incluido. Servicio fiable y puntual.',
-    intro: 'Los apartamentos en {barrio}, cerca del polígono industrial, se alquilan frecuentemente a trabajadores en estancias temporales de semanas o meses. El cambio entre trabajadores o el servicio de limpieza periódica durante la estancia tiene características propias: la suciedad es más intensa por el trabajo manual, la cocina se usa más, y el entorno del polígono añade la capa de partículas grasas que se deposita en superficies. En Zentro Limpiezas gestionamos estos cambios con rapidez y fiabilidad.',
+    intro: [
+      'Los apartamentos en {barrio}, cerca del polígono industrial, se alquilan frecuentemente a trabajadores en estancias temporales de semanas o meses. El cambio entre trabajadores o el servicio de limpieza periódica durante la estancia tiene características propias: la suciedad es más intensa por el trabajo manual, la cocina se usa más, y el entorno del polígono añade la capa de partículas grasas que se deposita en superficies. En Zentro Limpiezas gestionamos estos cambios con rapidez y fiabilidad.',
+      'Los apartamentos de {barrio}, cerca del polígono industrial, se alquilan a menudo a trabajadores en estancias de semanas o meses. El cambio entre inquilinos tiene su propia lógica: más desgaste por el uso, cocina más exigida, y la capa de partículas grasas del entorno industrial que hay que tratar en cada limpieza.',
+      'En {barrio}, cerca del polígono, los apartamentos suelen alquilarse a trabajadores por estancias de semanas o meses, con un desgaste distinto al del turismo vacacional: cocina de uso intensivo, más desgaste en el baño, y la capa de partículas industriales que hay que desengrasar en cada cambio.',
+    ],
     rotacionH2: '¿Cómo gestionamos el cambio de inquilino temporal en {barrio}?',
-    rotacionContent: 'Los apartamentos de alquiler temporal en {barrio} suelen tener cocinas con uso intensivo, baños con más desgaste que los de uso vacacional, y una acumulación de partículas industriales en las superficies próximas a ventanas. El protocolo de cambio incluye desengrase previo en cocina y encimeras, limpieza a fondo de baños y fregado completo de suelos. El objetivo es dejar el apartamento en estado de nuevo uso en el tiempo de rotación disponible.',
+    rotacionContent: [
+      'Los apartamentos de alquiler temporal en {barrio} suelen tener cocinas con uso intensivo, baños con más desgaste que los de uso vacacional, y una acumulación de partículas industriales en las superficies próximas a ventanas. El protocolo de cambio incluye desengrase previo en cocina y encimeras, limpieza a fondo de baños y fregado completo de suelos. El objetivo es dejar el apartamento en estado de nuevo uso en el tiempo de rotación disponible.',
+      'Los apartamentos de alquiler temporal en {barrio} suelen tener cocinas con mucho uso, baños más desgastados que los de uso vacacional, y partículas industriales acumuladas cerca de las ventanas. El protocolo incluye desengrase previo en cocina y encimeras, limpieza a fondo del baño y fregado completo, con el objetivo de dejar el apartamento como nuevo en el tiempo disponible.',
+      'En {barrio}, un apartamento de alquiler temporal para trabajadores llega al cambio con cocina muy usada, baño más desgastado que en un uso vacacional, y partículas industriales en las superficies cerca de ventanas. El desengrase previo en cocina y encimeras es el primer paso, seguido de limpieza a fondo de baño y fregado completo, para que el apartamento quede como nuevo dentro del tiempo de rotación.',
+    ],
     protocoloH2: 'Protocolo de cambio de inquilino en apartamentos de {barrio}',
     protocoloItems: [
       'Recogida de ropa de cama y toallas',
@@ -1537,19 +1593,24 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   },
 };
 
+export type ContenidoTuristicosResuelto = Omit<ContenidoTuristicos, 'intro' | 'rotacionContent'> & {
+  intro: string;
+  rotacionContent: string;
+};
+
 export function getContenidoTuristicos(
   archetype: BarrioArchetype,
   barrioNombre: string,
   municipioNombre: string,
-): ContenidoTuristicos | null {
+): ContenidoTuristicosResuelto | null {
   const raw = TURISTICOS_POR_ARQUETIPO[archetype];
   if (!raw) return null;
   return {
     h1Qualifier: t(raw.h1Qualifier, barrioNombre, municipioNombre),
     metaDesc: t(raw.metaDesc, barrioNombre, municipioNombre),
-    intro: t(raw.intro, barrioNombre, municipioNombre),
+    intro: tVariant(raw.intro, barrioNombre, municipioNombre),
     rotacionH2: t(raw.rotacionH2, barrioNombre, municipioNombre),
-    rotacionContent: t(raw.rotacionContent, barrioNombre, municipioNombre),
+    rotacionContent: tVariant(raw.rotacionContent, barrioNombre, municipioNombre),
     protocoloH2: t(raw.protocoloH2, barrioNombre, municipioNombre),
     protocoloItems: raw.protocoloItems.map(s => t(s, barrioNombre, municipioNombre)),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
