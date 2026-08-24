@@ -6,10 +6,11 @@ interface Props {
   servicio?: string;
   eyebrow: string;
   h1: string;
+  qualifier?: string;
   subtitle: string;
   lang?: 'es' | 'gl';
 }
-const { municipio, servicio, eyebrow, h1, subtitle, lang = 'es' } = Astro.props;
+const { municipio, servicio, eyebrow, h1, qualifier, subtitle, lang = 'es' } = Astro.props;
 const waMsg = servicio
   ? WA_MESSAGES.combo(servicio, municipio)
   : WA_MESSAGES.municipio(municipio);
@@ -27,6 +28,7 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
         {eyebrow}
       </span>
       <h1 class="hero-h1-line1 font-serif text-4xl sm:text-5xl lg:text-6xl text-warm leading-tight" set:html={h1} />
+      {qualifier && <p class="hero-qualifier font-serif text-xl sm:text-2xl lg:text-3xl text-accent leading-tight mt-2">{qualifier}</p>}
       <p class="hero-subtitle text-white/75 text-lg mt-6 max-w-xl leading-relaxed speakable-intro">{subtitle}</p>
       <div class="hero-ctas flex flex-wrap gap-3 mt-8">
         <a href={BUSINESS.phoneHref} class="btn-outline-light">

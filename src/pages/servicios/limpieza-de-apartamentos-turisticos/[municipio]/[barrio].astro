@@ -90,7 +90,7 @@ const howToSchema = {
   })),
 };
 
-const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
+const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}`;
 ---
 
 <ComboLayout
@@ -116,6 +116,7 @@ const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}<br><span clas
     servicio={servicio.nombre}
     eyebrow={`${servicio.nombre} · ${barrio.nombre}, ${municipio.nombre}`}
     {h1}
+    qualifier={contenido.h1Qualifier}
     subtitle={contenido.intro}
     lang="es"
   />
@@ -134,6 +135,7 @@ const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}<br><span clas
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
               <p>{contenido.rotacionContent}</p>
+              <p>{barrio.descripcion}</p>
             </div>
           </div>
 
@@ -234,7 +236,7 @@ const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}<br><span clas
         <!-- Aside -->
         <aside class="space-y-6 self-start">
 
-          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+          <div class="card p-6 border-accent/30 sticky top-24 z-10" data-reveal>
             <p class="font-serif text-lg text-primary mb-2 font-semibold">Cambios de huésped en {barrio.nombre}</p>
             <p class="text-mid text-xs mb-4">Presupuesto gratis · Sin compromiso · 24h</p>
             <div class="flex flex-col gap-2">

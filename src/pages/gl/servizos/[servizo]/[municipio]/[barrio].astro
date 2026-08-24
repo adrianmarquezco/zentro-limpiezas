@@ -85,7 +85,7 @@ const outrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', ''),
 );
 
-const h1 = `${servicio.nombreGL} en ${barrio.nombre}<br><span class="text-accent">${contenido.h1Qualifier}</span>`;
+const h1 = `${servicio.nombreGL} en ${barrio.nombre}`;
 ---
 
 <ComboLayout
@@ -107,6 +107,7 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}<br><span class="text-accent
     servicio={servicio.nombreGL}
     eyebrow={`${servicio.nombreGL} · ${barrio.nombre}, ${municipio.nombreGL}`}
     {h1}
+    qualifier={contenido.h1Qualifier}
     subtitle={contenido.intro}
     lang="gl"
   />
@@ -126,6 +127,7 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}<br><span class="text-accent
             <div class="space-y-4 text-mid leading-relaxed">
               <p class="speakable-intro">{contenido.seccion1P1}</p>
               <p>{contenido.seccion1P2}</p>
+              <p>{barrio.descripcionGL ?? barrio.descripcion}</p>
             </div>
           </div>
 
@@ -221,7 +223,7 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}<br><span class="text-accent
         <!-- Aside -->
         <aside class="space-y-6 self-start">
 
-          <div class="card p-6 border-accent/30 sticky top-24" data-reveal>
+          <div class="card p-6 border-accent/30 sticky top-24 z-10" data-reveal>
             <p class="font-serif text-lg text-primary mb-2 font-semibold">{servicio.nombreGL} en {barrio.nombre}</p>
             <p class="text-mid text-xs mb-4">Orzamento gratis · Sen compromiso · 24h</p>
             <div class="flex flex-col gap-2">
