@@ -23,8 +23,12 @@ export function getStaticPaths() {
 
 const { municipio, barrio } = Astro.props;
 
-const canonical = `${BUSINESS.url}/gl/zonas/${municipio.slug}/${barrio.slug}/`;
-const hreflangEs = `${BUSINESS.url}/zonas/${municipio.slug}/${barrio.slug}/`;
+const canonical = barrio.canonicalParent
+  ? `${BUSINESS.url}/gl/zonas/${municipio.slug}/`
+  : `${BUSINESS.url}/gl/zonas/${municipio.slug}/${barrio.slug}/`;
+const hreflangEs = barrio.canonicalParent
+  ? `${BUSINESS.url}/zonas/${municipio.slug}/`
+  : `${BUSINESS.url}/zonas/${municipio.slug}/${barrio.slug}/`;
 const nombreGL = municipio.nombreGL ?? municipio.nombre;
 const title = `Limpeza profesional en ${barrio.nombre}, ${nombreGL} | Zentro Limpiezas`;
 const description = `Limpeza profesional en ${barrio.nombre}, ${nombreGL}. Produtos ecolóxicos incluídos${barrio.precioDesde ? `. Desde ${barrio.precioDesde}` : ''}. Orzamento gratis en menos de 24h.`;
@@ -82,7 +86,7 @@ const schemaLocal = {
 };
 ---
 
-<BaseLayout {title} {description} {canonical} lang="gl" {hreflangEs}>
+<BaseLayout {title} {description} {canonical} lang="gl" {hreflangEs} hreflangGl={canonical}>
   <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
   <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
 

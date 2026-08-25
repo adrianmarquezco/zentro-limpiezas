@@ -23,7 +23,6 @@ export const GET: APIRoute = async () => {
     { loc: `${SITE}/presupuesto/`,      priority: '0.9', changefreq: 'monthly' },
     { loc: `${SITE}/precios/`,          priority: '0.8', changefreq: 'monthly' },
     { loc: `${SITE}/sobre-nosotros/`,   priority: '0.6', changefreq: 'yearly' },
-    { loc: `${SITE}/contacto/`,         priority: '0.7', changefreq: 'yearly' },
     { loc: `${SITE}/blog/`,             priority: '0.7', changefreq: 'weekly' },
     // Páginas principales GL
     { loc: `${SITE}/gl/`,               priority: '1.0', changefreq: 'weekly' },
@@ -32,7 +31,6 @@ export const GET: APIRoute = async () => {
     { loc: `${SITE}/gl/orzamento/`,     priority: '0.9', changefreq: 'monthly' },
     { loc: `${SITE}/gl/precios/`,       priority: '0.8', changefreq: 'monthly' },
     { loc: `${SITE}/gl/sobre-nos/`,     priority: '0.6', changefreq: 'yearly' },
-    { loc: `${SITE}/gl/contacto/`,      priority: '0.7', changefreq: 'yearly' },
     { loc: `${SITE}/gl/blog/`,          priority: '0.7', changefreq: 'weekly' },
     // Servicios ES (páginas de categoría)
     ...SERVICIOS.map(s => ({ loc: `${SITE}/servicios/${s.slug}/`, priority: '0.8', changefreq: 'monthly' })),

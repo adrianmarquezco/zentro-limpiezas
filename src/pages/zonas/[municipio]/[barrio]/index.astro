@@ -27,6 +27,9 @@ const { municipio, barrio } = Astro.props;
 const canonical = barrio.canonicalParent
   ? `${BUSINESS.url}/zonas/${municipio.slug}/`
   : `${BUSINESS.url}/zonas/${municipio.slug}/${barrio.slug}/`;
+const hreflangGl = barrio.canonicalParent
+  ? `${BUSINESS.url}/gl/zonas/${municipio.slug}/`
+  : `${BUSINESS.url}/gl/zonas/${municipio.slug}/${barrio.slug}/`;
 const title = `Limpieza profesional en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
 const description = `Limpieza profesional en ${barrio.nombre}, ${municipio.nombre}. Productos ecológicos incluidos${barrio.precioDesde ? `. Desde ${barrio.precioDesde}` : ''}. Presupuesto gratis en menos de 24h.`;
 
@@ -84,7 +87,7 @@ const schemaLocal = {
 };
 ---
 
-<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical}>
+<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} {hreflangGl}>
   <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
   <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
 
