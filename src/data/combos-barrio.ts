@@ -1,4 +1,5 @@
 import type { BarrioArchetype } from './municipios';
+import { buildMetaDescription } from './config';
 
 export type ContenidoArquetipo = {
   tituloPagina: string;
@@ -3260,11 +3261,11 @@ export function getContenidoGLBarrio(
   const g = (s: string) => tGL(s, barrioNombre, municipioNombre);
 
   const intro = g(arqRaw.introBarrio);
-  const metaDescBase = `${g(serRaw.seccion1Content).slice(0, 110)} Orzamento gratis en 24h.`;
+  const metaDescBase = buildMetaDescription('', g(serRaw.seccion1Content), 'Orzamento gratis en 24h.', 158);
 
   return {
     h1Qualifier: arqRaw.h1Qualifier,
-    metaDesc: metaDescBase.slice(0, 158),
+    metaDesc: metaDescBase,
     intro,
     seccion1H2: g(serRaw.seccion1H2),
     seccion1P1: g(serRaw.seccion1Content),

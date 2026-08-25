@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoAfondo } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
@@ -36,7 +36,7 @@ const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.s
 const ogImage = `${BUSINESS.url}/images/hero-afondo.webp`;
 
 const title = `Limpieza a Fondo en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
-const description = `Limpieza a fondo del hogar en ${barrio.nombre}. ${contenido.metaDesc} Presupuesto gratis en 24h, productos Ecolabel incluidos.`.slice(0, 160);
+const description = buildMetaDescription(`Limpieza a fondo del hogar en ${barrio.nombre}.`, contenido.metaDesc, 'Presupuesto gratis en 24h, productos Ecolabel incluidos.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },

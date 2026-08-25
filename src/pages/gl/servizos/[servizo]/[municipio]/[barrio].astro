@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
@@ -67,7 +67,7 @@ const SERVICE_IMAGE: Record<string, string> = {
 const ogImage = `${BUSINESS.url}${SERVICE_IMAGE[servicio.slug] ?? '/images/hero-servicios.webp'}`;
 
 const title = `${servicio.nombreGL} en ${barrio.nombre}, ${municipio.nombreGL} | Zentro Limpiezas`;
-const description = `${servicio.nombreGL} en ${barrio.nombre}. ${contenido.metaDesc}`.slice(0, 160);
+const description = buildMetaDescription(`${servicio.nombreGL} en ${barrio.nombre}.`, contenido.metaDesc, '');
 
 const breadcrumbs = [
   { label: 'Servizos', href: '/gl/servizos/' },

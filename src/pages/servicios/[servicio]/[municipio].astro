@@ -7,7 +7,7 @@ import { SERVICIOS } from '@/data/servicios';
 import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
 import { CONTENIDO_BARRIO, getContenidoBarrio, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos, getContenidoAfondo } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 
 export function getStaticPaths() {
   const paths: { params: { servicio: string; municipio: string }; props: any }[] = [];
@@ -64,7 +64,7 @@ const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrio
   : [];
 
 const title = `${servicio.nombre} en ${municipio.nombre} · +20 años | Zentro Limpiezas`;
-const description = `Empresa de ${servicio.nombre.toLowerCase()} en ${municipio.nombre} con más de 20 años en Ferrolterra. ${municipio.tipoVivienda.slice(0, 60)}. Presupuesto gratis en 24h.`.slice(0, 160);
+const description = buildMetaDescription(`Empresa de ${servicio.nombre.toLowerCase()} en ${municipio.nombre} con más de 20 años en Ferrolterra.`, municipio.tipoVivienda, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },

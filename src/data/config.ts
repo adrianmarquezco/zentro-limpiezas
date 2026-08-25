@@ -53,6 +53,24 @@ export function buildWhatsAppUrl(message: string): string {
   return `${BUSINESS.whatsappBase}?text=${encodeURIComponent(message)}`;
 }
 
+// Ensambla una meta description sin cortar a mitad de palabra: si la parte
+// variable no cabe, se recorta por el último espacio antes del límite,
+// priorizando conservar intacto el sufijo fijo (normalmente la CTA).
+export function buildMetaDescription(prefix: string, variable: string, suffix: string, maxLen = 160): string {
+  const fixedLen = prefix.length + 1 + suffix.length + 1;
+  const budget = maxLen - fixedLen;
+  let trimmed = variable;
+  if (variable.length > budget) {
+    if (budget <= 0) return `${prefix} ${variable} ${suffix}`.slice(0, maxLen);
+    trimmed = variable.slice(0, budget);
+    const lastSpace = trimmed.lastIndexOf(' ');
+    if (lastSpace > 0) trimmed = trimmed.slice(0, lastSpace);
+    trimmed = trimmed.replace(/[,;:]$/, '');
+    if (!/[.!?]$/.test(trimmed)) trimmed += '.';
+  }
+  return `${prefix} ${trimmed} ${suffix}`.replace(/\s+/g, ' ').trim();
+}
+
 // USPs para TrustBar y secciones
 export const USPS = [
   { icon: 'trophy', text: '+20 años en el sector', detail: 'Experiencia real desde dentro' },
