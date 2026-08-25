@@ -11,6 +11,8 @@ interface Props {
 }
 const { name, description, url, price, areaServed, image } = Astro.props;
 
+const numericPrice = price ? price.replace(/[^\d.,]/g, '').replace(',', '.') : undefined;
+
 const defaultArea = ['Ferrol','A Coruña','Narón','Ferrolterra','Área Metropolitana de A Coruña'];
 const schema = {
   '@context': 'https://schema.org',
@@ -26,14 +28,14 @@ const schema = {
     name: BUSINESS.name,
   },
   areaServed: (areaServed ?? defaultArea).map(n => ({ '@type': 'City', name: n })),
-  ...(price ? {
+  ...(numericPrice ? {
     offers: {
       '@type': 'Offer',
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'PriceSpecification',
-        minPrice: price,
+        minPrice: numericPrice,
         priceCurrency: 'EUR',
       },
     },
