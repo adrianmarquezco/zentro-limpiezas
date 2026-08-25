@@ -28,14 +28,19 @@ const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.s
 
 // Imagen representativa por servicio
 const SERVICE_IMAGE: Record<string, string> = {
-  'limpieza-de-cristales':              '/images/blog/limpiar-cristales-sin-rayas.webp',
-  'limpieza-periodica':                 '/images/blog/limpieza-puntual-vs-periodica.webp',
-  'limpieza-de-viviendas':              '/images/blog/contratar-servicio-limpieza-consejos.webp',
-  'limpieza-de-pisos':                  '/images/blog/como-limpiar-el-piso-a-fondo.webp',
-  'limpieza-de-apartamentos-turisticos':'/images/blog/limpieza-apartamentos-turisticos-airbnb.webp',
+  'limpieza-de-cristales':              '/images/hero-cristales.webp',
+  'limpieza-periodica':                 '/images/hero-periodica.webp',
+  'limpieza-de-viviendas':              '/images/hero-viviendas.webp',
+  'limpieza-de-pisos':                  '/images/hero-pisos.webp',
+  'limpieza-de-apartamentos-turisticos':'/images/hero-turisticos.webp',
+  'limpieza-a-fondo':                   '/images/hero-afondo.webp',
+  'limpieza-de-locales-comerciales':    '/images/hero-locales.webp',
+  'limpieza-de-garajes':                '/images/hero-garajes.webp',
+  'limpieza-de-mudanzas':               '/images/hero-mudanzas.webp',
+  'limpieza-de-trasteros':              '/images/hero-trasteros.webp',
 };
-const serviceImage = SERVICE_IMAGE[servicio.slug] ?? null;
-const ogImage = serviceImage ? `${BUSINESS.url}${serviceImage}` : undefined;
+const serviceImage = SERVICE_IMAGE[servicio.slug] ?? '/images/hero-servicios.webp';
+const ogImage = `${BUSINESS.url}${serviceImage}`;
 
 function barrioTieneContenido(servicioSlug: string, archetype: BarrioArchetype): boolean {
   switch (servicioSlug) {
