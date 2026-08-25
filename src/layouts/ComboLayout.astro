@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import SchemaService from '@/components/schema/SchemaService.astro';
 import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
+import SchemaSpeakable from '@/components/schema/SchemaSpeakable.astro';
 import CTASection from '@/components/sections/CTASection.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
@@ -32,8 +33,9 @@ const {
 ---
 
 <BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} {ogImage}>
-  <SchemaService name={serviceName} description={serviceDesc} url={canonical} price={price} {areaServed} />
+  <SchemaService name={serviceName} description={serviceDesc} url={canonical} price={price} {areaServed} image={ogImage} />
   {faqs.length > 0 && <SchemaFAQ faqs={faqs} />}
+  <SchemaSpeakable url={canonical} />
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
   <slot />
   <div class="bg-primary py-8">
