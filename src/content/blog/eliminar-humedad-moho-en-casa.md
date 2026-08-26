@@ -8,11 +8,11 @@ category: "guias"
 readingTime: 9
 faqs:
   - q: "¿Cómo eliminar el moho de las paredes de forma definitiva?"
-    a: "Limpiar el moho visible con el producto adecuado elimina las esporas de la superficie, pero si la humedad que lo provoca no se soluciona (ventilación, filtración, condensación), suele volver a aparecer en semanas o meses. La limpieza profesional resuelve el problema visible; la causa de fondo (humedad estructural) normalmente requiere actuación adicional, como mejorar la ventilación o revisar una filtración."
+    a: "Limpiar el moho visible elimina las esporas de la superficie, pero si la humedad que lo provoca no se soluciona, suele volver a aparecer. La limpieza profesional resuelve el problema visible; la causa de fondo normalmente requiere actuación adicional, como mejorar la ventilación o revisar una filtración."
   - q: "¿Es peligroso el moho para la salud?"
     a: "El moho puede provocar irritación respiratoria, alergias y empeorar el asma, especialmente en niños, personas mayores o con problemas respiratorios previos. No hay que tocarlo ni cepillarlo en seco, porque eso dispersa las esporas por el aire. Se debe limpiar con el producto adecuado y buena ventilación durante el proceso."
   - q: "¿Qué diferencia hay entre limpiar el moho y desinfectar una casa?"
-    a: "La limpieza a fondo elimina el moho visible de superficies como azulejos, silicona o paredes. La desinfección profesional con biocidas certificados va un paso más allá: trata el ambiente para reducir la carga de esporas y otros microorganismos, algo recomendable en casos de moho extendido, viviendas cerradas mucho tiempo o después de una inundación o filtración."
+    a: "La limpieza a fondo elimina el moho visible de superficies como azulejos, silicona o paredes. La desinfección profesional con biocidas certificados va un paso más allá: trata el ambiente para reducir la carga de esporas, algo recomendable en casos extendidos o tras una inundación o filtración."
   - q: "¿Por qué hay tanta humedad en las casas de Ferrolterra?"
     a: "La combinación de clima atlántico con lluvias frecuentes, humedad ambiental alta todo el año y viviendas antiguas con poca ventilación (sobre todo en cascos históricos y bloques de los años 70-80) favorece la condensación y la aparición de moho, especialmente en baños, cocinas y armarios en paredes exteriores."
   - q: "¿Con qué se limpia el moho de la silicona del baño?"
