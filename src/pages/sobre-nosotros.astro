@@ -10,8 +10,8 @@ import SchemaFAQ from '@/components/schema/SchemaFAQ.astro';
 import { BUSINESS } from '@/data/config';
 
 const canonical = `${BUSINESS.url}/sobre-nosotros/`;
-const title = 'Zentro Limpiezas — Empresa de Limpieza en Ferrol y A Coruña | +20 Años';
-const description = 'Empresa de limpieza en Ferrol y A Coruña, fundada en 2026 por profesionales con +20 años de experiencia. Ecológico incluido, 29+ municipios, presupuesto en 24h.';
+const title = 'Zentro Limpiezas — Limpieza Profesional en Ferrol y A Coruña | +20 Años';
+const description = 'Servicios de limpieza en Ferrol y A Coruña desde 2026, con profesionales con +20 años de experiencia. Ecológico incluido, 29+ municipios, presupuesto en 24h.';
 
 const breadcrumbs = [
   { label: 'Sobre nosotros', href: '/sobre-nosotros/' },
@@ -20,19 +20,19 @@ const breadcrumbs = [
 const faqs = [
   {
     q: '¿Qué es Zentro Limpiezas?',
-    a: 'Zentro Limpiezas es una empresa de limpieza profesional con sede en Ferrol (Galicia), fundada en 2026 por profesionales con más de 20 años de experiencia en el sector. Ofrece servicios de limpieza de viviendas, oficinas, comunidades, locales y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, con productos ecológicos Ecolabel incluidos en el precio.',
+    a: 'Zentro Limpiezas ofrece servicios de limpieza profesional con base en Ferrol (Galicia), a cargo de profesionales con más de 20 años de experiencia en el sector. Presta servicios de limpieza de viviendas, oficinas, comunidades, locales y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, con productos ecológicos Ecolabel incluidos en el precio.',
   },
   {
-    q: '¿Cuándo se fundó Zentro Limpiezas?',
-    a: 'Zentro Limpiezas fue fundada en 2026. Sin embargo, quienes la crearon llevan más de 20 años trabajando en el sector de la limpieza profesional en Galicia: primero en empresas de limpieza de la comarca, después también por su cuenta. Esa experiencia acumulada desde dentro del sector es lo que diferencia a Zentro.',
+    q: '¿Desde cuándo opera Zentro Limpiezas?',
+    a: 'Zentro Limpiezas opera bajo este nombre desde 2026. Sin embargo, quienes están detrás llevan más de 20 años trabajando en el sector de la limpieza profesional en Galicia: primero en otras empresas de la comarca, después también por su cuenta. Esa experiencia acumulada desde dentro del sector es lo que diferencia a Zentro.',
   },
   {
     q: '¿Dónde trabaja Zentro Limpiezas?',
     a: 'Zentro Limpiezas presta servicio en más de 29 municipios de la provincia de A Coruña. En Ferrolterra: Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, Cedeira, Ortigueira, Pontedeume y más. En el Área Metropolitana de A Coruña: A Coruña, Culleredo, Arteixo, Cambre, Oleiros, Sada, Betanzos y más.',
   },
   {
-    q: '¿Zentro Limpiezas es una empresa de confianza?',
-    a: 'Sí. Zentro Limpiezas lleva más de 20 años operando en Galicia sin subcontratación de personal. Los clientes periódicos siempre reciben al mismo equipo fijo, con toda la transparencia y confianza que eso implica.',
+    q: '¿Zentro Limpiezas es de confianza?',
+    a: 'Sí. Detrás de Zentro Limpiezas hay más de 20 años de experiencia trabajando en Galicia sin subcontratación de personal. Los clientes periódicos siempre reciben al mismo equipo fijo, con toda la transparencia y confianza que eso implica.',
   },
   {
     q: '¿Qué productos de limpieza usa Zentro Limpiezas?',
@@ -59,15 +59,15 @@ const faqs = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl">
         <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
-          Ferrol, Galicia · Fundada en 2026 · +20 años en el sector
+          Ferrol, Galicia · Desde 2026 · +20 años en el sector
         </span>
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
           Zentro Limpiezas:<br>
-          <span class="text-accent">empresa de limpieza profesional</span><br>
+          <span class="text-accent">limpieza profesional</span><br>
           en Ferrol y A Coruña
         </h1>
         <p class="text-white/75 text-lg lg:text-xl leading-relaxed speakable-intro max-w-2xl">
-          Zentro nació en 2026, pero la experiencia detrás no es nueva. Llevamos más de 20 años dentro del sector: trabajando en empresas de limpieza, aprendiendo los procesos, conociendo lo que falla y lo que los clientes necesitan de verdad. Eso es lo que hay detrás de cada servicio.
+          Zentro empieza a operar en 2026, pero la experiencia detrás no es nueva. Llevamos más de 20 años dentro del sector: trabajando en empresas de limpieza, aprendiendo los procesos, conociendo lo que falla y lo que los clientes necesitan de verdad. Eso es lo que hay detrás de cada servicio.
         </p>
       </div>
     </div>
@@ -78,7 +78,7 @@ const faqs = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
         {[
-          { num: '2026', label: 'Año de fundación', desc: 'Con +20 años de experiencia previa en el sector' },
+          { num: '2026', label: 'Inicio de actividad', desc: 'Con +20 años de experiencia previa en el sector' },
           { num: '29+', label: 'Municipios cubiertos', desc: 'Ferrolterra y Área Metropolitana A Coruña' },
           { num: '100%', label: 'Ecológico siempre', desc: 'Certificación Ecolabel UE en todos los servicios' },
           { num: '24h', label: 'Respuesta garantizada', desc: 'Presupuesto cerrado sin sorpresas' },
@@ -104,10 +104,10 @@ const faqs = [
           <div data-reveal>
             <h2 class="font-display text-2xl lg:text-3xl text-primary mb-4">¿Qué es Zentro Limpiezas?</h2>
             <p class="text-charcoal leading-relaxed text-lg speakable-intro">
-              Zentro Limpiezas es una empresa de limpieza profesional con sede en Ferrol, Galicia, fundada en 2026. Presta servicios de limpieza de viviendas, oficinas, comunidades de vecinos, locales comerciales y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, utilizando exclusivamente productos ecológicos con certificación Ecolabel de la Unión Europea.
+              Zentro Limpiezas ofrece servicios de limpieza profesional con base en Ferrol, Galicia, desde 2026. Presta servicios de limpieza de viviendas, oficinas, comunidades de vecinos, locales comerciales y pazos en más de 29 municipios de Ferrolterra y el Área Metropolitana de A Coruña, utilizando exclusivamente productos ecológicos con certificación Ecolabel de la Unión Europea.
             </p>
             <p class="text-charcoal leading-relaxed mt-4">
-              La diferencia con otras empresas está en quiénes hay detrás: profesionales con más de 20 años trabajando en el sector de la limpieza en Galicia, primero en otras empresas de la comarca y después por su cuenta. Esa trayectoria nos dio algo que no se improvisa: saber exactamente qué falla habitualmente y cómo evitarlo. Zentro nació en 2026 para hacer las cosas bien desde el primer día.
+              La diferencia con otras empresas está en quiénes hay detrás: profesionales con más de 20 años trabajando en el sector de la limpieza en Galicia, primero en otras empresas de la comarca y después por su cuenta. Esa trayectoria nos dio algo que no se improvisa: saber exactamente qué falla habitualmente y cómo evitarlo. Zentro empieza a operar en 2026 para hacer las cosas bien desde el primer día.
             </p>
           </div>
 
@@ -139,8 +139,8 @@ const faqs = [
                 },
                 {
                   year: '2026',
-                  title: 'Nace Zentro Limpiezas',
-                  desc: 'Con más de 20 años de experiencia acumulada dentro del sector, nace Zentro Limpiezas. No como un proyecto nuevo sin historia, sino como la formalización de todo lo aprendido: un servicio profesional, ecológico, con equipo fijo y precio transparente. Ferrol y A Coruña ya tenían un referente de confianza.',
+                  title: 'Empieza a operar Zentro Limpiezas',
+                  desc: 'Con más de 20 años de experiencia acumulada dentro del sector, empieza a operar Zentro Limpiezas. No como un proyecto nuevo sin historia, sino como la puesta en marcha de todo lo aprendido: un servicio profesional, ecológico, con equipo fijo y precio transparente. Ferrol y A Coruña ya tenían un referente de confianza.',
                 },
               ].map((item) => (
                 <div class="flex gap-6 pb-8 relative">
@@ -174,7 +174,7 @@ const faqs = [
                 },
                 {
                   title: 'Experiencia desde dentro del sector',
-                  desc: 'No llegamos al negocio de la limpieza desde fuera. Llevamos más de 20 años en él: como empleados, como autónomos, conociendo los problemas reales. Zentro nació precisamente para resolverlos.',
+                  desc: 'No llegamos al negocio de la limpieza desde fuera. Llevamos más de 20 años en él: como empleados, como autónomos, conociendo los problemas reales. Zentro empieza a operar precisamente para resolverlos.',
                 },
               ].map(v => (
                 <div class="flex gap-3">
@@ -345,7 +345,7 @@ const faqs = [
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10" data-reveal>
         <h2 class="font-display text-3xl lg:text-4xl text-primary mb-3">Preguntas frecuentes sobre Zentro Limpiezas</h2>
-        <p class="text-mid text-lg">Todo lo que necesitas saber sobre quiénes somos, dónde trabajamos y cómo operamos como empresa de limpieza en Ferrol y A Coruña.</p>
+        <p class="text-mid text-lg">Todo lo que necesitas saber sobre quiénes somos, dónde trabajamos y cómo operamos como servicio de limpieza en Ferrol y A Coruña.</p>
       </div>
       <div data-reveal>
         <FAQAccordion faqs={faqs} />

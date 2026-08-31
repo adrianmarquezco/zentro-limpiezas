@@ -11,7 +11,6 @@ const schema = {
   telephone: BUSINESS.phoneHref.replace('tel:', ''),
   url: BUSINESS.url,
   priceRange: BUSINESS.priceRange,
-  foundingDate: String(BUSINESS.foundingYear),
   paymentAccepted: BUSINESS.payments.join(', '),
   currenciesAccepted: BUSINESS.currency,
   description: `Servicio profesional de limpieza de viviendas, oficinas, locales, cristales, comunidades, pazos y apartamentos turísticos en Ferrol, A Coruña y toda Ferrolterra. Productos ecológicos incluidos en el precio. Equipo con más de ${BUSINESS.yearsExperience} años de experiencia en el sector.`,
