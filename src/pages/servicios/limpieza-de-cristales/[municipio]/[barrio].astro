@@ -35,8 +35,9 @@ const hreflangEs = canonical;
 const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
 const ogImage = `${BUSINESS.url}/images/hero-cristales.webp`;
 
-const title = `Limpieza de Cristales en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
-const description = buildMetaDescription(`Limpieza de cristales en ${barrio.nombre}.`, contenido.metaDescAngle, 'Presupuesto gratis en 24h.');
+const nombreCompleto = barrio.nombreEs ? `${barrio.nombre} (${barrio.nombreEs})` : barrio.nombre;
+const title = `Limpieza de Cristales en ${nombreCompleto}, ${municipio.nombre} | Zentro Limpiezas`;
+const description = buildMetaDescription(`Limpieza de cristales en ${nombreCompleto}.`, contenido.metaDescAngle, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
@@ -47,15 +48,15 @@ const breadcrumbs = [
 
 const faqsLocales: { q: string; a: string }[] = [
   {
-    q: `¿Cuánto cuesta limpiar los cristales en ${barrio.nombre}?`,
+    q: `En ${nombreCompleto}, ¿cuánto cuesta la limpieza de cristales y ventanas?`,
     a: `En ${barrio.nombre}, la limpieza de cristales de un piso con 4-6 ventanas empieza desde 45€. Para pisos con más ventanas o cristaleras grandes, desde 65€. El precio incluye productos y desplazamiento. Presupuesto cerrado en menos de 24h.`,
   },
   {
-    q: `¿Podéis limpiar también las mamparas de ducha en ${barrio.nombre}?`,
+    q: `¿También limpiáis mamparas de ducha en viviendas de ${barrio.nombre}?`,
     a: `Sí. Limpiamos mamparas de ducha con el mismo tratamiento que los cristales exteriores: quitacal de pH controlado y escurridor profesional. Sin rayas y sin residuos de producto. En la misma visita que las ventanas, sin coste adicional.`,
   },
   {
-    q: `¿Cuánto tiempo lleva la limpieza de cristales en ${barrio.nombre}?`,
+    q: `¿Cuánto se tarda en limpiar los vidrios de una vivienda o local en ${barrio.nombreEs ?? barrio.nombre}?`,
     a: `Para un piso con 4-6 ventanas, entre 1 y 2 horas. Si hay mamparas, cristalera de terraza o mucho depósito de cal acumulado, puede alargarse. Lo indicamos siempre en el presupuesto antes de empezar.`,
   },
 ];
@@ -73,7 +74,7 @@ const serviciosRelacionados = [
   { nombre: 'Limpieza a fondo', slug: 'limpieza-a-fondo' },
 ];
 
-const h1 = `Limpieza de cristales en ${barrio.nombre}`;
+const h1 = `Limpieza de cristales en ${nombreCompleto}`;
 ---
 
 <ComboLayout
@@ -268,7 +269,7 @@ const h1 = `Limpieza de cristales en ${barrio.nombre}`;
   <section class="py-16 bg-charcoal">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
-        Preguntas sobre limpieza de cristales en {barrio.nombre}
+        Todo sobre la limpieza de cristales y ventanas en {nombreCompleto}
       </h2>
       <p class="text-white/60 text-center mb-8" data-reveal>
         Llámanos al <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> o escríbenos por WhatsApp.
