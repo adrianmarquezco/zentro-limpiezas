@@ -5,7 +5,7 @@ import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 
 export function getStaticPaths() {
   return SERVICIOS.map((s) => ({
@@ -19,7 +19,7 @@ const canonical = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/`;
 const hreflangEs = `${BUSINESS.url}/servicios/${servicio.slug}/`;
 
 const title = `${servicio.nombreGL} en Galicia | Zentro Limpiezas`;
-const description = `${servicio.descripcionCorta} Produtos ecolóxicos incluídos. Máis de 20 anos de experiencia en Ferrol e A Coruña. Orzamento gratuíto.`;
+const description = buildMetaDescription('', servicio.descripcionCorta, 'Ecolóxico incluído. +20 anos en Ferrol e A Coruña. Orzamento gratuíto.');
 
 const breadcrumbs = [
   { label: 'Servizos', href: '/gl/servizos/' },
