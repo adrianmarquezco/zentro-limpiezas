@@ -25,7 +25,7 @@ export const gl = {
     ferrolterra: 'Ferrolterra',
     coruna: 'Área Coruña',
     legal: 'Legal',
-    copyright: '© 2024 Zentro Limpezas. Todos os dereitos reservados.',
+    copyright: '© 2026 Zentro Limpiezas. Todos os dereitos reservados.',
     aviso: 'Aviso Legal',
     privacidad: 'Privacidade',
     cookies: 'Cookies',

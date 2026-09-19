@@ -14,7 +14,7 @@ En Galicia, a limpeza de primavera ten un compoñente extra que non aparece nas 
 
 Antes de poñerse a limpar, hai que revisar o estado das superficies que máis sofren coa humidade invernal:
 
-**Xanelas e marcos**: ¿hai manchas negras de mofo na goma do sellado ou nas esquinas do marco?
+**Xanelas e marcos**: hai manchas negras de mofo na goma do sellado ou nas esquinas do marco?
 
 **Paredes de habitacións pouco ventiladas**: os dormitorios con a porta pechada e pouco ventilados, os armarios exteriores, os baños sen extractor.
 

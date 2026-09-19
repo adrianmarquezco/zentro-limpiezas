@@ -5,6 +5,8 @@ import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
 import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
+import type { BarrioArchetype } from '@/data/municipios';
+import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 export function getStaticPaths() {
@@ -23,6 +25,26 @@ export function getStaticPaths() {
 const { servicio, municipio } = Astro.props;
 const canonical = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/`;
 const hreflangEs = `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/`;
+
+// Imaxe representativa por servizo
+const SERVICE_IMAGE: Record<string, string> = {
+  'limpieza-de-cristales':              '/images/hero-cristales.webp',
+  'limpieza-periodica':                 '/images/hero-periodica.webp',
+  'limpieza-de-viviendas':              '/images/hero-viviendas.webp',
+  'limpieza-de-pisos':                  '/images/hero-pisos.webp',
+  'limpieza-de-apartamentos-turisticos':'/images/hero-turisticos.webp',
+  'limpieza-a-fondo':                   '/images/hero-afondo.webp',
+  'limpieza-de-locales-comerciales':    '/images/hero-locales.webp',
+  'limpieza-de-garajes':                '/images/hero-garajes.webp',
+  'limpieza-de-mudanzas':               '/images/hero-mudanzas.webp',
+  'limpieza-de-trasteros':              '/images/hero-trasteros.webp',
+};
+const serviceImage = SERVICE_IMAGE[servicio.slug] ?? '/images/hero-servicios.webp';
+
+// Barrios con páxina propia para este servizo neste concello
+const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrios && GL_SERVIZO_SLUGS.has(servicio.slugGL)
+  ? municipio.barrios.filter(b => b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', ''))
+  : [];
 
 const title = `${servicio.nombreGL} en ${municipio.nombreGL} | Zentro Limpiezas`;
 const description = `${servicio.nombreGL} profesional en ${municipio.nombreGL}. Produtos ecolóxicos incluídos${servicio.precioDesde ? ` desde ${servicio.precioDesde}` : ''}. Orzamento gratis. Máis de 20 anos de experiencia.`;
@@ -158,6 +180,99 @@ const pasos = [
           <div data-reveal>
             <div class="flex items-center gap-3 mb-5">
               <span class="section-number">02</span>
+              <h2 class="font-serif text-2xl text-primary">
+                Onde prestamos {servicio.nombreGL.toLowerCase()} en {municipio.nombreGL}?
+              </h2>
+            </div>
+            <div class="space-y-5 text-mid leading-relaxed">
+              <p>
+                Cubrimos todo o concello de {municipio.nombreGL} sen recargo por zona. {municipio.tipoVivienda.charAt(0).toUpperCase() + municipio.tipoVivienda.slice(1)}: adaptamos o servizo a cada tipo de inmoble e ás características de cada zona.
+              </p>
+              {barriosConPagina.length > 0 ? (
+                <>
+                  <p class="text-sm text-mid">Información detallada de prezos, que inclúe e dispoñibilidade por barrio:</p>
+                  <div class="grid sm:grid-cols-2 gap-2">
+                    {barriosConPagina.map(b => (
+                      <a
+                        href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/${b.slug}/`}
+                        class="flex items-center gap-3 p-3 bg-white border border-line rounded-lg hover:border-accent/50 hover:shadow-sm transition-all group"
+                      >
+                        <span class="text-accent font-bold flex-shrink-0 group-hover:translate-x-0.5 transition-transform">→</span>
+                        <div>
+                          <p class="text-sm font-medium text-primary">{b.nombre}</p>
+                          {b.tipoVivienda && (
+                            <p class="text-xs text-mid leading-tight mt-0.5 line-clamp-1">{b.tipoVivienda}</p>
+                          )}
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </>
+              ) : municipio.parroquias.length > 0 ? (
+                <>
+                  <p class="text-sm text-mid">Parroquias e zonas de {municipio.nombreGL} onde traballamos:</p>
+                  <div class="flex flex-wrap gap-2">
+                    {municipio.parroquias.map(p => (
+                      <span class="zone-pill">{p}</span>
+                    ))}
+                  </div>
+                </>
+              ) : null}
+            </div>
+          </div>
+
+          <figure data-reveal class="rounded-xl overflow-hidden border border-line">
+            <img
+              src={serviceImage}
+              alt={`${servicio.nombreGL} profesional en ${municipio.nombreGL}, ${municipio.comarca} — Zentro Limpiezas`}
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full object-cover"
+            />
+            <figcaption class="text-xs text-mid text-center py-2 px-4">
+              {servicio.nombreGL} en {municipio.nombreGL} · Zentro Limpiezas
+            </figcaption>
+          </figure>
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">03</span>
+              <h2 class="font-serif text-2xl text-primary">
+                Canto custa a {servicio.nombreGL.toLowerCase()} en {municipio.nombreGL}?
+              </h2>
+            </div>
+            <div class="space-y-4 text-mid leading-relaxed">
+              <p>
+                O prezo da {servicio.nombreGL.toLowerCase()} en {municipio.nombreGL} depende do tamaño do inmoble, o seu estado e a frecuencia que precises. Damos orzamento pechado en menos de 24 horas, sen necesidade de visita previa na maioría dos casos.
+              </p>
+              <ul class="space-y-2 ml-4">
+                {servicio.precioDesde && (
+                  <li class="flex items-start gap-2">
+                    <span class="text-accent font-bold mt-0.5">·</span>
+                    <span>Prezo orientativo desde <strong>{servicio.precioDesde}</strong> en {municipio.nombreGL}</span>
+                  </li>
+                )}
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>Produtos Ecolabel certificados incluídos no prezo — sen custos agochados</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>Desprazamento sen recargo dentro de {municipio.nombreGL}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent font-bold mt-0.5">·</span>
+                  <span>Servizo puntual ou con contrato periódico (o periódico sae a mellor prezo por visita)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div data-reveal>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="section-number">04</span>
               <h2 class="font-serif text-2xl text-primary">Por que elixirnos en {municipio.nombreGL}</h2>
             </div>
             <div class="grid sm:grid-cols-2 gap-3">
@@ -180,7 +295,7 @@ const pasos = [
             </div>
           </div>
 
-          {municipio.parroquias.length > 0 && (
+          {barriosConPagina.length > 0 && municipio.parroquias.length > 0 && (
             <div data-reveal>
               <h3 class="font-serif text-lg text-primary mb-3">
                 Cubrimos todas as parroquias de {municipio.nombreGL}
@@ -211,6 +326,21 @@ const pasos = [
               <EcoBadge size="sm" />
             </div>
           </div>
+
+          {barriosConPagina.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">{servicio.nombreGL} por barrios de {municipio.nombreGL}</p>
+              <ul class="space-y-2">
+                {barriosConPagina.slice(0, 8).map(b => (
+                  <li>
+                    <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {b.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {otrosServizosEnMunicipio.length > 0 && (
             <div class="card p-6" data-reveal>

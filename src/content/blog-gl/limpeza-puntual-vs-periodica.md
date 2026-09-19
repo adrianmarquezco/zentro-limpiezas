@@ -95,4 +95,4 @@ O prezo por visita en periódica pode ser entre un 10% e un 25% máis económico
 
 ---
 
-¿Tes dúbidas sobre que opción se adapta mellor á túa situación? [Escríbenos](/gl/contacto/) e asesorámosche sen compromiso.
+Tes dúbidas sobre que opción se adapta mellor á túa situación? [Escríbenos](/gl/contacto/) e asesorámosche sen compromiso.

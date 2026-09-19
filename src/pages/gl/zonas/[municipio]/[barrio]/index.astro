@@ -51,19 +51,19 @@ const serviciosBarrio = municipio.comarca === 'Ferrolterra' && barrio.archetype
 
 const faqs = [
   {
-    q: `¿Canto custa limpiar un piso en ${barrio.nombre}, ${nombreGL}?`,
+    q: `Canto custa limpiar un piso en ${barrio.nombre}, ${nombreGL}?`,
     a: `O prezo orientativo para un piso estándar en ${barrio.nombre} comeza${barrio.precioDesde ? ` desde ${barrio.precioDesde}` : ' desde 55€'}. O prezo final depende do tamaño do inmoble, o estado e a frecuencia do servizo. Dámosche orzamento pechado en menos de 24 horas, sen compromiso.`,
   },
   {
-    q: `¿Vides ao barrio de ${barrio.nombre} a limpiar?`,
+    q: `Vides ao barrio de ${barrio.nombre} a limpiar?`,
     a: `Si, prestamos servizo de limpeza en ${barrio.nombre} e en todos os barrios e parroquias de ${nombreGL}. Se tes dúbidas sobre o teu enderezo exacto, escríbenos por WhatsApp ao ${BUSINESS.phoneDisplay} e confirmámosche enseguida.`,
   },
   {
-    q: `¿Incluídes os produtos de limpeza en ${barrio.nombre}?`,
+    q: `Incluídes os produtos de limpeza en ${barrio.nombre}?`,
     a: `Si, todos os produtos ecolóxicos con certificación Ecolabel europeo van incluídos no prezo. Non necesitas ter nada na casa. Son igual de efectivos que os convencionais pero sen químicos agresivos, sen cheiro forte e seguros para nenos e mascotas.`,
   },
   {
-    q: `¿Facedes servizo periódico en ${barrio.nombre}?`,
+    q: `Facedes servizo periódico en ${barrio.nombre}?`,
     a: `Si. O servizo periódico (semanal, quincenal ou mensual) é o máis solicitado en ${barrio.nombre}. A vantaxe é que sempre vén o mesmo equipo, que xa coñece a túa casa. O prezo por visita tamén é máis económico que contratando cada vez de forma puntual.`,
   },
 ];
@@ -178,7 +178,7 @@ const schemaLocal = {
       <div class="card mb-8" data-reveal>
         <div class="flex items-center gap-3 mb-4">
           <span class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">02</span>
-          <h2 class="font-display text-2xl text-primary">¿Canto custa a limpeza en {barrio.nombre}?</h2>
+          <h2 class="font-display text-2xl text-primary">Canto custa a limpeza en {barrio.nombre}?</h2>
         </div>
         <p class="text-charcoal leading-relaxed mb-6">
           O prezo depende do tamaño do inmoble, o seu estado e a frecuencia do servizo.

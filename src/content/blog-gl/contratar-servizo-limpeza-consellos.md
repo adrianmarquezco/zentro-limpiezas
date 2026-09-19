@@ -73,7 +73,7 @@ Desconfía de empresas sen ningunha reseña ou con reseñas que soan artificiais
 
 ## 7. Pregunta polo equipo que vai ao teu espazo
 
-Especialmente importante en servizos periódicos: ¿Van sempre as mesmas persoas? Un equipo fixo significa que:
+Especialmente importante en servizos periódicos: Van sempre as mesmas persoas? Un equipo fixo significa que:
 
 - Co tempo xa saben como queres as cousas sen que teñas que explicar nada cada vez
 - Hai un compromiso de servizo constante
@@ -89,4 +89,4 @@ Un servizo profesional de calidade custa o que custa. O que aforras contratando 
 
 ---
 
-¿Queres contratar un servizo de limpeza en Ferrol, Narón ou A Coruña? [Pídenos orzamento](/gl/orzamento/) sen compromiso.
+Queres contratar un servizo de limpeza en Ferrol, Narón ou A Coruña? [Pídenos orzamento](/gl/orzamento/) sen compromiso.
