@@ -153,6 +153,7 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <script is:inline>
   (function() {
     if (window.innerWidth < 768 || sessionStorage.getItem('ei')) return;
+    var gl = document.documentElement.lang === 'gl';
     document.addEventListener('mouseleave', function handler(e) {
       if (e.clientY > 0) return;
       sessionStorage.setItem('ei', '1');
@@ -163,13 +164,13 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
       d.innerHTML = '<div style="background:#fff;border-radius:20px;padding:36px 32px;max-width:400px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(10,37,64,.35)">'
         + '<button onclick="document.getElementById(\'ei-overlay\').remove()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:18px;color:#9CA3AF;cursor:pointer;line-height:1">✕</button>'
         + '<p style="font-size:36px;margin-bottom:12px">🧹</p>'
-        + '<h3 style="font-family:Georgia,serif;font-size:21px;color:#0A2540;margin:0 0 8px">¿Te vas sin pedir presupuesto?</h3>'
-        + '<p style="color:#6B7280;font-size:13px;line-height:1.6;margin:0 0 24px">Es gratis, sin compromiso y respondemos en menos de 24h. Llevamos 20 años limpiando en Ferrol y A Coruña.</p>'
+        + '<h3 style="font-family:Georgia,serif;font-size:21px;color:#0A2540;margin:0 0 8px">' + (gl ? 'Vaste sen pedir orzamento?' : '¿Te vas sin pedir presupuesto?') + '</h3>'
+        + '<p style="color:#6B7280;font-size:13px;line-height:1.6;margin:0 0 24px">' + (gl ? 'É gratis, sen compromiso e respondemos en menos de 24h. Levamos 20 anos limpando en Ferrol e A Coruña.' : 'Es gratis, sin compromiso y respondemos en menos de 24h. Llevamos 20 años limpiando en Ferrol y A Coruña.') + '</p>'
         + '<div style="display:flex;flex-direction:column;gap:10px">'
-        + '<a href="/presupuesto/" style="display:block;background:#0A2540;color:#fff;padding:13px 24px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none">→ Pedir presupuesto gratis</a>'
+        + '<a href="' + (gl ? '/gl/orzamento/' : '/presupuesto/') + '" style="display:block;background:#0A2540;color:#fff;padding:13px 24px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none">' + (gl ? '→ Pedir orzamento gratis' : '→ Pedir presupuesto gratis') + '</a>'
         + '<a href="https://wa.me/34616054001?text=Hola%2C+me+gustar%C3%ADa+pedir+presupuesto" target="_blank" style="display:block;background:#25D366;color:#fff;padding:13px 24px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none">WhatsApp · 616 054 001</a>'
         + '</div>'
-        + '<p style="color:#D1D5DB;font-size:11px;margin-top:16px;margin-bottom:0">Sin compromisos · Cerramos cuando quieras</p>'
+        + '<p style="color:#D1D5DB;font-size:11px;margin-top:16px;margin-bottom:0">' + (gl ? 'Sen compromisos · Pechamos cando queiras' : 'Sin compromisos · Cerramos cuando quieras') + '</p>'
         + '</div>';
       d.addEventListener('click', function(e){ if(e.target===d) d.remove(); });
       document.body.appendChild(d);
