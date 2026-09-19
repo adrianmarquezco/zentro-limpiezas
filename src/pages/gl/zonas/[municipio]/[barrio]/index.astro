@@ -5,6 +5,9 @@ import CTASection from '@/components/sections/CTASection.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import { MUNICIPIOS } from '@/data/municipios';
+import { SERVICIOS } from '@/data/servicios';
+import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
+import type { BarrioArchetype } from '@/data/municipios';
 import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
 
 export function getStaticPaths() {
@@ -41,6 +44,10 @@ const breadcrumbs = [
 
 const waUrl = buildWhatsAppUrl(`Ola, gustaríame pedir orzamento de limpeza en ${barrio.nombre}, ${nombreGL}`);
 const otrosBarrios = (municipio.barrios ?? []).filter(b => b.slug !== barrio.slug);
+
+const serviciosBarrio = municipio.comarca === 'Ferrolterra' && barrio.archetype
+  ? SERVICIOS.filter(sv => GL_SERVIZO_SLUGS.has(sv.slugGL) && getContenidoGLBarrio(sv.slugGL, barrio.archetype as BarrioArchetype, '', ''))
+  : [];
 
 const faqs = [
   {
@@ -234,6 +241,22 @@ const schemaLocal = {
           ))}
         </div>
       </div>
+
+      <!-- Servizos con páxina propia neste barrio -->
+      {serviciosBarrio.length > 0 && (
+        <div class="card mb-8" data-reveal>
+          <h2 class="font-display text-2xl text-primary mb-2">Servizos de limpeza en {barrio.nombre}</h2>
+          <p class="text-mid text-sm mb-5">Escolle o servizo que precisas en {barrio.nombre} e consulta prezo, que inclúe e preguntas frecuentes.</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            {serviciosBarrio.map(sv => (
+              <a href={`/gl/servizos/${sv.slugGL}/${municipio.slug}/${barrio.slug}/`} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
+                <span class="text-accent text-xl">→</span>
+                <span class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{sv.nombreGL} en {barrio.nombre}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <!-- Navegación: municipio e outros barrios -->
       <div class="grid sm:grid-cols-2 gap-6" data-reveal>

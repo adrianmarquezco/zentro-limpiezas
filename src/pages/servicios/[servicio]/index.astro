@@ -508,7 +508,7 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
   lang="es"
   serviceName={servicio.nombre}
   serviceDesc={servicio.descripcionCorta}
-  price={servicio.precioDesde ?? undefined}
+  price={servicio.precioDesde ?? servicio.precioSchema}
   {faqs}
   {breadcrumbs}
   hreflangEs={canonical}

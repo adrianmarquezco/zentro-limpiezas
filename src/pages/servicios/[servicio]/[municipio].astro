@@ -125,7 +125,7 @@ const pasos = [
   lang="es"
   serviceName={`${servicio.nombre} en ${municipio.nombre}`}
   serviceDesc={description}
-  price={servicio.precioDesde ?? undefined}
+  price={servicio.precioDesde ?? servicio.precioSchema}
   {faqs}
   {breadcrumbs}
   hreflangEs={canonical}

@@ -3287,3 +3287,16 @@ export function getContenidoGLBarrio(
 }
 
 export { GL_SERVIZO_SLUGS };
+
+// Servicios que tienen página propia para un barrio con este arquetipo (para enlazado interno desde la página del barrio).
+export function serviciosConPaginaBarrio(archetype: BarrioArchetype): string[] {
+  const checks: [string, boolean][] = [
+    ['limpieza-de-viviendas', !!getContenidoViviendas(archetype, '', '')],
+    ['limpieza-de-pisos', !!getContenidoPisos(archetype, '', '')],
+    ['limpieza-periodica', !!getContenidoPeriodica(archetype, '', '')],
+    ['limpieza-a-fondo', !!getContenidoAfondo(archetype, '', '')],
+    ['limpieza-de-apartamentos-turisticos', !!getContenidoTuristicos(archetype, '', '')],
+    ...Object.keys(CONTENIDO_BARRIO).map((slug): [string, boolean] => [slug, !!getContenidoBarrio(slug, archetype, '', '')]),
+  ];
+  return checks.filter(([, ok]) => ok).map(([slug]) => slug);
+}

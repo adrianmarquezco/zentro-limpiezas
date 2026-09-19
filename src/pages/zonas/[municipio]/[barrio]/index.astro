@@ -6,6 +6,9 @@ import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
+import { SERVICIOS } from '@/data/servicios';
+import { serviciosConPaginaBarrio } from '@/data/combos-barrio';
+import type { BarrioArchetype } from '@/data/municipios';
 import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
 
 export function getStaticPaths() {
@@ -42,6 +45,12 @@ const breadcrumbs = [
 const waUrl = buildWhatsAppUrl(`Hola, me gustaría pedir presupuesto de limpieza en ${barrio.nombre}, ${municipio.nombre}`);
 
 const otrosBarrios = (municipio.barrios ?? []).filter(b => b.slug !== barrio.slug);
+
+const serviciosBarrio = municipio.comarca === 'Ferrolterra' && barrio.archetype
+  ? serviciosConPaginaBarrio(barrio.archetype as BarrioArchetype)
+      .map(slug => SERVICIOS.find(x => x.slug === slug))
+      .filter((x): x is NonNullable<typeof x> => !!x)
+  : [];
 
 const faqs = [
   {
@@ -235,6 +244,22 @@ const schemaLocal = {
           ))}
         </div>
       </div>
+
+      <!-- Servicios con página propia en este barrio -->
+      {serviciosBarrio.length > 0 && (
+        <div class="card mb-8" data-reveal>
+          <h2 class="font-display text-2xl text-primary mb-2">Servicios de limpieza en {barrio.nombre}</h2>
+          <p class="text-mid text-sm mb-5">Elige el servicio que necesitas en {barrio.nombre} y consulta precio, qué incluye y preguntas frecuentes.</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            {serviciosBarrio.map(sv => (
+              <a href={`/servicios/${sv.slug}/${municipio.slug}/${barrio.slug}/`} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
+                <span class="text-accent text-xl">→</span>
+                <span class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{sv.nombre} en {barrio.nombre}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <!-- Navegación: municipio y otros barrios -->
       <div class="grid sm:grid-cols-2 gap-6" data-reveal>

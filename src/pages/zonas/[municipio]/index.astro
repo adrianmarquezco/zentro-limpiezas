@@ -3,6 +3,7 @@ import ZoneLayout from '@/layouts/ZoneLayout.astro';
 import HeroLocal from '@/components/sections/HeroLocal.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
+import SchemaService from '@/components/schema/SchemaService.astro';
 import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
 import { SERVICIOS } from '@/data/servicios';
 import { BUSINESS, PRICE_HINTS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
@@ -32,6 +33,24 @@ const serviciosConCombo = SERVICIOS.filter(s => s.municipiosCombo.includes(munic
 
 // Servicios tier 1 sin combo (para mostrar como lista de servicios)
 const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1);
+
+// FAQs adicionales generadas con datos reales del municipio
+const barriosNombres = (municipio.barrios ?? []).map(b => b.nombre);
+const faqsExtra = [
+  ...(barriosNombres.length > 0 ? [{
+    q: `¿En qué barrios y parroquias de ${municipio.nombre} hacéis limpieza?`,
+    a: `Damos servicio en todo ${municipio.nombre}, incluidos ${barriosNombres.slice(0, -1).join(', ')}${barriosNombres.length > 1 ? ' y ' : ''}${barriosNombres[barriosNombres.length - 1]}. Si no ves tu zona en la lista, escríbenos por WhatsApp y te confirmamos.`,
+  }] : []),
+  ...(serviciosConCombo.length > 0 ? [{
+    q: `¿Qué servicios de limpieza ofrecéis en ${municipio.nombre}?`,
+    a: `En ${municipio.nombre} hacemos ${serviciosConCombo.map(s => s.nombre.toLowerCase()).slice(0, -1).join(', ')}${serviciosConCombo.length > 1 ? ' y ' : ''}${serviciosConCombo[serviciosConCombo.length - 1].nombre.toLowerCase()}. Todos con productos ecológicos incluidos en el precio.`,
+  }] : []),
+  {
+    q: `¿Cómo pido presupuesto de limpieza en ${municipio.nombre}?`,
+    a: `Escríbenos por WhatsApp al ${BUSINESS.phoneDisplay}, llámanos o rellena el formulario de presupuesto indicando el tipo de inmueble, la zona de ${municipio.nombre} y lo que necesitas. Te respondemos con un precio cerrado en menos de 24 horas y sin compromiso.`,
+  },
+];
+const faqsZona = [...municipio.faqs, ...faqsExtra];
 
 // WhatsApp
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.municipio(municipio.nombre));
@@ -63,11 +82,19 @@ const pasos = [
   {description}
   {canonical}
   lang="es"
-  faqs={municipio.faqs}
+  faqs={faqsZona}
   {breadcrumbs}
   hreflangEs={canonical}
   {hreflangGl}
 >
+  <SchemaService
+    name={`Limpieza a domicilio en ${municipio.nombre}`}
+    description={description}
+    url={canonical}
+    price={municipio.precioDesde ?? undefined}
+    areaServed={[municipio.nombre, ...municipio.parroquias]}
+  />
+
   <HeroLocal
     municipio={municipio.nombre}
     eyebrow={`Limpieza profesional en ${municipio.nombre}`}
@@ -411,7 +438,7 @@ const pasos = [
   )}
 
   <!-- FAQ -->
-  {municipio.faqs.length > 0 && (
+  {faqsZona.length > 0 && (
     <section class="py-16 lg:py-24 bg-charcoal">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
@@ -421,7 +448,7 @@ const pasos = [
           Si tienes más dudas, llámanos al <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> o escríbenos por WhatsApp.
         </p>
         <div class="space-y-3" data-reveal>
-          {municipio.faqs.map((faq, i) => (
+          {faqsZona.map((faq, i) => (
             <details class="bg-charcoal border border-white/10 rounded-lg group">
               <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none hover:text-white transition-colors">
                 <h3 class="text-white/90 font-medium text-sm m-0 group-open:text-white">{faq.q}</h3>

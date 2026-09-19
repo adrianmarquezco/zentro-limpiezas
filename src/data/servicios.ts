@@ -7,6 +7,7 @@ export type Servicio = {
   nombreGL: string;
   icono: string;
   precioDesde: string | null;
+  precioSchema?: string;       // precio mínimo publicado en las páginas combo, solo para datos estructurados
   descripcionCorta: string;
   descripcion?: string;        // párrafo largo específico del servicio para combo pages
   faqsServicio?: ServicioFAQ[]; // FAQs propias del servicio (no genéricas de localización)
@@ -103,6 +104,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza a fondo',
     icono: 'sparkle',
     precioDesde: null,
+    precioSchema: '120',
     descripcionCorta: 'Limpieza profunda ocasional. Ideal para mudanzas, post-verano o gran limpieza anual.',
     tier: 2,
     municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
@@ -125,6 +127,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza de apartamentos turísticos',
     icono: 'bed',
     precioDesde: null,
+    precioSchema: '60',
     descripcionCorta: 'Limpieza entre huéspedes de alojamientos turísticos y Airbnb. Rápida y completa.',
     descripcion: 'La limpieza de apartamentos turísticos y alojamientos Airbnb tiene una exigencia que no tiene la limpieza doméstica habitual: el siguiente huésped entra pocas horas después del check-out, el tiempo disponible es ajustado y el estado del apartamento condiciona directamente la valoración y las reservas futuras. En Zentro Limpiezas trabajamos con propietarios y gestores de toda la costa de Ferrolterra y el área metropolitana de A Coruña con un protocolo de rotación estandarizado.\n\nEl servicio incluye limpieza completa de baños y cocina, ventilación del espacio, cambio de ropa de cama y toallas si el propietario las deja preparadas, comprobación visual de consumibles (jabón, papel, bolsas) y aviso por WhatsApp con foto ante cualquier desperfecto detectado. Coordinamos los horarios directamente con el propietario o gestor para garantizar que el apartamento esté listo antes del check-in marcado.',
     faqsServicio: [
@@ -155,6 +158,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza de cristais',
     icono: 'window',
     precioDesde: null,
+    precioSchema: '45',
     descripcionCorta: 'Limpieza profesional de cristales y ventanales. Interior y exterior. Alturas.',
     descripcion: 'Los cristales son la parte de un inmueble que más rápido revela la falta de limpieza y que más transforma el aspecto cuando están en buen estado. En la costa de Ferrolterra el problema principal es la cal del agua y la salinidad del ambiente: se acumula en el vidrio formando una capa blanquecina que con el tiempo resulta difícil de eliminar sin productos específicos. Usamos quitacales profesionales con ph controlado y técnica de escurridor para un acabado sin rayas y sin rastro de agua.\n\nTrabajamos tanto en interiores como en exteriores, incluidas alturas que requieren pértiga telescópica o acceso con escalera. La limpieza de cristales se contrata de forma independiente o como añadido al servicio de vivienda, local o comunidad. En espacios con grandes ventanales, fachadas acristaladas o negocios con escaparates la recomendación es limpiarlos cada 4-6 semanas para mantener el aspecto y evitar que la cal penetre el vidrio.',
     faqsServicio: [
@@ -194,6 +198,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza de garaxes',
     icono: 'garage',
     precioDesde: null,
+    precioSchema: '45',
     descripcionCorta: 'Limpieza a fondo de garajes particulares y zonas de aparcamiento en comunidades.',
     tier: 3,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron'],
@@ -216,6 +221,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza de trasteiros',
     icono: 'box',
     precioDesde: null,
+    precioSchema: '45',
     descripcionCorta: 'Vaciado, organización y limpieza a fondo de trasteros y almacenes.',
     tier: 3,
     municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'culleredo'],
@@ -239,6 +245,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza de mudanzas',
     icono: 'truck',
     precioDesde: null,
+    precioSchema: '130',
     descripcionCorta: 'Limpieza completa antes y después de una mudanza. Pisos entrantes y salientes.',
     tier: 3,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'culleredo'],
