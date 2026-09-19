@@ -30,6 +30,41 @@ const serviciosConCombo = SERVICIOS.filter(s => s.municipiosCombo.includes(munic
 const serviciosDestacados = SERVICIOS.filter(s => s.tier === 1);
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.municipio(municipio.nombreGL));
 
+// FAQs en galego (municipio.faqs está só en castelán)
+const nomeGL = municipio.nombreGL;
+const barriosNomes = (municipio.barrios ?? []).map(b => b.nombre);
+const unir = (xs: string[]) => xs.length > 1 ? `${xs.slice(0, -1).join(', ')} e ${xs[xs.length - 1]}` : (xs[0] ?? '');
+const faqsGL = [
+  {
+    q: `Canto custa limpar un piso en ${nomeGL}?`,
+    a: `O prezo orientativo para un piso estándar de 50-70 m² en ${nomeGL} comeza desde ${municipio.precioDesde ?? PRICE_HINTS.vivienda[1].precio}. O prezo final depende do estado do inmoble e da frecuencia elixida. Dámosche orzamento pechado en menos de 24 horas, sen compromiso.`,
+  },
+  ...(barriosNomes.length > 0 ? [{
+    q: `En que barrios e parroquias de ${nomeGL} facedes limpeza?`,
+    a: `Damos servizo en todo ${nomeGL}, incluídos ${unir(barriosNomes)}. Se non ves a túa zona na lista, escríbenos por WhatsApp e confirmámosche.`,
+  }] : []),
+  ...(serviciosConCombo.length > 0 ? [{
+    q: `Que servizos de limpeza ofrecedes en ${nomeGL}?`,
+    a: `En ${nomeGL} facemos ${unir(serviciosConCombo.map(s => s.nombreGL.toLowerCase()))}. Todos con produtos ecolóxicos incluídos no prezo.`,
+  }] : []),
+  {
+    q: `Inclúedes os produtos de limpeza en ${nomeGL}?`,
+    a: `Si, todos os produtos ecolóxicos con certificación Ecolabel europea van incluídos no prezo. Non precisas ter nada na casa.`,
+  },
+  {
+    q: `Facedes limpeza periódica en ${nomeGL}?`,
+    a: `Si. Podemos vir semanal, quincenal ou mensualmente, sempre co mesmo equipo, que xa coñece a túa casa. O prezo por visita tamén é máis económico ca contratando cada vez de forma puntual.`,
+  },
+  {
+    q: `Traballades en ${nomeGL} en fin de semana?`,
+    a: `Si, traballamos de luns a domingo, incluídas mañás e tardes. Adaptamos o horario ao que mellor che veña.`,
+  },
+  {
+    q: `Como pido orzamento de limpeza en ${nomeGL}?`,
+    a: `Escríbenos por WhatsApp ao ${BUSINESS.phoneDisplay}, chámanos ou enche o formulario de orzamento indicando o tipo de inmoble, a zona de ${nomeGL} e o que precisas. Respondémosche cun prezo pechado en menos de 24 horas e sen compromiso.`,
+  },
+];
+
 const pasos = [
   { n: '01', titulo: 'Solicita orzamento', desc: 'Por WhatsApp, teléfono ou formulario. Cóntanos o tipo de inmoble e o que necesitas.' },
   { n: '02', titulo: 'Prezo pechado en 24h', desc: 'Respondémoste cun orzamento sen sorpresas. Sen custo adicional polos produtos.' },
@@ -43,7 +78,7 @@ const pasos = [
   {description}
   {canonical}
   lang="gl"
-  faqs={municipio.faqs}
+  faqs={faqsGL}
   {breadcrumbs}
   {hreflangEs}
   hreflangGl={canonical}
@@ -339,7 +374,7 @@ const pasos = [
   )}
 
   <!-- FAQ -->
-  {municipio.faqs.length > 0 && (
+  {faqsGL.length > 0 && (
     <section class="py-16 lg:py-24 bg-charcoal">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-3 text-center" data-reveal>
@@ -349,7 +384,7 @@ const pasos = [
           Se tes máis dúbidas, chámanos ao <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
         </p>
         <div class="space-y-3" data-reveal>
-          {municipio.faqs.map((faq) => (
+          {faqsGL.map((faq) => (
             <details class="bg-charcoal border border-white/10 rounded-lg group">
               <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer list-none hover:text-white transition-colors">
                 <h3 class="text-white/90 font-medium text-sm m-0 group-open:text-white">{faq.q}</h3>
