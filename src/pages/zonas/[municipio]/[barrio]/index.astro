@@ -83,16 +83,16 @@ const schemaFAQ = {
 
 const schemaLocal = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Zentro Limpiezas',
+  '@type': 'Service',
+  serviceType: 'Cleaning Service',
+  name: `Limpieza en ${barrio.nombre}, ${municipio.nombre}`,
   description: `Servicio de limpieza profesional en ${barrio.nombre}, ${municipio.nombre}`,
   url: canonical,
-  telephone: BUSINESS.phone,
+  provider: { '@type': 'CleaningService', '@id': `${BUSINESS.url}/#business`, name: BUSINESS.name },
   areaServed: {
     '@type': 'Place',
     name: `${barrio.nombre}, ${municipio.nombre}, Galicia`,
   },
-  priceRange: barrio.precioDesde ? `desde ${barrio.precioDesde}` : 'desde 55€',
 };
 ---
 
