@@ -435,3 +435,14 @@
 .prose-zentro tr:nth-child(even) td { @apply bg-warm; }
 .prose-zentro a { @apply text-accent underline underline-offset-2 hover:text-primary transition-colors; }
 .prose-zentro blockquote { @apply border-l-4 border-accent pl-4 italic text-mid my-6; }
+
+/* Móvil: donde hay barra CTA (que ya incluye WhatsApp) el botón flotante se oculta, porque se solapaba con la barra y con el botón del hero */
+@media (max-width: 767px) {
+  body.has-cta-bar .wa-float { display: none; }
+}
+
+/* Táctil: zonas de toque de al menos ~40px en migas de pan y listas laterales */
+@media (pointer: coarse) {
+  nav[aria-label="Breadcrumb"] a { display: inline-block; padding-block: 0.6rem; margin-block: -0.6rem; }
+  aside li > a { display: inline-block; padding-block: 0.5rem; }
+}

@@ -49,8 +49,9 @@ const waUrl = buildWhatsAppUrl(message);
 
 <script>
 const bar = document.getElementById('cta-bar');
+if (bar) document.body.classList.add('has-cta-bar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) bar?.classList.remove('translate-y-full');
-  else bar?.classList.add('translate-y-full');
+  const visible = window.scrollY > 300;
+  bar?.classList.toggle('translate-y-full', !visible);
 }, { passive: true });
 </script>
