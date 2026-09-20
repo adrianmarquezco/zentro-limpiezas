@@ -92,6 +92,10 @@ const faqsLocais: { q: string; a: string }[] = [
 ];
 const faqs = [...faqsLocais, ...contenido.faqs];
 
+const servizosIrmans = municipio.comarca === 'Ferrolterra' && barrio.archetype
+  ? SERVICIOS.filter(sv => sv.slugGL !== servicio.slugGL && GL_SERVIZO_SLUGS.has(sv.slugGL) && getContenidoGLBarrio(sv.slugGL, barrio.archetype as BarrioArchetype, '', ''))
+  : [];
+
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, barrio.nombre));
 
 const outrosBarrios = (municipio.barrios ?? []).filter(
@@ -266,6 +270,21 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}`;
             </a>
           </div>
 
+          {servizosIrmans.length > 0 && (
+            <div class="card p-6" data-reveal>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">Outros servizos en {barrio.nombre}</p>
+              <ul class="space-y-2">
+                {servizosIrmans.map(sv => (
+                  <li>
+                    <a href={`/gl/servizos/${sv.slugGL}/${municipio.slug}/${barrio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                      → {sv.nombreGL} en {barrio.nombre}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {outrosBarrios.length > 0 && (
             <div class="card p-6" data-reveal>
               <p class="font-serif text-base text-primary mb-3 font-semibold">{servicio.nombreGL} noutros barrios de {municipio.nombreGL}</p>
@@ -273,7 +292,7 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}`;
                 {outrosBarrios.slice(0, 6).map(b => (
                   <li>
                     <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                      → {b.nombre}
+                      → {servicio.nombreGL} en {b.nombre}
                     </a>
                   </li>
                 ))}
@@ -284,6 +303,9 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}`;
           <div class="card p-4" data-reveal>
             <a href={`/gl/zonas/${municipio.slug}/${barrio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline transition-colors">
               → Todos os servizos dispoñibles en {barrio.nombre}
+            </a>
+            <a href={`/gl/zonas/${municipio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline transition-colors block mt-2">
+              → Limpeza a domicilio en {municipio.nombreGL}
             </a>
           </div>
 

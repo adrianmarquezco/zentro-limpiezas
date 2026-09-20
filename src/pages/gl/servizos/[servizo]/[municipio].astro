@@ -199,7 +199,7 @@ const pasos = [
                       >
                         <span class="text-accent font-bold flex-shrink-0 group-hover:translate-x-0.5 transition-transform">→</span>
                         <div>
-                          <p class="text-sm font-medium text-primary">{b.nombre}</p>
+                          <p class="text-sm font-medium text-primary">{servicio.nombreGL} en {b.nombre}</p>
                           {b.tipoVivienda && (
                             <p class="text-xs text-mid leading-tight mt-0.5 line-clamp-1">{b.tipoVivienda}</p>
                           )}
@@ -334,7 +334,7 @@ const pasos = [
                 {barriosConPagina.slice(0, 8).map(b => (
                   <li>
                     <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                      → {b.nombre}
+                      → {servicio.nombreGL} en {b.nombre}
                     </a>
                   </li>
                 ))}
@@ -349,7 +349,7 @@ const pasos = [
                 {otrosServizosEnMunicipio.map(s => (
                   <li>
                     <a href={`/gl/servizos/${s.slugGL}/${municipio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                      → {s.nombreGL}
+                      → {s.nombreGL} en {municipio.nombreGL}
                     </a>
                   </li>
                 ))}
@@ -367,7 +367,7 @@ const pasos = [
                 {outrosMunicipiosConServizo.map(m => m && (
                   <li>
                     <a href={`/gl/servizos/${servicio.slugGL}/${m.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                      → {m.nombreGL}
+                      → {servicio.nombreGL} en {m.nombreGL}
                     </a>
                   </li>
                 ))}

@@ -115,7 +115,7 @@ export const MUNICIPIOS: Municipio[] = [
     contenidoUnicoGL: 'Narón é o concello de maior crecemento de Ferrolterra. Limítrofe con Ferrol, ten un tecido residencial en plena expansión. No Centro e O Couto predominan os bloques de pisos modernos, mentres que parroquias como Sedes e Pedroso manteñen a esencia rural galega. En Zentro Limpiezas prestamos servizo en todas as parroquias de Narón con produtos ecolóxicos incluídos.',
     municipiosCercanos: ['ferrol','neda','fene'],
     precioDesde: '55€',
-    seoTitle: 'Limpieza de pisos en Narón | Servicio a domicilio | Zentro Limpiezas',
+    seoTitle: 'Limpiezas de todo tipo en Narón',
     seoDescription: 'Servicio de limpieza en Narón desde 55€. Todas las parroquias: A Gándara, O Couto, Sedes, Pedroso y más. Productos ecológicos incluidos. Presupuesto en 24h.',
     faqs: [
       { q: '¿Cuánto cuesta limpiar un piso en Narón?', a: 'El precio orientativo para un piso de 50-70 m² en Narón empieza desde 55€. Para pisos más grandes o chalets, hacemos presupuesto personalizado en menos de 24 horas. Escríbenos por WhatsApp con las características de tu inmueble.' },

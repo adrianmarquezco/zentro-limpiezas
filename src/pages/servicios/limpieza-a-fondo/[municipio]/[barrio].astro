@@ -5,7 +5,7 @@ import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
-import { getContenidoAfondo } from '@/data/combos-barrio';
+import { getContenidoAfondo, serviciosConPaginaBarrio } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
@@ -71,11 +71,10 @@ const otrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && getContenidoAfondo(b.archetype as BarrioArchetype, '', ''),
 );
 
-const serviciosRelacionados = [
-  { nombre: 'Limpieza periódica', slug: 'limpieza-periodica' },
-  { nombre: 'Limpieza de viviendas', slug: 'limpieza-de-viviendas' },
-  { nombre: 'Limpieza de pisos', slug: 'limpieza-de-pisos' },
-];
+const serviciosRelacionados = (barrio.archetype ? serviciosConPaginaBarrio(barrio.archetype as BarrioArchetype) : [])
+  .filter(slug => slug !== servicio.slug)
+  .map(slug => SERVICIOS.find(x => x.slug === slug))
+  .filter((x): x is NonNullable<typeof x> => !!x);
 
 const h1 = `Limpieza a fondo en ${barrio.nombre}`;
 ---
@@ -261,7 +260,7 @@ const h1 = `Limpieza a fondo en ${barrio.nombre}`;
               {serviciosRelacionados.map(s => (
                 <li>
                   <a href={`/servicios/${s.slug}/${municipio.slug}/${barrio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                    → {s.nombre}
+                    → {s.nombre} en {barrio.nombre}
                   </a>
                 </li>
               ))}
@@ -275,7 +274,7 @@ const h1 = `Limpieza a fondo en ${barrio.nombre}`;
                 {otrosBarrios.slice(0, 6).map(b => (
                   <li>
                     <a href={`/servicios/limpieza-a-fondo/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                      → {b.nombre}
+                      → {servicio.nombre} en {b.nombre}
                     </a>
                   </li>
                 ))}
@@ -286,6 +285,9 @@ const h1 = `Limpieza a fondo en ${barrio.nombre}`;
           <div class="card p-4" data-reveal>
             <a href={`/zonas/${municipio.slug}/${barrio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline transition-colors">
               → Todos los servicios disponibles en {barrio.nombre}
+            </a>
+            <a href={`/zonas/${municipio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline transition-colors block mt-2">
+              → Limpieza a domicilio en {municipio.nombre}
             </a>
           </div>
 
