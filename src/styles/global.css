@@ -421,7 +421,7 @@
   @apply text-charcoal leading-relaxed;
   font-family: "DM Sans", system-ui, sans-serif;
 }
-.prose-zentro h2 { @apply font-display text-2xl lg:text-3xl text-primary mt-10 mb-4; }
+.prose-zentro h2 { @apply font-display text-2xl lg:text-3xl text-primary mt-10 mb-4; scroll-margin-top: 6rem; }
 .prose-zentro h3 { @apply font-display text-xl text-primary mt-8 mb-3; }
 .prose-zentro p  { @apply mb-4 text-base lg:text-lg; }
 .prose-zentro ul { @apply mb-4 space-y-2 pl-5 list-disc; }

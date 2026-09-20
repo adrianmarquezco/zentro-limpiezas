@@ -5,6 +5,7 @@ import SchemaArticle from '@/components/schema/SchemaArticle.astro';
 import CTASection from '@/components/sections/CTASection.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
+import TableOfContents from '@/components/blog/TableOfContents.astro';
 
 interface Props {
   title: string;
@@ -20,12 +21,13 @@ interface Props {
   hreflangEs?: string;
   hreflangGl?: string;
   faqs?: { q: string; a: string }[];
+  headings?: { depth: number; slug: string; text: string }[];
 }
 
 const {
   title, description, canonical, lang = 'es',
   datePublished, dateModified, image, readingTime, category,
-  breadcrumbs, hreflangEs, hreflangGl, faqs,
+  breadcrumbs, hreflangEs, hreflangGl, faqs, headings = [],
 } = Astro.props;
 
 const locale = lang === 'gl' ? 'gl-ES' : 'es-ES';
@@ -91,6 +93,7 @@ const categoryLabel = category
   </section>
 
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    <TableOfContents {headings} {lang} />
     <div class="prose-zentro">
       <slot />
     </div>

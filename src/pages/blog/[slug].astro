@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { post, glSlug } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 const canonical = `${BUSINESS.url}/blog/${post.slug}/`;
 const hreflangGl = glSlug ? `${BUSINESS.url}/gl/blog/${glSlug}/` : undefined;
 
@@ -44,6 +44,7 @@ const breadcrumbs = [
   hreflangEs={canonical}
   {hreflangGl}
   faqs={post.data.faqs}
+  {headings}
 >
   <Content />
 </BlogLayout>
