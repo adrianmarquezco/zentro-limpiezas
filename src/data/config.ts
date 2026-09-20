@@ -56,17 +56,30 @@ export function buildWhatsAppUrl(message: string): string {
 // Ensambla una meta description sin cortar a mitad de palabra: si la parte
 // variable no cabe, se recorta por el último espacio antes del límite,
 // priorizando conservar intacto el sufijo fijo (normalmente la CTA).
+const META_STOPWORDS = new Set(['y','e','o','u','de','del','la','el','los','las','un','una','que','con','en','a','al','por','para','su','sus','lo','le','se','do','da','dos','das','no','na','nos','nas','ao','aos','sen','ou','como','cando','onde','máis','mais','sin','muy','entre','sobre','desde','dende','ata','hasta']);
+
+// Recorta un texto largo sin dejar la frase cortada a medias
+function trimToClause(text: string, budget: number): string {
+  const window = text.slice(0, budget + 1);
+  const sentenceEnd = Math.max(window.lastIndexOf('. '), window.lastIndexOf('! '), window.lastIndexOf('? '));
+  if (sentenceEnd >= 30 && sentenceEnd + 1 <= budget) return text.slice(0, sentenceEnd + 1);
+  const clauseEnd = Math.max(window.lastIndexOf(', '), window.lastIndexOf('; '), window.lastIndexOf(': '));
+  if (clauseEnd >= 30 && clauseEnd <= budget) return text.slice(0, clauseEnd) + '.';
+  const words = text.slice(0, budget).split(' ');
+  if (text[budget] !== ' ') words.pop();
+  while (words.length > 0 && META_STOPWORDS.has(words[words.length - 1].toLowerCase().replace(/[,;:.]$/, ''))) words.pop();
+  const cut = words.join(' ').replace(/[,;:]$/, '');
+  if (cut.length < 20) return '';
+  return /[.!?]$/.test(cut) ? cut : cut + '.';
+}
+
 export function buildMetaDescription(prefix: string, variable: string, suffix: string, maxLen = 160): string {
   const fixedLen = prefix.length + 1 + suffix.length + 1;
   const budget = maxLen - fixedLen;
   let trimmed = variable;
   if (variable.length > budget) {
-    if (budget <= 0) return `${prefix} ${variable} ${suffix}`.slice(0, maxLen);
-    trimmed = variable.slice(0, budget);
-    const lastSpace = trimmed.lastIndexOf(' ');
-    if (lastSpace > 0) trimmed = trimmed.slice(0, lastSpace);
-    trimmed = trimmed.replace(/[,;:]$/, '');
-    if (!/[.!?]$/.test(trimmed)) trimmed += '.';
+    if (budget <= 0) return `${prefix} ${suffix}`.replace(/\s+/g, ' ').trim().slice(0, maxLen);
+    trimmed = trimToClause(variable, budget - 1);
   }
   return `${prefix} ${trimmed} ${suffix}`.replace(/\s+/g, ' ').trim();
 }

@@ -64,7 +64,7 @@ const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrio
   : [];
 
 const title = `${servicio.nombre} en ${municipio.nombre} · +20 años | Zentro Limpiezas`;
-const description = buildMetaDescription(`Empresa de ${servicio.nombre.toLowerCase()} en ${municipio.nombre} con más de 20 años en Ferrolterra.`, municipio.tipoVivienda, 'Presupuesto gratis en 24h.');
+const description = buildMetaDescription(`${servicio.nombre} en ${municipio.nombre} con más de 20 años de experiencia.`, servicio.descripcionCorta, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
