@@ -11,6 +11,7 @@ export type Servicio = {
   descripcionCorta: string;
   descripcion?: string;        // párrafo largo específico del servicio para combo pages
   faqsServicio?: ServicioFAQ[]; // FAQs propias del servicio (no genéricas de localización)
+  faqsServicioGL?: ServicioFAQ[];
   tier: 1 | 2 | 3;
   municipiosCombo: string[];
   tituloMeta?: string;
@@ -33,6 +34,13 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Cuál es la diferencia entre limpieza de vivienda y limpieza a fondo?', a: 'La limpieza de vivienda es el servicio estándar, puntual o de mantenimiento. La limpieza a fondo va más allá: incluye zonas habitualmente ignoradas como detrás de muebles, interior de horno y nevera, armarios interiores y rodapiés en profundidad. Está pensada para situaciones especiales o como "reseteo" antes de empezar con el servicio periódico.' },
       { q: '¿Limpiáis casas rurales de piedra o viviendas con materiales especiales?', a: 'Sí. Tenemos experiencia con viviendas rurales en el interior de Ferrolterra y A Coruña: suelos de baldosa hidráulica, piedra vista, madera de pino o roble, terrazos de distintas épocas. Usamos productos neutros certificados que no atacan ni oxidan estos materiales.' },
     ],
+    faqsServicioGL: [
+      { q: 'Que inclúe unha limpeza completa de vivenda?', a: 'Baños completos (billas, inodoro, prato de ducha ou bañeira, espellos, cal nos azulexos), cociña (encimeira, campá, frontais de moble, pía), dormitorios, salón, corredores e escaleiras interiores. Os cristais interiores e os chans inclúense sempre. Os interiores de armarios ou neveira só se se solicita expresamente ao facer o orzamento.' },
+      { q: 'Necesito estar na casa mentres limpades?', a: 'Non é obrigatorio. Moitos clientes periódicos facilítannos o acceso sen estar presentes. Traballamos con total discreción e ao rematar envíámosche unha mensaxe por WhatsApp. Se prefires estar, sen problema.' },
+      { q: 'Cantas persoas veñen limpar a vivenda?', a: 'Normalmente unha ou dúas persoas, segundo o tamaño do inmoble e o tempo dispoñible. O equipo é sempre o mesmo nos servizos periódicos, o que permite coñecer ben a casa e traballar con máis eficiencia en cada visita.' },
+      { q: 'Cal é a diferenza entre limpeza de vivenda e limpeza a fondo?', a: 'A limpeza de vivenda é o servizo estándar, puntual ou de mantemento. A limpeza a fondo vai máis alá: inclúe zonas habitualmente ignoradas como detrás dos mobles, interior de forno e neveira, armarios interiores e rodapés en profundidade. Está pensada para situacións especiais ou como "reseteo" antes de comezar co servizo periódico.' },
+      { q: 'Limpades casas rurais de pedra ou vivendas con materiais especiais?', a: 'Si. Temos experiencia con vivendas rurais no interior de Ferrolterra e A Coruña: chans de baldosa hidráulica, pedra á vista, madeira de piñeiro ou carballo, terrazos de distintas épocas. Usamos produtos neutros certificados que non atacan nin oxidan estes materiais.' },
+    ],
     tier: 1,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'valdovino', 'fene', 'neda', 'mugardos', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros', 'sada'],
   },
@@ -51,6 +59,13 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Limpiáis también terrazas y balcones?', a: 'Sí. Los balcones y terrazas con suelo de baldosa o terrazo se incluyen si el cliente lo solicita. Para suelos de madera exterior o composite usamos productos específicos. Lo indicamos en el presupuesto.' },
       { q: '¿Puedo estar en el piso mientras limpiáis?', a: 'Sí, sin problema. Muchos clientes están en casa. El equipo trabaja de forma ordenada y discreta, zona a zona, sin interferir en el resto del piso.' },
       { q: '¿Limpiáis el interior de la nevera y el horno?', a: 'En la limpieza puntual o a fondo sí, si el cliente lo solicita. En la periódica de mantenimiento solo si se acuerda expresamente, ya que añade tiempo de servicio. Lo aclaramos siempre en el presupuesto.' },
+    ],
+    faqsServicioGL: [
+      { q: 'Cal é a diferenza entre limpeza puntual e periódica nun piso?', a: 'A puntual é unha limpeza a fondo, sen restricións de tempo: ideal cando o piso leva meses sen limpeza profesional, hai unha mudanza ou hai que deixalo en perfecto estado. A periódica (semanal, quincenal ou mensual) é de mantemento: máis rápida porque o nivel de sucidade é baixo e o equipo xa coñece o piso e as súas particularidades.' },
+      { q: 'Que facedes cos chans de terrazo?', a: 'O terrazo require fregona con produto neutro, sen lixivia nin abrillantadores ácidos que o queiman e o deixan opaco co tempo. É o chan máis frecuente en pisos dos anos 70-80 en Ferrol, Narón ou Fene. Temos experiencia con el e sabemos exactamente que produto usar segundo o seu estado.' },
+      { q: 'Limpades tamén terrazas e balcóns?', a: 'Si. Os balcóns e terrazas con chan de baldosa ou terrazo inclúense se o cliente o solicita. Para chans de madeira exterior ou composite usamos produtos específicos. Indicámolo no orzamento.' },
+      { q: 'Podo estar no piso mentres limpades?', a: 'Si, sen problema. Moitos clientes están na casa. O equipo traballa de forma ordenada e discreta, zona a zona, sen interferir no resto do piso.' },
+      { q: 'Limpades o interior da neveira e o forno?', a: 'Na limpeza puntual ou a fondo si, se o cliente o solicita. Na periódica de mantemento só se se acorda expresamente, xa que engade tempo de servizo. Aclarámolo sempre no orzamento.' },
     ],
     tier: 1,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
@@ -81,6 +96,13 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Limpiáis cocinas de bares y restaurantes con grasa acumulada?', a: 'Sí. Es uno de los trabajos más exigentes: campanas, filtros de acero, suelos de cocina y superficies de acero inoxidable con meses de grasa acumulada. Usamos desengrasantes profesionales ecológicos certificados para entornos de manipulación de alimentos.' },
       { q: '¿Emitís factura para autónomos y empresas?', a: 'Sí. Facturamos con IVA. La limpieza de un local es un gasto deducible para autónomos y empresas siempre que el local esté vinculado a la actividad económica.' },
       { q: '¿Podéis incluir la limpieza de escaparates y cristales del local?', a: 'Sí. La limpieza de cristales exteriores e interiores se puede añadir al contrato de mantenimiento o contratar por separado. Para escaparates con vinilo o rotulación tenemos especial cuidado de no dañarlos.' },
+    ],
+    faqsServicioGL: [
+      { q: 'A que horas traballades para non molestar ao negocio?', a: 'Adaptámonos completamente ao horario do local: antes da apertura (desde as 6-7h se fai falta), despois do peche ou en días de descanso do negocio. É o punto de partida de calquera orzamento: cando podemos entrar sen interromper a actividade.' },
+      { q: 'Con que frecuencia se recomenda limpar un local comercial?', a: 'Depende do tipo de negocio e do volume de clientes. Un bar ou restaurante precisa limpeza diaria ou cada dous días. Unha tenda ou despacho pode funcionar ben con limpeza semanal ou quincenal. Orientámoste segundo o teu caso e o volume de tráfico.' },
+      { q: 'Limpades cociñas de bares e restaurantes con graxa acumulada?', a: 'Si. É un dos traballos máis esixentes: campás, filtros de aceiro, chans de cociña e superficies de aceiro inoxidable con meses de graxa acumulada. Usamos desengraxantes profesionais ecolóxicos certificados para contornos de manipulación de alimentos.' },
+      { q: 'Emitides factura para autónomos e empresas?', a: 'Si. Facturamos con IVE. A limpeza dun local é un gasto deducible para autónomos e empresas sempre que o local estea vinculado á actividade económica.' },
+      { q: 'Podedes incluír a limpeza de escaparates e cristais do local?', a: 'Si. A limpeza de cristais exteriores e interiores pódese engadir ao contrato de mantemento ou contratar por separado. Para escaparates con vinilo ou rotulación temos especial coidado de non danalos.' },
     ],
     tier: 2,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
@@ -137,6 +159,13 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Cuánto tarda la limpieza de un apartamento turístico?', a: 'Un estudio o apartamento de 1 habitación suele estar listo en 45-60 minutos. Uno de 2 habitaciones, entre 75 y 90 minutos. Para apartamentos más grandes o con mayor grado de suciedad, calculamos el tiempo en el presupuesto.' },
       { q: '¿Trabajáis en temporada alta con muchas rotaciones seguidas?', a: 'Sí. La temporada alta en la costa gallega —junio a septiembre— es nuestra época de mayor actividad en este servicio, especialmente en Valdoviño, Cedeira, Ares y A Coruña. Recomendamos fijar el calendario con antelación para garantizar disponibilidad.' },
     ],
+    faqsServicioGL: [
+      { q: 'Podedes xestionar as rotacións de forma autónoma segundo o calendario de reservas?', a: 'Si. Traballamos con propietarios que nos facilitan acceso e calendario. Coordinámonos para saber os días de check-out e check-in e organizamos o servizo sen que o propietario teña que avisar cada vez.' },
+      { q: 'Avisades se hai desperfectos ou falta algo no apartamento?', a: 'Si. Enviamos mensaxe por WhatsApp ao propietario se detectamos roturas, manchas difíciles de quitar, consumibles esgotados ou calquera incidencia relevante. Se fai falta, adxuntamos foto.' },
+      { q: 'Facedes o cambio de roupa de cama e toallas?', a: 'Si, se o propietario deixa a roupa limpa preparada no apartamento. Non incluímos servizo de lavandaría, pero xestionamos o cambio in situ: retiramos a usada e poñemos a limpa.' },
+      { q: 'Canto tarda a limpeza dun apartamento turístico?', a: 'Un estudo ou apartamento dun cuarto adoita estar listo en 45-60 minutos. Un de 2 cuartos, entre 75 e 90 minutos. Para apartamentos máis grandes ou con maior grao de sucidade, calculamos o tempo no orzamento.' },
+      { q: 'Traballades en tempada alta con moitas rotacións seguidas?', a: 'Si. A tempada alta na costa galega —de xuño a setembro— é a nosa época de maior actividade neste servizo, especialmente en Valdoviño, Cedeira, Ares e A Coruña. Recomendamos fixar o calendario con antelación para garantir dispoñibilidade.' },
+    ],
     tier: 2,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido', 'sada', 'oleiros'],
   },
@@ -168,6 +197,13 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Limpiáis también marcos, persianas y rejas?', a: 'Sí. La limpieza de marcos de PVC o aluminio, persianas enrollables y rejas se puede incluir en el servicio. En el presupuesto especificamos qué elementos están incluidos para que no haya dudas.' },
       { q: '¿Se puede incluir la limpieza de cristales en el contrato de limpieza del local o la vivienda?', a: 'Sí. Muchos clientes periódicos tienen una visita de cristales cada 4-6 semanas combinada con la limpieza general. Es la opción más cómoda y sale a mejor precio que contratarlo por separado.' },
     ],
+    faqsServicioGL: [
+      { q: 'Limpades cristais por fóra se hai altura ou difícil acceso?', a: 'Si. Usamos pértigas telescópicas para alcanzar fiestras en altura desde o chan, sen necesidade de andamios nin escaleiras de gran altura. Para accesos máis complexos valoramos in situ e indicámolo no orzamento.' },
+      { q: 'Que produtos usades na limpeza de cristais?', a: 'Quitacales profesionais con pH neutro ou ácido controlado segundo o grao de incrustación, seguidos de limpacristais estándar e secado con rasqueta de goma para evitar raias e marcas de auga. Son produtos ecolóxicos certificados e seguros para marcos de PVC, aluminio ou madeira.' },
+      { q: 'Con que frecuencia hai que limpar os cristais na costa?', a: 'Na costa galega a salinidade e a humidade aceleran a acumulación de cal e sucidade. En vivendas fronte ao mar ou en concellos como Valdoviño, Cedeira ou Ares, recomendamos limpar cada 4-6 semanas. No interior, cada 2-3 meses adoita ser suficiente.' },
+      { q: 'Limpades tamén marcos, persianas e reixas?', a: 'Si. A limpeza de marcos de PVC ou aluminio, persianas enrolables e reixas pódese incluír no servizo. No orzamento especificamos que elementos están incluídos para que non haxa dúbidas.' },
+      { q: 'Pódese incluír a limpeza de cristais no contrato de limpeza do local ou da vivenda?', a: 'Si. Moitos clientes periódicos teñen unha visita de cristais cada 4-6 semanas combinada coa limpeza xeral. É a opción máis cómoda e sae a mellor prezo que contratalo por separado.' },
+    ],
     tier: 2,
     municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
   },
@@ -187,6 +223,13 @@ export const SERVICIOS: Servicio[] = [
       { q: '¿Cuánto tiempo se tarda en limpiar un pazo tras una boda?', a: 'Depende del tamaño del espacio y del número de invitados. Un espacio para 100-150 personas suele requerir entre 6 y 10 horas con un equipo de 2-3 personas. Para bodas grandes o espacios de más de 1000 m², hacemos visita previa y damos presupuesto específico.' },
       { q: '¿Trabajáis en municipios del interior de Ferrolterra como San Sadurniño o Moeche?', a: 'Sí. Cubrimos todos los municipios de Ferrolterra, incluidos los del interior donde se concentran buena parte de los pazos y fincas de celebraciones: San Sadurniño, Moeche, Neda, As Somozas y alrededores. El desplazamiento se valora en el presupuesto.' },
       { q: '¿Necesitáis hacer visita previa antes de dar precio?', a: 'Para eventos grandes o espacios con características especiales, sí. La visita es gratuita y nos permite valorar los materiales, el acceso, el volumen de trabajo y el tiempo necesario. Para eventos estándar en espacios conocidos, damos orientación por WhatsApp antes de la visita.' },
+    ],
+    faqsServicioGL: [
+      { q: 'Facedes limpeza pre-evento e post-evento?', a: 'Si. A limpeza pre-evento faise o día antes ou a mañá do evento, para que o espazo estea impecable no momento de recibir os convidados. A post-evento organízase para o día seguinte ao peche, cando queda o groso da sucidade: restos de comida, cristalería, manchas no chan.' },
+      { q: 'Limpades chans de madeira, pedra e baldosa hidráulica?', a: 'Si. Son os materiais máis frecuentes en pazos e fincas históricas de Ferrolterra e o contorno rural da Coruña. Usamos produtos específicos para cada un: neutros para a baldosa hidráulica, xabón natural para a madeira, e desengraxante con pH controlado para a pedra granítica.' },
+      { q: 'Canto tempo se tarda en limpar un pazo tras unha voda?', a: 'Depende do tamaño do espazo e do número de convidados. Un espazo para 100-150 persoas adoita requirir entre 6 e 10 horas cun equipo de 2-3 persoas. Para vodas grandes ou espazos de máis de 1000 m², facemos visita previa e damos orzamento específico.' },
+      { q: 'Traballades en concellos do interior de Ferrolterra como San Sadurniño ou Moeche?', a: 'Si. Cubrimos todos os concellos de Ferrolterra, incluídos os do interior onde se concentra boa parte dos pazos e fincas de celebracións: San Sadurniño, Moeche, Neda, As Somozas e arredores. O desprazamento valórase no orzamento.' },
+      { q: 'Precisades facer visita previa antes de dar prezo?', a: 'Para eventos grandes ou espazos con características especiais, si. A visita é gratuíta e permítenos valorar os materiais, o acceso, o volume de traballo e o tempo necesario. Para eventos estándar en espazos coñecidos, damos orientación por WhatsApp antes da visita.' },
     ],
     tier: 2,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
@@ -257,3 +300,10 @@ export function getServicioBySlug(slug: string): Servicio | undefined {
 }
 
 export const SERVICIOS_TIER1 = SERVICIOS.filter(s => s.tier === 1);
+
+// Enlace a la página servicio × municipio si existe; si no, a la del servicio.
+export function hrefServicioMunicipio(servicio: Servicio, municipioSlug: string, lang: 'es' | 'gl' = 'es'): string {
+  const existe = servicio.municipiosCombo.includes(municipioSlug);
+  if (lang === 'gl') return existe ? `/gl/servizos/${servicio.slugGL}/${municipioSlug}/` : `/gl/servizos/${servicio.slugGL}/`;
+  return existe ? `/servicios/${servicio.slug}/${municipioSlug}/` : `/servicios/${servicio.slug}/`;
+}

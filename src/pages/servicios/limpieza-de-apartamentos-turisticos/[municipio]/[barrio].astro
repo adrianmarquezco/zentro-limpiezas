@@ -3,7 +3,7 @@ import ComboLayout from '@/layouts/ComboLayout.astro';
 import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
-import { SERVICIOS } from '@/data/servicios';
+import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoTuristicos } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
@@ -41,7 +41,7 @@ const description = buildMetaDescription(`Limpieza entre huéspedes en ${barrio.
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
   { label: servicio.nombre, href: `/servicios/${servicio.slug}/` },
-  { label: municipio.nombre, href: `/servicios/${servicio.slug}/${municipio.slug}/` },
+  { label: municipio.nombre, href: hrefServicioMunicipio(servicio, municipio.slug) },
   { label: barrio.nombre, href: canonical },
 ];
 
@@ -253,7 +253,7 @@ const h1 = `Limpieza de apartamento turístico en ${barrio.nombre}`;
           <div class="card p-6" data-reveal>
             <p class="font-serif text-base text-primary mb-1 font-semibold">Apartamentos turísticos en todo {municipio.nombre}</p>
             <p class="text-mid text-xs mb-3">Cobertura para gestores de alquiler vacacional.</p>
-            <a href={`/servicios/limpieza-de-apartamentos-turisticos/${municipio.slug}/`} class="text-sm text-accent hover:underline">
+            <a href={hrefServicioMunicipio(servicio, municipio.slug)} class="text-sm text-accent hover:underline">
               → Limpieza turística en {municipio.nombre}
             </a>
           </div>

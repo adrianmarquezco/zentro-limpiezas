@@ -20,7 +20,7 @@ interface Props {
 }
 
 const {
-  title,
+  title: rawTitle,
   description,
   canonical,
   ogImage = `${BUSINESS.url}/images/hero-equipo.webp`,
@@ -31,6 +31,10 @@ const {
   robots,
   schema,
 } = Astro.props;
+
+// Los títulos largos se truncan en Google: se quita la marca cuando no caben en 65 caracteres
+const BRAND_SUFFIX = ' | Zentro Limpiezas';
+const title = rawTitle.length > 65 && rawTitle.endsWith(BRAND_SUFFIX) ? rawTitle.slice(0, -BRAND_SUFFIX.length) : rawTitle;
 
 const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
 ---

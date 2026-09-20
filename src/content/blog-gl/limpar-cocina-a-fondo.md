@@ -1,6 +1,6 @@
 ---
 title: "Como limpar a cociña a fondo: o método paso a paso"
-description: "Guía completa para facer unha limpeza profunda da cociña. Encimera, forno, campana, frigorífico, armarios e solos. Con produtos ecolóxicos e técnica profesional."
+description: "Guía para facer unha limpeza profunda da cociña: encimeira, forno, campá, frigorífico, armarios e chans. Con produtos ecolóxicos e técnica profesional."
 image: '/images/blog/limpiar-cocina-a-fondo.webp'
 datePublished: "2026-03-05"
 dateModified: "2026-05-31"

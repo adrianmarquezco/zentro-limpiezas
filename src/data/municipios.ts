@@ -77,7 +77,7 @@ export const MUNICIPIOS: Municipio[] = [
     municipiosCercanos: ['naron','fene','neda'],
     precioDesde: '55€',
     seoTitle: 'Servicio de limpieza en Ferrol | Hogar, oficinas y locales',
-    seoDescription: 'Servicio profesional de limpieza en Ferrol para hogares, oficinas y locales. Todos los barrios cubiertos. Productos ecológicos incluidos. Desde 55€. Presupuesto en 24h.',
+    seoDescription: 'Limpieza profesional en Ferrol para hogares, oficinas y locales. Todos los barrios. Productos ecológicos incluidos. Desde 55€. Presupuesto en 24h.',
     faqs: [
       { q: '¿Cuánto cuesta limpiar un piso en Ferrol?', a: 'El precio orientativo para un piso de 50-70 m² en Ferrol empieza desde 55€ en limpieza puntual. Un piso de 70-100 m² suele costar desde 70€. El precio final depende del estado del inmueble, cuánto tiempo lleva sin limpieza profesional y si quieres servicio puntual o periódico. Te damos presupuesto cerrado en menos de 24 horas, sin compromiso.' },
       { q: '¿Venís a todos los barrios de Ferrol?', a: 'Sí, cubrimos todos los barrios de Ferrol: Centro, Caranza, Recimil, Esteiro, A Magdalena, Serantes, Canido, Inferniño y parroquias como Doniños y Covas. Si tienes dudas sobre tu dirección exacta, escríbenos por WhatsApp y te confirmamos en seguida.' },

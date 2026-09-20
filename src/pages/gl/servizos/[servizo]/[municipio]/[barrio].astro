@@ -3,7 +3,7 @@ import ComboLayout from '@/layouts/ComboLayout.astro';
 import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
-import { SERVICIOS } from '@/data/servicios';
+import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
@@ -72,7 +72,7 @@ const description = buildMetaDescription(`${servicio.nombreGL} en ${barrio.nombr
 const breadcrumbs = [
   { label: 'Servizos', href: '/gl/servizos/' },
   { label: servicio.nombreGL, href: `/gl/servizos/${servicio.slugGL}/` },
-  { label: municipio.nombreGL, href: `/gl/servizos/${servicio.slugGL}/${municipio.slug}/` },
+  { label: municipio.nombreGL, href: hrefServicioMunicipio(servicio, municipio.slug, 'gl') },
   { label: barrio.nombre, href: canonical },
 ];
 
@@ -253,7 +253,7 @@ const h1 = `${servicio.nombreGL} en ${barrio.nombre}`;
           <div class="card p-6" data-reveal>
             <p class="font-serif text-base text-primary mb-1 font-semibold">{servicio.nombreGL} en todo {municipio.nombreGL}</p>
             <p class="text-mid text-xs mb-3">Prezos e cobertura para todos os barrios.</p>
-            <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/`} class="text-sm text-accent hover:underline">
+            <a href={hrefServicioMunicipio(servicio, municipio.slug, 'gl')} class="text-sm text-accent hover:underline">
               → {servicio.nombreGL} en {municipio.nombreGL}
             </a>
           </div>
