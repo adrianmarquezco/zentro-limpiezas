@@ -1,0 +1,8 @@
+.git
+.github
+monitor
+node_modules
+dist
+.claude
+.env
+.env.*

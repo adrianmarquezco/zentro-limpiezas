@@ -1,0 +1,14 @@
+{
+  "name": "zentro-vigilante",
+  "private": true,
+  "type": "module",
+  "description": "Vigilante de zentrolimpiezas.es (no forma parte de la web)",
+  "scripts": {
+    "selftest": "node selftest.mjs",
+    "http": "node run.mjs --http-only",
+    "todo": "node run.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

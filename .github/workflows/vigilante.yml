@@ -1,0 +1,96 @@
+name: Vigilante
+
+# El despliegue de esta web (Coolify) es manual o tarda un tiempo impredecible tras un push,
+# por eso NO se lanza tras cada push: solo cada 3 horas y a mano.
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: vigilante
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Código
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Playwright
+        working-directory: monitor
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Comprobación
+        id: c1
+        continue-on-error: true
+        working-directory: monitor
+        run: node run.mjs --out ../informe.md
+
+      - name: Reintento a los 90 segundos
+        id: c2
+        if: steps.c1.outcome == 'failure'
+        continue-on-error: true
+        working-directory: monitor
+        run: |
+          sleep 90
+          node run.mjs --out ../informe.md
+
+      - name: Resultado final
+        id: final
+        run: |
+          if [ "${{ steps.c1.outcome }}" = "success" ] || [ "${{ steps.c2.outcome }}" = "success" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Informe
+        if: always()
+        run: |
+          if [ -f informe.md ]; then cat informe.md >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - name: Incidencia
+        if: always()
+        uses: actions/github-script@v7
+        env:
+          RESULT_OK: ${{ steps.final.outputs.ok }}
+        with:
+          script: |
+            const fs = require('fs');
+            const ok = process.env.RESULT_OK === 'true';
+            const title = 'ALERTA: zentrolimpiezas.es tiene problemas';
+            let report = fs.existsSync('informe.md') ? fs.readFileSync('informe.md', 'utf8') : '(la ejecución no generó informe)';
+            if (report.length > 60000) report = report.slice(0, 60000) + '\n\n... (informe recortado)';
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            const { owner, repo } = context.repo;
+            const open = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'open', per_page: 100 });
+            const existing = open.find((i) => !i.pull_request && i.title === title);
+            if (!ok) {
+              const body = `Ejecución: ${runUrl}\n\n${report}`;
+              if (existing) {
+                await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body });
+              } else {
+                await github.rest.issues.create({ owner, repo, title, body });
+              }
+            } else if (existing) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body: `Todo vuelve a estar bien. Ejecución: ${runUrl}` });
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'closed', state_reason: 'completed' });
+            }
+
+      - name: Fallar si hay problemas
+        if: steps.final.outputs.ok == 'false'
+        run: exit 1
