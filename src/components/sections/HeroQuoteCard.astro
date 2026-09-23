@@ -4,17 +4,21 @@ import { BUSINESS } from '@/data/config';
 interface Props {
   zona?: string;
   servicio?: string;
-  precioDesde?: string | null;
   lang?: 'es' | 'gl';
 }
-const { zona = '', servicio = '', precioDesde = null, lang = 'es' } = Astro.props;
+const { zona = '', servicio = '', lang = 'es' } = Astro.props;
 const gl = lang === 'gl';
 
 const t = gl
   ? {
       title: 'Orzamento gratis en 24h',
-      sub: 'Sen compromiso. Respondémosche cun prezo pechado.',
-      from: 'Prezo orientativo desde',
+      sub: 'Sen compromiso.',
+      how: 'Como prefires que te contactemos?',
+      wa: 'WhatsApp',
+      call: 'Chamada',
+      mail: 'Email',
+      emailPh: 'O teu email',
+      commentPh: 'Contanos o que é importante: tamaño, estado, datas, acceso, mascotas...',
       name: 'O teu nome',
       phone: 'Teléfono / WhatsApp',
       what: 'Que precisas?',
@@ -30,8 +34,13 @@ const t = gl
     }
   : {
       title: 'Presupuesto gratis en 24h',
-      sub: 'Sin compromiso. Te respondemos con un precio cerrado.',
-      from: 'Precio orientativo desde',
+      sub: 'Sin compromiso.',
+      how: '¿Cómo prefieres que te contactemos?',
+      wa: 'WhatsApp',
+      call: 'Llamada',
+      mail: 'Email',
+      emailPh: 'Tu email',
+      commentPh: 'Cuéntanos lo que sea importante: tamaño, estado, fechas, acceso, mascotas...',
       name: 'Tu nombre',
       phone: 'Teléfono / WhatsApp',
       what: '¿Qué necesitas?',
@@ -51,15 +60,8 @@ const t = gl
   <div class="bg-white rounded-2xl p-6 shadow-2xl border border-white/10">
     <p class="font-serif text-xl text-primary font-semibold leading-tight">{t.title}</p>
     <p class="text-mid text-xs mt-1 mb-4">{t.sub}</p>
-    {precioDesde && (
-      <div class="mb-4 pb-4 border-b border-line">
-        <p class="text-[11px] text-mid uppercase tracking-widest mb-0.5">{t.from}</p>
-        <p class="font-display text-2xl font-bold text-primary">{precioDesde}</p>
-      </div>
-    )}
     <form data-hero-quote action="/api/presupuesto" method="POST" class="space-y-2.5" novalidate>
       <input type="hidden" name="zona" value={zona || 'Ferrolterra'} />
-      <input type="hidden" name="contacto_preferido" value="whatsapp" />
       <input type="text" name="_honeypot" class="hidden" tabindex="-1" autocomplete="off" />
       <input type="text" name="nombre" required placeholder={t.name} class="form-field text-sm py-2.5" autocomplete="name" aria-label={t.name} />
       <input type="tel" name="telefono" required placeholder={t.phone} class="form-field text-sm py-2.5" autocomplete="tel" aria-label={t.phone} />
@@ -71,6 +73,19 @@ const t = gl
           {t.options.map(o => <option value={o}>{o}</option>)}
         </select>
       )}
+      <fieldset class="pt-1">
+        <legend class="text-[11px] text-mid mb-1.5">{t.how}</legend>
+        <div class="grid grid-cols-3 gap-1.5">
+          {[['whatsapp', t.wa], ['llamada', t.call], ['email', t.mail]].map(([v, l], i) => (
+            <label class="cursor-pointer">
+              <input type="radio" name="contacto_preferido" value={v} checked={i === 0} class="sr-only peer" />
+              <span class="block text-center text-xs font-medium py-2 rounded-lg border border-line text-charcoal transition-colors peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary peer-focus-visible:ring-2 peer-focus-visible:ring-accent">{l}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <input type="email" name="email" data-hero-quote-email placeholder={t.emailPh} class="form-field text-sm py-2.5 hidden" autocomplete="email" aria-label={t.emailPh} />
+      <textarea name="mensaje" rows="3" placeholder={t.commentPh} class="form-field text-sm py-2.5 resize-none" aria-label={t.commentPh}></textarea>
       <div class="flex items-start gap-2 pt-1">
         <input type="checkbox" name="privacidad" required class="mt-0.5 accent-accent shrink-0" aria-label={`${t.privPre} ${t.privLink}`} />
         <span class="text-[11px] text-mid leading-tight">{t.privPre} <a href={t.privHref} class="text-accent hover:underline">{t.privLink}</a></span>
@@ -88,6 +103,14 @@ const t = gl
 
 <script>
 document.querySelectorAll<HTMLFormElement>('form[data-hero-quote]').forEach((form) => {
+  const emailInput = form.querySelector<HTMLInputElement>('[data-hero-quote-email]');
+  form.querySelectorAll<HTMLInputElement>('input[name="contacto_preferido"]').forEach((r) => {
+    r.addEventListener('change', () => {
+      const isMail = form.querySelector<HTMLInputElement>('input[name="contacto_preferido"]:checked')?.value === 'email';
+      emailInput?.classList.toggle('hidden', !isMail);
+      if (emailInput) emailInput.required = isMail;
+    });
+  });
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const card = form.closest('.hero-quote-card');
@@ -98,7 +121,7 @@ document.querySelectorAll<HTMLFormElement>('form[data-hero-quote]').forEach((for
     const tel = (form.elements.namedItem('telefono') as HTMLInputElement).value.trim();
     const serv = (form.elements.namedItem('servicio') as HTMLInputElement | HTMLSelectElement).value;
     const priv = (form.elements.namedItem('privacidad') as HTMLInputElement).checked;
-    if (!nombre || !tel || !serv || !priv) { form.reportValidity(); return; }
+    if (!nombre || !tel || !serv || !priv || !form.checkValidity()) { form.reportValidity(); return; }
     const hp = form.querySelector<HTMLInputElement>('[name="_honeypot"]');
     if (hp && hp.value) return;
     const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');

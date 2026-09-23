@@ -8,11 +8,10 @@ interface Props {
   eyebrow: string;
   h1: string;
   qualifier?: string;
-  precioDesde?: string | null;
   subtitle: string;
   lang?: 'es' | 'gl';
 }
-const { municipio, servicio, eyebrow, h1, qualifier, subtitle, precioDesde = null, lang = 'es' } = Astro.props;
+const { municipio, servicio, eyebrow, h1, qualifier, subtitle, lang = 'es' } = Astro.props;
 const waMsg = servicio
   ? WA_MESSAGES.combo(servicio, municipio)
   : WA_MESSAGES.municipio(municipio);
@@ -47,7 +46,7 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
         </a>
       </div>
     </div>
-    <HeroQuoteCard zona={municipio} servicio={servicio ?? ''} precioDesde={precioDesde ?? null} {lang} />
+    <HeroQuoteCard zona={municipio} servicio={servicio ?? ''} {lang} />
     </div>
   </div>
 </section>

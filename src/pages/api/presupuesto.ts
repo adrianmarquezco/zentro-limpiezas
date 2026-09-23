@@ -20,6 +20,8 @@ export const POST: APIRoute = async ({ request }) => {
   const servicio = esc(formData.get('servicio')?.toString().trim() ?? '');
   const zona     = esc(formData.get('zona')?.toString().trim()     ?? '');
   const mensaje  = esc(formData.get('mensaje')?.toString().trim()  ?? '');
+  const contacto = esc(formData.get('contacto_preferido')?.toString().trim() ?? '');
+  const urgencia = esc(formData.get('urgencia')?.toString().trim() ?? '');
 
   if (!nombre || !telefono || !servicio || !zona) {
     return new Response(JSON.stringify({ error: 'Campos requeridos incompletos' }), { status: 400 });
@@ -44,6 +46,8 @@ export const POST: APIRoute = async ({ request }) => {
         <tr><td style="padding: 8px 0; color: #666; font-size: 14px; border-bottom: 1px solid #eee;">Teléfono</td><td style="padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee;"><a href="tel:${telefono.replace(/\s/g, '')}">${telefono}</a></td></tr>
         ${email ? `<tr><td style="padding: 8px 0; color: #666; font-size: 14px; border-bottom: 1px solid #eee;">Email</td><td style="padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td></tr>` : ''}
         <tr><td style="padding: 8px 0; color: #666; font-size: 14px; border-bottom: 1px solid #eee;">Servicio</td><td style="padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee;">${servicio}</td></tr>
+        ${contacto ? `<tr><td style="padding: 8px 0; color: #666; font-size: 14px; border-bottom: 1px solid #eee;">Contacto preferido</td><td style="padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee;">${contacto}</td></tr>` : ''}
+        ${urgencia ? `<tr><td style="padding: 8px 0; color: #666; font-size: 14px; border-bottom: 1px solid #eee;">Urgencia</td><td style="padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee;">${urgencia}</td></tr>` : ''}
         <tr><td style="padding: 8px 0; color: #666; font-size: 14px; border-bottom: 1px solid #eee;">Zona</td><td style="padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eee;">${zona}</td></tr>
         ${mensaje ? `<tr><td style="padding: 8px 0; color: #666; font-size: 14px; vertical-align: top;">Mensaje</td><td style="padding: 8px 0; font-size: 14px;">${mensaje.replace(/\n/g, '<br>')}</td></tr>` : ''}
       </table>
