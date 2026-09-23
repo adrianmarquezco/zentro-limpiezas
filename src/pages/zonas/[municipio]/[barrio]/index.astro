@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import CTASection from '@/components/sections/CTASection.astro';
+import HeroQuoteCard from '@/components/sections/HeroQuoteCard.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
@@ -105,10 +106,10 @@ const schemaLocal = {
   <CTABar />
 
   <!-- Hero -->
-  <section class="bg-primary pb-16 lg:pb-24 pt-10 lg:pt-14 relative overflow-hidden">
+  <section class="bg-primary pb-20 lg:pb-16 pt-10 lg:pt-14 relative overflow-hidden">
     <div class="noise-overlay absolute inset-0 pointer-events-none" />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-[1fr_320px] gap-10 items-center">
+      <div class="grid lg:grid-cols-[minmax(0,1fr)_460px] gap-10 lg:gap-12 items-start">
         <div>
           <p class="inline-flex items-center gap-2 bg-accent/20 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
             <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
@@ -132,22 +133,7 @@ const schemaLocal = {
             </a>
           </div>
         </div>
-        <!-- CTA card -->
-        <div class="hidden lg:block bg-white/[0.07] border border-white/10 rounded-2xl p-6">
-          <h2 class="font-display text-xl text-white mb-1">Limpieza en {barrio.nombre}</h2>
-          <p class="text-white/50 text-xs mb-4">{municipio.nombre} · {municipio.comarca}</p>
-          {barrio.precioDesde && (
-            <p class="font-mono text-accent text-3xl font-bold mb-4">desde {barrio.precioDesde}</p>
-          )}
-          <div class="space-y-2 mb-5">
-            {['Productos ecológicos incluidos', 'Presupuesto en 24h', 'Mismo equipo siempre', 'Fines de semana disponible'].map(item => (
-              <div class="flex items-center gap-2 text-white/70 text-sm">
-                <span class="text-accent">✓</span> {item}
-              </div>
-            ))}
-          </div>
-          <a href="/presupuesto/" class="btn-accent w-full text-center text-sm block">→ Pedir presupuesto</a>
-        </div>
+        <HeroQuoteCard zona={`${barrio.nombre}, ${municipio.nombre}`} lang="es" />
       </div>
     </div>
   </section>
