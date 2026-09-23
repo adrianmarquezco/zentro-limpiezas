@@ -27,17 +27,17 @@ const disclaimer = isGL
   <table class="w-full text-sm">
     <thead>
       <tr class="bg-warm">
-        <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">{isGL ? 'Tipo' : 'Tipo'}</th>
-        <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">{isGL ? 'Tamaño' : 'Tamaño'}</th>
-        <th class="text-left px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide font-mono-data">{isGL ? 'Prezo' : 'Precio'}</th>
+        <th class="text-left px-3 sm:px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">{isGL ? 'Tipo' : 'Tipo'}</th>
+        <th class="text-left px-3 sm:px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide">{isGL ? 'Tamaño' : 'Tamaño'}</th>
+        <th class="text-left px-3 sm:px-5 py-2.5 font-semibold text-primary text-xs uppercase tracking-wide font-mono-data">{isGL ? 'Prezo' : 'Precio'}</th>
       </tr>
     </thead>
     <tbody>
       {rows.map((row, i) => (
         <tr class={i % 2 === 0 ? 'bg-white' : 'bg-warm/40'}>
-          <td class="px-5 py-3 text-charcoal">{row.tipo}</td>
-          <td class="px-5 py-3 text-mid">{row.tamano}</td>
-          <td class="px-5 py-3 font-mono-data font-bold text-primary">{row.precio}</td>
+          <td class="px-3 sm:px-5 py-3 text-charcoal">{row.tipo}</td>
+          <td class="px-3 sm:px-5 py-3 text-mid">{row.tamano}</td>
+          <td class="px-3 sm:px-5 py-3 font-mono-data font-bold text-primary">{row.precio}</td>
         </tr>
       ))}
     </tbody>

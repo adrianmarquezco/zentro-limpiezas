@@ -1,4 +1,8 @@
 ---
+// Se renderiza en el servidor: si se prerenderiza, Astro la pide a la URL pública y reenvía la cabecera Content-Encoding
+// del proxy con el cuerpo ya descomprimido, y los navegadores no pueden mostrarla.
+export const prerender = false;
+
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { BUSINESS } from '@/data/config';
 
