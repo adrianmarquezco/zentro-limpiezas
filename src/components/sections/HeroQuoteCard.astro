@@ -1,0 +1,117 @@
+---
+import { BUSINESS } from '@/data/config';
+
+interface Props {
+  zona?: string;
+  servicio?: string;
+  precioDesde?: string | null;
+  lang?: 'es' | 'gl';
+}
+const { zona = '', servicio = '', precioDesde = null, lang = 'es' } = Astro.props;
+const gl = lang === 'gl';
+
+const t = gl
+  ? {
+      title: 'Orzamento gratis en 24h',
+      sub: 'Sen compromiso. Respondémosche cun prezo pechado.',
+      from: 'Prezo orientativo desde',
+      name: 'O teu nome',
+      phone: 'Teléfono / WhatsApp',
+      what: 'Que precisas?',
+      submit: 'Pedir orzamento →',
+      sending: 'Enviando...',
+      privPre: 'Acepto a',
+      privLink: 'política de privacidade',
+      ok: 'Recibido. Contactámosche en menos de 24h.',
+      err: 'Houbo un erro. Chámanos ao',
+      trust: 'Produtos ecolóxicos Ecolabel incluídos',
+      privHref: '/legal/politica-privacidad/',
+      options: ['Limpeza de vivenda', 'Limpeza de oficina', 'Limpeza fin de obra', 'Limpeza periódica', 'Limpeza a fondo', 'Limpeza de cristais', 'Outro'],
+    }
+  : {
+      title: 'Presupuesto gratis en 24h',
+      sub: 'Sin compromiso. Te respondemos con un precio cerrado.',
+      from: 'Precio orientativo desde',
+      name: 'Tu nombre',
+      phone: 'Teléfono / WhatsApp',
+      what: '¿Qué necesitas?',
+      submit: 'Pedir presupuesto →',
+      sending: 'Enviando...',
+      privPre: 'Acepto la',
+      privLink: 'política de privacidad',
+      ok: 'Recibido. Te contactamos en menos de 24h.',
+      err: 'Ha habido un error. Llámanos al',
+      trust: 'Productos ecológicos Ecolabel incluidos',
+      privHref: '/legal/politica-privacidad/',
+      options: ['Limpieza de vivienda', 'Limpieza de oficina', 'Limpieza fin de obra', 'Limpieza periódica', 'Limpieza a fondo', 'Limpieza de cristales', 'Otro'],
+    };
+---
+
+<div class="hidden lg:block hero-quote-card relative z-10">
+  <div class="bg-white rounded-2xl p-6 shadow-2xl border border-white/10">
+    <p class="font-serif text-xl text-primary font-semibold leading-tight">{t.title}</p>
+    <p class="text-mid text-xs mt-1 mb-4">{t.sub}</p>
+    {precioDesde && (
+      <div class="mb-4 pb-4 border-b border-line">
+        <p class="text-[11px] text-mid uppercase tracking-widest mb-0.5">{t.from}</p>
+        <p class="font-display text-2xl font-bold text-primary">{precioDesde}</p>
+      </div>
+    )}
+    <form data-hero-quote action="/api/presupuesto" method="POST" class="space-y-2.5" novalidate>
+      <input type="hidden" name="zona" value={zona || 'Ferrolterra'} />
+      <input type="hidden" name="contacto_preferido" value="whatsapp" />
+      <input type="text" name="_honeypot" class="hidden" tabindex="-1" autocomplete="off" />
+      <input type="text" name="nombre" required placeholder={t.name} class="form-field text-sm py-2.5" autocomplete="name" aria-label={t.name} />
+      <input type="tel" name="telefono" required placeholder={t.phone} class="form-field text-sm py-2.5" autocomplete="tel" aria-label={t.phone} />
+      {servicio ? (
+        <input type="hidden" name="servicio" value={servicio} />
+      ) : (
+        <select name="servicio" required class="form-field text-sm py-2.5" aria-label={t.what}>
+          <option value="">{t.what}</option>
+          {t.options.map(o => <option value={o}>{o}</option>)}
+        </select>
+      )}
+      <div class="flex items-start gap-2 pt-1">
+        <input type="checkbox" name="privacidad" required class="mt-0.5 accent-accent shrink-0" aria-label={`${t.privPre} ${t.privLink}`} />
+        <span class="text-[11px] text-mid leading-tight">{t.privPre} <a href={t.privHref} class="text-accent hover:underline">{t.privLink}</a></span>
+      </div>
+      <button type="submit" class="btn-accent w-full py-3 text-sm font-semibold" data-sending={t.sending} data-label={t.submit}>{t.submit}</button>
+    </form>
+    <p data-hero-quote-ok class="hidden mt-3 p-3 bg-accent/10 border border-accent/30 rounded-lg text-accent text-xs text-center">{t.ok}</p>
+    <p data-hero-quote-err class="hidden mt-3 text-xs text-center text-red-600">{t.err} <a href={BUSINESS.phoneHref} class="underline">{BUSINESS.phoneDisplay}</a></p>
+    <p class="mt-3 text-[11px] text-mid flex items-center justify-center gap-1.5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600 shrink-0"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      {t.trust}
+    </p>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll<HTMLFormElement>('form[data-hero-quote]').forEach((form) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const card = form.closest('.hero-quote-card');
+    const ok = card?.querySelector('[data-hero-quote-ok]');
+    const err = card?.querySelector('[data-hero-quote-err]');
+    err?.classList.add('hidden');
+    const nombre = (form.elements.namedItem('nombre') as HTMLInputElement).value.trim();
+    const tel = (form.elements.namedItem('telefono') as HTMLInputElement).value.trim();
+    const serv = (form.elements.namedItem('servicio') as HTMLInputElement | HTMLSelectElement).value;
+    const priv = (form.elements.namedItem('privacidad') as HTMLInputElement).checked;
+    if (!nombre || !tel || !serv || !priv) { form.reportValidity(); return; }
+    const hp = form.querySelector<HTMLInputElement>('[name="_honeypot"]');
+    if (hp && hp.value) return;
+    const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = btn.dataset.sending ?? '...'; }
+    try {
+      const res = await fetch('/api/presupuesto', { method: 'POST', body: new FormData(form) });
+      if (!res.ok) throw new Error();
+      form.classList.add('hidden');
+      ok?.classList.remove('hidden');
+    } catch {
+      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label ?? ''; }
+      err?.classList.remove('hidden');
+    }
+  });
+});
+</script>

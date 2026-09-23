@@ -1,4 +1,5 @@
 ---
+import HeroQuoteCard from '@/components/sections/HeroQuoteCard.astro';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 interface Props {
@@ -7,10 +8,11 @@ interface Props {
   eyebrow: string;
   h1: string;
   qualifier?: string;
+  precioDesde?: string | null;
   subtitle: string;
   lang?: 'es' | 'gl';
 }
-const { municipio, servicio, eyebrow, h1, qualifier, subtitle, lang = 'es' } = Astro.props;
+const { municipio, servicio, eyebrow, h1, qualifier, subtitle, precioDesde = null, lang = 'es' } = Astro.props;
 const waMsg = servicio
   ? WA_MESSAGES.combo(servicio, municipio)
   : WA_MESSAGES.municipio(municipio);
@@ -23,6 +25,7 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
   <div aria-hidden="true" class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(0,196,140,0.13) 0%, transparent 65%); filter: blur(48px);"></div>
   <div aria-hidden="true" class="absolute -bottom-20 -left-20 w-[360px] h-[360px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(59,130,246,0.09) 0%, transparent 65%); filter: blur(48px);"></div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[minmax(0,1fr)_400px] gap-10 lg:gap-14 items-center">
     <div class="max-w-3xl">
       <span class="hero-eyebrow inline-block bg-accent/10 text-accent border border-accent/30 rounded-full px-4 py-1 text-sm font-medium mb-6">
         {eyebrow}
@@ -43,6 +46,8 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
           {lang === 'gl' ? 'Pedir orzamento' : 'Pedir presupuesto'}
         </a>
       </div>
+    </div>
+    <HeroQuoteCard zona={municipio} servicio={servicio ?? ''} precioDesde={precioDesde ?? null} {lang} />
     </div>
   </div>
 </section>
