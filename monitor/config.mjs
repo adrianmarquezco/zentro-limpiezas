@@ -58,9 +58,17 @@ export const REDIRECTS = [
   { from: 'http://www.zentrolimpiezas.es/', to: 'https://zentrolimpiezas.es/' },
 ];
 
-// URLs antiguas que deben redirigir (ninguna por ahora)
+// URLs antiguas que deben redirigir
 export const OLD_URLS = [
-  // { from: '/ruta-antigua/', to: '/ruta-nueva/' },
+  // Servicio de limpieza de tapicerías descatalogado (estaba indexado): 301 a la home
+  { from: '/servicios/limpieza-de-tapicerias/', to: '/' },
+  { from: '/servicios/limpieza-de-tapicerias/ferrol/', to: '/' },
+  { from: '/servicios/limpieza-de-tapicerias/a-coruna/', to: '/' },
+  { from: '/servicios/limpieza-de-tapicerias/naron/', to: '/' },
+  { from: '/gl/servizos/limpeza-de-tapizarias/', to: '/gl/' },
+  { from: '/gl/servizos/limpeza-de-tapizarias/ferrol/', to: '/gl/' },
+  { from: '/gl/servizos/limpeza-de-tapizarias/a-coruna/', to: '/gl/' },
+  { from: '/gl/servizos/limpeza-de-tapizarias/naron/', to: '/gl/' },
 ];
 
 // Páginas para el navegador real (una de cada tipo de plantilla)

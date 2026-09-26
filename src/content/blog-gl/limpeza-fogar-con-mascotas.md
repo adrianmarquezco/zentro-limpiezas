@@ -90,7 +90,7 @@ Os cuncos de auga e comida son un foco de bacterias que moitos propietarios sube
 
 Traballamos con normalidade en fogares con cans e gatos en toda Ferrolterra, adaptando frecuencia e produtos a cada caso:
 
-- **En Ferrol**: pisos de bloque en Caranza, Recimil ou Inferniño con moqueta ou tapizaría onde o pelo se acumula rápido. [Ver limpeza periódica en Ferrol](/gl/servizos/limpeza-periodica/ferrol/) · [Limpeza de tapizarías](/gl/servizos/limpeza-de-tapizarias/ferrol/)
+- **En Ferrol**: pisos de bloque en Caranza, Recimil ou Inferniño con moqueta ou tapizaría onde o pelo se acumula rápido. [Ver limpeza periódica en Ferrol](/gl/servizos/limpeza-periodica/ferrol/)
 - **En Narón**: chalés e vivendas con xardín en zonas como Alto del Castaño, onde as mascotas entran e saen máis e ensucian os chans con máis frecuencia. [Ver limpeza periódica en Narón](/gl/servizos/limpeza-periodica/naron/)
 - **En Valdoviño**: casas de tempada con xardín preto da costa, ideais para mascotas pero con máis pelo e area que xestionar en cada limpeza de apertura. [Ver limpeza a fondo en Valdoviño](/gl/servizos/limpeza-a-fondo/valdovino/)
 

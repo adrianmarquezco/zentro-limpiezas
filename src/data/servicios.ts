@@ -247,17 +247,6 @@ export const SERVICIOS: Servicio[] = [
     municipiosCombo: ['ferrol', 'a-coruna', 'naron'],
   },
   {
-    slug: 'limpieza-de-tapicerias',
-    slugGL: 'limpeza-de-tapizarias',
-    nombre: 'Limpieza de tapicerías',
-    nombreGL: 'Limpeza de tapizarías',
-    icono: 'sofa',
-    precioDesde: null,
-    descripcionCorta: 'Limpieza y desinfección de sofás, sillas, colchones y tapicería de vehículos.',
-    tier: 3,
-    municipiosCombo: ['ferrol', 'a-coruna', 'naron'],
-  },
-  {
     slug: 'limpieza-de-trasteros',
     slugGL: 'limpeza-de-trasteiros',
     nombre: 'Limpieza de trasteros',
