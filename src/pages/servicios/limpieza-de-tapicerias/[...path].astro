@@ -1,0 +1,6 @@
+---
+// Servicio de limpieza de tapicerías descatalogado. Redirección 301 permanente a la home:
+// la URL estaba indexada y no debe devolver 404.
+export const prerender = false;
+return Astro.redirect('/', 301);
+---
