@@ -1,84 +1,50 @@
-# Zentro Limpiezas — Limpieza profesional en Ferrolterra y A Coruña, Galicia
+# Zentro Limpiezas
 
-## Quiénes somos
+> Empresa de limpieza profesional con más de 20 años de experiencia en Ferrolterra (A Coruña, Galicia). Equipo propio sin subcontrataciones, productos Ecolabel certificados incluidos en el precio, presupuesto cerrado en 24 horas sin visita previa.
 
-Zentro Limpiezas ofrece servicios de limpieza profesional con más de 20 años de experiencia en Ferrolterra (A Coruña, Galicia). Trabajamos con equipo propio, sin subcontrataciones. Todos los servicios incluyen productos Ecolabel con certificación europea. Presupuesto cerrado en 24 horas sin visita previa.
+Zentro Limpiezas ofrece servicios de limpieza profesional en Ferrolterra y el Área Metropolitana de A Coruña. Trabaja siempre con el mismo equipo en cada visita, sin subcontrataciones. Todos los servicios incluyen productos con certificación Ecolabel europea, sin coste adicional. El sitio tiene contenido en español y gallego bajo el prefijo `/gl/`, con páginas equivalentes enlazadas por hreflang.
+
+## Páginas principales
+
+- [Inicio](https://zentrolimpiezas.es/): presentación general de Zentro Limpiezas
+- [Servicios](https://zentrolimpiezas.es/servicios/): listado completo de servicios de limpieza
+- [Zonas](https://zentrolimpiezas.es/zonas/): municipios y barrios donde se presta servicio
+- [Presupuesto](https://zentrolimpiezas.es/presupuesto/): formulario para pedir presupuesto gratuito
+- [Precios](https://zentrolimpiezas.es/precios/): precios orientativos por tipo de servicio
+- [Blog](https://zentrolimpiezas.es/blog/): guías y artículos sobre limpieza del hogar
+- [Sobre nosotros](https://zentrolimpiezas.es/sobre-nosotros/): quiénes somos y cómo trabajamos
 
 ## Servicios
 
-### Limpieza doméstica
-- Limpieza de viviendas — servicio general de limpieza para pisos, chalés y casas
-- Limpieza de pisos — especializado en pisos de bloque, terrazo y cal acumulada
-- Limpieza periódica — servicio regular semanal, quincenal o mensual
-- Limpieza a fondo — gran limpieza profunda, zonas que no se alcanzan con la periódica
-- Limpieza de mudanzas — al entregar o recibir un inmueble (salida y entrada)
+- [Limpieza de viviendas](https://zentrolimpiezas.es/servicios/limpieza-de-viviendas/): servicio general para pisos, chalés y casas
+- [Limpieza de pisos](https://zentrolimpiezas.es/servicios/limpieza-de-pisos/): especializado en pisos de bloque, terrazo y cal acumulada
+- [Limpieza periódica](https://zentrolimpiezas.es/servicios/limpieza-periodica/): servicio regular semanal, quincenal o mensual
+- [Limpieza a fondo](https://zentrolimpiezas.es/servicios/limpieza-a-fondo/): gran limpieza profunda en zonas que no alcanza la periódica
+- [Limpieza de mudanzas](https://zentrolimpiezas.es/servicios/limpieza-de-mudanzas/): al entregar o recibir un inmueble
+- [Limpieza de cristales](https://zentrolimpiezas.es/servicios/limpieza-de-cristales/): quitacal con pH controlado y pértiga telescópica, sin rayas
+- [Limpieza de apartamentos turísticos](https://zentrolimpiezas.es/servicios/limpieza-de-apartamentos-turisticos/): protocolo de rotación para Airbnb y alquileres vacacionales
+- [Limpieza fin de obra](https://zentrolimpiezas.es/servicios/limpieza-fin-de-obra/): retirada de polvo de obra, pintura y silicona
+- [Desinfección profesional](https://zentrolimpiezas.es/servicios/desinfeccion-profesional/): desinfección con biocidas certificados
+- [Limpieza de locales comerciales](https://zentrolimpiezas.es/servicios/limpieza-de-locales-comerciales/): escaparates, zonas de atención al público, almacenes
+- [Limpieza de oficinas](https://zentrolimpiezas.es/servicios/limpieza-de-oficinas/): espacios de trabajo, mesas, baños y zonas comunes
+- [Limpieza de comunidades de vecinos](https://zentrolimpiezas.es/servicios/limpieza-de-comunidades/): portales, escaleras, ascensores y zonas comunes
+- [Limpieza de garajes](https://zentrolimpiezas.es/servicios/limpieza-de-garajes/): manchas de aceite, polvo industrial, puertas y accesos
+- [Limpieza de trasteros](https://zentrolimpiezas.es/servicios/limpieza-de-trasteros/): acumulación de polvo sedimentado, humedad y moho
+- [Limpieza de pazos y espacios de eventos](https://zentrolimpiezas.es/servicios/limpieza-de-pazos-y-eventos/): espacios singulares en Galicia
 
-### Limpieza especializada
-- Limpieza de cristales — quitacal con pH controlado, pértiga telescópica, sin rayas
-- Limpieza de apartamentos turísticos — protocolo de rotación para Airbnb y alquileres vacacionales
-- Limpieza fin de obra — retirada de polvo de obra, manchas de pintura y silicona
-- Desinfección profesional — desinfección de viviendas y locales con productos biocidas certificados
+Estructura general de páginas por servicio: `https://zentrolimpiezas.es/servicios/[servicio]/`, `.../[servicio]/[municipio]/` y `.../[servicio]/[municipio]/[barrio]/` para contenido local detallado. Servicios con páginas de barrio: limpieza-periodica, limpieza-de-viviendas, limpieza-de-pisos, limpieza-a-fondo, limpieza-de-apartamentos-turisticos, limpieza-de-cristales, limpieza-de-locales-comerciales, limpieza-de-garajes, limpieza-de-mudanzas, limpieza-de-trasteros.
 
-### Espacios no domésticos
-- Limpieza de locales comerciales — escaparates, zonas de atención al público, almacenes
-- Limpieza de oficinas — espacios de trabajo, mesas, baños y zonas comunes
-- Limpieza de comunidades de vecinos — portales, escaleras, ascensores y zonas comunes
-- Limpieza de garajes — manchas de aceite, polvo industrial, puertas y accesos
-- Limpieza de trasteros — acumulación de polvo sedimentado, humedad y moho
-- Limpieza de pazos y espacios de eventos — espacios singulares en Galicia
+## Zonas
 
-## Zona de cobertura
+- [Zona: Ferrolterra](https://zentrolimpiezas.es/zonas/ferrol/): Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, San Sadurniño, Cabanas, Cedeira, Ortigueira (zona principal de servicio)
+- [Zona: Área Metropolitana de A Coruña](https://zentrolimpiezas.es/zonas/a-coruna/): A Coruña, Culleredo, Arteixo, Cambre, Oleiros, Betanzos, Carral
 
-### Ferrolterra (zona principal)
-Ferrol, Narón, Neda, Fene, Mugardos, Valdoviño, Ares, San Sadurniño, Cabanas, Cedeira, Ortigueira
+Estructura general de páginas de zona: `https://zentrolimpiezas.es/zonas/[municipio]/` y `.../zonas/[municipio]/[barrio]/`.
 
-### Área Metropolitana de A Coruña
-A Coruña, Culleredo, Arteixo, Cambre, Oleiros, Betanzos, Carral
+## Gallego (GL)
 
-## Datos de contacto
-
-- Teléfono: 616 054 001
-- WhatsApp: 616 054 001
-- Web: https://zentrolimpiezas.es
-- Presupuesto online: https://zentrolimpiezas.es/presupuesto/
-
-## Estructura del sitio web
-
-El sitio tiene contenido en dos idiomas: español (ES) y gallego (GL).
-
-### Español (ES)
-
-Páginas principales:
-- https://zentrolimpiezas.es/
-- https://zentrolimpiezas.es/servicios/
-- https://zentrolimpiezas.es/zonas/
-- https://zentrolimpiezas.es/presupuesto/
-- https://zentrolimpiezas.es/precios/
-- https://zentrolimpiezas.es/blog/
-- https://zentrolimpiezas.es/sobre-nosotros/
-
-Páginas por servicio:
-- https://zentrolimpiezas.es/servicios/[servicio]/
-
-Páginas servicio × municipio:
-- https://zentrolimpiezas.es/servicios/[servicio]/[municipio]/
-
-Páginas servicio × municipio × barrio (long tail local):
-- https://zentrolimpiezas.es/servicios/[servicio]/[municipio]/[barrio]/
-- Servicios con páginas de barrio en ES: limpieza-periodica, limpieza-de-viviendas, limpieza-de-pisos, limpieza-a-fondo, limpieza-de-apartamentos-turisticos, limpieza-de-cristales, limpieza-de-locales-comerciales, limpieza-de-garajes, limpieza-de-mudanzas, limpieza-de-trasteros
-
-Páginas de zona:
-- https://zentrolimpiezas.es/zonas/[municipio]/
-- https://zentrolimpiezas.es/zonas/[municipio]/[barrio]/
-
-### Gallego (GL)
-
-Misma estructura bajo el prefijo /gl/:
-- https://zentrolimpiezas.es/gl/
-- https://zentrolimpiezas.es/gl/servizos/[servizo]/
-- https://zentrolimpiezas.es/gl/servizos/[servizo]/[municipio]/
-- https://zentrolimpiezas.es/gl/servizos/[servizo]/[municipio]/[barrio]/
-- Servicios con páginas de barrio en GL: limpeza-a-fondo, limpeza-periodica, limpeza-de-vivendas, limpeza-de-pisos, limpeza-de-apartamentos, limpeza-de-cristais, limpeza-de-locais, limpeza-de-garaxes, limpeza-de-mudanzas, limpeza-de-trasteiros
+- [Inicio en gallego](https://zentrolimpiezas.es/gl/): versión en gallego del sitio, misma estructura bajo el prefijo `/gl/`
+- [Servizos](https://zentrolimpiezas.es/gl/servizos/): listado de servizos en gallego
 
 Las páginas ES y GL son versiones lingüísticas equivalentes con hreflang bidireccional (es / gl / x-default).
 
@@ -90,3 +56,9 @@ Las páginas ES y GL son versiones lingüísticas equivalentes con hreflang bidi
 - Presupuesto cerrado en menos de 24 horas sin visita previa obligatoria
 - Sin costes ocultos ni letra pequeña — el precio acordado es el precio final
 - Garantía de revisión: si algo no está bien al terminar, volvemos sin coste adicional
+
+## Contacto
+
+- Teléfono / WhatsApp: 616 054 001
+- Web: https://zentrolimpiezas.es
+- Presupuesto online: [https://zentrolimpiezas.es/presupuesto/](https://zentrolimpiezas.es/presupuesto/)
