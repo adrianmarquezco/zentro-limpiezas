@@ -153,10 +153,12 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   }
   </script>
 
-  <!-- Exit intent — solo desktop, solo 1 vez por sesión -->
+  <!-- Exit intent — solo desktop, solo 1 vez por sesión. Se arma tras la carga y con matchMedia
+       (no window.innerWidth) para no forzar un recálculo de layout durante el renderizado inicial. -->
   <script is:inline>
+  window.addEventListener('load', function() {
   (function() {
-    if (window.innerWidth < 768 || sessionStorage.getItem('ei')) return;
+    if (window.matchMedia('(max-width: 767px)').matches || sessionStorage.getItem('ei')) return;
     var gl = document.documentElement.lang === 'gl';
     document.addEventListener('mouseleave', function handler(e) {
       if (e.clientY > 0) return;
@@ -181,6 +183,7 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
       requestAnimationFrame(function(){ d.style.opacity='1'; });
     });
   })();
+  });
   </script>
 </body>
 </html>
