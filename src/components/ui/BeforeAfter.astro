@@ -25,6 +25,7 @@ const beforeFrac = initialPos / 100;
 const BEFORE_SIZES = `(min-width: 1024px) ${Math.round(960 * beforeFrac)}px, calc((100vw - 32px) * ${beforeFrac})`;
 const smallSrcOf = (src: string) => src.replace(/\.webp$/, '-sm.webp');
 const xsSrcOf = (src: string) => src.replace(/\.webp$/, '-xs.webp');
+const mdSrcOf = (src: string) => src.replace(/\.webp$/, '-md.webp');
 ---
 
 <div
@@ -37,7 +38,7 @@ const xsSrcOf = (src: string) => src.replace(/\.webp$/, '-xs.webp');
   <!-- AFTER — full background -->
   <img
     src={afterSrc}
-    srcset={`${smallSrcOf(afterSrc)} 800w, ${afterSrc} 1000w`}
+    srcset={`${mdSrcOf(afterSrc)} 620w, ${smallSrcOf(afterSrc)} 800w, ${afterSrc} 1000w`}
     sizes={AFTER_SIZES}
     alt={afterAlt}
     class="absolute inset-0 w-full h-full object-cover"
