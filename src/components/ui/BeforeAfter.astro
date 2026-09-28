@@ -16,10 +16,15 @@ const {
 
 const uid = `ba-${Math.random().toString(36).slice(2, 8)}`;
 
-// La imagen se muestra a pantalla completa del contenedor (hasta 960px en escritorio, ancho de
+// La imagen "después" ocupa todo el ancho del contenedor (hasta 960px en escritorio, ancho de
 // pantalla menos el margen en móvil): se sirve una copia más ligera en pantallas pequeñas.
-const SIZES = '(min-width: 1024px) 960px, calc(100vw - 32px)';
+const AFTER_SIZES = '(min-width: 1024px) 960px, calc(100vw - 32px)';
+// La imagen "antes" arranca recortada a initialPos% del ancho (el resto se revela al arrastrar):
+// su copia más pequeña se calcula sobre ese ancho real, no sobre el contenedor completo.
+const beforeFrac = initialPos / 100;
+const BEFORE_SIZES = `(min-width: 1024px) ${Math.round(960 * beforeFrac)}px, calc((100vw - 32px) * ${beforeFrac})`;
 const smallSrcOf = (src: string) => src.replace(/\.webp$/, '-sm.webp');
+const xsSrcOf = (src: string) => src.replace(/\.webp$/, '-xs.webp');
 ---
 
 <div
@@ -33,7 +38,7 @@ const smallSrcOf = (src: string) => src.replace(/\.webp$/, '-sm.webp');
   <img
     src={afterSrc}
     srcset={`${smallSrcOf(afterSrc)} 800w, ${afterSrc} 1000w`}
-    sizes={SIZES}
+    sizes={AFTER_SIZES}
     alt={afterAlt}
     class="absolute inset-0 w-full h-full object-cover"
     loading="eager"
@@ -45,8 +50,8 @@ const smallSrcOf = (src: string) => src.replace(/\.webp$/, '-sm.webp');
   <div class="ba-clip absolute inset-0 overflow-hidden" style={`width: ${initialPos}%`}>
     <img
       src={beforeSrc}
-      srcset={`${smallSrcOf(beforeSrc)} 800w, ${beforeSrc} 1000w`}
-      sizes={SIZES}
+      srcset={`${xsSrcOf(beforeSrc)} 420w, ${smallSrcOf(beforeSrc)} 800w, ${beforeSrc} 1000w`}
+      sizes={BEFORE_SIZES}
       alt={beforeAlt}
       class="absolute inset-0 w-full h-full object-cover"
       loading="eager"
