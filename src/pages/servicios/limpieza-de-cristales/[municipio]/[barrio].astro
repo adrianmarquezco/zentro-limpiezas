@@ -33,7 +33,8 @@ const { servicio, municipio, barrio, contenido } = Astro.props;
 const canonical = `${BUSINESS.url}/servicios/limpieza-de-cristales/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
 const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
-const ogImage = `${BUSINESS.url}/images/hero-cristales.webp`;
+const heroImage = `/images/hero-cristales-${barrio.archetype}.webp`;
+const ogImage = `${BUSINESS.url}${heroImage}`;
 
 const nombreCompleto = barrio.nombreEs ? `${barrio.nombre} (${barrio.nombreEs})` : barrio.nombre;
 const title = `Limpieza de Cristales en ${nombreCompleto}, ${municipio.nombre} | Zentro Limpiezas`;
@@ -133,7 +134,7 @@ const h1 = `Limpieza de cristales en ${nombreCompleto}`;
           <!-- Imagen -->
           <figure data-reveal class="rounded-xl overflow-hidden border border-line">
             <img
-              src="/images/hero-cristales.webp"
+              src={heroImage}
               alt={`Limpieza de cristales en ${barrio.nombre}, ${municipio.nombre} — Zentro Limpiezas`}
               width="800"
               height="450"
