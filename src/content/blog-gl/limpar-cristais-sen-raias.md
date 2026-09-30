@@ -21,6 +21,8 @@ Limpar cristais parece sinxelo pero o resultado adoita ser frustrante: raias, ve
 
 ## O erro máis común: papel de cociña ou xornal
 
+O erro máis común ao limpar cristais é usar papel de cociña, xornal ou trapos correntes: deixan pelusa e fibras que se ven a contraluz. A microfibra de calidade ou a rasqueta de goma evitan ese problema.
+
 O papel de cociña, o xornal e os trapos de tea correntes deixan pelusa ou fibras sobre o cristal. Mesmo se non se ven a simple vista, a contraluz aparecen claramente. O material correcto é a **microfibra de calidade** ou a **rasqueta de goma** (limpacristais).
 
 ## Os dous sistemas profesionais
@@ -56,6 +58,8 @@ Para espellos, ventás pequenas e cristais interiores:
 
 ## Por que saen raias nos cristais
 
+As raias nos cristais saen por ferramentas sucias, exceso de produto, limpar co cristal quente ao sol, ou usar papel en vez de microfibra ou rasqueta de goma.
+
 | Causa | Solución |
 |-------|---------|
 | Suciidade na rasqueta ou no pano | Revisa e limpa as ferramentas antes de empezar |
@@ -88,6 +92,8 @@ Para unha mampara con sarro moi acumulado:
 5. Secar con rasqueta
 
 ## Altura: cando chamar aos profesionais
+
+Convén chamar a profesionais para limpar cristais en plantas altas ou de difícil acceso, xa que requiren pértegas telescópicas, plataformas elevadoras ou arnés — non se debe intentar limpar en situacións de risco.
 
 Os cristais en plantas altas ou de difícil acceso requiren maquinaria e formación específica. Non intentes limpar cristais en situacións de risco.
 

@@ -12,6 +12,8 @@ A limpeza ecolóxica deixou de ser unha opción de nicho para converterse na ele
 
 ## Que significa realmente "ecolóxico" en limpeza
 
+Un produto de limpeza é realmente ecolóxico cando os seus ingredientes son biodegradables, ten baixo impacto en ecosistemas acuáticos e non contén substancias de moi alta preocupación.
+
 Un produto de limpeza xenuinamente ecolóxico cumpre tres criterios:
 
 1. **Ingredientes biodegradables**: descompóñense no medio ambiente sen deixar residuos tóxicos

@@ -21,6 +21,8 @@ A limpeza dun espazo de traballo non é só unha cuestión estética. Un contorn
 
 ## Por que a limpeza de oficinas é diferente
 
+Limpar unha oficina é distinto dunha vivenda polo horario condicionado á actividade laboral, o maior volume de persoas por metro cadrado e o equipamento informático, que require produtos específicos.
+
 Limpar unha oficina ten particularidades que a distinguen da limpeza doméstica:
 
 **Horario condicionado**: a limpeza non pode interromper a actividade laboral. Hai que traballar antes de que cheguen os empregados, despois de que se vaian, ou durante as horas de menor actividade.
@@ -67,6 +69,8 @@ Limpar unha oficina ten particularidades que a distinguen da limpeza doméstica:
 - Zonas de difícil acceso (parte alta de armarios, reixas de ventilación)
 
 ## O custo real de facelo internamente
+
+Para unha oficina de 5-20 persoas, a limpeza profesional externa adoita custar menos ca o tempo que un empregado dedicaría a facelo, e con mellor resultado.
 
 Moitas empresas pequenas asignan a limpeza a algún empregado como tarefa adicional. Isto ten custos ocultos importantes:
 

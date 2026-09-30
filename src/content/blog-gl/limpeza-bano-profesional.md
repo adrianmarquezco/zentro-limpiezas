@@ -28,6 +28,8 @@ Non é un problema de hixiene nin de calidade da auga: é física. A solución n
 
 ## A orde correcta para limpar o baño
 
+A orde correcta para limpar o baño é sempre de arriba a abaixo e de dentro a fóra: ventilar primeiro, logo espello e azulexos, lavabo, mampara, inodoro e o chan ao final.
+
 O erro máis común é empezar polo chan. Un profesional limpa sempre de arriba a abaixo e de dentro a fóra:
 
 1. **Ventilar**: abrir a ventá ou acender a extracción

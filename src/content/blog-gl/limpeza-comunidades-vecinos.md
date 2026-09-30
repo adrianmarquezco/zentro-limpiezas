@@ -67,6 +67,8 @@ Dividido entre todos os veciños, o custo mensual por vivenda adoita ser inferio
 
 ## Como se contrata: administrador ou comunidade directa
 
+O servizo de limpeza de comunidades contrátase a través do administrador de fincas, dentro dos gastos comúns, ou directamente pola xunta de propietarios.
+
 Hai dúas vías para contratar o servizo:
 
 **A través do administrador de fincas**: o máis habitual. O administrador xestiona o contrato, supervisa o servizo e inclúeo na xestión xeral da comunidade.

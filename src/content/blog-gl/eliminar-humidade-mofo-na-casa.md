@@ -34,6 +34,8 @@ O mofo nas paredes do baño, na silicona da ducha ou no marco dunha fiestra é u
 
 ## Por que aparece o mofo nas casas de Ferrolterra
 
+O mofo aparece pola combinación de humidade, pouca ventilación e unha superficie onde agarrarse. En Ferrolterra, o clima atlántico e o parque de vivenda antiga fan que estas tres condicións se dean con moita facilidade.
+
 O mofo necesita tres cousas para aparecer: humidade, pouca ventilación e unha superficie onde agarrarse (azulexo, silicona, pintura, madeira). Na comarca, as tres danse con facilidade:
 
 - **Clima atlántico**: choiva frecuente e humidade relativa alta durante boa parte do ano, mesmo en días sen choiva.
@@ -43,11 +45,15 @@ O mofo necesita tres cousas para aparecer: humidade, pouca ventilación e unha s
 
 ## Limpar o mofo non sempre resolve o problema
 
+Limpar o mofo elimina as esporas visibles, pero non a causa: se a humidade ou a falta de ventilación que o provocan non se corrixen, adoita reaparecer semanas despois.
+
 Isto é importante e preferimos ser claros desde o principio: **limpar o mofo elimina o que se ve, non necesariamente a causa**. Se o mofo aparece por condensación nunha fiestra sen apenas ventilación, ou por unha filtración que non se reparou, é moi probable que volva saír semanas despois da limpeza por ben que se fixese.
 
 O que si podemos garantir é un resultado impecable na limpeza e orientarte, segundo o que vexamos na visita, sobre se o problema parece puntual (límpase e con ventilar máis a miúdo non volve) ou se convén revisar algo máis de fondo (ventilación, humidade estrutural, unha filtración) que xa non é limpeza senón unha intervención distinta.
 
 ## Como eliminamos o mofo de forma profesional
+
+Eliminamos o mofo con ventilación previa, produto específico segundo a superficie, cepillado suave e secado completo, evitando dispersar esporas ao aire ou danar o material.
 
 O proceso varía segundo a superficie, pero segue sempre o mesmo criterio: eliminar o mofo sen dispersar esporas polo aire e sen danar o material.
 
@@ -82,6 +88,8 @@ Se o teu concello non aparece nesta lista, escríbenos igualmente: cubrimos toda
 
 ## Limpeza a fondo ou desinfección profesional: cal precisas
 
+Para mofo puntual e visible abonda unha limpeza a fondo. Para mofo moi extendido, vivendas pechadas moito tempo ou tras unha filtración, recoméndase desinfección profesional con biocidas certificados.
+
 Non todos os casos de mofo son iguais, e non sempre fai falta o mesmo:
 
 - **Limpeza a fondo**: é o axeitado para mofo puntual e visible —silicona do baño, marco dunha fiestra, un currunchiño de armario—. Elimina o mofo existente e deixa a superficie lista.
@@ -90,6 +98,8 @@ Non todos os casos de mofo son iguais, e non sempre fai falta o mesmo:
 Se non tes claro cal che fai falta, cóntanos a situación por WhatsApp cunha foto e orientámoste antes de dar orzamento.
 
 ## Como previr que volva saír mofo
+
+Para previr o mofo hai que ventilar a diario, secar a humidade tras a ducha, revisar xuntas e silicona con regularidade e airear as casas de tempada aínda que estean pechadas.
 
 - **Ventila a diario**, aínda que sexa 10-15 minutos, especialmente en baño e cociña despois de ducharte ou cociñar
 - **Seca a mampara e os azulexos** do baño despois de cada uso se podes; reduce moito a humidade acumulada

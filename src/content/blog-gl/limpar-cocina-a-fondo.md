@@ -55,6 +55,8 @@ O corpo exterior da campana: aplica desengrasante ou xabón de Castela concentra
 
 ## Forno: a zona máis difícil
 
+O forno límpase a fondo cunha pasta de bicarbonato e auga aplicada en toda a superficie interior, deixada actuar toda a noite e retirada ao día seguinte con espátula de silicona.
+
 **Método de bicarbonato (para suciidade de nivel medio a alto):**
 1. Mestura bicarbonato con auga ata obter unha pasta espesa
 2. Cobre todas as superficies interiores do forno evitando os elementos calefactores

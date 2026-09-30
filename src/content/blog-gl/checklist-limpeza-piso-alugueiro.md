@@ -21,6 +21,8 @@ Chega o momento de abandonar un piso de alugueiro e con el, a presión de deixar
 
 ## Que obriga legal teño como inquilino?
 
+Como inquilino debes devolver o piso nas mesmas condicións en que o recibiches, salvo o desgaste normal polo uso, segundo o artigo 1563 do Código Civil e a LAU.
+
 O artigo 1563 do Código Civil establece que o arrendatario debe devolver a finca ao concluír o arrendamento tal como a recibiu. A LAU complementa esta obriga.
 
 Na práctica, o propietario ten dereito a reter a fianza se o piso non se entrega en condicións. E se o custo dos danos supera a fianza, pode reclamar xudicialmente a diferenza.
@@ -86,6 +88,8 @@ A resposta depende do que diga o contrato e o inventario inicial. Se no inventar
 
 ## Canto tempo necesito para limpar o piso?
 
+Limpar un piso de alugueiro só leva entre 4-6 horas se é dun dormitorio e ata 8-12 horas se ten 2-3 dormitorios, máis se a cociña ou os baños están moi sucios.
+
 - **Piso de 1 dormitorio**: 4-6 horas con todo en orde previo
 - **Piso de 2-3 dormitorios**: 8-12 horas
 - **Piso con cociña ou baños moi sucios**: pode duplicar o tempo
@@ -93,6 +97,8 @@ A resposta depende do que diga o contrato e o inventario inicial. Se no inventar
 É moito tempo, especialmente cando tamén estás organizando unha mudanza. Por iso moitos inquilinos optan por contratar unha limpeza profesional.
 
 ## Vale a pena contratar unha limpeza profesional?
+
+Case sempre si: unha limpeza profesional custa entre 80 e 200 €, un importe normalmente inferior á parte de fianza que un propietario pode reter por falta de limpeza.
 
 Desde o punto de vista económico, a resposta case sempre é si:
 

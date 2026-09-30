@@ -32,6 +32,8 @@ O prezo dunha limpeza profesional é a pregunta que máis recibimos. É lóxico:
 
 ## Factores que determinan o prezo
 
+Non hai un prezo único porque o custo depende do tamaño do espazo, o seu estado previo, o tipo de servizo, a frecuencia e a accesibilidade da vivenda.
+
 Non existe un prezo único para a limpeza dun piso porque cada traballo é diferente. Os factores principais son:
 
 - **Tamaño do espazo**: mesurado en m² ou en número de estancias

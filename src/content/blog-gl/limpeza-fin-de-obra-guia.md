@@ -30,6 +30,8 @@ O po de escaiola e cemento é moi fino e penetra en absolutamente todo. Necesít
 
 ## Cando contratar profesionais
 
+O momento axeitado é cando todos os gremios remataron e, a ser posible, antes de instalar os mobles, deixando 24-48h para que o po en suspensión se deposite.
+
 A limpeza de fin de obra require equipamento que a distingue claramente dunha limpeza doméstica: aspiradora industrial con filtro HEPA, mopas específicas para po fino, rascadores para restos de pintura.
 
 En Zentro Limpiezas facemos limpezas de fin de obra en Ferrol, A Coruña e toda a comarca. Pídenos orzamento personalizado e gratuíto.

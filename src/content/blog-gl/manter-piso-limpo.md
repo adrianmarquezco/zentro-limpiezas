@@ -78,6 +78,8 @@ Se o tapas con papel ao quentar e limpas inmediatamente calquera salpicadura, o 
 
 ## Cando vale a pena un servizo periódico
 
+Un servizo de limpeza periódico vale a pena se tes mascotas, fillos pequenos, traballas moitas horas ou simplemente prefires dedicar o teu tempo libre a outra cousa.
+
 Se tes mascotas, fillos pequenos, traballas moitas horas ou simplemente valoras o teu tempo libre, un [servizo de limpeza periódico](/gl/servizos/limpeza-periodica/) ten moito sentido. As rutinas diarias e semanais que describimos fan que a visita do equipo profesional sexa moito máis eficiente e que o resultado sexa moito mellor.
 
 En Zentro Limpiezas ofrecemos contratos de limpeza periódica semanal, quincenal ou mensual en Ferrol, A Coruña e toda a comarca. Sempre o mesmo equipo. Sempre con produtos ecolóxicos certificados Ecolabel.

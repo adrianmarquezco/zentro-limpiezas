@@ -83,6 +83,8 @@ En Zentro Limpiezas asignamos sempre o mesmo equipo a cada cliente de servizo pe
 
 ## Que non debes mirar só: o prezo
 
+Un servizo moi barato case sempre significa traballo sen seguro de responsabilidade civil ou persoal en condicións laborais irregulares, non unha oferta real.
+
 O prezo importa, por suposto. Pero un servizo de limpeza moi barato case sempre significa unha de dúas cousas: traballo sen seguro de responsabilidade civil, ou traballadores en condicións laborais irregulares.
 
 Un servizo profesional de calidade custa o que custa. O que aforras contratando o máis barato podes pagalo máis caro se hai un problema.

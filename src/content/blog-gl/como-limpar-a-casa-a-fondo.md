@@ -12,6 +12,8 @@ Limpar a casa a fondo unha ou dúas veces ao ano é unha desas tarefas que todo 
 
 ## Por onde comezar: a orde correcta
 
+A orde correcta para limpar a casa a fondo é sempre de arriba cara abaixo e de dentro cara afóra: teitos, mobles altos, paredes, mobles baixos e chans ao final.
+
 O erro máis común é comezar polo chan. O po que moves ao limpar armarios, estantes ou cortinas cae cara abaixo, e se xa fregas, terás que repetir.
 
 A orde correcta é sempre **de arriba cara abaixo e de dentro cara afóra**:

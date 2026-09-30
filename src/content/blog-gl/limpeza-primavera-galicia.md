@@ -28,6 +28,8 @@ Para manchas de mofo superficiais:
 
 ## Ventilación: o traballo que máis devolve
 
+A ventilación cruzada de 5-10 minutos ao día, mesmo con chuvia, é a medida máis eficaz para reducir a humidade e o mofo nos fogares galegos.
+
 En Galicia, con días de chuvia e frío durante meses, a tendencia é a ventilar pouco. O resultado é humidade acumulada e calidade de aire interior deficiente.
 
 **Como ventilar en Galicia:**
