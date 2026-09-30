@@ -27,6 +27,9 @@ export function getStaticPaths() {
 
 const { municipio, barrio } = Astro.props;
 
+const heroImage = `/images/zona-${barrio.archetype ?? 'general'}.webp`;
+const ogImage = `${BUSINESS.url}${heroImage}`;
+
 const canonical = barrio.canonicalParent
   ? `${BUSINESS.url}/gl/zonas/${municipio.slug}/`
   : `${BUSINESS.url}/gl/zonas/${municipio.slug}/${barrio.slug}/`;
@@ -94,7 +97,7 @@ const schemaLocal = {
 };
 ---
 
-<BaseLayout {title} {description} {canonical} lang="gl" {hreflangEs} hreflangGl={canonical}>
+<BaseLayout {title} {description} {canonical} {ogImage} lang="gl" {hreflangEs} hreflangGl={canonical}>
   <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
   <script type="application/ld+json" set:html={JSON.stringify(schemaLocal)} />
 
@@ -145,6 +148,17 @@ const schemaLocal = {
           <span class="w-8 h-8 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">01</span>
           <h2 class="font-display text-2xl text-primary">Servizo de limpeza en {barrio.nombre}, {nombreGL}</h2>
         </div>
+        <figure class="rounded-xl overflow-hidden border border-line mb-5">
+          <img
+            src={heroImage}
+            alt={`Limpeza profesional en ${barrio.nombre}, ${nombreGL} — Zentro Limpiezas`}
+            width="800"
+            height="450"
+            loading="lazy"
+            decoding="async"
+            class="w-full object-cover"
+          />
+        </figure>
         <p class="text-charcoal leading-relaxed mb-4">{barrio.descripcionGL ?? barrio.descripcion}</p>
         <p class="text-charcoal leading-relaxed">
           En Zentro Limpiezas levamos máis de 20 anos prestando servizo de limpeza en {nombreGL} e os seus barrios.

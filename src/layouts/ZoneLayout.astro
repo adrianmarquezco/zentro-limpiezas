@@ -16,15 +16,16 @@ interface Props {
   breadcrumbs: { label: string; href: string }[];
   hreflangEs?: string;
   hreflangGl?: string;
+  ogImage?: string;
 }
 
 const {
   title, description, canonical, lang = 'es',
-  faqs = [], breadcrumbs, hreflangEs, hreflangGl,
+  faqs = [], breadcrumbs, hreflangEs, hreflangGl, ogImage,
 } = Astro.props;
 ---
 
-<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl}>
+<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} {ogImage}>
   {faqs.length > 0 && <SchemaFAQ faqs={faqs} />}
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
   <slot />

@@ -15,6 +15,8 @@ export function getStaticPaths() {
 }
 
 const { municipio } = Astro.props;
+const heroImage = '/images/zona-general.webp';
+const ogImage = `${BUSINESS.url}${heroImage}`;
 const canonical = `${BUSINESS.url}/gl/zonas/${municipio.slug}/`;
 const hreflangEs = `${BUSINESS.url}/zonas/${municipio.slug}/`;
 
@@ -77,6 +79,7 @@ const pasos = [
   {title}
   {description}
   {canonical}
+  {ogImage}
   lang="gl"
   faqs={faqsGL}
   {breadcrumbs}
@@ -105,6 +108,17 @@ const pasos = [
                 Servizo de limpeza profesional en {municipio.nombreGL}
               </h2>
             </div>
+            <figure class="rounded-xl overflow-hidden border border-line mb-5">
+              <img
+                src={heroImage}
+                alt={`Limpeza profesional en ${municipio.nombreGL} — Zentro Limpiezas`}
+                width="800"
+                height="450"
+                loading="lazy"
+                decoding="async"
+                class="w-full object-cover"
+              />
+            </figure>
             <div class="space-y-4 text-charcoal leading-relaxed">
               <p class="speakable-intro">{municipio.contenidoUnicoGL}</p>
               <p>

@@ -8,6 +8,7 @@ import CTABar from '@/components/ui/CTABar.astro';
 import { BUSINESS } from '@/data/config';
 
 const canonical = `${BUSINESS.url}/gl/zonas/`;
+const ogImage = `${BUSINESS.url}/images/zona-general.webp`;
 const breadcrumbs = [
   { label: 'Zonas', href: '/gl/zonas/' },
 ];
@@ -17,6 +18,7 @@ const breadcrumbs = [
   title="Zonas onde traballamos en Galicia | Zentro Limpiezas"
   description="Servizo de limpeza profesional en Ferrol, A Coruña e máis de 29 municipios de Ferrolterra e a comarca coruñesa."
   canonical={canonical}
+  ogImage={ogImage}
   lang="gl"
   hreflangEs={`${BUSINESS.url}/zonas/`}
   hreflangGl={canonical}

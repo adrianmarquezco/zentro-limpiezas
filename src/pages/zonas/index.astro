@@ -8,6 +8,7 @@ import CTABar from '@/components/ui/CTABar.astro';
 import { BUSINESS } from '@/data/config';
 
 const canonical = `${BUSINESS.url}/zonas/`;
+const ogImage = `${BUSINESS.url}/images/zona-general.webp`;
 const title = 'Empresa de limpieza en Ferrol y A Coruña | Zentro Limpiezas';
 const description = 'Servicio de limpieza profesional en Ferrol, Narón, A Coruña y más de 29 municipios de Ferrolterra y el Área Metropolitana. Sin recargo por desplazamiento.';
 
@@ -16,7 +17,7 @@ const breadcrumbs = [
 ];
 ---
 
-<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/zonas/`}>
+<BaseLayout {title} {description} {canonical} {ogImage} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/zonas/`}>
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
   <section class="hero-section bg-primary pb-20 lg:pb-28 pt-10 lg:pt-14 relative overflow-hidden">
