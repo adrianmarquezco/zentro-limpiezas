@@ -39,7 +39,7 @@ const unir = (xs: string[]) => xs.length > 1 ? `${xs.slice(0, -1).join(', ')} e 
 const faqsGL = [
   {
     q: `Canto custa limpar un piso en ${nomeGL}?`,
-    a: `O prezo orientativo para un piso estándar de 50-70 m² en ${nomeGL} comeza desde ${municipio.precioDesde ?? PRICE_HINTS.vivienda[1].precio}. O prezo final depende do estado do inmoble e da frecuencia elixida. Dámosche orzamento pechado en menos de 24 horas, sen compromiso.`,
+    a: `O prezo orientativo para un piso estándar de 50-70 m² en ${nomeGL} comeza ${municipio.precioDesde ? `desde ${municipio.precioDesde}` : PRICE_HINTS.vivienda[1].precio}. O prezo final depende do estado do inmoble e da frecuencia elixida. Dámosche orzamento pechado en menos de 24 horas, sen compromiso.`,
   },
   ...(barriosNomes.length > 0 ? [{
     q: `En que barrios e parroquias de ${nomeGL} facedes limpeza?`,

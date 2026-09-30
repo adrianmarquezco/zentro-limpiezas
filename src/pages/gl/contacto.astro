@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
-import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 
 const canonical = `${BUSINESS.url}/gl/contacto/`;
@@ -123,6 +122,4 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
       </div>
     </div>
   </section>
-
-  <WhatsAppFloat lang="gl" />
 </BaseLayout>
