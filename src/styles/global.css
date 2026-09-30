@@ -238,7 +238,7 @@
   .font-mono-data { font-family: "Space Mono", monospace; }
 
   .speakable-intro {
-    @apply text-base lg:text-lg leading-relaxed;
+    @apply text-base leading-relaxed;
   }
 }
 
