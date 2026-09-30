@@ -36,8 +36,8 @@ const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.s
 const heroImage = `/images/hero-locales-${barrio.archetype}.webp`;
 const ogImage = `${BUSINESS.url}${heroImage}`;
 
-const title = `${contenido.tituloPagina.split(':')[0]} | Zentro Limpiezas`;
-const description = buildMetaDescription(`Limpieza de local en ${barrio.nombre}.`, contenido.metaDescAngle, 'Presupuesto gratis en 24h.');
+const title = `${contenido.tituloPagina.split(':')[0]}, ${municipio.nombre} | Zentro Limpiezas`;
+const description = buildMetaDescription(`Limpieza de local en ${barrio.nombre}, ${municipio.nombre}.`, contenido.metaDescAngle, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
