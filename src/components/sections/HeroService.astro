@@ -26,9 +26,6 @@ const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
         {eyebrow}
       </span>
       <h1 class="hero-h1-line1 font-serif text-4xl sm:text-5xl lg:text-6xl text-warm leading-tight" set:html={h1} />
-      {precioDesde && (
-        <p class="mt-4 text-white/70 text-lg">desde <span class="text-accent font-bold text-3xl">{precioDesde}</span></p>
-      )}
       <p class="hero-subtitle text-white/70 text-lg mt-6 max-w-xl leading-relaxed speakable-intro">{subtitle}</p>
       <div class="hero-ctas flex flex-wrap gap-3 mt-8">
         <a href={BUSINESS.phoneHref} class="btn-outline-light">

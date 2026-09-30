@@ -61,7 +61,6 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
                     <span class="text-accent mt-0.5 text-xs shrink-0">→</span>
                     <div>
                       <p class="font-semibold text-primary text-xs leading-snug group-hover/item:text-accent transition-colors">{isGL ? s.nombreGL : s.nombre}</p>
-                      {s.precioDesde && <p class="text-mid text-[10px] mt-0.5">desde {s.precioDesde}</p>}
                     </div>
                   </a>
                 ))}

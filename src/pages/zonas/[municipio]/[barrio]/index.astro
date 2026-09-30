@@ -10,7 +10,7 @@ import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
 import { SERVICIOS } from '@/data/servicios';
 import { serviciosConPaginaBarrio } from '@/data/combos-barrio';
 import type { BarrioArchetype } from '@/data/municipios';
-import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, withMunicipio } from '@/data/config';
 
 export function getStaticPaths() {
   const paths = [];
@@ -37,8 +37,8 @@ const canonical = barrio.canonicalParent
 const hreflangGl = barrio.canonicalParent
   ? `${BUSINESS.url}/gl/zonas/${municipio.slug}/`
   : `${BUSINESS.url}/gl/zonas/${municipio.slug}/${barrio.slug}/`;
-const title = `Limpieza profesional en ${barrio.nombre}, ${municipio.nombre} | Zentro Limpiezas`;
-const description = `Limpieza profesional en ${barrio.nombre}, ${municipio.nombre}. Productos ecológicos incluidos${barrio.precioDesde ? `. Desde ${barrio.precioDesde}` : ''}. Presupuesto gratis en menos de 24h.`;
+const title = `Limpieza profesional en ${withMunicipio(barrio.nombre, municipio.nombre)} | Zentro Limpiezas`;
+const description = `Limpieza profesional en ${withMunicipio(barrio.nombre, municipio.nombre)}. Productos ecológicos incluidos${barrio.precioDesde ? `. Desde ${barrio.precioDesde}` : ''}. Presupuesto gratis en menos de 24h.`;
 
 const breadcrumbs = [
   { label: 'Zonas', href: '/zonas/' },
@@ -120,7 +120,7 @@ const schemaLocal = {
           </p>
           <h1 class="font-display text-4xl lg:text-5xl xl:text-6xl text-white mb-5 leading-tight">
             Limpieza profesional en<br />
-            <span class="text-accent">{barrio.nombre}</span>
+            <span class="text-accent">{withMunicipio(barrio.nombre, municipio.nombre)}</span>
           </h1>
           <p class="text-white/75 text-lg mb-8 max-w-xl leading-relaxed">
             Servicio de limpieza a domicilio en {barrio.nombre}, {municipio.nombre}.

@@ -57,7 +57,7 @@ const breadcrumbs = [
 
 const faqsLocalizacion: { q: string; a: string }[] = [
   {
-    q: `Canto custa o ${servicio.nombreGL.toLowerCase()} en ${municipio.nombreGL}?`,
+    q: `Canto custa a ${servicio.nombreGL.toLowerCase()} en ${municipio.nombreGL}?`,
     a: servicio.precioDesde
       ? `O prezo en ${municipio.nombreGL} comeza desde ${servicio.precioDesde}. O orzamento final depende do tamaño, o estado do espazo e a frecuencia que elixas. Dámocho gratis, sen compromiso nin visita obrigatoria, en menos de 24 horas.`
       : `O prezo depende do tamaño, estado e frecuencia. Facémosche un orzamento personalizado e gratuíto en menos de 24 horas, sen compromiso nin visita obrigatoria.`,
@@ -315,9 +315,6 @@ const pasos = [
           <div class="card p-6 border-accent/30">
             <p class="font-serif text-lg text-primary mb-2 font-semibold">{servicio.nombreGL} en {municipio.nombreGL}</p>
             <p class="text-mid text-xs mb-4">Orzamento gratis · Sen compromiso · 24h</p>
-            {servicio.precioDesde && (
-              <p class="font-mono text-accent text-2xl font-bold mb-4">desde {servicio.precioDesde}</p>
-            )}
             <div class="flex flex-col gap-2">
               <a href="/gl/orzamento/" class="btn-accent w-full text-center text-sm">→ Pedir orzamento</a>
               <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full justify-center text-sm">WhatsApp {BUSINESS.phoneDisplay}</a>

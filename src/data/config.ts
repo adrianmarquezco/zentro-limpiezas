@@ -73,6 +73,11 @@ function trimToClause(text: string, budget: number): string {
   return /[.!?]$/.test(cut) ? cut : cut + '.';
 }
 
+// Evita "Valdoviño (A Frouxeira), Valdoviño" cuando el nombre del barrio ya menciona el municipio
+export function withMunicipio(nombreBarrio: string, nombreMunicipio: string): string {
+  return nombreBarrio.includes(nombreMunicipio) ? nombreBarrio : `${nombreBarrio}, ${nombreMunicipio}`;
+}
+
 export function buildMetaDescription(prefix: string, variable: string, suffix: string, maxLen = 160): string {
   const fixedLen = prefix.length + 1 + suffix.length + 1;
   const budget = maxLen - fixedLen;

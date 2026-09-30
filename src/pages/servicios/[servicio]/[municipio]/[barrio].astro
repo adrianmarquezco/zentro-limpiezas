@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { CONTENIDO_BARRIO, getContenidoBarrio, serviciosConPaginaBarrio } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, withMunicipio } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
@@ -63,7 +63,7 @@ const KW_ARCHETYPE: Record<BarrioArchetype, 'cristales' | 'ventanas'> = {
 };
 const kw = KW_ARCHETYPE[barrio.archetype as BarrioArchetype];
 
-const title = `Limpieza de ${kw} en ${barrio.nombre}, ${municipio.nombre} · Sin Rayas ni Cal | Zentro Limpiezas`;
+const title = `Limpieza de ${kw} en ${withMunicipio(barrio.nombre, municipio.nombre)} · Sin Rayas ni Cal | Zentro Limpiezas`;
 const description = `Limpieza profesional de ${kw} en ${barrio.nombre}. ${contenido.metaDescAngle} Empresa local con 20 años en Ferrolterra. Presupuesto gratis en 24h.`.slice(0, 160);
 
 const breadcrumbs = [
@@ -105,7 +105,7 @@ const serviciosRelacionados = (barrio.archetype ? serviciosConPaginaBarrio(barri
   .map(slug => SERVICIOS.find(x => x.slug === slug))
   .filter((x): x is NonNullable<typeof x> => !!x);
 
-const h1 = `Limpieza de ${kw} en ${barrio.nombre}`;
+const h1 = `Limpieza de ${kw} en ${withMunicipio(barrio.nombre, municipio.nombre)}`;
 ---
 
 <ComboLayout

@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
@@ -70,8 +70,8 @@ const heroImage = imgPrefix && barrio.archetype
   : (imgPrefix ? `/images/hero-${imgPrefix}.webp` : '/images/hero-servicios.webp');
 const ogImage = `${BUSINESS.url}${heroImage}`;
 
-const title = `${servicio.nombreGL} en ${barrio.nombre}, ${municipio.nombreGL} | Zentro Limpiezas`;
-const description = buildMetaDescription(`${servicio.nombreGL} en ${barrio.nombre}, ${municipio.nombreGL}.`, contenido.metaDesc, 'Orzamento gratis en 24h.');
+const title = `${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nombreGL)} | Zentro Limpiezas`;
+const description = buildMetaDescription(`${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nombreGL)}.`, contenido.metaDesc, 'Orzamento gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servizos', href: '/gl/servizos/' },
@@ -106,7 +106,7 @@ const outrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', ''),
 );
 
-const h1 = `${servicio.nombreGL} en ${barrio.nombre}`;
+const h1 = `${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nombreGL)}`;
 ---
 
 <ComboLayout

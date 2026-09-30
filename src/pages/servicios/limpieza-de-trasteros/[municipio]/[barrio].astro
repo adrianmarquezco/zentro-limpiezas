@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoBarrio, serviciosConPaginaBarrio } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
@@ -36,8 +36,8 @@ const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.s
 const heroImage = `/images/hero-trasteros-${barrio.archetype}.webp`;
 const ogImage = `${BUSINESS.url}${heroImage}`;
 
-const title = `${contenido.tituloPagina.split(':')[0]}, ${municipio.nombre} | Zentro Limpiezas`;
-const description = buildMetaDescription(`Limpieza de trastero en ${barrio.nombre}, ${municipio.nombre}.`, contenido.metaDescAngle, 'Presupuesto gratis en 24h.');
+const title = `${withMunicipio(contenido.tituloPagina.split(':')[0], municipio.nombre)} | Zentro Limpiezas`;
+const description = buildMetaDescription(`Limpieza de trastero en ${withMunicipio(barrio.nombre, municipio.nombre)}.`, contenido.metaDescAngle, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
@@ -73,7 +73,7 @@ const serviciosRelacionados = (barrio.archetype ? serviciosConPaginaBarrio(barri
   .map(slug => SERVICIOS.find(x => x.slug === slug))
   .filter((x): x is NonNullable<typeof x> => !!x);
 
-const h1 = `Limpieza de trastero en ${barrio.nombre}`;
+const h1 = `Limpieza de trastero en ${withMunicipio(barrio.nombre, municipio.nombre)}`;
 ---
 
 <ComboLayout
