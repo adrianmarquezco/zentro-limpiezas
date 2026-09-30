@@ -29,6 +29,8 @@ Una mudanza es estresante de por sí: coordinación de transportistas, cajas, tr
 
 ## Limpiar el piso que dejas: la fianza en juego
 
+Para recuperar la fianza íntegra al dejar un piso de alquiler, hay que entregarlo sin cal, grasa ni moho en cocina y baño, con armarios vaciados y limpios y sin residuos.
+
 Si vives de alquiler y quieres recuperar la fianza íntegra, la limpieza del piso al salir es crucial. El propietario tiene derecho a descontar de la fianza los gastos de limpieza si el piso no se entrega en condiciones adecuadas.
 
 ### Qué entiende un propietario por "condiciones adecuadas"
@@ -69,6 +71,8 @@ Una vez entran los muebles, hay zonas a las que no llegarás en años: la pared 
 - **Ventanas y marcos**: cristales con cal, raíles de ventanas, guías de persianas
 
 ## La opción de contratar una limpieza de mudanza
+
+Contratar una limpieza de mudanza profesional tiene sentido porque hace en 3-4 horas lo que a ti te llevaría una jornada completa, justo cuando menos tiempo y energía tienes.
 
 El momento de una mudanza es uno de los mejores para contratar un servicio de [limpieza a fondo profesional](/servicios/limpieza-a-fondo/), por razones prácticas:
 

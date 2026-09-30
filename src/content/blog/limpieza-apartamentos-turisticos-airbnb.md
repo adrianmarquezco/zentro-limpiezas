@@ -90,6 +90,8 @@ Hacerlo bien en ese margen de tiempo requiere método y, a partir de cierto nive
 
 ## Impacto en las valoraciones
 
+La limpieza es uno de los factores que más pesa en las valoraciones de Airbnb: por debajo de 4,7 estrellas penaliza la visibilidad en el buscador y dificulta subir precios.
+
 | Puntuación de limpieza en Airbnb | Impacto en el alojamiento |
 |---------------------------------|--------------------------|
 | 5 estrellas consistentes | Mayor visibilidad en el buscador, precio superior |
@@ -100,6 +102,8 @@ Hacerlo bien en ese margen de tiempo requiere método y, a partir de cierto nive
 Cada reseña negativa de limpieza puede costar más en ocupación perdida que el coste de contratar un servicio profesional para varios meses.
 
 ## Cuándo contratar un servicio profesional
+
+Conviene contratar un servicio profesional desde el primer apartamento si no tienes tiempo o margen entre check-out y check-in, y es casi imprescindible a partir de dos apartamentos.
 
 **Desde el primer apartamento**, si no tienes tiempo de hacerlo tú o si los tiempos de check-out/check-in no te permiten llegar con comodidad.
 

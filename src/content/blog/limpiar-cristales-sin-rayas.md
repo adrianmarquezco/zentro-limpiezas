@@ -29,6 +29,8 @@ Limpiar cristales parece simple pero el resultado suele ser frustrante: rayas, v
 
 ## El error más común: papel de cocina o periódico
 
+El error más común al limpiar cristales es usar papel de cocina, periódico o trapos corrientes: dejan pelusa y fibras que se ven a contraluz. La microfibra de calidad o la rasqueta de goma evitan ese problema.
+
 El papel de cocina, el periódico y los trapos de tela corrientes dejan pelusa o fibras sobre el cristal. Incluso si no se ven a simple vista, a contraluz aparecen claramente. El material correcto es la **microfibra de calidad** o la **rasqueta de goma** (limpiacristales).
 
 ## Los dos sistemas profesionales
@@ -64,6 +66,8 @@ Para espejos, ventanas pequeñas y cristales interiores:
 
 ## Por qué salen rayas en los cristales
 
+Las rayas en los cristales salen por herramientas sucias, exceso de producto, limpiar con el cristal caliente al sol, o usar papel en vez de microfibra o rasqueta de goma.
+
 | Causa | Solución |
 |-------|---------|
 | Suciedad en la rasqueta o en el paño | Revisa y limpia las herramientas antes de empezar |
@@ -98,6 +102,8 @@ Para una mampara con sarro muy acumulado, el proceso es:
 5. Secar con rasqueta
 
 ## Altura: cuándo llamar a profesionales
+
+Conviene llamar a profesionales para limpiar cristales en plantas altas o de difícil acceso, ya que requieren pértigas telescópicas, plataformas elevadoras o arnés — no debe intentarse limpiar en situaciones de riesgo.
 
 Los cristales en plantas altas o de difícil acceso requieren maquinaria y formación específica (pertigas telescópicas, plataformas elevadoras, arnés). No intentes limpiar cristales en situaciones de riesgo.
 

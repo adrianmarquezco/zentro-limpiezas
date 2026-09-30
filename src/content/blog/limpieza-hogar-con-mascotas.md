@@ -35,6 +35,8 @@ Los [productos ecológicos con certificación Ecolabel](/blog/productos-ecologic
 
 ## El pelo: el reto principal
 
+El pelo de mascota se elimina mejor con mopa de microfibra en suelos duros, aspiradora con filtro HEPA en alfombras y un guante de látex húmedo en tapicerías — cada superficie necesita su herramienta.
+
 El pelo de perro y gato se acumula en tapicerías, alfombras, esquinas y debajo de los muebles a un ritmo que puede parecer infinito en épocas de muda.
 
 | Superficie | Herramienta más eficaz | Por qué |

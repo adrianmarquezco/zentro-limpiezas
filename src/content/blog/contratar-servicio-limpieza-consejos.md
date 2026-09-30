@@ -31,6 +31,8 @@ Contratar un servicio de limpieza implica dar acceso a tu hogar o a tu empresa a
 
 ## Por qué importa elegir bien
 
+Elegir mal una empresa de limpieza puede dejarte sin cobertura ante daños, con personal irregular en tu casa cada vez distinto, o con productos de baja calidad que dañan superficies.
+
 Una mala elección tiene consecuencias prácticas:
 
 - Un equipo sin seguro de RC puede dejar un daño sin cubrir

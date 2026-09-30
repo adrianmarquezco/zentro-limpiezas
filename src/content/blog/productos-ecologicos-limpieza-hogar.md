@@ -32,6 +32,8 @@ Pero el mercado está lleno de confusión. "Ecológico", "natural", "bio", "verd
 
 ## Qué significa "ecológico" en un producto de limpieza
 
+Un producto de limpieza es realmente ecológico cuando sus ingredientes son biodegradables, tiene bajo impacto en ecosistemas acuáticos y no contiene sustancias de muy alta preocupación (SVHC).
+
 Un producto de limpieza genuinamente ecológico debe cumplir tres criterios técnicos:
 
 ### 1. Ingredientes biodegradables

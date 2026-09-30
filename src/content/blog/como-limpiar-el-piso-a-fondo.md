@@ -29,6 +29,8 @@ Limpiar el piso a fondo una o dos veces al año es una de esas tareas que todo e
 
 ## Por dónde empezar: el orden correcto
 
+El orden correcto para limpiar un piso a fondo es siempre de arriba hacia abajo y de adentro hacia afuera: techos, muebles altos, paredes, muebles bajos y suelos al final.
+
 El error más común es empezar por el suelo. El polvo que mueves al limpiar armarios, estanterías o cortinas cae hacia abajo, y si ya fregaste, tendrás que repetir. Más tiempo, mismo resultado o peor.
 
 El orden correcto es siempre **de arriba hacia abajo y de adentro hacia afuera**:
@@ -97,6 +99,8 @@ Los tres productos ecológicos básicos para una limpieza a fondo en casa:
 | Jabón de Castilla concentrado | Suelos, muebles, spray multiusos | No mezclar con vinagre |
 
 ## Cuánto tiempo lleva
+
+Limpiar un piso de 80 m² a fondo lleva entre 3 y 5 horas con dos personas, o entre 6 y 8 horas en solitario, según el estado de suciedad acumulada.
 
 Una limpieza a fondo profesional de un piso de 80 m² lleva entre 3 y 5 horas con dos personas. En solitario y sin experiencia, puede ir a 6-8 horas. Los tiempos varían según el estado del piso: uno con mantenimiento regular se pone a punto más rápido que uno que lleva meses sin limpieza profunda.
 

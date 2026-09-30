@@ -30,6 +30,8 @@ Llega el momento de abandonar un piso de alquiler y con él, la presión de deja
 
 ## ¿Qué obligación legal tengo como inquilino?
 
+Como inquilino debes devolver el piso en las mismas condiciones en que lo recibiste, salvo el desgaste normal por el uso, según el artículo 1563 del Código Civil y la LAU.
+
 El artículo 1563 del Código Civil establece que el arrendatario debe devolver la finca al concluir el arrendamiento tal como la recibió. La LAU (Ley de Arrendamientos Urbanos) complementa esta obligación.
 
 En la práctica, el propietario tiene derecho a retener la fianza si el piso no se entrega en condiciones. Y si el coste de los daños supera la fianza, puede reclamar judicialmente la diferencia.
@@ -97,6 +99,8 @@ Sin embargo, si el contrato dice que el piso se entregó en buen estado o si no 
 
 ## ¿Cuánto tiempo necesito para limpiar el piso?
 
+Limpiar un piso de alquiler tú solo lleva entre 4-6 horas si es de un dormitorio y hasta 8-12 horas si tiene 2-3 dormitorios, más si la cocina o los baños están muy sucios.
+
 Para hacer una limpieza correcta tú solo, cuenta con:
 
 - **Piso de 1 dormitorio**: 4-6 horas con todo en orden previo
@@ -106,6 +110,8 @@ Para hacer una limpieza correcta tú solo, cuenta con:
 Es mucho tiempo, especialmente cuando también estás organizando una mudanza. Por eso muchos inquilinos optan por contratar una limpieza profesional.
 
 ## ¿Vale la pena contratar una limpieza profesional?
+
+Casi siempre sí: una limpieza profesional cuesta entre 80 y 200 €, un importe normalmente inferior a la parte de fianza que un propietario puede retener por falta de limpieza.
 
 Desde el punto de vista económico, la respuesta casi siempre es sí:
 

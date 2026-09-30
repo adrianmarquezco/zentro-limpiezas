@@ -54,6 +54,8 @@ Los [productos ecológicos certificados para la limpieza](/blog/productos-ecolog
 
 ## Ventilación: el trabajo que más devuelve
 
+La ventilación cruzada de 5-10 minutos al día, incluso con lluvia, es la medida más eficaz para reducir la humedad y el moho en los hogares gallegos.
+
 La ventilación correcta del hogar no es solo abrir la ventana en verano. En Galicia, con días de lluvia y frío durante meses, la tendencia es a ventilar poco. El resultado es humedad acumulada, condensación y calidad de aire interior deficiente.
 
 **Cómo ventilar eficazmente en Galicia:**

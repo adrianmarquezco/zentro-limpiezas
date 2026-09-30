@@ -50,6 +50,8 @@ El polvo de escayola y cemento es muy fino y penetra en absolutamente todo: enci
 
 ## ¿Cuándo es el momento adecuado?
 
+El momento adecuado para la limpieza fin de obra es cuando todos los gremios han terminado y, a ser posible, antes de instalar los muebles, con 24-48h para que el polvo en suspensión se deposite.
+
 | Condición | Por qué es importante |
 |-----------|----------------------|
 | Todos los gremios han terminado | Si entras antes de que acaben, limpiarás para que lo vuelvan a ensuciar |
@@ -94,6 +96,8 @@ Los precios orientativos en 2025 para la comarca de Ferrol y A Coruña:
 Estos precios incluyen toda la mano de obra, maquinaria y productos. Para una orientación más completa de precios de limpieza en Galicia, consulta nuestra [guía de precios actualizada](/blog/cuanto-cuesta-limpieza-hogar/).
 
 ## ¿Contratar o hacerlo yo mismo?
+
+Hacerlo uno mismo es posible, pero sin aspiradora industrial con filtro HEPA el polvo de obra daña una aspiradora doméstica y el resultado no queda satisfactorio.
 
 Es posible hacerlo uno mismo si tienes el tiempo y la maquinaria adecuada. El problema principal es la aspiradora: sin una industrial con filtro HEPA, el polvo fino de obra obstruirá o dañará una aspiradora doméstica, y el resultado no será satisfactorio.
 

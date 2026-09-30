@@ -84,6 +84,8 @@ Dividido entre todos los vecinos, el coste mensual por vivienda suele ser inferi
 
 ## Cómo se contrata: administrador o comunidad directa
 
+El servicio de limpieza de comunidades se contrata a través del administrador de fincas, que gestiona el contrato dentro de los gastos comunes, o directamente por la junta de propietarios.
+
 Hay dos vías para contratar el servicio:
 
 **A través del administrador de fincas**: el más habitual. El administrador gestiona el contrato, supervisa el servicio y lo incluye en la gestión general de la comunidad. El pago sale de los gastos comunes.

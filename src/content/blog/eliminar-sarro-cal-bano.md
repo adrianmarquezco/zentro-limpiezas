@@ -29,6 +29,8 @@ El sarro y los depósitos de cal son el problema de limpieza más común en el b
 
 ## Por qué se forma el sarro
 
+El sarro se forma porque el agua lleva minerales disueltos, sobre todo carbonato cálcico, que quedan depositados sobre la superficie cuando el agua se evapora.
+
 El agua que llega a casa lleva minerales disueltos, principalmente carbonato cálcico. Cuando el agua se evapora, esos minerales quedan depositados sobre la superficie. Con el tiempo y la humedad constante del baño, los depósitos se acumulan y endurecen hasta formar capas que no ceden con la limpieza habitual.
 
 El problema es especialmente intenso en zonas con agua dura (alta concentración de calcio y magnesio) y en superficies que permanecen húmedas: la base de la ducha, los grifos, las mamparas, las juntas de silicona.

@@ -31,6 +31,8 @@ Una de las primeras preguntas que nos hacen es cuánto cuesta el servicio de lim
 
 ## Por qué no hay un precio único
 
+No hay un precio único porque el coste depende del tamaño del espacio, su estado actual, el tipo de servicio, la frecuencia y la accesibilidad de la vivienda.
+
 Cada limpieza es diferente porque cada hogar es diferente. Los factores principales que determinan el precio son:
 
 - **Tamaño del espacio**: metros cuadrados a limpiar
@@ -168,6 +170,8 @@ Cuando comparas presupuestos de diferentes empresas, las diferencias suelen expl
 La diferencia entre el precio más barato y el estándar del mercado rara vez merece la pena cuando se mide en términos de resultado, confianza y garantías.
 
 ## ¿Cuánto me costaría hacerlo yo mismo?
+
+Hacerlo tú mismo ahorra el coste del servicio pero exige 6-8 horas en solitario para una limpieza a fondo y entre 80-150 € en material y productos, además del desgaste físico.
 
 Es una pregunta legítima. Hagamos los números:
 

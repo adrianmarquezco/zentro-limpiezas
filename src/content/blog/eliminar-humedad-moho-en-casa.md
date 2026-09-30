@@ -33,6 +33,8 @@ El moho en las paredes del baño, en la silicona de la ducha o en el marco de un
 
 ## Por qué aparece el moho en las casas de Ferrolterra
 
+El moho aparece por la combinación de humedad, poca ventilación y una superficie donde agarrarse. En Ferrolterra, el clima atlántico y el parque de vivienda antiguo hacen que estas tres condiciones se den con mucha facilidad.
+
 El moho necesita tres cosas para aparecer: humedad, poca ventilación y una superficie donde agarrarse (azulejo, silicona, pintura, madera). En la comarca, las tres se dan con facilidad:
 
 - **Clima atlántico**: lluvia frecuente y humedad relativa alta durante buena parte del año, incluso en días sin lluvia.
@@ -42,11 +44,15 @@ El moho necesita tres cosas para aparecer: humedad, poca ventilación y una supe
 
 ## Limpiar el moho no siempre resuelve el problema
 
+Limpiar el moho elimina las esporas visibles, pero no la causa: si la humedad o la falta de ventilación que lo provocan no se corrigen, suele reaparecer semanas después.
+
 Esto es importante y preferimos ser claros desde el principio: **limpiar el moho elimina lo que se ve, no necesariamente la causa**. Si el moho aparece por condensación en una ventana sin apenas ventilación, o por una filtración que no se ha reparado, es muy probable que vuelva a salir semanas después de la limpieza por muy bien que se haya hecho.
 
 Lo que sí podemos garantizar es un resultado impecable en la limpieza y orientarte, según lo que veamos en la visita, sobre si el problema parece puntual (se limpia y con ventilar más a menudo no vuelve) o si conviene revisar algo más de fondo (ventilación, humedad estructural, una filtración) que ya no es limpieza sino una intervención distinta.
 
 ## Cómo eliminamos el moho de forma profesional
+
+Eliminamos el moho con ventilación previa, producto específico según la superficie, cepillado suave y secado completo, evitando dispersar esporas al aire o dañar el material.
 
 El proceso varía según la superficie, pero sigue siempre el mismo criterio: eliminar el moho sin dispersar esporas por el aire y sin dañar el material.
 
@@ -81,6 +87,8 @@ Si tu municipio no aparece en esta lista, escríbenos igualmente: cubrimos toda 
 
 ## Limpieza a fondo o desinfección profesional: cuál necesitas
 
+Para moho puntual y visible basta una limpieza a fondo. Para moho muy extendido, viviendas cerradas mucho tiempo o tras una filtración, se recomienda desinfección profesional con biocidas certificados.
+
 No todos los casos de moho son iguales, y no siempre hace falta lo mismo:
 
 - **Limpieza a fondo**: es lo adecuado para moho puntual y visible —silicona del baño, marco de una ventana, un rincón de armario—. Elimina el moho existente y deja la superficie lista.
@@ -89,6 +97,8 @@ No todos los casos de moho son iguales, y no siempre hace falta lo mismo:
 Si no tienes claro cuál te hace falta, cuéntanos la situación por WhatsApp con una foto y te orientamos antes de dar presupuesto.
 
 ## Cómo prevenir que vuelva a salir moho
+
+Para prevenir el moho hay que ventilar a diario, secar la humedad tras la ducha, revisar juntas y silicona con regularidad y airear las casas de temporada aunque estén cerradas.
 
 - **Ventila a diario**, aunque sea 10-15 minutos, especialmente en baño y cocina después de ducharte o cocinar
 - **Seca la mampara y los azulejos** del baño después de cada uso si puedes; reduce mucho la humedad acumulada

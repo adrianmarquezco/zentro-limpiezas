@@ -63,6 +63,8 @@ El cuerpo exterior de la campana: aplica desengrasante o jabón de Castilla conc
 
 ## Horno: la zona más difícil
 
+El horno se limpia a fondo con una pasta de bicarbonato y agua aplicada en toda la superficie interior, dejada actuar toda la noche y retirada al día siguiente con espátula de silicona.
+
 El horno es la zona más laboriosa de la cocina. La grasa carbonizada es muy resistente. La opción profesional y ecológica:
 
 **Método de bicarbonato (para suciedad de nivel medio a alto):**
