@@ -1,9 +1,9 @@
 ﻿---
-title: "Limpieza de primavera en Galicia: guía para una puesta a punto completa"
+title: "Limpieza de primavera en Galicia: guía para la puesta a punto"
 description: "La gran limpieza de primavera adaptada al hogar gallego. Humedad, moho, ventilación y las zonas críticas que hay que revisar después del invierno en Galicia."
 image: '/images/blog/limpieza-primavera-galicia.webp'
 datePublished: "2025-03-20"
-dateModified: "2026-05-31"
+dateModified: "2026-09-30"
 category: "guias"
 readingTime: 7
 tags: ["primavera", "limpieza a fondo", "Galicia", "humedad"]

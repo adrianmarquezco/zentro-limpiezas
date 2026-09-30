@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoBarrio, serviciosConPaginaBarrio } from '@/data/combos-barrio';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
@@ -74,7 +74,7 @@ const serviciosRelacionados = (barrio.archetype ? serviciosConPaginaBarrio(barri
   .map(slug => SERVICIOS.find(x => x.slug === slug))
   .filter((x): x is NonNullable<typeof x> => !!x);
 
-const h1 = `Limpieza de cristales en ${nombreCompleto}`;
+const h1 = `Limpieza de cristales en ${withMunicipio(nombreCompleto, municipio.nombre)}`;
 ---
 
 <ComboLayout

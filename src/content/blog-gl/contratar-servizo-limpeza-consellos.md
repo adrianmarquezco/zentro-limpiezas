@@ -1,9 +1,9 @@
 ---
-title: "Como contratar un servizo de limpeza: 7 cousas que debes comprobar"
+title: "Como contratar un servizo de limpeza: 7 cousas que comprobar"
 description: "Guía práctica para elixir ben unha empresa de limpeza. Que preguntar, que evitar e como saber se tes diante un servizo profesional de verdade."
 image: '/images/blog/contratar-servicio-limpieza-consejos.webp'
 datePublished: "2026-04-10"
-dateModified: "2026-05-31"
+dateModified: "2026-09-30"
 category: "guias"
 readingTime: 7
 tags: ["contratar limpeza", "consellos", "empresa limpeza", "profesional"]

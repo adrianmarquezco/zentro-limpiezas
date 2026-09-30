@@ -1,9 +1,9 @@
 ﻿---
-title: "Limpieza de oficinas y empresas en Galicia: claves para elegir bien"
+title: "Limpieza de oficinas y empresas en Galicia: cómo elegir bien"
 description: "Cómo gestionar la limpieza de una oficina de forma eficiente: frecuencias, qué incluir en el contrato y por qué el servicio profesional sale más rentable."
 image: '/images/blog/limpieza-oficinas-empresas-galicia.webp'
 datePublished: "2025-04-02"
-dateModified: "2026-05-31"
+dateModified: "2026-09-30"
 category: "sector"
 readingTime: 6
 tags: ["oficinas", "empresas", "limpieza profesional"]

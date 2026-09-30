@@ -1,9 +1,9 @@
 ---
-title: "Limpeza de apartamentos turísticos e Airbnb: a guía para anfitrións"
+title: "Limpeza de apartamentos turísticos e Airbnb: guía do anfitrión"
 description: "Como xestionar a limpeza entre hóspedes no teu apartamento turístico. Checklist completo, tempos, prezos e cando contratar un servizo profesional."
 image: '/images/blog/limpieza-apartamentos-turisticos-airbnb.webp'
 datePublished: "2025-05-05"
-dateModified: "2026-05-31"
+dateModified: "2026-09-30"
 category: "sector"
 readingTime: 7
 tags: ["apartamentos turísticos", "Airbnb", "anfitrión", "limpeza rápida"]
