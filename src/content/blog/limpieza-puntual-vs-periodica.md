@@ -27,6 +27,8 @@ faqs:
 
 Cuando alguien nos llama por primera vez, una de las dudas más habituales es esta: ¿contrato una limpieza puntual o mejor establecer un servicio regular? No hay una respuesta universal, pero sí hay criterios claros para tomar la mejor decisión según tu situación.
 
+![Limpieza del salón como parte de un servicio periódico](/images/blog/content-limpieza-puntual-vs-periodica.webp)
+
 ## ¿Qué es una limpieza puntual?
 
 Una limpieza puntual es un servicio de una sola visita, contratado para una ocasión concreta. No implica ningún compromiso futuro. Se paga por el trabajo realizado y listo.

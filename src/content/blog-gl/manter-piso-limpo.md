@@ -19,6 +19,8 @@ slugEs: "como-mantener-piso-limpio-entre-limpiezas"
 
 Se tes un servizo de limpeza periódico, o obxectivo entre visitas non é ter o piso impecable, senón evitar que se deteriore ata o punto en que a seguinte limpeza sexa sempre de recuperación en vez de mantemento. Pequenos hábitos diarios reducen o traballo acumulado e fan que o tempo do equipo de limpeza sexa moito máis eficiente.
 
+![Mantemento diario do salón entre visitas de limpeza](/images/blog/content-como-mantener-piso-limpio-entre-limpiezas.webp)
+
 ## O principio: non deixar que a suciidade se acumule
 
 A suciidade fresca é dez veces máis fácil de eliminar ca a acumulada. Unha mancha na encimera que se limpa ao momento leva 5 segundos. A mesma mancha deixada tres días pode necesitar frotado con produto e esforzo. Este principio aplícase a todas as superficies do fogar e é a base de calquera rutina eficaz.

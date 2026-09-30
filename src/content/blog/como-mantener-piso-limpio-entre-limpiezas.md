@@ -27,6 +27,8 @@ faqs:
 
 Si tienes un servicio de limpieza periódico, el objetivo entre visitas no es tener el piso impecable, sino evitar que se deteriore hasta el punto en que la siguiente limpieza sea siempre de recuperación en lugar de mantenimiento. Pequeños hábitos diarios reducen el trabajo acumulado y hacen que el tiempo del equipo de limpieza sea mucho más eficiente.
 
+![Mantenimiento diario del salón entre visitas de limpieza](/images/blog/content-como-mantener-piso-limpio-entre-limpiezas.webp)
+
 ## El principio: no dejar que la suciedad se acumule
 
 La suciedad fresca es diez veces más fácil de eliminar que la acumulada. Una mancha en la encimera que se limpia al momento lleva 5 segundos. La misma mancha dejada tres días puede necesitar frotado con producto y esfuerzo. Este principio se aplica a todas las superficies del hogar y es la base de cualquier rutina eficaz.

@@ -31,6 +31,8 @@ lang: "es"
 
 Encontrar quién limpie las ventanas de tu casa en Ferrol, Narón o cualquier otro municipio de Ferrolterra no debería ser complicado, pero entre precios poco claros y empresas que no cubren toda la comarca, muchas veces lo es. Esta guía reúne todo lo que necesitas saber antes de contratar: qué incluye el servicio, cuánto cuesta según el tamaño de la vivienda, y por qué las ventanas cerca del mar se ensucian con más rapidez que en el interior.
 
+![Limpieza profesional de ventanas en el exterior de una vivienda](/images/blog/content-limpieza-de-ventanas-ferrolterra.webp)
+
 ## ¿Qué incluye la limpieza profesional de ventanas?
 
 La limpieza profesional de ventanas incluye el lavado del cristal por dentro y por fuera, el secado con rasqueta de goma para evitar rayas y marcas de agua, y —si se solicita— la limpieza de marcos, raíles y persianas. En cristales con cal acumulada se aplica primero un desincrustante específico antes del lavado final.

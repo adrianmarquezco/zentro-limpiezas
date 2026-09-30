@@ -10,6 +10,8 @@ slugEs: "limpieza-fin-de-obra-guia"
 
 Acabas de rematar unha reforma. Ou mudácheste a unha obra nova. O espazo ten a estrutura que querías, pero está cuberto de po fino de escaiola, restos de silicona, manchas de pintura e sucidade acumulada en todos os ángulos. A limpeza de fin de obra non é a mesma que unha limpeza doméstica normal.
 
+![Aspirador industrial nun piso recén reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
+
 ## Que inclúe unha limpeza de fin de obra
 
 ### Fase 1: Retirada de cascallos e residuos grosos

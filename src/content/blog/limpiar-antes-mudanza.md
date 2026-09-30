@@ -27,6 +27,8 @@ faqs:
 
 Una mudanza es estresante de por sí: coordinación de transportistas, cajas, trámites, cambios de domicilio. La limpieza del piso que dejas o del que vas a entrar suele quedar para el último momento. Te contamos cómo organizarla sin que se convierta en otro problema más.
 
+![Aspirado del piso antes de una mudanza](/images/blog/content-limpiar-antes-mudanza.webp)
+
 ## Limpiar el piso que dejas: la fianza en juego
 
 Para recuperar la fianza íntegra al dejar un piso de alquiler, hay que entregarlo sin cal, grasa ni moho en cocina y baño, con armarios vaciados y limpios y sin residuos.

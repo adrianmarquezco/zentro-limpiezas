@@ -27,6 +27,8 @@ faqs:
 
 Limpiar el piso a fondo una o dos veces al año es una de esas tareas que todo el mundo pospone pero que marca una diferencia enorme en el aspecto y en el ambiente del hogar. No es solo quitar el polvo: se trata de llegar a los rincones que el mantenimiento semanal no cubre y recuperar superficies que con el uso diario acumulan suciedad invisible.
 
+![Aspirado de una alfombra durante una limpieza a fondo del piso](/images/blog/content-como-limpiar-el-piso-a-fondo.webp)
+
 ## Por dónde empezar: el orden correcto
 
 El orden correcto para limpiar un piso a fondo es siempre de arriba hacia abajo y de adentro hacia afuera: techos, muebles altos, paredes, muebles bajos y suelos al final.

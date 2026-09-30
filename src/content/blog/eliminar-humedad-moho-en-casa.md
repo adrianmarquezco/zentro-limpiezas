@@ -31,6 +31,8 @@ lang: "es"
 
 El moho en las paredes del baño, en la silicona de la ducha o en el marco de una ventana es una de las consultas más habituales que recibimos en Ferrolterra. No es casualidad: el clima atlántico, la humedad ambiental constante y buena parte del parque de viviendas —bloques de los años 70-80, casas de piedra en zonas rurales, pisos de costa— crean las condiciones perfectas para que aparezca. Esta guía explica por qué pasa, cómo se elimina bien y, sobre todo, cuándo una limpieza a fondo es suficiente y cuándo hace falta ir un paso más allá.
 
+![Pared con humedad y moho típica de un clima húmedo](/images/blog/content-eliminar-humedad-moho-en-casa.webp)
+
 ## Por qué aparece el moho en las casas de Ferrolterra
 
 El moho aparece por la combinación de humedad, poca ventilación y una superficie donde agarrarse. En Ferrolterra, el clima atlántico y el parque de vivienda antiguo hacen que estas tres condiciones se den con mucha facilidad.

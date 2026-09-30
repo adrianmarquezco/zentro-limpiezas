@@ -27,6 +27,8 @@ faqs:
 
 En Galicia, la limpieza de primavera tiene un componente extra que no aparece en las guías estándar: la humedad. El invierno gallego es húmedo y con temperaturas que favorecen la condensación en paredes, ventanas y rincones poco ventilados. La puesta a punto de primavera es, más que en ningún otro lugar, una revisión de los daños del invierno además de una limpieza profunda.
 
+![Ventilación de la vivienda abriendo las cortinas en primavera](/images/blog/content-limpieza-primavera-galicia.webp)
+
 ## Primero: la revisión de humedad e invierno
 
 Antes de ponerse a limpiar, hay que revisar el estado de las superficies que más sufren con la humedad invernal:

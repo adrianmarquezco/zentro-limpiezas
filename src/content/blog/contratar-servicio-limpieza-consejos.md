@@ -29,6 +29,8 @@ faqs:
 
 Contratar un servicio de limpieza implica dar acceso a tu hogar o a tu empresa a personas que no conoces. Eso requiere confianza. No todas las empresas del sector ofrecen las mismas garantías, y el precio más barato casi nunca es la mejor opción. Esta guía te da las herramientas para tomar una decisión informada.
 
+![Acuerdo de confianza entre cliente y empresa de limpieza](/images/blog/content-contratar-servicio-limpieza-consejos.webp)
+
 ## Por qué importa elegir bien
 
 Elegir mal una empresa de limpieza puede dejarte sin cobertura ante daños, con personal irregular en tu casa cada vez distinto, o con productos de baja calidad que dañan superficies.

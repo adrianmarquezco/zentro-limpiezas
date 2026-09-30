@@ -13,6 +13,8 @@ slugEs: "contratar-servicio-limpieza-consejos"
 
 Contratar un servizo de limpeza implica deixar entrar persoas no teu fogar ou na túa empresa. É un acto de confianza que merece que te tomes un momento para verificar certas cousas antes de dicir que si.
 
+![Acordo de confianza entre cliente e empresa de limpeza](/images/blog/content-contratar-servicio-limpieza-consejos.webp)
+
 ## 1. Comproba que a empresa existe de verdade
 
 Pode parecer evidente, pero non o é. Antes de contratar, verifica:

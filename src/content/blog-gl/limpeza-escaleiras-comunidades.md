@@ -19,6 +19,8 @@ slugEs: "limpieza-escaleras-comunidades-vecinos"
 
 A limpeza das escaleiras e zonas comúns é un dos temas que máis discusión xera nas comunidades de propietarios. Quen ten a responsabilidade? Con que frecuencia hai que facela? Compensa contratar unha empresa ou é mellor organizarse entre os veciños? Neste artigo respondemos a todas estas preguntas con información práctica para comunidades en Ferrolterra e a área de A Coruña.
 
+![Escaleira exterior dun edificio de comunidade de veciños](/images/blog/content-limpieza-escaleras-comunidades-vecinos.webp)
+
 ## Quen é responsable de limpar as zonas comúns?
 
 Segundo a Lei de Propiedade Horizontal, o mantemento e conservación dos elementos comúns do edificio (escaleiras, portal, ascensor, xardíns, garaxe…) é responsabilidade da comunidade de propietarios no seu conxunto. Isto significa que o custo repártese entre todos os veciños segundo a súa cota de participación.

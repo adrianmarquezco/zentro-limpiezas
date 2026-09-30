@@ -29,6 +29,8 @@ faqs:
 
 Una de las primeras preguntas que nos hacen es cuánto cuesta el servicio de limpieza. La respuesta honesta es que depende de muchos factores, pero podemos darte una orientación clara de los rangos habituales en Galicia y qué variables influyen en el precio final.
 
+![Limpieza profesional del hogar con equipo especializado](/images/blog/content-cuanto-cuesta-limpieza-hogar.webp)
+
 ## Por qué no hay un precio único
 
 No hay un precio único porque el coste depende del tamaño del espacio, su estado actual, el tipo de servicio, la frecuencia y la accesibilidad de la vivienda.

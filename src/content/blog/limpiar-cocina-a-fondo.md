@@ -27,6 +27,8 @@ faqs:
 
 La cocina es la zona del hogar que más suciedad concentra y la que más rápido se ensucia. La grasa, el vapor y los restos de comida se acumulan en capas invisibles en casi todas las superficies. Una limpieza a fondo de la cocina bien hecha requiere método, los productos correctos y tiempo. Te explicamos cómo lo hacemos los profesionales.
 
+![Limpieza de los fogones de la cocina con guantes](/images/blog/content-limpiar-cocina-a-fondo.webp)
+
 ## El principio fundamental: deja actuar los productos
 
 El error más común es frotar en seco o con el producto recién aplicado. La grasa cocinada es resistente y necesita que el producto la disuelva antes de retirarla. Aplica el producto, espera al menos 5-10 minutos y entonces frota. Reducirás el esfuerzo a la mitad y el resultado será mejor.

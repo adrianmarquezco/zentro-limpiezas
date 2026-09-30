@@ -18,6 +18,8 @@ slugEs: "limpieza-puntual-vs-periodica"
 
 Cando alguén nos chama por primeira vez, unha das dúbidas máis habituais é esta: contrato unha limpeza puntual ou mellor establecer un servizo regular? Non hai unha resposta universal, pero si hai criterios claros para tomar a mellor decisión segundo a túa situación.
 
+![Limpeza do salón como parte dun servizo periódico](/images/blog/content-limpieza-puntual-vs-periodica.webp)
+
 ## Que é unha limpeza puntual?
 
 Unha limpeza puntual é un servizo dunha soa visita, contratado para unha ocasión concreta. Non implica ningún compromiso futuro.

@@ -30,6 +30,8 @@ faqs:
 
 O prezo dunha limpeza profesional é a pregunta que máis recibimos. É lóxico: antes de contratar calquera servizo queres saber en qué rango te moves. Nesta guía dámosche os prezos reais que cobramos en Zentro Limpiezas para os distintos tipos de servizo en Ferrolterra e a área de A Coruña.
 
+![Limpeza profesional do fogar con equipo especializado](/images/blog/content-cuanto-cuesta-limpieza-hogar.webp)
+
 ## Factores que determinan o prezo
 
 Non hai un prezo único porque o custo depende do tamaño do espazo, o seu estado previo, o tipo de servizo, a frecuencia e a accesibilidade da vivenda.

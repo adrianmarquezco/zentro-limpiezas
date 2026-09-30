@@ -27,6 +27,8 @@ lang: "es"
 
 Limpiar cristales parece simple pero el resultado suele ser frustrante: rayas, vetas, manchas de agua que no desaparecen aunque repases varias veces. El problema rara vez es el producto; casi siempre es la técnica o el material. Te explicamos cómo lo hacen los profesionales.
 
+![Limpieza de un cristal grande con mopa y producto profesional](/images/blog/content-limpiar-cristales-sin-rayas.webp)
+
 ## El error más común: papel de cocina o periódico
 
 El error más común al limpiar cristales es usar papel de cocina, periódico o trapos corrientes: dejan pelusa y fibras que se ven a contraluz. La microfibra de calidad o la rasqueta de goma evitan ese problema.

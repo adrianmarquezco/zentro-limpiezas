@@ -28,6 +28,8 @@ faqs:
 
 Llega el momento de abandonar un piso de alquiler y con él, la presión de dejar el espacio en el mismo estado en que lo recibiste. La ley es clara: el inquilino está obligado a devolver el inmueble en las mismas condiciones en que lo recibió, salvo el desgaste normal por el uso. El problema es que "desgaste normal" puede interpretarse de muchas maneras, y a menudo la limpieza es el punto de mayor fricción entre propietario e inquilino.
 
+![Revisión de limpieza antes de entregar un piso de alquiler](/images/blog/content-checklist-limpieza-piso-alquiler.webp)
+
 ## ¿Qué obligación legal tengo como inquilino?
 
 Como inquilino debes devolver el piso en las mismas condiciones en que lo recibiste, salvo el desgaste normal por el uso, según el artículo 1563 del Código Civil y la LAU.

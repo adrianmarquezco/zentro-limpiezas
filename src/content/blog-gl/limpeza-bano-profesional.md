@@ -20,6 +20,8 @@ faqs:
 
 O baño é a estancia do fogar onde a diferenza entre "limpo" e "limpo de verdade" é máis evidente. O sarro, a cal, o xabón incrustado e a humidade acumulada non desaparecen só con pasar un pano húmido. Necesitan técnica, o produto axeitado e a orde correcta.
 
+![Billa de baño sen cal tras unha limpeza antical](/images/blog/content-eliminar-sarro-cal-bano.webp)
+
 ## Por que o baño acumula sarro e cal?
 
 A auga da billa en gran parte de Galicia ten un nivel considerable de calcio e magnesio disolvidos. Cando a auga se evapora, estes minerais quedan depositados nas superficies: grifería, mampara, lavabo, bañeira. Isto é o que chamamos cal ou sarro.

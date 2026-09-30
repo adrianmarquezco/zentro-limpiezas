@@ -19,6 +19,8 @@ slugEs: "limpieza-hogar-con-mascotas"
 
 Vivir con mascotas é marabilloso. Manter o fogar limpo cando tes cans ou gatos require adaptar rutinas, ferramentas e produtos. As mascotas xeran máis suciidade —pelo, pegadas, cheiros, manchas— pero tamén son máis vulnerables a certos produtos de limpeza convencionais.
 
+![Limpeza do sofá con aspiradora nun fogar con mascotas](/images/blog/content-limpieza-hogar-con-mascotas.webp)
+
 ## Por que os produtos ecolóxicos son mellores con mascotas
 
 Os produtos de limpeza convencionais conteñen compostos que poden ser tóxicos para cans e gatos: fenois (en algúns desinfectantes), aceites esenciais de pino e eucalipto, amoníaco, cloraminas. Os animais inxírenos ao lamberse as patas ou ao tombarse en superficies recentemente limpadas.

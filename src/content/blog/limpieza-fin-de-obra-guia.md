@@ -27,6 +27,8 @@ faqs:
 
 Acabas de terminar una reforma. El espacio tiene la estructura que querías, pero está cubierto de polvo fino de escayola, restos de silicona, manchas de pintura y suciedad acumulada en todos los ángulos. La limpieza de fin de obra no es la misma que una limpieza doméstica normal: los materiales, las técnicas y el tiempo necesario son completamente distintos.
 
+![Aspirador industrial en un piso recién reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
+
 ## Qué incluye una limpieza de fin de obra
 
 Una limpieza post-obra profesional cubre tres fases:

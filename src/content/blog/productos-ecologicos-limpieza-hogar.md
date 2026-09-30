@@ -30,6 +30,8 @@ La limpieza ecológica ha dejado de ser una opción de nicho para convertirse en
 
 Pero el mercado está lleno de confusión. "Ecológico", "natural", "bio", "verde", "fórmula suave"... muchos de estos términos no tienen respaldo legal ni verificación independiente. Te explicamos cómo orientarte y qué productos realmente funcionan.
 
+![Productos de limpieza ecológicos ordenados en una balda](/images/blog/content-productos-ecologicos-limpieza-hogar.webp)
+
 ## Qué significa "ecológico" en un producto de limpieza
 
 Un producto de limpieza es realmente ecológico cuando sus ingredientes son biodegradables, tiene bajo impacto en ecosistemas acuáticos y no contiene sustancias de muy alta preocupación (SVHC).

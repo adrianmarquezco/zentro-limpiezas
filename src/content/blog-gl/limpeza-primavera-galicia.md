@@ -10,6 +10,8 @@ slugEs: "limpieza-primavera-galicia"
 
 En Galicia, a limpeza de primavera ten un compoñente extra que non aparece nas guías estándar: a humidade. O inverno galego é húmido e con temperaturas que favorecen a condensación en paredes, xanelas e recunchos pouco ventilados.
 
+![Ventilación da vivenda abrindo as cortinas na primavera](/images/blog/content-limpieza-primavera-galicia.webp)
+
 ## Primeiro: a revisión de humidade
 
 Antes de poñerse a limpar, hai que revisar o estado das superficies que máis sofren coa humidade invernal:

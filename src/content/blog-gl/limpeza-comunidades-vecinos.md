@@ -19,6 +19,8 @@ slugEs: "limpieza-comunidades-vecinos-guia"
 
 O portal, as escaleiras, o garaxe e as zonas comúns dun edificio son a primeira imaxe que ven os teus veciños e as súas visitas cada día. A limpeza de comunidades é un dos servizos máis demandados en Ferrol e A Coruña, e tamén un dos que máis dúbidas xera. Esta guía responde todas esas preguntas.
 
+![Escaleira e portal dunha comunidade de veciños](/images/blog/content-limpieza-comunidades-vecinos-guia.webp)
+
 ## Que inclúe a limpeza de comunidades
 
 Un servizo completo de limpeza de zonas comúns cobre:

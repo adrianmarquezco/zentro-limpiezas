@@ -19,6 +19,8 @@ slugEs: "checklist-limpieza-piso-alquiler"
 
 Chega o momento de abandonar un piso de alugueiro e con el, a presión de deixar o espazo no mesmo estado en que o recibiches. A lei é clara: o inquilino está obrigado a devolver o inmoble nas mesmas condicións en que o recibiu, salvo o desgaste normal polo uso. O problema é que "desgaste normal" pode interpretarse de moitas maneiras, e a miúdo a limpeza é o punto de maior fricción entre propietario e inquilino.
 
+![Revisión de limpeza antes de entregar un piso de alugueiro](/images/blog/content-checklist-limpieza-piso-alquiler.webp)
+
 ## Que obriga legal teño como inquilino?
 
 Como inquilino debes devolver o piso nas mesmas condicións en que o recibiches, salvo o desgaste normal polo uso, segundo o artigo 1563 do Código Civil e a LAU.

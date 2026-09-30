@@ -27,6 +27,8 @@ faqs:
 
 El portal, las escaleras, el garaje y las zonas comunes de un edificio son la primera imagen que ven tus vecinos y sus visitas cada día. La limpieza de comunidades es uno de los servicios más demandados en Ferrol y A Coruña, y también uno de los que más dudas genera: ¿con qué frecuencia? ¿qué incluye? ¿cuánto cuesta? Esta guía responde todas esas preguntas.
 
+![Escalera y portal de una comunidad de vecinos](/images/blog/content-limpieza-comunidades-vecinos-guia.webp)
+
 ## Qué incluye la limpieza de comunidades
 
 Un servicio completo de limpieza de zonas comunes cubre:

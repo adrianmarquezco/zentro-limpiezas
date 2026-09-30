@@ -19,6 +19,8 @@ slugEs: "limpieza-fin-de-obra-preguntas-frecuentes"
 
 Unha reforma é emocionante. O resultado final tamén. Pero entre medias hai un estado que ninguén quere ver durar máis do necesario: o caos de po, cascallos e residuos que deixa calquera obra. A limpeza fin de obra é a transición entre ese caos e o espazo que imaxinabas. A continuación respondemos as preguntas que máis nos fan antes de contratar este servizo.
 
+![Aspirador industrial sobre o parquet durante unha obra](/images/blog/content-limpieza-fin-de-obra-preguntas-frecuentes.webp)
+
 ## Que é exactamente a limpeza fin de obra?
 
 É un tipo de limpeza especializada que se realiza ao rematar unha reforma, construción ou rehabilitación dun espazo. A diferenza dunha limpeza doméstica convencional, a limpeza fin de obra implica:

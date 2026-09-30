@@ -19,6 +19,8 @@ slugEs: "limpieza-oficinas-empresas-galicia"
 
 A limpeza dun espazo de traballo non é só unha cuestión estética. Un contorno limpo e ordenado impacta directamente na produtividade, na percepción que teñen os clientes e visitas, e no benestar dos empregados. Con todo, moitas empresas xestionan este servizo de xeito improvisado, con resultados inconsistentes.
 
+![Limpeza dunha pantalla de ordenador nunha oficina](/images/blog/content-limpieza-oficinas-empresas-galicia.webp)
+
 ## Por que a limpeza de oficinas é diferente
 
 Limpar unha oficina é distinto dunha vivenda polo horario condicionado á actividade laboral, o maior volume de persoas por metro cadrado e o equipamento informático, que require produtos específicos.

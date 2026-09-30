@@ -10,6 +10,8 @@ slugEs: "productos-ecologicos-limpieza-hogar"
 
 A limpeza ecolóxica deixou de ser unha opción de nicho para converterse na elección intelixente de moitos fogares. Non porque estea de moda, senón porque funciona igual de ben que os produtos convencionais e elimina unha longa lista de problemas: vapores tóxicos, residuos contaminantes, risco para nenos e mascotas.
 
+![Produtos de limpeza ecolóxicos ordenados nunha estante](/images/blog/content-productos-ecologicos-limpieza-hogar.webp)
+
 ## Que significa realmente "ecolóxico" en limpeza
 
 Un produto de limpeza é realmente ecolóxico cando os seus ingredientes son biodegradables, ten baixo impacto en ecosistemas acuáticos e non contén substancias de moi alta preocupación.

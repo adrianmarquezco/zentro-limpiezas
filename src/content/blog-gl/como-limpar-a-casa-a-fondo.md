@@ -10,6 +10,8 @@ slugEs: "como-limpiar-el-piso-a-fondo"
 
 Limpar a casa a fondo unha ou dúas veces ao ano é unha desas tarefas que todo o mundo apaza pero que marca unha diferenza enorme no aspecto e no ambiente do fogar. Non é só quitar o po: trátase de chegar aos recunchos que o mantemento semanal non cobre.
 
+![Aspirado dunha alfombra durante unha limpeza a fondo do piso](/images/blog/content-como-limpiar-el-piso-a-fondo.webp)
+
 ## Por onde comezar: a orde correcta
 
 A orde correcta para limpar a casa a fondo é sempre de arriba cara abaixo e de dentro cara afóra: teitos, mobles altos, paredes, mobles baixos e chans ao final.

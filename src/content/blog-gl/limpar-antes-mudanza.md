@@ -19,6 +19,8 @@ slugEs: "limpiar-antes-mudanza"
 
 Unha mudanza é estresante de por si: coordinación de transportistas, caixas, trámites, cambios de domicilio. A limpeza do piso que deixas ou do que vas entrar adoita quedar para o último momento. Contámosche como organizala sen que se converta noutro problema máis.
 
+![Aspirado do piso antes dunha mudanza](/images/blog/content-limpiar-antes-mudanza.webp)
+
 ## Limpar o piso que deixas: a fianza en xogo
 
 Para recuperar a fianza íntegra ao deixar un piso de alugueiro, hai que entregalo sen cal, graxa nin mofo na cociña e no baño, cos armarios baleirados e limpos e sen residuos.

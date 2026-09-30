@@ -27,6 +27,8 @@ faqs:
 
 La limpieza de un espacio de trabajo no es solo una cuestión estética. Un entorno limpio y ordenado impacta directamente en la productividad, en la percepción que tienen los clientes y visitas, y en el bienestar de los empleados. Sin embargo, muchas empresas gestionan este servicio de manera improvisada, con resultados inconsistentes.
 
+![Limpieza de una pantalla de ordenador en una oficina](/images/blog/content-limpieza-oficinas-empresas-galicia.webp)
+
 ## Por qué la limpieza de oficinas es diferente
 
 Limpiar una oficina es distinto de una vivienda por el horario condicionado a la actividad laboral, el mayor volumen de personas por metro cuadrado y el equipamiento informático, que requiere productos específicos.

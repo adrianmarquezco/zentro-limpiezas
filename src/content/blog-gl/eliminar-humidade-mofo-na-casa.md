@@ -32,6 +32,8 @@ slugEs: "eliminar-humedad-moho-en-casa"
 
 O mofo nas paredes do baño, na silicona da ducha ou no marco dunha fiestra é unha das consultas máis habituais que recibimos en Ferrolterra. Non é casualidade: o clima atlántico, a humidade ambiental constante e boa parte do parque de vivendas —bloques dos anos 70-80, casas de pedra en zonas rurais, pisos de costa— crean as condicións perfectas para que apareza. Esta guía explica por que pasa, como se elimina ben e, sobre todo, cando unha limpeza a fondo abonda e cando fai falta ir un paso máis alá.
 
+![Parede con humidade e mofo típica dun clima húmido](/images/blog/content-eliminar-humedad-moho-en-casa.webp)
+
 ## Por que aparece o mofo nas casas de Ferrolterra
 
 O mofo aparece pola combinación de humidade, pouca ventilación e unha superficie onde agarrarse. En Ferrolterra, o clima atlántico e o parque de vivenda antiga fan que estas tres condicións se dean con moita facilidade.

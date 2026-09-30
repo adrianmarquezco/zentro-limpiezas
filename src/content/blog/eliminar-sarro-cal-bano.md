@@ -27,6 +27,8 @@ faqs:
 
 El sarro y los depósitos de cal son el problema de limpieza más común en el baño, especialmente en zonas con agua dura como muchas partes de Galicia. La solución convencional suele ser el ácido clorhídrico (salfumán), que funciona pero genera vapores tóxicos, ataca ciertos materiales y tiene un impacto ambiental considerable. Hay alternativas ecológicas igual de eficaces si sabes cómo aplicarlas.
 
+![Grifo de baño sin cal tras una limpieza antical](/images/blog/content-eliminar-sarro-cal-bano.webp)
+
 ## Por qué se forma el sarro
 
 El sarro se forma porque el agua lleva minerales disueltos, sobre todo carbonato cálcico, que quedan depositados sobre la superficie cuando el agua se evapora.

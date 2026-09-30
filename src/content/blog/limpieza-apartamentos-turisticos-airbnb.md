@@ -27,6 +27,8 @@ faqs:
 
 Si tienes un apartamento turístico o un alojamiento en Airbnb, la limpieza entre huéspedes es uno de los factores que más influyen en tus valoraciones y en tu capacidad para mantener una alta tasa de ocupación. Un piso mal limpiado se traduce en reseñas negativas que son muy difíciles de revertir.
 
+![Preparación de la cama en un apartamento turístico entre huéspedes](/images/blog/content-limpieza-apartamentos-turisticos-airbnb.webp)
+
 ## Los tiempos: el mayor reto del anfitrión
 
 La limpieza entre huéspedes tiene una particularidad crítica que la distingue de cualquier otra: el tiempo disponible es limitado y fijo. El check-out suele ser a las 11:00-12:00 y el check-in a las 15:00-16:00. Tienes 3-4 horas para dejar el apartamento impecable.

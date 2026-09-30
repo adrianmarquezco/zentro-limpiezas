@@ -19,6 +19,8 @@ slugEs: "limpiar-cristales-sin-rayas"
 
 Limpar cristais parece sinxelo pero o resultado adoita ser frustrante: raias, vetas, manchas de auga que non desaparecen aínda que repases varias veces. O problema case nunca é o produto; case sempre é a técnica ou o material. Explicámosche como o fan os profesionais.
 
+![Limpeza dun cristal grande con mopa e produto profesional](/images/blog/content-limpiar-cristales-sin-rayas.webp)
+
 ## O erro máis común: papel de cociña ou xornal
 
 O erro máis común ao limpar cristais é usar papel de cociña, xornal ou trapos correntes: deixan pelusa e fibras que se ven a contraluz. A microfibra de calidade ou a rasqueta de goma evitan ese problema.

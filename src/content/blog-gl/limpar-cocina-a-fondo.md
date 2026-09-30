@@ -19,6 +19,8 @@ slugEs: "limpiar-cocina-a-fondo"
 
 A cociña é a zona do fogar que máis suciidade concentra e a que máis rápido se ensucia. A graxa, o vapor e os restos de comida acumúlanse en capas invisibles en case todas as superficies. Unha limpeza a fondo da cociña ben feita require método, os produtos correctos e tempo. Explicámosche como o fan os profesionais.
 
+![Limpeza dos fogóns da cociña con luvas](/images/blog/content-limpiar-cocina-a-fondo.webp)
+
 ## O principio fundamental: deixa actuar os produtos
 
 O erro máis común é frotar en seco ou co produto recén aplicado. A graxa cociñada é resistente e necesita que o produto a dissolva antes de retirala. Aplica o produto, espera polo menos 5-10 minutos e entón frota. Reducirás o esforzo á metade e o resultado será mellor.

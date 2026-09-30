@@ -32,6 +32,8 @@ slugEs: "limpieza-de-ventanas-ferrolterra"
 
 Atopar quen limpe as fiestras da túa casa en Ferrol, Narón ou calquera outro concello de Ferrolterra non debería ser complicado, pero entre prezos pouco claros e empresas que non cubren toda a comarca, moitas veces é. Esta guía reúne todo o que precisas saber antes de contratar: que inclúe o servizo, canto custa segundo o tamaño da vivenda, e por que as fiestras preto do mar se ensucian máis rápido que no interior.
 
+![Limpeza profesional de fiestras no exterior dunha vivenda](/images/blog/content-limpieza-de-ventanas-ferrolterra.webp)
+
 ## Que inclúe a limpeza profesional de fiestras?
 
 A limpeza profesional de fiestras inclúe a lavada do cristal por dentro e por fóra, o secado con rasqueta de goma para evitar raias e marcas de auga, e —se se solicita— a limpeza de marcos, carrís e persianas. En cristais con cal acumulada aplícase primeiro un desincrustante específico antes da lavada final.

@@ -27,6 +27,8 @@ faqs:
 
 Vivir con mascotas es maravilloso. Mantener el hogar limpio cuando tienes perros o gatos requiere adaptar rutinas, herramientas y productos. Las mascotas generan más suciedad —pelo, huellas, olores, manchas— pero también son más vulnerables a ciertos productos de limpieza convencionales.
 
+![Limpieza del sofá con aspiradora en un hogar con mascotas](/images/blog/content-limpieza-hogar-con-mascotas.webp)
+
 ## Por qué los productos ecológicos son mejores con mascotas
 
 Los productos de limpieza convencionales contienen compuestos que pueden ser tóxicos para perros y gatos: fenoles (en algunos desinfectantes), aceites esenciales de pino y eucalipto, amoníaco, cloraminas. Los animales los ingieren al lamerse las patas o al tumbarse en superficies recién limpiadas.
