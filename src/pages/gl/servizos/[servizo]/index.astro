@@ -197,9 +197,9 @@ const pasos = [
 
         </div>
 
-        <!-- Aside -->
-        <aside class="space-y-6 self-start">
-          <div class="lg:sticky lg:top-28 card p-6 border-accent/30" data-reveal>
+        <!-- Aside: sticky con scroll propio se o contido non cabe en pantalla -->
+        <aside class="space-y-6 self-start lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
+          <div class="card p-6 border-accent/30" data-reveal>
             <p class="font-serif text-lg text-primary mb-2 font-semibold">Solicitar orzamento</p>
             <p class="text-mid text-xs mb-4">Gratuíto · Sen compromiso · Resposta en 24h</p>
             <div class="flex flex-col gap-2">
