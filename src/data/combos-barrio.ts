@@ -32,6 +32,17 @@ function tVariant(value: string | string[], barrio: string, municipio: string): 
   return t(pickVariant(value, barrio, municipio), barrio, municipio);
 }
 
+// Igual que pickVariant pero para listas (string[][]): evita la ambigüedad de que
+// Array.isArray(string[]) también sea true, que haría que pickVariant devolviera
+// un único elemento suelto en vez de la lista completa.
+function tListVariant(variants: string[][], barrio: string, municipio: string): string[] {
+  const seed = `${municipio}-${barrio}`;
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+  const chosen = variants[hash % variants.length];
+  return chosen.map(s => t(s, barrio, municipio));
+}
+
 const CRISTALES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
   'bloque-obrero': {
     tituloPagina: 'Limpiar ventanas de bloque en {barrio}: cal acumulada',
@@ -274,7 +285,7 @@ export type ContenidoPeriodica = {
   porQueH2: string;
   porQueContent: string | string[];
   queIncluyeH2: string;
-  queIncluyeItems: string[];
+  queIncluyeItems: string[][];
   frecuencia: string;
   precioItems: string[];
   faqs: { q: string; a: string }[];
@@ -297,12 +308,22 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye cada visita de limpieza periódica en {barrio}',
     queIncluyeItems: [
-      'Cocina: campana, encimera, azulejos y electrodomésticos exteriores',
-      'Baño/s: sanitarios, mampara, suelo y azulejos con antical',
-      'Suelos de toda la vivienda: barrido y fregado con mopa de microfibra',
-      'Superficies y muebles: polvo en encimeras, estanterías y rodapiés',
-      'Papeleras vaciadas y bolsas de basura repuestas',
-      'Espejos y cristales interiores sin rayas',
+      [
+        'Cocina: campana, encimera, azulejos y electrodomésticos exteriores',
+        'Baño/s: sanitarios, mampara, suelo y azulejos con antical',
+        'Suelos de toda la vivienda: barrido y fregado con mopa de microfibra',
+        'Superficies y muebles: polvo en encimeras, estanterías y rodapiés',
+        'Papeleras vaciadas y bolsas de basura repuestas',
+        'Espejos y cristales interiores sin rayas',
+      ],
+      [
+        'Suelos de toda la casa: barrido y fregado con mopa de microfibra',
+        'Baño completo: sanitarios, mampara y azulejos con tratamiento antical',
+        'Cocina: encimera, campana y exterior de electrodomésticos desengrasados',
+        'Polvo en superficies: muebles, estanterías, rodapiés y marcos de puertas',
+        'Cristales interiores y espejos limpiados sin rayas',
+        'Papeleras vaciadas con cambio de bolsa en cada visita',
+      ],
     ],
     frecuencia: 'Para una familia de 3-4 personas en {barrio}, la frecuencia más habitual es quincenal. Para parejas sin niños o personas solas, una vez al mes suele ser suficiente. Familias con niños pequeños o mascotas prefieren visita semanal.',
     precioItems: [
@@ -317,8 +338,8 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
         a: 'Sí. Avisando con 24 horas de antelación recolocamos la visita sin coste. Los clientes con servicio periódico en {barrio} tienen prioridad en la agenda para reasignaciones.',
       },
       {
-        q: '¿Traéis vosotros los productos o tengo que tenerlos en casa?',
-        a: 'Traemos todo: productos Ecolabel certificados, mopas, cubos y microfibras. No necesitas tener nada preparado. Si tienes algún producto específico que prefieras que usemos, lo comentamos al contratar.',
+        q: '¿Traéis vosotros los productos en {barrio} o tengo que tenerlos preparados?',
+        a: 'Traemos todo: productos Ecolabel certificados, mopas, cubos y microfibras. En {barrio} no necesitas tener nada preparado. Si tienes algún producto específico que prefieras que usemos, lo comentamos al contratar.',
       },
     ],
   },
@@ -339,12 +360,22 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en un piso histórico de {barrio}',
     queIncluyeItems: [
-      'Suelos de madera: limpieza en seco con mopa de microfibra y mínima humedad',
-      'Rodapiés y molduras: cepillado de polvo en recovecos y esquinas',
-      'Cocina y baño: productos neutros de pH 7 sin ácidos que dañen azulejos históricos',
-      'Techos: eliminación de polvo en cornisas y esquinas con barra extensible',
-      'Vidrios interiores y espejos: técnica de microfibra sin spray directo',
-      'Carriles de ventanas de guillotina: cepillado fino incluido',
+      [
+        'Suelos de madera: limpieza en seco con mopa de microfibra y mínima humedad',
+        'Rodapiés y molduras: cepillado de polvo en recovecos y esquinas',
+        'Cocina y baño: productos neutros de pH 7 sin ácidos que dañen azulejos históricos',
+        'Techos: eliminación de polvo en cornisas y esquinas con barra extensible',
+        'Vidrios interiores y espejos: técnica de microfibra sin spray directo',
+        'Carriles de ventanas de guillotina: cepillado fino incluido',
+      ],
+      [
+        'Cocina y baño: limpieza con productos de pH neutro, sin ácidos agresivos para azulejos de época',
+        'Suelos de madera o parquet: paño casi seco con mopa de microfibra, sin exceso de humedad',
+        'Molduras y rodapiés: cepillado minucioso en recovecos donde se acumula el polvo',
+        'Cornisas y techos altos: polvo retirado con barra extensible',
+        'Ventanas de guillotina: carriles cepillados a fondo',
+        'Espejos y vidrios interiores: acabado con microfibra, sin pulverizar directamente sobre marcos de época',
+      ],
     ],
     frecuencia: 'Para un piso histórico habitado en {barrio}, la limpieza quincenal mantiene el polvo bajo control sin sobreexponer los suelos de madera a la humedad. Una vez al mes puede ser suficiente para personas solas o parejas sin niños.',
     precioItems: [
@@ -381,12 +412,22 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en las casas de {barrio}',
     queIncluyeItems: [
-      'Superficies horizontales: limpieza de salitre depositado en alféizares, encimeras y estantes',
-      'Baños: antical y antifúngico preventivo en juntas y techos',
-      'Marcos de ventana: limpieza de salitre con neutralizador de sales',
-      'Suelos: fregado con secado rápido para evitar humedad residual',
-      'Cocina: desengrase de campana y encimera, limpieza de condensaciones en azulejos',
-      'Ventilación: limpieza de rejillas de ventilación que acumulan sal y polvo marino',
+      [
+        'Superficies horizontales: limpieza de salitre depositado en alféizares, encimeras y estantes',
+        'Baños: antical y antifúngico preventivo en juntas y techos',
+        'Marcos de ventana: limpieza de salitre con neutralizador de sales',
+        'Suelos: fregado con secado rápido para evitar humedad residual',
+        'Cocina: desengrase de campana y encimera, limpieza de condensaciones en azulejos',
+        'Ventilación: limpieza de rejillas de ventilación que acumulan sal y polvo marino',
+      ],
+      [
+        'Marcos de ventana y persianas: tratamiento con neutralizador de sales marinas',
+        'Cocina: desengrase de campana y encimera, con atención a la condensación en azulejos',
+        'Baños: antifúngico preventivo en juntas y techo, más repaso antical',
+        'Suelos: fregado con secado rápido, clave en ambiente de humedad constante',
+        'Alféizares, estantes y encimeras: retirada del salitre depositado desde la última visita',
+        'Rejillas de ventilación: limpieza del polvo y sal marina acumulados',
+      ],
     ],
     frecuencia: 'En {barrio}, la frecuencia recomendada es quincenal por la rapidez con que el ambiente marino deposita salitre y humedad. En verano, con más actividad y las ventanas más abiertas, muchos clientes prefieren visita semanal.',
     precioItems: [
@@ -423,13 +464,24 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye la limpieza de apertura de segunda residencia en {barrio}',
     queIncluyeItems: [
-      'Ventilación controlada de todas las estancias',
-      'Eliminación de polvo acumulado: suelos, muebles, techos y esquinas',
-      'Tratamiento de manchas de condensación en ventanas y cristales',
-      'Desinfección de baños y cocina tras el período de cierre',
-      'Revisión visual de humedad en paredes y techos (avisamos si encontramos algo)',
-      'Frigorífico: limpieza interior si lo dejaste en marcha o con productos',
-      'Camas: cambio de ropa de cama si nos dejas juego preparado',
+      [
+        'Ventilación controlada de todas las estancias',
+        'Eliminación de polvo acumulado: suelos, muebles, techos y esquinas',
+        'Tratamiento de manchas de condensación en ventanas y cristales',
+        'Desinfección de baños y cocina tras el período de cierre',
+        'Revisión visual de humedad en paredes y techos (avisamos si encontramos algo)',
+        'Frigorífico: limpieza interior si lo dejaste en marcha o con productos',
+        'Camas: cambio de ropa de cama si nos dejas juego preparado',
+      ],
+      [
+        'Apertura de ventanas y ventilación a fondo de toda la casa',
+        'Baños y cocina desinfectados tras el periodo sin uso',
+        'Polvo acumulado retirado de suelos, muebles, techos y rincones',
+        'Condensación en ventanas y cristales tratada y eliminada',
+        'Paredes y techos revisados visualmente por si hay humedad (te avisamos si la hay)',
+        'Interior del frigorífico limpiado si se quedó encendido o con productos dentro',
+        'Cambio de ropa de cama si dejas el juego preparado para nosotros',
+      ],
     ],
     frecuencia: 'Para segunda residencia en {barrio}: limpieza de apertura al llegar, limpieza semanal o quincenal si la estancia supera 2 semanas, y limpieza de cierre antes de irte. Sin compromiso de regularidad: contratas las visitas que necesitas.',
     precioItems: [
@@ -466,13 +518,24 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye la limpieza periódica de chalés en {barrio}',
     queIncluyeItems: [
-      'Planta baja completa: salón, cocina, aseo y zonas de paso',
-      'Primera planta: dormitorios, baños y pasillo',
-      'Escalera interior: barandilla, escalones y rellano',
-      'Terraza: barrido y fregado de suelo, limpieza de muebles de exterior',
-      'Baños completos: sanitarios, mampara, suelo y azulejos',
-      'Cocina: campana, encimera, azulejos y exterior de electrodomésticos',
-      'Garaje: barrido de polvo y manchas superficiales (limpieza profunda de garaje aparte)',
+      [
+        'Planta baja completa: salón, cocina, aseo y zonas de paso',
+        'Primera planta: dormitorios, baños y pasillo',
+        'Escalera interior: barandilla, escalones y rellano',
+        'Terraza: barrido y fregado de suelo, limpieza de muebles de exterior',
+        'Baños completos: sanitarios, mampara, suelo y azulejos',
+        'Cocina: campana, encimera, azulejos y exterior de electrodomésticos',
+        'Garaje: barrido de polvo y manchas superficiales (limpieza profunda de garaje aparte)',
+      ],
+      [
+        'Cocina: campana, encimera, azulejos y exterior de electrodomésticos desengrasados',
+        'Baños completos de ambas plantas: sanitarios, mampara, suelo y azulejos',
+        'Planta baja: salón, aseo y zonas de paso fregadas y en orden',
+        'Dormitorios y pasillo de la primera planta',
+        'Escalera interior: barandilla, peldaños y rellano sin polvo',
+        'Terraza: suelo barrido y fregado, mobiliario exterior limpiado',
+        'Garaje: barrido básico de polvo y manchas superficiales (la limpieza a fondo se presupuesta aparte)',
+      ],
     ],
     frecuencia: 'Los chalés habitados en {barrio} con familia necesitan visita semanal o quincenal. Para parejas o personas solas con chalé, una vez al mes es viable si la vivienda no tiene mucho tráfico de personas.',
     precioItems: [
@@ -509,13 +572,24 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en una casa rural de {barrio}',
     queIncluyeItems: [
-      'Suelos de piedra, baldosa o madera: fregado con producto adecuado a cada material',
-      'Chimenea: limpieza exterior de hogar, cenicero y zona circundante',
-      'Techos con vigas: eliminación de polvo y telarañas con cepillo extensible',
-      'Cocina: fogones, encimera y campana; si hay cocina de leña, limpieza exterior',
-      'Baños: sanitarios, suelo y paredes con productos neutros',
-      'Entrada y corredor: zona de barro y suciedad de entrada',
-      'Ventanas y marcos: polvo de campo y verdín preventivo en marcos exteriores',
+      [
+        'Suelos de piedra, baldosa o madera: fregado con producto adecuado a cada material',
+        'Chimenea: limpieza exterior de hogar, cenicero y zona circundante',
+        'Techos con vigas: eliminación de polvo y telarañas con cepillo extensible',
+        'Cocina: fogones, encimera y campana; si hay cocina de leña, limpieza exterior',
+        'Baños: sanitarios, suelo y paredes con productos neutros',
+        'Entrada y corredor: zona de barro y suciedad de entrada',
+        'Ventanas y marcos: polvo de campo y verdín preventivo en marcos exteriores',
+      ],
+      [
+        'Entrada y corredor: la zona que más barro y suciedad recibe a diario',
+        'Cocina: fogones, encimera y campana, con repaso exterior si hay cocina de leña',
+        'Suelos de piedra, baldosa antigua o madera: fregados con el producto adecuado a cada material',
+        'Vigas y techos: polvo y telarañas retirados con cepillo extensible',
+        'Chimenea: hogar, cenicero y zona cercana limpiados por fuera',
+        'Baños: sanitarios, suelo y paredes con productos de pH neutro',
+        'Marcos y ventanas: polvo de campo retirado y tratamiento preventivo contra el verdín',
+      ],
     ],
     frecuencia: 'En casas rurales de {barrio} habitadas a diario, la limpieza quincenal es lo más habitual. En invierno con chimenea activa, algunos clientes prefieren visita semanal para la zona de estar. En casas de uso eventual, limpieza antes y después de cada estancia.',
     precioItems: [
@@ -552,12 +626,22 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     ],
     queIncluyeH2: 'Qué incluye la limpieza periódica en viviendas de {barrio}',
     queIncluyeItems: [
-      'Alféizares y marcos de ventana: desengrase de partículas industriales',
-      'Encimeras y superficies horizontales: limpieza específica de capa grasienta',
-      'Rejillas de ventilación y extractores: acumulan más partículas que en otras zonas',
-      'Suelos: fregado con desengrasante previo si hay residuos pegajosos',
-      'Cocina: campana con acumulación superior a la habitual por partículas del entorno',
-      'Baños: limpieza estándar, sin particularidades por el entorno industrial',
+      [
+        'Alféizares y marcos de ventana: desengrase de partículas industriales',
+        'Encimeras y superficies horizontales: limpieza específica de capa grasienta',
+        'Rejillas de ventilación y extractores: acumulan más partículas que en otras zonas',
+        'Suelos: fregado con desengrasante previo si hay residuos pegajosos',
+        'Cocina: campana con acumulación superior a la habitual por partículas del entorno',
+        'Baños: limpieza estándar, sin particularidades por el entorno industrial',
+      ],
+      [
+        'Encimeras y superficies horizontales: capa grasienta del entorno industrial eliminada a fondo',
+        'Alféizares y marcos de ventana: desengrasados de partículas en suspensión',
+        'Cocina: campana con mayor acumulación de la habitual por el entorno, limpiada a fondo',
+        'Rejillas de ventilación y extractores: repaso extra por la mayor cantidad de partículas',
+        'Suelos: desengrasante previo si hay residuo pegajoso, después fregado normal',
+        'Baños: limpieza estándar, sin tratamiento especial por el entorno',
+      ],
     ],
     frecuencia: 'En {barrio}, la frecuencia recomendada es semanal o cada 10 días para viviendas con muchas ventanas orientadas al polígono. Quincenal es el mínimo para mantener un nivel aceptable de limpieza.',
     precioItems: [
@@ -579,9 +663,10 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
   },
 };
 
-export type ContenidoPeriodicaResuelto = Omit<ContenidoPeriodica, 'intro' | 'porQueContent'> & {
+export type ContenidoPeriodicaResuelto = Omit<ContenidoPeriodica, 'intro' | 'porQueContent' | 'queIncluyeItems'> & {
   intro: string;
   porQueContent: string;
+  queIncluyeItems: string[];
 };
 
 export function getContenidoPeriodica(
@@ -598,7 +683,7 @@ export function getContenidoPeriodica(
     porQueH2: t(raw.porQueH2, barrioNombre, municipioNombre),
     porQueContent: tVariant(raw.porQueContent, barrioNombre, municipioNombre),
     queIncluyeH2: t(raw.queIncluyeH2, barrioNombre, municipioNombre),
-    queIncluyeItems: raw.queIncluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
+    queIncluyeItems: tListVariant(raw.queIncluyeItems, barrioNombre, municipioNombre),
     frecuencia: t(raw.frecuencia, barrioNombre, municipioNombre),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
     faqs: raw.faqs.map(f => ({ q: t(f.q, barrioNombre, municipioNombre), a: t(f.a, barrioNombre, municipioNombre) })),
