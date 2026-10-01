@@ -66,13 +66,13 @@ const t = gl
       <input type="hidden" name="zona" value={zona || 'Ferrolterra'} />
       <input type="text" name="_honeypot" class="hidden" tabindex="-1" autocomplete="off" />
       <div class="grid grid-cols-2 gap-2">
-        <input type="text" name="nombre" required placeholder={t.name} class="form-field text-sm py-2" autocomplete="name" aria-label={t.name} />
-        <input type="tel" name="telefono" required placeholder={t.phone} class="form-field text-sm py-2" autocomplete="tel" aria-label={t.phone} />
+        <input type="text" name="nombre" required placeholder={t.name} class="form-field py-2" autocomplete="name" aria-label={t.name} />
+        <input type="tel" name="telefono" required placeholder={t.phone} class="form-field py-2" autocomplete="tel" aria-label={t.phone} />
       </div>
       {servicio ? (
         <input type="hidden" name="servicio" value={servicio} />
       ) : (
-        <select name="servicio" required class="form-field text-sm py-2" aria-label={t.what}>
+        <select name="servicio" required class="form-field py-2" aria-label={t.what}>
           <option value="">{t.what}</option>
           {t.options.map(o => <option value={o}>{o}</option>)}
         </select>
@@ -89,8 +89,8 @@ const t = gl
           ))}
         </div>
       </fieldset>
-      <input type="email" name="email" data-hero-quote-email placeholder={t.emailPh} class="form-field text-sm py-2 hidden" autocomplete="email" aria-label={t.emailPh} />
-      <textarea name="mensaje" rows="2" placeholder={t.commentPh} class="form-field text-sm py-2 resize-none" aria-label={t.commentPh}></textarea>
+      <input type="email" name="email" data-hero-quote-email placeholder={t.emailPh} class="form-field py-2 hidden" autocomplete="email" aria-label={t.emailPh} />
+      <textarea name="mensaje" rows="2" placeholder={t.commentPh} class="form-field py-2 resize-none" aria-label={t.commentPh}></textarea>
       <div class="flex items-start gap-2">
         <input type="checkbox" name="privacidad" required class="mt-0.5 accent-accent shrink-0" aria-label={`${t.privPre} ${t.privLink}`} />
         <span class="text-[11px] text-mid leading-tight">{t.privPre} <a href={t.privHref} class="text-accent hover:underline">{t.privLink}</a></span>

@@ -104,6 +104,21 @@ const pasos = [
           <div class="hero-trust">
             <TrustBar variant="dark" lang="gl" />
           </div>
+
+          <!-- Cifras — visibles tamén en móbil, a foto coa mesma info é so para escritorio -->
+          <div class="lg:hidden grid grid-cols-2 gap-2 mt-8 max-w-sm">
+            {[
+              { num: '+20', label: 'anos experiencia' },
+              { num: '100%', label: 'produtos ecolóxicos' },
+              { num: '29+', label: 'concellos cubertos' },
+              { num: '24h', label: 'resposta garantida' },
+            ].map(stat => (
+              <div class="bg-white/[0.06] border border-white/10 rounded-xl px-3 py-2.5">
+                <p class="font-mono text-accent text-lg font-bold leading-none">{stat.num}</p>
+                <p class="text-white/60 text-[11px] mt-1 leading-tight">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <!-- Columna dereita: foto do equipo -->
