@@ -596,7 +596,7 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
               <p class="font-serif text-base text-primary mb-3 font-semibold">Disponible en</p>
               <div class="flex flex-wrap gap-2">
                 {municipiosConCombo.map(m => (
-                  <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill">
+                  <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill" title={`${servicio.nombre} en ${m!.nombre}`}>
                     {m!.nombre}
                   </a>
                 ))}
