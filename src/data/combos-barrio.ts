@@ -1402,12 +1402,12 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     faqs: [
       {
-        q: '¿Cuánto tiempo necesitáis para hacer el cambio de huésped en {barrio}?',
-        a: 'Para un apartamento de 1 habitación en {barrio}, entre 1,5 y 2,5 horas. Para 2 habitaciones, entre 2 y 3 horas. Depende también del estado en que lo deje el huésped anterior.',
+        q: '¿Qué hacéis si encontráis algo roto o falta algún producto básico en el apartamento de {barrio}?',
+        a: 'Te avisamos en el momento, antes de seguir con la limpieza, con foto incluida. Así puedes gestionarlo con el huésped que se va o reponer lo que falte antes de que llegue el siguiente. No tomamos decisiones por ti, solo te informamos a tiempo.',
       },
       {
-        q: '¿Podéis gestionar las llaves del apartamento de {barrio} vosotros mismos?',
-        a: 'Sí. Muchos propietarios de apartamentos turísticos en {barrio} nos dejan una copia de la llave o el código de caja de seguridad. Coordinamos la entrada y salida sin que tengas que estar presente.',
+        q: '¿Podéis hacer el cambio de huésped el mismo día en {barrio} si tengo una reserva de última hora?',
+        a: 'Depende de la disponibilidad del momento, pero intentamos siempre cubrir cambios de mismo día en {barrio}. Escríbenos por WhatsApp en cuanto sepas la hora de salida y entrada y te confirmamos si podemos encajarlo en la agenda.',
       },
     ],
   },
@@ -1580,8 +1580,8 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     faqs: [
       {
-        q: '¿Cuánto tiempo necesitáis para hacer el cambio de huésped en un chalé en {barrio}?',
-        a: 'Para un chalé de 3 dormitorios, 2 personas durante 3-4 horas. Para 5 dormitorios, 3 personas durante 4-5 horas. Ajustamos el equipo para respetar el tiempo de rotación disponible.',
+        q: '¿El cambio de huésped en un chalé de {barrio} incluye limpiar las ventanas de cada dormitorio?',
+        a: 'Sí. En chalés turísticos de {barrio} limpiamos las ventanas interiores de todos los dormitorios en cada cambio de huésped, junto con muebles y suelos. Las ventanas exteriores en alturas o zonas de difícil acceso se presupuestan como servicio aparte.',
       },
       {
         q: '¿Limpiáis también la barbacoa y los muebles de jardín en el cambio de huésped de {barrio}?',
@@ -1672,8 +1672,8 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
         a: 'Sí. Para estancias largas (varias semanas o meses), ofrecemos también limpieza periódica semanal o quincenal. Es el mismo servicio que para viviendas habituales pero adaptado al tipo de uso más intensivo.',
       },
       {
-        q: '¿Cuánto tiempo tardáis en hacer el cambio en un apartamento de {barrio}?',
-        a: 'Para un apartamento de 1 habitación, entre 1,5 y 2,5 horas. Para 2 habitaciones, entre 2 y 3 horas. Puntualidad garantizada: si acordamos una hora de entrada, llegamos a esa hora.',
+        q: '¿Garantizáis una hora concreta de entrada para el siguiente inquilino en {barrio}?',
+        a: 'Sí. Si acordamos una hora de entrada para el cambio en {barrio}, la respetamos. Es especialmente importante en alquileres de trabajadores con turnos fijos, donde el apartamento tiene que estar listo exactamente cuando lo necesitan.',
       },
     ],
   },
@@ -1761,8 +1761,8 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     faqs: [
       {
-        q: '¿Cuánto tiempo dura una limpieza a fondo en un piso de bloque de {barrio}?',
-        a: 'Para un piso de 70-80 m² en {barrio}, entre 4 y 6 horas con un equipo de dos personas. Para pisos más descuidados o más grandes, puede extenderse a 7-8 horas. Lo indicamos en el presupuesto.',
+        q: '¿Cada cuánto conviene repetir la limpieza a fondo en un piso de bloque de {barrio} si ya tengo servicio periódico?',
+        a: 'Con servicio periódico activo en {barrio}, una limpieza a fondo cada 6-12 meses suele ser suficiente para zonas que el mantenimiento habitual no cubre: interior de armarios, detrás de electrodomésticos, techos y esquinas. Sin periódica, lo recomendable es antes de cada temporada.',
       },
       {
         q: '¿Tengo que vaciar los armarios antes de la limpieza a fondo en {barrio}?',
@@ -2061,8 +2061,8 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     faqs: [
       {
-        q: '¿Cuánto tiempo dura una limpieza a fondo en un piso de {barrio}?',
-        a: 'El desengrase previo añade 30-45 minutos a la limpieza a fondo estándar. Para un piso de 70-80 m² en {barrio}, calcular entre 4,5 y 6,5 horas con un equipo de dos personas.',
+        q: '¿El desengrasante industrial puede dañar los marcos de aluminio o la terraza en {barrio}?',
+        a: 'No. Usamos desengrasante Ecolabel certificado, formulado para eliminar partículas grasas sin atacar aluminio, PVC ni superficies pintadas. Es seguro también para la barandilla y el suelo de la terraza, donde se acumula la misma suciedad del entorno.',
       },
       {
         q: '¿Cómo sé si mi piso de {barrio} necesita limpieza a fondo o solo limpieza periódica?',
@@ -2311,7 +2311,7 @@ const GARAJES_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
       'Además del suelo, en un garaje de {barrio} tratamos las paredes con marcas de rozamiento de los coches, la puerta automática —grasa de mecanismo, polvo en guías— y el acceso hacia la escalera o el ascensor. Todo en la misma visita. Para comunidades, el presupuesto se calcula por plaza.',
     ],
     faqs: [
-      { q: '¿Podéis eliminar las manchas de aceite de motor del suelo del garaje en {barrio}?', a: 'Sí. Usamos desengrasante industrial ecológico con capacidad específica para el aceite de motor. Para manchas antiguas e incrustadas puede necesitarse un segundo tratamiento; lo indicamos en el presupuesto antes de empezar.' },
+      { q: '¿Limpiáis también el mecanismo y las guías de la puerta automática del garaje en {barrio}?', a: 'Sí, está incluido en la visita. Retiramos la grasa acumulada en el mecanismo y el polvo de las guías, que es una de las causas más habituales de que la puerta automática empiece a hacer ruido o se atasque con el tiempo.' },
       { q: '¿Trabajáis con comunidades de vecinos para la limpieza periódica del garaje comunitario en {barrio}?', a: 'Sí. Trabajamos con comunidades de vecinos de {barrio} para la limpieza del garaje comunitario. Ofrecemos visita puntual o servicio periódico mensual o trimestral. El presupuesto es por plaza o por metro cuadrado.' },
     ],
   },
@@ -2499,7 +2499,7 @@ const MUDANZAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     ],
     faqs: [
       { q: '¿La limpieza de mudanza en {barrio} garantiza la devolución de la fianza?', a: 'Garantizamos que el piso queda en el nivel de limpieza que cualquier propietario razonable puede exigir. Si el propietario detecta algo que no está correcto y nos avisa en las 48 horas siguientes, volvemos a revisarlo sin coste adicional.' },
-      { q: '¿Cuánto tiempo dura una limpieza de mudanza en un piso de {barrio}?', a: 'Para un piso de 70-80 m² en {barrio} con 3 habitaciones, entre 5 y 8 horas con equipo de dos personas. Depende del estado y de cuánto tiempo lleva el piso sin limpieza a fondo. El tiempo y el precio los damos cerrados antes de empezar.' },
+      { q: '¿Limpiáis por dentro los armarios de cocina y los armarios empotrados del piso en {barrio}?', a: 'Sí, siempre. En la limpieza de mudanza los armarios están vacíos y los limpiamos por dentro y por fuera, igual que los cajones de cocina. Es uno de los puntos que más valoran los propietarios en la revisión de salida en {barrio}, junto con la cocina y el baño.' },
     ],
   },
   'historico': {
@@ -2602,8 +2602,8 @@ const MUDANZAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
       'En un chalé de {barrio}, terraza y porche acumulan una suciedad distinta a la del interior: polvo orgánico, verdín en el pavimento, moho en zonas cubiertas y barro estacional. Las tratamos con producto pensado para exterior, sin ácidos que dañen el gres de la terraza.',
     ],
     faqs: [
-      { q: '¿La limpieza de mudanza del chalé de {barrio} incluye también el garaje y el trastero?', a: 'Sí. El presupuesto de mudanza de chalé en {barrio} incluye la vivienda completa, el garaje y el trastero en una única visita. Si hay espacios adicionales como piscina o caseta de jardín, los presupuestamos aparte.' },
-      { q: '¿Cuánto tiempo dura la limpieza de mudanza de un chalé en {barrio}?', a: 'Para un chalé de 150-200 m² con garaje y trastero, entre 1 y 2 días con equipo de dos personas. Damos el tiempo y el precio cerrados antes de empezar para que puedas organizarte.' },
+      { q: '¿La limpieza de mudanza del chalé en {barrio} incluye la terraza y el porche exterior?', a: 'Sí. La terraza y el porche forman parte del presupuesto de mudanza de chalé en {barrio}: barremos y fregamos el pavimento exterior con producto específico que no daña el gres, y tratamos el moho o verdín si lo hay. Piscina o caseta de jardín, si las tienes, se presupuestan aparte.' },
+      { q: '¿Limpiáis también el acceso exterior y el camino de entrada del chalé en {barrio}?', a: 'Sí. El acceso exterior pavimentado está incluido en la limpieza de mudanza de chalé en {barrio}: retiramos barro y hojas acumuladas y dejamos el pavimento fregado. Es una de las zonas que más se nota en la primera impresión del nuevo propietario o inquilino.' },
     ],
   },
   'rural': {
@@ -2629,7 +2629,7 @@ const MUDANZAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     ],
     faqs: [
       { q: '¿La limpieza de mudanza de {barrio} incluye también las bajeras y almacenes rurales?', a: 'Sí. El presupuesto de mudanza rural en {barrio} puede incluir los espacios anejos: bajera, almacén, cobertizo o cualquier espacio incluido en la venta. Lo presupuestamos en función de la superficie y el estado de cada espacio.' },
-      { q: '¿Cuánto cuesta una limpieza de mudanza en una casa rural de {barrio}?', a: 'Para una casa rural de 100-150 m² en {barrio} con bajera o almacén, desde 200€. El precio depende del estado general, los metros y los espacios anejos que haya que limpiar. Damos el presupuesto cerrado antes de empezar.' },
+      { q: '¿Tratáis los suelos de piedra natural o cerámica antigua en la limpieza de mudanza rural de {barrio}?', a: 'Sí, con el producto adecuado para cada material. La piedra natural se limpia con pH neutro sin ácidos, la cerámica antigua con cepillado cuidadoso para no dañar el esmalte, y la madera casi en seco. Es un punto que valoran especialmente los compradores de casas rurales con suelos originales.' },
     ],
   },
   'industrial': {
@@ -2686,7 +2686,7 @@ const TRASTEROS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoArquetipo> = {
     ],
     faqs: [
       { q: '¿Movéis los muebles y cajas del trastero de {barrio} para limpiar?', a: 'Solo si el cliente nos lo pide explícitamente. La limpieza estándar trabaja alrededor de los objetos, limpiando el suelo y las paredes accesibles sin mover lo que está guardado. Si hay zonas que quieres vaciar, lo coordinamos antes de la visita.' },
-      { q: '¿Tratáis el moho en las paredes del trastero de {barrio}?', a: 'Sí. Aplicamos antifúngico ecológico en las paredes con manchas de moho superficial. Si el moho ha penetrado en el revestimiento o hay humedad por filtración, te lo indicamos para que lo revises con un especialista.' },
+      { q: '¿Cuánto tiempo necesitáis para limpiar un trastero de sótano en {barrio} con mucho polvo acumulado?', a: 'Para un trastero de 10-15 m² con polvo sedimentado en {barrio}, entre 1 y 2 horas. El polvo de sótano es más pesado que el doméstico, con partículas de cemento y tierra, así que primero aspiramos a fondo y después fregamos; si fregáramos sin aspirar antes, solo lo repartiríamos por el suelo.' },
     ],
   },
   'historico': {
