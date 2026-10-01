@@ -699,7 +699,7 @@ export type ContenidoViviendas = {
   particularH2: string;
   particularContent: string | string[];
   habitacionesH2: string;
-  habitacionesItems: string[];
+  habitacionesItems: string[][];
   precioItems: string[];
   faqs: { q: string; a: string }[];
 };
@@ -721,12 +721,22 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: 'Estancias incluidas en la limpieza de vivienda en {barrio}',
     habitacionesItems: [
-      'Cocina: interior y exterior de armarios, encimera, azulejos, campana, electrodomésticos y suelo',
-      'Baños: sanitarios, griferías con antical, mampara, juntas de azulejo, suelo y espejo',
-      'Salón/comedor: muebles, estanterías, rodapiés, ventanas interiores y suelo',
-      'Dormitorios: muebles, interior de armarios (opcional), ventanas y suelo',
-      'Pasillo y entrada: zapatero, perchas, suelo y puertas',
-      'Terraza o balcón: barrido, fregado y barandilla',
+      [
+        'Cocina: interior y exterior de armarios, encimera, azulejos, campana, electrodomésticos y suelo',
+        'Baños: sanitarios, griferías con antical, mampara, juntas de azulejo, suelo y espejo',
+        'Salón/comedor: muebles, estanterías, rodapiés, ventanas interiores y suelo',
+        'Dormitorios: muebles, interior de armarios (opcional), ventanas y suelo',
+        'Pasillo y entrada: zapatero, perchas, suelo y puertas',
+        'Terraza o balcón: barrido, fregado y barandilla',
+      ],
+      [
+        'Cocina completa: armarios por dentro y por fuera, encimera, azulejos, campana, electrodomésticos y suelo',
+        'Baño: grifería con antical, mampara, juntas de azulejo, sanitario, espejo y suelo',
+        'Dormitorios: muebles, ventanas, suelo e interior de armarios si lo pides',
+        'Salón y comedor: estanterías, rodapiés, cristales interiores, muebles y suelo',
+        'Entrada y pasillo: puertas, zapatero, perchas y suelo',
+        'Balcón o terraza: barandilla, suelo fregado y barrido',
+      ],
     ],
     precioItems: [
       'Piso 1-2 habitaciones (45-65 m²): desde 120-160€ limpieza a fondo',
@@ -762,12 +772,22 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: 'Estancias y superficies incluidas en la limpieza de pisos históricos de {barrio}',
     habitacionesItems: [
-      'Suelos de parquet y madera: limpieza con mopa seca y mínima humedad',
-      'Baldosa hidráulica o mosaico: limpieza con producto neutro pH 7 sin ácidos',
-      'Techos y molduras: eliminación de polvo con cepillo de extensión y microfibra',
-      'Cocina: azulejos, campana, encimera y exterior de electrodomésticos',
-      'Baños: sanitarios, griferías, espejo y suelo con producto neutro',
-      'Ventanas: limpieza de cristales y marcos de madera sin producto agresivo',
+      [
+        'Suelos de parquet y madera: limpieza con mopa seca y mínima humedad',
+        'Baldosa hidráulica o mosaico: limpieza con producto neutro pH 7 sin ácidos',
+        'Techos y molduras: eliminación de polvo con cepillo de extensión y microfibra',
+        'Cocina: azulejos, campana, encimera y exterior de electrodomésticos',
+        'Baños: sanitarios, griferías, espejo y suelo con producto neutro',
+        'Ventanas: limpieza de cristales y marcos de madera sin producto agresivo',
+      ],
+      [
+        'Parquet y madera: mopa casi seca, mínima humedad y producto específico',
+        'Mosaico o baldosa hidráulica: producto neutro pH 7, sin ácidos que la dañen',
+        'Cocina: campana, encimera, azulejos y exterior de electrodomésticos',
+        'Baño: sanitarios, grifería, espejo y suelo con producto neutro',
+        'Ventanas y marcos de madera: cristales limpios sin productos agresivos',
+        'Molduras y techos: polvo retirado con cepillo de extensión y microfibra',
+      ],
     ],
     precioItems: [
       'Piso histórico 50-80 m²: desde 140-190€ limpieza completa',
@@ -803,12 +823,22 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: 'Estancias y puntos críticos en la limpieza de viviendas de {barrio}',
     habitacionesItems: [
-      'Baños: antifúngico en juntas, suelo, mampara y techo — especialmente importante en zonas costeras',
-      'Techos: revisión y tratamiento de manchas de condensación',
-      'Marcos de ventana y alféizares: neutralizador de sales, eliminación de manchas de agua',
-      'Cocina: ventilación de humedad, campana, encimera y azulejos',
-      'Salón: muebles, cristales interiores y suelo',
-      'Dormitorios: muebles, suelo y ventanas con tratamiento de condensación si aplica',
+      [
+        'Baños: antifúngico en juntas, suelo, mampara y techo — especialmente importante en zonas costeras',
+        'Techos: revisión y tratamiento de manchas de condensación',
+        'Marcos de ventana y alféizares: neutralizador de sales, eliminación de manchas de agua',
+        'Cocina: ventilación de humedad, campana, encimera y azulejos',
+        'Salón: muebles, cristales interiores y suelo',
+        'Dormitorios: muebles, suelo y ventanas con tratamiento de condensación si aplica',
+      ],
+      [
+        'Techos y esquinas: revisión y tratamiento preventivo de manchas de condensación',
+        'Baño: antifúngico en juntas, mampara, techo y suelo, clave en vivienda costera',
+        'Marcos y alféizares: manchas de agua tratadas con neutralizador de sales',
+        'Dormitorios: suelo, muebles y ventanas con tratamiento de condensación si procede',
+        'Cocina: campana, encimera, azulejos y control de la humedad ambiente',
+        'Salón: cristales interiores, muebles y suelo',
+      ],
     ],
     precioItems: [
       'Apartamento o piso 40-70 m²: desde 130-170€ limpieza completa',
@@ -844,13 +874,24 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: '¿Qué incluye la limpieza de apertura de segunda residencia en {barrio}?',
     habitacionesItems: [
-      'Toda la vivienda: eliminación de polvo de sedimentación en todas las superficies',
-      'Baños: desinfección completa, juntas, sanitarios, mampara y muebles',
-      'Cocina: interior de nevera, horno, campana, encimera y armarios',
-      'Cristales: tratamiento de manchas de condensación interiores',
-      'Suelos: barrido y fregado completo de todas las estancias',
-      'Aireación controlada durante la limpieza para eliminar olor a cerrado',
-      'Revisión visual de humedad en paredes y techos (te avisamos si encontramos algo)',
+      [
+        'Toda la vivienda: eliminación de polvo de sedimentación en todas las superficies',
+        'Baños: desinfección completa, juntas, sanitarios, mampara y muebles',
+        'Cocina: interior de nevera, horno, campana, encimera y armarios',
+        'Cristales: tratamiento de manchas de condensación interiores',
+        'Suelos: barrido y fregado completo de todas las estancias',
+        'Aireación controlada durante la limpieza para eliminar olor a cerrado',
+        'Revisión visual de humedad en paredes y techos (te avisamos si encontramos algo)',
+      ],
+      [
+        'Polvo de sedimentación: eliminado de todas las superficies de la vivienda',
+        'Cocina: nevera, horno, campana, encimera y armarios por dentro',
+        'Baño: sanitarios, mampara, muebles, juntas y desinfección completa',
+        'Suelos: fregado y barrido a fondo de cada estancia',
+        'Cristales: manchas de condensación interiores tratadas',
+        'Aireación durante la visita para dejar la vivienda sin olor a cerrado',
+        'Paredes y techos: revisión visual de humedad, te avisamos si aparece algo',
+      ],
     ],
     precioItems: [
       'Apartamento 40-70 m²: desde 150-200€ limpieza de apertura',
@@ -886,13 +927,24 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: 'Estancias y zonas incluidas en la limpieza de chalés en {barrio}',
     habitacionesItems: [
-      'Planta baja: salón con ventanales, cocina completa, aseo y entrada',
-      'Primera planta: dormitorios, baños y pasillo',
-      'Segunda planta o bajo cubierta: si existe, incluida sin suplemento',
-      'Escalera interior: peldaños, barandilla y rellanos',
-      'Terraza o porche: suelo, barandilla, muebles exteriores',
-      'Garaje: barrido, manchas superficiales y paredes',
-      'Zonas de servicio: cuarto de lavadoras, despensa o trastero si aplica',
+      [
+        'Planta baja: salón con ventanales, cocina completa, aseo y entrada',
+        'Primera planta: dormitorios, baños y pasillo',
+        'Segunda planta o bajo cubierta: si existe, incluida sin suplemento',
+        'Escalera interior: peldaños, barandilla y rellanos',
+        'Terraza o porche: suelo, barandilla, muebles exteriores',
+        'Garaje: barrido, manchas superficiales y paredes',
+        'Zonas de servicio: cuarto de lavadoras, despensa o trastero si aplica',
+      ],
+      [
+        'Salón y cocina en planta baja: ventanales, cocina completa, aseo y entrada',
+        'Dormitorios y baños de la primera planta, incluido el pasillo',
+        'Escalera: peldaños, rellanos y barandilla',
+        'Bajo cubierta o segunda planta, si la hay, sin coste adicional',
+        'Garaje: paredes, barrido y manchas superficiales',
+        'Terraza o porche: muebles exteriores, suelo y barandilla',
+        'Cuarto de lavadoras, despensa o trastero, si tu chalé los tiene',
+      ],
     ],
     precioItems: [
       'Adosado 2 plantas hasta 130 m²: desde 200-270€ limpieza completa',
@@ -928,13 +980,24 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: 'Estancias y elementos incluidos en la limpieza de casas rurales de {barrio}',
     habitacionesItems: [
-      'Suelos de piedra, pizarra o baldosa antigua: fregado con producto neutro específico',
-      'Suelos de madera o tarima: limpieza con mopa casi seca',
-      'Chimenea: exterior de hogar, cenicero, zona circundante y superficie con hollín',
-      'Cocina: campana, fogones, encimera y interior de armarios',
-      'Baños: sanitarios, suelo y paredes con productos neutros',
-      'Techos con vigas: eliminación de polvo, telarañas y hollín acumulado',
-      'Entrada y corredor rural: barro, hojas y suciedad de exterior',
+      [
+        'Suelos de piedra, pizarra o baldosa antigua: fregado con producto neutro específico',
+        'Suelos de madera o tarima: limpieza con mopa casi seca',
+        'Chimenea: exterior de hogar, cenicero, zona circundante y superficie con hollín',
+        'Cocina: campana, fogones, encimera y interior de armarios',
+        'Baños: sanitarios, suelo y paredes con productos neutros',
+        'Techos con vigas: eliminación de polvo, telarañas y hollín acumulado',
+        'Entrada y corredor rural: barro, hojas y suciedad de exterior',
+      ],
+      [
+        'Piedra, pizarra o baldosa antigua: fregado con producto neutro, sin ácidos',
+        'Madera y tarima: mopa casi seca, sin exceso de humedad',
+        'Vigas y techos: polvo, telarañas y hollín acumulado retirados con cepillo de extensión',
+        'Chimenea: hogar, cenicero y zona circundante libres de hollín',
+        'Cocina: fogones, campana, encimera y armarios por dentro',
+        'Baño: sanitarios, paredes y suelo con producto neutro',
+        'Entrada y corredor: barro, hojas y suciedad propia del entorno rural',
+      ],
     ],
     precioItems: [
       'Casa rural hasta 100 m²: desde 170-230€ limpieza completa',
@@ -970,13 +1033,24 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
     ],
     habitacionesH2: 'Estancias y zonas incluidas en la limpieza de viviendas de {barrio}',
     habitacionesItems: [
-      'Alféizares y marcos de ventana: desengrase de partículas industriales adheridas',
-      'Cocina: campana con acumulación superior al habitual, encimera, azulejos y armarios',
-      'Suelos: fregado con desengrasante previo en zonas de más tráfico',
-      'Baños: limpieza estándar completa',
-      'Salón: muebles, estanterías, cristales interiores y suelo',
-      'Dormitorios: muebles, suelo y ventanas',
-      'Terraza o balcón: tratamiento de suelo y barandilla con capa de partículas',
+      [
+        'Alféizares y marcos de ventana: desengrase de partículas industriales adheridas',
+        'Cocina: campana con acumulación superior al habitual, encimera, azulejos y armarios',
+        'Suelos: fregado con desengrasante previo en zonas de más tráfico',
+        'Baños: limpieza estándar completa',
+        'Salón: muebles, estanterías, cristales interiores y suelo',
+        'Dormitorios: muebles, suelo y ventanas',
+        'Terraza o balcón: tratamiento de suelo y barandilla con capa de partículas',
+      ],
+      [
+        'Cocina: campana con más grasa de lo habitual, encimera, azulejos y armarios',
+        'Alféizares y marcos: desengrase específico de partículas industriales',
+        'Suelos: desengrasante previo en las zonas de más paso antes de fregar',
+        'Salón: cristales interiores, estanterías, muebles y suelo',
+        'Dormitorios: ventanas, muebles y suelo',
+        'Baños: limpieza estándar completa',
+        'Terraza o balcón: barandilla y suelo con la capa de partículas tratada',
+      ],
     ],
     precioItems: [
       'Piso 2-3 habitaciones (60-90 m²): desde 150-200€ limpieza a fondo',
@@ -997,9 +1071,10 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
   },
 };
 
-export type ContenidoViviendasResuelto = Omit<ContenidoViviendas, 'intro' | 'particularContent'> & {
+export type ContenidoViviendasResuelto = Omit<ContenidoViviendas, 'intro' | 'particularContent' | 'habitacionesItems'> & {
   intro: string;
   particularContent: string;
+  habitacionesItems: string[];
 };
 
 export function getContenidoViviendas(
@@ -1016,7 +1091,7 @@ export function getContenidoViviendas(
     particularH2: t(raw.particularH2, barrioNombre, municipioNombre),
     particularContent: tVariant(raw.particularContent, barrioNombre, municipioNombre),
     habitacionesH2: t(raw.habitacionesH2, barrioNombre, municipioNombre),
-    habitacionesItems: raw.habitacionesItems.map(s => t(s, barrioNombre, municipioNombre)),
+    habitacionesItems: tListVariant(raw.habitacionesItems, barrioNombre, municipioNombre),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
     faqs: raw.faqs.map(f => ({ q: t(f.q, barrioNombre, municipioNombre), a: t(f.a, barrioNombre, municipioNombre) })),
   };
@@ -1031,7 +1106,7 @@ export type ContenidoPisos = {
   contextoH2: string;
   contextoContent: string | string[];
   incluyeH2: string;
-  incluyeItems: string[];
+  incluyeItems: string[][];
   precioItems: string[];
   faqs: { q: string; a: string }[];
 };
@@ -1053,12 +1128,22 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de tu piso en {barrio}?',
     incluyeItems: [
-      'Cocina: campana (interior y filtro), encimera, azulejos, exterior de electrodomésticos, interior de microondas y armarios a petición',
-      'Baño/s: sanitarios, grifería con antical, mampara, juntas de azulejo, suelo y espejo',
-      'Salón: muebles, cristales interiores, rodapiés y suelo',
-      'Dormitorios: muebles, interior de armarios a petición y suelo',
-      'Pasillo y entrada: suelo, puertas y zapatero',
-      'Terraza o balcón: barrido, fregado y barandilla',
+      [
+        'Cocina: campana (interior y filtro), encimera, azulejos, exterior de electrodomésticos, interior de microondas y armarios a petición',
+        'Baño/s: sanitarios, grifería con antical, mampara, juntas de azulejo, suelo y espejo',
+        'Salón: muebles, cristales interiores, rodapiés y suelo',
+        'Dormitorios: muebles, interior de armarios a petición y suelo',
+        'Pasillo y entrada: suelo, puertas y zapatero',
+        'Terraza o balcón: barrido, fregado y barandilla',
+      ],
+      [
+        'Baño/s: grifería con antical, mampara, juntas de azulejo, sanitarios, espejo y suelo',
+        'Cocina: campana por dentro y filtro, encimera, azulejos, electrodomésticos por fuera, microondas por dentro y armarios si lo pides',
+        'Dormitorios: suelo, muebles e interior de armarios a petición',
+        'Salón: rodapiés, cristales interiores, muebles y suelo',
+        'Terraza o balcón: fregado, barrido y barandilla',
+        'Pasillo y entrada: zapatero, puertas y suelo',
+      ],
     ],
     precioItems: [
       'Piso 1 habitación (35-55 m²): desde 100-130€',
@@ -1094,12 +1179,22 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de un piso histórico en {barrio}?',
     incluyeItems: [
-      'Suelos de parquet/madera: mopa casi seca con producto específico para madera',
-      'Suelos de baldosa hidráulica o mosaico: limpieza con producto neutro pH 7',
-      'Molduras, cornisas y techos: cepillo extensible para relieves',
-      'Cocina: campana, encimera, azulejos y armarios exteriores',
-      'Baños: sanitarios, grifería, espejo y suelo con productos neutros',
-      'Ventanas de guillotina: cristales y carriles con cepillo fino',
+      [
+        'Suelos de parquet/madera: mopa casi seca con producto específico para madera',
+        'Suelos de baldosa hidráulica o mosaico: limpieza con producto neutro pH 7',
+        'Molduras, cornisas y techos: cepillo extensible para relieves',
+        'Cocina: campana, encimera, azulejos y armarios exteriores',
+        'Baños: sanitarios, grifería, espejo y suelo con productos neutros',
+        'Ventanas de guillotina: cristales y carriles con cepillo fino',
+      ],
+      [
+        'Molduras, cornisas y techos: cepillo extensible para cada relieve',
+        'Parquet y madera: mopa casi seca con producto específico',
+        'Baldosa hidráulica o mosaico: producto neutro pH 7, sin ácidos',
+        'Baños: grifería, sanitarios, espejo y suelo con productos neutros',
+        'Cocina: campana, azulejos, encimera y armarios exteriores',
+        'Ventanas de guillotina: carriles y cristales con cepillo fino',
+      ],
     ],
     precioItems: [
       'Piso histórico 50-70 m²: desde 140-180€',
@@ -1135,12 +1230,22 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de piso en {barrio}?',
     incluyeItems: [
-      'Baños: antifúngico en juntas y techo, sanitarios, grifería y mampara',
-      'Ventanas y marcos: cristales con tratamiento de condensación, marcos con neutralizador de sales',
-      'Alféizares: eliminación de salitre depositado',
-      'Cocina: campana, encimera, azulejos y extractor si tiene',
-      'Salón y dormitorios: muebles, suelos y cristales interiores',
-      'Terraza: barrido, fregado y tratamiento de salitre en barandilla',
+      [
+        'Baños: antifúngico en juntas y techo, sanitarios, grifería y mampara',
+        'Ventanas y marcos: cristales con tratamiento de condensación, marcos con neutralizador de sales',
+        'Alféizares: eliminación de salitre depositado',
+        'Cocina: campana, encimera, azulejos y extractor si tiene',
+        'Salón y dormitorios: muebles, suelos y cristales interiores',
+        'Terraza: barrido, fregado y tratamiento de salitre en barandilla',
+      ],
+      [
+        'Ventanas y marcos: neutralizador de sales en marcos, cristales con tratamiento de condensación',
+        'Alféizares: salitre depositado eliminado por completo',
+        'Baños: sanitarios, grifería, mampara y antifúngico en juntas y techo',
+        'Cocina: azulejos, campana, encimera y extractor si tiene',
+        'Terraza: tratamiento de salitre en barandilla, fregado y barrido',
+        'Salón y dormitorios: cristales interiores, suelos y muebles',
+      ],
     ],
     precioItems: [
       'Piso 1-2 habitaciones (45-65 m²): desde 125-160€',
@@ -1176,13 +1281,24 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de apertura de tu piso de segunda residencia en {barrio}?',
     incluyeItems: [
-      'Toda la vivienda: polvo de sedimentación eliminado en muebles, suelos y techos',
-      'Baños: desinfección completa, juntas, sanitarios y mampara',
-      'Cocina: interior de nevera, horno, campana, encimera y armarios',
-      'Cristales: tratamiento de manchas de condensación interiores y marcos',
-      'Aireación controlada durante todo el proceso',
-      'Revisión visual de humedad o filtraciones (con aviso si encontramos algo)',
-      'Camas: cambio de ropa si nos dejas juego preparado',
+      [
+        'Toda la vivienda: polvo de sedimentación eliminado en muebles, suelos y techos',
+        'Baños: desinfección completa, juntas, sanitarios y mampara',
+        'Cocina: interior de nevera, horno, campana, encimera y armarios',
+        'Cristales: tratamiento de manchas de condensación interiores y marcos',
+        'Aireación controlada durante todo el proceso',
+        'Revisión visual de humedad o filtraciones (con aviso si encontramos algo)',
+        'Camas: cambio de ropa si nos dejas juego preparado',
+      ],
+      [
+        'Polvo de sedimentación: retirado de muebles, suelos y techos de toda la vivienda',
+        'Cocina: nevera, horno y campana por dentro, encimera y armarios',
+        'Baños: juntas, sanitarios, mampara y desinfección completa',
+        'Cristales: marcos y manchas de condensación interiores tratados',
+        'Camas: ropa cambiada si nos dejas el juego preparado',
+        'Humedad o filtraciones: revisión visual, te avisamos si vemos algo',
+        'Aireación activa durante toda la visita',
+      ],
     ],
     precioItems: [
       'Piso 1-2 habitaciones (45-65 m²): desde 140-180€ limpieza de apertura',
@@ -1218,13 +1334,24 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de tu chalé o adosado en {barrio}?',
     incluyeItems: [
-      'Cocina completa: campana, encimera, azulejos, electrodomésticos y armarios exteriores',
-      'Baños (todos): sanitarios, grifería, mamparas, suelos y espejos',
-      'Salón: ventanales grandes con sistema mopa-rasqueta profesional, muebles y suelo',
-      'Dormitorios: muebles, suelos y ventanas',
-      'Escalera interior: peldaños y barandilla',
-      'Terraza: suelo, muebles exteriores y barandilla',
-      'Entrada y zonas de paso: eliminación de suciedad de exterior',
+      [
+        'Cocina completa: campana, encimera, azulejos, electrodomésticos y armarios exteriores',
+        'Baños (todos): sanitarios, grifería, mamparas, suelos y espejos',
+        'Salón: ventanales grandes con sistema mopa-rasqueta profesional, muebles y suelo',
+        'Dormitorios: muebles, suelos y ventanas',
+        'Escalera interior: peldaños y barandilla',
+        'Terraza: suelo, muebles exteriores y barandilla',
+        'Entrada y zonas de paso: eliminación de suciedad de exterior',
+      ],
+      [
+        'Salón: ventanales grandes tratados con mopa y rasqueta profesional, muebles y suelo',
+        'Cocina completa: electrodomésticos, azulejos, encimera, campana y armarios exteriores',
+        'Baños (todos): mamparas, grifería, sanitarios, suelos y espejos',
+        'Entrada y zonas de paso: suciedad de exterior eliminada',
+        'Dormitorios: ventanas, suelos y muebles',
+        'Terraza: muebles exteriores, barandilla y suelo',
+        'Escalera interior: barandilla y peldaños',
+      ],
     ],
     precioItems: [
       'Adosado 2 plantas hasta 130 m²: desde 200-270€',
@@ -1260,13 +1387,24 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de un piso rural en {barrio}?',
     incluyeItems: [
-      'Suelos de piedra o baldosa de barro: fregado con producto neutro sin ácidos',
-      'Suelos de madera o tarima: mopa casi seca con producto específico',
-      'Chimenea: hogar exterior, cenicero y zona con hollín alrededor',
-      'Cocina: campana, fogones, encimera y superficie exterior de electrodomésticos',
-      'Baños: sanitarios, suelo y paredes con productos neutros',
-      'Techos con vigas: cepillo extensible para polvo, hollín y telarañas',
-      'Marcos de madera: verdín preventivo con antifúngico ecológico',
+      [
+        'Suelos de piedra o baldosa de barro: fregado con producto neutro sin ácidos',
+        'Suelos de madera o tarima: mopa casi seca con producto específico',
+        'Chimenea: hogar exterior, cenicero y zona con hollín alrededor',
+        'Cocina: campana, fogones, encimera y superficie exterior de electrodomésticos',
+        'Baños: sanitarios, suelo y paredes con productos neutros',
+        'Techos con vigas: cepillo extensible para polvo, hollín y telarañas',
+        'Marcos de madera: verdín preventivo con antifúngico ecológico',
+      ],
+      [
+        'Piedra o baldosa de barro: fregado con producto neutro, sin ácidos',
+        'Madera y tarima: mopa casi seca con producto específico para cada superficie',
+        'Techos y vigas: polvo, hollín y telarañas retirados con cepillo extensible',
+        'Chimenea: cenicero, hogar exterior y zona circundante sin hollín',
+        'Cocina: fogones, campana, encimera y electrodomésticos por fuera',
+        'Marcos de madera: antifúngico ecológico preventivo contra el verdín',
+        'Baños: paredes, suelo y sanitarios con producto neutro',
+      ],
     ],
     precioItems: [
       'Piso rural hasta 80 m²: desde 150-200€',
@@ -1302,12 +1440,22 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
     ],
     incluyeH2: '¿Qué incluye la limpieza de un piso en {barrio}?',
     incluyeItems: [
-      'Alféizares y marcos de ventana: desengrase de partículas industriales',
-      'Cocina: desengrase previo de encimera y azulejos expuestos a partículas, campana, electrodomésticos y armarios exteriores',
-      'Baños: limpieza completa estándar con antical',
-      'Suelos: fregado con desengrasante previo en entrada y cocina',
-      'Salón y dormitorios: muebles, suelos y cristales interiores',
-      'Terraza o balcón: suelo y barandilla con tratamiento de partículas',
+      [
+        'Alféizares y marcos de ventana: desengrase de partículas industriales',
+        'Cocina: desengrase previo de encimera y azulejos expuestos a partículas, campana, electrodomésticos y armarios exteriores',
+        'Baños: limpieza completa estándar con antical',
+        'Suelos: fregado con desengrasante previo en entrada y cocina',
+        'Salón y dormitorios: muebles, suelos y cristales interiores',
+        'Terraza o balcón: suelo y barandilla con tratamiento de partículas',
+      ],
+      [
+        'Cocina: encimera y azulejos con desengrase previo, campana, electrodomésticos y armarios exteriores',
+        'Alféizares y marcos: partículas industriales desengrasadas a fondo',
+        'Suelos: desengrasante previo en cocina y entrada antes de fregar',
+        'Salón y dormitorios: cristales interiores, suelos y muebles',
+        'Baños: limpieza completa estándar con antical',
+        'Terraza o balcón: barandilla y suelo con tratamiento de partículas',
+      ],
     ],
     precioItems: [
       'Piso 1-2 habitaciones (45-65 m²): desde 130-165€',
@@ -1328,9 +1476,10 @@ const PISOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPisos> = {
   },
 };
 
-export type ContenidoPisosResuelto = Omit<ContenidoPisos, 'intro' | 'contextoContent'> & {
+export type ContenidoPisosResuelto = Omit<ContenidoPisos, 'intro' | 'contextoContent' | 'incluyeItems'> & {
   intro: string;
   contextoContent: string;
+  incluyeItems: string[];
 };
 
 export function getContenidoPisos(
@@ -1347,7 +1496,7 @@ export function getContenidoPisos(
     contextoH2: t(raw.contextoH2, barrioNombre, municipioNombre),
     contextoContent: tVariant(raw.contextoContent, barrioNombre, municipioNombre),
     incluyeH2: t(raw.incluyeH2, barrioNombre, municipioNombre),
-    incluyeItems: raw.incluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
+    incluyeItems: tListVariant(raw.incluyeItems, barrioNombre, municipioNombre),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
     faqs: raw.faqs.map(f => ({ q: t(f.q, barrioNombre, municipioNombre), a: t(f.a, barrioNombre, municipioNombre) })),
   };
@@ -1362,7 +1511,7 @@ export type ContenidoTuristicos = {
   rotacionH2: string;
   rotacionContent: string | string[];
   protocoloH2: string;
-  protocoloItems: string[];
+  protocoloItems: string[][];
   precioItems: string[];
   faqs: { q: string; a: string }[];
 };
@@ -1384,15 +1533,28 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de limpieza entre huéspedes en apartamentos de {barrio}',
     protocoloItems: [
-      'Recogida de ropa de cama y toallas usadas',
-      'Limpieza de baño: sanitarios, mampara, suelo y espejo',
-      'Cocina: lavavajillas, encimera, microondas, campana y frigorífico exterior',
-      'Aireación del apartamento durante la limpieza',
-      'Fregado de suelos de todas las estancias',
-      'Polvo en muebles y superficies',
-      'Reposición de cama y toallas (con tu ropa de cama preparada)',
-      'Revisión de amenities y suministros (jabón, papel, etc.) con aviso si faltan',
-      'Foto de confirmación del estado final por WhatsApp',
+      [
+        'Recogida de ropa de cama y toallas usadas',
+        'Limpieza de baño: sanitarios, mampara, suelo y espejo',
+        'Cocina: lavavajillas, encimera, microondas, campana y frigorífico exterior',
+        'Aireación del apartamento durante la limpieza',
+        'Fregado de suelos de todas las estancias',
+        'Polvo en muebles y superficies',
+        'Reposición de cama y toallas (con tu ropa de cama preparada)',
+        'Revisión de amenities y suministros (jabón, papel, etc.) con aviso si faltan',
+        'Foto de confirmación del estado final por WhatsApp',
+      ],
+      [
+        'Ropa de cama y toallas usadas: recogida nada más entrar',
+        'Cocina: campana, microondas, encimera, lavavajillas y frigorífico por fuera',
+        'Baño: mampara, sanitarios, espejo y suelo',
+        'Polvo de muebles y superficies retirado',
+        'Suelos de todas las estancias fregados',
+        'Aireación del apartamento mientras se limpia',
+        'Amenities y suministros revisados, con aviso si falta jabón, papel o similar',
+        'Cama y toallas repuestas con tu ropa de cama preparada',
+        'Estado final confirmado con foto por WhatsApp',
+      ],
     ],
     precioItems: [
       'Estudio o apartamento 1 hab. (30-50 m²): desde 60-80€/cambio',
@@ -1428,15 +1590,28 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de limpieza entre huéspedes en apartamentos históricos de {barrio}',
     protocoloItems: [
-      'Recogida de ropa de cama y toallas',
-      'Suelos de parquet: mopa casi seca, sin agua en exceso',
-      'Suelos de baldosa hidráulica: producto neutro pH 7',
-      'Baño: sanitarios, mampara, suelo y espejo con productos neutros',
-      'Cocina: encimera, microondas, campana y nevera exterior',
-      'Molduras, cornisas y detalles de época: polvo con microfibra seca',
-      'Ventanas de guillotina: cristales y carriles',
-      'Reposición de cama y toallas limpias',
-      'Foto de confirmación final por WhatsApp',
+      [
+        'Recogida de ropa de cama y toallas',
+        'Suelos de parquet: mopa casi seca, sin agua en exceso',
+        'Suelos de baldosa hidráulica: producto neutro pH 7',
+        'Baño: sanitarios, mampara, suelo y espejo con productos neutros',
+        'Cocina: encimera, microondas, campana y nevera exterior',
+        'Molduras, cornisas y detalles de época: polvo con microfibra seca',
+        'Ventanas de guillotina: cristales y carriles',
+        'Reposición de cama y toallas limpias',
+        'Foto de confirmación final por WhatsApp',
+      ],
+      [
+        'Ropa de cama y toallas recogidas al entrar',
+        'Molduras, cornisas y detalles de época: polvo retirado con microfibra seca',
+        'Parquet: mopa casi seca, sin exceso de agua',
+        'Baldosa hidráulica: producto neutro pH 7',
+        'Ventanas de guillotina: carriles y cristales',
+        'Cocina: campana, microondas, encimera y nevera por fuera',
+        'Baño: espejo, suelo, mampara y sanitarios con productos neutros',
+        'Cama y toallas limpias repuestas',
+        'Foto de confirmación enviada por WhatsApp al terminar',
+      ],
     ],
     precioItems: [
       'Apartamento histórico 1 hab. (35-55 m²): desde 70-90€/cambio',
@@ -1472,15 +1647,28 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de limpieza entre huéspedes en {barrio}',
     protocoloItems: [
-      'Recogida de ropa de cama y toallas',
-      'Baño: antifúngico preventivo en juntas y techo, sanitarios, mampara y espejo',
-      'Marcos y alféizares con vistas: tratamiento de salitre y condensación',
-      'Cocina: encimera, microondas, nevera exterior, campana',
-      'Suelos de todas las estancias',
-      'Muebles y superficies: especial atención a zonas con depósito de salitre',
-      'Terraza con vistas: barrido, fregado y tratamiento de salitre en barandilla',
-      'Reposición de cama y toallas limpias',
-      'Foto de confirmación por WhatsApp',
+      [
+        'Recogida de ropa de cama y toallas',
+        'Baño: antifúngico preventivo en juntas y techo, sanitarios, mampara y espejo',
+        'Marcos y alféizares con vistas: tratamiento de salitre y condensación',
+        'Cocina: encimera, microondas, nevera exterior, campana',
+        'Suelos de todas las estancias',
+        'Muebles y superficies: especial atención a zonas con depósito de salitre',
+        'Terraza con vistas: barrido, fregado y tratamiento de salitre en barandilla',
+        'Reposición de cama y toallas limpias',
+        'Foto de confirmación por WhatsApp',
+      ],
+      [
+        'Ropa de cama y toallas recogidas nada más entrar',
+        'Marcos y alféizares con vistas: salitre y condensación tratados',
+        'Baño: mampara, espejo, sanitarios y antifúngico preventivo en juntas y techo',
+        'Terraza con vistas: tratamiento de salitre en barandilla, fregado y barrido',
+        'Cocina: campana, nevera por fuera, microondas y encimera',
+        'Suelos fregados en todas las estancias',
+        'Muebles y superficies, con atención especial al salitre depositado',
+        'Cama y toallas limpias repuestas',
+        'Confirmación final enviada por WhatsApp',
+      ],
     ],
     precioItems: [
       'Apartamento 1 hab. con vistas (40-60 m²): desde 70-90€/cambio',
@@ -1516,16 +1704,30 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de cambio de huésped en segunda residencia de {barrio}',
     protocoloItems: [
-      'Aviso de entrada por WhatsApp',
-      'Recogida de ropa de cama y toallas usadas',
-      'Baño: desinfección completa, juntas, sanitarios, mampara y espejo',
-      'Cocina: nevera, encimera, microondas, campana y fregadero',
-      'Suelos de todas las estancias',
-      'Muebles y superficies con paño de microfibra',
-      'Reposición de cama y toallas limpias (con tu ropa preparada)',
-      'Revisión de suministros y aviso si falta algo',
-      'Foto de confirmación de cada habitación por WhatsApp',
-      'Aviso de incidencias inmediato si se detecta algún desperfecto',
+      [
+        'Aviso de entrada por WhatsApp',
+        'Recogida de ropa de cama y toallas usadas',
+        'Baño: desinfección completa, juntas, sanitarios, mampara y espejo',
+        'Cocina: nevera, encimera, microondas, campana y fregadero',
+        'Suelos de todas las estancias',
+        'Muebles y superficies con paño de microfibra',
+        'Reposición de cama y toallas limpias (con tu ropa preparada)',
+        'Revisión de suministros y aviso si falta algo',
+        'Foto de confirmación de cada habitación por WhatsApp',
+        'Aviso de incidencias inmediato si se detecta algún desperfecto',
+      ],
+      [
+        'Entrada avisada por WhatsApp',
+        'Ropa de cama y toallas usadas, recogidas',
+        'Cocina: fregadero, campana, microondas, encimera y nevera',
+        'Baño: espejo, mampara, sanitarios, juntas y desinfección completa',
+        'Muebles y superficies pasados con microfibra',
+        'Suelos de cada estancia fregados',
+        'Suministros revisados, con aviso si falta algo',
+        'Cama y toallas limpias repuestas con tu ropa preparada',
+        'Cada habitación confirmada con foto por WhatsApp',
+        'Cualquier desperfecto, avisado de inmediato',
+      ],
     ],
     precioItems: [
       'Apartamento o piso 1-2 hab. (40-70 m²): desde 65-100€/cambio',
@@ -1561,16 +1763,30 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de cambio de huésped en chalés turísticos de {barrio}',
     protocoloItems: [
-      'Recogida de toda la ropa de cama y toallas (todos los dormitorios)',
-      'Baños (todos): sanitarios, mamparas, suelos, espejos y dispensadores',
-      'Cocina: lavavajillas, encimera, microondas, campana, nevera y fregadero',
-      'Salón y comedor: muebles, superficies y suelo',
-      'Todos los dormitorios: muebles, suelos y ventanas',
-      'Terraza: suelo, muebles exteriores y barbacoa exterior',
-      'Escalera interior: peldaños y barandilla',
-      'Jardín: recogida de basura y objetos dejados por huéspedes',
-      'Reposición de camas (con ropa preparada por el propietario)',
-      'Foto de confirmación de cada estancia por WhatsApp',
+      [
+        'Recogida de toda la ropa de cama y toallas (todos los dormitorios)',
+        'Baños (todos): sanitarios, mamparas, suelos, espejos y dispensadores',
+        'Cocina: lavavajillas, encimera, microondas, campana, nevera y fregadero',
+        'Salón y comedor: muebles, superficies y suelo',
+        'Todos los dormitorios: muebles, suelos y ventanas',
+        'Terraza: suelo, muebles exteriores y barbacoa exterior',
+        'Escalera interior: peldaños y barandilla',
+        'Jardín: recogida de basura y objetos dejados por huéspedes',
+        'Reposición de camas (con ropa preparada por el propietario)',
+        'Foto de confirmación de cada estancia por WhatsApp',
+      ],
+      [
+        'Ropa de cama y toallas de todos los dormitorios recogida',
+        'Cocina: fregadero, nevera, campana, microondas, encimera y lavavajillas',
+        'Baños (todos): dispensadores, espejos, suelos, mamparas y sanitarios',
+        'Jardín: objetos dejados por huéspedes y basura recogidos',
+        'Terraza: barbacoa exterior, muebles exteriores y suelo',
+        'Todos los dormitorios: ventanas, suelos y muebles',
+        'Salón y comedor: suelo, superficies y muebles',
+        'Escalera interior: barandilla y peldaños',
+        'Camas repuestas con la ropa que prepare el propietario',
+        'Cada estancia confirmada con foto por WhatsApp',
+      ],
     ],
     precioItems: [
       'Chalé 3 dormitorios (100-140 m²): desde 140-180€/cambio',
@@ -1606,16 +1822,30 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de cambio de huésped en casas rurales de {barrio}',
     protocoloItems: [
-      'Recogida de ropa de cama y toallas',
-      'Chimenea: limpieza de cenicero, hogar exterior y zona de hollín alrededor',
-      'Suelos de piedra o barro: fregado con producto neutro',
-      'Suelos de madera: mopa casi seca con producto específico',
-      'Baños: antifúngico preventivo en juntas, sanitarios, suelo y espejo',
-      'Cocina: campana, encimera, fogones y exterior de electrodomésticos',
-      'Techos con vigas: polvo y telarañas con cepillo extensible',
-      'Exterior inmediato: recogida de basura y objetos dejados',
-      'Reposición de cama y toallas limpias',
-      'Foto de confirmación por WhatsApp',
+      [
+        'Recogida de ropa de cama y toallas',
+        'Chimenea: limpieza de cenicero, hogar exterior y zona de hollín alrededor',
+        'Suelos de piedra o barro: fregado con producto neutro',
+        'Suelos de madera: mopa casi seca con producto específico',
+        'Baños: antifúngico preventivo en juntas, sanitarios, suelo y espejo',
+        'Cocina: campana, encimera, fogones y exterior de electrodomésticos',
+        'Techos con vigas: polvo y telarañas con cepillo extensible',
+        'Exterior inmediato: recogida de basura y objetos dejados',
+        'Reposición de cama y toallas limpias',
+        'Foto de confirmación por WhatsApp',
+      ],
+      [
+        'Ropa de cama y toallas recogidas al entrar',
+        'Techos con vigas: polvo y telarañas retirados con cepillo extensible',
+        'Piedra o barro: suelos fregados con producto neutro',
+        'Madera: suelos tratados con mopa casi seca y producto específico',
+        'Chimenea: hogar exterior, cenicero y zona de hollín limpios',
+        'Cocina: fogones, encimera, campana y electrodomésticos por fuera',
+        'Baños: espejo, suelo, sanitarios y antifúngico preventivo en juntas',
+        'Exterior inmediato: basura y objetos dejados, recogidos',
+        'Cama y toallas limpias repuestas',
+        'Confirmación enviada por WhatsApp',
+      ],
     ],
     precioItems: [
       'Casa rural hasta 80 m² (2-3 hab.): desde 110-150€/cambio',
@@ -1651,14 +1881,26 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
     ],
     protocoloH2: 'Protocolo de cambio de inquilino en apartamentos de {barrio}',
     protocoloItems: [
-      'Recogida de ropa de cama y toallas',
-      'Cocina: desengrase de encimera, campana y azulejos, interior de microondas y nevera',
-      'Baño: desinfección completa, sanitarios, ducha o bañera, suelo y espejo',
-      'Suelos: fregado con desengrasante previo en todas las estancias',
-      'Alféizares y superficies próximas a ventanas: desengrase de partículas industriales',
-      'Muebles y superficies con microfibra',
-      'Reposición de cama y toallas limpias',
-      'Foto de confirmación por WhatsApp',
+      [
+        'Recogida de ropa de cama y toallas',
+        'Cocina: desengrase de encimera, campana y azulejos, interior de microondas y nevera',
+        'Baño: desinfección completa, sanitarios, ducha o bañera, suelo y espejo',
+        'Suelos: fregado con desengrasante previo en todas las estancias',
+        'Alféizares y superficies próximas a ventanas: desengrase de partículas industriales',
+        'Muebles y superficies con microfibra',
+        'Reposición de cama y toallas limpias',
+        'Foto de confirmación por WhatsApp',
+      ],
+      [
+        'Ropa de cama y toallas recogidas al entrar',
+        'Alféizares y superficies cercanas a ventanas: partículas industriales desengrasadas',
+        'Cocina: nevera y microondas por dentro, azulejos, campana y encimera desengrasados',
+        'Suelos: desengrasante previo antes de fregar en todas las estancias',
+        'Baño: espejo, suelo, ducha o bañera, sanitarios y desinfección completa',
+        'Muebles y superficies pasados con microfibra',
+        'Cama y toallas limpias repuestas',
+        'Confirmación enviada por WhatsApp',
+      ],
     ],
     precioItems: [
       'Estudio o apartamento 1 hab. (30-50 m²): desde 65-85€/cambio',
@@ -1679,9 +1921,10 @@ const TURISTICOS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoTuristicos> = {
   },
 };
 
-export type ContenidoTuristicosResuelto = Omit<ContenidoTuristicos, 'intro' | 'rotacionContent'> & {
+export type ContenidoTuristicosResuelto = Omit<ContenidoTuristicos, 'intro' | 'rotacionContent' | 'protocoloItems'> & {
   intro: string;
   rotacionContent: string;
+  protocoloItems: string[];
 };
 
 export function getContenidoTuristicos(
@@ -1698,7 +1941,7 @@ export function getContenidoTuristicos(
     rotacionH2: t(raw.rotacionH2, barrioNombre, municipioNombre),
     rotacionContent: tVariant(raw.rotacionContent, barrioNombre, municipioNombre),
     protocoloH2: t(raw.protocoloH2, barrioNombre, municipioNombre),
-    protocoloItems: raw.protocoloItems.map(s => t(s, barrioNombre, municipioNombre)),
+    protocoloItems: tListVariant(raw.protocoloItems, barrioNombre, municipioNombre),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
     faqs: raw.faqs.map(f => ({ q: t(f.q, barrioNombre, municipioNombre), a: t(f.a, barrioNombre, municipioNombre) })),
   };
@@ -1713,7 +1956,7 @@ export type ContenidoAfondo = {
   queEsH2: string;
   queEsContent: string | string[];
   queIncluyeH2: string;
-  queIncluyeItems: string[];
+  queIncluyeItems: string[][];
   cuandoH2: string;
   cuandoItems: string[];
   precioItems: string[];
@@ -1737,13 +1980,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo en {barrio}?',
     queIncluyeItems: [
-      'Cocina a fondo: interior y exterior de armarios, encimera, azulejos, campana extractora, electrodomésticos y suelo',
-      'Baños: antical en griferías, inodoro, plato de ducha o bañera, mampara, juntas de azulejo, espejo y suelo',
-      'Dormitorios: interior de armarios a petición, debajo de la cama, ventanas interiores, rodapiés y suelo',
-      'Salón/comedor: detrás de muebles, estanterías, ventanas interiores, zócalos y suelo',
-      'Interruptores, pomos y marcos de puerta: zonas de contacto frecuente con suciedad acumulada',
-      'Lámparas, techos y esquinas: polvo acumulado en esquinas y luminarias',
-      'Productos Ecolabel: antical, desengrasante y limpiahogar certificados incluidos',
+      [
+        'Cocina a fondo: interior y exterior de armarios, encimera, azulejos, campana extractora, electrodomésticos y suelo',
+        'Baños: antical en griferías, inodoro, plato de ducha o bañera, mampara, juntas de azulejo, espejo y suelo',
+        'Dormitorios: interior de armarios a petición, debajo de la cama, ventanas interiores, rodapiés y suelo',
+        'Salón/comedor: detrás de muebles, estanterías, ventanas interiores, zócalos y suelo',
+        'Interruptores, pomos y marcos de puerta: zonas de contacto frecuente con suciedad acumulada',
+        'Lámparas, techos y esquinas: polvo acumulado en esquinas y luminarias',
+        'Productos Ecolabel: antical, desengrasante y limpiahogar certificados incluidos',
+      ],
+      [
+        'Baños: inodoro, plato de ducha o bañera, mampara, antical en griferías, juntas de azulejo, espejo y suelo',
+        'Cocina a fondo: armarios por dentro y por fuera, campana extractora, encimera, azulejos, electrodomésticos y suelo',
+        'Salón/comedor: estanterías, detrás de muebles, zócalos, ventanas interiores y suelo',
+        'Dormitorios: debajo de la cama, interior de armarios a petición, rodapiés, ventanas interiores y suelo',
+        'Lámparas, techos y esquinas: luminarias y esquinas con polvo acumulado',
+        'Interruptores, pomos y marcos de puerta: suciedad acumulada en zonas de contacto frecuente',
+        'Antical, desengrasante y limpiahogar Ecolabel certificados, incluidos siempre',
+      ],
     ],
     cuandoH2: '¿Cuándo conviene contratar una limpieza a fondo en un piso de {barrio}?',
     cuandoItems: [
@@ -1787,13 +2041,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo en una vivienda histórica de {barrio}?',
     queIncluyeItems: [
-      'Suelos de parquet/madera: mopa casi seca con producto específico sin agua en exceso',
-      'Suelos de baldosa hidráulica o mosaico: limpieza con producto neutro pH 7',
-      'Molduras, cornisas y techos altos: cepillo extensible para relieves y recovecos',
-      'Cocina: interior y exterior de muebles, encimera, azulejos, campana y electrodomésticos',
-      'Baños con azulejo antiguo: sanitarios, grifería, mampara y suelo con productos neutros',
-      'Ventanas de guillotina: cristales, carriles y marcos con cepillo fino',
-      'Detrás y debajo de muebles: polvo de sedimentación en zonas sin acceso habitual',
+      [
+        'Suelos de parquet/madera: mopa casi seca con producto específico sin agua en exceso',
+        'Suelos de baldosa hidráulica o mosaico: limpieza con producto neutro pH 7',
+        'Molduras, cornisas y techos altos: cepillo extensible para relieves y recovecos',
+        'Cocina: interior y exterior de muebles, encimera, azulejos, campana y electrodomésticos',
+        'Baños con azulejo antiguo: sanitarios, grifería, mampara y suelo con productos neutros',
+        'Ventanas de guillotina: cristales, carriles y marcos con cepillo fino',
+        'Detrás y debajo de muebles: polvo de sedimentación en zonas sin acceso habitual',
+      ],
+      [
+        'Molduras, cornisas y techos altos: recovecos y relieves tratados con cepillo extensible',
+        'Parquet y madera: mopa casi seca, sin exceso de agua, con producto específico',
+        'Baldosa hidráulica o mosaico: producto neutro pH 7',
+        'Ventanas de guillotina: marcos, carriles y cristales con cepillo fino',
+        'Cocina: muebles por dentro y por fuera, campana, encimera, azulejos y electrodomésticos',
+        'Baños con azulejo antiguo: mampara, grifería, sanitarios y suelo con productos neutros',
+        'Detrás y debajo de muebles: polvo de sedimentación en zonas de acceso poco habitual',
+      ],
     ],
     cuandoH2: '¿Cuándo tiene más sentido contratar una limpieza a fondo en {barrio}?',
     cuandoItems: [
@@ -1837,13 +2102,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo en {barrio}?',
     queIncluyeItems: [
-      'Marcos y alféizares: neutralizador de sales marinas para eliminar salitre acumulado',
-      'Baños: antifúngico en juntas, techos y zonas con humedad; sanitarios, mampara y grifería',
-      'Cristales: tratamiento de manchas de condensación interior y salitre exterior',
-      'Cocina: interior de armarios, campana, encimera, electrodomésticos y suelo',
-      'Dormitorios: muebles, interior de armarios, debajo de camas y suelo',
-      'Salón: detrás de muebles, estanterías, ventanas y suelo',
-      'Terraza: salitre en barandilla, suelo y muebles exteriores',
+      [
+        'Marcos y alféizares: neutralizador de sales marinas para eliminar salitre acumulado',
+        'Baños: antifúngico en juntas, techos y zonas con humedad; sanitarios, mampara y grifería',
+        'Cristales: tratamiento de manchas de condensación interior y salitre exterior',
+        'Cocina: interior de armarios, campana, encimera, electrodomésticos y suelo',
+        'Dormitorios: muebles, interior de armarios, debajo de camas y suelo',
+        'Salón: detrás de muebles, estanterías, ventanas y suelo',
+        'Terraza: salitre en barandilla, suelo y muebles exteriores',
+      ],
+      [
+        'Baños: sanitarios, mampara, grifería y antifúngico en juntas, techos y zonas con humedad',
+        'Marcos y alféizares: salitre acumulado eliminado con neutralizador de sales marinas',
+        'Terraza: barandilla, muebles exteriores y suelo con salitre tratado',
+        'Cristales: salitre exterior y manchas de condensación interior',
+        'Cocina: armarios por dentro, encimera, campana, electrodomésticos y suelo',
+        'Salón: estanterías, detrás de muebles, ventanas y suelo',
+        'Dormitorios: debajo de camas, muebles, interior de armarios y suelo',
+      ],
     ],
     cuandoH2: '¿Cuándo conviene hacer una limpieza a fondo en tu casa de {barrio}?',
     cuandoItems: [
@@ -1887,13 +2163,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo de apertura de segunda residencia en {barrio}?',
     queIncluyeItems: [
-      'Toda la vivienda: polvo de sedimentación eliminado en muebles, superficies y suelos',
-      'Baños: desinfección completa, antifúngico en juntas y zonas con humedad, sanitarios y mampara',
-      'Cocina: interior de nevera y horno a petición, armarios, campana, encimera y suelo',
-      'Cristales interiores: manchas de condensación y polvo de sedimentación',
-      'Ventilación activa durante todo el proceso',
-      'Revisión visual de filtraciones o humedades (aviso por WhatsApp si encontramos algo)',
-      'Cambio de ropa de cama si nos dejas juego preparado',
+      [
+        'Toda la vivienda: polvo de sedimentación eliminado en muebles, superficies y suelos',
+        'Baños: desinfección completa, antifúngico en juntas y zonas con humedad, sanitarios y mampara',
+        'Cocina: interior de nevera y horno a petición, armarios, campana, encimera y suelo',
+        'Cristales interiores: manchas de condensación y polvo de sedimentación',
+        'Ventilación activa durante todo el proceso',
+        'Revisión visual de filtraciones o humedades (aviso por WhatsApp si encontramos algo)',
+        'Cambio de ropa de cama si nos dejas juego preparado',
+      ],
+      [
+        'Polvo de sedimentación: eliminado de muebles, superficies y suelos de toda la vivienda',
+        'Cocina: nevera y horno por dentro a petición, campana, armarios, encimera y suelo',
+        'Baños: sanitarios, mampara, antifúngico en juntas y zonas con humedad, desinfección completa',
+        'Cristales interiores: polvo de sedimentación y manchas de condensación',
+        'Ropa de cama cambiada si nos dejas el juego preparado',
+        'Filtraciones o humedades: revisión visual, aviso por WhatsApp si encontramos algo',
+        'Ventilación activa durante toda la visita',
+      ],
     ],
     cuandoH2: '¿Cuándo se contrata la limpieza a fondo de segunda residencia en {barrio}?',
     cuandoItems: [
@@ -1937,13 +2224,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo de chalés en {barrio}?',
     queIncluyeItems: [
-      'Cocina completa: interior y exterior de todos los armarios, campana, encimera, azulejos y electrodomésticos',
-      'Todos los baños: sanitarios, grifería con antical, mamparas, juntas, suelos y espejos',
-      'Dormitorios (todas las plantas): interior de armarios, debajo de camas, ventanas y suelos',
-      'Salón y comedor: detrás de muebles, ventanales grandes, estanterías y suelo',
-      'Escalera interior: peldaños, barandilla y rellanos',
-      'Terraza: suelo, muebles exteriores y barandilla',
-      'Garaje: barrido de polvo y recogida de suciedad superficial',
+      [
+        'Cocina completa: interior y exterior de todos los armarios, campana, encimera, azulejos y electrodomésticos',
+        'Todos los baños: sanitarios, grifería con antical, mamparas, juntas, suelos y espejos',
+        'Dormitorios (todas las plantas): interior de armarios, debajo de camas, ventanas y suelos',
+        'Salón y comedor: detrás de muebles, ventanales grandes, estanterías y suelo',
+        'Escalera interior: peldaños, barandilla y rellanos',
+        'Terraza: suelo, muebles exteriores y barandilla',
+        'Garaje: barrido de polvo y recogida de suciedad superficial',
+      ],
+      [
+        'Todos los baños: mamparas, grifería con antical, sanitarios, juntas, suelos y espejos',
+        'Cocina completa: armarios por dentro y por fuera, electrodomésticos, azulejos, encimera y campana',
+        'Salón y comedor: ventanales grandes, estanterías, detrás de muebles y suelo',
+        'Dormitorios (todas las plantas): ventanas, debajo de camas, interior de armarios y suelos',
+        'Garaje: suciedad superficial recogida y polvo barrido',
+        'Terraza: barandilla, muebles exteriores y suelo',
+        'Escalera interior: rellanos, barandilla y peldaños',
+      ],
     ],
     cuandoH2: '¿Cuándo conviene contratar la limpieza a fondo del chalé en {barrio}?',
     cuandoItems: [
@@ -1987,13 +2285,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo en una casa rural de {barrio}?',
     queIncluyeItems: [
-      'Suelos de piedra o baldosa de barro: fregado con producto neutro pH 7 sin ácidos',
-      'Suelos de madera o tarima: mopa casi seca con producto específico para madera',
-      'Chimenea: hogar exterior, cenicero, zona con hollín y superficies próximas',
-      'Techos con vigas: cepillo extensible para polvo, hollín y telarañas en recovecos',
-      'Cocina: interior de armarios, campana, fogones, encimera y electrodomésticos',
-      'Baños: desinfección completa con antifúngico en zonas de humedad',
-      'Marcos de madera: verdín y humedad con producto antifúngico ecológico',
+      [
+        'Suelos de piedra o baldosa de barro: fregado con producto neutro pH 7 sin ácidos',
+        'Suelos de madera o tarima: mopa casi seca con producto específico para madera',
+        'Chimenea: hogar exterior, cenicero, zona con hollín y superficies próximas',
+        'Techos con vigas: cepillo extensible para polvo, hollín y telarañas en recovecos',
+        'Cocina: interior de armarios, campana, fogones, encimera y electrodomésticos',
+        'Baños: desinfección completa con antifúngico en zonas de humedad',
+        'Marcos de madera: verdín y humedad con producto antifúngico ecológico',
+      ],
+      [
+        'Techos con vigas: polvo, hollín y telarañas en recovecos retirados con cepillo extensible',
+        'Piedra o baldosa de barro: fregado con producto neutro pH 7, sin ácidos',
+        'Madera o tarima: mopa casi seca con producto específico',
+        'Chimenea: cenicero, hogar exterior y superficies próximas sin hollín',
+        'Marcos de madera: antifúngico ecológico para verdín y humedad',
+        'Cocina: armarios por dentro, fogones, campana, encimera y electrodomésticos',
+        'Baños: antifúngico en zonas de humedad y desinfección completa',
+      ],
     ],
     cuandoH2: '¿Cuándo tiene más sentido una limpieza a fondo en {barrio}?',
     cuandoItems: [
@@ -2037,13 +2346,24 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
     ],
     queIncluyeH2: '¿Qué incluye la limpieza a fondo en {barrio}?',
     queIncluyeItems: [
-      'Alféizares y marcos: desengrase previo de partículas industriales, limpieza completa',
-      'Encimeras y superficies horizontales: desengrase antes del limpiahogar habitual',
-      'Cocina a fondo: campana, interior y exterior de armarios, electrodomésticos y suelo con desengrase',
-      'Baños: limpieza completa con antical en griferías, sanitarios, mampara y suelo',
-      'Dormitorios: interior de armarios, debajo de camas, ventanas y suelo',
-      'Salón: detrás de muebles, encimeras, ventanas y suelo',
-      'Terraza o balcón: suelo y barandilla con tratamiento de partículas',
+      [
+        'Alféizares y marcos: desengrase previo de partículas industriales, limpieza completa',
+        'Encimeras y superficies horizontales: desengrase antes del limpiahogar habitual',
+        'Cocina a fondo: campana, interior y exterior de armarios, electrodomésticos y suelo con desengrase',
+        'Baños: limpieza completa con antical en griferías, sanitarios, mampara y suelo',
+        'Dormitorios: interior de armarios, debajo de camas, ventanas y suelo',
+        'Salón: detrás de muebles, encimeras, ventanas y suelo',
+        'Terraza o balcón: suelo y barandilla con tratamiento de partículas',
+      ],
+      [
+        'Encimeras y superficies horizontales: desengrasadas antes del limpiahogar habitual',
+        'Alféizares y marcos: limpieza completa con desengrase previo de partículas industriales',
+        'Cocina a fondo: armarios por dentro y por fuera, campana, electrodomésticos y suelo con desengrase',
+        'Salón: ventanas, detrás de muebles y suelo',
+        'Dormitorios: ventanas, debajo de camas, interior de armarios y suelo',
+        'Baños: sanitarios, mampara, antical en griferías y limpieza completa',
+        'Terraza o balcón: barandilla y suelo con tratamiento de partículas',
+      ],
     ],
     cuandoH2: '¿Cuándo conviene hacer una limpieza a fondo en un piso de {barrio}?',
     cuandoItems: [
@@ -2072,9 +2392,10 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   },
 };
 
-export type ContenidoAfondoResuelto = Omit<ContenidoAfondo, 'intro' | 'queEsContent'> & {
+export type ContenidoAfondoResuelto = Omit<ContenidoAfondo, 'intro' | 'queEsContent' | 'queIncluyeItems'> & {
   intro: string;
   queEsContent: string;
+  queIncluyeItems: string[];
 };
 
 export function getContenidoAfondo(
@@ -2091,7 +2412,7 @@ export function getContenidoAfondo(
     queEsH2: t(raw.queEsH2, barrioNombre, municipioNombre),
     queEsContent: tVariant(raw.queEsContent, barrioNombre, municipioNombre),
     queIncluyeH2: t(raw.queIncluyeH2, barrioNombre, municipioNombre),
-    queIncluyeItems: raw.queIncluyeItems.map(s => t(s, barrioNombre, municipioNombre)),
+    queIncluyeItems: tListVariant(raw.queIncluyeItems, barrioNombre, municipioNombre),
     cuandoH2: t(raw.cuandoH2, barrioNombre, municipioNombre),
     cuandoItems: raw.cuandoItems.map(s => t(s, barrioNombre, municipioNombre)),
     precioItems: raw.precioItems.map(s => t(s, barrioNombre, municipioNombre)),
