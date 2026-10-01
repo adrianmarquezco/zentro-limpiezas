@@ -8,12 +8,15 @@ import { getCollection } from 'astro:content';
 export const prerender = true;
 
 const SITE = 'https://zentrolimpiezas.es';
+// Fecha de esta build — todas las páginas sin fecha propia (servicios, zonas, combos) usan esta,
+// ya que Astro regenera el sitio entero en cada despliegue
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 export const GET: APIRoute = async () => {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const postsGL = await getCollection('blog-gl', ({ data }) => !data.draft);
 
-  type UrlEntry = { loc: string; priority: string; changefreq: string };
+  type UrlEntry = { loc: string; priority: string; changefreq: string; lastmod?: string };
 
   const entries: UrlEntry[] = [
     // Páginas principales ES
@@ -141,14 +144,14 @@ export const GET: APIRoute = async () => {
         );
     }),
     // Blog ES
-    ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly' })),
+    ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly', lastmod: p.data.dateModified ?? p.data.datePublished })),
     // Blog GL
-    ...postsGL.map(p => ({ loc: `${SITE}/gl/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly' })),
+    ...postsGL.map(p => ({ loc: `${SITE}/gl/blog/${p.slug}/`, priority: '0.65', changefreq: 'yearly', lastmod: p.data.dateModified ?? p.data.datePublished })),
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries.map(e => `  <url><loc>${e.loc}</loc><priority>${e.priority}</priority><changefreq>${e.changefreq}</changefreq></url>`).join('\n')}
+${entries.map(e => `  <url><loc>${e.loc}</loc><lastmod>${e.lastmod ?? BUILD_DATE}</lastmod><priority>${e.priority}</priority><changefreq>${e.changefreq}</changefreq></url>`).join('\n')}
 </urlset>`;
 
   return new Response(xml, {
