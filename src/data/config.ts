@@ -69,7 +69,7 @@ function trimToClause(text: string, budget: number): string {
   if (text[budget] !== ' ') words.pop();
   while (words.length > 0 && META_STOPWORDS.has(words[words.length - 1].toLowerCase().replace(/[,;:.]$/, ''))) words.pop();
   const cut = words.join(' ').replace(/[,;:]$/, '');
-  if (cut.length < 20) return '';
+  if (cut.length < 40) return '';
   return /[.!?]$/.test(cut) ? cut : cut + '.';
 }
 
