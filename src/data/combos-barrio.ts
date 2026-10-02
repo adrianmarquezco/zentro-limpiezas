@@ -595,7 +595,7 @@ const PERIODICA_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoPeriodica> = {
     precioItems: [
       'Casa rural hasta 100 m²: desde 75-100€/visita quincenal',
       'Casa rural 100-150 m²: desde 100-130€/visita quincenal',
-      'Includes suelos de piedra y baldosa antigua: sin suplemento',
+      'Incluye suelos de piedra y baldosa antigua: sin suplemento',
       'Productos Ecolabel respetuosos con entorno rural: incluidos siempre',
     ],
     faqs: [
