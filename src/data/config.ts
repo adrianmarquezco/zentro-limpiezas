@@ -34,6 +34,7 @@ export const BUSINESS = {
     latitude: 43.4833,
     longitude: -8.2333,
   },
+  googleMapsUrl: 'https://maps.google.com/?cid=16415674472746267317',
 } as const;
 
 // Mensajes de WhatsApp pre-rellenados por contexto de página
