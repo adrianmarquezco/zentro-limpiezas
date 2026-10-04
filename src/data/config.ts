@@ -31,8 +31,8 @@ export const BUSINESS = {
     countryCode: 'ES',
   },
   geo: {
-    latitude: 43.4833,
-    longitude: -8.2333,
+    latitude: 43.4628912,
+    longitude: -8.2599712,
   },
   googleMapsUrl: 'https://maps.google.com/?cid=16415674472746267317',
 } as const;
