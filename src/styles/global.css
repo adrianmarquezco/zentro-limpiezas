@@ -270,18 +270,21 @@
 
 /* Efecto de luz barriendo el hero — como una superficie recién limpiada */
 @keyframes heroShine {
-  0%   { left: -35%; opacity: 0; }
+  0%   { transform: translateX(-194%) skewX(-12deg); opacity: 0; }
   8%   { opacity: 1; }
   92%  { opacity: 1; }
-  100% { left: 115%; opacity: 0; }
+  100% { transform: translateX(639%) skewX(-12deg); opacity: 0; }
 }
 .hero-shine-bar {
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 0;
   width: 18%;
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 50%, transparent 100%);
-  transform: skewX(-12deg);
+  transform: translateX(-194%) skewX(-12deg);
+  opacity: 0;
+  will-change: transform, opacity;
   animation: heroShine 8s ease-in-out 1.2s infinite;
   pointer-events: none;
   z-index: 2;
