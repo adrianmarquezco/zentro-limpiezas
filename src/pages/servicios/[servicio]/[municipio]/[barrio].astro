@@ -64,7 +64,7 @@ const KW_ARCHETYPE: Record<BarrioArchetype, 'cristales' | 'ventanas'> = {
 const kw = KW_ARCHETYPE[barrio.archetype as BarrioArchetype];
 
 const title = `Limpieza de ${kw} en ${withMunicipio(barrio.nombre, municipio.nombre)} · Sin Rayas ni Cal | Zentro Limpiezas`;
-const description = `Limpieza profesional de ${kw} en ${barrio.nombre}. ${contenido.metaDescAngle} Empresa local con 20 años en Ferrolterra. Presupuesto gratis en 24h.`.slice(0, 160);
+const description = `Limpieza profesional de ${kw} en ${barrio.nombre}. ${contenido.metaDescAngle} Equipo local con +20 años de experiencia. Presupuesto gratis en 24h.`.slice(0, 160);
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },

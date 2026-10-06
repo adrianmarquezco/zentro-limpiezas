@@ -125,7 +125,7 @@ No todas las empresas que ofrecen "limpieza de ventanas" trabajan igual. Antes d
 - **Equipo propio y no subcontratado**: garantiza continuidad y que la misma persona conozca tu vivienda en visitas sucesivas
 - **Productos que especifiquen si son aptos para tus marcos**: especialmente importante en madera o aluminio anodizado
 
-En Zentro Limpiezas llevamos más de 20 años trabajando en Ferrolterra con equipo propio y seguro de responsabilidad civil, así que estos puntos vienen incluidos por defecto, no como extra.
+En Zentro Limpiezas, el equipo lleva más de 20 años trabajando en Ferrolterra sin subcontratar y con seguro de responsabilidad civil, así que estos puntos vienen incluidos por defecto, no como extra.
 
 ## Cómo trabajamos la limpieza de ventanas en Zentro Limpiezas
 

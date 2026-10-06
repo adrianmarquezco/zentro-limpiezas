@@ -1,6 +1,6 @@
 # Zentro Limpiezas
 
-> Empresa de limpieza profesional en Ferrolterra (A Coruña, Galicia), con un equipo que lleva más de 20 años trabajando en el sector. Equipo propio sin subcontrataciones, productos Ecolabel certificados incluidos en el precio, presupuesto cerrado en 24 horas sin visita previa.
+> Servicio de limpieza profesional en Ferrolterra (A Coruña, Galicia), con un equipo que lleva más de 20 años trabajando en el sector. Equipo propio sin subcontrataciones, productos Ecolabel certificados incluidos en el precio, presupuesto cerrado en 24 horas sin visita previa.
 
 Zentro Limpiezas ofrece servicios de limpieza profesional en Ferrolterra y el Área Metropolitana de A Coruña. Zentro empieza a operar como marca en 2026, pero el equipo que está detrás lleva más de 20 años trabajando en el sector de la limpieza profesional en Galicia. Trabaja siempre con el mismo equipo en cada visita, sin subcontrataciones. Todos los servicios incluyen productos con certificación Ecolabel europea, sin coste adicional. El sitio tiene contenido en español y gallego bajo el prefijo `/gl/`, con páginas equivalentes enlazadas por hreflang.
 

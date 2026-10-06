@@ -15,7 +15,7 @@ faqs:
   - q: "¿Es mejor contratar una empresa de limpieza o un autónomo?"
     a: "Depende. Una empresa con equipo propio garantiza continuidad (si alguien no puede venir, mandan a otro), tiene seguro de RC y cumple obligaciones laborales. Un autónomo puede ser más flexible y personalizado. La clave es verificar que quien venga a tu casa esté cubierto por un seguro y trabaje en condiciones regulares."
   - q: "¿Los productos de limpieza están incluidos en el precio o hay que pagarlos aparte?"
-    a: "Depende de la empresa. En Zentro Limpiezas todos los productos están incluidos en el precio, incluidos los ecológicos con certificación Ecolabel. Antes de contratar, pregunta explícitamente si los materiales están incluidos o si hay algún coste adicional."
+    a: "Depende del servicio. En Zentro Limpiezas todos los productos están incluidos en el precio, incluidos los ecológicos con certificación Ecolabel. Antes de contratar, pregunta explícitamente si los materiales están incluidos o si hay algún coste adicional."
   - q: "¿Cuánto tiempo de antelación necesita una empresa de limpieza para el primer servicio?"
     a: "Para una limpieza puntual: 24-48 horas en la mayoría de los casos, dependiendo de la disponibilidad. Para un servicio periódico: 5-7 días para asignar un equipo fijo. En Zentro Limpiezas damos presupuesto en menos de 24 horas y podemos organizar el primer servicio en pocos días."
 ---
@@ -89,7 +89,7 @@ Una empresa seria te puede decir exactamente qué productos usa. Si los traen el
 
 Una empresa con años de historia en la comarca ha construido una reputación que tiene mucho que proteger. No se puede fabricar. Tampoco se puede simular la confianza que da saber que llevan décadas trabajando con familias y empresas de la misma zona.
 
-No es lo mismo una empresa que lleva 20 años en Ferrol que una que empezó hace 3 meses con un perfil de Instagram.
+No es lo mismo un equipo con 20 años de experiencia en Ferrol que uno que empezó hace 3 meses con un perfil de Instagram.
 
 Pregunta:
 - ¿Cuántos años llevan en el sector?
@@ -202,13 +202,13 @@ Antes de firmar o acordar cualquier servicio, asegúrate de tener respuesta a es
 - [ ] ¿Qué pasa si algo no queda bien?
 - [ ] ¿Formas de pago?
 
-## Por qué llevamos más de 20 años en Ferrol y A Coruña
+## Por qué nuestro equipo lleva más de 20 años en Ferrol y A Coruña
 
-En Zentro Limpiezas cumplimos todos los criterios de esta guía. Llevamos más de 20 años trabajando en la comarca ferrolana y el área coruñesa. Tenemos seguro de RC, equipo estable, productos Ecolabel certificados y una forma de trabajar en la que la comunicación clara es la base de todo.
+En Zentro Limpiezas cumplimos todos los criterios de esta guía. Nuestro equipo lleva más de 20 años trabajando en la comarca ferrolana y el área coruñesa. Tenemos seguro de RC, equipo estable, productos Ecolabel certificados y una forma de trabajar en la que la comunicación clara es la base de todo.
 
 No somos perfectos —nadie lo es— pero cuando algo no queda bien, lo corregimos. Y eso, con el tiempo, es lo que construye la confianza que hace que los clientes lleven años con nosotros.
 
-Si estás buscando empresa de limpieza en Ferrol, Narón, A Coruña o cualquier municipio de la comarca, llámanos o escríbenos. Te respondemos rápido y te damos un presupuesto sin compromiso.
+Si estás buscando un servicio de limpieza en Ferrol, Narón, A Coruña o cualquier municipio de la comarca, llámanos o escríbenos. Te respondemos rápido y te damos un presupuesto sin compromiso.
 
 ---
 

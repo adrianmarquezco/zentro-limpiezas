@@ -3507,7 +3507,7 @@ const GL_SERVIZOS_RAW: Record<string, {
     ],
     faqServizo: {
       q: 'Que facedes cos chans de terrazo en {barrio}?',
-      a: 'O terrazo precisa limpeza con produto neutro, sen lixivia nin abrillantadores ácidos que o opacan. É o chan máis frecuente nos pisos dos anos 70-80 de Ferrolterra e temos experiencia con el desde hai máis de 20 anos.',
+      a: 'O terrazo precisa limpeza con produto neutro, sen lixivia nin abrillantadores ácidos que o opacan. É o chan máis frecuente nos pisos dos anos 70-80 de Ferrolterra e o noso equipo ten experiencia con el desde hai máis de 20 anos.',
     },
   },
   'limpeza-de-apartamentos': {

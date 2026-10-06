@@ -50,7 +50,7 @@ Os produtos de limpeza ecolóxicos baseados en ácido cítrico son igual de efic
 
 ## Produtos ecolóxicos: igual de eficaces
 
-En Zentro Limpiezas levamos máis de 20 anos traballando exclusivamente con produtos ecolóxicos certificados. Os tres básicos para unha limpeza a fondo:
+En Zentro Limpiezas, o equipo leva máis de 20 anos traballando exclusivamente con produtos ecolóxicos certificados. Os tres básicos para unha limpeza a fondo:
 
 1. **Bicarbonato sódico**: abrasivo suave, desodorizante, ideal para refregar superficies
 2. **Vinagre branco diluído**: antical e desinfectante suave
