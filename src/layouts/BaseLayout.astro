@@ -96,7 +96,7 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
     url: BUSINESS.url,
     name: BUSINESS.name,
     inLanguage: ['es', 'gl'],
-    publisher: { '@type': 'CleaningService', '@id': `${BUSINESS.url}/#business` },
+    publisher: { '@id': `${BUSINESS.url}/#business` },
     potentialAction: {
       '@type': 'SearchAction',
       target: { '@type': 'EntryPoint', urlTemplate: `${BUSINESS.url}/presupuesto/?servicio={search_term_string}` },

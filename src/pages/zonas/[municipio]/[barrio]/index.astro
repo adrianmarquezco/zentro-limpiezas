@@ -92,7 +92,7 @@ const schemaLocal = {
   name: `Limpieza en ${barrio.nombre}, ${municipio.nombre}`,
   description: `Servicio de limpieza profesional en ${barrio.nombre}, ${municipio.nombre}`,
   url: canonical,
-  provider: { '@type': 'CleaningService', '@id': `${BUSINESS.url}/#business`, name: BUSINESS.name },
+  provider: { '@type': 'LocalBusiness', '@id': `${BUSINESS.url}/#business`, name: BUSINESS.name },
   areaServed: {
     '@type': 'Place',
     name: `${barrio.nombre}, ${municipio.nombre}, Galicia`,
@@ -122,7 +122,7 @@ const schemaLocal = {
             Limpieza profesional en<br />
             <span class="text-accent">{withMunicipio(barrio.nombre, municipio.nombre)}</span>
           </h1>
-          <p class="text-white/75 text-lg mb-8 max-w-xl leading-relaxed">
+          <p class="text-white/75 text-lg mb-8 max-w-xl leading-relaxed speakable-intro">
             Servicio de limpieza a domicilio en {barrio.nombre}, {municipio.nombre}.
             <strong class="text-white">Productos ecológicos incluidos</strong> en el precio. Presupuesto en menos de 24h.
           </p>
