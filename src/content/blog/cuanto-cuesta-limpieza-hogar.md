@@ -194,7 +194,7 @@ El presupuesto que te damos es honesto desde el principio. No inflamos para lueg
 
 ### ¿Hay mínimo de horas?
 
-Para servicios puntuales domésticos, no exigimos mínimo de horas. Aunque la limpieza de un espacio pequeño se resuelva en 2 horas, no te cobraremos por 3.
+En los servicios con presupuesto cerrado (limpieza puntual, a fondo, fin de obra) no hay mínimo de horas: pagas el precio acordado. En la [limpieza por horas](/servicios/limpieza-por-horas/) el mínimo es de 2 horas por visita.
 
 ### ¿Cuándo hay que pagar?
 

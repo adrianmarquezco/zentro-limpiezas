@@ -19,6 +19,7 @@ Zentro Limpiezas ofrece servicios de limpieza profesional en Ferrolterra y el Á
 - [Limpieza de viviendas](https://zentrolimpiezas.es/servicios/limpieza-de-viviendas/): servicio general para pisos, chalés y casas
 - [Limpieza de pisos](https://zentrolimpiezas.es/servicios/limpieza-de-pisos/): especializado en pisos de bloque, terrazo y cal acumulada
 - [Limpieza periódica](https://zentrolimpiezas.es/servicios/limpieza-periodica/): servicio regular semanal, quincenal o mensual
+- [Limpieza por horas](https://zentrolimpiezas.es/servicios/limpieza-por-horas/): limpieza de viviendas, pisos, oficinas y locales por horas, con un mínimo de 2 horas
 - [Limpieza a fondo](https://zentrolimpiezas.es/servicios/limpieza-a-fondo/): gran limpieza profunda en zonas que no alcanza la periódica
 - [Limpieza de mudanzas](https://zentrolimpiezas.es/servicios/limpieza-de-mudanzas/): al entregar o recibir un inmueble
 - [Limpieza de cristales](https://zentrolimpiezas.es/servicios/limpieza-de-cristales/): quitacal con pH controlado y pértiga telescópica, sin rayas

@@ -167,6 +167,7 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
             { slug: isGL ? 'limpeza-de-oficinas' : 'limpieza-de-oficinas',    label: isGL ? 'Limpeza de oficinas'   : 'Limpieza de oficinas' },
             { slug: isGL ? 'limpeza-fin-de-obra' : 'limpieza-fin-de-obra',    label: isGL ? 'Limpeza fin de obra'   : 'Limpieza fin de obra' },
             { slug: isGL ? 'limpeza-periodica'   : 'limpieza-periodica',      label: isGL ? 'Limpeza periódica'     : 'Limpieza periódica' },
+            { slug: isGL ? 'limpeza-por-horas'   : 'limpieza-por-horas',      label: isGL ? 'Limpeza por horas'     : 'Limpieza por horas' },
           ].map(item => (
             <a href={`${base}/${isGL ? 'servizos' : 'servicios'}/${item.slug}/`} class="block text-white/60 hover:text-white text-sm py-1.5 transition-colors">
               {item.label}
