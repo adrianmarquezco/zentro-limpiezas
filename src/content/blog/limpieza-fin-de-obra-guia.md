@@ -3,7 +3,7 @@ title: "Limpieza de fin de obra: qué es, cuánto cuesta y cuándo hacerla"
 description: "Todo lo que necesitas saber sobre la limpieza post-obra: fases del proceso, materiales especializados, cuánto tiempo lleva y cuándo contratar profesionales."
 image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
-dateModified: "2026-05-31"
+dateModified: "2026-10-07"
 category: "guias"
 readingTime: 7
 tags: ["fin de obra", "reforma", "limpieza especializada"]
@@ -86,7 +86,7 @@ Estos tiempos son para obras de reforma completa. Para obras parciales, el tiemp
 
 ## ¿Cuánto cuesta en Galicia?
 
-Los precios orientativos en 2025 para la comarca de Ferrol y A Coruña:
+Los precios orientativos en 2026 para la comarca de Ferrol y A Coruña:
 
 | Tamaño | Precio orientativo |
 |--------|-------------------|

@@ -1,9 +1,9 @@
 ﻿---
-title: "¿Cuánto cuesta una limpieza del hogar? Precios en Galicia 2025"
+title: "¿Cuánto cuesta una limpieza del hogar? Precios en Galicia 2026"
 description: "Guía de precios de limpieza doméstica en Galicia. Desde 55€ el piso. Qué factores determinan el coste y cómo conseguir el mejor presupuesto."
 image: '/images/blog/cuanto-cuesta-limpieza-hogar.webp'
 datePublished: "2026-04-01"
-dateModified: "2026-05-31"
+dateModified: "2026-10-07"
 category: "precios"
 readingTime: 10
 tags: ["precios", "coste limpieza", "presupuesto", "Galicia"]
@@ -13,7 +13,7 @@ faqs:
   - q: "¿Cuánto cuesta limpiar un piso de 80 m² en Galicia?"
     a: "La limpieza puntual de un piso de 80 m² en Galicia cuesta entre 80 y 120 €. La limpieza a fondo del mismo piso va de 180 a 280 €. En servicio periódico semanal, el precio por visita baja a 65-80 €."
   - q: "¿Están incluidos los productos de limpieza en el precio?"
-    a: "En Zentro Limpiezas sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin ningún coste adicional. No es un extra: es nuestro estándar desde 2004."
+    a: "En Zentro Limpiezas sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin ningún coste adicional. No es un extra: es el estándar de trabajo de nuestro equipo."
   - q: "¿Cuánto cuesta una limpieza fin de obra en Galicia?"
     a: "La limpieza fin de obra tras una reforma parcial empieza desde 120-180 €. Para una reforma integral de un piso de 60-90 m² el precio está entre 200 y 400 €. El precio final depende del estado real de la obra y los materiales instalados."
   - q: "¿Cómo se calcula el precio de una limpieza periódica?"
@@ -43,7 +43,7 @@ Cada limpieza es diferente porque cada hogar es diferente. Los factores principa
 - **Frecuencia**: un contrato periódico tiene precio diferente a una limpieza puntual
 - **Accesibilidad**: algunos trabajos requieren material especial o tiempo de desplazamiento extra
 
-## Rangos orientativos de precio en Galicia 2025
+## Rangos orientativos de precio en Galicia 2026
 
 ### Limpieza de vivienda puntual
 
@@ -222,6 +222,7 @@ Los precios indicados son orientativos. El presupuesto específico para tu caso 
 - [Cómo limpiar el piso a fondo paso a paso](/blog/como-limpiar-el-piso-a-fondo/) — si prefieres hacerlo tú antes de contratar un servicio
 - [Productos ecológicos de limpieza: por qué los usamos](/blog/productos-ecologicos-limpieza-hogar/) — los productos que incluimos en todos nuestros servicios sin coste extra
 - [Servicio de limpieza de viviendas](/servicios/limpieza-de-viviendas/) — información y presupuesto
+- [Limpieza de choque, profunda o a fondo: qué es y cuánto cuesta](/blog/limpieza-de-choque-profunda-a-fondo/) — qué incluye y cuánto tarda la limpieza más completa
 - [Limpieza a fondo](/servicios/limpieza-a-fondo/) — para mudanzas, post-verano o gran limpieza anual
 - [Limpieza periódica semanal, quincenal y mensual](/servicios/limpieza-periodica/) — contratos con precio fijo
 

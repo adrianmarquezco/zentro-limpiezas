@@ -3,7 +3,7 @@ title: "Limpieza de comunidades de vecinos: todo lo que necesitas saber"
 description: "Guía completa sobre la gestión de la limpieza en comunidades de propietarios: frecuencias, costes, qué incluye el servicio y cómo elegir empresa."
 image: '/images/blog/limpieza-comunidades-vecinos-guia.webp'
 datePublished: "2025-03-01"
-dateModified: "2026-05-31"
+dateModified: "2026-10-07"
 category: "guias"
 readingTime: 7
 tags: ["comunidades", "portal", "administrador fincas"]
@@ -74,7 +74,7 @@ La frecuencia adecuada depende del número de vecinos y del tipo de edificio:
 
 El garaje puede limpiarse con menor frecuencia que el portal, normalmente quincenal o mensual. Las zonas exteriores (jardines, aparcamiento exterior) también tienen ritmo propio.
 
-## Precios orientativos en Galicia 2025
+## Precios orientativos en Galicia 2026
 
 | Tipo de edificio | Precio mensual orientativo |
 |-----------------|--------------------------|
