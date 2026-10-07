@@ -35,6 +35,7 @@ export const BUSINESS = {
     longitude: -8.2599712,
   },
   googleMapsUrl: 'https://maps.google.com/?cid=16415674472746267317',
+  manager: { name: 'Luisa Corral Loureiro', jobTitle: 'Responsable del negocio' },
 } as const;
 
 // Mensajes de WhatsApp pre-rellenados por contexto de página
