@@ -44,7 +44,7 @@ const categoryLabels: Record<string, string> = {
 };
 ---
 
-<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/blog/`}>
+<BaseLayout pageType="CollectionPage" {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/blog/`}>
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
 
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />

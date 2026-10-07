@@ -10,7 +10,7 @@ const schema = {
   logo: `${BUSINESS.url}/images/logo.png`,
   telephone: BUSINESS.phoneHref.replace('tel:', ''),
   foundingDate: String(BUSINESS.foundingYear),
-  employee: {
+  founder: {
     '@type': 'Person',
     name: BUSINESS.manager.name,
     jobTitle: BUSINESS.manager.jobTitle,

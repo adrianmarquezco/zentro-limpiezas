@@ -16,7 +16,7 @@ const posts = (await getCollection('blog-gl', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime());
 ---
 
-<BaseLayout
+<BaseLayout pageType="CollectionPage"
   title="Blog de limpeza e fogar | Zentro Limpiezas"
   description="Consellos de limpeza profesional, trucos para o fogar e guías ecolóxicas. Blog de Zentro Limpiezas en Ferrol e A Coruña."
   canonical={canonical}
