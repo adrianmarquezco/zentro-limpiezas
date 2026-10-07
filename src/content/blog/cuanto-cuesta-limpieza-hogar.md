@@ -11,7 +11,7 @@ lang: "es"
 pilar: true
 faqs:
   - q: "¿Cuánto cuesta limpiar un piso de 80 m² en Galicia?"
-    a: "La limpieza puntual de un piso de 80 m² en Galicia cuesta entre 80 y 120 €. La limpieza a fondo del mismo piso va de 180 a 280 €. En servicio periódico semanal, el precio por visita baja a 65-80 €."
+    a: "La limpieza puntual de un piso de 80 m² en Galicia cuesta entre 80 y 120 €. La limpieza a fondo del mismo piso empieza desde 80 € y su precio final depende del estado de la vivienda. En servicio periódico semanal, el precio por visita baja a 65-80 €."
   - q: "¿Están incluidos los productos de limpieza en el precio?"
     a: "En Zentro Limpiezas sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin ningún coste adicional. No es un extra: es el estándar de trabajo de nuestro equipo."
   - q: "¿Cuánto cuesta una limpieza fin de obra en Galicia?"
@@ -22,7 +22,7 @@ faqs:
 
 > **En resumen:**
 > - Limpieza de piso hasta 80 m²: desde 55-100 €
-> - Limpieza a fondo: desde 150-350 € según tamaño y estado
+> - Limpieza a fondo: desde 80 € según tamaño y estado
 > - Fin de obra: desde 200-400 €
 > - Los productos ecológicos están siempre incluidos en nuestros precios
 > - Presupuesto personalizado gratuito en menos de 24 horas
@@ -73,14 +73,7 @@ Los contratos de limpieza semanal, quincenal o mensual tienen un descuento del 1
 
 La limpieza a fondo llega a zonas que en la limpieza de mantenimiento no se tocan: detrás de muebles, interior de electrodomésticos, parte posterior de armarios, parte alta de armarios, zócalos, marcos de ventanas...
 
-| Tamaño vivienda | Precio orientativo |
-|----------------|-------------------|
-| Hasta 60 m² | 130–200 € |
-| 60–90 m² | 180–280 € |
-| 90–120 m² | 250–350 € |
-| Más de 120 m² | Consultar presupuesto |
-
-El rango es amplio porque el estado del piso varía mucho. Un piso con mantenimiento regular que se quiere poner a punto difiere mucho de uno que lleva años sin limpieza profunda.
+El precio de una limpieza a fondo parte **desde 80 €** y depende de los metros, del número de baños y del estado de la vivienda. Un piso con mantenimiento regular que se quiere poner a punto difiere mucho de uno que lleva años sin limpieza profunda. Para viviendas de más de 120 m² o chalés, presupuesto personalizado.
 
 **¿Cuándo tiene sentido una limpieza a fondo?**
 - Antes o después de mudanza

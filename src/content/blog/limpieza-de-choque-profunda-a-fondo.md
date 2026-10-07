@@ -26,7 +26,7 @@ faqs:
 > **En resumen:**
 > - Limpieza de choque, limpieza profunda y limpieza a fondo son, en la práctica, el mismo servicio.
 > - Hace falta tras una mudanza, un cambio de inquilinos, meses con la casa cerrada o más de 6 meses sin limpieza profesional.
-> - Precio orientativo: 130-200 € hasta 60 m², 180-280 € de 60 a 90 m² y 250-350 € de 90 a 120 m².
+> - Precio: desde 80 €, según los metros y el estado de la vivienda.
 > - Un piso de 80 m² lleva entre 3 y 5 horas con dos personas.
 > - Presupuesto cerrado y gratuito en menos de 24 horas.
 
@@ -69,16 +69,7 @@ Trabajamos de arriba hacia abajo: primero alturas y techos, después muebles y a
 
 ## ¿Cuánto cuesta una limpieza de choque o a fondo en Ferrol y A Coruña?
 
-Estos son los rangos orientativos para una vivienda:
-
-| Tamaño de la vivienda | Precio orientativo |
-|---|---|
-| Hasta 60 m² | 130–200 € |
-| 60–90 m² | 180–280 € |
-| 90–120 m² | 250–350 € |
-| Más de 120 m² o chalé | Presupuesto personalizado |
-
-El rango es amplio porque depende sobre todo de cuatro cosas:
+Una limpieza de choque o a fondo parte **desde 80 €**. El precio final depende sobre todo de cuatro cosas:
 
 1. **El estado de partida**: cuánto tiempo lleva la vivienda sin limpieza profunda.
 2. **Los metros y el número de baños**.

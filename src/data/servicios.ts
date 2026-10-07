@@ -126,7 +126,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza a fondo',
     icono: 'sparkle',
     precioDesde: null,
-    precioSchema: '120',
+    precioSchema: '80',
     descripcionCorta: 'Limpieza profunda ocasional. Ideal para mudanzas, post-verano o gran limpieza anual.',
     tier: 2,
     municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'culleredo', 'arteixo', 'cambre', 'oleiros'],

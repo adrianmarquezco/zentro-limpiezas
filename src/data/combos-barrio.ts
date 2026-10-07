@@ -739,8 +739,7 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Piso 1-2 habitaciones (45-65 m²): desde 120-160€ limpieza a fondo',
-      'Piso 3 habitaciones (70-90 m²): desde 160-220€ limpieza a fondo',
+      'Limpieza de vivienda: desde 80€ según metros y estado',
       'Interior de armarios: incluido a petición sin suplemento',
       'Electrodomésticos (horno, nevera): incluidos en la limpieza de vivienda',
     ],
@@ -790,8 +789,7 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Piso histórico 50-80 m²: desde 140-190€ limpieza completa',
-      'Piso histórico 80-120 m²: desde 190-260€ limpieza completa',
+      'Piso histórico: desde 80€ según metros y materiales',
       'Tratamiento específico por tipo de suelo: sin suplemento',
       'Molduiras y cornisas: incluidas siempre',
     ],
@@ -841,8 +839,7 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Apartamento o piso 40-70 m²: desde 130-170€ limpieza completa',
-      'Piso 70-100 m²: desde 170-230€ limpieza completa',
+      'Apartamento o piso: desde 80€ según metros y estado',
       'Tratamiento antifúngico preventivo en baños: incluido sin suplemento',
       'Neutralizador de sales en marcos y alféizares: incluido',
     ],
@@ -894,10 +891,9 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Apartamento 40-70 m²: desde 150-200€ limpieza de apertura',
-      'Vivienda 70-120 m²: desde 200-280€ limpieza de apertura',
+      'Limpieza de apertura: desde 80€ según metros y estado',
       'Gestión con llave: sin coste adicional',
-      'Limpieza de cierre antes de irte: desde 100€ según tamaño',
+      'Limpieza de cierre antes de irte: desde 80€ según tamaño',
     ],
     faqs: [
       {
@@ -947,8 +943,7 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Adosado 2 plantas hasta 130 m²: desde 200-270€ limpieza completa',
-      'Chalé 150-200 m²: desde 270-360€ limpieza completa',
+      'Adosado o chalé: desde 80€ según metros y estado',
       'Terraza y garaje: incluidos sin suplemento en la limpieza de vivienda',
       'Cuarto de lavadoras o trastero: incluidos a petición',
     ],
@@ -1000,8 +995,7 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Casa rural hasta 100 m²: desde 170-230€ limpieza completa',
-      'Casa rural 100-200 m²: desde 230-350€ limpieza completa',
+      'Casa rural: desde 80€ según metros y estado',
       'Chimenea y suelos de piedra: tratamiento específico incluido',
       'Productos Ecolabel para entornos rurales: incluidos siempre',
     ],
@@ -1053,8 +1047,8 @@ const VIVIENDAS_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoViviendas> = {
       ],
     ],
     precioItems: [
-      'Piso 2-3 habitaciones (60-90 m²): desde 150-200€ limpieza a fondo',
-      'Local comercial u oficina (hasta 80 m²): desde 160-220€ limpieza completa',
+      'Piso: desde 80€ según metros y estado',
+      'Local comercial u oficina: desde 80€ según metros y estado',
       'Desengrasante de partículas industriales: incluido sin suplemento',
       'Terraza con acumulación de partículas: incluida',
     ],
@@ -1966,7 +1960,7 @@ export type ContenidoAfondo = {
 const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
   'bloque-obrero': {
     h1Qualifier: 'pisos de bloque · cal, grasa y zonas que el día a día no alcanza',
-    metaDesc: 'Limpieza a fondo en pisos de bloque de {barrio}: cal incrustada en baños, grasa acumulada en cocina y zonas que la limpieza habitual nunca alcanza. Desde 120€.',
+    metaDesc: 'Limpieza a fondo en pisos de bloque de {barrio}: cal incrustada en baños, grasa acumulada en cocina y zonas que la limpieza habitual nunca alcanza. Desde 80€.',
     intro: [
       'La limpieza a fondo de un piso de bloque en {barrio} es el servicio que llega donde la limpieza de mantenimiento nunca llega: el interior de los armarios de cocina, la campana con años de grasa acumulada, la cal en el plato de ducha, los rodapiés y los interruptores. Los bloques de los años 70-80, frecuentes en {barrio}, tienen materiales específicos —gres, terrazo, aluminio de época— que necesitan el producto correcto para limpiarse de verdad sin deteriorarse.',
       'En un piso de bloque de {barrio}, la limpieza a fondo llega justo donde el mantenimiento habitual no llega: interior de armarios de cocina, campana con grasa de años, cal en el plato de ducha, rodapiés e interruptores. Los bloques de los 70-80, típicos de {barrio}, tienen materiales de época —gres, terrazo, aluminio— que piden el producto correcto para limpiarse de verdad.',
@@ -2008,8 +2002,7 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Acumulación de tiempo: más de 6 meses sin limpieza profesional a fondo',
     ],
     precioItems: [
-      'Piso 1-2 habitaciones (45-65 m²): desde 120-170€',
-      'Piso 3 habitaciones (70-90 m²): desde 170-240€',
+      'Limpieza a fondo de tu piso: desde 80€ según metros y estado',
       'Interior de armarios y electrodomésticos: incluidos a petición',
       'Presupuesto cerrado en 24h: sin sorpresas en la factura',
     ],
@@ -2069,8 +2062,7 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Mudanza: para dejar el piso impecable al entregar o al recibir',
     ],
     precioItems: [
-      'Piso histórico 50-70 m²: desde 160-220€',
-      'Piso histórico 70-100 m²: desde 220-290€',
+      'Piso histórico: desde 80€ según metros y materiales',
       'Tratamiento específico para parquet y baldosa hidráulica: incluido sin suplemento',
       'Molduras y techos altos: incluidos',
     ],
@@ -2130,8 +2122,7 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Mudanza: entrada o salida con el piso completamente limpio',
     ],
     precioItems: [
-      'Piso o casa hasta 70 m² en {barrio}: desde 130-180€',
-      'Piso o casa 70-100 m²: desde 180-250€',
+      'Piso o casa en {barrio}: desde 80€ según metros y estado',
       'Tratamiento de salitre y antifúngico: incluidos sin suplemento',
       'Terraza costera: incluida',
     ],
@@ -2191,9 +2182,8 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Cambio de inquilino: entre un inquilino y otro',
     ],
     precioItems: [
-      'Piso hasta 70 m² (limpieza de apertura): desde 130-180€',
-      'Piso 70-100 m² (limpieza de apertura): desde 180-250€',
-      'Limpieza de cierre (más breve que la apertura): desde 90€',
+      'Limpieza de apertura de temporada: desde 80€ según metros y estado',
+      'Limpieza de cierre (más breve que la apertura): desde 80€',
       'Gestión con tu llave: sin coste adicional',
     ],
     faqs: [
@@ -2252,8 +2242,7 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Cuando la terraza y el garaje ya no se pueden dejar para después',
     ],
     precioItems: [
-      'Adosado 2 plantas hasta 130 m²: desde 220-290€',
-      'Chalé independiente 130-200 m²: desde 290-380€',
+      'Adosado o chalé: desde 80€ según metros y estado',
       'Chalé más de 200 m²: presupuesto personalizado',
       'Terraza, escalera y garaje: incluidos',
     ],
@@ -2313,8 +2302,7 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Mudanza: para entrar o salir con la casa completamente limpia',
     ],
     precioItems: [
-      'Casa rural hasta 100 m²: desde 170-230€',
-      'Casa rural 100-160 m²: desde 230-310€',
+      'Casa rural: desde 80€ según metros y estado',
       'Tratamiento de suelos de piedra, barro y madera: incluido',
       'Zona de chimenea y vigas: incluidas',
     ],
@@ -2374,8 +2362,7 @@ const AFONDO_POR_ARQUETIPO: Record<BarrioArchetype, ContenidoAfondo> = {
       'Primera vez con empresa: para establecer la base antes de empezar con periódica',
     ],
     precioItems: [
-      'Piso 1-2 habitaciones (45-65 m²): desde 130-175€',
-      'Piso 3 habitaciones (65-90 m²): desde 175-240€',
+      'Piso en {barrio}: desde 80€ según metros y estado',
       'Desengrasante Ecolabel de alta eficacia: incluido sin suplemento',
       'Presupuesto cerrado en 24h: sin sorpresas',
     ],

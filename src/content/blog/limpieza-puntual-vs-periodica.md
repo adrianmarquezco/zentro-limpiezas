@@ -88,7 +88,7 @@ Muchos de nuestros clientes de limpieza periódica empezaron con una limpieza pu
 
 **Limpieza puntual** (orientativo):
 - Piso hasta 70 m²: desde 80-120 €
-- Limpieza a fondo: desde 150 € según estado y tamaño
+- Limpieza a fondo: desde 80 € según estado y tamaño
 - Fin de obra: desde 200 € (presupuesto personalizado)
 
 **Limpieza periódica** (orientativo):
