@@ -175,6 +175,22 @@ const pasos = [
                   </p>
                 </div>
               )}
+              {servicio.slug === 'limpieza-de-viviendas' && SERVICIOS.find(s => s.slug === 'limpieza-de-pisos' && s.municipiosCombo.includes(municipio.slug)) && (
+                <p class="text-sm text-mid leading-relaxed">
+                  Vives nun piso en bloque en {municipio.nombreGL}? Convén a{' '}
+                  <a href={`/gl/servizos/limpeza-de-pisos/${municipio.slug}/`} class="text-accent hover:underline font-medium">
+                    limpeza de pisos en {municipio.nombreGL}
+                  </a>.
+                </p>
+              )}
+              {servicio.slug === 'limpieza-de-pisos' && SERVICIOS.find(s => s.slug === 'limpieza-de-viviendas' && s.municipiosCombo.includes(municipio.slug)) && (
+                <p class="text-sm text-mid leading-relaxed">
+                  É unha casa ou chalé en {municipio.nombreGL}? Convén a{' '}
+                  <a href={`/gl/servizos/limpeza-de-vivendas/${municipio.slug}/`} class="text-accent hover:underline font-medium">
+                    limpeza de vivendas en {municipio.nombreGL}
+                  </a>.
+                </p>
+              )}
             </div>
           </div>
 

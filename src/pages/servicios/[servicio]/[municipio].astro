@@ -117,6 +117,13 @@ const otrosServiciosEnMunicipio = SERVICIOS.filter(
   s => s.slug !== servicio.slug && s.municipiosCombo.includes(municipio.slug)
 );
 
+const servicioHermano =
+  servicio.slug === 'limpieza-de-viviendas'
+    ? SERVICIOS.find(s => s.slug === 'limpieza-de-pisos' && s.municipiosCombo.includes(municipio.slug))
+    : servicio.slug === 'limpieza-de-pisos'
+      ? SERVICIOS.find(s => s.slug === 'limpieza-de-viviendas' && s.municipiosCombo.includes(municipio.slug))
+      : undefined;
+
 const otrosMunicipiosConServicio = servicio.municipiosCombo
   .filter(slug => slug !== municipio.slug)
   .map(slug => getMunicipioBySlug(slug))
@@ -187,6 +194,20 @@ const pasos = [
                     {' '}Presupuesto personalizado en 24h sin visita previa ni compromiso.
                   </p>
                 </div>
+              )}
+              {servicioHermano && (
+                <p class="text-sm text-mid leading-relaxed">
+                  {servicio.slug === 'limpieza-de-viviendas'
+                    ? <>¿Vives en un piso en bloque en {municipio.nombre}? Te conviene la{' '}
+                        <a href={`/servicios/${servicioHermano.slug}/${municipio.slug}/`} class="text-accent hover:underline font-medium">
+                          {servicioHermano.nombre.toLowerCase()} en {municipio.nombre}
+                        </a>.</>
+                    : <>¿Es una casa o chalet en {municipio.nombre}? Te conviene la{' '}
+                        <a href={`/servicios/${servicioHermano.slug}/${municipio.slug}/`} class="text-accent hover:underline font-medium">
+                          {servicioHermano.nombre.toLowerCase()} en {municipio.nombre}
+                        </a>.</>
+                  }
+                </p>
               )}
             </div>
           </div>
@@ -380,7 +401,10 @@ const pasos = [
             <div class="card p-6" data-reveal>
               <p class="font-serif text-base text-primary mb-3 font-semibold">Más servicios en {municipio.nombre}</p>
               <ul class="space-y-2">
-                {otrosServiciosEnMunicipio.map(s => (
+                {(servicioHermano
+                  ? [servicioHermano, ...otrosServiciosEnMunicipio.filter(s => s.slug !== servicioHermano.slug)]
+                  : otrosServiciosEnMunicipio
+                ).map(s => (
                   <li>
                     <a href={`/servicios/${s.slug}/${municipio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
                       → {s.nombre} en {municipio.nombre}
@@ -388,8 +412,8 @@ const pasos = [
                   </li>
                 ))}
               </ul>
-              <a href={`/zonas/${municipio.slug}/`} class="text-xs text-accent hover:underline mt-3 block">
-                Todos los servicios en {municipio.nombre} →
+              <a href={`/zonas/${municipio.slug}/`} class="text-xs text-mid hover:text-accent hover:underline mt-3 block">
+                Mapa de servicios en {municipio.nombre} →
               </a>
             </div>
           )}

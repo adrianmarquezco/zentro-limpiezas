@@ -53,7 +53,9 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: `¿En qué zonas ofrecéis ${servicio.nombre.toLowerCase()}?`,
-    a: `Cubrimos Ferrol, Narón, A Coruña y más de 29 municipios de Ferrolterra y el área metropolitana coruñesa. Si tienes dudas sobre si llegamos a tu zona, llámanos al ${BUSINESS.phoneDisplay} o escríbenos por WhatsApp.`,
+    a: municipiosConCombo.length > 0
+      ? `Tenemos página propia de ${servicio.nombre.toLowerCase()} en ${municipiosConCombo.slice(0, 6).map(m => m!.nombre).join(', ')}${municipiosConCombo.length > 6 ? ` y ${municipiosConCombo.length - 6} municipios más` : ''}. Entra en la de tu zona para ver detalle y pedir presupuesto. Si no ves tu municipio, llámanos al ${BUSINESS.phoneDisplay}.`
+      : `Cubrimos Ferrol, Narón, A Coruña y más de 29 municipios. Si tienes dudas, llámanos al ${BUSINESS.phoneDisplay} o escríbenos por WhatsApp.`,
   },
   {
     q: '¿Traéis vosotros los materiales y productos?',
@@ -74,9 +76,9 @@ type ContenidoServicio = {
 
 const contenidoDetalladoMap: Record<string, ContenidoServicio> = {
   'limpieza-de-viviendas': {
-    intro: `La limpieza del hogar es mucho más que pasar el aspirador y fregar el suelo. En Zentro Limpiezas, el equipo lleva más de 20 años ayudando a familias de Ferrol, A Coruña y toda Ferrolterra a tener sus hogares realmente limpios — no solo "presentables a primera vista", sino higienizados a fondo, con cada rincón tratado con la técnica y el producto correctos.`,
-    parrafo2: `Nuestro servicio de limpieza de viviendas cubre todas las estancias: salón, dormitorios, cocina, baños, pasillos y zonas de paso. Limpieza de polvo en muebles y superficies, aspirado de suelos y tapicerías, fregado, desinfección de baños y cocina, y atención a los detalles que marcan la diferencia —rodapiés, interruptores, pomos de puertas, cristales interiores. Todo con productos ecológicos con certificación Ecolabel, igual de eficaces que los convencionales pero seguros para tu familia, tus mascotas y el entorno.`,
-    parrafo3: `Puedes contratarnos para una limpieza puntual —antes de una visita, después de una temporada fuera, o simplemente cuando se acumula más de lo que el día a día permite— o establecer un servicio periódico semanal, quincenal o mensual. En el servicio periódico, siempre viene el mismo equipo: ya conocen tu casa y saben cómo la quieres sin que tengas que explicar nada cada vez.`,
+    intro: `La limpieza de una casa unifamiliar, un chalet o una vivienda rural no es lo mismo que la de un piso en bloque: hay más metros, a menudo escaleras, galerías y materiales distintos. En Zentro Limpiezas, el equipo lleva más de 20 años ayudando a familias de Ferrol, A Coruña y Ferrolterra a dejar la casa realmente limpia — no solo presentable, sino con cada estancia tratada con la técnica y el producto correctos.`,
+    parrafo2: `El servicio cubre salón, dormitorios, cocina, baños, pasillos y zonas de paso. Polvo en muebles y superficies, aspirado, fregado, desinfección de baños y cocina, y detalles que marcan la diferencia —rodapiés, interruptores, pomos, cristales interiores. Todo con productos Ecolabel, seguros para familia, mascotas y entorno. Si vives en un piso en bloque, te conviene la limpieza de pisos.`,
+    parrafo3: `Puedes contratarnos para una limpieza puntual —antes de una visita, después de temporada fuera, o cuando el día a día se acumula— o un servicio periódico semanal, quincenal o mensual. En el periódico siempre viene el mismo equipo: ya conocen tu casa.`,
     incluye: [
       'Aspirado completo de suelos, moquetas y tapicerías',
       'Fregado de suelos con producto ecológico apropiado al material',
@@ -84,6 +86,7 @@ const contenidoDetalladoMap: Record<string, ContenidoServicio> = {
       'Limpieza completa de cocina (encimera, electrodomésticos exteriores, fregadero)',
       'Eliminación de polvo en muebles, estantes, rodapiés y zócalos',
       'Limpieza de cristales interiores',
+      'Pasillos y escaleras interiores de la vivienda',
       'Vaciado de papeleras y gestión básica de residuos',
       'Productos ecológicos Ecolabel incluidos',
       'Seguro de responsabilidad civil incluido',
@@ -96,9 +99,8 @@ const contenidoDetalladoMap: Record<string, ContenidoServicio> = {
     ],
     porqueNosotros: `Zentro empieza a operar en 2026, pero quienes están detrás llevan más de 20 años en el sector de la limpieza profesional en Galicia. No somos una franquicia ni una plataforma de intermediación: somos un equipo que conoce el territorio, el tipo de vivienda gallega y sus particularidades, porque llevamos años trabajando dentro del sector antes de poner esto en marcha.`,
     articulosRelacionados: [
+      { titulo: '¿Vives en un piso en bloque? Limpieza de pisos', href: '/servicios/limpieza-de-pisos/' },
       { titulo: 'Limpieza por horas (mínimo 2 horas)', href: '/servicios/limpieza-por-horas/' },
-      { titulo: 'Cómo limpiar el piso a fondo: guía completa', href: '/blog/como-limpiar-el-piso-a-fondo/' },
-      { titulo: 'Cómo mantener el piso limpio entre limpiezas profesionales', href: '/blog/como-mantener-piso-limpio-entre-limpiezas/' },
       { titulo: '¿Cuánto cuesta una limpieza del hogar en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
     ],
   },
@@ -380,9 +382,9 @@ const contenidoDetalladoMap: Record<string, ContenidoServicio> = {
     ],
   },
   'limpieza-de-pisos': {
-    intro: `La limpieza de pisos en bloque tiene sus propias particularidades. Los pisos en comunidad suelen tener distribuciones más compactas, con una mayor densidad de uso y zonas como la cocina o el baño que acumulan suciedad con rapidez. En Zentro Limpiezas, el equipo lleva más de 20 años limpiando todo tipo de pisos en Ferrol, Narón, A Coruña y toda su área metropolitana.`,
-    parrafo2: `Ofrecemos tanto limpieza puntual —para ocasiones especiales, antes de recibir visitas, o cuando el piso lleva tiempo sin una limpieza profesional— como servicio periódico semanal, quincenal o mensual. En el servicio periódico, el mismo equipo siempre: ya conocen tu piso y saben cómo lo quieres sin que tengas que explicar nada cada vez.`,
-    parrafo3: `Usamos productos ecológicos con certificación Ecolabel en todos los servicios. Son igual de eficaces que los convencionales y no dejan residuos tóxicos, algo especialmente importante en espacios reducidos con poca ventilación natural. Incluidos en el precio, sin coste adicional.`,
+    intro: `La limpieza de pisos en bloque tiene sus propias particularidades. Distribuciones más compactas, más densidad de uso y cocina o baño que se ensucian rápido. En Zentro Limpiezas, el equipo lleva más de 20 años limpiando pisos en Ferrol, Narón, A Coruña y su área metropolitana.`,
+    parrafo2: `Ofrecemos limpieza puntual —visitas, mudanza o cuando el piso lleva tiempo sin limpieza profesional— y servicio periódico semanal, quincenal o mensual. En el periódico, el mismo equipo siempre: ya conocen tu piso. Conocemos el terrazo de los edificios de los 70-80, tan habitual en Ferrolterra.`,
+    parrafo3: `Productos Ecolabel incluidos, sin coste extra: importantes en espacios reducidos con poca ventilación. Si lo tuyo es una casa, chalet o unifamiliar, te conviene la limpieza de viviendas.`,
     incluye: [
       'Aspirado completo de suelos, alfombras y tapicerías',
       'Fregado de suelos con producto ecológico apropiado al tipo de pavimento',
@@ -403,6 +405,7 @@ const contenidoDetalladoMap: Record<string, ContenidoServicio> = {
     ],
     porqueNosotros: `Nuestro equipo lleva más de 20 años limpiando pisos en Ferrol y A Coruña. Somos un equipo local que conoce el tipo de vivienda de la comarca y sus particularidades. La confianza se construye con resultados consistentes, y eso es lo que ofrecemos.`,
     articulosRelacionados: [
+      { titulo: '¿Es una casa o chalet? Limpieza de viviendas', href: '/servicios/limpieza-de-viviendas/' },
       { titulo: 'Limpieza por horas (mínimo 2 horas)', href: '/servicios/limpieza-por-horas/' },
       { titulo: 'Cómo limpiar el piso a fondo: guía completa', href: '/blog/como-limpiar-el-piso-a-fondo/' },
       { titulo: '¿Cuánto cuesta una limpieza del hogar en Galicia?', href: '/blog/cuanto-cuesta-limpieza-hogar/' },
@@ -598,11 +601,53 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
                   </ul>
                 </div>
               )}
+
+              {municipiosConCombo.length > 0 && (
+                <div id="donde-ofrecemos" data-reveal>
+                  <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-3">
+                    {servicio.nombre} por municipio
+                  </h2>
+                  <p class="text-charcoal leading-relaxed mb-6">
+                    Elige tu zona: cada enlace lleva a la página de {servicio.nombre.toLowerCase()} en ese municipio, con detalle local y presupuesto.
+                  </p>
+                  <div class="grid sm:grid-cols-2 gap-3">
+                    {municipiosConCombo.map((m) => m && (
+                      <a
+                        href={`/servicios/${servicio.slug}/${m.slug}/`}
+                        class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group"
+                      >
+                        <span class="text-accent text-xl">→</span>
+                        <p class="font-medium text-primary text-sm group-hover:text-accent transition-colors">
+                          {servicio.nombre} en {m.nombre}
+                        </p>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </>
           ) : (
             <div data-reveal>
               <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-5">{servicio.nombre} en Galicia</h2>
               <p class="text-charcoal leading-relaxed speakable-intro">{servicio.descripcionCorta}</p>
+              {municipiosConCombo.length > 0 && (
+                <div class="mt-8">
+                  <h3 class="font-serif text-xl text-primary mb-4">{servicio.nombre} por municipio</h3>
+                  <div class="grid sm:grid-cols-2 gap-3">
+                    {municipiosConCombo.map((m) => m && (
+                      <a
+                        href={`/servicios/${servicio.slug}/${m.slug}/`}
+                        class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent transition-all group"
+                      >
+                        <span class="text-accent text-xl">→</span>
+                        <p class="font-medium text-primary text-sm group-hover:text-accent transition-colors">
+                          {servicio.nombre} en {m.nombre}
+                        </p>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -622,10 +667,9 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
             </div>
           </div>
 
-          <!-- Disponible en -->
           {municipiosConCombo.length > 0 && (
             <div class="card p-6" data-reveal>
-              <p class="font-serif text-base text-primary mb-3 font-semibold">Disponible en</p>
+              <p class="font-serif text-base text-primary mb-3 font-semibold">Páginas por municipio</p>
               <div class="flex flex-wrap gap-2">
                 {municipiosConCombo.map(m => (
                   <a href={`/servicios/${servicio.slug}/${m!.slug}/`} class="zone-pill" title={`${servicio.nombre} en ${m!.nombre}`}>
@@ -633,18 +677,28 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
                   </a>
                 ))}
               </div>
-              <a href="/zonas/" class="text-accent text-xs mt-3 block hover:underline">Ver todas las zonas →</a>
+              <a href="#donde-ofrecemos" class="text-accent text-xs mt-3 block hover:underline">Ver listado completo ↓</a>
             </div>
           )}
 
-          <!-- Otros servicios -->
           <div class="card p-6" data-reveal>
             <p class="font-serif text-base text-primary mb-3 font-semibold">Otros servicios</p>
             <ul class="space-y-1.5">
-              {SERVICIOS.filter(s => s.slug !== servicio.slug).slice(0, 5).map(s => (
+              {(servicio.slug === 'limpieza-de-viviendas'
+                ? [
+                    SERVICIOS.find(s => s.slug === 'limpieza-de-pisos'),
+                    ...SERVICIOS.filter(s => s.slug !== servicio.slug && s.slug !== 'limpieza-de-pisos').slice(0, 4),
+                  ]
+                : servicio.slug === 'limpieza-de-pisos'
+                  ? [
+                      SERVICIOS.find(s => s.slug === 'limpieza-de-viviendas'),
+                      ...SERVICIOS.filter(s => s.slug !== servicio.slug && s.slug !== 'limpieza-de-viviendas').slice(0, 4),
+                    ]
+                  : SERVICIOS.filter(s => s.slug !== servicio.slug).slice(0, 5)
+              ).filter(Boolean).map(s => (
                 <li>
-                  <a href={`/servicios/${s.slug}/`} class="text-accent text-sm hover:underline flex items-center gap-1">
-                    <span class="text-xs">→</span> {s.nombre}
+                  <a href={`/servicios/${s!.slug}/`} class="text-accent text-sm hover:underline flex items-center gap-1">
+                    <span class="text-xs">→</span> {s!.nombre}
                   </a>
                 </li>
               ))}
