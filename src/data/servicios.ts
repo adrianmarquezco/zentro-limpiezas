@@ -1,3 +1,5 @@
+import { esComboBarrioPermitido } from './url-policy';
+
 export type ServicioFAQ = { q: string; a: string };
 
 export type Servicio = {
@@ -328,4 +330,13 @@ export function hrefServicioMunicipio(servicio: Servicio, municipioSlug: string,
   const existe = servicio.municipiosCombo.includes(municipioSlug);
   if (lang === 'gl') return existe ? `/gl/servizos/${servicio.slugGL}/${municipioSlug}/` : `/gl/servizos/${servicio.slugGL}/`;
   return existe ? `/servicios/${servicio.slug}/${municipioSlug}/` : `/servicios/${servicio.slug}/`;
+}
+
+export function hrefServicioBarrio(servicio: Servicio, municipioSlug: string, barrioSlug: string, lang: 'es' | 'gl' = 'es'): string {
+  if (esComboBarrioPermitido(servicio.slug, municipioSlug, barrioSlug)) {
+    return lang === 'gl'
+      ? `/gl/servizos/${servicio.slugGL}/${municipioSlug}/${barrioSlug}/`
+      : `/servicios/${servicio.slug}/${municipioSlug}/${barrioSlug}/`;
+  }
+  return hrefServicioMunicipio(servicio, municipioSlug, lang);
 }

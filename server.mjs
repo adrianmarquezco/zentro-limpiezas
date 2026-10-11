@@ -26,8 +26,19 @@ const SECURITY_HEADERS = {
 };
 
 const COMBOS_RETIRADOS = new Set(['moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido']);
+const SERVICIOS_BARRIO_ES = new Set(['limpieza-de-pisos', 'limpieza-de-viviendas', 'limpieza-periodica']);
+const SERVICIOS_BARRIO_GL = new Set(['limpeza-de-pisos', 'limpeza-de-vivendas', 'limpeza-periodica']);
+const BARRIOS_MONEY = {
+  ferrol: new Set(['caranza', 'recimil', 'a-magdalena', 'esteiro', 'inferniño']),
+  naron: new Set(['a-gandara', 'o-couto', 'o-val', 'san-xiao-de-naron', 'alto-del-castano']),
+};
 
-function comboRetiradoRedirect(requestUrl) {
+function isBarrioKept(servicio, municipio, barrio, lang) {
+  const allowed = lang === 'gl' ? SERVICIOS_BARRIO_GL : SERVICIOS_BARRIO_ES;
+  return allowed.has(servicio) && BARRIOS_MONEY[municipio]?.has(barrio);
+}
+
+function policyRedirect(requestUrl) {
   let pathname = '/';
   try {
     pathname = new URL(requestUrl, 'http://localhost').pathname;
@@ -42,6 +53,18 @@ function comboRetiradoRedirect(requestUrl) {
   if (parts.length === 4 && parts[0] === 'gl' && parts[1] === 'servizos' && COMBOS_RETIRADOS.has(parts[3])) {
     return `/gl/servizos/${parts[2]}/`;
   }
+  if (parts.length === 4 && parts[0] === 'servicios') {
+    const [, svc, muni, barrio] = parts;
+    if (COMBOS_RETIRADOS.has(muni)) return `/servicios/${svc}/`;
+    if (!isBarrioKept(svc, muni, barrio, 'es')) return `/servicios/${svc}/${muni}/`;
+  }
+  if (parts.length === 5 && parts[0] === 'gl' && parts[1] === 'servizos') {
+    const svc = parts[2];
+    const muni = parts[3];
+    const barrio = parts[4];
+    if (COMBOS_RETIRADOS.has(muni)) return `/gl/servizos/${svc}/`;
+    if (!isBarrioKept(svc, muni, barrio, 'gl')) return `/gl/servizos/${svc}/${muni}/`;
+  }
   return null;
 }
 
@@ -50,7 +73,7 @@ function withSecurityHeaders(createServer) {
     const i = args.findIndex((a) => typeof a === 'function');
     const listener = args[i];
     args[i] = (req, res) => {
-      const dest = comboRetiradoRedirect(req.url || '/');
+      const dest = policyRedirect(req.url || '/');
       if (dest) {
         res.writeHead(301, { Location: dest });
         res.end();

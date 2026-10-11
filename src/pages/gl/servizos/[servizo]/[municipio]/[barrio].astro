@@ -3,7 +3,8 @@ import ComboLayout from '@/layouts/ComboLayout.astro';
 import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
-import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
+import { SERVICIOS, hrefServicioMunicipio, hrefServicioBarrio } from '@/data/servicios';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
@@ -32,6 +33,7 @@ export function getStaticPaths() {
         if (!barrio.archetype) continue;
         const contenido = getContenidoGLBarrio(servicio.slugGL, barrio.archetype as BarrioArchetype, barrio.nombre, municipio.nombre);
         if (!contenido) continue;
+        if (!esComboBarrioPermitido(servicio.slug, municipio.slug, barrio.slug)) continue;
         const hasEsBarrioPage = ES_BARRIO_SLUGS.has(servicio.slug);
         const hreflangEs = hasEsBarrioPage
           ? `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/${barrio.slug}/`
@@ -280,7 +282,7 @@ const h1 = `${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nom
               <ul class="space-y-2">
                 {servizosIrmans.map(sv => (
                   <li>
-                    <a href={`/gl/servizos/${sv.slugGL}/${municipio.slug}/${barrio.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    <a href={hrefServicioBarrio(sv, municipio.slug, barrio.slug, 'gl')} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
                       → {sv.nombreGL} en {barrio.nombre}
                     </a>
                   </li>
@@ -295,7 +297,7 @@ const h1 = `${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nom
               <ul class="space-y-2">
                 {outrosBarrios.slice(0, 6).map(b => (
                   <li>
-                    <a href={`/gl/servizos/${servicio.slugGL}/${municipio.slug}/${b.slug}/`} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
+                    <a href={hrefServicioBarrio(servicio, municipio.slug, b.slug, 'gl')} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
                       → {servicio.nombreGL} en {b.nombre}
                     </a>
                   </li>

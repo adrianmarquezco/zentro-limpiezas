@@ -6,7 +6,7 @@ import HeroQuoteCard from '@/components/sections/HeroQuoteCard.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import { MUNICIPIOS } from '@/data/municipios';
-import { SERVICIOS } from '@/data/servicios';
+import { SERVICIOS, hrefServicioBarrio } from '@/data/servicios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
 import type { BarrioArchetype } from '@/data/municipios';
 import { BUSINESS, buildWhatsAppUrl, withMunicipio } from '@/data/config';
@@ -249,7 +249,7 @@ const schemaLocal = {
           <p class="text-mid text-sm mb-5">Escolle o servizo que precisas en {barrio.nombre} e consulta prezo, que inclúe e preguntas frecuentes.</p>
           <div class="grid sm:grid-cols-2 gap-3">
             {serviciosBarrio.map(sv => (
-              <a href={`/gl/servizos/${sv.slugGL}/${municipio.slug}/${barrio.slug}/`} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
+              <a href={hrefServicioBarrio(sv, municipio.slug, barrio.slug, 'gl')} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
                 <span class="text-accent text-xl">→</span>
                 <span class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{sv.nombreGL} en {barrio.nombre}</span>
               </a>

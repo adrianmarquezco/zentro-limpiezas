@@ -7,7 +7,7 @@ import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
-import { SERVICIOS } from '@/data/servicios';
+import { SERVICIOS, hrefServicioBarrio } from '@/data/servicios';
 import { serviciosConPaginaBarrio } from '@/data/combos-barrio';
 import type { BarrioArchetype } from '@/data/municipios';
 import { BUSINESS, buildWhatsAppUrl, withMunicipio } from '@/data/config';
@@ -252,7 +252,7 @@ const schemaLocal = {
           <p class="text-mid text-sm mb-5">Elige el servicio que necesitas en {barrio.nombre} y consulta precio, qué incluye y preguntas frecuentes.</p>
           <div class="grid sm:grid-cols-2 gap-3">
             {serviciosBarrio.map(sv => (
-              <a href={`/servicios/${sv.slug}/${municipio.slug}/${barrio.slug}/`} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
+              <a href={hrefServicioBarrio(sv, municipio.slug, barrio.slug)} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
                 <span class="text-accent text-xl">→</span>
                 <span class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{sv.nombre} en {barrio.nombre}</span>
               </a>

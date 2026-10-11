@@ -4,6 +4,7 @@ import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
 import { CONTENIDO_BARRIO, getContenidoBarrio, getContenidoPeriodica, getContenidoViviendas, getContenidoPisos, getContenidoTuristicos, getContenidoAfondo } from '@/data/combos-barrio';
@@ -61,7 +62,7 @@ function barrioTieneContenido(servicioSlug: string, archetype: BarrioArchetype):
 
 // Barrios con página propia para este servicio en este municipio
 const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrios
-  ? municipio.barrios.filter(b => b.archetype && barrioTieneContenido(servicio.slug, b.archetype as BarrioArchetype))
+  ? municipio.barrios.filter(b => b.archetype && barrioTieneContenido(servicio.slug, b.archetype as BarrioArchetype) && esComboBarrioPermitido(servicio.slug, municipio.slug, b.slug))
   : [];
 
 const title = `${servicio.nombre} en ${municipio.nombre} · +20 años | Zentro Limpiezas`;

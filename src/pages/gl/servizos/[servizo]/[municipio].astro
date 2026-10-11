@@ -4,6 +4,7 @@ import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS } from '@/data/servicios';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import { getMunicipioBySlug, MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
@@ -44,7 +45,7 @@ const serviceImage = SERVICE_IMAGE[servicio.slug] ?? '/images/hero-servicios.web
 
 // Barrios con páxina propia para este servizo neste concello
 const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrios && GL_SERVIZO_SLUGS.has(servicio.slugGL)
-  ? municipio.barrios.filter(b => b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', ''))
+  ? municipio.barrios.filter(b => b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', '') && esComboBarrioPermitido(servicio.slug, municipio.slug, b.slug))
   : [];
 
 const title = `${servicio.nombreGL} en ${municipio.nombreGL} | Zentro Limpiezas`;

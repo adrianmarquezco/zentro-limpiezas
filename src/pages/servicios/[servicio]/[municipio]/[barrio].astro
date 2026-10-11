@@ -4,6 +4,7 @@ import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import { MUNICIPIOS } from '@/data/municipios';
 import { CONTENIDO_BARRIO, getContenidoBarrio, serviciosConPaginaBarrio } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, withMunicipio } from '@/data/config';
@@ -28,6 +29,7 @@ export function getStaticPaths() {
       for (const barrio of municipio.barrios) {
         if (!barrio.archetype) continue;
         if (!servicioMap[barrio.archetype]) continue;
+        if (!esComboBarrioPermitido(servicio.slug, municipio.slug, barrio.slug)) continue;
         paths.push({
           params: { servicio: servicio.slug, municipio: municipio.slug, barrio: barrio.slug },
           props: { servicio, municipio, barrio },

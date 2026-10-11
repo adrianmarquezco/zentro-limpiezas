@@ -11,6 +11,7 @@ import {
   getContenidoGLBarrio,
   GL_SERVIZO_SLUGS,
 } from '@/data/combos-barrio';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import { getCollection } from 'astro:content';
 
 export const SITE = 'https://zentrolimpiezas.es';
@@ -34,7 +35,7 @@ function barrioEntries(
 ): SitemapEntry[] {
   return ferrolterraConBarrios().flatMap((m) =>
     (m.barrios ?? [])
-      .filter((b) => b.archetype && tieneContenido(b.archetype as BarrioArchetype))
+      .filter((b) => b.archetype && tieneContenido(b.archetype as BarrioArchetype) && esComboBarrioPermitido(servicioSlug, m.slug, b.slug))
       .map((b) => loc(`/servicios/${servicioSlug}/${m.slug}/${b.slug}/`)),
   );
 }
@@ -91,7 +92,7 @@ export async function entriesForChunk(chunk: SitemapChunk): Promise<SitemapEntry
           if (!GL_SERVIZO_SLUGS.has(s.slugGL)) return [];
           return ferrolterraConBarrios().flatMap((m) =>
             (m.barrios ?? [])
-              .filter((b) => b.archetype && getContenidoGLBarrio(s.slugGL, b.archetype as BarrioArchetype, '', ''))
+              .filter((b) => b.archetype && getContenidoGLBarrio(s.slugGL, b.archetype as BarrioArchetype, '', '') && esComboBarrioPermitido(s.slug, m.slug, b.slug))
               .map((b) => loc(`/gl/servizos/${s.slugGL}/${m.slug}/${b.slug}/`)),
           );
         }),

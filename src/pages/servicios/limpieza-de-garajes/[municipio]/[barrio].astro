@@ -4,6 +4,7 @@ import HeroLocal from '@/components/sections/HeroLocal.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import { MUNICIPIOS } from '@/data/municipios';
 import { getContenidoBarrio, serviciosConPaginaBarrio } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
@@ -19,6 +20,7 @@ export function getStaticPaths() {
       if (!barrio.archetype) continue;
       const contenido = getContenidoBarrio('limpieza-de-garajes', barrio.archetype as BarrioArchetype, barrio.nombre, municipio.nombre);
       if (!contenido) continue;
+      if (!esComboBarrioPermitido(servicio.slug, municipio.slug, barrio.slug)) continue;
       paths.push({
         params: { municipio: municipio.slug, barrio: barrio.slug },
         props: { servicio, municipio, barrio, contenido },
