@@ -44,7 +44,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Limpades casas rurais de pedra ou vivendas con materiais especiais?', a: 'Si. Temos experiencia con vivendas rurais no interior de Ferrolterra e A Coruña: chans de baldosa hidráulica, pedra á vista, madeira de piñeiro ou carballo, terrazos de distintas épocas. Usamos produtos neutros certificados que non atacan nin oxidan estes materiais.' },
     ],
     tier: 1,
-    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'valdovino', 'fene', 'neda', 'mugardos', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros', 'sada'],
+    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'valdovino', 'fene', 'neda', 'mugardos', 'ares', 'pontedeume', 'cedeira', 'culleredo', 'arteixo', 'cambre', 'oleiros', 'sada'],
   },
   {
     slug: 'limpieza-de-pisos',
@@ -72,7 +72,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Limpades o interior da neveira e o forno?', a: 'Na limpeza puntual ou a fondo si, se o cliente o solicita. Na periódica de mantemento só se se acorda expresamente, xa que engade tempo de servizo. Aclarámolo sempre no orzamento.' },
     ],
     tier: 1,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira'],
   },
   {
     slug: 'limpieza-de-oficinas',
@@ -109,7 +109,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Podedes incluír a limpeza de escaparates e cristais do local?', a: 'Si. A limpeza de cristais exteriores e interiores pódese engadir ao contrato de mantemento ou contratar por separado. Para escaparates con vinilo ou rotulación temos especial coidado de non danalos.' },
     ],
     tier: 2,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira'],
   },
   {
     slug: 'limpieza-de-comunidades',
@@ -171,7 +171,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Traballades en tempada alta con moitas rotacións seguidas?', a: 'Si. A tempada alta na costa galega —de xuño a setembro— é a nosa época de maior actividade neste servizo, especialmente en Valdoviño, Cedeira, Ares e A Coruña. Recomendamos fixar o calendario con antelación para garantir dispoñibilidade.' },
     ],
     tier: 2,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido', 'sada', 'oleiros'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'sada', 'oleiros'],
   },
   {
     slug: 'limpieza-periodica',
@@ -182,7 +182,7 @@ export const SERVICIOS: Servicio[] = [
     precioDesde: '55€',
     descripcionCorta: 'Servicio regular semanal, quincenal o mensual. Mismo equipo siempre.',
     tier: 1,
-    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
+    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
   },
   {
     slug: 'limpieza-por-horas',
@@ -211,7 +211,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Os produtos de limpeza están incluídos?', a: 'Si. Todos os nosos servizos inclúen material profesional e produtos con certificación ecolóxica Ecolabel, sen custo adicional.' },
     ],
     tier: 1,
-    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
+    municipiosCombo: ['ferrol', 'naron', 'a-coruna', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira', 'culleredo', 'arteixo', 'cambre', 'oleiros'],
   },
   {
     slug: 'limpieza-de-cristales',
@@ -238,7 +238,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Pódese incluír a limpeza de cristais no contrato de limpeza do local ou da vivenda?', a: 'Si. Moitos clientes periódicos teñen unha visita de cristais cada 4-6 semanas combinada coa limpeza xeral. É a opción máis cómoda e sae a mellor prezo que contratalo por separado.' },
     ],
     tier: 2,
-    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
+    municipiosCombo: ['a-coruna', 'ferrol', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira'],
   },
   {
     slug: 'limpieza-de-pazos-y-eventos',
@@ -265,7 +265,7 @@ export const SERVICIOS: Servicio[] = [
       { q: 'Precisades facer visita previa antes de dar prezo?', a: 'Para eventos grandes ou espazos con características especiais, si. A visita é gratuíta e permítenos valorar os materiais, o acceso, o volume de traballo e o tempo necesario. Para eventos estándar en espazos coñecidos, damos orientación por WhatsApp antes da visita.' },
     ],
     tier: 2,
-    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'moeche', 'san-sadurnino', 'cabanas', 'pontedeume', 'cedeira', 'ortigueira', 'cerdido'],
+    municipiosCombo: ['ferrol', 'a-coruna', 'naron', 'neda', 'fene', 'mugardos', 'valdovino', 'ares', 'pontedeume', 'cedeira'],
   },
   {
     slug: 'limpieza-de-garajes',

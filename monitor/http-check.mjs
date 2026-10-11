@@ -15,6 +15,29 @@ function pathOf(u) {
   return url.host === C.HOST ? url.pathname + url.search : u;
 }
 
+async function collectSitemapUrls(url, F, depth = 0) {
+  const sm = await request(url);
+  const path = pathOf(url);
+  if (sm.status !== 200) {
+    F.fail('sitemap.xml', path, `estado ${sm.status || sm.error}`);
+    return [];
+  }
+  if (!/xml/i.test(sm.headers.get('content-type') || '')) {
+    F.fail('sitemap.xml', path, `content-type inesperado: ${sm.headers.get('content-type')}`);
+  }
+  const locs = [...sm.text.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
+  if (/<sitemapindex[\s>]/i.test(sm.text)) {
+    if (depth >= 2) {
+      F.fail('sitemap.xml', path, 'índice anidado demasiado profundo');
+      return [];
+    }
+    const all = [];
+    for (const loc of locs) all.push(...await collectSitemapUrls(loc, F, depth + 1));
+    return all;
+  }
+  return locs;
+}
+
 export async function runHttpChecks(F) {
   const started = Date.now();
   const stats = [];
@@ -30,13 +53,9 @@ export async function runHttpChecks(F) {
     }
   }
 
-  const sm = await request(C.SITE + '/sitemap.xml');
+  const locs = await collectSitemapUrls(C.SITE + '/sitemap.xml', F);
   let paths = [];
-  if (sm.status !== 200) {
-    F.fail('sitemap.xml', '/sitemap.xml', `estado ${sm.status || sm.error}`);
-  } else {
-    if (!/xml/i.test(sm.headers.get('content-type') || '')) F.fail('sitemap.xml', '/sitemap.xml', `content-type inesperado: ${sm.headers.get('content-type')}`);
-    const locs = [...sm.text.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
+  if (locs.length) {
     if (locs.length < C.MIN_SITEMAP_URLS) F.fail('sitemap.xml', '/sitemap.xml', `solo ${locs.length} URLs (mínimo esperado ${C.MIN_SITEMAP_URLS})`);
     const foreign = locs.filter((l) => new URL(l).host !== C.HOST);
     if (foreign.length) F.warn('sitemap.xml', '/sitemap.xml', `${foreign.length} URLs de otro dominio`);

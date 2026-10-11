@@ -25,11 +25,37 @@ const SECURITY_HEADERS = {
   ].join('; '),
 };
 
+const COMBOS_RETIRADOS = new Set(['moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido']);
+
+function comboRetiradoRedirect(requestUrl) {
+  let pathname = '/';
+  try {
+    pathname = new URL(requestUrl, 'http://localhost').pathname;
+  } catch {
+    return null;
+  }
+  const path = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  const parts = path.split('/').filter(Boolean);
+  if (parts.length === 3 && parts[0] === 'servicios' && COMBOS_RETIRADOS.has(parts[2])) {
+    return `/servicios/${parts[1]}/`;
+  }
+  if (parts.length === 4 && parts[0] === 'gl' && parts[1] === 'servizos' && COMBOS_RETIRADOS.has(parts[3])) {
+    return `/gl/servizos/${parts[2]}/`;
+  }
+  return null;
+}
+
 function withSecurityHeaders(createServer) {
   return function (...args) {
     const i = args.findIndex((a) => typeof a === 'function');
     const listener = args[i];
     args[i] = (req, res) => {
+      const dest = comboRetiradoRedirect(req.url || '/');
+      if (dest) {
+        res.writeHead(301, { Location: dest });
+        res.end();
+        return;
+      }
       for (const [name, value] of Object.entries(SECURITY_HEADERS)) res.setHeader(name, value);
       return listener(req, res);
     };

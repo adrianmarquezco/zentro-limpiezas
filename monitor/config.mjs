@@ -13,8 +13,8 @@ export const LCP_FAIL_MS = 8000;
 export const CLS_WARN = 0.1;
 export const LOAD_FAIL_MS = 9000;
 
-// Si el sitemap trae menos URLs que esto, algo se ha roto (hoy son unas 2.050)
-export const MIN_SITEMAP_URLS = 1800;
+// Si el sitemap (índice + hijos) trae menos URLs que esto, algo se ha roto
+export const MIN_SITEMAP_URLS = 1700;
 
 // Concurrencia de la comprobación HTTP (suave para no cargar el servidor)
 export const HTTP_CONCURRENCY = 6;
@@ -69,6 +69,9 @@ export const OLD_URLS = [
   { from: '/gl/servizos/limpeza-de-tapizarias/ferrol/', to: '/gl/' },
   { from: '/gl/servizos/limpeza-de-tapizarias/a-coruna/', to: '/gl/' },
   { from: '/gl/servizos/limpeza-de-tapizarias/naron/', to: '/gl/' },
+  { from: '/servicios/limpieza-de-pisos/cerdido/', to: '/servicios/limpieza-de-pisos/' },
+  { from: '/servicios/limpieza-de-viviendas/moeche/', to: '/servicios/limpieza-de-viviendas/' },
+  { from: '/gl/servizos/limpeza-de-pisos/cerdido/', to: '/gl/servizos/limpeza-de-pisos/' },
 ];
 
 // Páginas para el navegador real (una de cada tipo de plantilla)
