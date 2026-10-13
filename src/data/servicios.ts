@@ -23,6 +23,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-viviendas',
     slugGL: 'limpeza-de-vivendas',
+    tituloMeta: 'Limpieza de casas y viviendas a domicilio en Ferrol y A Coruña',
     nombre: 'Limpieza de viviendas',
     nombreGL: 'Limpeza de vivendas',
     icono: 'house',
@@ -51,6 +52,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-pisos',
     slugGL: 'limpeza-de-pisos',
+    tituloMeta: 'Limpieza de pisos en Ferrol y A Coruña | Zentro Limpiezas',
     nombre: 'Limpieza de pisos',
     nombreGL: 'Limpeza de pisos',
     icono: 'buildings',
@@ -79,6 +81,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-oficinas',
     slugGL: 'limpeza-de-oficinas',
+    tituloMeta: 'Limpieza de oficinas en Ferrol y A Coruña | Zentro Limpiezas',
     nombre: 'Limpieza de oficinas',
     nombreGL: 'Limpeza de oficinas',
     icono: 'briefcase',
@@ -90,6 +93,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-locales-comerciales',
     slugGL: 'limpeza-de-locais',
+    tituloMeta: 'Limpieza de locales comerciales en Ferrol y A Coruña',
     nombre: 'Limpieza de locales comerciales',
     nombreGL: 'Limpeza de locais comerciais',
     icono: 'storefront',
@@ -116,6 +120,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-comunidades',
     slugGL: 'limpeza-de-comunidades',
+    tituloMeta: 'Limpieza de comunidades de vecinos en Ferrol y A Coruña',
     nombre: 'Limpieza de comunidades',
     nombreGL: 'Limpeza de comunidades',
     icono: 'buildings-alt',
@@ -127,7 +132,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-a-fondo',
     slugGL: 'limpeza-a-fondo',
-    tituloMeta: 'Limpieza a fondo · gran limpieza de pisos y viviendas',
+    tituloMeta: 'Limpieza a fondo en Ferrol y A Coruña · desde 80 €',
     nombre: 'Limpieza a fondo',
     nombreGL: 'Limpeza a fondo',
     icono: 'sparkle',
@@ -140,6 +145,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-fin-de-obra',
     slugGL: 'limpeza-fin-de-obra',
+    tituloMeta: 'Limpieza de obra y fin de obra en Ferrol y A Coruña',
     nombre: 'Limpieza fin de obra',
     nombreGL: 'Limpeza fin de obra',
     icono: 'wrench',
@@ -151,6 +157,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-apartamentos-turisticos',
     slugGL: 'limpeza-de-apartamentos',
+    tituloMeta: 'Limpieza de apartamentos turísticos en Ferrol y A Coruña',
     nombre: 'Limpieza de apartamentos turísticos',
     nombreGL: 'Limpeza de apartamentos turísticos',
     icono: 'bed',
@@ -178,6 +185,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-periodica',
     slugGL: 'limpeza-periodica',
+    tituloMeta: 'Limpieza periódica de hogares en Ferrol y A Coruña',
     nombre: 'Limpieza periódica',
     nombreGL: 'Limpeza periódica',
     icono: 'calendar-check',
@@ -189,7 +197,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-por-horas',
     slugGL: 'limpeza-por-horas',
-    tituloMeta: 'Limpieza por horas · viviendas, pisos, oficinas y locales',
+    tituloMeta: 'Limpieza por horas a domicilio en Ferrol y A Coruña',
     nombre: 'Limpieza por horas',
     nombreGL: 'Limpeza por horas',
     icono: 'clock',
@@ -218,6 +226,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-cristales',
     slugGL: 'limpeza-de-cristais',
+    tituloMeta: 'Limpieza de cristales a domicilio en Ferrol y A Coruña',
     nombre: 'Limpieza de cristales',
     nombreGL: 'Limpeza de cristais',
     icono: 'window',
@@ -272,6 +281,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-garajes',
     slugGL: 'limpeza-de-garaxes',
+    tituloMeta: 'Limpieza de garajes en Ferrol y A Coruña | Zentro Limpiezas',
     nombre: 'Limpieza de garajes',
     nombreGL: 'Limpeza de garaxes',
     icono: 'garage',
@@ -284,6 +294,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-trasteros',
     slugGL: 'limpeza-de-trasteiros',
+    tituloMeta: 'Limpieza de trasteros en Ferrol y A Coruña | Zentro Limpiezas',
     nombre: 'Limpieza de trasteros',
     nombreGL: 'Limpeza de trasteiros',
     icono: 'box',
@@ -308,6 +319,7 @@ export const SERVICIOS: Servicio[] = [
   {
     slug: 'limpieza-de-mudanzas',
     slugGL: 'limpeza-de-mudanzas',
+    tituloMeta: 'Limpieza de mudanzas en Ferrol y A Coruña | Zentro Limpiezas',
     nombre: 'Limpieza de mudanzas',
     nombreGL: 'Limpeza de mudanzas',
     icono: 'truck',

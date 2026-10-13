@@ -65,8 +65,8 @@ const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrio
   ? municipio.barrios.filter(b => b.archetype && barrioTieneContenido(servicio.slug, b.archetype as BarrioArchetype) && esComboBarrioPermitido(servicio.slug, municipio.slug, b.slug))
   : [];
 
-const title = `${servicio.nombre} en ${municipio.nombre} · +20 años | Zentro Limpiezas`;
-const description = buildMetaDescription(`${servicio.nombre} en ${municipio.nombre} con más de 20 años de experiencia.`, servicio.descripcionCorta, 'Presupuesto gratis en 24h.');
+const title = `${servicio.nombre} en ${municipio.nombre} · Presupuesto gratis | Zentro Limpiezas`;
+const description = buildMetaDescription(`${servicio.nombre} en ${municipio.nombre} con productos ecológicos incluidos.`, servicio.descripcionCorta, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [
   { label: 'Servicios', href: '/servicios/' },
