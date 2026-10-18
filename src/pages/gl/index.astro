@@ -63,6 +63,7 @@ const pasos = [
   lang="gl"
   hreflangEs={BUSINESS.url + '/'}
   hreflangGl={canonical}
+  preloadHero={true}
 >
   <SchemaFAQ {faqs} />
   <WhatsAppFloat lang="gl" />
@@ -131,6 +132,7 @@ const pasos = [
               width="840"
               height="1040"
               loading="eager"
+              fetchpriority="high"
               decoding="async"
               onerror="this.style.display='none'"
             />

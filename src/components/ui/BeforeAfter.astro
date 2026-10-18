@@ -42,7 +42,10 @@ const mdSrcOf = (src: string) => src.replace(/\.webp$/, '-md.webp');
     sizes={AFTER_SIZES}
     alt={afterAlt}
     class="absolute inset-0 w-full h-full object-cover"
-    loading="eager"
+    width="960"
+    height="720"
+    loading="lazy"
+    decoding="async"
     draggable="false"
     onerror="this.style.opacity='0'"
   />
@@ -55,7 +58,10 @@ const mdSrcOf = (src: string) => src.replace(/\.webp$/, '-md.webp');
       sizes={BEFORE_SIZES}
       alt={beforeAlt}
       class="absolute inset-0 w-full h-full object-cover"
-      loading="eager"
+      width="960"
+      height="720"
+      loading="lazy"
+      decoding="async"
       draggable="false"
       onerror="this.style.opacity='0'"
     />
@@ -99,7 +105,6 @@ const mdSrcOf = (src: string) => src.replace(/\.webp$/, '-md.webp');
   if (!root) return;
   const clip = root.querySelector('.ba-clip');
   const line = root.querySelector('.ba-line');
-  let active = false;
 
   const update = (cx) => {
     const r = root.getBoundingClientRect();
@@ -108,11 +113,27 @@ const mdSrcOf = (src: string) => src.replace(/\.webp$/, '-md.webp');
     line.style.left = pct + '%';
   };
 
-  root.addEventListener('mousedown', (e) => { active = true; update(e.clientX); e.preventDefault(); });
-  root.addEventListener('touchstart', (e) => { active = true; update(e.touches[0].clientX); }, { passive: true });
-  window.addEventListener('mousemove', (e) => { if (active) update(e.clientX); });
-  window.addEventListener('touchmove', (e) => { if (active) update(e.touches[0].clientX); }, { passive: true });
-  window.addEventListener('mouseup', () => { active = false; });
-  window.addEventListener('touchend', () => { active = false; });
+  const onMouseMove = (e) => update(e.clientX);
+  const onTouchMove = (e) => update(e.touches[0].clientX);
+  const stop = () => {
+    window.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('touchmove', onTouchMove);
+    window.removeEventListener('mouseup', stop);
+    window.removeEventListener('touchend', stop);
+  };
+  const startMouse = (e) => {
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', stop);
+    update(e.clientX);
+    e.preventDefault();
+  };
+  const startTouch = (e) => {
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', stop);
+    update(e.touches[0].clientX);
+  };
+
+  root.addEventListener('mousedown', startMouse);
+  root.addEventListener('touchstart', startTouch, { passive: true });
 })();
 </script>

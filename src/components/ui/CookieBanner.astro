@@ -43,39 +43,21 @@ const t = {
   </div>
 </div>
 
-<script>
-const COOKIE_KEY = 'zentro_cookie_consent';
-const banner = document.getElementById('cookie-banner');
-
-function hideBanner() {
-  if (banner) {
-    banner.classList.add('hidden');
-  }
-}
-
-function showBanner() {
-  if (banner) {
-    banner.classList.remove('hidden');
-  }
-}
-
-function grantAnalytics() {
-  const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-  gtag?.('consent', 'update', { analytics_storage: 'granted' });
-}
-
-if (!localStorage.getItem(COOKIE_KEY)) {
-  setTimeout(showBanner, 800);
-}
-
-document.getElementById('cookie-accept')?.addEventListener('click', () => {
-  localStorage.setItem(COOKIE_KEY, 'accepted');
-  grantAnalytics();
-  hideBanner();
-});
-
-document.getElementById('cookie-reject')?.addEventListener('click', () => {
-  localStorage.setItem(COOKIE_KEY, 'essential');
-  hideBanner();
-});
+<script is:inline>
+(function () {
+  var COOKIE_KEY = 'zentro_cookie_consent';
+  var banner = document.getElementById('cookie-banner');
+  function hideBanner() { if (banner) banner.classList.add('hidden'); }
+  function showBanner() { if (banner) banner.classList.remove('hidden'); }
+  if (!localStorage.getItem(COOKIE_KEY)) setTimeout(showBanner, 800);
+  document.getElementById('cookie-accept')?.addEventListener('click', function () {
+    localStorage.setItem(COOKIE_KEY, 'accepted');
+    if (typeof window.__loadGtag === 'function') window.__loadGtag();
+    hideBanner();
+  });
+  document.getElementById('cookie-reject')?.addEventListener('click', function () {
+    localStorage.setItem(COOKIE_KEY, 'essential');
+    hideBanner();
+  });
+})();
 </script>

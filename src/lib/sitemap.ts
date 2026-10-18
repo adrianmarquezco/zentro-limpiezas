@@ -2,16 +2,13 @@ import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS } from '@/data/municipios';
 import type { BarrioArchetype } from '@/data/municipios';
 import {
-  getContenidoBarrio,
   getContenidoPeriodica,
   getContenidoViviendas,
   getContenidoPisos,
-  getContenidoTuristicos,
-  getContenidoAfondo,
   getContenidoGLBarrio,
   GL_SERVIZO_SLUGS,
 } from '@/data/combos-barrio';
-import { esComboBarrioPermitido } from '@/data/url-policy';
+import { esComboBarrioPermitido, SERVICIOS_BARRIO_MONEY } from '@/data/url-policy';
 import { getCollection } from 'astro:content';
 
 export const SITE = 'https://zentrolimpiezas.es';
@@ -76,27 +73,23 @@ export async function entriesForChunk(chunk: SitemapChunk): Promise<SitemapEntry
         ...MUNICIPIOS.flatMap((m) => (m.barrios ?? []).map((b) => loc(`/zonas/${m.slug}/${b.slug}/`))),
         ...MUNICIPIOS.flatMap((m) => (m.barrios ?? []).map((b) => loc(`/gl/zonas/${m.slug}/${b.slug}/`))),
       ];
-    case 'barrios':
+    case 'barrios': {
+      const contenidoBarrio: Record<string, (a: BarrioArchetype) => boolean> = {
+        'limpieza-periodica': (a) => !!getContenidoPeriodica(a, '', ''),
+        'limpieza-de-viviendas': (a) => !!getContenidoViviendas(a, '', ''),
+        'limpieza-de-pisos': (a) => !!getContenidoPisos(a, '', ''),
+      };
       return [
-        ...barrioEntries('limpieza-periodica', (a) => !!getContenidoPeriodica(a, '', '')),
-        ...barrioEntries('limpieza-de-viviendas', (a) => !!getContenidoViviendas(a, '', '')),
-        ...barrioEntries('limpieza-de-pisos', (a) => !!getContenidoPisos(a, '', '')),
-        ...barrioEntries('limpieza-de-apartamentos-turisticos', (a) => !!getContenidoTuristicos(a, '', '')),
-        ...barrioEntries('limpieza-a-fondo', (a) => !!getContenidoAfondo(a, '', '')),
-        ...barrioEntries('limpieza-de-cristales', (a) => !!getContenidoBarrio('limpieza-de-cristales', a, '', '')),
-        ...barrioEntries('limpieza-de-locales-comerciales', (a) => !!getContenidoBarrio('limpieza-de-locales-comerciales', a, '', '')),
-        ...barrioEntries('limpieza-de-garajes', (a) => !!getContenidoBarrio('limpieza-de-garajes', a, '', '')),
-        ...barrioEntries('limpieza-de-mudanzas', (a) => !!getContenidoBarrio('limpieza-de-mudanzas', a, '', '')),
-        ...barrioEntries('limpieza-de-trasteros', (a) => !!getContenidoBarrio('limpieza-de-trasteros', a, '', '')),
-        ...SERVICIOS.flatMap((s) => {
-          if (!GL_SERVIZO_SLUGS.has(s.slugGL)) return [];
-          return ferrolterraConBarrios().flatMap((m) =>
+        ...SERVICIOS_BARRIO_MONEY.flatMap((slug) => barrioEntries(slug, contenidoBarrio[slug])),
+        ...SERVICIOS.filter((s) => SERVICIOS_BARRIO_MONEY.includes(s.slug as typeof SERVICIOS_BARRIO_MONEY[number]) && GL_SERVIZO_SLUGS.has(s.slugGL)).flatMap((s) =>
+          ferrolterraConBarrios().flatMap((m) =>
             (m.barrios ?? [])
               .filter((b) => b.archetype && getContenidoGLBarrio(s.slugGL, b.archetype as BarrioArchetype, '', '') && esComboBarrioPermitido(s.slug, m.slug, b.slug))
               .map((b) => loc(`/gl/servizos/${s.slugGL}/${m.slug}/${b.slug}/`)),
-          );
-        }),
+          ),
+        ),
       ];
+    }
     case 'blog': {
       const posts = await getCollection('blog', ({ data }) => !data.draft);
       const postsGL = await getCollection('blog-gl', ({ data }) => !data.draft);

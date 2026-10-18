@@ -331,8 +331,10 @@ export const SERVICIOS: Servicio[] = [
   },
 ];
 
+const SERVICIO_BY_SLUG = new Map(SERVICIOS.map((s) => [s.slug, s]));
+
 export function getServicioBySlug(slug: string): Servicio | undefined {
-  return SERVICIOS.find(s => s.slug === slug);
+  return SERVICIO_BY_SLUG.get(slug);
 }
 
 export const SERVICIOS_TIER1 = SERVICIOS.filter(s => s.tier === 1);

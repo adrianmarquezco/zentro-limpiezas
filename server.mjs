@@ -13,17 +13,36 @@ const SECURITY_HEADERS = {
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline'",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
-    "img-src 'self' data:",
-    "connect-src 'self'",
+    "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com",
+    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com",
     "form-action 'self'",
     "base-uri 'self'",
     "frame-ancestors 'self'",
     "object-src 'none'",
   ].join('; '),
 };
+
+function cacheControlFor(requestUrl) {
+  let pathname = '/';
+  try {
+    pathname = new URL(requestUrl, 'http://localhost').pathname;
+  } catch {
+    return 'public, max-age=0, must-revalidate';
+  }
+  if (pathname.startsWith('/api/')) return 'no-store';
+  if (pathname === '/sw.js' || pathname === '/manifest.json') return 'public, max-age=0, must-revalidate';
+  if (pathname.startsWith('/_astro/') || pathname.startsWith('/fonts/')) {
+    return 'public, max-age=31536000, immutable';
+  }
+  if (pathname.startsWith('/images/') || pathname.startsWith('/scripts/') || pathname === '/favicon.svg') {
+    return 'public, max-age=86400, stale-while-revalidate=604800';
+  }
+  if (pathname === '/sitemap.xml' || pathname.startsWith('/sitemaps/')) return 'public, max-age=3600';
+  return 'public, max-age=0, must-revalidate';
+}
 
 const COMBOS_RETIRADOS = new Set(['moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido']);
 const SERVICIOS_BARRIO_ES = new Set(['limpieza-de-pisos', 'limpieza-de-viviendas', 'limpieza-periodica']);
@@ -80,6 +99,7 @@ function withSecurityHeaders(createServer) {
         return;
       }
       for (const [name, value] of Object.entries(SECURITY_HEADERS)) res.setHeader(name, value);
+      res.setHeader('Cache-Control', cacheControlFor(req.url || '/'));
       return listener(req, res);
     };
     return createServer.apply(this, args);

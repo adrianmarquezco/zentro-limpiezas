@@ -38,7 +38,7 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
           width="160"
           height="40"
           loading="eager"
-          fetchpriority="high"
+          decoding="async"
         />
       </a>
 
@@ -219,39 +219,41 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
   </div>
 </header>
 
-<script>
-const toggle = document.getElementById('menu-toggle');
-const menu   = document.getElementById('mobile-menu');
-const b1 = document.getElementById('b1');
-const b2 = document.getElementById('b2');
-const b3 = document.getElementById('b3');
+<script is:inline>
+(function () {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  var b1 = document.getElementById('b1');
+  var b2 = document.getElementById('b2');
+  var b3 = document.getElementById('b3');
 
-toggle?.addEventListener('click', () => {
-  const open = menu?.classList.toggle('hidden') === false;
-  toggle.setAttribute('aria-expanded', String(open));
-  document.body.style.overflow = open ? 'hidden' : '';
-  if (open) {
-    b1?.classList.add('rotate-45', 'translate-y-2');
-    b2?.classList.add('opacity-0');
-    b3?.classList.add('-rotate-45', '-translate-y-2');
-  } else {
-    b1?.classList.remove('rotate-45', 'translate-y-2');
-    b2?.classList.remove('opacity-0');
-    b3?.classList.remove('-rotate-45', '-translate-y-2');
-  }
-});
-
-function setupSubmenu(btnId: string, subId: string, iconId: string) {
-  const btn  = document.getElementById(btnId);
-  const sub  = document.getElementById(subId);
-  const icon = document.getElementById(iconId);
-  btn?.addEventListener('click', () => {
-    const open = sub?.classList.toggle('hidden') === false;
-    btn.setAttribute('aria-expanded', String(open));
-    icon?.classList.toggle('rotate-180', open);
+  toggle?.addEventListener('click', function () {
+    var open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      b1?.classList.add('rotate-45', 'translate-y-2');
+      b2?.classList.add('opacity-0');
+      b3?.classList.add('-rotate-45', '-translate-y-2');
+    } else {
+      b1?.classList.remove('rotate-45', 'translate-y-2');
+      b2?.classList.remove('opacity-0');
+      b3?.classList.remove('-rotate-45', '-translate-y-2');
+    }
   });
-}
 
-setupSubmenu('mob-servicios-btn', 'mob-servicios-sub', 'mob-servicios-icon');
-setupSubmenu('mob-zonas-btn',     'mob-zonas-sub',     'mob-zonas-icon');
+  function setupSubmenu(btnId, subId, iconId) {
+    var btn = document.getElementById(btnId);
+    var sub = document.getElementById(subId);
+    var icon = document.getElementById(iconId);
+    btn?.addEventListener('click', function () {
+      var open = sub?.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+      icon?.classList.toggle('rotate-180', open);
+    });
+  }
+
+  setupSubmenu('mob-servicios-btn', 'mob-servicios-sub', 'mob-servicios-icon');
+  setupSubmenu('mob-zonas-btn', 'mob-zonas-sub', 'mob-zonas-icon');
+})();
 </script>

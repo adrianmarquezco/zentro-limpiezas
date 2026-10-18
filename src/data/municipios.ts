@@ -673,8 +673,10 @@ export const MUNICIPIOS: Municipio[] = [
   },
 ];
 
+const MUNICIPIO_BY_SLUG = new Map(MUNICIPIOS.map((m) => [m.slug, m]));
+
 export function getMunicipioBySlug(slug: string) {
-  return MUNICIPIOS.find(m => m.slug === slug);
+  return MUNICIPIO_BY_SLUG.get(slug);
 }
 
 export const MUNICIPIOS_FERROLTERRA = MUNICIPIOS.filter(m => m.comarca === 'Ferrolterra');

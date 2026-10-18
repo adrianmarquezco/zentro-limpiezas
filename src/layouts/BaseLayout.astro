@@ -18,6 +18,7 @@ interface Props {
   robots?: string;
   schema?: object;
   pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+  preloadHero?: boolean;
 }
 
 const {
@@ -32,6 +33,7 @@ const {
   robots,
   schema,
   pageType = 'WebPage',
+  preloadHero = false,
 } = Astro.props;
 
 // Los títulos largos se truncan en Google: se quita la marca cuando no caben en 65 caracteres
@@ -44,24 +46,6 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-5RLHF43D5D"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      wait_for_update: 500,
-    });
-    if (localStorage.getItem('zentro_cookie_consent') === 'accepted') {
-      gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-5RLHF43D5D');
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0A2540" />
@@ -105,8 +89,27 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <link rel="apple-touch-icon" href="/images/logo.png" />
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- Preload LCP image (hero) -->
-  <link rel="preload" as="image" href="/images/hero-equipo.webp" fetchpriority="high" />
+  {preloadHero && (
+    <link rel="preload" as="image" href="/images/hero-equipo.webp" fetchpriority="high" />
+  )}
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.__loadGtag = function () {
+      if (document.getElementById('ga4-gtag')) return;
+      var s = document.createElement('script');
+      s.id = 'ga4-gtag';
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5RLHF43D5D';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-5RLHF43D5D');
+    };
+    if (localStorage.getItem('zentro_cookie_consent') === 'accepted') {
+      window.__loadGtag();
+    }
+  </script>
 
   <!-- WebSite schema (activa Sitelinks Search Box en Google) -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -144,51 +147,12 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   </main>
   <Footer lang={lang} />
   <CookieBanner lang={lang} />
+  <noscript>
+    <style>
+      [data-reveal],[data-reveal-left],[data-reveal-right],[data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 
-  <!-- Scripts -->
-  <script src="/scripts/scroll-reveal.js" defer></script>
-  <script src="/scripts/header-scroll.js" defer></script>
-  <script src="/scripts/faq-accordion.js" defer></script>
-  <script src="/scripts/external-links.js" defer></script>
-
-  <!-- Service Worker -->
-  <script is:inline>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
-  }
-  </script>
-
-  <!-- Exit intent — solo desktop, solo 1 vez por sesión. Se arma tras la carga y con matchMedia
-       (no window.innerWidth) para no forzar un recálculo de layout durante el renderizado inicial. -->
-  <script is:inline>
-  window.addEventListener('load', function() {
-  (function() {
-    if (window.matchMedia('(max-width: 767px)').matches || sessionStorage.getItem('ei')) return;
-    var gl = document.documentElement.lang === 'gl';
-    document.addEventListener('mouseleave', function handler(e) {
-      if (e.clientY > 0) return;
-      sessionStorage.setItem('ei', '1');
-      document.removeEventListener('mouseleave', handler);
-      var d = document.createElement('div');
-      d.id = 'ei-overlay';
-      d.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(10,37,64,0.82);backdrop-filter:blur(8px);opacity:0;transition:opacity .25s';
-      d.innerHTML = '<div style="background:#fff;border-radius:20px;padding:36px 32px;max-width:400px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(10,37,64,.35)">'
-        + '<button onclick="document.getElementById(\'ei-overlay\').remove()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:18px;color:#9CA3AF;cursor:pointer;line-height:1">✕</button>'
-        + '<p style="font-size:36px;margin-bottom:12px">🧹</p>'
-        + '<h3 style="font-family:Georgia,serif;font-size:21px;color:#0A2540;margin:0 0 8px">' + (gl ? 'Vaste sen pedir orzamento?' : '¿Te vas sin pedir presupuesto?') + '</h3>'
-        + '<p style="color:#6B7280;font-size:13px;line-height:1.6;margin:0 0 24px">' + (gl ? 'É gratis, sen compromiso e respondemos en menos de 24h. O noso equipo leva 20 anos limpando en Ferrol e A Coruña.' : 'Es gratis, sin compromiso y respondemos en menos de 24h. Nuestro equipo lleva 20 años limpiando en Ferrol y A Coruña.') + '</p>'
-        + '<div style="display:flex;flex-direction:column;gap:10px">'
-        + '<a href="' + (gl ? '/gl/orzamento/' : '/presupuesto/') + '" style="display:block;background:#0A2540;color:#fff;padding:13px 24px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none">' + (gl ? '→ Pedir orzamento gratis' : '→ Pedir presupuesto gratis') + '</a>'
-        + '<a href="https://wa.me/34616054001?text=Hola%2C+me+gustar%C3%ADa+pedir+presupuesto" target="_blank" style="display:block;background:#25D366;color:#fff;padding:13px 24px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none">WhatsApp · 616 054 001</a>'
-        + '</div>'
-        + '<p style="color:#D1D5DB;font-size:11px;margin-top:16px;margin-bottom:0">' + (gl ? 'Sen compromisos · Pechamos cando queiras' : 'Sin compromisos · Cerramos cuando quieras') + '</p>'
-        + '</div>';
-      d.addEventListener('click', function(e){ if(e.target===d) d.remove(); });
-      document.body.appendChild(d);
-      requestAnimationFrame(function(){ d.style.opacity='1'; });
-    });
-  })();
-  });
-  </script>
+  <script src="/scripts/bootstrap.js" defer></script>
 </body>
 </html>
