@@ -48,7 +48,7 @@ const COMBOS_RETIRADOS = new Set(['moeche', 'san-sadurnino', 'cabanas', 'ortigue
 const SERVICIOS_BARRIO_ES = new Set(['limpieza-de-pisos', 'limpieza-de-viviendas', 'limpieza-periodica']);
 const SERVICIOS_BARRIO_GL = new Set(['limpeza-de-pisos', 'limpeza-de-vivendas', 'limpeza-periodica']);
 const BARRIOS_MONEY = {
-  ferrol: new Set(['caranza', 'recimil', 'a-magdalena', 'esteiro', 'inferniño']),
+  ferrol: new Set(['caranza', 'recimil', 'a-magdalena', 'esteiro', 'infernino']),
   naron: new Set(['a-gandara', 'o-couto', 'o-val', 'san-xiao-de-naron', 'alto-del-castano']),
 };
 
@@ -87,11 +87,23 @@ function policyRedirect(requestUrl) {
   return null;
 }
 
+const CANONICAL_HOST = 'zentrolimpiezas.es';
+
 function withSecurityHeaders(createServer) {
   return function (...args) {
     const i = args.findIndex((a) => typeof a === 'function');
     const listener = args[i];
     args[i] = (req, res) => {
+      // Traefik/Coolify ya redirige www→apex y http→https por delante de este contenedor,
+      // pero en dos saltos y con 302. Si la petición nos llega directa (host www o
+      // x-forwarded-proto http), la resolvemos aquí en un único 301 permanente.
+      const host = (req.headers.host || '').toLowerCase();
+      const proto = (req.headers['x-forwarded-proto'] || '').toLowerCase();
+      if (host === `www.${CANONICAL_HOST}` || proto === 'http') {
+        res.writeHead(301, { Location: `https://${CANONICAL_HOST}${req.url || '/'}` });
+        res.end();
+        return;
+      }
       const dest = policyRedirect(req.url || '/');
       if (dest) {
         res.writeHead(301, { Location: dest });
