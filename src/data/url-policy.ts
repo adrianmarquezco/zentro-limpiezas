@@ -28,7 +28,7 @@ export const SERVICIOS_BARRIO_MONEY = [
 ] as const;
 
 export const BARRIOS_MONEY: Record<string, readonly string[]> = {
-  ferrol: ['caranza', 'recimil', 'a-magdalena', 'esteiro', 'inferniño'],
+  ferrol: ['caranza', 'recimil', 'a-magdalena', 'esteiro', 'infernino'],
   naron: ['a-gandara', 'o-couto', 'o-val', 'san-xiao-de-naron', 'alto-del-castano'],
 };
 

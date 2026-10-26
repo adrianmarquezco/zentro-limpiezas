@@ -6,6 +6,8 @@ import CTASection from '@/components/sections/CTASection.astro';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat.astro';
 import CTABar from '@/components/ui/CTABar.astro';
 import TableOfContents from '@/components/blog/TableOfContents.astro';
+import FAQAccordion from '@/components/ui/FAQAccordion.astro';
+import { BUSINESS } from '@/data/config';
 
 interface Props {
   title: string;
@@ -114,6 +116,20 @@ const categoryLabel = category
       </div>
     </footer>
   </article>
+
+  {faqs && faqs.length > 0 && (
+    <section class="py-16 lg:py-24 bg-charcoal">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-2xl lg:text-3xl text-warm mb-2 text-center">
+          Preguntas frecuentes
+        </h2>
+        <p class="text-white/50 text-sm text-center mb-8">
+          {lang === 'gl' ? 'Chámanos ao' : 'Llámanos al'} <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> {lang === 'gl' ? 'se tes outra dúbida' : 'si tienes otra duda'}
+        </p>
+        <FAQAccordion {faqs} />
+      </div>
+    </section>
+  )}
 
   <CTASection {lang} />
   <WhatsAppFloat {lang} />
