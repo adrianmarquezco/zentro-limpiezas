@@ -25,7 +25,7 @@ export const BUSINESS = {
     service: 'Flexible, incluyendo tardes y fines de semana',
   },
   address: {
-    locality: 'Ferrol',
+    locality: 'Narón',
     region: 'A Coruña',
     country: 'ES',
     countryCode: 'ES',
