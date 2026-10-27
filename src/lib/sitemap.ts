@@ -70,8 +70,10 @@ export async function entriesForChunk(chunk: SitemapChunk): Promise<SitemapEntry
       return [
         ...MUNICIPIOS.map((m) => loc(`/zonas/${m.slug}/`)),
         ...MUNICIPIOS.map((m) => loc(`/gl/zonas/${m.slug}/`)),
-        ...MUNICIPIOS.flatMap((m) => (m.barrios ?? []).map((b) => loc(`/zonas/${m.slug}/${b.slug}/`))),
-        ...MUNICIPIOS.flatMap((m) => (m.barrios ?? []).map((b) => loc(`/gl/zonas/${m.slug}/${b.slug}/`))),
+        // Los barrios con canonicalParent apuntan su <link rel="canonical"> al municipio:
+        // no son autocanónicos, así que no deben enviarse en el sitemap como URL propia.
+        ...MUNICIPIOS.flatMap((m) => (m.barrios ?? []).filter((b) => !b.canonicalParent).map((b) => loc(`/zonas/${m.slug}/${b.slug}/`))),
+        ...MUNICIPIOS.flatMap((m) => (m.barrios ?? []).filter((b) => !b.canonicalParent).map((b) => loc(`/gl/zonas/${m.slug}/${b.slug}/`))),
       ];
     case 'barrios': {
       const contenidoBarrio: Record<string, (a: BarrioArchetype) => boolean> = {
