@@ -11,6 +11,8 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   ogType?: string;
   lang?: 'es' | 'gl';
   hreflangEs?: string;
@@ -26,6 +28,8 @@ const {
   description,
   canonical,
   ogImage = `${BUSINESS.url}/images/hero-equipo.webp`,
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
   ogType = 'website',
   lang = 'es',
   hreflangEs,
@@ -70,8 +74,8 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:image" content={ogImage} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content={String(ogImageWidth)} />
+  <meta property="og:image:height" content={String(ogImageHeight)} />
   <meta property="og:locale" content={lang === 'gl' ? 'gl_ES' : 'es_ES'} />
 
   <!-- Twitter Card -->

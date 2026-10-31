@@ -9,13 +9,33 @@ interface Props {
   subtitle: string;
   precioDesde?: string | null;
   lang?: 'es' | 'gl';
+  image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
-const { servicio, eyebrow, h1, subtitle, precioDesde, lang = 'es' } = Astro.props;
+const {
+  servicio, eyebrow, h1, subtitle, precioDesde, lang = 'es',
+  image, imageAlt, imageWidth = 1200, imageHeight = 675,
+} = Astro.props;
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio));
 const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
 ---
 
 <section class="hero-section relative bg-primary overflow-hidden pb-20 lg:pb-16 pt-10 lg:pt-14">
+  {image && (
+    <img
+      src={image}
+      alt={imageAlt ?? `${servicio} profesional en Ferrol y A Coruña — Zentro Limpiezas`}
+      width={imageWidth}
+      height={imageHeight}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  )}
+  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-b from-primary/92 via-primary/88 to-primary/95"></div>
   <div class="noise-overlay" />
   <div aria-hidden="true" class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(0,196,140,0.13) 0%, transparent 65%); filter: blur(48px);"></div>
   <div aria-hidden="true" class="absolute -bottom-20 -left-20 w-[360px] h-[360px] rounded-full pointer-events-none" style="background: radial-gradient(circle at center, rgba(59,130,246,0.09) 0%, transparent 65%); filter: blur(48px);"></div>
