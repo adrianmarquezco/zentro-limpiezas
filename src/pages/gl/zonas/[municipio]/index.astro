@@ -5,7 +5,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import EcoBadge from '@/components/ui/EcoBadge.astro';
 import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
 import { SERVICIOS } from '@/data/servicios';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 
 export function getStaticPaths() {
   return MUNICIPIOS.map((m) => ({
@@ -35,8 +35,16 @@ const title = `Limpeza en ${nomeGL} | Servizos e zonas de traballo`;
 
 const description =
   zonasCercanasMeta.length > 0
-    ? `Traballamos en ${nomeGL} e arredores (${unir(zonasCercanasMeta)}). Entra no servizo que precises —vivendas, cristais, fin de obra…—, mira o que inclúe e pide orzamento en 24 horas. Produtos ecolóxicos incluídos.`
-    : `Traballamos en ${nomeGL} (${municipio.comarca}). Entra no servizo que precises, mira o que inclúe e pide orzamento en 24 horas. Produtos ecolóxicos incluídos.`;
+    ? buildMetaDescription(
+        `Traballamos en ${nomeGL} e arredores:`,
+        `${unir(zonasCercanasMeta)}.`,
+        'Entra no servizo que precises e pide orzamento en 24h.'
+      )
+    : buildMetaDescription(
+        `Traballamos en ${nomeGL} (${municipio.comarca}).`,
+        'Entra no servizo que precises e mira o que inclúe.',
+        'Orzamento en 24h. Produtos ecolóxicos incluídos.'
+      );
 
 const breadcrumbs = [
   { label: 'Zonas', href: '/gl/zonas/' },

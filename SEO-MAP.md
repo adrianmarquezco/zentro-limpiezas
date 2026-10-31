@@ -2,7 +2,7 @@
 Control central de arquitectura SEO. Una keyword principal → una URL. Ninguna keyword debe aparecer asignada a dos URLs distintas.
 
 > Última actualización: Mayo 2026
-> Total URLs indexables: ~210
+> Total URLs indexables: ~223
 
 ---
 
@@ -50,7 +50,7 @@ Control central de arquitectura SEO. Una keyword principal → una URL. Ninguna 
 
 ---
 
-## SERVICIOS (ES) — 11 páginas
+## SERVICIOS (ES) — 16 páginas
 
 | URL | Keyword principal | Keywords secundarias | Title (≤60) | Meta (150-160) | H1 | Tipo |
 |-----|-----------------|---------------------|-------------|----------------|----|------|
@@ -65,10 +65,15 @@ Control central de arquitectura SEO. Una keyword principal → una URL. Ninguna 
 | `/servicios/limpieza-periodica/` | limpieza periodica ferrol | limpieza regular ferrol coruña, limpieza semanal ferrol | Limpieza Periódica en Ferrol y A Coruña — Zentro | Servicio de limpieza periódica semanal, quincenal o mensual en Ferrol y A Coruña. Mismo equipo siempre. Ecológico incluido. | Limpieza periódica — semanal, quincenal y mensual | servicio |
 | `/servicios/limpieza-de-cristales/` | limpieza de cristales ferrol | limpiar ventanas ferrol coruña, limpieza cristales profesional | Limpieza de Cristales en Ferrol y A Coruña — Zentro | Limpieza profesional de cristales y ventanales en Ferrol y A Coruña. Interior y exterior. Altura. Ecológico incluido. Presupuesto 24h. | Limpieza de cristales y ventanales | servicio |
 | `/servicios/limpieza-de-pazos-y-eventos/` | limpieza de pazos galicia | limpieza para bodas galicia, limpieza eventos ferrol coruña | Limpieza de Pazos y Eventos en Galicia — Zentro | Limpieza de pazos, fincas y espacios para bodas y eventos en Galicia. Pre y post-evento. Ecológico incluido. Presupuesto personalizado. | Limpieza de pazos y eventos en Galicia | servicio |
+| `/servicios/limpieza-por-horas/` | limpieza por horas sin contrato ferrol | limpieza por horas ferrol coruña, contratar limpieza por horas, limpieza flexible sin permanencia | Limpieza por Horas en Ferrol y A Coruña — Zentro | Limpieza por horas para viviendas, oficinas y locales en Ferrol y A Coruña. Servicio puntual, sin contrato ni permanencia. Ecológico incluido. | Limpieza por horas, sin contrato ni permanencia | servicio |
+| `/servicios/limpieza-de-garajes/` | limpieza de garajes ferrol | limpieza garaje coruña, limpieza aparcamiento comunidad ferrol | Limpieza de Garajes en Ferrol y A Coruña — Zentro | Limpieza a fondo de garajes particulares y zonas de aparcamiento en comunidades. Ferrol y A Coruña. Ecológico incluido. Presupuesto 24h. | Limpieza de garajes en Ferrol y A Coruña | servicio |
+| `/servicios/limpieza-de-trasteros/` | limpieza de trasteros ferrol | limpieza trastero coruña, vaciado y limpieza de almacenes | Limpieza de Trasteros en Ferrol y A Coruña — Zentro | Vaciado, organización y limpieza a fondo de trasteros y almacenes en Ferrol y A Coruña. Ecológico incluido. Presupuesto en 24h. | Limpieza de trasteros en Ferrol y A Coruña | servicio |
+| `/servicios/desinfeccion-profesional/` | desinfección profesional ferrol | desinfección de viviendas coruña, desinfección de locales y oficinas ferrol | Desinfección Profesional en Ferrol y A Coruña — Zentro | Desinfección avanzada con biocidas certificados para viviendas, locales comerciales y oficinas. Ferrol y A Coruña. Presupuesto 24h. | Desinfección profesional en Ferrol y A Coruña | servicio |
+| `/servicios/limpieza-de-mudanzas/` | limpieza de mudanzas ferrol | limpieza piso entrante coruña, limpieza piso saliente mudanza ferrol | Limpieza de Mudanzas en Ferrol y A Coruña — Zentro | Limpieza completa antes y después de una mudanza en Ferrol y A Coruña. Pisos entrantes y salientes. Ecológico incluido. | Limpieza de mudanzas en Ferrol y A Coruña | servicio |
 
 ---
 
-## SERVICIOS (GL) — 11 páginas
+## SERVICIOS (GL) — 16 páginas
 
 | URL | Keyword principal | Keywords secundarias | Title (≤60) | Meta (150-160) | H1 | Tipo |
 |-----|-----------------|---------------------|-------------|----------------|----|------|
@@ -83,6 +88,11 @@ Control central de arquitectura SEO. Una keyword principal → una URL. Ninguna 
 | `/gl/servizos/limpeza-periodica/` | limpeza periódica ferrol galego | limpeza regular ferrol coruña galego | Limpeza Periódica en Ferrol e A Coruña — Zentro | Servizo de limpeza periódica semanal, quincenal ou mensual en Ferrol e A Coruña. Mesmo equipo sempre. Ecolóxico. | Limpeza periódica — semanal, quincenal e mensual | servicio-gl |
 | `/gl/servizos/limpeza-de-cristais/` | limpeza de cristais ferrol galego | limpar ventás ferrol coruña galego | Limpeza de Cristais en Ferrol e A Coruña — Zentro | Limpeza profesional de cristais e ventanais en Ferrol e A Coruña. Interior e exterior. Ecolóxico incluído. Orzamento 24h. | Limpeza de cristais e ventanais | servicio-gl |
 | `/gl/servizos/limpeza-de-pazos/` | limpeza de pazos galicia galego | limpeza para vodas galicia galego | Limpeza de Pazos e Eventos en Galicia — Zentro | Limpeza de pazos, fincas e espazos para vodas e eventos en Galicia. Pre e post-evento. Ecolóxico incluído. | Limpeza de pazos e eventos en Galicia | servicio-gl |
+| `/gl/servizos/limpeza-por-horas/` | limpeza por horas sen contrato ferrol galego | limpeza por horas ferrol coruña galego, contratar limpeza por horas galego | Limpeza por Horas en Ferrol e A Coruña — Zentro | Limpeza por horas para vivendas, oficinas e locais en Ferrol e A Coruña. Servizo puntual, sen contrato nin permanencia. Ecolóxico incluído. | Limpeza por horas, sen contrato nin permanencia | servicio-gl |
+| `/gl/servizos/limpeza-de-garaxes/` | limpeza de garaxes ferrol galego | limpeza garaxe coruña galego, limpeza aparcadoiro comunidade ferrol galego | Limpeza de Garaxes en Ferrol e A Coruña — Zentro | Limpeza a fondo de garaxes particulares e zonas de aparcadoiro en comunidades. Ferrol e A Coruña. Ecolóxico incluído. Orzamento 24h. | Limpeza de garaxes en Ferrol e A Coruña | servicio-gl |
+| `/gl/servizos/limpeza-de-trasteiros/` | limpeza de trasteiros ferrol galego | limpeza trasteiro coruña galego, baleirado e limpeza de almacéns | Limpeza de Trasteiros en Ferrol e A Coruña — Zentro | Baleirado, organización e limpeza a fondo de trasteiros e almacéns en Ferrol e A Coruña. Ecolóxico incluído. Orzamento en 24h. | Limpeza de trasteiros en Ferrol e A Coruña | servicio-gl |
+| `/gl/servizos/desinfeccion-profesional/` | desinfección profesional ferrol galego | desinfección de vivendas coruña galego, desinfección de locais e oficinas ferrol galego | Desinfección Profesional en Ferrol e A Coruña — Zentro | Desinfección avanzada con biocidas certificados para vivendas, locais comerciais e oficinas. Ferrol e A Coruña. Orzamento 24h. | Desinfección profesional en Ferrol e A Coruña | servicio-gl |
+| `/gl/servizos/limpeza-de-mudanzas/` | limpeza de mudanzas ferrol galego | limpeza piso entrante coruña galego, limpeza piso saínte mudanza ferrol galego | Limpeza de Mudanzas en Ferrol e A Coruña — Zentro | Limpeza completa antes e despois dunha mudanza en Ferrol e A Coruña. Pisos entrantes e saíntes. Ecolóxico incluído. | Limpeza de mudanzas en Ferrol e A Coruña | servicio-gl |
 
 ---
 
@@ -350,9 +360,9 @@ _(Mismo patrón que Ferrolterra GL, se omite tabla por brevedad — seguir patr�
 
 ## RESUMEN DE CONTROL
 
-- **URLs totales indexables**: ~213
-- **Páginas ES**: ~130
-- **Páginas GL**: ~43
+- **URLs totales indexables**: ~223
+- **Páginas ES**: ~135
+- **Páginas GL**: ~48
 - **Combos**: 40
 - **Artículos blog ES**: 14
 - **Artículos blog GL**: 4
