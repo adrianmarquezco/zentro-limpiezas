@@ -1,11 +1,16 @@
 ---
 import { BUSINESS } from '@/data/config';
 import { SERVICIOS } from '@/data/servicios';
-interface Props { lang?: 'es' | 'gl'; }
-const { lang = 'es' } = Astro.props;
+interface Props { lang?: 'es' | 'gl'; altLangUrl?: string; }
+const { lang = 'es', altLangUrl } = Astro.props;
 const isGL = lang === 'gl';
 const base = isGL ? '/gl' : '';
 const year = new Date().getFullYear();
+
+// Enlace al idioma contrario: si se pasa altLangUrl (la URL equivalente real de esta página
+// en el otro idioma), se usa esa; si no, se mantiene el comportamiento original (ir a portada).
+const esHref = isGL ? (altLangUrl ?? '/') : '/';
+const glHref = isGL ? '/gl/' : (altLangUrl ?? '/gl/');
 
 const municipioNombres: Record<string, string> = {
   'ferrol':'Ferrol','naron':'Narón','neda':'Neda','fene':'Fene','mugardos':'Mugardos',
@@ -54,8 +59,8 @@ const municipioNombres: Record<string, string> = {
         </address>
         <!-- Lang switcher -->
         <div class="mt-4 flex gap-2 text-xs">
-          <a href="/" class={`px-2.5 py-1 rounded-full border transition-colors ${!isGL ? 'border-accent text-accent' : 'border-white/20 text-white/70 hover:border-white/50'}`}>ES</a>
-          <a href="/gl/" class={`px-2.5 py-1 rounded-full border transition-colors ${isGL ? 'border-accent text-accent' : 'border-white/20 text-white/70 hover:border-white/50'}`}>GL</a>
+          <a href={esHref} class={`px-2.5 py-1 rounded-full border transition-colors ${!isGL ? 'border-accent text-accent' : 'border-white/20 text-white/70 hover:border-white/50'}`}>ES</a>
+          <a href={glHref} class={`px-2.5 py-1 rounded-full border transition-colors ${isGL ? 'border-accent text-accent' : 'border-white/20 text-white/70 hover:border-white/50'}`}>GL</a>
         </div>
       </div>
 

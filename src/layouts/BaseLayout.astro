@@ -45,6 +45,11 @@ const BRAND_SUFFIX = ' | Zentro Limpiezas';
 const title = rawTitle.length > 65 && rawTitle.endsWith(BRAND_SUFFIX) ? rawTitle.slice(0, -BRAND_SUFFIX.length) : rawTitle;
 
 const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
+
+// URL de la versión equivalente de esta página en el idioma contrario (para el selector de
+// idioma del Footer). Si la página no pasó hreflangEs/hreflangGl, queda undefined y el Footer
+// cae en su comportamiento por defecto (ir a portada).
+const altLangUrl = lang === 'gl' ? hreflangEs : hreflangGl;
 ---
 
 <!doctype html>
@@ -151,7 +156,7 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
   <main>
     <slot />
   </main>
-  <Footer lang={lang} />
+  <Footer lang={lang} altLangUrl={altLangUrl} />
   <CookieBanner lang={lang} />
   <noscript>
     <style>

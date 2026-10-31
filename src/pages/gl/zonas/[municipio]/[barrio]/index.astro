@@ -82,6 +82,10 @@ const schemaFAQ = {
   })),
 };
 
+const numericPrice = barrio.precioDesde
+  ? barrio.precioDesde.replace(/[^\d.,]/g, '').replace(',', '.')
+  : undefined;
+
 const schemaLocal = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -94,6 +98,18 @@ const schemaLocal = {
     '@type': 'Place',
     name: `${barrio.nombre}, ${nombreGL}, Galicia`,
   },
+  ...(numericPrice ? {
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: numericPrice,
+        priceCurrency: 'EUR',
+      },
+    },
+  } : {}),
 };
 ---
 
