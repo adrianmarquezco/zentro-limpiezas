@@ -16,6 +16,20 @@ const { Content, headings } = await post.render();
 const canonical = `${BUSINESS.url}/gl/blog/${post.slug}/`;
 const hreflangEs = post.data.slugEs ? `${BUSINESS.url}/blog/${post.data.slugEs}/` : undefined;
 
+// Artigos relacionados: mesma categoría, excluíndo o actual, os máis recentes primeiro
+const allPosts = await getCollection('blog-gl', ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter((p) => p.data.category === post.data.category && p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
+  .slice(0, 4)
+  .map((p) => ({
+    slug: p.slug,
+    title: p.data.title,
+    description: p.data.description,
+    image: p.data.image,
+    category: p.data.category,
+  }));
+
 const breadcrumbs = [
   { label: 'Blog', href: '/gl/blog/' },
   { label: post.data.title, href: canonical },
@@ -36,6 +50,7 @@ const breadcrumbs = [
   hreflangGl={canonical}
   faqs={post.data.faqs}
   {headings}
+  {relatedPosts}
 >
   <Content />
 </BlogLayout>

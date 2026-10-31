@@ -19,7 +19,7 @@ interface Props {
   hreflangGl?: string;
   robots?: string;
   schema?: object;
-  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'BlogPosting';
   preloadHero?: boolean;
 }
 
@@ -126,18 +126,20 @@ const canonicalUrl = canonical ?? `${BUSINESS.url}${Astro.url.pathname}`;
     publisher: { '@id': `${BUSINESS.url}/#business` },
   })} />
 
-  <!-- Speakable schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': pageType,
-    '@id': canonicalUrl,
-    url: canonicalUrl,
-    isPartOf: { '@id': `${BUSINESS.url}/#website` },
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['.speakable-intro', 'h1'],
-    },
-  })} />
+  <!-- Speakable schema (las páginas de blog ya declaran su propio speakable dentro de SchemaArticle/BlogPosting, así que se omite aquí para no duplicarlo) -->
+  {pageType !== 'BlogPosting' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': pageType,
+      '@id': canonicalUrl,
+      url: canonicalUrl,
+      isPartOf: { '@id': `${BUSINESS.url}/#website` },
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.speakable-intro', 'h1'],
+      },
+    })} />
+  )}
 
   <!-- Schema global -->
   <SchemaLocalBusiness />

@@ -24,13 +24,23 @@ interface Props {
   hreflangGl?: string;
   faqs?: { q: string; a: string }[];
   headings?: { depth: number; slug: string; text: string }[];
+  relatedPosts?: {
+    slug: string;
+    title: string;
+    description: string;
+    image?: string;
+    category: string;
+  }[];
 }
 
 const {
   title, description, canonical, lang = 'es',
   datePublished, dateModified, image, readingTime, category,
   breadcrumbs, hreflangEs, hreflangGl, faqs, headings = [],
+  relatedPosts = [],
 } = Astro.props;
+
+const blogBasePath = lang === 'gl' ? '/gl/blog/' : '/blog/';
 
 const locale = lang === 'gl' ? 'gl-ES' : 'es-ES';
 const pubDate = new Date(datePublished).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
@@ -47,7 +57,7 @@ const categoryLabel = category
   : (lang === 'gl' ? 'Artigo' : 'Artículo');
 ---
 
-<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article" ogImage={image ? `https://zentrolimpiezas.es${image}` : undefined}>
+<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article" ogImage={image ? `https://zentrolimpiezas.es${image}` : undefined} pageType="BlogPosting">
   <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} {faqs} />
 
   <!-- Hero del artículo -->
@@ -127,6 +137,46 @@ const categoryLabel = category
           {lang === 'gl' ? 'Chámanos ao' : 'Llámanos al'} <a href={BUSINESS.phoneHref} class="text-accent hover:underline">{BUSINESS.phoneDisplay}</a> {lang === 'gl' ? 'se tes outra dúbida' : 'si tienes otra duda'}
         </p>
         <FAQAccordion {faqs} />
+      </div>
+    </section>
+  )}
+
+  {relatedPosts.length > 0 && (
+    <section class="py-16 lg:py-24 bg-warm">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-8 text-center">
+          {lang === 'gl' ? 'Tamén che pode interesar' : 'Artículos relacionados'}
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {relatedPosts.map((related) => (
+            <article class="card flex flex-col overflow-hidden group">
+              {related.image && (
+                <a href={`${blogBasePath}${related.slug}/`} class="block overflow-hidden aspect-video bg-primary/20">
+                  <img
+                    src={related.image}
+                    alt={related.title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width="600" height="315"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              )}
+              <div class="p-6 flex flex-col gap-3 flex-1">
+                <span class="text-xs text-mid capitalize">{categoryLabels[related.category]?.[lang] ?? related.category}</span>
+                <h3 class="font-display text-lg text-primary leading-snug">
+                  <a href={`${blogBasePath}${related.slug}/`} class="hover:text-accent transition-colors">
+                    {related.title}
+                  </a>
+                </h3>
+                <p class="text-mid text-sm leading-relaxed flex-1">{related.description}</p>
+                <a href={`${blogBasePath}${related.slug}/`} class="text-accent text-sm hover:underline mt-auto pt-4 border-t border-line block">
+                  {lang === 'gl' ? 'Ler artigo →' : 'Leer artículo →'}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )}

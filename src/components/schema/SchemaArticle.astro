@@ -1,4 +1,6 @@
 ---
+import { BUSINESS } from '@/data/config';
+
 interface Props {
   title: string;
   description: string;
@@ -21,9 +23,9 @@ const articleSchema = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   image: image ? `https://zentrolimpiezas.es${image}` : 'https://zentrolimpiezas.es/og-default.svg',
   author: {
-    '@type': 'Organization',
-    name: 'Zentro Limpiezas',
-    url: 'https://zentrolimpiezas.es',
+    '@type': 'Person',
+    name: BUSINESS.manager.name,
+    jobTitle: BUSINESS.manager.jobTitle,
   },
   publisher: {
     '@type': 'Organization',
