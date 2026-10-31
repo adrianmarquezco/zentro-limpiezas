@@ -20,6 +20,20 @@ const { Content, headings } = await post.render();
 const canonical = `${BUSINESS.url}/blog/${post.slug}/`;
 const hreflangGl = glSlug ? `${BUSINESS.url}/gl/blog/${glSlug}/` : undefined;
 
+// Artículos relacionados: mismos de categoría, excluyendo el actual, los más recientes primero
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter((p) => p.data.category === post.data.category && p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime())
+  .slice(0, 4)
+  .map((p) => ({
+    slug: p.slug,
+    title: p.data.title,
+    description: p.data.description,
+    image: p.data.image,
+    category: p.data.category,
+  }));
+
 // Títulos blog: si supera 65 chars con brand, Google lo añade solo (>46 chars de título base)
 const fullTitle = `${post.data.title} | Zentro Limpiezas`;
 const blogTitle = fullTitle.length <= 65 ? fullTitle : post.data.title;
@@ -45,6 +59,7 @@ const breadcrumbs = [
   {hreflangGl}
   faqs={post.data.faqs}
   {headings}
+  {relatedPosts}
 >
   <Content />
 </BlogLayout>

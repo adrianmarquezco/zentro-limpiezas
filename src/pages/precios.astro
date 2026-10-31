@@ -13,6 +13,7 @@ const title = 'Precios de limpieza en Ferrol y A Coruña 2026 | Zentro Limpiezas
 const description = 'Precios orientativos de limpieza de viviendas, oficinas y locales en Ferrol, Narón y A Coruña. Desde 45€. Presupuesto gratis en 24h, productos eco incluidos.';
 
 const breadcrumbs = [{ label: 'Precios', href: '/precios/' }];
+const ogImage = `${BUSINESS.url}/images/hero-servicios.webp`;
 
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
 
@@ -48,7 +49,7 @@ const faqs = [
 ];
 ---
 
-<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/precios/`}>
+<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/precios/`} {ogImage} ogImageWidth={1200} ogImageHeight={675}>
   <SchemaFAQ faqs={faqs} />
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 

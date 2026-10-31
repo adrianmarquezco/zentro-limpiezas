@@ -16,6 +16,9 @@ const description = 'Servicios de limpieza en Ferrol y A Coruña desde 2026, con
 const breadcrumbs = [
   { label: 'Sobre nosotros', href: '/sobre-nosotros/' },
 ];
+// hero-equipo.webp es temáticamente la imagen correcta para esta página (foto del equipo);
+// se mantiene como OG image pero con sus dimensiones reales (1536x1024), no el 1200x630 genérico.
+const ogImage = `${BUSINESS.url}/images/hero-equipo.webp`;
 
 const faqs = [
   {
@@ -49,7 +52,7 @@ const faqs = [
 ];
 ---
 
-<BaseLayout pageType="AboutPage" {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/sobre-nos/`}>
+<BaseLayout pageType="AboutPage" {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/sobre-nos/`} {ogImage} ogImageWidth={1536} ogImageHeight={1024}>
   <SchemaFAQ faqs={faqs} />
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 

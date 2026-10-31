@@ -4,7 +4,7 @@ import HeroLocal from '@/components/sections/HeroLocal.astro';
 import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { MUNICIPIOS, getMunicipioBySlug } from '@/data/municipios';
 import { SERVICIOS } from '@/data/servicios';
-import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription } from '@/data/config';
 
 export function getStaticPaths() {
   return MUNICIPIOS.map((m) => ({
@@ -36,8 +36,16 @@ const title = `Limpieza en ${municipio.nombre} | Servicios y zonas de trabajo`;
 
 const description =
   zonasCercanasMeta.length > 0
-    ? `Trabajamos en ${municipio.nombre} y alrededores (${unirLista(zonasCercanasMeta)}). Entra en el servicio que necesites —viviendas, cristales, fin de obra…—, mira qué incluye y pide presupuesto en 24 horas. Productos ecológicos incluidos.`
-    : `Trabajamos en ${municipio.nombre} (${municipio.comarca}). Entra en el servicio que necesites, mira qué incluye y pide presupuesto en 24 horas. Productos ecológicos incluidos.`;
+    ? buildMetaDescription(
+        `Trabajamos en ${municipio.nombre} y alrededores:`,
+        `${unirLista(zonasCercanasMeta)}.`,
+        'Entra en el servicio que necesites y pide presupuesto en 24h.'
+      )
+    : buildMetaDescription(
+        `Trabajamos en ${municipio.nombre} (${municipio.comarca}).`,
+        'Entra en el servicio que necesites y mira qué incluye.',
+        'Presupuesto en 24h. Productos ecológicos incluidos.'
+      );
 
 const breadcrumbs = [
   { label: 'Zonas', href: '/zonas/' },

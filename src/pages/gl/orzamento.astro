@@ -10,6 +10,7 @@ const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
 const breadcrumbs = [
   { label: 'Orzamento', href: '/gl/orzamento/' },
 ];
+const ogImage = `${BUSINESS.url}/images/hero-servicios.webp`;
 ---
 
 <BaseLayout
@@ -19,6 +20,9 @@ const breadcrumbs = [
   lang="gl"
   hreflangEs={`${BUSINESS.url}/presupuesto/`}
   hreflangGl={canonical}
+  ogImage={ogImage}
+  ogImageWidth={1200}
+  ogImageHeight={675}
 >
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 

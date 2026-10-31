@@ -11,11 +11,12 @@ const description = 'Presupuesto gratis de limpieza de viviendas, oficinas y loc
 const breadcrumbs = [
   { label: 'Presupuesto', href: '/presupuesto/' },
 ];
+const ogImage = `${BUSINESS.url}/images/hero-servicios.webp`;
 
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
 ---
 
-<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/orzamento/`}>
+<BaseLayout {title} {description} {canonical} lang="es" hreflangEs={canonical} hreflangGl={`${BUSINESS.url}/gl/orzamento/`} {ogImage} ogImageWidth={1200} ogImageHeight={675}>
   <Breadcrumbs crumbs={breadcrumbs} dark={true} />
 
   <section class="hero-section bg-primary pb-16 pt-10 relative">

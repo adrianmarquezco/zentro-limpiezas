@@ -19,6 +19,23 @@ const { servicio } = Astro.props;
 const canonical = `${BUSINESS.url}/servicios/${servicio.slug}/`;
 const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/`;
 
+// Imagen representativa por servicio (mismo mapeo que en /servicios/[servicio]/[municipio].astro)
+const SERVICE_IMAGE: Record<string, string> = {
+  'limpieza-de-cristales':              '/images/hero-cristales.webp',
+  'limpieza-periodica':                 '/images/hero-periodica.webp',
+  'limpieza-por-horas':                 '/images/hero-periodica.webp',
+  'limpieza-de-viviendas':              '/images/hero-viviendas.webp',
+  'limpieza-de-pisos':                  '/images/hero-pisos.webp',
+  'limpieza-de-apartamentos-turisticos':'/images/hero-turisticos.webp',
+  'limpieza-a-fondo':                   '/images/hero-afondo.webp',
+  'limpieza-de-locales-comerciales':    '/images/hero-locales.webp',
+  'limpieza-de-garajes':                '/images/hero-garajes.webp',
+  'limpieza-de-mudanzas':               '/images/hero-mudanzas.webp',
+  'limpieza-de-trasteros':              '/images/hero-trasteros.webp',
+};
+const heroImage = SERVICE_IMAGE[servicio.slug] ?? '/images/hero-servicios.webp';
+const ogImage = `${BUSINESS.url}${heroImage}`;
+
 // Sin brand en título: Google lo añade automáticamente. Sin ciudad: diferencia del página servicio+municipio
 const title = servicio.tituloMeta ?? `${servicio.nombre} profesional`;
 const description = buildMetaDescription('', servicio.descripcionCorta, 'Ecológico incluido. +20 años en Ferrol y A Coruña. Presupuesto gratis.');
@@ -529,6 +546,9 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
   {breadcrumbs}
   hreflangEs={canonical}
   {hreflangGl}
+  {ogImage}
+  ogImageWidth={1200}
+  ogImageHeight={675}
 >
   <HeroService
     servicio={servicio.nombre}
@@ -537,6 +557,10 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
     subtitle={servicio.descripcionCorta}
     precioDesde={servicio.precioDesde}
     lang="es"
+    image={heroImage}
+    imageAlt={`${servicio.nombre} profesional en Ferrol y A Coruña — Zentro Limpiezas`}
+    imageWidth={1200}
+    imageHeight={675}
   />
 
   <!-- CONTENIDO PRINCIPAL -->
