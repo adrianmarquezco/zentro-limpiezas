@@ -9,6 +9,15 @@ readingTime: 7
 tags: ["contratar limpeza", "consellos", "empresa limpeza", "profesional"]
 lang: "gl"
 slugEs: "contratar-servicio-limpieza-consejos"
+faqs:
+  - q: "Que seguro debe ter unha empresa de limpeza profesional?"
+    a: "Toda empresa de limpeza profesional debe ter seguro de responsabilidade civil. Este seguro cobre os danos accidentais que poidan producirse durante o traballo: roturas, vertidos, caídas de obxectos. Se unha empresa non ten seguro de RC ou non pode acreditalo, non é un servizo profesional."
+  - q: "É mellor contratar unha empresa de limpeza ou un autónomo?"
+    a: "Depende. Unha empresa con equipo propio garante continuidade (se alguén non pode vir, mandan a outra persoa), ten seguro de RC e cumpre obrigas laborais. Un autónomo pode ser máis flexible e personalizado. A clave é verificar que quen veña á túa casa estea cuberto por un seguro e traballe en condicións regulares."
+  - q: "Os produtos de limpeza están incluídos no prezo ou hai que pagalos á parte?"
+    a: "Depende do servizo. En Zentro Limpiezas todos os produtos están incluídos no prezo, incluídos os ecolóxicos con certificación Ecolabel. Antes de contratar, pregunta explicitamente se os materiais están incluídos ou se hai algún custo adicional."
+  - q: "Canto tempo de antelación necesita unha empresa de limpeza para o primeiro servizo?"
+    a: "Para unha limpeza puntual: 24-48 horas na maioría dos casos, dependendo da dispoñibilidade. Para un servizo periódico: 5-7 días para asignar un equipo fixo. En Zentro Limpiezas damos orzamento en menos de 24 horas e podemos organizar o primeiro servizo en poucos días."
 ---
 
 Contratar un servizo de limpeza implica deixar entrar persoas no teu fogar ou na túa empresa. É un acto de confianza que merece que te tomes un momento para verificar certas cousas antes de dicir que si.

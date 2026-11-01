@@ -9,6 +9,15 @@ readingTime: 9
 tags: ["comunidades", "escaleiras", "zonas comúns", "Ferrol", "A Coruña"]
 lang: "gl"
 slugEs: "limpieza-escaleras-comunidades-vecinos"
+faqs:
+  - q: "Cada canto hai que limpar as escaleiras dunha comunidade de propietarios?"
+    a: "A frecuencia recomendada é semanal para edificios de ata 20-30 vivendas, e dúas veces por semana para edificios máis grandes ou con alto tráfico. En portais con locais comerciais na planta baixa ou con acceso frecuente de mascotas, a frecuencia mínima adoita ser quincenal aínda que se recomenda semanal."
+  - q: "É obrigatorio por lei limpar as zonas comúns dunha comunidade?"
+    a: "A Lei de Propiedade Horizontal obriga as comunidades a conservar o edificio en bo estado de mantemento, o que inclúe as zonas comúns. Non establece unha frecuencia concreta de limpeza, pero si a responsabilidade de manter condicións hixiénicas axeitadas. A comunidade que non atende o mantemento pode ser obxecto de reclamacións de veciños ou da administración local."
+  - q: "Pódeselle encargar a un veciño a limpeza das escaleiras a cambio de compensación?"
+    a: "Si, é unha fórmula que algunhas comunidades pequenas usan. O problema é a inconsistencia do resultado, a dependencia de que esa persoa estea dispoñible e os conflitos que xera cando hai queixas. Ademais, se ese veciño sofre un accidente limpando, pode haber implicacións legais para a comunidade. Contractualmente, unha empresa ten seguro de responsabilidade civil que cobre ese risco."
+  - q: "Canto custa a limpeza profesional de escaleiras e zonas comúns en Ferrolterra?"
+    a: "Para un edificio estándar de Ferrol, Narón ou municipios da zona (4-6 plantas, un portal, sen garaxe), o prezo mensual dun servizo semanal adoita estar entre 120€ e 250€. O custo exacto depende do número de plantas, de se hai ascensor, garaxe ou locais, e da frecuencia contratada. Repartido entre os veciños, adoita ser menos de 10-20€ por vivenda ao mes."
 ---
 
 > **En resumo:**

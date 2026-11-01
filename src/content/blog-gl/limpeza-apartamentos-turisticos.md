@@ -9,6 +9,15 @@ readingTime: 7
 tags: ["apartamentos turísticos", "Airbnb", "anfitrión", "limpeza rápida"]
 lang: "gl"
 slugEs: "limpieza-apartamentos-turisticos-airbnb"
+faqs:
+  - q: "Canto custa a limpeza dun apartamento turístico entre hóspedes?"
+    a: "O prezo depende do tamaño do apartamento e de se inclúe roupa de cama. Para un estudo ou apartamento de 1 dormitorio en Ferrol ou A Coruña, o custo orientativo está entre 50€ e 80€ por limpeza. Para apartamentos máis grandes (2-3 dormitorios), entre 80€ e 130€. Este custo pódese repercutir íntegramente aos hóspedes como tarifa de limpeza na plataforma."
+  - q: "Canto tempo teño para limpar entre un check-out e o seguinte check-in?"
+    a: "Con check-out ás 11h e check-in ás 15-16h tes entre 3 e 5 horas. Para un apartamento de 1 dormitorio, un equipo profesional de 2 persoas necesita 90-120 minutos se o estado é normal. Se os hóspedes deixaron o piso moi sucio ou hai roupa de cama que lavar e cambiar, pode estenderse a 2-3 horas."
+  - q: "Merece a pena contratar unha empresa de limpeza para o meu Airbnb?"
+    a: "Se tes máis dun apartamento, unha ocupación superior ao 60% ou simplemente non podes estar dispoñible nos cambios de hóspede, si. Unha empresa profesional garante constancia no resultado — o que se reflicte directamente nas valoracións. A diferenza entre unha limpeza inconsistente e unha profesional pode ser a diferenza entre 4,5 e 5 estrelas en limpeza."
+  - q: "Que diferenza hai entre a limpeza estándar entre hóspedes e unha deep clean?"
+    a: "A limpeza estándar entre hóspedes cobre todo o que ven os clientes: baños, cociña, solos, superficies, cambio de roupa de cama e reposición de amenities. A deep clean (profunda), que se fai cada 4-6 semanas, chega a onde o cambio de hóspede non chega: interior de electrodomésticos, parte superior de armarios, xuntas de azulexos, cadeiras e mobles tapizados, mantas e almofadas. As dúas son necesarias para manter boas valoracións."
 ---
 
 > **En resumo:**

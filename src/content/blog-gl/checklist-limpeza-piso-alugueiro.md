@@ -9,6 +9,15 @@ readingTime: 8
 tags: ["alugueiro", "checklist", "mudanza", "fianza", "entrega chaves"]
 lang: "gl"
 slugEs: "checklist-limpieza-piso-alquiler"
+faqs:
+  - q: "Canto custa unha limpeza profesional para fin de contrato de alugueiro?"
+    a: "Para un piso de 70-90 m² en Ferrol ou A Coruña, entre 120€ e 200€. Para pisos pequenos (estudos, 1 dormitorio), entre 80€ e 130€. Se o piso ten interiores de armarios, neveira e forno moi sucios, ou levou varios anos sen limpeza a fondo, o prezo pode ser maior. A maioría das veces é bastante inferior á retención de fianza que evita."
+  - q: "Que pasa se o propietario di que o piso non está limpo aínda que contratases profesionais?"
+    a: "Cunha factura de empresa de limpeza, estás nunha posición moi forte. A factura proba que se realizou o servizo e que tiveches a dilixencia necesaria. Se o propietario reclama algún punto concreto, o razoable é negocialo, pero a retención total da fianza por limpeza non é sostible se tes documentación. Gardar fotos do estado ao entregar tamén é moi útil."
+  - q: "Cando facer a limpeza, os últimos días ou o día de entrega de chaves?"
+    a: "O ideal é a víspera ou os días previos á entrega, unha vez sacados os mobles. Limpar antes de sacar os mobles non ten sentido porque durante a mudanza se ensucia de novo. Facelo o mesmo día de entrega é factible se o piso é pequeno ou se contratas un equipo profesional que traballa con rapidez."
+  - q: "Podo reclamar se o piso novo non estaba limpo ao entrar?"
+    a: "Si. Ao recibir o piso debes facer constar no contrato ou nunha acta de entrega o estado real en que está, incluíndo fotos. Se o propietario anterior non o entregou limpo, podes reclamar o custo da limpeza de entrada ou descontalo da primeira renda, previa negociación. Documentar o estado ao entrar protéxete tamén ao saír."
 ---
 
 > **En resumo:**
