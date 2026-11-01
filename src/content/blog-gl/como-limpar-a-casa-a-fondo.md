@@ -6,6 +6,15 @@ datePublished: "2025-01-15"
 tags: ["limpeza vivenda", "consellos", "limpeza a fondo"]
 lang: "gl"
 slugEs: "como-limpiar-el-piso-a-fondo"
+faqs:
+  - q: "Canto tempo leva limpar a casa a fondo?"
+    a: "Unha vivenda de 80 m² leva entre 3 e 5 horas con dúas persoas ou entre 6 e 8 horas en solitario. A duración depende do estado de suciidade acumulada, o número de baños e se inclúe interiores de armarios, neveira ou forno."
+  - q: "Con que frecuencia hai que facer unha limpeza a fondo?"
+    a: "A maioría dos fogares con mantemento semanal necesitan unha limpeza a fondo cada 3-6 meses. Se hai mascotas, nenos pequenos ou a vivenda levou tempo sen limpeza profesional, convén facela antes. Os pisos que se alugan deberían ter unha limpeza a fondo entre inquilinos."
+  - q: "Que diferenza hai entre limpar a fondo e a limpeza de mantemento?"
+    a: "A limpeza de mantemento cobre as zonas de uso frecuente e mantén o nivel de hixiene. A limpeza a fondo chega a onde o mantemento non chega: detrás de mobles, interior de electrodomésticos, rodapés en profundidade, cal acumulada en griferías e xuntas de azulexo. É un traballo diferente en técnica, tempo e produtos."
+  - q: "Merece a pena contratar unha limpeza a fondo profesional?"
+    a: "Para pisos con máis de 2-3 meses sen limpeza profesional, pisos post-verán, ou vivendas que estiveron pechadas, si. A diferenza en resultado é notable sobre todo en baños, cociña e solos, onde a cal, a graxa e a suciidade incrustada requiren produtos e técnica específicos."
 ---
 
 Limpar a casa a fondo unha ou dúas veces ao ano é unha desas tarefas que todo o mundo apaza pero que marca unha diferenza enorme no aspecto e no ambiente do fogar. Non é só quitar o po: trátase de chegar aos recunchos que o mantemento semanal non cobre.

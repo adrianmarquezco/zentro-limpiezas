@@ -6,6 +6,15 @@ datePublished: "2026-01-15"
 dateModified: "2026-08-26"
 category: "consejos"
 readingTime: 6
+faqs:
+  - q: "Que produtos de limpeza son perigosos para cans e gatos?"
+    a: "Os máis perigosos son produtos con fenol ou cresol, amoníaco, aceites de piñeiro concentrados e algúns desinfectantes con benzalconio. Os gatos son especialmente sensibles porque se lamben as patas. Regra práctica: evita produtos con olor forte a piñeiro ou con amoníaco se tes mascotas."
+  - q: "Como eliminar definitivamente o cheiro a ouriña de gato?"
+    a: "Actúa mentres aínda está húmida: absorbe con papel, aplica auga e vinagre branco ao 50%, deixa actuar 10 minutos, absorbe de novo e esparce bicarbonato. Deixa secar e aspira. A ouriña seca contén compostos que o vinagre xa non neutraliza ben; aí fai falta un produto enzimático."
+  - q: "Cada canto hai que limpar a fondo se se teñen mascotas?"
+    a: "Con mascotas, a limpeza de mantemento (barrer/aspirar pelo) debe ser máis frecuente: 2-3 veces por semana en vez dunha. A limpeza a fondo convén facela cada 2-3 meses en vez dos 4-6 meses habituais. O pelo de mascota acumúlase detrás dos mobles, nos rodapés e nas ventilacións moito máis rápido."
+  - q: "Pode vir o equipo de limpeza se teño mascota na casa?"
+    a: "Si. O ideal é que a mascota estea nunha habitación ou noutra zona mentres se limpa, para facilitar o traballo e evitar que o animal se estrese. Se a mascota está solta, hai que indicalo antes para que o equipo saiba con que trato manexar a situación. En ningún caso se usan produtos incompatibles con mascotas sen informar antes."
 tags: ["mascotas", "cans", "gatos", "pelo mascota", "ecolóxico"]
 lang: "gl"
 slugEs: "limpieza-hogar-con-mascotas"

@@ -9,6 +9,15 @@ readingTime: 5
 tags: ["cristais", "ventás", "técnica profesional", "trucos"]
 lang: "gl"
 slugEs: "limpiar-cristales-sin-rayas"
+faqs:
+  - q: "Por que os cristais quedan con raias despois de limpalos?"
+    a: "As raias aparecen por tres razóns: usar un pano con fibras abrasivas, limpar en seco (o po actúa como lixa), ou secar con papel de cociña que deixa microfibras. A solución é usar limpacristais aplicado con pano de microfibra limpo e secar con rasqueta de goma ou badana."
+  - q: "Cal é o mellor produto para limpar cristais na costa de Galicia?"
+    a: "En zonas costeiras a cal da auga e a salinidade crean unha capa branquecina difícil de quitar con limpacristais convencional. Para iso fai falta un quitacals con pH ácido controlado que disolva a incrustación sen atacar o vidro. Unha vez retirada a cal, úsase limpacristais estándar para o acabado final."
+  - q: "Con que frecuencia hai que limpar os cristais?"
+    a: "En interiores, cada 4-8 semanas é suficiente. En exteriores na costa galega (Ferrol, Cedeira, Valdoviño, Ares), a salinidade e a humidade requiren limpar cada 3-4 semanas para evitar que a cal penetre no vidro e se volva moi difícil de eliminar."
+  - q: "Pódense limpar fiestras en altura sen andamios?"
+    a: "Si. Con pértegas telescópicas pódense alcanzar fiestras de 2º ou 3º piso desde o chan. Para alturas maiores ou fachadas acristaladas valórase o acceso en cada caso. Na maioría das vivendas unifamiliares e pisos, a pértega é suficiente sen necesidade de medios especiais."
 ---
 
 > **En resumo:**

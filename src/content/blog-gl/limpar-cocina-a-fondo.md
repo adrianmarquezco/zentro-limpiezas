@@ -9,6 +9,15 @@ readingTime: 7
 tags: ["cociña", "limpeza a fondo", "forno", "graxa", "ecolóxico"]
 lang: "gl"
 slugEs: "limpiar-cocina-a-fondo"
+faqs:
+  - q: "Canto tempo leva limpar a cociña a fondo?"
+    a: "Unha cociña de tamaño medio (10-15 m²) leva entre 2 e 4 horas cunha persoa. Con dúas persoas, entre 90 minutos e 2,5 horas. O tempo varía moito segundo o estado da graxa na campana e na encimera, o interior do forno e se a limpeza inclúe o interior dos armarios. Unha cociña con mantemento regular límpase bastante máis rápido que unha que leva meses sen atención."
+  - q: "Con que frecuencia hai que facer unha limpeza a fondo da cociña?"
+    a: "A limpeza diaria básica (encimera, vitrocerámica, fregadeiro) debe ser diaria ou cada vez que se cociña. A limpeza a fondo da campana, filtros, forno, frigorífico e interior de armarios é recomendable facela cada 2-3 meses. A campana e os seus filtros son os elementos máis críticos: uns filtros saturados de graxa reducen a eficacia e poden ser un risco."
+  - q: "Como limpar os filtros da campana extractora?"
+    a: "Os filtros metálicos de malla límpanse somerxéndoos en auga moi quente con bicarbonato ou lavalouza concentrado durante 15-20 minutos. A graxa dissólvese e sae case soa cun cepillo suave. Os filtros de carbón (campanas sen saída exterior) non se lavan, substitúense cando están saturados, normalmente cada 3-6 meses."
+  - q: "Pódese limpar o forno sen produtos químicos agresivos?"
+    a: "Si. A técnica co bicarbonato funciona perfectamente para fornos con graxa normal: aplica unha pasta espesa de bicarbonato e auga en todas as superficies interiores (non na resistencia), pecha e deixa actuar toda a noite ou polo menos 8 horas. Ao día seguinte, retira con pano húmido. Para a resistencia eléctrica superior, usa vinagre cun pano. O resultado é equivalente ao dos produtos de forno convencionais sen os vapores tóxicos."
 ---
 
 > **En resumo:**

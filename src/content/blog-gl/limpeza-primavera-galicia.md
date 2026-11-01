@@ -3,6 +3,15 @@ title: "Limpeza de primavera: guía galega para a posta a punto"
 description: "A gran limpeza de primavera adaptada ao fogar galego. Humidade, mofo, ventilación e as zonas críticas que hai que revisar despois do inverno en Galicia."
 image: '/images/blog/limpieza-primavera-galicia.webp'
 datePublished: "2025-03-20"
+faqs:
+  - q: "Por que é importante facer a limpeza de primavera en Galicia?"
+    a: "En Galicia o inverno húmido e con pouca ventilación favorece a acumulación de mofo en recunchos pouco iluminados, condensación nas fiestras, e acumulación de po e humidade en téxtiles e mobles. A limpeza de primavera é tamén unha revisión de danos: manchas de humidade nas paredes, xuntas de fiestras deterioradas, ou mofo incipiente que, se non se trata, se estende."
+  - q: "Como eliminar o mofo que aparece nas paredes no inverno?"
+    a: "Para manchas de mofo superficiais (en pintura, azulexo ou silicona), auga oxixenada ao 3% ou aceite de árbore do té diluído en auga son os mellores antifúngicos ecolóxicos. Aplica, deixa actuar 15-20 minutos e frota con cepillo. Se o mofo penetrou no material ou a mancha volve aparecer repetidamente, pode haber un problema de humidade estrutural que require solución de obra, non só limpeza."
+  - q: "Cando é o mellor momento para facer a limpeza de primavera en Galicia?"
+    a: "Marzo ou abril, cando o tempo permite ventilación cruzada durante horas (pódense ter as fiestras abertas sen choiva constante). A ventilación durante a limpeza é fundamental para eliminar o exceso de humidade dos téxtiles e para que os produtos de limpeza se evaporen ben. Esperar a que a temperatura exterior suba tamén facilita que as superficies sequen máis rápido."
+  - q: "Canto tempo leva unha limpeza de primavera completa?"
+    a: "Para un piso de 80-100 m² cun equipo de 2 persoas, entre 5 e 8 horas se se fai a fondo (incluíndo armarios, cristais, electrodomésticos, zonas altas e detrás dos mobles). Se se aborda en dúas xornadas —unha para os cuartos e outra para cociña, baños e zonas comúns— o traballo resulta máis manexable e o resultado é mellor."
 tags: ["primavera", "limpeza a fondo", "Galicia", "humidade"]
 lang: "gl"
 slugEs: "limpieza-primavera-galicia"
