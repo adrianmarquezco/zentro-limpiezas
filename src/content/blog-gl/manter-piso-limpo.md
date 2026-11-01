@@ -6,6 +6,15 @@ datePublished: "2025-02-18"
 dateModified: "2026-05-31"
 category: "consejos"
 readingTime: 5
+faqs:
+  - q: "Canto tempo hai que dedicar ao día para manter o piso limpo?"
+    a: "Cunha rutina ben organizada, 10-15 minutos diarios abondan para a maioría dos fogares con unha ou dúas persoas. Isto inclúe fregar os pratos ou acender o lavalouzas, limpar a encimeira, e recoller o que quedase fóra do seu sitio. Engadir unha pasada rápida ao baño unha vez por semana (5-10 minutos) cobre o 80% do mantemento."
+  - q: "Que debo facer antes de que chegue o equipo de limpeza profesional?"
+    a: "O ideal é recoller os obxectos persoais das superficies para que o equipo poida limpar sen ter que movelos. Non fai falta fregar nin pasar o aspirador — para eso vén o equipo. Se hai roupa no chan ou nas cadeiras, recollela facilita o acceso. As zonas de traballo (escritorio, mesa da cociña) con papeis ou obxectos tamén é mellor despexalas."
+  - q: "Con que frecuencia mínima convén ter un servizo de limpeza periódico?"
+    a: "Para un piso de 1-2 persoas con hábitos de mantemento básico, mensual ou quincenal pode ser suficiente. Para 3 ou máis persoas, pisos con mascotas, ou persoas con pouco tempo para o mantemento diario, semanal ou quincenal é máis axeitado. A clave é que cada visita sexa de mantemento, non de recuperación: se o piso precisa unha limpeza a fondo cada vez, a frecuencia é insuficiente."
+  - q: "Que zonas se ensucian máis rápido entre limpezas profesionais?"
+    a: "A cociña (encimeira e vitrocerámica), os baños (sobre todo a ducha e o lavabo), e os chans das zonas de tráfico alto (entrada, cociña, corredor). Estas tres zonas son as que máis se benefician do mantemento diario básico: limpar a encimeira e a vitrocerámica despois de cociñar, e unha pasada rápida ao lavabo e á ducha unha vez por semana."
 tags: ["rutinas limpeza", "mantemento fogar", "consellos"]
 lang: "gl"
 slugEs: "como-mantener-piso-limpio-entre-limpiezas"
