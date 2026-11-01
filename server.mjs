@@ -44,6 +44,17 @@ function cacheControlFor(requestUrl) {
   return 'public, max-age=0, must-revalidate';
 }
 
+// Barrios cuyo slug llevaba una ñ/tilde literal sin escapar en <loc> del sitemap XML
+// (rompía el XML) y se renombró a ASCII en src/data/municipios.ts. Las URLs antiguas
+// siguen indexadas y enlazadas desde fuera, así que redirigen de forma permanente.
+const BARRIOS_RENOMBRADOS = {
+  'inferniño': 'infernino',
+  'doniños': 'doninos',
+  'maniños': 'maninos',
+  'pantín': 'pantin',
+  'elviña': 'elvina',
+};
+
 const COMBOS_RETIRADOS = new Set(['moeche', 'san-sadurnino', 'cabanas', 'ortigueira', 'cerdido']);
 const SERVICIOS_BARRIO_ES = new Set(['limpieza-de-pisos', 'limpieza-de-viviendas', 'limpieza-periodica']);
 const SERVICIOS_BARRIO_GL = new Set(['limpeza-de-pisos', 'limpeza-de-vivendas', 'limpeza-periodica']);
@@ -64,8 +75,21 @@ function policyRedirect(requestUrl) {
   } catch {
     return null;
   }
+  // La petición puede llegar con el carácter UTF-8 crudo o con %XX; decodificamos para
+  // comparar siempre contra los slugs con ñ/tilde de BARRIOS_RENOMBRADOS.
+  try {
+    pathname = decodeURIComponent(pathname);
+  } catch {
+    // pathname mal formado: seguimos con el original sin decodificar
+  }
   const path = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
   const parts = path.split('/').filter(Boolean);
+  if (parts.length === 3 && parts[0] === 'zonas' && BARRIOS_RENOMBRADOS[parts[2]]) {
+    return `/zonas/${parts[1]}/${BARRIOS_RENOMBRADOS[parts[2]]}/`;
+  }
+  if (parts.length === 4 && parts[0] === 'gl' && parts[1] === 'zonas' && BARRIOS_RENOMBRADOS[parts[3]]) {
+    return `/gl/zonas/${parts[2]}/${BARRIOS_RENOMBRADOS[parts[3]]}/`;
+  }
   if (parts.length === 3 && parts[0] === 'servicios' && COMBOS_RETIRADOS.has(parts[2])) {
     return `/servicios/${parts[1]}/`;
   }
