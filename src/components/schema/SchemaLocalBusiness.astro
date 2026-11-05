@@ -37,6 +37,8 @@ const schema = {
   ],
   address: {
     '@type': 'PostalAddress',
+    streetAddress: BUSINESS.address.streetAddress,
+    postalCode: BUSINESS.address.postalCode,
     addressLocality: BUSINESS.address.locality,
     addressRegion: BUSINESS.address.region,
     addressCountry: BUSINESS.address.countryCode,

@@ -113,6 +113,25 @@ function policyRedirect(requestUrl) {
 
 const CANONICAL_HOST = 'zentrolimpiezas.es';
 
+// El adaptador node en modo standalone usa trailingSlash:'ignore' (sirve 200 tanto con
+// como sin barra final), así que cada página tiene hoy una URL "hermana" sin barra que
+// es contenido duplicado real para Google (el canonical es solo una pista, no una orden).
+// No usamos la opción trailingSlash del propio Astro/adaptador: la probamos y añade un
+// 301 incondicional a CUALQUIER petición sin barra y sin extensión, incluido el POST a
+// /api/presupuesto — el navegador descarta el body al seguir un 301/302 en un POST, así
+// que rompería el envío de los formularios de presupuesto. Por eso lo resolvemos aquí a
+// mano, excluyendo /api/ y cualquier archivo con extensión, y solo para GET/HEAD.
+const STATIC_FILE_EXT = /\.[a-zA-Z0-9]+$/;
+
+function needsTrailingSlash(method, pathname) {
+  if (method !== 'GET' && method !== 'HEAD') return false;
+  if (!pathname || pathname === '/') return false;
+  if (pathname.endsWith('/')) return false;
+  if (pathname.startsWith('/api/')) return false;
+  if (STATIC_FILE_EXT.test(pathname)) return false;
+  return true;
+}
+
 function withSecurityHeaders(createServer) {
   return function (...args) {
     const i = args.findIndex((a) => typeof a === 'function');
@@ -131,6 +150,17 @@ function withSecurityHeaders(createServer) {
       const dest = policyRedirect(req.url || '/');
       if (dest) {
         res.writeHead(301, { Location: dest });
+        res.end();
+        return;
+      }
+      let reqUrl;
+      try {
+        reqUrl = new URL(req.url || '/', 'http://localhost');
+      } catch {
+        reqUrl = null;
+      }
+      if (reqUrl && needsTrailingSlash(req.method, reqUrl.pathname)) {
+        res.writeHead(301, { Location: `${reqUrl.pathname}/${reqUrl.search}` });
         res.end();
         return;
       }
