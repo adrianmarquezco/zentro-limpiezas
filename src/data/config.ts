@@ -25,6 +25,8 @@ export const BUSINESS = {
     service: 'Flexible, incluyendo tardes y fines de semana',
   },
   address: {
+    streetAddress: 'El Val',
+    postalCode: '15541',
     locality: 'Narón',
     region: 'A Coruña',
     country: 'ES',

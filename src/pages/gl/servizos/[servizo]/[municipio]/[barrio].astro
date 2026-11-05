@@ -6,23 +6,11 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio, hrefServicioBarrio } from '@/data/servicios';
 import { esComboBarrioPermitido } from '@/data/url-policy';
 import { MUNICIPIOS } from '@/data/municipios';
-import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
+import { getContenidoGLBarrio, GL_SERVIZO_SLUGS, serviciosConPaginaBarrio } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
 export function getStaticPaths() {
-  const ES_BARRIO_SLUGS = new Set([
-    'limpieza-periodica',
-    'limpieza-de-viviendas',
-    'limpieza-de-pisos',
-    'limpieza-a-fondo',
-    'limpieza-de-apartamentos-turisticos',
-    'limpieza-de-cristales',
-    'limpieza-de-locales-comerciales',
-    'limpieza-de-garajes',
-    'limpieza-de-mudanzas',
-    'limpieza-de-trasteros',
-  ]);
   const paths: { params: { servizo: string; municipio: string; barrio: string }; props: any }[] = [];
   for (const servicio of SERVICIOS) {
     if (!GL_SERVIZO_SLUGS.has(servicio.slugGL)) continue;
@@ -34,7 +22,9 @@ export function getStaticPaths() {
         const contenido = getContenidoGLBarrio(servicio.slugGL, barrio.archetype as BarrioArchetype, barrio.nombre, municipio.nombre);
         if (!contenido) continue;
         if (!esComboBarrioPermitido(servicio.slug, municipio.slug, barrio.slug)) continue;
-        const hasEsBarrioPage = ES_BARRIO_SLUGS.has(servicio.slug);
+        // Fuente única: ¿existe contenido real de barrio en castellano para este servicio y arquetipo?
+        // (misma función que gobierna el enlazado interno de las páginas ES de barrio, en vez de un listado duplicado a mano).
+        const hasEsBarrioPage = serviciosConPaginaBarrio(barrio.archetype as BarrioArchetype).includes(servicio.slug);
         const hreflangEs = hasEsBarrioPage
           ? `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/${barrio.slug}/`
           : `${BUSINESS.url}/servicios/${servicio.slug}/${municipio.slug}/`;

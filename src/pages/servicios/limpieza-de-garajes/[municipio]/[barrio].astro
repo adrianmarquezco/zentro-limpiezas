@@ -6,7 +6,7 @@ import ContactStrip from '@/components/sections/ContactStrip.astro';
 import { SERVICIOS, hrefServicioMunicipio } from '@/data/servicios';
 import { esComboBarrioPermitido } from '@/data/url-policy';
 import { MUNICIPIOS } from '@/data/municipios';
-import { getContenidoBarrio, serviciosConPaginaBarrio } from '@/data/combos-barrio';
+import { getContenidoBarrio, serviciosConPaginaBarrio, GL_SERVIZO_SLUGS, getContenidoGLBarrio } from '@/data/combos-barrio';
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES, buildMetaDescription, withMunicipio } from '@/data/config';
 import type { BarrioArchetype } from '@/data/municipios';
 
@@ -34,7 +34,10 @@ const { servicio, municipio, barrio, contenido } = Astro.props;
 
 const canonical = `${BUSINESS.url}/servicios/limpieza-de-garajes/${municipio.slug}/${barrio.slug}/`;
 const hreflangEs = canonical;
-const hreflangGl = `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`;
+const hasGlBarrioPage = GL_SERVIZO_SLUGS.has(servicio.slugGL) && !!getContenidoGLBarrio(servicio.slugGL, barrio.archetype as BarrioArchetype, '', '');
+const hreflangGl = hasGlBarrioPage
+  ? `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/${barrio.slug}/`
+  : `${BUSINESS.url}/gl/servizos/${servicio.slugGL}/${municipio.slug}/`;
 const heroImage = `/images/hero-garajes-${barrio.archetype}.webp`;
 const ogImage = `${BUSINESS.url}${heroImage}`;
 
