@@ -12,7 +12,7 @@ const schema = {
       '@type': 'ListItem',
       position: i + 2,
       name: c.label,
-      item: `https://zentrolimpiezas.es${c.href}`,
+      item: c.href.startsWith('http') ? c.href : `https://zentrolimpiezas.es${c.href}`,
     })),
   ],
 };
