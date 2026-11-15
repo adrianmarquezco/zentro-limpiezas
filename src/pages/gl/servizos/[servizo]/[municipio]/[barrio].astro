@@ -92,7 +92,7 @@ const servizosIrmans = municipio.comarca === 'Ferrolterra' && barrio.archetype
   ? SERVICIOS.filter(sv => sv.slugGL !== servicio.slugGL && GL_SERVIZO_SLUGS.has(sv.slugGL) && getContenidoGLBarrio(sv.slugGL, barrio.archetype as BarrioArchetype, '', ''))
   : [];
 
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, barrio.nombre));
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, barrio.nombre, 'gl'));
 
 const outrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && getContenidoGLBarrio(servicio.slugGL, b.archetype as BarrioArchetype, '', ''),

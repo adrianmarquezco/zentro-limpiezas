@@ -13,8 +13,8 @@ interface Props {
 }
 const { municipio, servicio, eyebrow, h1, qualifier, subtitle, lang = 'es' } = Astro.props;
 const waMsg = servicio
-  ? WA_MESSAGES.combo(servicio, municipio)
-  : WA_MESSAGES.municipio(municipio);
+  ? WA_MESSAGES.combo(servicio, municipio, lang)
+  : WA_MESSAGES.municipio(municipio, lang);
 const waUrl = buildWhatsAppUrl(waMsg);
 const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
 ---

@@ -47,7 +47,7 @@ const municipiosConCombo = servicio.municipiosCombo
   .map(slug => MUNICIPIOS.find(m => m.slug === slug))
   .filter(Boolean);
 
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio.nombreGL));
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio.nombreGL, 'gl'));
 
 const faqs = [
   {

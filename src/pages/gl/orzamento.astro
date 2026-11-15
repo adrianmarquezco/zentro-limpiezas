@@ -5,7 +5,7 @@ import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 import { SERVICIOS } from '@/data/servicios';
 
 const canonical = `${BUSINESS.url}/gl/orzamento/`;
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto('gl'));
 
 const breadcrumbs = [
   { label: 'Orzamento', href: '/gl/orzamento/' },

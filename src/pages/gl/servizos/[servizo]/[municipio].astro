@@ -103,7 +103,7 @@ const outrosMunicipiosConServizo = servicio.municipiosCombo
   .filter(Boolean)
   .slice(0, 5);
 
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, municipio.nombreGL));
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombreGL, municipio.nombreGL, 'gl'));
 
 const pasos = [
   { n: '01', titulo: 'Orzamento en 24h', desc: `Cóntanos o tamaño e estado do espazo en ${municipio.nombreGL}. Prezo pechado en menos de 24 horas.` },

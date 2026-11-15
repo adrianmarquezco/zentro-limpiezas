@@ -1,9 +1,9 @@
 ---
 import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 interface Props { message?: string; lang?: 'es' | 'gl'; }
-const { message = WA_MESSAGES.default, lang = 'es' } = Astro.props;
+const { message, lang = 'es' } = Astro.props;
 const isGL = lang === 'gl';
-const waUrl = buildWhatsAppUrl(message);
+const waUrl = buildWhatsAppUrl(message ?? WA_MESSAGES.default(lang));
 ---
 
 <!-- Barra CTA sticky — solo mobile, aparece al hacer scroll -->

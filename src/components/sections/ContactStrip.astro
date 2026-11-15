@@ -6,7 +6,7 @@ interface Props {
   context?: string;
 }
 const { lang = 'es', context } = Astro.props;
-const waUrl = buildWhatsAppUrl(context ? WA_MESSAGES.municipio(context) : WA_MESSAGES.default);
+const waUrl = buildWhatsAppUrl(context ? WA_MESSAGES.municipio(context, lang) : WA_MESSAGES.default(lang));
 const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
 ---
 
