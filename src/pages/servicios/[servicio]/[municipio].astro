@@ -65,7 +65,11 @@ const barriosConPagina = municipio.comarca === 'Ferrolterra' && municipio.barrio
   ? municipio.barrios.filter(b => b.archetype && barrioTieneContenido(servicio.slug, b.archetype as BarrioArchetype) && esComboBarrioPermitido(servicio.slug, municipio.slug, b.slug))
   : [];
 
-const title = `${servicio.nombre} en ${municipio.nombre} · Presupuesto gratis | Zentro Limpiezas`;
+// Para servicios de nombre largo, "· Presupuesto gratis" empuja el título por encima de 65
+// caracteres incluso después de quitar la marca (BaseLayout solo recorta el sufijo de marca).
+// La cifra de presupuesto gratis ya está en la meta description, así que se omite aquí cuando no cabe.
+const tituloBase = `${servicio.nombre} en ${municipio.nombre}`;
+const title = `${tituloBase}${tituloBase.length <= 35 ? ' · Presupuesto gratis' : ''} | Zentro Limpiezas`;
 const description = buildMetaDescription(`${servicio.nombre} en ${municipio.nombre} con productos ecológicos incluidos.`, servicio.descripcionCorta, 'Presupuesto gratis en 24h.');
 
 const breadcrumbs = [

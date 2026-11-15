@@ -8,6 +8,7 @@ import CTABar from '@/components/ui/CTABar.astro';
 import { MUNICIPIOS } from '@/data/municipios';
 import { SERVICIOS, hrefServicioBarrio } from '@/data/servicios';
 import { getContenidoGLBarrio, GL_SERVIZO_SLUGS } from '@/data/combos-barrio';
+import { esComboBarrioPermitido } from '@/data/url-policy';
 import type { BarrioArchetype } from '@/data/municipios';
 import { BUSINESS, buildWhatsAppUrl, withMunicipio } from '@/data/config';
 
@@ -219,7 +220,7 @@ const schemaLocal = {
 
       <!-- Por que elegirnos -->
       <div class="bg-primary rounded-2xl p-6 lg:p-8 mb-8" data-reveal>
-        <h3 class="font-display text-xl text-white mb-6">Por que os veciños de {barrio.nombre} nos elixen</h3>
+        <h2 class="font-display text-xl text-white mb-6">Por que os veciños de {barrio.nombre} nos elixen</h2>
         <div class="grid sm:grid-cols-2 gap-5">
           {[
             { stat: '+20', label: 'anos no sector', desc: `Experiencia acumulada desde dentro do sector. Coñecemos ben cada barrio de ${nombreGL}.` },
@@ -267,7 +268,7 @@ const schemaLocal = {
             {serviciosBarrio.map(sv => (
               <a href={hrefServicioBarrio(sv, municipio.slug, barrio.slug, 'gl')} class="flex items-center gap-3 bg-white border border-line rounded-lg p-4 hover:border-accent hover:shadow-sm transition-all group">
                 <span class="text-accent text-xl">→</span>
-                <span class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{sv.nombreGL} en {barrio.nombre}</span>
+                <span class="font-medium text-primary text-sm group-hover:text-accent transition-colors">{sv.nombreGL} en {esComboBarrioPermitido(sv.slug, municipio.slug, barrio.slug) ? barrio.nombre : municipio.nombre}</span>
               </a>
             ))}
           </div>
