@@ -63,11 +63,11 @@ export const WA_MESSAGES = {
       : 'Hola, me gustaría solicitar un presupuesto personalizado',
   municipio: (municipio: string, lang: Lang = 'es') =>
     lang === 'gl'
-      ? `Ola, necesito limpeza en ${municipio}. ¿Podedes darme orzamento?`
+      ? `Ola, necesito limpeza en ${municipio}. Podedes darme orzamento?`
       : `Hola, necesito limpieza en ${municipio}. ¿Podéis darme presupuesto?`,
   servicio: (servicio: string, lang: Lang = 'es') =>
     lang === 'gl'
-      ? `Ola, interésame o servizo de ${servicio}. ¿Podedes informarme e dar orzamento?`
+      ? `Ola, interésame o servizo de ${servicio}. Podedes informarme e dar orzamento?`
       : `Hola, me interesa el servicio de ${servicio}. ¿Podéis informarme y dar presupuesto?`,
   blog: (lang: Lang = 'es') =>
     lang === 'gl'
@@ -75,7 +75,7 @@ export const WA_MESSAGES = {
       : 'Hola, he leído vuestro artículo y me gustaría pedir presupuesto',
   combo: (servicio: string, municipio: string, lang: Lang = 'es') =>
     lang === 'gl'
-      ? `Ola, interésame a ${servicio} en ${municipio}. ¿Podedes darme orzamento?`
+      ? `Ola, interésame a ${servicio} en ${municipio}. Podedes darme orzamento?`
       : `Hola, me interesa la ${servicio} en ${municipio}. ¿Podéis darme presupuesto?`,
 } as const;
 
