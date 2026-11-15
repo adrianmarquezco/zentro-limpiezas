@@ -1,5 +1,5 @@
 ---
-title: "Limpieza de pisos heredados o vacíos en Ferrolterra: qué hacer antes de vender o alquilar"
+title: "Limpieza de pisos heredados o vacíos en Ferrolterra"
 description: "Ferrol es el municipio de España con más población mayor de 65 años (INE). Qué hacer al limpiar un piso heredado o cerrado años antes de venderlo o alquilarlo."
 image: '/images/blog/limpiar-antes-mudanza.webp'
 datePublished: "2026-10-31"
