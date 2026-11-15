@@ -67,7 +67,7 @@ const faqsLocales: { q: string; a: string }[] = [
 ];
 const faqs = [...faqsLocales, ...contenido.faqs];
 
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, barrio.nombre));
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, barrio.nombre, 'es'));
 
 const otrosBarrios = (municipio.barrios ?? []).filter(
   b => b.slug !== barrio.slug && b.archetype && getContenidoBarrio('limpieza-de-garajes', b.archetype as BarrioArchetype, '', ''),

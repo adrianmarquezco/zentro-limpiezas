@@ -8,7 +8,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const isGL = lang === 'gl';
 const base = isGL ? '/gl' : '';
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.default);
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.default(lang));
 const path = Astro.url.pathname;
 
 const municipiosNav: Record<string, string> = {

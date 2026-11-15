@@ -112,7 +112,7 @@ const faqsEspecificas: { q: string; a: string }[] = servicio.faqsServicio ?? [
 
 const faqs = [...faqsLocalizacion, ...faqsEspecificas];
 
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, municipio.nombre));
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.combo(servicio.nombre, municipio.nombre, 'es'));
 
 const otrosServiciosEnMunicipio = SERVICIOS.filter(
   s => s.slug !== servicio.slug && s.municipiosCombo.includes(municipio.slug)

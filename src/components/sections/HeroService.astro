@@ -18,7 +18,7 @@ const {
   servicio, eyebrow, h1, subtitle, precioDesde, lang = 'es',
   image, imageAlt, imageWidth = 1200, imageHeight = 675,
 } = Astro.props;
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio));
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio, lang));
 const presupuestoHref = lang === 'gl' ? '/gl/orzamento/' : '/presupuesto/';
 ---
 

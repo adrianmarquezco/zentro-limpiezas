@@ -40,17 +40,43 @@ export const BUSINESS = {
   manager: { name: 'Luisa Corral Loureiro', jobTitle: 'Titular y responsable del negocio' },
 } as const;
 
-// Mensajes de WhatsApp pre-rellenados por contexto de página
+// Mensajes de WhatsApp pre-rellenados por contexto de página.
+// Cada mensaje se resuelve según el idioma ('es' | 'gl') para que las
+// páginas en gallego nunca envíen un texto en español, y viceversa.
+type Lang = 'es' | 'gl';
+
 export const WA_MESSAGES = {
-  default: 'Hola, me gustaría pedir presupuesto de limpieza',
-  presupuesto: 'Hola, me gustaría solicitar un presupuesto personalizado',
-  municipio: (municipio: string) =>
-    `Hola, necesito limpieza en ${municipio}. ¿Podéis darme presupuesto?`,
-  servicio: (servicio: string) =>
-    `Hola, me interesa el servicio de ${servicio}. ¿Podéis informarme y dar presupuesto?`,
-  blog: 'Hola, he leído vuestro artículo y me gustaría pedir presupuesto',
-  combo: (servicio: string, municipio: string) =>
-    `Hola, me interesa la ${servicio} en ${municipio}. ¿Podéis darme presupuesto?`,
+  default: (lang: Lang = 'es') =>
+    lang === 'gl'
+      ? 'Ola, gustaríame pedir orzamento de limpeza'
+      : 'Hola, me gustaría pedir presupuesto de limpieza',
+  // Mensaje corto usado en el Footer (histórico, sin ", de limpieza"):
+  // se mantiene tal cual en español para no alterar el comportamiento
+  // ya existente, y se traduce al gallego con el mismo registro.
+  footer: (lang: Lang = 'es') =>
+    lang === 'gl'
+      ? 'Ola, gustaríame pedir orzamento'
+      : 'Hola, me gustaría pedir presupuesto',
+  presupuesto: (lang: Lang = 'es') =>
+    lang === 'gl'
+      ? 'Ola, gustaríame solicitar un orzamento personalizado'
+      : 'Hola, me gustaría solicitar un presupuesto personalizado',
+  municipio: (municipio: string, lang: Lang = 'es') =>
+    lang === 'gl'
+      ? `Ola, necesito limpeza en ${municipio}. Podedes darme orzamento?`
+      : `Hola, necesito limpieza en ${municipio}. ¿Podéis darme presupuesto?`,
+  servicio: (servicio: string, lang: Lang = 'es') =>
+    lang === 'gl'
+      ? `Ola, interésame o servizo de ${servicio}. Podedes informarme e dar orzamento?`
+      : `Hola, me interesa el servicio de ${servicio}. ¿Podéis informarme y dar presupuesto?`,
+  blog: (lang: Lang = 'es') =>
+    lang === 'gl'
+      ? 'Ola, lin o voso artigo e gustaríame pedir orzamento'
+      : 'Hola, he leído vuestro artículo y me gustaría pedir presupuesto',
+  combo: (servicio: string, municipio: string, lang: Lang = 'es') =>
+    lang === 'gl'
+      ? `Ola, interésame a ${servicio} en ${municipio}. Podedes darme orzamento?`
+      : `Hola, me interesa la ${servicio} en ${municipio}. ¿Podéis darme presupuesto?`,
 } as const;
 
 export function buildWhatsAppUrl(message: string): string {

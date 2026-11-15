@@ -1,5 +1,5 @@
 ---
-import { BUSINESS, buildWhatsAppUrl } from '@/data/config';
+import { BUSINESS, buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
 interface Props {
   title?: string;
   subtitle?: string;
@@ -9,11 +9,11 @@ interface Props {
 const {
   title,
   subtitle,
-  waMessage = 'Hola, me gustaría pedir presupuesto de limpieza',
+  waMessage,
   lang = 'es',
 } = Astro.props;
 const isGL = lang === 'gl';
-const waUrl = buildWhatsAppUrl(waMessage);
+const waUrl = buildWhatsAppUrl(waMessage ?? WA_MESSAGES.default(lang));
 
 const defaultTitle = isGL ? 'Solicita o teu orzamento de limpeza gratuíto' : 'Solicita tu presupuesto de limpieza gratuito';
 const defaultSubtitle = isGL

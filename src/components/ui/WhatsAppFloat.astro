@@ -1,8 +1,8 @@
 ---
-import { buildWhatsAppUrl } from '@/data/config';
-interface Props { message?: string; }
-const { message = 'Hola, me gustaría pedir presupuesto de limpieza' } = Astro.props;
-const url = buildWhatsAppUrl(message);
+import { buildWhatsAppUrl, WA_MESSAGES } from '@/data/config';
+interface Props { message?: string; lang?: 'es' | 'gl'; }
+const { message, lang = 'es' } = Astro.props;
+const url = buildWhatsAppUrl(message ?? WA_MESSAGES.default(lang));
 ---
 
 <a

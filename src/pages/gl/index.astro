@@ -14,7 +14,7 @@ import { SERVICIOS } from '@/data/servicios';
 import { MUNICIPIOS_FERROLTERRA, MUNICIPIOS_CORUNA } from '@/data/municipios';
 
 const canonical = `${BUSINESS.url}/gl/`;
-const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto);
+const waUrl = buildWhatsAppUrl(WA_MESSAGES.presupuesto('gl'));
 
 const faqs = [
   { q: 'En que zonas de Galicia traballades?', a: `Traballamos en Ferrol, A Coruña e máis de 29 municipios de Ferrolterra e o Área Metropolitana coruñesa. Chámanos ao ${BUSINESS.phoneDisplay} para confirmar a túa zona.` },

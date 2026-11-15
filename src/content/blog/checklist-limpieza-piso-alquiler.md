@@ -1,7 +1,7 @@
 ---
 title: "Checklist de limpieza para piso de alquiler: entrega y recepción"
 description: "Lista de tareas para dejar un piso de alquiler impecable al acabar el contrato. Evita retenciones de fianza y conflictos con el propietario."
-image: '/images/blog/checklist-limpieza-piso-alquiler.webp'
+image: '/images/blog/content-checklist-limpieza-piso-alquiler.webp'
 datePublished: "2026-05-25"
 dateModified: "2026-05-31"
 category: "consejos"
