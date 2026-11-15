@@ -1,5 +1,5 @@
 ---
-title: "Limpeza de pisos herdados ou baleiros en Ferrolterra: que facer antes de vender ou alugar"
+title: "Limpeza de pisos herdados ou baleiros en Ferrolterra"
 description: "Ferrol é o concello de España con máis poboación maior de 65 anos (INE). Que facer ao limpar un piso herdado ou pechado anos antes de vendelo ou alugalo."
 image: '/images/blog/limpiar-antes-mudanza.webp'
 datePublished: "2026-10-31"
