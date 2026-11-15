@@ -43,7 +43,7 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
       </a>
 
       <!-- Nav desktop -->
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80">
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Navegación principal">
 
         <!-- Servicios mega-menu -->
         <div class="relative group/svc">
@@ -148,7 +148,7 @@ const serviciosNav = SERVICIOS.filter(s => s.tier === 1);
     id="mobile-menu"
     class="lg:hidden hidden fixed inset-x-0 top-16 h-[calc(100vh-4rem)] bg-primary border-t border-white/10 px-4 py-5 space-y-1 overflow-y-auto"
   >
-    <nav>
+    <nav aria-label={isGL ? 'Menú móbil' : 'Menú móvil'}>
       <!-- Servicios expandible -->
       <div>
         <button
