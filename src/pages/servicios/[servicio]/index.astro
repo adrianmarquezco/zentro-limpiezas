@@ -730,9 +730,9 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
     <section class="py-16 lg:py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-serif text-2xl lg:text-3xl text-primary mb-10 text-center" data-reveal>Cómo trabajamos</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {contenidoDetallado.proceso.map((paso, i) => (
-            <div class="relative" data-reveal>
+            <li class="relative" data-reveal>
               <div class="font-mono text-5xl font-bold text-primary opacity-5 absolute -top-3 -left-1 pointer-events-none select-none">
                 {String(i + 1).padStart(2, '0')}
               </div>
@@ -740,9 +740,9 @@ const contenidoDetallado = contenidoDetalladoMap[servicio.slug];
                 <p class="font-semibold text-primary text-sm mb-2">{paso.titulo}</p>
                 <p class="text-mid text-sm leading-relaxed">{paso.desc}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )}

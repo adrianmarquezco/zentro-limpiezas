@@ -4,9 +4,9 @@ interface Props { faqs: FAQ[]; }
 const { faqs } = Astro.props;
 ---
 
-<div class="space-y-2">
+<ul class="space-y-2">
   {faqs.map((faq, i) => (
-    <div class="faq-item rounded-2xl border border-line bg-white overflow-hidden" data-faq>
+    <li class="faq-item rounded-2xl border border-line bg-white overflow-hidden" data-faq>
       <h3 class="m-0">
         <button
           class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-warm/60 transition-colors"
@@ -22,6 +22,6 @@ const { faqs } = Astro.props;
           {faq.a}
         </div>
       </div>
-    </div>
+    </li>
   ))}
-</div>
+</ul>

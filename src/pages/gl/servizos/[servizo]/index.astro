@@ -262,15 +262,15 @@ const pasos = [
       <p class="text-mid text-center max-w-2xl mx-auto mb-10" data-reveal>
         Un proceso sinxelo, sen burocracia e con resposta rápida.
       </p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {pasos.map((paso) => (
-          <div class="bg-warm rounded-xl p-6" data-reveal>
+          <li class="bg-warm rounded-xl p-6" data-reveal>
             <p class="font-mono text-accent text-3xl font-bold mb-3">{paso.n}</p>
             <h3 class="font-serif text-base text-primary mb-2">{paso.titulo}</h3>
             <p class="text-mid text-sm leading-relaxed">{paso.desc}</p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
