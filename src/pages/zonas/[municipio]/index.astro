@@ -32,10 +32,13 @@ const zonasCercanasMeta =
     : municipio.parroquias.slice(0, 3);
 
 // Hub: cobertura + directorio. Sin marca (Google la añade).
-const title = `Limpieza en ${municipio.nombre} | Servicios y zonas de trabajo`;
+// Si el municipio tiene seoTitle/seoDescription curados a mano (municipios.ts), se usan esos
+// en vez de la plantilla genérica.
+const title = municipio.seoTitle ?? `Limpieza en ${municipio.nombre} | Servicios y zonas de trabajo`;
 
 const description =
-  zonasCercanasMeta.length > 0
+  municipio.seoDescription ??
+  (zonasCercanasMeta.length > 0
     ? buildMetaDescription(
         `Trabajamos en ${municipio.nombre} y alrededores:`,
         `${unirLista(zonasCercanasMeta)}.`,
@@ -45,7 +48,7 @@ const description =
         `Trabajamos en ${municipio.nombre} (${municipio.comarca}).`,
         'Entra en el servicio que necesites y mira qué incluye.',
         'Presupuesto en 24h. Productos ecológicos incluidos.'
-      );
+      ));
 
 const breadcrumbs = [
   { label: 'Zonas', href: '/zonas/' },

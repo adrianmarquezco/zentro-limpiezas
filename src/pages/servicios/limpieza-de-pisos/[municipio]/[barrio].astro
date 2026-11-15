@@ -41,7 +41,7 @@ const hreflangGl = hasGlBarrioPage
 const heroImage = `/images/hero-pisos-${barrio.archetype}.webp`;
 const ogImage = `${BUSINESS.url}${heroImage}`;
 
-const title = `Limpieza de Piso en ${withMunicipio(barrio.nombre, municipio.nombre)} | Zentro Limpiezas`;
+const title = `Limpieza de piso en ${withMunicipio(barrio.nombre, municipio.nombre)} | Zentro Limpiezas`;
 const description = buildMetaDescription(`Limpieza profesional de pisos en ${withMunicipio(barrio.nombre, municipio.nombre)}.`, contenido.metaDesc, 'Presupuesto gratis en 24h, sin visita previa.');
 
 const breadcrumbs = [
@@ -93,7 +93,7 @@ const h1 = `Limpieza de piso en ${withMunicipio(barrio.nombre, municipio.nombre)
   lang="es"
   serviceName={`Limpieza de piso en ${barrio.nombre}, ${municipio.nombre}`}
   serviceDesc={description}
-  price="100"
+  price={servicio.precioDesde ?? servicio.precioSchema}
   {faqs}
   {breadcrumbs}
   {hreflangEs}
@@ -196,7 +196,7 @@ const h1 = `Limpieza de piso en ${withMunicipio(barrio.nombre, municipio.nombre)
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
               <p>
-                Zentro Limpiezas ofrece limpieza de pisos de confianza en {barrio.nombre} y en todo {municipio.nombre}. Más de 20 años limpiando hogares en Ferrolterra avalan nuestro trabajo. Equipo propio, sin subcontrataciones, con las mismas limpiadoras en cada visita para que conozcan tu piso.
+                Zentro Limpiezas ofrece limpieza de pisos de confianza en {barrio.nombre} y en todo {municipio.nombre}. El equipo lleva más de 20 años limpiando hogares en Ferrolterra, lo que avala nuestro trabajo. Equipo propio, sin subcontrataciones, con las mismas limpiadoras en cada visita para que conozcan tu piso.
               </p>
               <p>
                 Tanto si necesitas la limpieza del piso después de una mudanza, antes de entregarlo al propietario, como limpieza a fondo puntual o limpieza periódica regular: lo organizamos todo para que tú no tengas que preocuparte. Presupuesto cerrado sin visita previa y respuesta en menos de 24 horas.
@@ -251,7 +251,7 @@ const h1 = `Limpieza de piso en ${withMunicipio(barrio.nombre, municipio.nombre)
               {serviciosRelacionados.map(s => (
                 <li>
                   <a href={hrefServicioBarrio(s, municipio.slug, barrio.slug)} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                    → {s.nombre} en {barrio.nombre}
+                    → {s.nombre} en {esComboBarrioPermitido(s.slug, municipio.slug, barrio.slug) ? barrio.nombre : municipio.nombre}
                   </a>
                 </li>
               ))}

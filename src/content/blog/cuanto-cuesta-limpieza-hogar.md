@@ -11,7 +11,7 @@ lang: "es"
 pilar: true
 faqs:
   - q: "¿Cuánto cuesta limpiar un piso de 80 m² en Galicia?"
-    a: "La limpieza puntual de un piso de 80 m² en Galicia cuesta entre 80 y 120 €. La limpieza a fondo del mismo piso empieza desde 80 € y su precio final depende del estado de la vivienda. En servicio periódico semanal, el precio por visita baja a 65-80 €."
+    a: "La limpieza puntual de un piso de 80 m² en Galicia cuesta entre 70 y 100 €. La limpieza a fondo del mismo piso empieza desde 80 € y su precio final depende del estado de la vivienda. En servicio periódico semanal, el precio por visita baja a 65-80 €."
   - q: "¿Están incluidos los productos de limpieza en el precio?"
     a: "En Zentro Limpiezas sí. Todos nuestros servicios incluyen productos de limpieza con certificación ecológica Ecolabel sin ningún coste adicional. No es un extra: es el estándar de trabajo de nuestro equipo."
   - q: "¿Cuánto cuesta una limpieza fin de obra en Galicia?"

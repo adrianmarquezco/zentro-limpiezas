@@ -41,7 +41,7 @@ const hreflangGl = hasGlBarrioPage
 const heroImage = `/images/hero-periodica-${barrio.archetype}.webp`;
 const ogImage = `${BUSINESS.url}${heroImage}`;
 
-const title = `Limpieza Periódica en ${withMunicipio(barrio.nombre, municipio.nombre)} | Zentro Limpiezas`;
+const title = `Limpieza periódica en ${withMunicipio(barrio.nombre, municipio.nombre)} | Zentro Limpiezas`;
 const description = buildMetaDescription(`Servicio de limpieza periódica del hogar en ${withMunicipio(barrio.nombre, municipio.nombre)}.`, contenido.metaDesc, 'Presupuesto gratis en 24h, productos Ecolabel incluidos.');
 
 const breadcrumbs = [
@@ -93,7 +93,7 @@ const h1 = `Limpieza periódica en ${withMunicipio(barrio.nombre, municipio.nomb
   lang="es"
   serviceName={`Limpieza periódica en ${barrio.nombre}, ${municipio.nombre}`}
   serviceDesc={description}
-  price="50"
+  price={servicio.precioDesde ?? servicio.precioSchema}
   {faqs}
   {breadcrumbs}
   {hreflangEs}
@@ -196,7 +196,7 @@ const h1 = `Limpieza periódica en ${withMunicipio(barrio.nombre, municipio.nomb
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
               <p>
-                Zentro Limpiezas ofrece servicios de limpieza con más de 20 años de experiencia en Ferrolterra. Trabajamos en {barrio.nombre} y en todo {municipio.nombre} con equipo propio, sin subcontrataciones. Nuestro servicio de limpieza doméstica periódica incluye las mismas limpiadoras en cada visita para que conozcan tu hogar y sepan dónde se acumula más suciedad.
+                El equipo de Zentro Limpiezas lleva más de 20 años de experiencia trabajando en Ferrolterra. Trabajamos en {barrio.nombre} y en todo {municipio.nombre} con equipo propio, sin subcontrataciones. Nuestro servicio de limpieza doméstica periódica incluye las mismas limpiadoras en cada visita para que conozcan tu hogar y sepan dónde se acumula más suciedad.
               </p>
               <p>
                 Si buscas un servicio de limpieza del hogar en {barrio.nombre} con presupuesto fijo, día reservado y productos ecológicos certificados, somos la opción que llevas buscando. Puedes contratar por visita o con contrato mensual flexible: sin permanencia mínima y con cancelación con 48 horas de aviso.
@@ -252,7 +252,7 @@ const h1 = `Limpieza periódica en ${withMunicipio(barrio.nombre, municipio.nomb
               {serviciosRelacionados.map(s => (
                 <li>
                   <a href={hrefServicioBarrio(s, municipio.slug, barrio.slug)} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                    → {s.nombre} en {barrio.nombre}
+                    → {s.nombre} en {esComboBarrioPermitido(s.slug, municipio.slug, barrio.slug) ? barrio.nombre : municipio.nombre}
                   </a>
                 </li>
               ))}

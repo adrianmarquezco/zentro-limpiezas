@@ -162,7 +162,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Limpeza de apartamentos turísticos',
     icono: 'bed',
     precioDesde: null,
-    precioSchema: '60',
+    precioSchema: '45',
     descripcionCorta: 'Limpieza entre huéspedes de alojamientos turísticos y Airbnb. Rápida y completa.',
     descripcion: 'La limpieza de apartamentos turísticos y alojamientos Airbnb tiene una exigencia que no tiene la limpieza doméstica habitual: el siguiente huésped entra pocas horas después del check-out, el tiempo disponible es ajustado y el estado del apartamento condiciona directamente la valoración y las reservas futuras. En Zentro Limpiezas trabajamos con propietarios y gestores de toda la costa de Ferrolterra y el área metropolitana de A Coruña con un protocolo de rotación estandarizado.\n\nEl servicio incluye limpieza completa de baños y cocina, ventilación del espacio, cambio de ropa de cama y toallas si el propietario las deja preparadas, comprobación visual de consumibles (jabón, papel, bolsas) y aviso por WhatsApp con foto ante cualquier desperfecto detectado. Coordinamos los horarios directamente con el propietario o gestor para garantizar que el apartamento esté listo antes del check-in marcado.',
     faqsServicio: [

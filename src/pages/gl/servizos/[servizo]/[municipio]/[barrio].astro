@@ -209,7 +209,7 @@ const h1 = `${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nom
             </div>
             <div class="space-y-4 text-mid leading-relaxed">
               <p>
-                Zentro Limpiezas ofrece servizos de limpeza profesional en Ferrolterra, con máis de 20 anos de experiencia no sector. Traballamos en {barrio.nombre} e en todo {municipio.nombreGL} con equipo propio, sen subcontratacións. Sempre o mesmo equipo en cada visita: así coñecen o teu inmoble e saben onde se acumula máis sucidade sen que teñas que repetir instrucións.
+                O equipo de Zentro Limpiezas leva máis de 20 anos de experiencia traballando no sector en Ferrolterra. Traballamos en {barrio.nombre} e en todo {municipio.nombreGL} con equipo propio, sen subcontratacións. Sempre o mesmo equipo en cada visita: así coñecen o teu inmoble e saben onde se acumula máis sucidade sen que teñas que repetir instrucións.
               </p>
               <p>
                 Se buscas un servizo de {servicio.nombreGL.toLowerCase()} en {barrio.nombre} con orzamento fixo e sen letra pequena, somos o que buscas. O prezo que che damos é o prezo final. Se ao rematar atopas algo que non está ben, volvemos sen custo adicional.
@@ -273,7 +273,7 @@ const h1 = `${servicio.nombreGL} en ${withMunicipio(barrio.nombre, municipio.nom
                 {servizosIrmans.map(sv => (
                   <li>
                     <a href={hrefServicioBarrio(sv, municipio.slug, barrio.slug, 'gl')} class="text-sm text-mid hover:text-primary hover:underline transition-colors">
-                      → {sv.nombreGL} en {barrio.nombre}
+                      → {sv.nombreGL} en {esComboBarrioPermitido(sv.slug, municipio.slug, barrio.slug) ? barrio.nombre : municipio.nombreGL}
                     </a>
                   </li>
                 ))}
