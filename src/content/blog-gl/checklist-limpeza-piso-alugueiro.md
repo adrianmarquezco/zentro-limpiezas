@@ -1,7 +1,7 @@
 ---
 title: "Checklist de limpeza para piso de alugueiro: entrega e recepción"
 description: "Lista de tarefas para deixar un piso de alugueiro impecable ao rematar o contrato. Evita retencións de fianza e conflitos co propietario."
-image: '/images/blog/checklist-limpieza-piso-alquiler.webp'
+image: '/images/blog/content-checklist-limpieza-piso-alquiler.webp'
 datePublished: "2026-05-25"
 dateModified: "2026-05-31"
 category: "consejos"
