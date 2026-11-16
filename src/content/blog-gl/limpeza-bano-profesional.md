@@ -18,7 +18,7 @@ faqs:
     a: "Para prevención: unha vez ao mes en zonas de auga dura. Para eliminar sarro xa formado: cando o vexas. O sarro fresco elimínase en minutos; o acumulado durante meses require máis tempo de actuación do produto."
 ---
 
-O baño é a estancia do fogar onde a diferenza entre "limpo" e "limpo de verdade" é máis evidente. O sarro, a cal, o xabón incrustado e a humidade acumulada non desaparecen só con pasar un pano húmido. Necesitan técnica, o produto axeitado e a orde correcta.
+O baño é a estancia do [fogar](/gl/servizos/limpeza-de-vivendas/) onde a diferenza entre "limpo" e "limpo de verdade" é máis evidente. O sarro, a cal, o xabón incrustado e a humidade acumulada non desaparecen só con pasar un pano húmido. Necesitan técnica, o produto axeitado e a orde correcta.
 
 ![Billa de baño sen cal tras unha limpeza antical](/images/blog/content-eliminar-sarro-cal-bano.webp)
 
@@ -85,7 +85,7 @@ Esta é a pregunta que máis nos fan. A resposta é si. Os produtos ecolóxicos 
 
 A diferenza coa química convencional é que non conteñen compostos orgánicos volátiles nin cloro en concentracións agresivas. Resultado: o baño queda limpo e desinfectado sen ese cheiro químico forte que permanece durante horas.
 
-En Zentro Limpiezas usamos produtos ecolóxicos certificados en todos os nosos servizos de limpeza de baños. Incluídos no prezo.
+En Zentro Limpiezas usamos produtos ecolóxicos certificados en todos os nosos [servizos de limpeza a fondo de baños](/gl/servizos/limpeza-a-fondo/). Incluídos no prezo.
 
 ## Con que frecuencia hai que limpar o baño en profundidade?
 
@@ -97,4 +97,4 @@ Se notas que o sarro se forma moi rapidamente na túa zona, podes instalar un fi
 
 ---
 
-Se necesitas que un equipo profesional se encargue da limpeza do teu baño en Ferrolterra ou A Coruña, [pídenos orzamento](/gl/orzamento/).
+Se necesitas que un equipo profesional se encargue da [limpeza a fondo do teu baño en Ferrol](/gl/servizos/limpeza-a-fondo/ferrol/) ou [A Coruña](/gl/servizos/limpeza-a-fondo/a-coruna/), [pídenos orzamento](/gl/orzamento/).

@@ -117,7 +117,7 @@ O custo do servizo trasládalo ao hóspede como "gastos de limpeza" na reserva. 
 | 2 habitacións | 65–85 € |
 | 3 habitacións | 80–110 € |
 
-Zentro Limpiezas traballa con anfitrións de apartamentos turísticos en A Coruña, Ferrol, Sada, Oleiros e toda a comarca costeira. Adaptámonos ao teu calendario de reservas. [Pídenos orzamento](/gl/orzamento/).
+Zentro Limpiezas traballa facendo [limpeza de apartamentos turísticos](/gl/servizos/limpeza-de-apartamentos/) para anfitrións en A Coruña, Ferrol, Sada, Oleiros e toda a comarca costeira. Adaptámonos ao teu calendario de reservas. [Pídenos orzamento](/gl/orzamento/).
 
 ---
 

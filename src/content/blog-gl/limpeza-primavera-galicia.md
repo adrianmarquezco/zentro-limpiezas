@@ -23,7 +23,7 @@ En Galicia, a limpeza de primavera ten un compoñente extra que non aparece nas 
 
 ## Primeiro: a revisión de humidade
 
-Antes de poñerse a limpar, hai que revisar o estado das superficies que máis sofren coa humidade invernal:
+Antes de poñerse a limpar —ou de que un equipo de [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) o faga por ti—, hai que revisar o estado das superficies que máis sofren coa humidade invernal:
 
 **Xanelas e marcos**: hai manchas negras de mofo na goma do sellado ou nas esquinas do marco?
 
@@ -56,4 +56,4 @@ En Galicia, con días de chuvia e frío durante meses, a tendencia é a ventilar
 - Roupa de cama: mantas, edredóns e fundas de almofada
 - Balcóns e terrazas
 
-Se a idea de facer todo isto só se fai cuesta arriba, en Zentro Limpiezas facemos limpezas a fondo de primavera en Ferrol, A Coruña e toda a comarca. Solicita o teu orzamento sen compromiso.
+Se a idea de facer todo isto só se fai cuesta arriba, en Zentro Limpiezas facemos [limpezas a fondo de primavera en Ferrol](/gl/servizos/limpeza-a-fondo/ferrol/), [A Coruña](/gl/servizos/limpeza-a-fondo/a-coruna/) e toda a comarca. [Solicita o teu orzamento](/gl/orzamento/) sen compromiso.

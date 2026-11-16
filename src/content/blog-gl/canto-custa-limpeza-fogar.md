@@ -56,11 +56,11 @@ Non existe un prezo único para a limpeza dun piso porque cada traballo é difer
 | 90–120 m² (4-5 hab.) | dende 80 € |
 | Chalé ou unifamiliar | orzamento personalizado |
 
-Estes prezos son para limpeza de mantemento con frecuencia semanal ou quincenal. Con frecuencia mensual, o prezo por visita pode ser lixeiramente superior (entre un 10 e un 15% máis).
+Estes prezos son para [limpeza periódica](/gl/servizos/limpeza-periodica/) de mantemento con frecuencia semanal ou quincenal. Con frecuencia mensual, o prezo por visita pode ser lixeiramente superior (entre un 10 e un 15% máis).
 
 ### Limpeza a fondo ou limpeza de inicio
 
-O prezo dunha limpeza a fondo parte **desde 80 €** e depende dos metros, do número de baños e do estado da vivenda. Para vivendas de máis de 120 m² ou chalés, orzamento personalizado.
+O prezo dunha [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) parte **desde 80 €** e depende dos metros, do número de baños e do estado da vivenda. Para vivendas de máis de 120 m² ou chalés, orzamento personalizado.
 
 A limpeza a fondo inclúe zonas que o mantemento regular non cobre: dentro de armarios, electrodomésticos, persianas, partes traseiras de mobles, cristais.
 
@@ -75,10 +75,10 @@ A limpeza a fondo inclúe zonas que o mantemento regular non cobre: dentro de ar
 
 ### Outros servizos
 
-- **Limpeza de oficinas**: dende 80 € (depende do tamaño e a frecuencia)
-- **Limpeza de comunidades**: dende 60 € ao mes (segundo edificio e frecuencia)
-- **Limpeza de apartamentos turísticos**: dende 40 € por rotación
-- **Limpeza de cristais**: dende 30 € (interior ou exterior)
+- **[Limpeza de oficinas](/gl/servizos/limpeza-de-oficinas/)**: dende 80 € (depende do tamaño e a frecuencia)
+- **[Limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/)**: dende 60 € ao mes (segundo edificio e frecuencia)
+- **[Limpeza de apartamentos turísticos](/gl/servizos/limpeza-de-apartamentos/)**: dende 40 € por rotación
+- **[Limpeza de cristais](/gl/servizos/limpeza-de-cristais/)**: dende 30 € (interior ou exterior)
 
 ## Están incluídos os produtos ecolóxicos?
 

@@ -17,7 +17,7 @@ faqs:
     a: "Para pisos con máis de 2-3 meses sen limpeza profesional, pisos post-verán, ou vivendas que estiveron pechadas, si. A diferenza en resultado é notable sobre todo en baños, cociña e solos, onde a cal, a graxa e a suciidade incrustada requiren produtos e técnica específicos."
 ---
 
-Limpar a casa a fondo unha ou dúas veces ao ano é unha desas tarefas que todo o mundo apaza pero que marca unha diferenza enorme no aspecto e no ambiente do fogar. Non é só quitar o po: trátase de chegar aos recunchos que o mantemento semanal non cobre.
+Limpar a casa a fondo unha ou dúas veces ao ano é unha desas tarefas que todo o mundo apaza pero que marca unha diferenza enorme no aspecto e no ambiente do fogar. Non é só quitar o po: trátase de chegar aos recunchos que o mantemento semanal non cobre, e que é precisamente o obxectivo da nosa [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) profesional.
 
 ![Aspirado dunha alfombra durante unha limpeza a fondo do piso](/images/blog/content-como-limpiar-el-piso-a-fondo.webp)
 
@@ -55,14 +55,14 @@ Os filtros da campá extractora, a parte superior do forno ou o interior do micr
 
 ### Baño a fondo
 
-Os produtos de limpeza ecolóxicos baseados en ácido cítrico son igual de eficaces que os convencionais para eliminar o sarro, sen os vapores agresivos.
+Os produtos de limpeza ecolóxicos baseados en ácido cítrico son igual de eficaces que os convencionais para eliminar o sarro, sen os vapores agresivos — o mesmo criterio que aplicamos cando facemos unha [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) de baños completos.
 
 ## Produtos ecolóxicos: igual de eficaces
 
-En Zentro Limpiezas, o equipo leva máis de 20 anos traballando exclusivamente con produtos ecolóxicos certificados. Os tres básicos para unha limpeza a fondo:
+En Zentro Limpiezas, o equipo que presta o servizo de [limpeza de vivendas](/gl/servizos/limpeza-de-vivendas/) leva máis de 20 anos traballando exclusivamente con produtos ecolóxicos certificados. Os tres básicos para unha limpeza a fondo:
 
 1. **Bicarbonato sódico**: abrasivo suave, desodorizante, ideal para refregar superficies
 2. **Vinagre branco diluído**: antical e desinfectante suave
 3. **Xabón de Castela concentrado**: limpador multiusos para chans, mobles e superficies
 
-Se precisas axuda profesional, en Zentro Limpiezas facemos limpezas a fondo en Ferrol, A Coruña e toda a comarca. Pídenos orzamento sen compromiso.
+Se precisas axuda profesional, en Zentro Limpiezas facemos [limpezas a fondo en Ferrol](/gl/servizos/limpeza-a-fondo/ferrol/), [A Coruña](/gl/servizos/limpeza-a-fondo/a-coruna/) e toda a comarca. [Pídenos orzamento](/gl/orzamento/) sen compromiso.

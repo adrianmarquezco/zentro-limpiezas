@@ -111,4 +111,4 @@ Si, nos nosos contratos de comunidade incluímos o ascensor: solo, paredes inter
 
 ---
 
-Para contratar o [servizo de limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/) en Ferrol, Narón, A Coruña e toda a comarca, facemos orzamento personalizado sen compromiso. [Contáctanos](/gl/contacto/).
+Para contratar o [servizo de limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/) en Ferrol, Narón, A Coruña e toda a comarca, facemos [orzamento personalizado](/gl/orzamento/) sen compromiso. [Contáctanos](/gl/contacto/).
