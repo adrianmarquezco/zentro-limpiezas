@@ -1,6 +1,6 @@
 ﻿---
 title: "Limpieza del hogar con mascotas: trucos y productos seguros"
-description: "Cómo mantener el hogar limpio cuando tienes perros o gatos. Eliminar pelo, olores y manchas con productos seguros para animales. Rutinas eficaces."
+description: "Los productos con fenol, amoníaco o aceites de pino concentrados pueden ser peligrosos para perros y gatos, que son especialmente sensibles porque se lamen las patas. Esta guía da trucos y rutinas seguras para eliminar pelo, olores y manchas de mascotas sin recurrir a esos productos de riesgo."
 image: '/images/blog/limpieza-hogar-con-mascotas.webp'
 datePublished: "2026-01-15"
 dateModified: "2026-08-26"

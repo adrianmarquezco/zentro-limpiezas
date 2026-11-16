@@ -1,6 +1,6 @@
 ﻿---
 title: "Como limpar a casa a fondo: guía completa paso a paso"
-description: "Aprende a limpar a túa casa de arriba a abaixo de maneira eficiente e con produtos ecolóxicos. Orde, técnica e trucos profesionais para un resultado impecable."
+description: "Unha vivenda de 80 m² leva entre 3 e 5 horas con dúas persoas limpando a fondo, ou o dobre en solitario. Esta guía explica a orde correcta -de arriba a abaixo e de dentro a fóra-, que deixar actuar antes de frotar e que produtos ecolóxicos igualan o resultado dos convencionais."
 image: '/images/blog/como-limpiar-el-piso-a-fondo.webp'
 datePublished: "2025-01-15"
 tags: ["limpeza vivenda", "consellos", "limpeza a fondo"]

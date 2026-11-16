@@ -1,6 +1,6 @@
 ﻿---
 title: "Limpeza de fin de obra: que é, canto custa e cando facela"
-description: "Todo o que precisas saber sobre a limpeza post-obra en Galicia. Fases do proceso, materiais especializados, canto tempo leva e cando contratar profesionais."
+description: "Unha limpeza de fin de obra dun piso de 80 m² con reforma integral leva entre 4 e 8 horas cun equipo de 2-3 persoas, e require maquinaria como a aspiradora HEPA. Esta guía explica as fases do proceso, os materiais especializados e cando convén contratar profesionais."
 image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
 faqs:

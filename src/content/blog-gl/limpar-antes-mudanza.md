@@ -1,6 +1,6 @@
 ---
 title: "Como limpar o piso antes e despois dunha mudanza"
-description: "Guía práctica para limpar unha vivenda antes de mudarte ou ao deixar un piso de aluguer. Que facer para recuperar a fianza e como organizalo sen estrés."
+description: "Unha limpeza de mudanza para un piso de 70-90 m² custa orientativamente entre 120€ e 200€, normalmente menos que a fianza que se pode perder por un mal estado. Esta guía explica que limpar ao deixar o piso, que facer ao entrar nun novo, e como organizalo sen estrés."
 image: '/images/blog/limpiar-antes-mudanza.webp'
 datePublished: "2025-03-15"
 dateModified: "2026-05-31"

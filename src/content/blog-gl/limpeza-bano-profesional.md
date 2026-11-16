@@ -1,6 +1,6 @@
 ---
 title: "Como limpar o baño a fondo: técnica profesional paso a paso"
-description: "Guía de limpeza profesional do baño: orde correcta, produtos para cada superficie, como eliminar sarro e cal, e como mantelo limpo máis tempo."
+description: "O vinagre branco e o ácido cítrico disolven o sarro de grifos, duchas e azulexos sen necesidade de produtos químicos agresivos. Esta guía explica a orde correcta para limpar o baño a fondo, que produto usar en cada superficie e como mantelo limpo máis tempo."
 image: '/images/blog/eliminar-sarro-cal-bano.webp'
 datePublished: "2026-04-15"
 dateModified: "2026-05-31"

@@ -1,6 +1,6 @@
 ﻿---
 title: "Limpieza de fin de obra: qué es, cuánto cuesta y cuándo hacerla"
-description: "Todo lo que necesitas saber sobre la limpieza post-obra: fases del proceso, materiales especializados, cuánto tiempo lleva y cuándo contratar profesionales."
+description: "Una limpieza fin de obra de un piso de 80 m² con reforma integral lleva entre 4 y 8 horas con un equipo de 2-3 personas, y requiere maquinaria como la aspiradora HEPA. Esta guía explica las fases del proceso, los materiales especializados y cuándo conviene contratar profesionales."
 image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
 dateModified: "2026-10-07"

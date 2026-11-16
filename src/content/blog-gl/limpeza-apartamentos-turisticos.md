@@ -1,6 +1,6 @@
 ---
 title: "Limpeza de apartamentos turísticos e Airbnb: guía do anfitrión"
-description: "Como xestionar a limpeza entre hóspedes no teu apartamento turístico. Checklist completo, tempos, prezos e cando contratar un servizo profesional."
+description: "Entre un check-out ás 11h e un check-in ás 15-16h adoita haber entre 3 e 5 horas para limpar o apartamento, cun custo orientativo de 50€ a 80€ nun estudo. Esta guía cobre checklist, tempos e cando convén contratar un servizo profesional para o teu Airbnb."
 image: '/images/blog/limpieza-apartamentos-turisticos-airbnb.webp'
 datePublished: "2025-05-05"
 dateModified: "2026-09-30"

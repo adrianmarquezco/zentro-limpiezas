@@ -1,6 +1,6 @@
 ---
 title: "Limpeza fin de obra: preguntas frecuentes respondidas"
-description: "Todo o que necesitas saber antes de contratar unha limpeza post-reforma ou fin de obra. Que inclúe, canto custa, cando contratar e que esperar do resultado."
+description: "Unha limpeza de fin de obra custa entre 150€ e 250€ en reformas parciais, e entre 300€ e 600€ en obras completas de piso, segundo o estado e os metros. Esta guía responde as preguntas máis frecuentes: que inclúe, cando contratala, se se factura con IVE e que esperar do resultado."
 image: '/images/blog/limpieza-fin-de-obra-preguntas-frecuentes.webp'
 datePublished: "2026-05-20"
 dateModified: "2026-05-31"

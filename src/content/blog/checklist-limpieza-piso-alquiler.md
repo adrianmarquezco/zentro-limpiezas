@@ -1,6 +1,6 @@
 ---
 title: "Checklist de limpieza para piso de alquiler: entrega y recepción"
-description: "Lista de tareas para dejar un piso de alquiler impecable al acabar el contrato. Evita retenciones de fianza y conflictos con el propietario."
+description: "Una limpieza profesional antes de entregar las llaves cuesta entre 80€ y 200€ según el tamaño del piso, normalmente menos que la fianza que puede perderse. Esta checklist cubre cocina, baños, armarios y cristales, zona por zona, para entregar el piso sin dar pie a retenciones ni discusiones con el propietario."
 image: '/images/blog/content-checklist-limpieza-piso-alquiler.webp'
 datePublished: "2026-05-25"
 dateModified: "2026-05-31"

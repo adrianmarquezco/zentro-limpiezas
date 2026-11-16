@@ -1,6 +1,6 @@
 ---
 title: "Limpeza de oficinas e empresas en Galicia: claves para elixir ben"
-description: "Como xestionar a limpeza dunha oficina ou empresa de xeito eficiente. Frecuencias, que incluír no contrato e por que o servizo profesional sae máis rendible."
+description: "Unha oficina de 50-100 m² con limpeza 3 veces por semana custa orientativamente entre 200€ e 400€ ao mes en Ferrol ou A Coruña. Esta guía explica con que frecuencia convén limpar segundo o tamaño do equipo, que incluír no contrato e por que o servizo externo sae máis rendible."
 image: '/images/blog/limpieza-oficinas-empresas-galicia.webp'
 datePublished: "2025-04-02"
 dateModified: "2026-05-31"
