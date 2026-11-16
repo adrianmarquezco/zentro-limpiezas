@@ -45,16 +45,16 @@ Cada limpieza es diferente porque cada hogar es diferente. Los factores principa
 
 ## Rangos orientativos de precio en Galicia 2026
 
+Estas cifras te dan una idea de rango por tipo de servicio. Para la tabla de precios completa y siempre actualizada de vivienda, oficina y local, consulta nuestra [página de precios](/precios/): es la referencia que mantenemos al día.
+
 ### Limpieza de vivienda puntual
 
-La limpieza de mantenimiento estándar —suelos, baños, cocina, superficies— sin llegar a zonas profundas:
+La limpieza de mantenimiento estándar —suelos, baños, cocina, superficies— sin llegar a zonas profundas, va desde los 55 € de un piso pequeño hasta presupuesto personalizado en viviendas grandes. La tabla completa con todos los tramos de tamaño está en nuestra [página de precios](/precios/); aquí tienes solo una referencia rápida:
 
 | Tamaño vivienda | Precio orientativo |
 |----------------|-------------------|
 | Hasta 60 m² | 55–70 € |
-| 60–90 m² | 70–100 € |
 | 90–120 m² | 100–140 € |
-| 120–200 m² | 140–200 € |
 | Más de 200 m² | Consultar presupuesto |
 
 Estos precios incluyen mano de obra, desplazamiento y **todos los productos de limpieza ecológicos** sin cargo adicional.
@@ -145,24 +145,28 @@ En Zentro Limpiezas usamos exclusivamente productos con certificación Ecolabel 
 
 Los productos ecológicos concentrados se usan en menores cantidades que los convencionales. El coste por servicio es prácticamente idéntico, pero el resultado para tu hogar y para el medio ambiente es completamente diferente: sin vapores tóxicos, seguros para niños y mascotas, biodegradables.
 
-## Diferencias de precio entre empresas: qué explica la variación
+## Diferencias de precio entre empresas: cómo detectar un precio sospechosamente bajo
 
-Cuando comparas presupuestos de diferentes empresas, las diferencias suelen explicarse por:
+Cuando comparas presupuestos de diferentes empresas y uno destaca muy por debajo del resto, merece la pena preguntarse por qué. Las diferencias de precio casi nunca son "mejor gestión" o un descuento sin más: suelen explicarse por factores muy concretos.
 
-**Empresas con precio muy bajo (señales de alerta):**
+**Señales de un precio sospechosamente bajo:**
 - Personal sin contrato (sin garantías para ti ni para ellos)
-- Sin seguro de responsabilidad civil
-- Productos de baja calidad o genéricos
-- Sin material profesional (vienen con la mínima herramienta)
-- Alta rotación de personal
+- Sin seguro de responsabilidad civil que cubra posibles daños durante el servicio
+- Productos de limpieza genéricos, sin ninguna certificación
+- Sin material profesional propio (vienen con la mínima herramienta)
+- Alta rotación de personal: cada vez te atiende gente distinta
+- No preguntan nada sobre el tamaño, el estado o las necesidades del espacio antes de dar un precio cerrado
+- Piden el pago completo por adelantado, antes de prestar el servicio
+- No dan el presupuesto por escrito ni detallan qué incluye exactamente
 
-**Empresas con precio estándar del mercado:**
+**Qué cabe esperar de una empresa con precio ajustado al mercado:**
 - Personal con contrato y formación
 - Seguro de responsabilidad civil vigente
-- Material y productos de calidad
-- Estabilidad del equipo
+- Material y productos de calidad conocida
+- Estabilidad del equipo: las mismas personas en cada visita
+- Un presupuesto que detalla qué incluye el precio y qué no
 
-La diferencia entre el precio más barato y el estándar del mercado rara vez merece la pena cuando se mide en términos de resultado, confianza y garantías.
+La diferencia entre el precio más barato y el estándar del mercado rara vez merece la pena cuando se mide en términos de resultado, confianza y garantías. Si un presupuesto te parece demasiado bajo, compáralo con los rangos de nuestra [página de precios](/precios/) para ver si encaja con lo habitual en la zona.
 
 ## ¿Cuánto me costaría hacerlo yo mismo?
 
