@@ -1,6 +1,6 @@
 ---
 title: "Humidade e mofo na casa: como eliminalo ben"
-description: "Por que aparece o mofo nas casas de Ferrolterra, como eliminalo ben e cando a limpeza non abonda. Guía práctica con orzamento en 24h."
+description: "O clima atlántico de Ferrolterra, con choivas frecuentes e vivendas antigas con pouca ventilación, favorece a aparición de mofo sobre todo en baños, cociñas e armarios de paredes exteriores. Esta guía explica como eliminalo ben, cando abonda a limpeza a fondo e cando fai falta desinfección profesional."
 image: '/images/blog/humedad-moho-en-casa.webp'
 datePublished: "2026-08-25"
 dateModified: "2026-08-25"

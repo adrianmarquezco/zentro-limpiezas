@@ -1,6 +1,6 @@
 ﻿---
 title: "Limpeza de primavera: guía galega para a posta a punto"
-description: "A gran limpeza de primavera adaptada ao fogar galego. Humidade, mofo, ventilación e as zonas críticas que hai que revisar despois do inverno en Galicia."
+description: "O inverno húmido de Galicia favorece o mofo en recunchos pouco iluminados e a condensación nas fiestras, polo que a limpeza de primavera é tamén unha revisión de danos. Esta guía detalla as zonas críticas a revisar, os mellores antifúngicos ecolóxicos e canto tempo leva facela a fondo."
 image: '/images/blog/limpieza-primavera-galicia.webp'
 datePublished: "2025-03-20"
 faqs:

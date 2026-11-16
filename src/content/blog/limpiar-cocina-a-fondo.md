@@ -1,6 +1,6 @@
 ﻿---
 title: "Cómo limpiar la cocina a fondo: el método paso a paso"
-description: "Guía para hacer una limpieza profunda de la cocina: encimera, horno, campana, frigorífico, armarios y suelos. Con productos ecológicos y técnica profesional."
+description: "Una cocina mediana de 10-15 m² lleva entre 2 y 4 horas de limpieza a fondo con una sola persona, o la mitad con dos. Esta guía detalla el método paso a paso: encimera, horno, campana, frigorífico y armarios, con productos ecológicos y el orden que usan los profesionales."
 image: '/images/blog/limpiar-cocina-a-fondo.webp'
 datePublished: "2026-03-05"
 dateModified: "2026-05-31"

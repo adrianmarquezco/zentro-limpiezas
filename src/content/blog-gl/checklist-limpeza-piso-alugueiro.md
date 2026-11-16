@@ -1,6 +1,6 @@
 ---
 title: "Checklist de limpeza para piso de alugueiro: entrega e recepción"
-description: "Lista de tarefas para deixar un piso de alugueiro impecable ao rematar o contrato. Evita retencións de fianza e conflitos co propietario."
+description: "Unha limpeza profesional antes de entregar as chaves custa entre 80€ e 200€ segundo o tamaño do piso, normalmente menos que a fianza que se pode perder. Esta checklist cobre cociña, baños, armarios e cristais, zona por zona, para entregar o piso sen dar pé a retencións nin discusións co propietario."
 image: '/images/blog/content-checklist-limpieza-piso-alquiler.webp'
 datePublished: "2026-05-25"
 dateModified: "2026-05-31"
