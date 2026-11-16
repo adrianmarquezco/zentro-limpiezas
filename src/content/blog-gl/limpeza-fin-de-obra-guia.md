@@ -19,7 +19,7 @@ slugEs: "limpieza-fin-de-obra-guia"
 
 Acabas de rematar unha reforma. Ou mudácheste a unha obra nova. O espazo ten a estrutura que querías, pero está cuberto de po fino de escaiola, restos de silicona, manchas de pintura e sucidade acumulada en todos os ángulos. A limpeza de fin de obra non é a mesma que unha limpeza doméstica normal.
 
-![Aspirador industrial nun piso recén reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
+![Aspiración de po de obra nun piso recén reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
 
 ## Que inclúe unha limpeza de fin de obra
 
@@ -29,7 +29,7 @@ Antes de limpar, hai que retirar o que queda da obra: sacos de cemento baleiros,
 
 ### Fase 2: Limpeza profunda de po de obra
 
-O po de escaiola e cemento é moi fino e penetra en absolutamente todo. Necesítase maquinaria específica (aspiradoras industriais de alta capacidade con filtros HEPA).
+O po de escaiola e cemento é moi fino e penetra en absolutamente todo. Necesítase aspiración de alta capacidade, pensada para este tipo de po fino: unha aspiradora doméstica convencional satúrase en poucas horas co po de obra.
 
 ### Fase 3: Limpeza e repaso de acabados
 
@@ -43,6 +43,6 @@ O po de escaiola e cemento é moi fino e penetra en absolutamente todo. Necesít
 
 O momento axeitado é cando todos os gremios remataron e, a ser posible, antes de instalar os mobles, deixando 24-48h para que o po en suspensión se deposite.
 
-A limpeza de fin de obra require equipamento que a distingue claramente dunha limpeza doméstica: aspiradora industrial con filtro HEPA, mopas específicas para po fino, rascadores para restos de pintura.
+A limpeza de fin de obra require equipamento que a distingue claramente dunha limpeza doméstica: aspiración de alta capacidade, mopas específicas para po fino, rascadores para restos de pintura.
 
 En Zentro Limpiezas facemos limpezas de fin de obra en Ferrol, A Coruña e toda a comarca. Pídenos orzamento personalizado e gratuíto.

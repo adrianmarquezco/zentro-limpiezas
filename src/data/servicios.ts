@@ -312,7 +312,7 @@ export const SERVICIOS: Servicio[] = [
     nombreGL: 'Desinfección profesional',
     icono: 'shield',
     precioDesde: null,
-    descripcionCorta: 'Desinfección avanzada con biocidas certificados. Para viviendas, locales comerciales y oficinas.',
+    descripcionCorta: 'Desinfección profesional de superficies. Para viviendas, locales comerciales y oficinas.',
     tier: 3,
     municipiosCombo: ['ferrol', 'a-coruna', 'naron'],
   },
