@@ -1,6 +1,6 @@
 ---
 title: "Limpieza de choque, profunda o a fondo: qué es y cuánto cuesta"
-description: "Limpieza de choque, profunda o a fondo: es el mismo servicio. Qué incluye, cuándo hace falta y cuánto cuesta en Ferrol y A Coruña. Presupuesto en 24 h."
+description: "Limpieza de choque, limpieza profunda y limpieza a fondo son, en la práctica, el mismo servicio, con precio desde 80€ según metros y estado. Esta guía explica qué incluye, cuándo hace falta -tras mudanza, meses cerrada o más de 6 meses sin limpieza profesional- y cuánto tarda en Ferrol y A Coruña."
 image: '/images/blog/como-limpiar-el-piso-a-fondo.webp'
 datePublished: "2026-10-07"
 dateModified: "2026-10-07"

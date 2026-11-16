@@ -1,6 +1,6 @@
 ---
 title: "Canto custa unha limpeza do fogar en Galicia? Prezos 2026"
-description: "Guía completa de prezos de servizos de limpeza doméstica en Galicia. Dende 55€ o piso. Que factores determinan o custo e como conseguir o mellor orzamento."
+description: "Desde 55€ comeza a limpeza dun piso en Galicia, aínda que o prezo final depende do tamaño, o estado e a frecuencia elixida. Esta guía detalla os rangos orientativos para vivenda, fin de obra e servizo periódico, e que factores concretos fan que o orzamento suba ou baixe."
 image: '/images/blog/cuanto-cuesta-limpieza-hogar.webp'
 datePublished: "2026-04-05"
 dateModified: "2026-05-31"
@@ -56,11 +56,11 @@ Non existe un prezo único para a limpeza dun piso porque cada traballo é difer
 | 90–120 m² (4-5 hab.) | dende 80 € |
 | Chalé ou unifamiliar | orzamento personalizado |
 
-Estes prezos son para limpeza de mantemento con frecuencia semanal ou quincenal. Con frecuencia mensual, o prezo por visita pode ser lixeiramente superior (entre un 10 e un 15% máis).
+Estes prezos son para [limpeza periódica](/gl/servizos/limpeza-periodica/) de mantemento con frecuencia semanal ou quincenal. Con frecuencia mensual, o prezo por visita pode ser lixeiramente superior (entre un 10 e un 15% máis).
 
 ### Limpeza a fondo ou limpeza de inicio
 
-O prezo dunha limpeza a fondo parte **desde 80 €** e depende dos metros, do número de baños e do estado da vivenda. Para vivendas de máis de 120 m² ou chalés, orzamento personalizado.
+O prezo dunha [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) parte **desde 80 €** e depende dos metros, do número de baños e do estado da vivenda. Para vivendas de máis de 120 m² ou chalés, orzamento personalizado.
 
 A limpeza a fondo inclúe zonas que o mantemento regular non cobre: dentro de armarios, electrodomésticos, persianas, partes traseiras de mobles, cristais.
 
@@ -75,10 +75,10 @@ A limpeza a fondo inclúe zonas que o mantemento regular non cobre: dentro de ar
 
 ### Outros servizos
 
-- **Limpeza de oficinas**: dende 80 € (depende do tamaño e a frecuencia)
-- **Limpeza de comunidades**: dende 60 € ao mes (segundo edificio e frecuencia)
-- **Limpeza de apartamentos turísticos**: dende 40 € por rotación
-- **Limpeza de cristais**: dende 30 € (interior ou exterior)
+- **[Limpeza de oficinas](/gl/servizos/limpeza-de-oficinas/)**: dende 80 € (depende do tamaño e a frecuencia)
+- **[Limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/)**: dende 60 € ao mes (segundo edificio e frecuencia)
+- **[Limpeza de apartamentos turísticos](/gl/servizos/limpeza-de-apartamentos/)**: dende 40 € por rotación
+- **[Limpeza de cristais](/gl/servizos/limpeza-de-cristais/)**: dende 30 € (interior ou exterior)
 
 ## Están incluídos os produtos ecolóxicos?
 

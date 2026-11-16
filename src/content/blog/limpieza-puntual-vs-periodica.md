@@ -1,6 +1,6 @@
 ---
 title: "Limpieza puntual vs periódica: ¿cuál necesitas?"
-description: "Diferencias entre contratar una limpieza puntual y un servicio periódico. Ventajas, precios y en qué casos conviene cada opción para tu hogar u oficina."
+description: "La limpieza periódica suele ser entre un 15% y un 25% más económica por visita que la puntual, porque el equipo ya conoce el espacio. Esta guía explica cuándo conviene cada opción, cómo pasar de una puntual a un servicio regular, y qué frecuencia es la más habitual para hogares y oficinas."
 image: '/images/blog/limpieza-puntual-vs-periodica.webp'
 datePublished: "2026-05-15"
 dateModified: "2026-05-31"

@@ -49,6 +49,30 @@ const municipiosConCombo = servicio.municipiosCombo
 
 const waUrl = buildWhatsAppUrl(WA_MESSAGES.servicio(servicio.nombreGL, 'gl'));
 
+// Tradución ao galego da descripcionCorta (que está en castelán), só para o bloque speakable.
+// Mesmos feitos que descripcionCorta, sen inventar datos novos.
+const DESCRIPCION_CORTA_GL: Record<string, string> = {
+  'limpieza-de-viviendas': 'Limpeza de casas, chalés e vivendas unifamiliares. Puntual ou periódica.',
+  'limpieza-de-pisos': 'Limpeza profesional de pisos en bloque. Puntual ou periódica.',
+  'limpieza-de-oficinas': 'Limpeza de oficinas, despachos e espazos de traballo. Horario adaptable.',
+  'limpieza-de-locales-comerciales': 'Limpeza de tendas, bares, restaurantes e comercios. Fóra do horario de apertura.',
+  'limpieza-de-comunidades': 'Limpeza de portais, zonas comúns, garaxes e ascensores. Contrato periódico.',
+  'limpieza-a-fondo': 'Limpeza profunda ocasional. Ideal para mudanzas, post-verán ou gran limpeza anual.',
+  'limpieza-fin-de-obra': 'Limpeza de obra tras construción nova ou reforma. Po, residuos e acabado final.',
+  'limpieza-de-apartamentos-turisticos': 'Limpeza entre hóspedes de aloxamentos turísticos e Airbnb. Rápida e completa.',
+  'limpieza-periodica': 'Servizo regular semanal, quincenal ou mensual. Mesmo equipo sempre.',
+  'limpieza-por-horas': 'Limpeza por horas para vivendas, oficinas e locais. Mínimo 2 horas, ti eliges as tarefas.',
+  'limpieza-de-cristales': 'Fiestras, ventanais e escaparates a domicilio. Por dentro e por fóra, tamén en alturas.',
+  'limpieza-de-pazos-y-eventos': 'Preparación e post-evento de pazos, fincas e espazos para vodas e celebracións.',
+  'limpieza-de-garajes': 'Limpeza a fondo de garaxes particulares e zonas de aparcadoiro en comunidades.',
+  'limpieza-de-trasteros': 'Baleirado, organización e limpeza a fondo de trasteiros e almacéns.',
+  'desinfeccion-profesional': 'Desinfección avanzada con biocidas certificados. Para vivendas, locais comerciais e oficinas.',
+  'limpieza-de-mudanzas': 'Limpeza completa antes e despois dunha mudanza. Pisos entrantes e saíntes.',
+};
+const descricionCortaGL = DESCRIPCION_CORTA_GL[servicio.slug] ?? servicio.descripcionCorta;
+const clausePrezoGL = servicio.precioDesde ? `, con prezo orientativo desde ${servicio.precioDesde}` : '';
+const speakableIntroGL = `Si, facemos ${servicio.nombreGL.toLowerCase()} en Ferrol, A Coruña e máis de 29 concellos de Galicia${clausePrezoGL}. ${descricionCortaGL} Produtos ecolóxicos certificados incluídos sempre no prezo, coa experiencia de máis de 20 anos traballando en Galicia.`;
+
 const faqs = [
   {
     q: `Canto custa o servizo de ${servicio.nombreGL.toLowerCase()}?`,
@@ -142,13 +166,16 @@ const pasos = [
             </div>
             <div class="space-y-4 text-charcoal leading-relaxed">
               <p class="speakable-intro">
-                O servizo de {servicio.nombreGL.toLowerCase()} de Zentro Limpiezas está pensado para quen quere resultados reais, non só un espazo "presentable á primeira vista". O noso equipo leva máis de 20 anos traballando en Ferrol, A Coruña e en máis de 29 concellos de Galicia, co mesmo compromiso de calidade e co mesmo equipo de confianza en cada visita.
+                {speakableIntroGL}
+              </p>
+              <p>
+                O noso equipo leva máis de 20 anos traballando en Ferrol, A Coruña e en máis de 29 concellos de Galicia, co mesmo compromiso de calidade e co mesmo equipo de confianza en cada visita.
               </p>
               <p>
                 Todos os nosos servizos inclúen produtos de limpeza ecolóxicos con certificación Ecolabel europea, igual de eficaces que os convicionais pero seguros para a túa familia, os teus animais e o entorno. Non é un servizo premium nin un custo adicional: é o noso estándar, froito de anos traballando no sector e vendo os problemas que xeran os produtos químicos agresivos. Traemos todo o material necesario — non tes que ter nada preparado en casa.
               </p>
               <p>
-                {servicio.descripcionCorta} Se tes calquera dúbida sobre o servizo ou queres saber se nos adaptamos á túa situación concreta, chámanos ao <a href={BUSINESS.phoneHref} class="text-primary font-medium hover:text-accent transition-colors">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
+                Se tes calquera dúbida sobre o servizo ou queres saber se nos adaptamos á túa situación concreta, chámanos ao <a href={BUSINESS.phoneHref} class="text-primary font-medium hover:text-accent transition-colors">{BUSINESS.phoneDisplay}</a> ou escríbenos por WhatsApp.
               </p>
             </div>
           </div>

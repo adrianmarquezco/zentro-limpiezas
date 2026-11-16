@@ -1,6 +1,6 @@
 ﻿---
 title: "Limpeza de fin de obra: que é, canto custa e cando facela"
-description: "Todo o que precisas saber sobre a limpeza post-obra en Galicia. Fases do proceso, materiais especializados, canto tempo leva e cando contratar profesionais."
+description: "Unha limpeza de fin de obra dun piso de 80 m² con reforma integral leva entre 4 e 8 horas cun equipo de 2-3 persoas, e require aspiración de alta capacidade e materiais específicos. Esta guía explica as fases do proceso, os materiais especializados e cando convén contratar profesionais."
 image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
 faqs:
@@ -17,7 +17,7 @@ lang: "gl"
 slugEs: "limpieza-fin-de-obra-guia"
 ---
 
-Acabas de rematar unha reforma. Ou mudácheste a unha obra nova. O espazo ten a estrutura que querías, pero está cuberto de po fino de escaiola, restos de silicona, manchas de pintura e sucidade acumulada en todos os ángulos. A limpeza de fin de obra non é a mesma que unha limpeza doméstica normal.
+Acabas de rematar unha reforma. Ou mudácheste a unha obra nova. O espazo ten a estrutura que querías, pero está cuberto de po fino de escaiola, restos de silicona, manchas de pintura e sucidade acumulada en todos os ángulos. A nosa [limpeza de fin de obra](/gl/servizos/limpeza-fin-de-obra/) non é a mesma que unha limpeza doméstica normal.
 
 ![Aspiración de po de obra nun piso recén reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
 
@@ -43,6 +43,6 @@ O po de escaiola e cemento é moi fino e penetra en absolutamente todo. Necesít
 
 O momento axeitado é cando todos os gremios remataron e, a ser posible, antes de instalar os mobles, deixando 24-48h para que o po en suspensión se deposite.
 
-A limpeza de fin de obra require equipamento que a distingue claramente dunha limpeza doméstica: aspiración de alta capacidade, mopas específicas para po fino, rascadores para restos de pintura.
+A limpeza de fin de obra require equipamento que a distingue claramente dunha [limpeza doméstica](/gl/servizos/limpeza-de-vivendas/) habitual: aspiración de alta capacidade, mopas específicas para po fino, rascadores para restos de pintura.
 
-En Zentro Limpiezas facemos limpezas de fin de obra en Ferrol, A Coruña e toda a comarca. Pídenos orzamento personalizado e gratuíto.
+En Zentro Limpiezas facemos [limpezas de fin de obra en Ferrol](/gl/servizos/limpeza-fin-de-obra/ferrol/), [A Coruña](/gl/servizos/limpeza-fin-de-obra/a-coruna/) e toda a comarca. [Pídenos orzamento](/gl/orzamento/) personalizado e gratuíto.

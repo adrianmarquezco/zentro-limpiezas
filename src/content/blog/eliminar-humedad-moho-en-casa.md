@@ -1,6 +1,6 @@
 ---
 title: "Humedad y Moho en Casa: Cómo Eliminarlo Bien"
-description: "Por qué aparece el moho en casas de Ferrolterra, cómo eliminarlo bien y cuándo la limpieza no es suficiente. Guía práctica con presupuesto en 24h."
+description: "El clima atlántico de Ferrolterra, con lluvias frecuentes y viviendas antiguas poco ventiladas, favorece la aparición de moho sobre todo en baños, cocinas y armarios de paredes exteriores. Esta guía explica cómo eliminarlo bien, cuándo basta con limpieza a fondo y cuándo hace falta desinfección profesional."
 image: '/images/blog/humedad-moho-en-casa.webp'
 datePublished: "2026-08-25"
 dateModified: "2026-08-25"
@@ -14,7 +14,7 @@ faqs:
   - q: "¿Qué diferencia hay entre limpiar el moho y desinfectar una casa?"
     a: "La limpieza a fondo elimina el moho visible de superficies como azulejos, silicona o paredes. La desinfección profesional con biocidas certificados va un paso más allá: trata el ambiente para reducir la carga de esporas, algo recomendable en casos extendidos o tras una inundación o filtración."
   - q: "¿Por qué hay tanta humedad en las casas de Ferrolterra?"
-    a: "La combinación de clima atlántico con lluvias frecuentes, humedad ambiental alta todo el año y viviendas antiguas con poca ventilación (sobre todo en cascos históricos y bloques de los años 70-80) favorece la condensación y la aparición de moho, especialmente en baños, cocinas y armarios en paredes exteriores."
+    a: "Según AEMET, A Coruña registra una media de 1.014 mm de lluvia al año y un 75% de humedad relativa media (normales climatológicas 1981-2010), frente a los aproximadamente 648 mm anuales de media en España. Esa combinación de clima atlántico con viviendas antiguas y poca ventilación (sobre todo en cascos históricos y bloques de los años 70-80) favorece la condensación y la aparición de moho, especialmente en baños, cocinas y armarios en paredes exteriores."
   - q: "¿Con qué se limpia el moho de la silicona del baño?"
     a: "El moho en la silicona es de los más persistentes porque penetra en el material poroso. Se trata con un producto específico antimoho, tiempo de actuación y cepillado suave; en juntas muy deterioradas, la limpieza no basta y hay que sustituir la silicona. Podemos valorarlo en la misma visita."
   - q: "¿Cada cuánto hay que limpiar el moho en una casa húmeda?"
@@ -24,6 +24,7 @@ lang: "es"
 ---
 
 > **En resumen:**
+> - Según AEMET, A Coruña registra una media de 1.014 mm de lluvia al año y un 75% de humedad relativa media (normales climatológicas 1981-2010), muy por encima de los aproximadamente 648 mm anuales de media en España: no es sensación, es clima objetivamente más húmedo
 > - El moho se elimina de la superficie con limpieza profesional, pero si la humedad de fondo no se soluciona, tiende a volver
 > - Es más frecuente en baños, cocinas, marcos de ventana y paredes exteriores de viviendas antiguas
 > - Casos extendidos o viviendas cerradas mucho tiempo pueden necesitar desinfección profesional con biocidas certificados, no solo limpieza
@@ -39,7 +40,7 @@ El moho aparece por la combinación de humedad, poca ventilación y una superfic
 
 El moho necesita tres cosas para aparecer: humedad, poca ventilación y una superficie donde agarrarse (azulejo, silicona, pintura, madera). En la comarca, las tres se dan con facilidad:
 
-- **Clima atlántico**: lluvia frecuente y humedad relativa alta durante buena parte del año, incluso en días sin lluvia.
+- **Clima atlántico**: según AEMET, A Coruña registra una media de 1.014 mm de lluvia al año y un 75% de humedad relativa media (normales climatológicas 1981-2010), frente a los aproximadamente 648 mm anuales de media en España. Más de un 50% más de lluvia que la media nacional, con humedad alta incluso en días sin lluvia.
 - **Viviendas antiguas con poca ventilación**: pisos de los años 70-80 en barrios como Caranza o Recimil en Ferrol, o edificios históricos en A Magdalena y Esteiro, no siempre tienen la ventilación de una construcción moderna.
 - **Zonas de costa**: en municipios como Valdoviño, Ares o Cedeira, la humedad salina se suma a la ambiental y acelera la condensación en cristales y marcos.
 - **Casas rurales de piedra**: en parroquias como Loira, Pedroso o Sequeiro, la piedra retiene humedad de forma distinta a un piso, y las casas que se usan como segunda residencia y pasan meses cerradas son especialmente propensas.
@@ -133,7 +134,7 @@ La limpieza a fondo elimina el moho visible de superficies como azulejos, silico
 
 ### ¿Por qué hay tanta humedad en las casas de Ferrolterra?
 
-El clima atlántico con lluvias frecuentes, la humedad ambiental alta todo el año y viviendas antiguas con poca ventilación favorecen la condensación y el moho, especialmente en baños, cocinas y armarios en paredes exteriores.
+Según AEMET, A Coruña registra una media de 1.014 mm de lluvia al año y un 75% de humedad relativa media (normales climatológicas 1981-2010), frente a los aproximadamente 648 mm anuales de media en España. Esa combinación de clima atlántico con viviendas antiguas y poca ventilación favorece la condensación y el moho, especialmente en baños, cocinas y armarios en paredes exteriores.
 
 ### ¿Con qué se limpia el moho de la silicona del baño?
 

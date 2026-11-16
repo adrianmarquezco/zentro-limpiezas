@@ -1,6 +1,6 @@
 ---
 title: "Limpeza de comunidades de veciños: todo o que necesitas saber"
-description: "Guía completa sobre a xestión da limpeza en comunidades de propietarios: frecuencias, custos, que inclúe o servizo e como elixir empresa."
+description: "Para un edificio de 10-20 vivendas, un servizo de limpeza semanal do portal e zonas comúns custa orientativamente entre 150€ e 300€ ao mes, repartido entre veciños. Esta guía explica que inclúe o servizo, quen decide contratalo en xunta de propietarios e con que frecuencia convén limpar cada zona."
 image: '/images/blog/limpieza-comunidades-vecinos-guia.webp'
 datePublished: "2025-03-01"
 dateModified: "2026-05-31"
@@ -111,4 +111,4 @@ Si, nos nosos contratos de comunidade incluímos o ascensor: solo, paredes inter
 
 ---
 
-Para contratar o [servizo de limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/) en Ferrol, Narón, A Coruña e toda a comarca, facemos orzamento personalizado sen compromiso. [Contáctanos](/gl/contacto/).
+Para contratar o [servizo de limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/) en Ferrol, Narón, A Coruña e toda a comarca, facemos [orzamento personalizado](/gl/orzamento/) sen compromiso. [Contáctanos](/gl/contacto/).

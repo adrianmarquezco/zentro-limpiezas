@@ -55,6 +55,46 @@ const breadcrumbs = [
   { label: municipio.nombre, href: `/zonas/${municipio.slug}/` },
 ];
 
+// Bloque speakable (AEO/voz): debe responder directo y medir 40-60 palabras (ver CONTENT-GUIDE.md).
+// contenidoUnico completo mide 110-150 palabras y es narrativo, así que aquí se antepone una
+// respuesta directa y se trunca a frases completas hasta llegar al rango objetivo.
+// Para los 3 municipios donde el recorte automático cae a mitad de frase, se fija a mano
+// una versión igualmente basada en los datos de contenidoUnico (sin inventar nada nuevo).
+const SPEAKABLE_INTRO_OVERRIDES: Record<string, string> = {
+  ferrol: 'Sí, trabajamos en Ferrol, la ciudad más grande de Ferrolterra, con cerca de 65.000 habitantes. Conocemos cada barrio: los grandes bloques de Caranza y Recimil, las casas bajas de Canido y los edificios señoriales del centro y A Magdalena. Más de 20 años de experiencia y productos ecológicos incluidos en el precio.',
+  naron: 'Sí, trabajamos en Narón, el municipio de mayor crecimiento de Ferrolterra. Cubrimos el Centro y O Couto, con bloques modernos, y parroquias rurales como Sedes y Pedroso, además de Xuvia y San Xiao. Mismo equipo siempre y productos ecológicos incluidos, tanto en limpieza puntual como periódica.',
+  bergondo: 'Sí, trabajamos en Bergondo, municipio entre Sada y Betanzos que combina costa y campo. Cubrimos Guísamo, la parroquia más urbanizada, y el resto del municipio de carácter rural, con la misma calidad de servicio. Productos ecológicos incluidos siempre en el precio.',
+};
+
+function buildSpeakableIntro(nombre: string, slug: string, contenidoUnico: string): { intro: string; resto: string } {
+  if (SPEAKABLE_INTRO_OVERRIDES[slug]) {
+    return { intro: SPEAKABLE_INTRO_OVERRIDES[slug], resto: contenidoUnico };
+  }
+  const prefix = `Sí, trabajamos en ${nombre}. `;
+  const sentences = contenidoUnico.split(/(?<=\.)\s+/).filter((s) => s.trim());
+  let wordCount = prefix.trim().split(/\s+/).length;
+  let result = prefix;
+  let usedCount = 0;
+  for (const sentence of sentences) {
+    const sentenceWords = sentence.trim().split(/\s+/);
+    if (wordCount + sentenceWords.length <= 60) {
+      result += `${sentence} `;
+      wordCount += sentenceWords.length;
+      usedCount++;
+      if (wordCount >= 40) break;
+    } else {
+      break;
+    }
+  }
+  return { intro: result.trim(), resto: sentences.slice(usedCount).join(' ').trim() };
+}
+
+const { intro: speakableIntro, resto: contenidoUnicoResto } = buildSpeakableIntro(
+  municipio.nombre,
+  municipio.slug,
+  municipio.contenidoUnico
+);
+
 const hrefServicioEnZona = (slug: string) =>
   SERVICIOS.find((s) => s.slug === slug)?.municipiosCombo.includes(municipio.slug)
     ? `/servicios/${slug}/${municipio.slug}/`
@@ -233,7 +273,8 @@ const collectionSchema = {
               />
             </figure>
             <div class="space-y-4 text-charcoal leading-relaxed">
-              <p class="speakable-intro">{municipio.contenidoUnico}</p>
+              <p class="speakable-intro">{speakableIntro}</p>
+              {contenidoUnicoResto && <p>{contenidoUnicoResto}</p>}
               <p>
                 Desde Ferrol cubrimos {municipio.nombre} y el resto de {municipio.comarca} con equipo propio (sin subcontratas), el mismo personal en visitas periódicas y productos con certificación Ecolabel incluidos en el precio.
               </p>

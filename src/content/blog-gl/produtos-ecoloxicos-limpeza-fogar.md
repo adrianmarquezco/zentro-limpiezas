@@ -1,6 +1,6 @@
 ﻿---
 title: "Produtos ecolóxicos de limpeza: guía práctica para o fogar"
-description: "Descubre que produtos ecolóxicos de limpeza son realmente eficaces, como identificar certificacións fiables e cales usar en cada zona do fogar."
+description: "Só certificacións como a Ecolabel europea, o Nordic Swan ou o Ángel Azul garanten que un produto de limpeza é realmente ecolóxico; 'natural' ou 'verde' sen selo non o garanten. Esta guía explica que funciona mellor en cada zona da casa e por que o custo por uso adoita ser similar ao convencional."
 image: '/images/blog/productos-ecologicos-limpieza-hogar.webp'
 datePublished: "2025-01-22"
 faqs:
@@ -41,14 +41,14 @@ A certificación máis rigorosa para produtos de limpeza en Europa. En Zentro Li
 
 Estes tres produtos cobren o 90% das necesidades do fogar:
 
-**Bicarbonato sódico**: o abrasivo suave máis versátil. Para a bancada, eliminar manchas en alfombras, desodorizar a neveira e limpar o forno.
+**Bicarbonato sódico**: o abrasivo suave máis versátil. Para a bancada, eliminar manchas en alfombras, desodorizar a neveira e limpar o forno — tarefas que forman parte de calquera [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) ben feita.
 
-**Vinagre branco destilado**: antical natural, antimicrobiano suave. Para eliminar o sarro de billas, duchas e azulexos; limpar cristais diluído 1:1 con auga.
+**Vinagre branco destilado**: antical natural, antimicrobiano suave. Para eliminar o sarro de billas, duchas e azulexos; limpar [cristais](/gl/servizos/limpeza-de-cristais/) diluído 1:1 con auga.
 
-**Xabón de Castela concentrado**: base de aceite de oliva, completamente biodegradable. Diluído en auga é un limpador multiusos excelente para chans e mobles.
+**Xabón de Castela concentrado**: base de aceite de oliva, completamente biodegradable. Diluído en auga é un limpador multiusos excelente para chans e mobles, tanto en pisos coma en [vivendas unifamiliares](/gl/servizos/limpeza-de-vivendas/).
 
 ## O custo: é máis caro?
 
 Os produtos ecolóxicos de calidade teñen un prezo por envase lixeiramente superior, pero úsanse máis concentrados, o que equipara o custo por uso.
 
-En Zentro Limpiezas incluímos estes produtos no prezo de todos os nosos servizos. Non é un extra, é o noso estándar.
+En Zentro Limpiezas incluímos estes produtos no prezo de [todos os nosos servizos](/gl/servizos/). Non é un extra, é o noso estándar. Se queres comprobalo, [pide orzamento](/gl/orzamento/) sen compromiso.

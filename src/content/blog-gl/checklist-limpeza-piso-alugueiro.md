@@ -1,6 +1,6 @@
 ---
 title: "Checklist de limpeza para piso de alugueiro: entrega e recepción"
-description: "Lista de tarefas para deixar un piso de alugueiro impecable ao rematar o contrato. Evita retencións de fianza e conflitos co propietario."
+description: "Unha limpeza profesional antes de entregar as chaves custa entre 80€ e 200€ segundo o tamaño do piso, normalmente menos que a fianza que se pode perder. Esta checklist cobre cociña, baños, armarios e cristais, zona por zona, para entregar o piso sen dar pé a retencións nin discusións co propietario."
 image: '/images/blog/content-checklist-limpieza-piso-alquiler.webp'
 datePublished: "2026-05-25"
 dateModified: "2026-05-31"
@@ -105,11 +105,11 @@ Limpar un piso de alugueiro só leva entre 4-6 horas se é dun dormitorio e ata 
 - **Piso de 2-3 dormitorios**: 8-12 horas
 - **Piso con cociña ou baños moi sucios**: pode duplicar o tempo
 
-É moito tempo, especialmente cando tamén estás organizando unha mudanza. Por iso moitos inquilinos optan por contratar unha limpeza profesional.
+É moito tempo, especialmente cando tamén estás organizando unha mudanza. Por iso moitos inquilinos optan por contratar unha [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) profesional.
 
 ## Vale a pena contratar unha limpeza profesional?
 
-Case sempre si: unha limpeza profesional custa entre 80 e 200 €, un importe normalmente inferior á parte de fianza que un propietario pode reter por falta de limpeza.
+Case sempre si: unha [limpeza profesional](/gl/servizos/limpeza-de-mudanzas/) custa entre 80 e 200 €, un importe normalmente inferior á parte de fianza que un propietario pode reter por falta de limpeza.
 
 Desde o punto de vista económico, a resposta case sempre é si:
 
@@ -117,7 +117,7 @@ Desde o punto de vista económico, a resposta case sempre é si:
 - Unha fianza en España equivale normalmente a 1-2 meses de alugueiro
 - Se o propietario retén aínda que sexa o 25% da fianza por limpeza, na maioría de pisos iso supera o custo dunha limpeza profesional
 
-En Zentro Limpiezas temos moita experiencia en limpezas para entrega de pisos de alugueiro en Ferrol, A Coruña e toda a comarca. Facemos o traballo con produtos ecolóxicos certificados e dámosche un prezo pechado en menos de 24 horas.
+En Zentro Limpiezas temos moita experiencia en [limpezas de mudanza en Ferrol](/gl/servizos/limpeza-de-mudanzas/ferrol/) e [A Coruña](/gl/servizos/limpeza-de-mudanzas/a-coruna/) para entrega de pisos de alugueiro. Facemos o traballo con produtos ecolóxicos certificados e dámosche un prezo pechado en menos de 24 horas.
 
 ## Cando contratar a limpeza?
 
@@ -133,4 +133,4 @@ Antes da entrega, fai un reportaxe fotográfico do piso limpo. Isto protéxete a
 
 ---
 
-Necesitas unha limpeza para entrega de alugueiro en Ferrol, Narón, A Coruña ou calquera municipio da comarca? [Pide orzamento](/gl/orzamento/) ou escríbenos por WhatsApp. Respondemos o mesmo día.
+Necesitas unha [limpeza para entrega de alugueiro](/gl/servizos/limpeza-de-mudanzas/) en Ferrol, Narón, A Coruña ou calquera municipio da comarca? [Pide orzamento](/gl/orzamento/) ou escríbenos por WhatsApp. Respondemos o mesmo día.

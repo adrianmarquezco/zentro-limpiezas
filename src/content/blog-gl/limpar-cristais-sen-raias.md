@@ -1,6 +1,6 @@
 ---
 title: "Como limpar cristais sen raias nin marcas: técnica profesional"
-description: "A técnica correcta para limpar cristais, ventás e mamparas sen deixar raias nin vetas. Produtos, ferramentas e o método que usan os profesionais."
+description: "As raias nos cristais case nunca son culpa do produto: aparecen por un pano con fibras abrasivas, limpar en seco ou secar con papel de cociña. Esta guía explica a técnica profesional con microfibra e rasqueta de goma, e cada canto limpar cristais no interior e na costa galega."
 image: '/images/blog/limpiar-cristales-sin-rayas.webp'
 datePublished: "2025-05-18"
 dateModified: "2026-05-31"
@@ -108,7 +108,7 @@ Convén chamar a profesionais para limpar cristais en plantas altas ou de difíc
 
 Os cristais en plantas altas ou de difícil acceso requiren maquinaria e formación específica. Non intentes limpar cristais en situacións de risco.
 
-Para [limpeza de cristais profesional](/gl/servizos/limpeza-de-cristais/) en vivendas, oficinas e edificios en Ferrol e A Coruña, o noso equipo ten o material e a formación para traballar con seguridade a calquera altura.
+Para [limpeza de cristais profesional](/gl/servizos/limpeza-de-cristais/) en vivendas, oficinas e edificios en Ferrol e A Coruña, o noso equipo ten o material e a formación para traballar con seguridade a calquera altura. [Pide orzamento](/gl/orzamento/) sen compromiso.
 
 ---
 

@@ -1,6 +1,6 @@
 ﻿---
 title: "Cómo limpiar cristales sin rayas ni marcas: técnica profesional"
-description: "La técnica correcta para limpiar cristales, ventanas y mamparas sin dejar rayas ni vetas. Productos, herramientas y el método que usan los profesionales."
+description: "Las rayas en los cristales casi nunca son culpa del producto: aparecen por un trapo abrasivo, limpiar en seco o secar con papel de cocina. Esta guía explica la técnica profesional con microfibra y escurridor de goma, y cada cuánto limpiar cristales en el interior y en la costa gallega."
 image: '/images/blog/limpiar-cristales-sin-rayas.webp'
 datePublished: "2025-05-18"
 dateModified: "2026-05-31"

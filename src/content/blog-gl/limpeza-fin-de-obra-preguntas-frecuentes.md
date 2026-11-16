@@ -1,6 +1,6 @@
 ---
 title: "Limpeza fin de obra: preguntas frecuentes respondidas"
-description: "Todo o que necesitas saber antes de contratar unha limpeza post-reforma ou fin de obra. Que inclúe, canto custa, cando contratar e que esperar do resultado."
+description: "Unha limpeza de fin de obra custa entre 150€ e 250€ en reformas parciais, e entre 300€ e 600€ en obras completas de piso, segundo o estado e os metros. Esta guía responde as preguntas máis frecuentes: que inclúe, cando contratala, se se factura con IVE e que esperar do resultado."
 image: '/images/blog/limpieza-fin-de-obra-preguntas-frecuentes.webp'
 datePublished: "2026-05-20"
 dateModified: "2026-05-31"
@@ -26,7 +26,7 @@ slugEs: "limpieza-fin-de-obra-preguntas-frecuentes"
 > - O prezo comeza dende 150-200 € para reformas parciais e pode superar os 500 € en obras completas
 > - Convén contratar a limpeza cando os traballos de construción estean ao 100% rematados
 
-Unha reforma é emocionante. O resultado final tamén. Pero entre medias hai un estado que ninguén quere ver durar máis do necesario: o caos de po, cascallos e residuos que deixa calquera obra. A limpeza fin de obra é a transición entre ese caos e o espazo que imaxinabas. A continuación respondemos as preguntas que máis nos fan antes de contratar este servizo.
+Unha reforma é emocionante. O resultado final tamén. Pero entre medias hai un estado que ninguén quere ver durar máis do necesario: o caos de po, cascallos e residuos que deixa calquera obra. A nosa [limpeza fin de obra](/gl/servizos/limpeza-fin-de-obra/) é a transición entre ese caos e o espazo que imaxinabas. A continuación respondemos as preguntas que máis nos fan antes de contratar este servizo.
 
 ![Aspirador industrial sobre o parquet durante unha obra](/images/blog/content-limpieza-fin-de-obra-preguntas-frecuentes.webp)
 
@@ -50,7 +50,7 @@ Tecnicamente si. Na práctica, a maioría das persoas que o intentan descubren r
 2. **Algunhas superficies requiren produtos específicos**: o po de cemento sobre porcelanato ou o film de pintura sobre metacrilato non saen cun pano húmido normal.
 3. **Os tempos son moi altos**: unha obra de piso completo pode levar 6-10 horas de traballo intensivo para un equipo profesional.
 
-A limpeza fin de obra é un dos servizos onde a diferenza entre facelo un mesmo e contratar profesionais é máis notoria.
+A limpeza fin de obra é un dos servizos onde a diferenza entre facelo un mesmo e [contratar profesionais](/gl/servizos/limpeza-fin-de-obra/) é máis notoria.
 
 ## Cando debo contratar a limpeza fin de obra?
 
@@ -104,7 +104,7 @@ Non é imprescindible. Moitos clientes entrégannos as chaves e recollen o piso 
 
 ## Como pedir orzamento?
 
-En Zentro Limpiezas facemos orzamentos de limpeza fin de obra **sen visita previa obrigatoria** na maioría de casos. Necesitamos:
+En Zentro Limpiezas facemos [orzamentos de limpeza fin de obra](/gl/orzamento/) **sen visita previa obrigatoria** na maioría de casos. Necesitamos:
 
 1. **Fotos do espazo actual** (o estado real tras a obra)
 2. **Superficie aproximada** e número de estancias
@@ -115,4 +115,4 @@ Con esa información dámosche un prezo pechado en menos de 24 horas.
 
 ---
 
-Acabaches de rematar unha reforma e queres orzamento? [Escríbenos](/gl/contacto/) ou chámanos. Respondemos o mesmo día.
+Acabaches de rematar unha reforma en Ferrol, A Coruña ou Narón e queres [orzamento de limpeza fin de obra](/gl/servizos/limpeza-fin-de-obra/)? [Escríbenos](/gl/contacto/) ou chámanos. Respondemos o mesmo día.

@@ -51,6 +51,34 @@ const breadcrumbs = [
   { label: nomeGL, href: canonical },
 ];
 
+// Bloque speakable (AEO/voz): debe responder directo e medir 40-60 palabras (ver CONTENT-GUIDE.md).
+// contenidoUnicoGL en varios concellos é moi breve: cando non chega ás 40 palabras úsase
+// completo (sen inventar contido novo) en vez de quedar curto artificialmente.
+function buildSpeakableIntroGL(nome: string, contenidoUnicoGL: string): { intro: string; resto: string } {
+  const prefix = `Si, traballamos en ${nome}. `;
+  const sentences = contenidoUnicoGL.split(/(?<=\.)\s+/).filter((s) => s.trim());
+  let wordCount = prefix.trim().split(/\s+/).length;
+  let result = prefix;
+  let usedCount = 0;
+  for (const sentence of sentences) {
+    const sentenceWords = sentence.trim().split(/\s+/);
+    if (wordCount + sentenceWords.length <= 60) {
+      result += `${sentence} `;
+      wordCount += sentenceWords.length;
+      usedCount++;
+      if (wordCount >= 40) break;
+    } else {
+      break;
+    }
+  }
+  return { intro: result.trim(), resto: sentences.slice(usedCount).join(' ').trim() };
+}
+
+const { intro: speakableIntroGL, resto: contenidoUnicoGLResto } = buildSpeakableIntroGL(
+  nomeGL,
+  municipio.contenidoUnicoGL
+);
+
 const hrefServizoEnZona = (s: (typeof SERVICIOS)[number]) =>
   s.municipiosCombo.includes(municipio.slug)
     ? `/gl/servizos/${s.slugGL}/${municipio.slug}/`
@@ -239,7 +267,8 @@ const collectionSchema = {
               />
             </figure>
             <div class="space-y-4 text-charcoal leading-relaxed">
-              <p class="speakable-intro">{municipio.contenidoUnicoGL}</p>
+              <p class="speakable-intro">{speakableIntroGL}</p>
+              {contenidoUnicoGLResto && <p>{contenidoUnicoGLResto}</p>}
               <p>
                 Desde Ferrol cubrimos {nomeGL} e o resto de {municipio.comarca} con equipo propio (sen subcontratas), o mesmo persoal nas visitas periódicas e produtos con certificación Ecolabel incluídos no prezo.
               </p>
