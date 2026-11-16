@@ -81,7 +81,7 @@ Limpar unha oficina ten particularidades que a distinguen da limpeza doméstica:
 
 ## O custo real de facelo internamente
 
-Para unha oficina de 5-20 persoas, a limpeza profesional externa adoita custar menos ca o tempo que un empregado dedicaría a facelo, e con mellor resultado.
+Para unha oficina de 5-20 persoas, a [limpeza profesional externa](/gl/servizos/limpeza-de-oficinas/) adoita custar menos ca o tempo que un empregado dedicaría a facelo, e con mellor resultado.
 
 Moitas empresas pequenas asignan a limpeza a algún empregado como tarefa adicional. Isto ten custos ocultos importantes:
 
@@ -100,10 +100,10 @@ En Zentro Limpiezas todos os nosos servizos de limpeza de oficinas inclúen prod
 
 ## Como funciona o servizo en Zentro Limpiezas
 
-Traballamos con empresas de todos os tamaños en Ferrol, A Coruña, Narón, Culleredo, Arteixo e toda a comarca. O proceso é sinxelo:
+Traballamos facendo [limpeza de oficinas](/gl/servizos/limpeza-de-oficinas/) para empresas de todos os tamaños en Ferrol, A Coruña, Narón, Culleredo, Arteixo e toda a comarca. O proceso é sinxelo:
 
 1. Cóntasnos as túas necesidades (tamaño, tipo de espazo, horario preferido)
-2. Facémosche un orzamento personalizado e sen compromiso
+2. Facémosche un [orzamento](/gl/orzamento/) personalizado e sen compromiso
 3. Acordamos o calendario e o horario de visitas
 4. Mesmo equipo sempre, para garantir continuidade e confianza
 

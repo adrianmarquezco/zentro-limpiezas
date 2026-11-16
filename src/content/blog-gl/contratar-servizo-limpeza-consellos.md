@@ -20,7 +20,7 @@ faqs:
     a: "Para unha limpeza puntual: 24-48 horas na maioría dos casos, dependendo da dispoñibilidade. Para un servizo periódico: 5-7 días para asignar un equipo fixo. En Zentro Limpiezas damos orzamento en menos de 24 horas e podemos organizar o primeiro servizo en poucos días."
 ---
 
-Contratar un servizo de limpeza implica deixar entrar persoas no teu fogar ou na túa empresa. É un acto de confianza que merece que te tomes un momento para verificar certas cousas antes de dicir que si.
+Contratar un servizo de limpeza implica deixar entrar persoas no teu [fogar](/gl/servizos/limpeza-de-vivendas/) ou na túa [empresa](/gl/servizos/limpeza-de-oficinas/). É un acto de confianza que merece que te tomes un momento para verificar certas cousas antes de dicir que si.
 
 ![Acordo de confianza entre cliente e empresa de limpeza](/images/blog/content-contratar-servicio-limpieza-consejos.webp)
 
@@ -44,7 +44,7 @@ En Zentro Limpiezas todos os servizos inclúen seguro de responsabilidade civil.
 
 ## 3. Pide o orzamento por escrito e detallado
 
-Un orzamento verbal non te protexe. Pide que conste por escrito, xa sexa por email, WhatsApp ou formulario. O orzamento debe incluír:
+Un orzamento verbal non te protexe. Pide que conste por escrito, xa sexa por email, WhatsApp ou [formulario de orzamento](/gl/orzamento/). O orzamento debe incluír:
 
 - Que servizos están incluídos (que estancias, que tarefas)
 - Cal é o prezo total
@@ -84,7 +84,7 @@ Desconfía de empresas sen ningunha reseña ou con reseñas que soan artificiais
 
 ## 7. Pregunta polo equipo que vai ao teu espazo
 
-Especialmente importante en servizos periódicos: Van sempre as mesmas persoas? Un equipo fixo significa que:
+Especialmente importante en [servizos periódicos](/gl/servizos/limpeza-periodica/): Van sempre as mesmas persoas? Un equipo fixo significa que:
 
 - Co tempo xa saben como queres as cousas sen que teñas que explicar nada cada vez
 - Hai un compromiso de servizo constante
@@ -102,4 +102,4 @@ Un servizo profesional de calidade custa o que custa. O que aforras contratando 
 
 ---
 
-Queres contratar un servizo de limpeza en Ferrol, Narón ou A Coruña? [Pídenos orzamento](/gl/orzamento/) sen compromiso.
+Queres contratar un [servizo de limpeza](/gl/servizos/) en Ferrol, Narón ou A Coruña? [Pídenos orzamento](/gl/orzamento/) sen compromiso.

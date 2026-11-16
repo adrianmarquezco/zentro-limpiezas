@@ -26,7 +26,7 @@ faqs:
 > - Unha cociña mediana leva 3-4 horas con técnica correcta; sen técnica, o dobre con peor resultado
 > - O bicarbonato sódico limpa o forno a fondo sen produtos agresivos (só necesita tempo)
 
-A cociña é a zona do fogar que máis suciidade concentra e a que máis rápido se ensucia. A graxa, o vapor e os restos de comida acumúlanse en capas invisibles en case todas as superficies. Unha limpeza a fondo da cociña ben feita require método, os produtos correctos e tempo. Explicámosche como o fan os profesionais.
+A cociña é a zona do [fogar](/gl/servizos/limpeza-de-vivendas/) que máis suciidade concentra e a que máis rápido se ensucia. A graxa, o vapor e os restos de comida acumúlanse en capas invisibles en case todas as superficies. Unha limpeza a fondo da cociña ben feita require método, os produtos correctos e tempo. Explicámosche como o fan os profesionais.
 
 ![Limpeza dos fogóns da cociña con luvas](/images/blog/content-limpiar-cocina-a-fondo.webp)
 
@@ -118,7 +118,7 @@ Usa un fregachans con xabón de Castela concentrado. Fregar en **dúas pasadas**
 | Cociña grande ou americana | 4-6 horas |
 | Forno ou campana moi sucios | +1-2 horas |
 
-Se prefires que o faga un equipo profesional, en Zentro Limpiezas incluímos a limpeza de cociña a fondo nos nosos servizos en Ferrol, Narón, A Coruña e toda a comarca. [Pídenos orzamento](/gl/orzamento/).
+Se prefires que o faga un equipo profesional, en Zentro Limpiezas incluímos a limpeza de cociña a fondo dentro da nosa [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) en Ferrol, Narón, A Coruña e toda a comarca. [Pídenos orzamento](/gl/orzamento/).
 
 ---
 

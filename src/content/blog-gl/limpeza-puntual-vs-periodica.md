@@ -31,7 +31,7 @@ Cando alguén nos chama por primeira vez, unha das dúbidas máis habituais é e
 
 ## Que é unha limpeza puntual?
 
-Unha limpeza puntual é un servizo dunha soa visita, contratado para unha ocasión concreta. Non implica ningún compromiso futuro.
+Unha [limpeza puntual](/gl/servizos/limpeza-a-fondo/) é un servizo dunha soa visita, contratado para unha ocasión concreta. Non implica ningún compromiso futuro.
 
 **Cando ten sentido contratar unha limpeza puntual?**
 
@@ -46,7 +46,7 @@ O prezo dunha limpeza puntual adoita ser máis alto por visita ca o dun servizo 
 
 ## Que é unha limpeza periódica?
 
-Unha limpeza periódica é un servizo contratado con regularidade: semanal, quincenal ou mensual. O mesmo equipo acude ao mesmo espazo coa frecuencia acordada.
+Unha [limpeza periódica](/gl/servizos/limpeza-periodica/) é un servizo contratado con regularidade: semanal, quincenal ou mensual. O mesmo equipo acude ao mesmo espazo coa frecuencia acordada.
 
 **Vantaxes claras da limpeza periódica:**
 
@@ -79,7 +79,7 @@ Unha limpeza periódica é un servizo contratado con regularidade: semanal, quin
 
 É a opción máis habitual e a que adoitamos recomendar. Funciona así:
 
-1. **Limpeza a fondo inicial**: o equipo fai unha primeira visita en profundidade para deixar o espazo en óptimas condicións
+1. **[Limpeza a fondo](/gl/servizos/limpeza-a-fondo/) inicial**: o equipo fai unha primeira visita en profundidade para deixar o espazo en óptimas condicións
 2. **Acordo periódico**: a partir de aí, as visitas de mantemento son máis curtas e económicas porque o traballo acumulado xa non existe
 
 Moitos dos nosos clientes de limpeza periódica empezaron cunha limpeza puntual para ver a calidade do traballo antes de comprometerse. É perfectamente normal.
@@ -106,4 +106,4 @@ O prezo por visita en periódica pode ser entre un 10% e un 25% máis económico
 
 ---
 
-Tes dúbidas sobre que opción se adapta mellor á túa situación? [Escríbenos](/gl/contacto/) e asesorámosche sen compromiso.
+Tes dúbidas sobre que opción se adapta mellor á túa situación? [Pide orzamento](/gl/orzamento/) sen compromiso ou [escríbenos](/gl/contacto/) para que te asesoremos.

@@ -108,7 +108,7 @@ Convén chamar a profesionais para limpar cristais en plantas altas ou de difíc
 
 Os cristais en plantas altas ou de difícil acceso requiren maquinaria e formación específica. Non intentes limpar cristais en situacións de risco.
 
-Para [limpeza de cristais profesional](/gl/servizos/limpeza-de-cristais/) en vivendas, oficinas e edificios en Ferrol e A Coruña, o noso equipo ten o material e a formación para traballar con seguridade a calquera altura.
+Para [limpeza de cristais profesional](/gl/servizos/limpeza-de-cristais/) en vivendas, oficinas e edificios en Ferrol e A Coruña, o noso equipo ten o material e a formación para traballar con seguridade a calquera altura. [Pide orzamento](/gl/orzamento/) sen compromiso.
 
 ---
 

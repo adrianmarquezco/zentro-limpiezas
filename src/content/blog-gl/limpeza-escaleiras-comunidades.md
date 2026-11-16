@@ -26,7 +26,7 @@ faqs:
 > - O custo da limpeza de comunidades depende do número de plantas, portais e accesos
 > - Contratar unha empresa especializada garante resultados constantes e libera os veciños de responsabilidades
 
-A limpeza das escaleiras e zonas comúns é un dos temas que máis discusión xera nas comunidades de propietarios. Quen ten a responsabilidade? Con que frecuencia hai que facela? Compensa contratar unha empresa ou é mellor organizarse entre os veciños? Neste artigo respondemos a todas estas preguntas con información práctica para comunidades en Ferrolterra e a área de A Coruña.
+A limpeza das escaleiras e [zonas comúns](/gl/servizos/limpeza-de-comunidades/) é un dos temas que máis discusión xera nas comunidades de propietarios. Quen ten a responsabilidade? Con que frecuencia hai que facela? Compensa contratar unha empresa ou é mellor organizarse entre os veciños? Neste artigo respondemos a todas estas preguntas con información práctica para comunidades en Ferrolterra e a área de A Coruña.
 
 ![Escaleira exterior dun edificio de comunidade de veciños](/images/blog/content-limpieza-escaleras-comunidades-vecinos.webp)
 
@@ -38,7 +38,7 @@ A forma de xestionar esta obriga é decisión da propia comunidade:
 
 - **Rotación entre veciños**: cada familia encárgase durante un período. Económico pero desigual en resultados e a miúdo fonte de conflitos.
 - **Porteiro ou conserxe**: habitual en edificios grandes, pero implica custos laborais significativos.
-- **Empresa de limpeza profesional**: a opción máis habitual para comunidades medianas e grandes. Garante resultados homoxéneos e libera os propietarios da tarefa.
+- **[Empresa de limpeza profesional](/gl/servizos/limpeza-de-comunidades/)**: a opción máis habitual para comunidades medianas e grandes. Garante resultados homoxéneos e libera os propietarios da tarefa.
 
 ## Que zonas se inclúen na limpeza de comunidades?
 
@@ -82,7 +82,7 @@ Como orientación:
 - Comunidade mediana (1-2 portais, 6-8 plantas): dende 150-250 € ao mes con limpeza semanal
 - Comunidade grande (+3 portais): orzamento personalizado
 
-En Zentro Limpiezas facemos orzamentos para comunidades **sen visita obrigatoria** na maioría de casos: abóndanos cos datos básicos do edificio para dar un prezo orientativo en 24 horas.
+En Zentro Limpiezas facemos [orzamentos para comunidades](/gl/orzamento/) **sen visita obrigatoria** na maioría de casos: abóndanos cos datos básicos do edificio para dar un prezo orientativo en 24 horas.
 
 ## Produtos ecolóxicos en comunidades: importa?
 
@@ -123,4 +123,4 @@ Cubrimos máis de 29 municipios, incluíndo Ferrol, Narón, Fene, Mugardos, Neda
 
 ---
 
-Se a túa comunidade necesita un orzamento de limpeza, [contáctanos](/gl/contacto/) ou escríbenos por WhatsApp. Respondemos en menos de 24 horas cun prezo axustado ao voso edificio.
+Se a túa comunidade necesita un [orzamento de limpeza de comunidades](/gl/servizos/limpeza-de-comunidades/) en Ferrol, Narón ou A Coruña, [contáctanos](/gl/contacto/) ou escríbenos por WhatsApp. Respondemos en menos de 24 horas cun prezo axustado ao voso edificio.

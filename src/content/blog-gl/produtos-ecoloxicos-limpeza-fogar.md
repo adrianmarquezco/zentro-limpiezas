@@ -41,14 +41,14 @@ A certificación máis rigorosa para produtos de limpeza en Europa. En Zentro Li
 
 Estes tres produtos cobren o 90% das necesidades do fogar:
 
-**Bicarbonato sódico**: o abrasivo suave máis versátil. Para a bancada, eliminar manchas en alfombras, desodorizar a neveira e limpar o forno.
+**Bicarbonato sódico**: o abrasivo suave máis versátil. Para a bancada, eliminar manchas en alfombras, desodorizar a neveira e limpar o forno — tarefas que forman parte de calquera [limpeza a fondo](/gl/servizos/limpeza-a-fondo/) ben feita.
 
-**Vinagre branco destilado**: antical natural, antimicrobiano suave. Para eliminar o sarro de billas, duchas e azulexos; limpar cristais diluído 1:1 con auga.
+**Vinagre branco destilado**: antical natural, antimicrobiano suave. Para eliminar o sarro de billas, duchas e azulexos; limpar [cristais](/gl/servizos/limpeza-de-cristais/) diluído 1:1 con auga.
 
-**Xabón de Castela concentrado**: base de aceite de oliva, completamente biodegradable. Diluído en auga é un limpador multiusos excelente para chans e mobles.
+**Xabón de Castela concentrado**: base de aceite de oliva, completamente biodegradable. Diluído en auga é un limpador multiusos excelente para chans e mobles, tanto en pisos coma en [vivendas unifamiliares](/gl/servizos/limpeza-de-vivendas/).
 
 ## O custo: é máis caro?
 
 Os produtos ecolóxicos de calidade teñen un prezo por envase lixeiramente superior, pero úsanse máis concentrados, o que equipara o custo por uso.
 
-En Zentro Limpiezas incluímos estes produtos no prezo de todos os nosos servizos. Non é un extra, é o noso estándar.
+En Zentro Limpiezas incluímos estes produtos no prezo de [todos os nosos servizos](/gl/servizos/). Non é un extra, é o noso estándar. Se queres comprobalo, [pide orzamento](/gl/orzamento/) sen compromiso.
