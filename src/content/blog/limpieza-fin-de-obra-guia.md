@@ -20,14 +20,14 @@ faqs:
 ---
 
 > **En resumen:**
-> - La limpieza de fin de obra requiere maquinaria industrial (aspiradora HEPA) que una doméstica no puede sustituir
+> - La limpieza de fin de obra requiere aspiración de alta capacidad y productos específicos que una limpieza doméstica no suele tener a mano
 > - Se hace cuando han terminado TODOS los gremios y antes de instalar los muebles
 > - Un piso de 80 m² requiere 6-8 horas de trabajo con dos personas
 > - El coste en Galicia va desde 200-300 € para un piso hasta 80 m²
 
 Acabas de terminar una reforma. El espacio tiene la estructura que querías, pero está cubierto de polvo fino de escayola, restos de silicona, manchas de pintura y suciedad acumulada en todos los ángulos. La limpieza de fin de obra no es la misma que una limpieza doméstica normal: los materiales, las técnicas y el tiempo necesario son completamente distintos.
 
-![Aspirador industrial en un piso recién reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
+![Aspiración de polvo de obra en un piso recién reformado](/images/blog/content-limpieza-fin-de-obra-guia.webp)
 
 ## Qué incluye una limpieza de fin de obra
 
@@ -39,7 +39,7 @@ Antes de limpiar, hay que retirar lo que queda de la obra: bolsas de cemento vac
 
 ### Fase 2: Limpieza profunda de polvo de obra
 
-El polvo de escayola y cemento es muy fino y penetra en absolutamente todo: encima y dentro de armarios empotrados ya instalados, detrás de los radiadores, en las juntas del suelo, en las ranuras de las puertas, en la iluminación. Se necesita maquinaria específica —aspiradoras industriales de alta capacidad con filtros HEPA— y no puede sustituirse por una aspiradora doméstica. Una aspiradora sin filtro HEPA queda inutilizada en pocas horas con el polvo de obra.
+El polvo de escayola y cemento es muy fino y penetra en absolutamente todo: encima y dentro de armarios empotrados ya instalados, detrás de los radiadores, en las juntas del suelo, en las ranuras de las puertas, en la iluminación. Se necesita aspiración de alta capacidad, pensada para este tipo de polvo fino: una aspiradora doméstica convencional se satura en pocas horas con el polvo de obra.
 
 ### Fase 3: Limpieza y repaso de acabados
 
@@ -66,7 +66,7 @@ La limpieza de fin de obra se hace cuando han terminado pintores, alicatadores, 
 
 La limpieza de fin de obra requiere equipamiento que la diferencia claramente de una limpieza doméstica:
 
-- **Aspiradora industrial con filtro HEPA**: el polvo de obra no puede ir a una aspiradora doméstica. Los filtros se colmatan en minutos y el motor puede sufrir daños irreparables.
+- **Aspiración de alta capacidad**: el polvo de obra satura una aspiradora doméstica convencional en poco tiempo, con riesgo de dañar el motor.
 - **Mopas y bayetas específicas para polvo fino**: las de uso doméstico no atrapan el polvo de cemento de la misma manera.
 - **Productos para eliminar lechada y adhesivos**: son diferentes de los limpiadores domésticos estándar.
 - **Rasquetas para cristales**: para restos de pintura en ventanas y superficies acristaladas.
@@ -99,11 +99,9 @@ Estos precios incluyen toda la mano de obra, maquinaria y productos. Para una or
 
 ## ¿Contratar o hacerlo yo mismo?
 
-Hacerlo uno mismo es posible, pero sin aspiradora industrial con filtro HEPA el polvo de obra daña una aspiradora doméstica y el resultado no queda satisfactorio.
+Es posible hacerlo uno mismo si tienes el tiempo y el equipo adecuado. El problema principal es la aspiradora: el polvo fino de obra obstruye o daña una aspiradora doméstica convencional, y el resultado no suele quedar satisfactorio sin la técnica adecuada.
 
-Es posible hacerlo uno mismo si tienes el tiempo y la maquinaria adecuada. El problema principal es la aspiradora: sin una industrial con filtro HEPA, el polvo fino de obra obstruirá o dañará una aspiradora doméstica, y el resultado no será satisfactorio.
-
-El coste de alquilar maquinaria industrial, comprar productos específicos y el tiempo que te lleva (probablemente más del doble que a un equipo profesional con experiencia) hace que la diferencia de precio respecto a contratar un servicio profesional sea menor de lo que parece.
+El coste de alquilar equipo adecuado, comprar productos específicos y el tiempo que te lleva (probablemente más del doble que a un equipo profesional con experiencia) hace que la diferencia de precio respecto a contratar un servicio profesional sea menor de lo que parece.
 
 Para servicios de [limpieza de fin de obra en Ferrol, A Coruña, Narón o Culleredo](/servicios/limpieza-fin-de-obra/), hacemos presupuesto personalizado sin compromiso.
 
