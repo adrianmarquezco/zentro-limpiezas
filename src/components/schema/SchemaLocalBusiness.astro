@@ -3,7 +3,14 @@ import { BUSINESS } from '@/data/config';
 
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  // LocalBusiness ya es un subtipo de Organization en schema.org, pero se declara también
+  // "Organization" de forma explícita para que herramientas de auditoría que buscan el tipo
+  // exacto (en vez de resolver la jerarquía de schema.org) reconozcan este nodo como tal.
+  // Esto es lo que recomienda la propia documentación de Google: usar el subtipo más
+  // específico de LocalBusiness y, además, cubrir los campos recomendados para Organization
+  // (no un nodo Organization separado):
+  // https://developers.google.com/search/docs/appearance/structured-data/organization
+  '@type': ['LocalBusiness', 'Organization'],
   '@id': `${BUSINESS.url}/#business`,
   name: BUSINESS.name,
   image: `${BUSINESS.url}/images/logo.png`,

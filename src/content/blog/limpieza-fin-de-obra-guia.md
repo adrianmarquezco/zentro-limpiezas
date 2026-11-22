@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Limpieza de fin de obra: qué es, cuánto cuesta y cuándo hacerla"
 description: "Una limpieza fin de obra de un piso de 80 m² con reforma integral lleva entre 4 y 8 horas con un equipo de 2-3 personas, y requiere aspiración de alta capacidad y materiales específicos. Esta guía explica las fases del proceso, los materiales especializados y cuándo conviene contratar profesionales."
+metaDescription: "Una limpieza fin de obra de un piso de 80 m² con reforma integral lleva entre 4 y 8 horas con un equipo de 2-3 personas y materiales específicos."
 image: '/images/blog/limpieza-fin-de-obra-guia.webp'
 datePublished: "2025-02-05"
 dateModified: "2026-10-07"

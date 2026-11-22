@@ -1,6 +1,7 @@
 ---
 title: "Limpeza do fogar con mascotas: trucos e produtos seguros"
 description: "Os produtos con fenol, amoníaco ou aceites de piñeiro concentrados poden ser perigosos para cans e gatos, que son especialmente sensibles porque se lamben as patas. Esta guía dá trucos e rutinas seguras para eliminar pelo, cheiros e manchas de mascotas sen recorrer a eses produtos de risco."
+metaDescription: "Os produtos con fenol, amoníaco ou aceites de piñeiro concentrados poden ser perigosos para cans e gatos, que se lamben as patas tras pisalos."
 image: '/images/blog/limpieza-hogar-con-mascotas.webp'
 datePublished: "2026-01-15"
 dateModified: "2026-08-26"

@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Limpieza de primavera en Galicia: guía para la puesta a punto"
 description: "El invierno húmedo de Galicia favorece el moho en rincones poco iluminados y la condensación en ventanas, por lo que la limpieza de primavera es también una revisión de daños. Esta guía detalla las zonas críticas a revisar, los mejores antifúngicos ecológicos y cuánto tiempo lleva hacerla a fondo."
+metaDescription: "El invierno húmedo de Galicia favorece el moho y la condensación en ventanas, por lo que la limpieza de primavera es también una revisión de daños."
 image: '/images/blog/limpieza-primavera-galicia.webp'
 datePublished: "2025-03-20"
 dateModified: "2026-09-30"

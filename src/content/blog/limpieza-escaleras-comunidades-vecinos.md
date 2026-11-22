@@ -1,6 +1,7 @@
 ---
 title: "Limpieza de escaleras en comunidades de vecinos: guía completa"
 description: "La Ley de Propiedad Horizontal obliga a las comunidades a mantener las zonas comunes en buen estado, aunque no fija una frecuencia mínima de limpieza. Esta guía explica cuánto conviene limpiar las escaleras según el tamaño del edificio, qué dice la ley y cuánto cuesta un servicio profesional en Ferrolterra."
+metaDescription: "La Ley de Propiedad Horizontal obliga a las comunidades a mantener las zonas comunes en buen estado, aunque no fija una frecuencia mínima de limpieza."
 image: '/images/blog/limpieza-escaleras-comunidades-vecinos.webp'
 datePublished: "2026-05-10"
 dateModified: "2026-05-31"

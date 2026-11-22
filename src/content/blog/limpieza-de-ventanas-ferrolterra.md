@@ -1,6 +1,7 @@
 ---
 title: "Limpieza de Ventanas en Ferrolterra: Guía y Precios 2026"
 description: "La limpieza de ventanas empieza desde 35-40€ en un piso y desde 60-70€ en una vivienda unifamiliar con ventanales grandes, en Ferrol, Narón y toda Ferrolterra. Esta guía explica qué incluye el servicio, cómo limpiamos alturas sin andamios y cada cuánto conviene repetirlo en zonas de costa."
+metaDescription: "La limpieza de ventanas empieza desde 35-40€ en un piso y desde 60-70€ en una vivienda unifamiliar, en Ferrol, Narón y toda Ferrolterra."
 image: '/images/blog/limpieza-de-ventanas-ferrolterra.webp'
 datePublished: "2026-08-24"
 dateModified: "2026-08-24"

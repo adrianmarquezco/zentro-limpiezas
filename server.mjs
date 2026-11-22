@@ -84,6 +84,17 @@ function policyRedirect(requestUrl) {
   }
   const path = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
   const parts = path.split('/').filter(Boolean);
+  // Servicio de limpieza de tapicerías/tapizarías descatalogado (ver
+  // src/pages/servicios/limpieza-de-tapicerias/[...path].astro). Esas páginas SSR ya
+  // hacen Astro.redirect(301) a la home, pero al ser rutas catch-all sin barra final, sin
+  // esta entrada la petición recibía primero el 301 de needsTrailingSlash (añade la barra)
+  // y solo en una segunda petición llegaba el 301 a la home: una cadena de 2 saltos para
+  // una URL que lleva años indexada. Va antes que los bloques de barrio/combo de abajo
+  // para no caer por coincidencia de longitud en alguno de ellos (p.ej. una subruta con
+  // barrio de 5 segmentos en gallego) y acabar igualmente en una cadena de 2 saltos.
+  // Resolviéndolo aquí, evitamos esa cadena en un único 301.
+  if (parts[0] === 'servicios' && parts[1] === 'limpieza-de-tapicerias') return '/';
+  if (parts[0] === 'gl' && parts[1] === 'servizos' && parts[2] === 'limpeza-de-tapizarias') return '/gl/';
   if (parts.length === 3 && parts[0] === 'zonas' && BARRIOS_RENOMBRADOS[parts[2]]) {
     return `/zonas/${parts[1]}/${BARRIOS_RENOMBRADOS[parts[2]]}/`;
   }

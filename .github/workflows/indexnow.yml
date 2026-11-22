@@ -1,0 +1,45 @@
+name: IndexNow
+
+# Avisa a los motores participantes en IndexNow (Bing, Yandex, Seznam, Naver, Yep y otros —
+# Google no participa en este protocolo) de las URLs publicadas, para que las rastreen antes
+# de su cronograma normal. Ver scripts/indexnow-submit.mjs para el detalle del protocolo y
+# de dónde sale la clave.
+#
+# Es un workflow separado de "Vigilante" (no un paso añadido a él) a propósito:
+#   - Vigilante corre cada 3 horas; reenviar el sitemap completo cada 3 horas sería
+#     machacar la API sin necesidad (IndexNow está pensado para avisar de cambios, no para
+#     sondear). Una vez al día es más que suficiente para un sitio que no cambia cada hora.
+#   - Si este paso falla, no debe abrir una incidencia de "la web está caída" ni afectar al
+#     resultado de Vigilante: son cosas independientes.
+#
+# El despliegue real (Coolify) ocurre en un momento impredecible tras cada push a main y
+# GitHub Actions no recibe ningún evento de "deploy terminado", así que este workflow
+# siempre lee las URLs ya publicadas en producción (https://zentrolimpiezas.es/sitemap.xml)
+# en el momento de ejecutarse, no el código del repo en el commit que disparó el run.
+#
+# Por ahora envía el sitemap completo (arranque inicial, ver script). Un envío incremental
+# -solo las URLs que cambiaron desde el último despliegue- queda documentado como mejora
+# futura en scripts/indexnow-submit.mjs (función filterChangedUrls).
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Código
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enviar URLs a IndexNow
+        run: node scripts/indexnow-submit.mjs --live

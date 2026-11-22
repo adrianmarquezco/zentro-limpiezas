@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Cómo eliminar el sarro y la cal del baño con productos ecológicos"
 description: "El vinagre blanco y el ácido cítrico disuelven el sarro de grifos, duchas y azulejos igual que el salfumán, pero sin sus vapores tóxicos. Esta guía explica cómo aplicarlos correctamente en cada superficie, con qué frecuencia repetir el tratamiento y en qué materiales conviene evitarlos."
+metaDescription: "El vinagre blanco y el ácido cítrico disuelven el sarro de grifos, duchas y azulejos igual que el salfumán, pero sin sus vapores tóxicos."
 image: '/images/blog/eliminar-sarro-cal-bano.webp'
 datePublished: "2025-04-20"
 dateModified: "2026-05-31"

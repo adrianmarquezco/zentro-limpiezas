@@ -1,6 +1,7 @@
 ---
 title: "Limpeza puntual vs periódica: cal necesitas?"
 description: "A limpeza periódica adoita ser entre un 15% e un 25% máis económica por visita que a puntual, porque o equipo xa coñece o espazo. Esta guía explica cando convén cada opción, como pasar dunha puntual a un servizo regular, e que frecuencia é a máis habitual para fogares e oficinas."
+metaDescription: "A limpeza periódica adoita ser entre un 15% e un 25% máis económica por visita que a puntual, porque o equipo xa coñece o espazo."
 image: '/images/blog/limpieza-puntual-vs-periodica.webp'
 datePublished: "2026-05-15"
 dateModified: "2026-05-31"
