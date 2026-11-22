@@ -1,6 +1,7 @@
 ---
 title: "Limpieza fin de obra: preguntas frecuentes respondidas"
 description: "Una limpieza fin de obra cuesta entre 150€ y 250€ en reformas parciales, y entre 300€ y 600€ en obras completas de piso, según el estado y los metros. Esta guía responde las preguntas más frecuentes: qué incluye, cuándo contratarla, si se factura con IVA y qué esperar del resultado."
+metaDescription: "Una limpieza fin de obra cuesta entre 150€ y 250€ en reformas parciales, y entre 300€ y 600€ en obras completas de piso, según el estado y los metros."
 image: '/images/blog/limpieza-fin-de-obra-preguntas-frecuentes.webp'
 datePublished: "2026-05-20"
 dateModified: "2026-05-31"

@@ -1,6 +1,7 @@
 ---
 title: "Como limpar a cociña a fondo: o método paso a paso"
 description: "Unha cociña de tamaño medio de 10-15 m² leva entre 2 e 4 horas de limpeza a fondo cunha soa persoa, ou a metade con dúas. Esta guía detalla o método paso a paso: encimeira, forno, campá, frigorífico e armarios, con produtos ecolóxicos e a orde que usan os profesionais."
+metaDescription: "Unha cociña de tamaño medio de 10-15 m² leva entre 2 e 4 horas de limpeza a fondo cunha soa persoa, ou a metade con dúas."
 image: '/images/blog/limpiar-cocina-a-fondo.webp'
 datePublished: "2026-03-05"
 dateModified: "2026-05-31"

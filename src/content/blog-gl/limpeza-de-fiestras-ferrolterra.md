@@ -1,6 +1,7 @@
 ---
 title: "Limpeza de Fiestras en Ferrolterra: Guía e Prezos 2026"
 description: "A limpeza de fiestras comeza desde 35-40€ nun piso e desde 60-70€ nunha vivenda unifamiliar con ventás grandes, en Ferrol, Narón e toda Ferrolterra. Esta guía explica que inclúe o servizo, como limpamos en altura sen andamios e cada canto convén repetilo en zonas de costa."
+metaDescription: "A limpeza de fiestras comeza desde 35-40€ nun piso e desde 60-70€ nunha vivenda unifamiliar con ventás grandes, en Ferrol, Narón e toda Ferrolterra."
 image: '/images/blog/limpieza-de-ventanas-ferrolterra.webp'
 datePublished: "2026-08-24"
 dateModified: "2026-08-24"

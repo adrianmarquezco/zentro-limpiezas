@@ -1,6 +1,7 @@
 ---
 title: "Humedad y Moho en Casa: Cómo Eliminarlo Bien"
 description: "El clima atlántico de Ferrolterra, con lluvias frecuentes y viviendas antiguas poco ventiladas, favorece la aparición de moho sobre todo en baños, cocinas y armarios de paredes exteriores. Esta guía explica cómo eliminarlo bien, cuándo basta con limpieza a fondo y cuándo hace falta desinfección profesional."
+metaDescription: "El clima atlántico de Ferrolterra, con lluvias frecuentes y viviendas poco ventiladas, favorece la aparición de moho en baños, cocinas y armarios."
 image: '/images/blog/humedad-moho-en-casa.webp'
 datePublished: "2026-08-25"
 dateModified: "2026-08-25"

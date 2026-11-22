@@ -1,6 +1,7 @@
 ---
 title: "Como contratar un servizo de limpeza: 7 cousas que comprobar"
 description: "Se unha empresa de limpeza non pode acreditar seguro de responsabilidade civil, non é un servizo profesional de confianza. Esta guía dá as claves para elixila ben: que preguntar sobre produtos, continuidade do equipo e prazos, e que sinais de alerta indican que convén buscar outra opción."
+metaDescription: "Se unha empresa de limpeza non pode acreditar seguro de responsabilidade civil, non é un servizo profesional de confianza."
 image: '/images/blog/contratar-servicio-limpieza-consejos.webp'
 datePublished: "2026-04-10"
 dateModified: "2026-09-30"

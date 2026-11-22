@@ -1,6 +1,7 @@
-﻿---
+---
 title: "¿Cuánto cuesta una limpieza del hogar? Precios en Galicia 2026"
 description: "Desde 55€ empieza la limpieza de un piso en Galicia, aunque el precio final depende del tamaño, el estado y la frecuencia elegida. Esta guía detalla los rangos orientativos para vivienda, fin de obra y servicio periódico, y qué factores concretos hacen que el presupuesto suba o baje."
+metaDescription: "Desde 55€ empieza la limpieza de un piso en Galicia, aunque el precio final depende del tamaño, el estado y la frecuencia elegida."
 image: '/images/blog/cuanto-cuesta-limpieza-hogar.webp'
 datePublished: "2026-04-01"
 dateModified: "2026-10-07"

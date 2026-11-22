@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Limpeza de primavera: guía galega para a posta a punto"
 description: "O inverno húmido de Galicia favorece o mofo en recunchos pouco iluminados e a condensación nas fiestras, polo que a limpeza de primavera é tamén unha revisión de danos. Esta guía detalla as zonas críticas a revisar, os mellores antifúngicos ecolóxicos e canto tempo leva facela a fondo."
+metaDescription: "O inverno húmido de Galicia favorece o mofo e a condensación nas fiestras, polo que a limpeza de primavera é tamén unha revisión de danos."
 image: '/images/blog/limpieza-primavera-galicia.webp'
 datePublished: "2025-03-20"
 faqs:

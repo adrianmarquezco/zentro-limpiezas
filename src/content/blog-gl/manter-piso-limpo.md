@@ -1,6 +1,7 @@
 ---
 title: "Como manter o piso limpo entre limpezas profesionais"
 description: "Cunha rutina ben organizada, 10-15 minutos diarios abondan para evitar que o piso se deteriore entre visitas de limpeza. Esta guía dá as rutinas diaria e semanal que máis reducen o traballo acumulado, e sinala os tres puntos críticos -cociña, baño e zonas de tráfico- que se ensucian máis rápido."
+metaDescription: "Cunha rutina ben organizada, 10-15 minutos diarios abondan para evitar que o piso se deteriore entre visitas de limpeza."
 image: '/images/blog/como-mantener-piso-limpio-entre-limpiezas.webp'
 datePublished: "2025-02-18"
 dateModified: "2026-05-31"

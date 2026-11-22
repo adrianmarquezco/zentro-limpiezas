@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Produtos ecolóxicos de limpeza: guía práctica para o fogar"
 description: "Só certificacións como a Ecolabel europea, o Nordic Swan ou o Ángel Azul garanten que un produto de limpeza é realmente ecolóxico; 'natural' ou 'verde' sen selo non o garanten. Esta guía explica que funciona mellor en cada zona da casa e por que o custo por uso adoita ser similar ao convencional."
+metaDescription: "Só certificacións como a Ecolabel europea ou o Nordic Swan garanten que un produto de limpeza é realmente ecolóxico; 'natural' non o garante."
 image: '/images/blog/productos-ecologicos-limpieza-hogar.webp'
 datePublished: "2025-01-22"
 faqs:

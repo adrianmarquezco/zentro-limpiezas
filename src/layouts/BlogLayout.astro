@@ -12,6 +12,8 @@ import { BUSINESS } from '@/data/config';
 interface Props {
   title: string;
   description: string;
+  /** <=160 car. para <meta name="description">. Si falta, cae en `description` (ya debería ser corta). */
+  metaDescription?: string;
   canonical: string;
   lang?: 'es' | 'gl';
   datePublished: string;
@@ -34,11 +36,16 @@ interface Props {
 }
 
 const {
-  title, description, canonical, lang = 'es',
+  title, description, metaDescription, canonical, lang = 'es',
   datePublished, dateModified, image, readingTime, category,
   breadcrumbs, hreflangEs, hreflangGl, faqs, headings = [],
   relatedPosts = [],
 } = Astro.props;
+
+// La meta description del buscador (<=160 car., CTR) es un campo distinto del texto
+// .speakable-intro en pantalla (respuesta directa, 40-60 palabras, para AEO/voz).
+// Si un post aún no tiene metaDescription dedicada, se usa `description` como fallback.
+const seoDescription = metaDescription ?? description;
 
 const blogBasePath = lang === 'gl' ? '/gl/blog/' : '/blog/';
 
@@ -57,7 +64,7 @@ const categoryLabel = category
   : (lang === 'gl' ? 'Artigo' : 'Artículo');
 ---
 
-<BaseLayout {title} {description} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article" ogImage={image ? `https://zentrolimpiezas.es${image}` : undefined} pageType="BlogPosting">
+<BaseLayout title={title} description={seoDescription} {canonical} {lang} {hreflangEs} {hreflangGl} ogType="article" ogImage={image ? `https://zentrolimpiezas.es${image}` : undefined} pageType="BlogPosting">
   <SchemaArticle {title} {description} {datePublished} {dateModified} url={canonical} {image} {faqs} />
 
   <!-- Hero del artículo -->

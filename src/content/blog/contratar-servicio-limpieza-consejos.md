@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Cómo elegir empresa de limpieza: 10 claves para no equivocarte"
 description: "Si una empresa de limpieza no puede acreditar seguro de responsabilidad civil, no es un servicio profesional de confianza. Esta guía da las 10 claves para elegirla bien: qué preguntar sobre productos, continuidad del equipo y plazos, y qué señales de alerta indican que conviene buscar otra opción."
+metaDescription: "Si una empresa de limpieza no puede acreditar seguro de responsabilidad civil, no es un servicio profesional de confianza."
 image: '/images/blog/contratar-servicio-limpieza-consejos.webp'
 datePublished: "2026-02-10"
 dateModified: "2026-05-31"

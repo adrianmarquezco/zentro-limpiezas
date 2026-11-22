@@ -5,6 +5,9 @@ const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    // Texto largo (40-60 palabras, respuesta directa) para el bloque .speakable-intro en pantalla
+    // y el schema Speakable/Article. NO se usa como <meta name="description">: ver metaDescription.
+    metaDescription: z.string().max(160).optional(),
     datePublished: z.string(),
     dateModified: z.string().optional(),
     image: z.string().optional(),
@@ -23,6 +26,9 @@ const blogGlCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    // Texto largo (40-60 palabras, respuesta directa) para o bloque .speakable-intro en pantalla
+    // e o schema Speakable/Article. NON se usa como <meta name="description">: ver metaDescription.
+    metaDescription: z.string().max(160).optional(),
     datePublished: z.string(),
     dateModified: z.string().optional(),
     image: z.string().optional(),

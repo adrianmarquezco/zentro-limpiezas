@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Cómo limpiar el piso antes y después de una mudanza"
 description: "Una limpieza de mudanza para un piso de 70-90 m² cuesta orientativamente entre 120€ y 200€, normalmente menos que la fianza que se puede perder por un mal estado. Esta guía explica qué limpiar al dejar el piso, qué hacer al entrar en uno nuevo, y cómo organizarlo sin estrés."
+metaDescription: "Una limpieza de mudanza para un piso de 70-90 m² cuesta orientativamente entre 120€ y 200€, menos que la fianza que puedes perder por mal estado."
 image: '/images/blog/limpiar-antes-mudanza.webp'
 datePublished: "2025-03-15"
 dateModified: "2026-05-31"

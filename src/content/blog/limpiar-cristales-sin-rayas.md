@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Cómo limpiar cristales sin rayas ni marcas: técnica profesional"
 description: "Las rayas en los cristales casi nunca son culpa del producto: aparecen por un trapo abrasivo, limpiar en seco o secar con papel de cocina. Esta guía explica la técnica profesional con microfibra y escurridor de goma, y cada cuánto limpiar cristales en el interior y en la costa gallega."
+metaDescription: "Las rayas en los cristales casi nunca son culpa del producto: aparecen por un trapo abrasivo, limpiar en seco o secar con papel de cocina."
 image: '/images/blog/limpiar-cristales-sin-rayas.webp'
 datePublished: "2025-05-18"
 dateModified: "2026-05-31"

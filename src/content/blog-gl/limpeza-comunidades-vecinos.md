@@ -1,6 +1,7 @@
 ---
 title: "Limpeza de comunidades de veciños: todo o que necesitas saber"
 description: "Para un edificio de 10-20 vivendas, un servizo de limpeza semanal do portal e zonas comúns custa orientativamente entre 150€ e 300€ ao mes, repartido entre veciños. Esta guía explica que inclúe o servizo, quen decide contratalo en xunta de propietarios e con que frecuencia convén limpar cada zona."
+metaDescription: "Para un edificio de 10-20 vivendas, a limpeza semanal do portal e zonas comúns custa orientativamente entre 150€ e 300€ ao mes, entre veciños."
 image: '/images/blog/limpieza-comunidades-vecinos-guia.webp'
 datePublished: "2025-03-01"
 dateModified: "2026-05-31"
