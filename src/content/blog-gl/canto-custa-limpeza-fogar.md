@@ -1,6 +1,7 @@
 ---
 title: "Canto custa unha limpeza do fogar en Galicia? Prezos 2026"
 description: "Desde 55€ comeza a limpeza dun piso en Galicia, aínda que o prezo final depende do tamaño, o estado e a frecuencia elixida. Esta guía detalla os rangos orientativos para vivenda, fin de obra e servizo periódico, e que factores concretos fan que o orzamento suba ou baixe."
+metaDescription: "Desde 55€ comeza a limpeza dun piso en Galicia, aínda que o prezo final depende do tamaño, o estado e a frecuencia elixida."
 image: '/images/blog/cuanto-cuesta-limpieza-hogar.webp'
 datePublished: "2026-04-05"
 dateModified: "2026-05-31"

@@ -1,6 +1,7 @@
 ---
 title: "Como limpar cristais sen raias nin marcas: técnica profesional"
 description: "As raias nos cristais case nunca son culpa do produto: aparecen por un pano con fibras abrasivas, limpar en seco ou secar con papel de cociña. Esta guía explica a técnica profesional con microfibra e rasqueta de goma, e cada canto limpar cristais no interior e na costa galega."
+metaDescription: "As raias nos cristais case nunca son culpa do produto: aparecen por un pano con fibras abrasivas, limpar en seco ou secar con papel de cociña."
 image: '/images/blog/limpiar-cristales-sin-rayas.webp'
 datePublished: "2025-05-18"
 dateModified: "2026-05-31"

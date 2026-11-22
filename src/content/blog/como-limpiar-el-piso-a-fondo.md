@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Cómo limpiar el piso a fondo: guía completa paso a paso"
 description: "Un piso de 80 m² lleva entre 3 y 5 horas con dos personas limpiando a fondo, o el doble en solitario. Esta guía explica el orden correcto -de arriba abajo y de dentro afuera-, qué dejar actuar antes de frotar y qué productos ecológicos igualan el resultado de los convencionales."
+metaDescription: "Un piso de 80 m² lleva entre 3 y 5 horas con dos personas limpiando a fondo, o el doble en solitario."
 image: '/images/blog/como-limpiar-el-piso-a-fondo.webp'
 datePublished: "2025-01-15"
 dateModified: "2026-05-31"
