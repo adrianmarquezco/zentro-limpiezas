@@ -86,9 +86,12 @@ const schemaFAQ = {
   })),
 };
 
-const numericPrice = barrio.precioDesde
-  ? barrio.precioDesde.replace(/[^\d.,]/g, '').replace(',', '.')
+// minPrice debe ser de tipo Number en JSON-LD (schema.org/minPrice exige Number, no Text:
+// https://schema.org/minPrice), o Google Rich Results Test lo marca como error de validación.
+const parsedPrice = barrio.precioDesde
+  ? Number(barrio.precioDesde.replace(/[^\d.,]/g, '').replace(',', '.'))
   : undefined;
+const numericPrice = parsedPrice !== undefined && !Number.isNaN(parsedPrice) ? parsedPrice : undefined;
 
 const schemaLocal = {
   '@context': 'https://schema.org',

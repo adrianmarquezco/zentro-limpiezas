@@ -11,7 +11,11 @@ interface Props {
 }
 const { name, description, url, price, areaServed, image } = Astro.props;
 
-const numericPrice = price ? price.replace(/[^\d.,]/g, '').replace(',', '.') : undefined;
+// minPrice debe ser de tipo Number en JSON-LD (schema.org/minPrice exige Number, no Text:
+// https://schema.org/minPrice). Si se deja como string, Google Rich Results Test lo marca
+// como error de validación ("The value provided for field 'minPrice' is not of expected type").
+const parsedPrice = price ? Number(price.replace(/[^\d.,]/g, '').replace(',', '.')) : undefined;
+const numericPrice = parsedPrice !== undefined && !Number.isNaN(parsedPrice) ? parsedPrice : undefined;
 
 const defaultArea = ['Ferrol','A Coruña','Narón','Ferrolterra','Área Metropolitana de A Coruña'];
 const schema = {
