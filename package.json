@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "indexnow": "node scripts/indexnow-submit.mjs",
+    "indexnow:live": "node scripts/indexnow-submit.mjs --live"
   },
   "dependencies": {
     "@astrojs/node": "^8.3.4",
